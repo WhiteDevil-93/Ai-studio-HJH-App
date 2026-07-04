@@ -1,0 +1,2624 @@
+{
+  "1_resuscitation_fluids_and_inotropes": {
+    "shock": [
+      {
+        "item": "Fluid Bolus (Sepsis)",
+        "adult_dose": "Balanced Salt Solution (e.g., Ringer's Lactate): 500ml IV bolus",
+        "paediatric_dose": "10-20ml/kg IV bolus",
+        "notes_updates": "Balanced Salt Solutions preferred over 0.9% Saline for septic shock to prevent hyperchloraemic acidosis."
+      },
+      {
+        "item": "Fluid Bolus (Hypovolaemia)",
+        "adult_dose": "Sodium Chloride 0.9%: 500ml IV bolus",
+        "paediatric_dose": "10-20ml/kg IV bolus",
+        "notes_updates": "0.9% Saline remains primary for hypovolaemia due to blood loss/dehydration."
+      }
+    ],
+    "inotropes": [
+      {
+        "item": "Noradrenaline",
+        "adult_dose": "0.05 - 1 ug/kg/min IV",
+        "paediatric_dose": "0.05 - 1 ug/kg/min IV",
+        "notes_updates": "First-line vasopressor for septic shock. No longer restricted as 'Section 21'."
+      },
+      {
+        "item": "Adrenaline",
+        "adult_dose": "1 mg IV (Resus) every 3-5 min; 0.05-1 ug/kg/min (Infusion)",
+        "paediatric_dose": "10ug/kg IV OR 0.1ml/kg of 1:10 000",
+        "notes_updates": "Second-line for septic shock if MAP targets not met with Noradrenaline."
+      },
+      {
+        "item": "Dobutamine",
+        "adult_dose": "5 - 30 ug/kg/min IV",
+        "paediatric_dose": "5 - 30 ug/kg/min IV",
+        "notes_updates": "Indicated for septic shock with cardiac dysfunction (persistent hypoperfusion despite fluids/vasopressors)."
+      },
+      {
+        "item": "Dopamine",
+        "adult_dose": "2 - 20 ug/kg/min IV",
+        "paediatric_dose": "2 - 20 ug/kg/min IV",
+        "notes_updates": "Largely superseded by Noradrenaline for shock. Standard starting dose is 5 ug/kg/min."
+      },
+      {
+        "item": "Phenylephrine",
+        "adult_dose": "0.5-5ug/kg/min IV",
+        "paediatric_dose": "0.5-5ug/kg/min IV",
+        "notes_updates": ""
+      },
+      {
+        "item": "Milrinone",
+        "adult_dose": "Loading: 50ug/kg IV over 10min; Maintenance: 0.37-0.75ug/kg/min IV",
+        "paediatric_dose": "Loading: 50ug/kg/min IV; Maintenance: 0.25-0.75ug/kg/min IV",
+        "notes_updates": "Section 21 - requires consent"
+      }
+    ],
+    "arrhythmia": [
+      {
+        "item": "Amiodarone",
+        "adult_dose": "300mg IV bolus (unstable); 150mg IV (stable)",
+        "paediatric_dose": "5mg/kg IV bolus",
+        "notes_updates": "300mg in 5% Dextrose over 30 min (Loading)."
+      },
+      {
+        "item": "Magnesium Sulphate",
+        "adult_dose": "1 - 2 g IV over 10-20mins",
+        "paediatric_dose": "25 - 50 mg/kg IV",
+        "notes_updates": ""
+      },
+      {
+        "item": "Adenosine",
+        "adult_dose": "6 - 12 mg rapid IV push",
+        "paediatric_dose": "0.1 - 0.2 mg/kg rapid IV push",
+        "notes_updates": "Repeat 1-2 min if needed."
+      }
+    ],
+    "targets": {
+      "item": "MAP",
+      "adult_dose": "Young adult: 60-80mmHg; Older: 80mmHg",
+      "paediatric_dose": "<1yr: 50-60mmHg; >1yr: 60-80mmHg",
+      "notes_updates": "Maintain perfusion pressure."
+    },
+    "resuscitation_medication": [
+      {
+        "item": "Adrenalin (1mg/ml)",
+        "adult_dose": "1mg IV repeat every 3-5min",
+        "paediatric_dose": "10ug/kg IV OR 0.1ml/kg of 1:10 000 (1mg adrenaline/10ml normal saline)"
+      },
+      {
+        "item": "Amiodarone (loading)",
+        "adult_dose": "300mg IV bolus over 3min (unstable pt); 150mg IV bolus over 3min (stable pt)",
+        "paediatric_dose": "5mg/kg IV bolus over 3min"
+      },
+      {
+        "item": "Sodium Bicarbonate (8.5%)",
+        "adult_dose": "50mEq IV (50ml)",
+        "paediatric_dose": "1-2mEq/kg IV (dilute in sterile water)"
+      },
+      {
+        "item": "Calcium Chloride (10%)",
+        "adult_dose": "1g IV (10ml) slowly",
+        "paediatric_dose": "0.2ml/kg IV slowly (max 10ml)"
+      },
+      {
+        "item": "Dextrose (50%)",
+        "adult_dose": "50ml 50% dextrose IV/PO",
+        "paediatric_dose": "1ml/kg 50% dextrose + 1ml/kg H2O IV/PO"
+      },
+      {
+        "item": "Lignocaine (20mg/ml)",
+        "adult_dose": "1-1.5 mg/kg IV",
+        "paediatric_dose": "1 mg/kg IV"
+      }
+    ],
+    "cardioversion": [
+      {
+        "item": "Atrial arrhythmias",
+        "adult_dose": "100J: 200J: 300J: 360J synch mono",
+        "paediatric_dose": "0.5J/kg: 1J/kg: 2J/kg Synchronised"
+      },
+      {
+        "item": "Ventricular Tachycardia",
+        "adult_dose": "100J: 200J: 300J: 360J synch mono",
+        "paediatric_dose": "0.5J/kg: 1J/kg: 2J/kg Synchronised"
+      },
+      {
+        "item": "Defibrillation - VF",
+        "adult_dose": "360J defib monophasic; 120-200J defib biphasic",
+        "paediatric_dose": "4J/kg defib (mono and biphasic)"
+      }
+    ]
+  },
+  "2_airway_and_ventilation": {
+    "intubation": [
+      {
+        "item": "ETT Size",
+        "adult_settings": "Male: 7.5 - 8.5, Female: 6.5 - 7.5",
+        "paediatric_settings": ">1 year: 4 + (Age in years)/4, <1 year: 3.0 - 4.0"
+      },
+      {
+        "item": "Cricothyroidotomy",
+        "adult_settings": "12G cannula through cricothyroid membrane",
+        "paediatric_settings": "14G cannula through cricothyroid membrane"
+      }
+    ],
+    "vent_settings": [
+      {
+        "item": "FiO2",
+        "adult_settings": "Start 100%",
+        "paediatric_settings": "Start 100%"
+      },
+      {
+        "item": "PEEP",
+        "adult_settings": "10 - 12 cm H2O",
+        "paediatric_settings": "8 - 10 cm H2O"
+      },
+      {
+        "item": "RR",
+        "adult_settings": "12 - 20 breaths/min",
+        "paediatric_settings": "Age appropriate"
+      },
+      {
+        "item": "I:E Ratio",
+        "adult_settings": "1:2",
+        "paediatric_settings": "1:2"
+      }
+    ],
+    "lung_protection": [
+      {
+        "item": "Pressure Control",
+        "adult_settings": "Peak Pressure <= 30cmH2O",
+        "paediatric_settings": "Peak Pressure <= 30cmH2O"
+      },
+      {
+        "item": "Tidal Volume",
+        "adult_settings": "6 - 8ml/kg Ideal Body Weight",
+        "paediatric_settings": "6 - 8ml/kg Ideal Body Weight"
+      }
+    ],
+    "sedation": [
+      {
+        "item": "Etomidate",
+        "adult_dose": "0.3mg/kg IV (max 40mg)",
+        "paediatric_dose": "0.2-0.3mg/kg IV",
+        "notes": "Haemodynamically stable induction agent"
+      },
+      {
+        "item": "Ketamine (RSI)",
+        "adult_dose": "1-2mg/kg IV",
+        "paediatric_dose": "1-2mg/kg IV",
+        "notes": "Preferred for asthma/bronchospasm or trauma intubation"
+      },
+      {
+        "item": "Propofol",
+        "adult_dose": "1.5-2.5mg/kg IV",
+        "paediatric_dose": "1-2mg/kg IV"
+      },
+      {
+        "item": "Midazolam",
+        "adult_dose": "0.1-0.3mg/kg IV",
+        "paediatric_dose": "0.1-0.3mg/kg IV"
+      },
+      {
+        "item": "Morphine",
+        "adult_dose": "0.1-0.3mg/kg IV",
+        "paediatric_dose": "0.1-0.3mg/kg IV"
+      },
+      {
+        "item": "Fentanyl",
+        "adult_dose": "2-5ug/kg IV",
+        "paediatric_dose": "1-3ug/kg IV"
+      },
+      {
+        "item": "Suxamethonium",
+        "adult_dose": "1-1.5mg/kg IV",
+        "paediatric_dose": "1-2mg/kg IV; Infants: 2-3mg/kg IV",
+        "notes": "Contraindicated: Hyperkalaemia, pseudocholinesterase deficiency"
+      },
+      {
+        "item": "Rocuronium",
+        "adult_dose": "1-1.2mg/kg IV",
+        "paediatric_dose": "1.2mg/kg IV"
+      },
+      {
+        "item": "Atracurium",
+        "adult_dose": "0.4-0.5mg/kg IV",
+        "paediatric_dose": "0.3-0.5mg/kg IV"
+      },
+      {
+        "item": "Cisatracurium",
+        "adult_dose": "0.15-0.2mg/kg IV",
+        "paediatric_dose": "0.1-0.15mg/kg IV"
+      }
+    ],
+    "status_asthmaticus": [
+      {
+        "item": "Hydrocortisone",
+        "adult_dose": "100mg IV 6hrly",
+        "paediatric_dose": "4mg/kg IV 6hrly",
+        "notes": "Early steroids improve outcomes"
+      },
+      {
+        "item": "Salbutamol",
+        "adult_dose": "2.5-5mg nebulised (Nebulise with O2); 0.25-0.5mg IV",
+        "paediatric_dose": "2.5-5mg nebulised; 5-10ug/kg/min IV"
+      },
+      {
+        "item": "Berotec/Atrovent",
+        "adult_dose": "0.5mg/2.5mg nebulised (repeat 20min x 3)",
+        "paediatric_dose": "0.25-0.5mg/1.25-2.5mg nebulised"
+      },
+      {
+        "item": "Aminophylline",
+        "adult_dose": "5mg/kg IV over 30min",
+        "paediatric_dose": "5mg/kg IV over 30min",
+        "notes": "Check levels 12 hourly"
+      },
+      {
+        "item": "Adrenalin",
+        "adult_dose": "0.1-1ug/kg/min IV",
+        "paediatric_dose": "0.1-1ug/kg/min IV"
+      },
+      {
+        "item": "Ketamine",
+        "adult_dose": "1mg/kg IV",
+        "paediatric_dose": "1mg/kg IV",
+        "notes": "Bronchodilator properties"
+      },
+      {
+        "item": "Magnesium sulphate",
+        "adult_dose": "1-2g IV over 15-20min",
+        "paediatric_dose": "25-75mg/kg IV over 20min (max 2g)"
+      }
+    ]
+  },
+  "3_sedation_analgesia_and_neurology": {
+    "sedation": [
+      {
+        "drug": "Strategy",
+        "adult_dose": "'Analgesia First'",
+        "paediatric_dose": "N/A",
+        "notes_updates": "Avoid routine deep sedation; prioritize pain control and neuro-psychological support."
+      },
+      {
+        "drug": "Propofol",
+        "adult_dose": "25 - 50 ug/kg/min (Max 100)",
+        "paediatric_dose": "25 - 60 ug/kg/min",
+        "notes_updates": "Adjust dose in obesity. Caution: Propofol Infusion Syndrome (PRIS)."
+      },
+      {
+        "drug": "Dexmedetomidine",
+        "adult_dose": "Load: 1ug/kg (10min), Maint: 0.2-0.7 ug/kg/hr",
+        "paediatric_dose": "Same as Adult",
+        "notes_updates": ""
+      },
+      {
+        "drug": "Ketamine",
+        "adult_dose": "15 - 30 ug/kg/min IV",
+        "paediatric_dose": "5 - 40 ug/kg/min",
+        "notes_updates": "Preferred for asthma/bronchospasm or trauma intubation."
+      }
+    ],
+    "seizures": [
+      {
+        "drug": "Lorazepam",
+        "adult_dose": "4 mg IV (repeat once)",
+        "paediatric_dose": "0.05 - 0.2 mg/kg IV",
+        "notes_updates": "First-line for Status Epilepticus."
+      },
+      {
+        "drug": "Midazolam",
+        "adult_dose": "10mg IM or buccal (if no IV access)",
+        "paediatric_dose": "0.2 - 0.5 mg/kg buccal",
+        "notes_updates": "Alternative if Lorazepam unavailable."
+      },
+      {
+        "drug": "Haloperidol",
+        "adult_dose": "2.5-10mg IM",
+        "paediatric_dose": "0.15mg/kg",
+        "notes_updates": "Antipsychotic for severe agitation or delirium"
+      },
+      {
+        "drug": "Valproic Acid",
+        "adult_dose": "15-45mg/kg IV load then 1-3mg/kg/hr",
+        "paediatric_dose": "15-45mg/kg IV load",
+        "notes_updates": "Avoid in hepatic failure"
+      }
+    ],
+    "analgesia": [
+      {
+        "drug": "Morphine",
+        "adult_dose": "0.1mg/kg IV; 0.1-0.4mg/kg/hr",
+        "paediatric_dose": "0.1mg/kg IV; 0.01-0.05mg/kg/hr",
+        "notes_updates": "First-line opioid for severe pain"
+      },
+      {
+        "drug": "Fentanyl",
+        "adult_dose": "1-2ug/kg IV; 1-2ug/kg/hr",
+        "paediatric_dose": "1-2ug/kg IV; 0.5-2ug/kg/hr",
+        "notes_updates": "Good for renal failure or unstable BP"
+      },
+      {
+        "drug": "Paracetamol",
+        "adult_dose": "1g IV 6-hourly",
+        "paediatric_dose": "15mg/kg IV 6-hourly",
+        "notes_updates": "Multimodal analgesia component"
+      }
+    ],
+    "neuroprotective": [
+      {
+        "drug": "Mannitol",
+        "adult_dose": "0.25-1g/kg IV bolus",
+        "paediatric_dose": "0.25-1g/kg IV bolus",
+        "notes_updates": "Monitor osmolar gap; avoid if hypotensive"
+      },
+      {
+        "drug": "Hypertonic Saline (3%)",
+        "adult_dose": "250ml IV over 30min",
+        "paediatric_dose": "3-5ml/kg IV over 30min",
+        "notes_updates": "Alternative to mannitol for raised ICP"
+      }
+    ]
+  },
+  "4_antimicrobials_and_infectious_diseases": {
+    "broad_spectrum_antibiotics": [
+      {
+        "condition_or_drug": "Meropenem",
+        "adult_dose": "1-2g IV 8hrly",
+        "paediatric_dose": "20-40mg/kg IV 8hrly",
+        "notes_updates": "Extended infusion: 3-4hr. High dose for meningitis"
+      },
+      {
+        "condition_or_drug": "Piperacillin/Tazobactam",
+        "adult_dose": "4.5g IV 6-8hrly",
+        "paediatric_dose": "80-100mg/kg IV 6-8hrly"
+      },
+      {
+        "condition_or_drug": "Ceftriaxone",
+        "adult_dose": "1-2g IV 12-24hrly",
+        "paediatric_dose": "50-100mg/kg IV 12-24hrly (max 4g/day)"
+      }
+    ],
+    "gram_positive": [
+      {
+        "condition_or_drug": "Vancomycin",
+        "adult_dose": "Loading: 25mg/kg; Maint: 15-20mg/kg IV 8-12hrly",
+        "paediatric_dose": "15mg/kg IV 6hrly",
+        "notes_updates": "Trough: 15-20mg/L (severe infections)"
+      },
+      {
+        "condition_or_drug": "Linezolid",
+        "adult_dose": "600mg IV/PO 12hrly",
+        "paediatric_dose": "10mg/kg IV/PO 8hrly (<12yr)",
+        "notes_updates": "Monitor FBC (myelosuppression)"
+      }
+    ],
+    "aminoglycosides": [
+      {
+        "condition_or_drug": "Gentamicin",
+        "adult_dose": "3-5mg/kg IV daily",
+        "paediatric_dose": "2.5mg/kg IV 8hrly",
+        "notes_updates": "Check levels. Extended interval preferred"
+      }
+    ],
+    "antifungals": [
+      {
+        "condition_or_drug": "Fluconazole",
+        "adult_dose": "Loading: 800mg IV/PO; Maint: 400mg IV/PO daily",
+        "paediatric_dose": "Loading: 12mg/kg; Maint: 6-12mg/kg daily",
+        "notes_updates": "Not for Aspergillus"
+      }
+    ],
+    "antivirals": [
+      {
+        "condition_or_drug": "Acyclovir",
+        "adult_dose": "10mg/kg IV 8hrly (HSV); 10-15mg/kg IV 8hrly (VZV)",
+        "paediatric_dose": "10-20mg/kg IV 8hrly",
+        "notes_updates": "Adequate hydration mandatory"
+      }
+    ],
+    "antiparasitic": [
+      {
+        "condition_or_drug": "Artesunate (severe malaria)",
+        "adult_dose": "2.4mg/kg IV at 0, 12, 24h, then daily",
+        "paediatric_dose": "2.4mg/kg IV at 0, 12, 24h, then daily",
+        "notes_updates": "Superior to Quinine. Min 3 doses."
+      }
+    ],
+    "hiv_protocols": [
+      {
+        "condition_or_drug": "TLD (TDF+3TC+DTG)",
+        "adult_dose": "1 tablet PO daily",
+        "paediatric_dose": "Weight-band dosing",
+        "notes_updates": "First-line adult ART"
+      }
+    ],
+    "surgical_prophylaxis": [
+      {
+        "condition_or_drug": "Cefazolin",
+        "adult_dose": "2g IV within 60min of skin incision",
+        "paediatric_dose": "50mg/kg IV",
+        "notes_updates": "Dose increased from 1g to 2g (2024 update)"
+      }
+    ]
+  },
+  "5_metabolic_electrolytes_and_nutrition": {
+    "hyperkalaemia_management": [
+      {
+        "item": "Calcium Chloride 10%",
+        "adult_dose": "1g IV (10ml) slowly over 5-10min",
+        "paediatric_dose": "0.2ml/kg IV slowly (max 10ml)",
+        "notes": "Cardiac membrane stabilisation. Onset: 1-3min"
+      },
+      {
+        "item": "Insulin/Dextrose",
+        "adult_dose": "10 units insulin + 50ml 50% dextrose IV over 15min",
+        "paediatric_dose": "0.1 units/kg + 2ml/kg 25% dextrose IV",
+        "notes": "Drives K+ into cells. Monitor glucose q15min"
+      }
+    ],
+    "diuretics": [
+      {
+        "item": "Furosemide",
+        "adult_dose": "Bolus: 20-40mg IV; Infusion: 5-40mg/hr",
+        "paediatric_dose": "0.5-1mg/kg IV 8-12hrly",
+        "notes": "Monitor electrolytes. Ototoxicity at high doses"
+      }
+    ],
+    "vitamins": [
+      {
+        "item": "Vitamin B1 (Thiamine)",
+        "adult_dose": "100mg IV/IM daily",
+        "paediatric_dose": "10-25mg IV/IM daily",
+        "notes": "Give BEFORE glucose in malnourished/alcoholic patients"
+      }
+    ],
+    "gi_nutrition": [
+      {
+        "item": "Omeprazole",
+        "adult_dose": "40mg IV/PO daily",
+        "paediatric_dose": "0.6-1mg/kg IV/PO daily",
+        "notes": "Stress ulcer prophylaxis"
+      }
+    ]
+  },
+  "6_poisoning_and_toxicology": {
+    "protocols": [
+      {
+        "item": "Paracetamol",
+        "adult_dose": "NAC Old Regimen: 150mg/kg in 200ml 5% Dextrose IV over 1hr, then 50mg/kg in 500ml 5% Dextrose IV over 4hrs, then 100mg/kg in 1L 5% Dextrose IV over 16hrs | NAC SNAP Protocol: 100mg/kg in 200ml 5% Dextrose IV over 2hrs, then 200mg/kg in 1L 5% Dextrose IV over 10hrs",
+        "paediatric_dose": "Same weight-based dosing as adults",
+        "route": "IV infusion",
+        "notes": "Toxic dose: 150mg/kg or >10g in adults. Use nomogram to establish need for antidote. Start <8hrs if possible. If in doubt, give NAC."
+      },
+      {
+        "item": "Opioids",
+        "adult_dose": "Naloxone 0.4-4mg IV q2-3min up to 10mg total | Infusion: 0.04-0.16mg/kg/hr IV",
+        "paediatric_dose": "Weight-based naloxone dosing",
+        "route": "IV/IM/Intranasal",
+        "notes": "Reversal agent has shorter half-life than most opioids (~1 hour). Monitor for recurrent sedation."
+      },
+      {
+        "item": "Benzodiazepines",
+        "adult_dose": "Flumazenil: 0.2mg IV over 15sec, then 0.1mg every 60sec (max 1mg) | Caution: Generally AVOID Flumazenil",
+        "paediatric_dose": "Not routinely recommended",
+        "route": "IV",
+        "notes": "AVOID Flumazenil - can precipitate withdrawal/seizures in chronic users or co-ingestions. Supportive care is primary."
+      },
+      {
+        "item": "Organophosphates",
+        "adult_dose": "Atropine: 0.04-0.05mg/kg IV (3-5mg adult), double every 5min until atropinised | Infusion: 200mg Atropine in 200ml 0.9% NaCl (1mg/ml), 10-20% of total dose/hr",
+        "paediatric_dose": "Atropine: 0.04-0.05mg/kg IV",
+        "route": "IV",
+        "notes": "Decontamination is key. Endpoint is clearing of pulmonary secretions, NOT tachycardia or pupil size."
+      }
+    ],
+    "reversal_agents": [
+      {
+        "item": "Warfarin Reversal",
+        "adult_dose": "4-Factor PCC: 25-50 IU/kg IV; Vitamin K: 5-10mg IV slowly (life-threatening bleed)",
+        "paediatric_dose": "PCC: 25-50 IU/kg; FFP: 10-15ml/kg",
+        "notes_updates": "Do NOT wait for INR result in catastrophic bleeding. PCC (Haemosolvex) is 4-factor."
+      }
+    ]
+  },
+  "7_useful_formulae": {
+    "formulae": [
+      {
+        "category": "Inotopes",
+        "item": "Adrenaline",
+        "formula": "ml/hr = (ug/kg/min x kg x 60) / 60",
+        "standard_dilutions": "Standard: 12 mg (12 amps) in 200 mL N/S (60 mcg/mL)"
+      },
+      {
+        "category": "Inotopes",
+        "item": "Noradrenaline",
+        "formula": "ml/hr = (ug/kg/min x kg x 60) / 50",
+        "standard_dilutions": "Double Strength: 10mg in 200ml N/S"
+      },
+      {
+        "category": "Inotopes",
+        "item": "Dobutamine",
+        "formula": "ml/hr = (ug/kg/min x kg x 60) / 1250",
+        "standard_dilutions": "250mg in 200ml N/S"
+      },
+      {
+        "category": "Electrolytes",
+        "item": "Sodium Deficit",
+        "formula": "Na deficit = 0.6 x Wt(kg) x (Desired Na - Actual Na)",
+        "standard_dilutions": "Correct max 8-10mmol/L per day"
+      },
+      {
+        "category": "Electrolytes",
+        "item": "Free Water Deficit",
+        "formula": "Deficit = 0.6 x Wt(kg) x ([Na]/140 - 1)",
+        "standard_dilutions": "Replace slowly over 48-72hrs"
+      },
+      {
+        "category": "Metabolic",
+        "item": "Anion Gap",
+        "formula": "Na - (Cl + HCO3)",
+        "standard_dilutions": "Normal approx 12 mEq/L"
+      },
+      {
+        "category": "Metabolic",
+        "item": "Corrected Na",
+        "formula": "Measured Na + [1.6 x (Glucose - 5.5) / 5.5]",
+        "standard_dilutions": "Used in hyperglycaemia"
+      },
+      {
+        "category": "Respiratory",
+        "item": "P/F Ratio",
+        "formula": "PaO2 / FiO2",
+        "standard_dilutions": "Normal > 400"
+      }
+    ]
+  },
+  "8_cardiovascular": {
+    "antihypertensives": [
+      {
+        "drug": "Labetalol",
+        "adult_dose": "10-20mg IV over 2min (may double every 10min)",
+        "paediatric_dose": "0.2-1mg/kg IV",
+        "notes_updates": "Mixed alpha/beta blocker. Good for hypertensive emergencies"
+      },
+      {
+        "drug": "Hydralazine",
+        "adult_dose": "5-20mg IV 4-6hrly",
+        "paediatric_dose": "0.1-0.2mg/kg IV 4-6hrly",
+        "notes_updates": "Avoid in aortic dissection"
+      }
+    ],
+    "heart_failure": [
+      {
+        "drug": "Digoxin",
+        "adult_dose": "Loading: 0.5-1mg IV/PO; Maint: 125-250mcg daily",
+        "paediatric_dose": "10-15mcg/kg IV/PO",
+        "notes_updates": "Check levels. Toxicity: nausea, visual changes, arrhythmias"
+      }
+    ],
+    "thrombolytics": [
+      {
+        "drug": "Alteplase (tPA)",
+        "adult_dose": "PE: 100mg IV over 2hrs. STEMI: 15mg bolus, 50mg/30min, 35mg/60min",
+        "paediatric_dose": "0.1-0.5mg/kg/hr IV",
+        "notes_updates": "Monitor for bleeding"
+      }
+    ],
+    "anticoagulation": [
+      {
+        "drug": "Heparin (UFH)",
+        "adult_dose": "Loading: 80units/kg IV; Maint: 18units/kg/hr",
+        "paediatric_dose": "Loading: 75units/kg IV; Maint: 20-28units/kg/hr",
+        "notes_updates": "Target aPTT: 50-70sec. Protamine 1mg per 100units heparin"
+      },
+      {
+        "drug": "Enoxaparin (Clexane)",
+        "adult_dose": "1mg/kg SC 12hrly",
+        "paediatric_dose": "1mg/kg SC 12hrly",
+        "notes_updates": "Anti-Xa monitoring in renal impairment, pregnancy"
+      }
+    ]
+  },
+  "9_blood_products": {
+    "products": [
+      {
+        "item": "Packed Red Cells",
+        "adult_dose": "1 unit raises Hb by ~1g/dL",
+        "paediatric_dose": "10-15ml/kg (raises Hb by ~2g/dL)",
+        "notes": "Transfuse over 2-4hrs"
+      },
+      {
+        "item": "Fresh Frozen Plasma (FFP)",
+        "adult_dose": "15-20ml/kg IV",
+        "paediatric_dose": "15-20ml/kg IV",
+        "notes": "For coagulopathy with active bleeding"
+      },
+      {
+        "item": "Platelets",
+        "adult_dose": "1 pool raises count by 20-40x10^9/L",
+        "paediatric_dose": "10-15ml/kg IV",
+        "notes": "Indicated: count <10 or <50 with bleeding/procedure"
+      }
+    ]
+  },
+  "10_endocrine_and_other": {
+    "steroids": [
+      {
+        "drug": "Hydrocortisone",
+        "adult_dose": "Stress: 50-100mg IV 6-8hrly; Physiological: 20mg AM + 10mg PM",
+        "paediatric_dose": "Stress: 1-2mg/kg IV 6hrly",
+        "notes_updates": "Stress dose for adrenal insufficiency, septic shock"
+      },
+      {
+        "drug": "Dexamethasone",
+        "adult_dose": "4-8mg IV/PO 6hrly",
+        "paediatric_dose": "0.15-0.3mg/kg IV/PO 6hrly",
+        "notes_updates": "Raised ICP, airway oedema, croup"
+      }
+    ],
+    "endocrine": [
+      {
+        "drug": "Insulin (Regular)",
+        "adult_dose": "0.1units/kg/hr IV infusion",
+        "paediatric_dose": "0.05-0.1units/kg/hr IV",
+        "notes_updates": "Check glucose hourly. Hold if K+ <3.3"
+      }
+    ],
+    "other": [
+      {
+        "drug": "Tranexamic Acid",
+        "adult_dose": "1g IV over 10min (repeat 8hrly); Trauma: 1g/10min then 1g/8hrs",
+        "paediatric_dose": "15mg/kg IV 8hrly",
+        "notes_updates": "Contraindicated: significant haematuria, DIC"
+      }
+    ]
+  },
+  "11_ed_medical_emergencies": {
+    "protocols": [
+      {
+        "item": "Acute Coronary Syndrome (ACS) Algorithm",
+        "protocol_type": "ed_protocol",
+        "clinical_features": {
+          "symptoms": [
+            "Chest pain, pressure, tightness, or squeezing (may radiate to neck, jaw, back, or left arm)",
+            "Atypical symptoms: dyspnoea, epigastric pain, unexplained fatigue, or syncope (common in elderly, females, diabetics)",
+            "Anginal equivalent: acute shortness of breath without clear cause"
+          ],
+          "signs": [
+            "Hypotension SBP < 90mmHg (cardiogenic shock / inferior MI)",
+            "Tachycardia > 100 bpm or bradycardia < 50 bpm",
+            "New mitral regurgitation murmur (papillary muscle dysfunction/rupture)",
+            "Bilateral lung crackles (acute heart failure/pulmonary edema)"
+          ]
+        },
+        "management_steps": [
+          {
+            "step_number": "1",
+            "action": "Immediate Triage & ECG",
+            "details": "Triage as ORANGE. Perform 12-lead & 15-lead ECG (including V4R for RV infarct, and V7-9 for true posterior MI) within 10 minutes."
+          },
+          {
+            "step_number": "2",
+            "action": "Chew Aspirin Stat",
+            "details": "Give Aspirin 300 mg chewed stat, unless known hypersensitivity (if allergic, give Clopidogrel 300 mg PO stat)."
+          },
+          {
+            "step_number": "3",
+            "action": "Vasodilator & Analgesia",
+            "details": "If SBP >= 90 and HR 50-100: Nitroglycerin SL spray (1 spray q5min, max 3) or sublingual tablets. If pain is unrelieved by nitrates: Fentanyl 50 mcg IV aliquots."
+          },
+          {
+            "step_number": "4",
+            "action": "Adjunctive Treatments & Reperfusion",
+            "details": "STEMI/OMI door-to-needle time is 30 mins! LMWH (Clexane) 30mg IV stat then 1mg/kg SC (or UFH 60 IU/kg IV), Clopidogrel 300mg PO, Simvastatin 40mg PO, and Atenolol 50mg PO (if no bradycardia, HF, or asthma)."
+          }
+        ],
+        "warnings": [
+          "RV Infarction (V4R STE): Avoid Nitroglycerin and Beta-blockers. Treat hypotension with IV fluid boluses (20ml/kg) to maintain preload.",
+          "Nitroglycerin Contraindications: SBP < 90, HR < 50 or > 100, RV infarction, or PDE5 inhibitor use within 24-48h."
+        ]
+      },
+      {
+        "item": "STEMI Equivalents & Sgarbossa Criteria",
+        "protocol_type": "ed_protocol",
+        "management_steps": [
+          {
+            "step_number": "1",
+            "action": "Identify STEMI Equivalents",
+            "details": "These indicate critical coronary occlusion without classic STE: (1) De Winter syndrome (V1-6 J-point depression with tall symmetric T waves), (2) Posterior STEMI (horizontal STD in V1-3, tall R in V1-2), (3) Wellens Sign A (biphasic T waves in V2-3) or Sign B (deeply inverted anterior T waves), (4) Shark fin pattern, (5) Hyperacute T waves."
+          },
+          {
+            "step_number": "2",
+            "action": "Evaluate Sgarbossa Criteria (LBBB or Paced)",
+            "details": "Score >= 3 has 90% specificity for MI: (1) Criteria A (5 pts): concordant STE >= 1mm in any lead, (2) Criteria B (3 pts): concordant STD >= 1mm in V1, V2, or V3, (3) Criteria C (2 pts): discordant STE >= 5mm in any lead (Modified: STE >= 25% of preceding S-wave)."
+          }
+        ],
+        "warnings": [
+          "Failure to recognize STEMI equivalents leads to catastrophic treatment delays. Actively look for them in chest pain patients with normal or non-diagnostic ECGs."
+        ]
+      },
+      {
+        "item": "Acute Ischaemic Stroke",
+        "protocol_type": "ed_protocol",
+        "management_steps": [
+          {
+            "step_number": "1",
+            "action": "Exclude Mimics & Assess NIHSS",
+            "details": "Check glucose immediately (rule out hypoglycaemia). Assess GCS and clinical onset time. Exclude other mimics: Todd's paresis, migraine, tumour, encephalitis."
+          },
+          {
+            "step_number": "2",
+            "action": "Urgent Non-Contrast CT Brain",
+            "details": "Verify absence of intracranial hemorrhage. Consult neurology/stroke team immediately."
+          },
+          {
+            "step_number": "3",
+            "action": "Alteplase Thrombolysis (<3 to 4.5 hours)",
+            "details": "If within 3-4.5h and no contraindications: Alteplase 0.9 mg/kg IV (10% bolus over 1 min, remainder over 60 mins). Max dose 90mg. Keep SBP < 185 and DBP < 110."
+          },
+          {
+            "step_number": "4",
+            "action": "Management of Post-Thrombolysis Bleeding",
+            "details": "If bleeding is suspected: stop Alteplase, order urgent CT brain, send clotting studies, transfuse Cryoprecipitate 10 U/kg IV over 10-30 min, and give Tranexamic Acid 1g IV."
+          }
+        ],
+        "warnings": [
+          "Absolute Contraindications: Prior ICH, known vascular lesion (AVM), malignant neoplasm, active bleeding, stroke/trauma within 3 months, SBP > 185 / DBP > 110 despite treatment, INR > 1.7."
+        ]
+      },
+      {
+        "item": "Acute Heart Failure (AHF)",
+        "protocol_type": "ed_protocol",
+        "clinical_features": {
+          "symptoms": [
+            "Severe dyspnoea, orthopnoea, paroxysmal nocturnal dyspnoea (PND), effort intolerance."
+          ],
+          "signs": [
+            "Tachycardia, tachypnoea, elevated JVP, bilateral lung crackles, third heart sound (gallop rhythm), hepatomegaly, peripheral pitting edema."
+          ]
+        },
+        "management_steps": [
+          {
+            "step_number": "1",
+            "action": "Resuscitation & Airway",
+            "details": "Sit patient upright (>45 degrees). Apply high-flow oxygen. Triage to RESUS if in acute distress."
+          },
+          {
+            "step_number": "2",
+            "action": "Non-Invasive Ventilation (NIV)",
+            "details": "Initiate CPAP or BiPAP early (PEEP of 4-10 cmH2O) to decrease work of breathing and improve preload/afterload."
+          },
+          {
+            "step_number": "3",
+            "action": "Vasodilator & Diuretics",
+            "details": "If SBP > 90: Nitrocine (vasodilator) 1-2 mg IV bolus or infusion 30 ug/min (titrate up to 150-200 ug/min). Furosemide (Lasix) 20-40 mg IV (or patient's daily PO dose as IV bolus)."
+          },
+          {
+            "step_number": "4",
+            "action": "Inotropic Support (if cardiogenic shock)",
+            "details": "If SBP < 90 with signs of hypoperfusion: start Dobutamine infusion 2.5-10 ug/kg/min (avoid in pure diastolic dysfunction or severe aortic stenosis)."
+          }
+        ]
+      },
+      {
+        "item": "Atrial Fibrillation (AF)",
+        "protocol_type": "ed_protocol",
+        "management_steps": [
+          {
+            "step_number": "1",
+            "action": "Assess Haemodynamic Stability",
+            "details": "Unstable AF (causing chest pain, hypotension, acute heart failure, dyspnoea, or altered GCS): Perform urgent synchronized cardioversion (150-200 J) under sedation. Give Clexane 1 mg/kg SC stat unless contraindicated."
+          },
+          {
+            "step_number": "2",
+            "action": "Stable AF - Determine Duration",
+            "details": "If < 48 hours and no structural heart disease: consider rhythm control (electrical or chemical with Amiodarone 150mg over 30 mins). If > 48 hours: prioritize rate control (goal < 110 bpm)."
+          },
+          {
+            "step_number": "3",
+            "action": "Implement Rate Control",
+            "details": "Beta-blocker (Atenolol 50mg PO or Carvedilol 3.125mg PO) OR Calcium Channel Blocker (Diltiazem/Verapamil) OR Digoxin (if heart failure present). Alternatively, Amiodarone infusion."
+          },
+          {
+            "step_number": "4",
+            "action": "Assess Thromboembolic Risk",
+            "details": "Calculate CHA2DS2-VASc and HAS-BLED scores to guide long-term anticoagulation. Start SC Clexane 1mg/kg 12h if thromboembolism risk is high."
+          }
+        ],
+        "warnings": [
+          "WPW + Atrial Fibrillation (Wide QRS, rate > 200, irregular): DO NOT give nodal blocking agents (Beta-blockers, CCBs, Digoxin, Amiodarone) as it will precipitate VF! Perform immediate synchronized electrical cardioversion."
+        ]
+      },
+      {
+        "item": "Asthma Exacerbation",
+        "protocol_type": "ed_protocol",
+        "management_steps": [
+          {
+            "step_number": "1",
+            "action": "Classify Severity",
+            "details": "Mild: Pulse < 100, Sats > 95, PEFR > 75%. Moderate: Pulse 100-120, Sats 90-95, PEFR 50-70%. Severe: Pulse > 120, Sats < 90, PEFR < 50%, or silent chest."
+          },
+          {
+            "step_number": "2",
+            "action": "Continuous Nebulisation",
+            "details": "All patients: Salbutamol/Fenoterol + Ipratropium Bromide (Atrovent) nebulisations continuously or every 20 minutes."
+          },
+          {
+            "step_number": "3",
+            "action": "Steroids & Adjunctive IV Therapy",
+            "details": "Give Hydrocortisone 200mg IV stat (or oral Prednisone 0.5mg/kg). If severe/refractory: give Magnesium Sulphate 2g (25-50mg/kg in children) IV over 20 minutes."
+          },
+          {
+            "step_number": "4",
+            "action": "Intubation & Ventilation",
+            "details": "Avoid intubation if possible! If required, perform RSI with Ketamine 1mg/kg. Set ventilator to Volume Assist Control, TV 6ml/kg, RR 10-12, I:E ratio 1:3 to 1:5 to allow long expiration. Pre-load with fluids."
+          }
+        ]
+      },
+      {
+        "item": "COPD Exacerbation",
+        "protocol_type": "ed_protocol",
+        "management_steps": [
+          {
+            "step_number": "1",
+            "action": "Oxygen Therapy & Nebulisation",
+            "details": "Titrate oxygen carefully to target Sats 88-92% (prevent hypercapnic respiratory drive failure). Deliver Salbutamol + Ipratropium Bromide nebs."
+          },
+          {
+            "step_number": "2",
+            "action": "Steroids & Antibiotics",
+            "details": "Give Hydrocortisone 200mg IV stat (or Prednisone 0.5mg/kg PO). If infection is suspected (increased sputum volume/purulence/fever): Augmentin 1g BD PO (or 1.2g IV) + Azithromycin 500mg PO daily."
+          },
+          {
+            "step_number": "3",
+            "action": "Non-Invasive Ventilation (NIV)",
+            "details": "NIV (BiPAP) is highly effective for COPD respiratory acidosis (pH < 7.35, PaCO2 > 45mmHg). Reduces intubation rates dramatically."
+          }
+        ]
+      },
+      {
+        "item": "Sepsis & Septic Shock",
+        "protocol_type": "ed_protocol",
+        "management_steps": [
+          {
+            "step_number": "1",
+            "action": "Resuscitation & Fluids",
+            "details": "ABCD survey. Establish large-bore IVs. Administer 30ml/kg balanced crystalloid bolus (Ringer's Lactate/Balsol) for hypotension or Lactate > 4."
+          },
+          {
+            "step_number": "2",
+            "action": "Surviving Sepsis 3-Hour Bundle",
+            "details": "Measure Lactate. Obtain blood cultures PRIOR to antibiotics (aerobic bottle ONLY, minimum 10ml, preferably 20ml). Administer broad-spectrum antibiotics within 1 hour."
+          },
+          {
+            "step_number": "3",
+            "action": "Surviving Sepsis 6-Hour Bundle",
+            "details": "If persistent hypotension despite fluids: start Adrenaline/Noradrenaline infusion to maintain MAP >= 65 mmHg. Re-measure lactate if initial lactate was high."
+          }
+        ],
+        "warnings": [
+          "Blood cultures must always be taken BEFORE the first dose of antibiotics.",
+          "Be extremely cautious with aggressive fluids in patients with cardiac dysfunction or elderly (risk of acute pulmonary edema)."
+        ]
+      },
+      {
+        "item": "Upper Gastrointestinal Bleed (UGIB)",
+        "protocol_type": "ed_protocol",
+        "management_steps": [
+          {
+            "step_number": "1",
+            "action": "Resuscitation & Access",
+            "details": "ABCD. Keep NPO. Insert 2x large-bore IVs. Administer warm Balsol/Ringer's Lactate (10ml/kg)."
+          },
+          {
+            "step_number": "2",
+            "action": "Transfusion Triggers",
+            "details": "Transfuse PRCs if haemodynamically unstable despite crystalloid bolus, Hb < 7 in low-risk, or Hb < 9 in high-risk/elderly/coronary disease. If coagulopathic (INR > 1.5) or on Warfarin: give FFP 10-20ml/kg or PCC."
+          },
+          {
+            "step_number": "3",
+            "action": "Acid Suppression & Variceal therapy",
+            "details": "Give Pantoprazole (Pantoloc) 80mg IV loading dose, then start infusion (200mg in 200ml N/S at 8 ml/hr). If variceal/cirrhosis: give Ceftriaxone 1g IV + Octreotide 50mcg bolus followed by 50mcg/hr infusion."
+          },
+          {
+            "step_number": "4",
+            "action": "Surgical/Endoscopy consult",
+            "details": "Notify surgical/gastroenterology registrar on call urgently. Consider Sengstaken-Blakemore tube if catastrophic variceal bleeding."
+          }
+        ],
+        "warnings": [
+          "Avoid over-transfusion in suspected variceal bleeds (increases portal pressure and worsens haemorrhage).",
+          "There is NO role for Tranexamic Acid (TXA) in upper GI bleeding."
+        ]
+      },
+      {
+        "item": "Vaginal Bleeding (ED Management)",
+        "protocol_type": "ed_protocol",
+        "management_steps": [
+          {
+            "step_number": "1",
+            "action": "Triage & Stabilisation",
+            "details": "If unstable/shocked: Triage to RESUS. Insert 2x large-bore IVs. Send bloods for FBC, U&E, Crossmatch, and VBG. Transfuse emergency group O negative blood."
+          },
+          {
+            "step_number": "2",
+            "action": "Immediate Investigations",
+            "details": "Check urine pregnancy test and perform bedside ultrasound: look for viable IUP, non-viable/incomplete products, empty uterus with free fluid (ruptured ectopic)."
+          },
+          {
+            "step_number": "3",
+            "action": "Specific Management - Ectopic & Miscarriage",
+            "details": "Ectopic: Urgent gynae consult, prepare for surgery. Incomplete Miscarriage: Rub up uterus, expel products, start Oxytocin infusion (20 units in 1L fluid at 125ml/hr). Septic Miscarriage: Augmentin 30mg/kg IV."
+          },
+          {
+            "step_number": "4",
+            "action": "Postpartum Haemorrhage (PPH)",
+            "details": "Rub up uterus, expel products, start Oxytocin infusion, give Tranexamic Acid 1g IV over 10 min, insert Foley catheter to empty bladder, and consider balloon tamponade."
+          }
+        ],
+        "warnings": [
+          "Do NOT perform digital PV examination in antepartum haemorrhage (>24 weeks) if placenta praevia is suspected \u2014 confirm on ultrasound first.",
+          "Rh-negative mothers with vaginal bleeding require anti-D immunoglobulin (within 72 hours)."
+        ]
+      },
+      {
+        "item": "Vascular Emergencies (AAA, Dissection, Limb Ischaemia)",
+        "protocol_type": "ed_protocol",
+        "management_steps": [
+          {
+            "step_number": "1",
+            "action": "Ruptured Abdominal Aortic Aneurysm (AAA)",
+            "details": "Sudden onset severe back/flank/abdominal pain with syncope/shock. On palpation: pulsatile mass. On POCUS: aorta > 3cm (aneurysmal), > 6cm (high risk rupture). Unstable patients need immediate THEATRE, NOT CT! Aim for permissive hypotension (SBP 80-90 mmHg), give TXA 1g IV, and notify vascular surgery."
+          },
+          {
+            "step_number": "2",
+            "action": "Thoracic Aortic Dissection",
+            "details": "Sudden tearing central chest pain radiating to back. Signs: BP/pulse discrepancy in arms, new aortic regurgitation murmur. Urgent CTA. Control BP & HR: start Labetalol infusion (target pulse < 60, SBP < 110). If BP still high, add Nitroglycerin infusion."
+          },
+          {
+            "step_number": "3",
+            "action": "Critical/Acute Limb Ischaemia",
+            "details": "The 6 P's: Pain, Pallor, Pulselessness, Paresthesia, Paralysis, Poikilothermia (cold limb). Embolus vs Thrombosis. Perform handheld Doppler, check ABI (< 0.5 is severe). Give IV Heparin bolus (80 U/kg) and refer to vascular surgery urgently."
+          }
+        ]
+      },
+      {
+        "item": "Malaria (Uncomplicated & Complicated)",
+        "protocol_type": "ed_protocol",
+        "management_steps": [
+          {
+            "step_number": "1",
+            "action": "Assess & Triage",
+            "details": "Triage as ORANGE. Check FBC, malaria smear & antigen. Look for high-risk criteria: children, pregnant, elderly, splenectomy."
+          },
+          {
+            "step_number": "2",
+            "action": "Uncomplicated Malaria Treatment",
+            "details": "If smear/antigen positive with < 5% parasitaemia and no organ dysfunction: give Co-artem 4 tablets PO stat, 4 after 8 hours, then BD for 2 days. If unavailable: Quinine + Doxycycline (or Quinine + Clindamycin in pregnancy/children)."
+          },
+          {
+            "step_number": "3",
+            "action": "Complicated / Severe Malaria Treatment",
+            "details": "Smear > 5%, or any organ dysfunction (coma, convulsions, pulmonary edema, shock, jaundice, severe anaemia Hb < 5, hypoglycemia < 2.2, lactate > 5): Give Artesunate 2.4 mg/kg IV stat at 0, 12, 24 hours. (Alternative: Quinine infusion)."
+          }
+        ],
+        "warnings": [
+          "Observe for vomiting for 1 hour in the ED after oral antimalarial. If vomiting occurs within 1 hour, re-administer the dose. If vomiting persists, refer to Internal Medicine."
+        ]
+      },
+      {
+        "item": "Headache (Red Flags & Primary Syndromes)",
+        "protocol_type": "ed_protocol",
+        "management_steps": [
+          {
+            "step_number": "1",
+            "action": "Screen for Red Flags (Secondary Causes)",
+            "details": "Onset: sudden/thunderclap (SAH), post-traumatic. Symptoms: altered GCS, seizure, focal neurology, meningism (meningitis), fever. Comorbidities: malignancy, pregnancy (pre-eclampsia), HIV. Medications: anticoagulants."
+          },
+          {
+            "step_number": "2",
+            "action": "Differentiate Primary Syndromes",
+            "details": "Tension: bilateral pressure/tightness, mild-mod. Migraine: gradual unilateral pulsating, photophobia, visual auras, mod-severe. Cluster: rapid peri-orbital excruciating, ipsilateral eye redness/lacrimation, rhinorrhoea, Horner's syndrome, severe."
+          },
+          {
+            "step_number": "3",
+            "action": "Manage Analgesia",
+            "details": "Tension: NSAIDs, Paracetamol. Migraine: Metoclopramide, triptans, NSAIDs, consider steroids. AVOID OPIOIDS! Cluster: 100% Oxygen high flow, paracetamol, triptans, steroids, ketamine if refractory."
+          }
+        ]
+      },
+      {
+        "item": "Dizziness & Vertigo (HINTS Exam)",
+        "protocol_type": "ed_protocol",
+        "management_steps": [
+          {
+            "step_number": "1",
+            "action": "Classify: Peripheral vs Central",
+            "details": "Peripheral (vestibular neuritis, labyrinthitis, BPPV): Sudden onset, severe, intermittent, horizontal unilateral nystagmus. Central (posterior stroke, cerebellar hemorrhage, tumor): Gradual/sudden, mild, continuous, purely vertical or direction-changing nystagmus, neurological deficits present."
+          },
+          {
+            "step_number": "2",
+            "action": "Apply HINTS bedside exam (for Acute Vestibular Syndrome)",
+            "details": "Rule out central cause: (1) Head Impulse Test (peripheral = catchup saccade, central = no saccade/normal - worrying!), (2) Nystagmus (peripheral = unilateral horizontal, central = direction-changing or vertical), (3) Test of Skew (central = refixation present after uncover, peripheral = no refixation)."
+          },
+          {
+            "step_number": "3",
+            "action": "Specific Maneuvers",
+            "details": "BPPV: Dix-Hallpike maneuver to elicit nystagmus and confirm affected canal. Epley maneuver to reposition canaliths and resolve symptoms."
+          }
+        ]
+      }
+    ],
+    "12_ed_toxicology": {
+      "protocols": [
+        {
+          "item": "Anaphylaxis",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Stop suspected allergen & Position Patient",
+              "details": "Place supine, elevate legs. Stop trigger."
+            },
+            {
+              "step_number": "2",
+              "action": "Adrenaline IM STAT",
+              "details": "0.5ml neat 1:1000 IM in anterolateral thigh. Repeat q3-5min if required."
+            },
+            {
+              "step_number": "3",
+              "action": "High-Flow Oxygen & Aggressive Fluids",
+              "details": "20ml/kg Crystalloid bolus (Ringer's Lactate/Balsol). Airway management ready."
+            },
+            {
+              "step_number": "4",
+              "action": "Adjunctive Steroids/Antihistamines",
+              "details": "Hydrocortisone 200mg IV stat + Promethazine 12.5mg slow IV."
+            }
+          ],
+          "drugs": [
+            {
+              "item": "Adrenaline (IM)",
+              "adult_dose": "0.5ml 1:1000 IM STAT",
+              "notes": "Cornerstone. Do not wait."
+            }
+          ],
+          "warnings": [
+            "Biphasic reaction occurs in 5-20% of cases \u2014 monitor for 4-8 hours minimum",
+            "Avoid beta-blockers as they cause unopposed alpha-agonism during treatment"
+          ]
+        },
+        {
+          "item": "Angioedema",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Assess Airway & Prepare for difficult airway",
+              "details": "Stridor, drooling, dyspnoea are red flags. Double surgical setup ready."
+            },
+            {
+              "step_number": "2",
+              "action": "Identify Type: Histaminergic vs Bradykinin-mediated",
+              "details": "If ACE-I induced (Bradykinin-mediated): Adrenaline, steroids, antihistamines are ineffective. Give Tranexamic Acid 1g IV over 10 min + FFP 2 units."
+            }
+          ]
+        },
+        {
+          "item": "Organophosphate / Carbamate Overdose",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Identify Symptoms & Signs",
+              "details": "Muscarinic (DUMBELS): Diaphoresis, Urination, Miosis, Bradycardia/bronchorrhoea, Emesis, Lacrimation, Salivation. Nicotinic: Fasciculations, weakness, HT, tachycardia, mydriasis. CNS: seizures, coma."
+            },
+            {
+              "step_number": "2",
+              "action": "Decontamination & Airway",
+              "details": "Universal precautions. Remove clothing, wash skin with soap and water. If intubation required, avoid succinylcholine (causes prolonged paralysis)."
+            },
+            {
+              "step_number": "3",
+              "action": "Atropine Dosing (Stat & Infusion)",
+              "details": "Atropine 0.04-0.05 mg/kg IV stat (3-5mg adult). Double every 5 mins until atropinised. Infusion: 200mg Atropine in 200ml saline (1mg/ml), run at 10-20% of total dose already given/hr."
+            },
+            {
+              "step_number": "4",
+              "action": "Manage Seizures & Weakness",
+              "details": "Benzodiazepines only for seizures (No phenytoin). Monitor and correct electrolytes. Weakness (nicotinic symptom) may require prolonged intubation."
+            }
+          ],
+          "warnings": [
+            "Thrombolytic / Antidote Endpoint: CLEARING OF RESPIRATORY SECRETIONS (Atropinisation), NOT tachycardia or pupil size."
+          ]
+        },
+        {
+          "item": "Calcium Channel & Beta-Blocker Overdose",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Recognize Toxicity & Access",
+              "details": "Symptoms: hypotension, bradycardia, CCB (hyperglycaemia), BB (hypoglycaemia), acidosis, GCS depression. Insert 2x large-bore IVs."
+            },
+            {
+              "step_number": "2",
+              "action": "Myocardial Stabilisation & Elimination",
+              "details": "Give Calcium Chloride 10ml 10% over 10 min (target Ca 2 mmol). Consider activated charcoal 50g via NGT if within 1 hour."
+            },
+            {
+              "step_number": "3",
+              "action": "HIET (High Dose Insulin Euglycaemic Therapy)",
+              "details": "Start with 50ml 50% dextrose bolus. Actrapid 1 IU/kg IV stat. Then Actrapid infusion of 0.5 IU/kg/hr, titrate every 30 mins to max 10 IU/kg/hr. Dextrose infusion 25g/hr to maintain euglycemia."
+            },
+            {
+              "step_number": "4",
+              "action": "Monitoring",
+              "details": "Monitor HGT every 20 mins for 1st hour, then hourly. Monitor and replace Potassium if < 2.5."
+            }
+          ]
+        },
+        {
+          "item": "General Toxicology & Antidotes",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Resuscitation - Resus-RSI-DEAD",
+              "details": "Airway, breathing, circulation. Seizure control (benzodiazepines). Correct hypoglycaemia and hyperthermia. Resuscitation antidotes."
+            },
+            {
+              "step_number": "2",
+              "action": "Risk Assessment & Decontamination",
+              "details": "Inquire: Agent, dose, time of ingestion, co-ingestants. Give activated charcoal 1g/kg if within 1 hour."
+            },
+            {
+              "step_number": "3",
+              "action": "Review Antidotes Table",
+              "details": "Atropine (organophosphates), Calcium/HIET (CCB/BB), Desferrioxamine (Iron), Ethanol (Methanol), N-acetylcysteine (Paracetamol), Pyridoxine (Isoniazid), Sodium Bicarbonate (TCA/salicylates), Vitamin K/FFP (Warfarin)."
+            }
+          ]
+        },
+        {
+          "item": "Paracetamol Overdose (SNAP Protocol)",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Initial Assessment",
+              "details": "Toxic dose: 150mg/kg or > 10g in adults. Measure paracetamol level at >= 4 hours post ingestion. Check blood gas, U&E, salicylate level."
+            },
+            {
+              "step_number": "2",
+              "action": "SNAP Protocol (Preferred Regimen)",
+              "details": "(1) 100mg/kg in 200ml 5% Dextrose IV over 2 hours, then (2) 200mg/kg in 1L 5% Dextrose IV over 10 hours."
+            },
+            {
+              "step_number": "3",
+              "action": "Old Regimen Alternative",
+              "details": "(1) 150mg/kg in 200ml 5% D-5-W over 1 hour, (2) 50mg/kg in 500ml over 4 hours, (3) 100mg/kg in 1L over 16 hours."
+            }
+          ]
+        },
+        {
+          "item": "Isoniazid (INH) Overdose",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Identify Symptoms",
+              "details": "INH depletes Vit B6 -> decreased GABA -> seizures and severe high anion gap metabolic acidosis (HAGMA) with lactic acidosis."
+            },
+            {
+              "step_number": "2",
+              "action": "Pyridoxine Antidote Therapy",
+              "details": "If known amount ingested: 1g Pyridoxine for each gram of INH, max 5g. If unknown: give 5g total (200 tablets of 25mg, crush and give via NGT once airway secured) or IV if available. Repeat in 10-20 min if seizures continue."
+            }
+          ]
+        },
+        {
+          "item": "Warfarin Toxicity",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Uncontrolled/Life-Threatening Bleed",
+              "details": "Triage to RESUS. Send INR. Administer 4-Factor PCC (Haemosolvex) 25-50 IU/kg IV. If PCC unavailable, FFP 10-15 ml/kg IV. Give Vitamin K 5-10mg IV slow infusion. Recheck INR in 30 mins."
+            },
+            {
+              "step_number": "2",
+              "action": "High INR without Bleeding",
+              "details": "INR 3-4.5: omit/lower next dose. INR 4.5-10: stop, give oral Vit K 1-2.5mg if high bleeding risk. INR > 10: stop, give oral Vit K 2.5-5mg. Resume at lower dose once therapeutic."
+            }
+          ]
+        },
+        {
+          "item": "Scorpion Envenomation Guideline",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Identify Species & Severity",
+              "details": "Thick tail & slender pincers = highly venomous (Parabuthus granulatus / transvaalicus). Symptoms of severe envenomation: severe local pain, generalised paresthesia, tremors, muscle cramps, agitation, drooling, cardiac arrhythmias."
+            },
+            {
+              "step_number": "2",
+              "action": "Administer Antivenom",
+              "details": "Standard dose is 5-10 ml IV diluted in small volume saline given over 15 minutes. May take 2-6 hours to reach effect. Re-administer 5ml after 6 hours if inadequate response."
+            },
+            {
+              "step_number": "3",
+              "action": "Pain & Muscle Cramp Management",
+              "details": "Infiltrate sting site with local anaesthetic. AVOID OPIOIDS (increases respiratory depression). For muscle cramps: Calcium Gluconate 10% IV (Adults 10ml, children 0.5ml/kg)."
+            }
+          ]
+        },
+        {
+          "item": "Snakebite Pathway (EMCT)",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Identify Venom Type",
+              "details": "Neurotoxic (Cape Cobra, Black Mamba): weakness, ptosis, paralysis, respiratory failure. Cytotoxic (Puff Adder, Mozambique Spitting Cobra): severe pain, swelling, bruising. Haemotoxic (Boomslang): bleeding, renal failure."
+            },
+            {
+              "step_number": "2",
+              "action": "Stabilisation & ABC",
+              "details": "Immobilise body part. Do NOT apply tourniquet, do NOT cut/incision, do NOT suction. Administer analgesia (Morphine)."
+            },
+            {
+              "step_number": "3",
+              "action": "Antivenom Therapy",
+              "details": "Neuro/Cytotoxic: Polyvalent Antiserum (4-8 vials / 40-80ml) slow IV infusion. Haemotoxic: Monovalent Antivenom (4 vials / 40ml) slow IV."
+            }
+          ],
+          "warnings": [
+            "Antivenom carries high risk of ANAPHYLAXIS. Always prepare resuscitation equipment, Adrenaline, and antihistamines beforehand."
+          ]
+        }
+      ]
+    },
+    "13_ed_trauma_surgical": {
+      "protocols": [
+        {
+          "item": "Head Injury & Radiography Guidelines",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Screen for Head CT Indications (Adults)",
+              "details": "CT brain indicated if: GCS < 13 on initial, GCS < 15 at 2 hours, suspected skull fracture (raccoon eyes, Battle's sign, CSF leak, haemotympanum), post-traumatic seizure, >1 episode of vomiting, focal neuro deficit, or on anticoagulants."
+            },
+            {
+              "step_number": "2",
+              "action": "Apply PECARN rules (Paediatric < 16 yrs)",
+              "details": "Under 2 years: CT if GCS < 15, altered mental status, or palpable skull fracture. Observe vs CT if LOC > 5s, severe mechanism, or non-frontal hematoma. Over 2 years: CT if GCS < 15, altered mental status, or signs of basilar fracture."
+            },
+            {
+              "step_number": "3",
+              "action": "Implement Neuroprotective Measures",
+              "details": "Elevate head 30-45 degrees. Maintain MAP > 90 (unless ICH: MAP > 75-80). Keep normocarbia (PaCO2 35-40), normothermia (< 37.5), and euglycemia (5-10 mmol/L). If traumatic ICH: load with Phenytoin 20mg/kg IV (max rate 50mg/min) for seizure prophylaxis."
+            }
+          ],
+          "warnings": [
+            "There is NO role for corticosteroids/steroids in traumatic head injury (increases mortality)."
+          ]
+        },
+        {
+          "item": "Burns (Brooke Formula & Escharotomy)",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Wound Cleaning & Resuscitation",
+              "details": "Cool running water over burn for 20 mins if < 3 hours old. Clean wound, remove all blisters and debris. Estimate TBSA% using Lund and Browder chart."
+            },
+            {
+              "step_number": "2",
+              "action": "Calculate Fluids: Modified Brooke Formula",
+              "details": "Resuscitate with Ringers Lactate/Balsol if TBSA > 20% (adult) or > 15% (paeds): 2ml x TBSA% x Weight (kg). Infuse half in the first 8 hours, and the remainder over the next 16 hours. Target urine output: Adults 0.5-1 ml/kg/hr, Paeds 1-2 ml/kg/hr."
+            },
+            {
+              "step_number": "3",
+              "action": "Perform Escharotomy",
+              "details": "Indications: circumferential burns with vascular compromise (loss of distal pulse, severe pain, cyanosis). Incise deep along axial lines into subcutaneous tissue to breach constricting fascia."
+            }
+          ]
+        },
+        {
+          "item": "Acute Appendicitis (Alvarado & PAS)",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Calculate Diagnostic Scores",
+              "details": "Adult: Alvarado Score (RIF migratory pain [1], anorexia [1], nausea [1], RIF tenderness [2], rebound [1], fever [1], leukocytosis [2], left shift [1]). Paediatric (3-18 yrs): PAS score (cough/hopping tenderness [2], RLQ tenderness [2], anorexia [1], fever [1], nausea [1], WBC > 10 [1], neutrophilia [1], migratory pain [1])."
+            },
+            {
+              "step_number": "2",
+              "action": "Specific ED Management",
+              "details": "ABCD. Bolus fluids 20 ml/kg if hypovolaemic. If septic shock present: give Augmentin 30mg/kg IV, and arrange urgent surgical consult. Give Morphine 0.1mg/kg IV for pain."
+            }
+          ]
+        },
+        {
+          "item": "Acute Cholecystitis",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Check Clinical Features",
+              "details": "RUQ / epigastric pain, nausea, vomiting, low-grade fever. Guarding, positive Murphy's sign (inspiratory pause on RUQ palpation)."
+            },
+            {
+              "step_number": "2",
+              "action": " Bedside POCUS",
+              "details": "Aesthetic criteria: gallstones/sludge AND 1+ of: GB wall thickening > 4mm, GB distension (diameter > 4cm, length > 10cm), pericholecystic fluid, ultrasonographic Murphy sign."
+            },
+            {
+              "step_number": "3",
+              "action": "Specific ED Treatment",
+              "details": "Augmentin 1.2g IV stat, antiemetics, and appropriate analgesia. Refer urgently to surgery."
+            }
+          ]
+        },
+        {
+          "item": "Non-Traumatic Back Pain & Red Flags",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Screen for Red Flags",
+              "details": "Extremes of age (<20 or >50), malignancy history, constant non-mechanical pain (worse lying down/at night), any motor/sensory neuro deficit, bilateral symptoms, immunosuppression, IVDU, bowel/bladder dysfunction, fever."
+            },
+            {
+              "step_number": "2",
+              "action": "Specific Management of Serious Causes",
+              "details": "Epidural Abscess: start broad antibiotics (Ceftriaxone, Cefazolin, or Vancomycin) and get urgent MRI. Suspected Spinal Metastases: give Dexamethasone 10mg IV stat and get urgent MRI."
+            }
+          ]
+        },
+        {
+          "item": "Compartment Syndrome",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Identify Clinical Features",
+              "details": "Pain out of proportion to injury, pain on passive stretch, tense swollen compartment, decreased cap refill. Pulses are usually PRESENT (absent pulse is a late, catastrophic sign)."
+            },
+            {
+              "step_number": "2",
+              "action": "Measure Compartment Pressures",
+              "details": "Normal: < 10 mmHg. Perform emergent Fasciotomy if: absolute compartment pressure > 30 mmHg OR perfusion pressure < 30 mmHg (DBP - compartment pressure)."
+            },
+            {
+              "step_number": "3",
+              "action": "Immediate Actions",
+              "details": "Urgently consult ortho/general surgery. Remove all constrictive dressings/casts. Place limb AT THE LEVEL OF THE HEART (do not elevate). Avoid nerve blocks."
+            }
+          ]
+        },
+        {
+          "item": "Crush Injury & Syndrome (Rhabdomyolysis)",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Differentiate Definitions",
+              "details": "Crush Injury: physical injury from prolonged compression. Crush Syndrome: systemic manifestation of rhabdomyolysis leading to acute kidney injury (AKI) and hyperkalaemia."
+            },
+            {
+              "step_number": "2",
+              "action": "Aggressive Fluid Therapy",
+              "details": "Give isotonic crystalloids (Ringer's/Balsol) at 15-30 ml/kg/hr. Aim for high urine output of 200-300 ml/hr. If potassium is raised, avoid potassium-containing fluids."
+            },
+            {
+              "step_number": "3",
+              "action": "Correct Acidosis & Electrolytes",
+              "details": "Under expert consultation: give NaHCO3 8.5% (1ml/kg IV) to treat severe metabolic acidosis and correct hyperkalaemia. Consider Mannitol if urine output > 20ml/hr (contraindicated in anuria)."
+            }
+          ],
+          "warnings": [
+            "AVOID loop diuretics, synthetic colloids (Voluven/Gelofusin), and nephrotoxic drugs.",
+            "Indications for Dialysis: refractory acidosis, refractory hyperkalaemia, volume overload, or severe uraemia."
+          ]
+        },
+        {
+          "item": "Renal Colic / Kidney Stones",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Assess Clinical Presentation",
+              "details": "Sudden onset severe, sharp, unilateral 'loin to groin' pain. Nausea/vomiting, haematuria, or LUTS. Ipsilateral renal angle tenderness."
+            },
+            {
+              "step_number": "2",
+              "action": "Diagnostic Investigations",
+              "details": "Urine dipstix (haematuria), U&E, bedside ultrasound (check for hydronephrosis/hydroureter), or non-contrast CT KUB (gold standard)."
+            },
+            {
+              "step_number": "3",
+              "action": "ED Pain Management",
+              "details": "First line: NSAIDs (Diclofenac 75mg IM or IV infusion over 30 mins) if no renal impairment. Opioids: Fentanyl 1 ug/kg IV or Morphine 0.1mg/kg. Antiemetic: Metoclopramide 10mg IV."
+            }
+          ],
+          "warnings": [
+            "Urgent Urology Referral Indications: signs of infection/urosepsis, acute kidney injury (AKI), bilateral obstruction, obstruction in pregnancy, anuria, or obstruction of a solitary/transplant kidney."
+          ]
+        },
+        {
+          "item": "Tetanus",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Identify Clinical Features",
+              "details": "Clostridium tetani infection. Triad: rigidity (trismus/lockjaw, dysphagia), severe painful muscle spasms (laryngospasm, risus sardonicus, opisthotonos), and autonomic dysfunction (alternating tachycardia/bradycardia, hypertension/hypotension)."
+            },
+            {
+              "step_number": "2",
+              "action": "Resuscitation & Specific Therapy",
+              "details": "A (Intubate early to control airway spasm). B (Frequent suctioning for bronchial secretions). C (Autonomic stability: Magnesium Sulphate bolus and infusion). D (Benzodiazepines in large doses: up to 100mg/hr Diazepam)."
+            },
+            {
+              "step_number": "3",
+              "action": "Antidote & Source Control",
+              "details": "Metronidazole IV (1st choice antibiotic). Anti-tetanus immunoglobulin (HTIG) 100-300 IU/kg IM. Clean and debride wounds thoroughly. Immunize (q10 yearly)."
+            }
+          ]
+        }
+      ]
+    },
+    "14_ed_metabolic": {
+      "protocols": [
+        {
+          "item": "Diabetic Ketoacidosis (DKA) & HHS",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Diagnose & Differentiate",
+              "details": "DKA: HGT > 11 (or known DM), younger, ketones positive, blood gas metabolic acidosis, anion gap > 16. HHS: HGT > 30, elderly, ketones absent/weak, minimal acidosis, serum osmolarity > 350, altered mental status."
+            },
+            {
+              "step_number": "2",
+              "action": "Resuscitation & Dehydration",
+              "details": "ABCD. Large bore IV. Fluid resuscitation with Ringer's/Balsol: DKA (150-200ml/hr for 1st 4 hours), HHS (cautious, slower rate 100-200ml/hr). If shocked, give 20ml/kg bolus. When HGT < 15: change fluid to 5% Dextrose in Ringer's/Balsol."
+            },
+            {
+              "step_number": "3",
+              "action": "Electrolyte Correction",
+              "details": "Delay insulin if Potassium < 3.5! Add 20-40 mmol/L KCl to IV fluids to maintain K of 4-5. Add MgSO4 2g to maintenance fluids if low."
+            },
+            {
+              "step_number": "4",
+              "action": "Insulin Administration",
+              "details": "Give Actrapid 0.1 u/kg IV stat (max 10 u) followed by Actrapid infusion at 0.1 u/kg/hr. Perform hourly HGT monitoring."
+            }
+          ]
+        },
+        {
+          "item": "Hypoglycaemia",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Immediate Recognition",
+              "details": "Life-threatening emergency. Correct any HGT < 4 mmol/L immediately. If HGT unavailable, treat empirically."
+            },
+            {
+              "step_number": "2",
+              "action": "Dextrose Administration",
+              "details": "If awake & swallows: give oral glucose/sugar. If unable: give 1-2 ml/kg of 50% Dextrose IV/IO. In children: dilute to max 25% dextrose (2-4 ml/kg of 25% dextrose). Start 5-10% dextrose maintenance fluid."
+            },
+            {
+              "step_number": "3",
+              "action": "Treat Refractory cases",
+              "details": "Add IV Hydrocortisone (steroids) if refractory. If sulfonylurea overdose: give Octreotide. Ensure early NGT feeds in intubated patients."
+            }
+          ]
+        },
+        {
+          "item": "Hypernatraemia & Hyponatraemia",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Hypernatraemia (Na > 145)",
+              "details": "Correction needed if > 150. Estimate free water deficit: 0.6 * weight * ((Na/140) - 1). Infuse 5% Dextrose water or half-normal saline over 48 hours. Aim to correct Na by max 10-12 mmol/L in 24h (max 0.5 mmol/L/hr). Avoid correcting too fast (risk of cerebral edema). If central DI: DDAVP 1-2 ug IM/SC."
+            },
+            {
+              "step_number": "2",
+              "action": "Hyponatraemia (Na < 135)",
+              "details": "Severe CNS symptoms (seizures/coma, usually Na < 110): give 3% hypertonic saline 2ml/kg over 60 min to raise Na to 120. Once stable, limit increase to max 0.5 mmol/L/hr (max 12 mmol/L in 24h) to avoid pontine myelinolysis. Dehydrated: replace fluids (saline/Ringers). Oedematous: fluid restrict + Furosemide."
+            }
+          ],
+          "warnings": [
+            "Hyponatraemia Warning: DO NOT correct chronic hyponatraemia too fast. Rapid correction carries high risk of irreversible osmotic demyelination syndrome / central pontine myelinolysis."
+          ]
+        },
+        {
+          "item": "Thyroid Emergencies (Thyroid Storm & Myxoedema)",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Thyroid Storm (Severe Thyrotoxicosis)",
+              "details": "Hyperthermia, tachycardia, altered mental GCS, heart failure. Diagnosis is CLINICAL (Burch-Wartofsky score >=45), do not wait for TSH! Give Propranolol 60-80mg PO q4h. Give PTU 600-1000mg PO loading dose, then 300mg q6h. Give Hydrocortisone 100mg IV q8h. Give Lugol's iodine 4-8 drops PO q6h (start 60 mins AFTER anti-thyroid drug to prevent thyroid hormone release)."
+            },
+            {
+              "step_number": "2",
+              "action": "Myxoedema Coma (Severe Hypothyroidism)",
+              "details": "Bradycardia, hypothermia, GCS stupor, hypotension, hyponatraemia, sepsis trigger. Urgent treatment: give Levothyroxine (Eltroxin) 300-500 mcg IV loading dose, then 50 mcg daily. Give Hydrocortisone 100mg IV q8h (covers concomitant adrenal insufficiency). Perform gentle active rewarming."
+            }
+          ]
+        }
+      ]
+    },
+    "15_ed_procedures": {
+      "protocols": [
+        {
+          "item": "Airway Management Checklist & EDICT",
+          "protocol_type": "ed_protocol",
+          "equipment": [
+            "Yankauer Suction",
+            "ET tubes (various sizes with cuff verified)",
+            "Oxygen (100% source, nasal cannula, FMO2, BVM)",
+            "Bougie",
+            "Video laryngoscope / Glidescope",
+            "LMA (Rescue airway)",
+            "Surgical airway kit (scalpel, size 6.0 ETT, permanent marker)"
+          ],
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Check Equipment & Assess Patient",
+              "details": "Confirm all bedside equipment functions. Assess patient airway using LEMON criteria (Look externally, Evaluate 3-3-2, Mallampati, Obstruction, Neck mobility)."
+            },
+            {
+              "step_number": "2",
+              "action": "Pre-oxygenate & Pre-load",
+              "details": "Pre-oxygenate with 100% O2 for 3-5 mins (nasal cannula + FMO2/BVM/NIV). Pre-load with 10-20ml/kg Balsol/Ringer's Lactate to prevent post-intubation hypotension."
+            },
+            {
+              "step_number": "3",
+              "action": "Induction & Paralysis",
+              "details": "Administer induction agent (Etomidate 0.3mg/kg or Ketamine 1-2mg/kg IV) followed by paralytic agent (Suxamethonium 1.5-2mg/kg or Rocuronium 1mg/kg IV)."
+            },
+            {
+              "step_number": "4",
+              "action": "Confirm & Secure ETT",
+              "details": "Auscultate stomach (first) then bilateral chest. Confirm placement with end-tidal CO2 (ETCO2 waveform). Secure ETT at teeth (approx 21cm female, 23cm male)."
+            },
+            {
+              "step_number": "5",
+              "action": "Post-Intubation Management",
+              "details": "Perform chest X-ray and ABG (after 30 mins). Start sedation/infusion (Morphine + Midazolam or Propofol). Connect to ventilator using Lung Protective settings."
+            }
+          ]
+        },
+        {
+          "item": "Difficult Airway Approach",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Predict Difficulty (LEMON)",
+              "details": "L: Look externally (facial trauma, beard). E: Evaluate 3-3-2 rule. M: Mallampati. O: Obesity/Obstruction. N: Neck mobility."
+            },
+            {
+              "step_number": "2",
+              "action": "Double Setup",
+              "details": "Prepare for difficult intubation: 1 staff member assigned to intubate, 1 staff member scrubbed and ready at neck for surgical airway."
+            },
+            {
+              "step_number": "3",
+              "action": "Apply Surgical Airway (Cricothyrotomy) Technique",
+              "details": "Use SCISSOR TECHNIQUE: (1) Identify cricothyroid membrane via 'laryngeal handshake'. (2) 4cm vertical midline skin incision. (3) Palpate membrane and make horizontal stab incision. (4) Turn scalpel 90 degrees or pass finger. (5) Insert bougie alongside. (6) Railroad size 6.0 ETT. (7) Confirm ETCO2."
+            }
+          ]
+        },
+        {
+          "item": "Non-Invasive Ventilation (NIV)",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Check Indications & Contraindications",
+              "details": "Indications: cardiogenic pulmonary edema, acute COPD exacerbation, pre-oxygenation for RSI. Contraindications: cardiac/respiratory arrest, GCS depression, uncooperative, high aspiration risk, facial trauma."
+            },
+            {
+              "step_number": "2",
+              "action": "Perform NIV Setup",
+              "details": "Sit patient upright (>45 degrees). Select appropriate mask size. Strap firmly with complete seal. Start CPAP/NIV mode. Set PEEP of 4 cmH2O (increase in increments of 2 cmH2O). Set PSV initially on 0. Start with FiO2 1.0, titrate down rapidly."
+            }
+          ]
+        },
+        {
+          "item": "Ultrasound Guided Femoral Nerve Block",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Identify Indications",
+              "details": "Perfect for: neck of femur fractures, femoral shaft fractures, knee or patellar injuries, or anterior thigh lacerations."
+            },
+            {
+              "step_number": "2",
+              "action": "How to Perform",
+              "details": "Place patient supine. Clean and drape groin. Place linear transducer in inguinal crease to locate femoral nerve (lateral to pulsatile common femoral artery). Insert needle just below inguinal ligament, lateral to artery. Aspirate to avoid vessel. Infiltrate 20ml Marcaine (2-3mg/kg). Confirm local anaesthetic surrounds nerve."
+            }
+          ],
+          "warnings": [
+            "Anaesthetises: anterior thigh, most of the femur, knee, and skin on the medial aspect of the lower leg."
+          ]
+        },
+        {
+          "item": "Ventilator Guidelines (Savina 300 & Hamilton)",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Savina 300 Ventilator Setup",
+              "details": "Plug into power (3 green LEDs). Plug O2 hose. Attach HME filter. Attach test lung to circuit. Switch ON (button on back-left). Machine defaults to VC-SIMV. Connect limbs to patient. Settings: FiO2 100% (titrate down), VT 6-8 ml/kg IBW, Ti 1.2-1.8s, RR 10-15, PEEP 6 mbar, dPSUPP 8-18 mbar. Swap expiratory valve after use."
+            },
+            {
+              "step_number": "2",
+              "action": "Hamilton T1 & C3 Setup",
+              "details": "Plug into power (lightning bolt charging icon). Connect O2. Attach specific circuit with flow sensor. Attach HME. Switch ON. Set patient sex and height to calculate IBW. Machine defaults to ASV mode. Set to 100% MinVol. Press START. Settings: O2 100%, MinVol 100%, flow trigger 4-5 L/min, P limit 30-35, PEEP 6."
+            }
+          ]
+        },
+        {
+          "item": "Ultrasound Views: RUSH Protocol Scan Locations",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "RUSH Protocol (Rapid Ultrasound in Shock)",
+              "details": "Evaluate 'the pump, the tank, and the pipes' in undifferentiated shock. Scan locations: (1) Heart: PSLA/PSSA, Apical 4-chamber. (2) IVC: subcostal. (3) Morison's: RUQ, LUQ, suprapubic (FAST exam). (4) Aorta: abdominal slide view. (5) Pulmonary: Right/Left anterior chest (check lung sliding)."
+            },
+            {
+              "step_number": "2",
+              "action": "Interpret Shock Findings",
+              "details": "Cardiogenic: poor contractility, plethoric IVC. Obstructive (Tamponade/PE): pericardial effusion with RA/RV collapse, dilated RV, plethoric IVC. Hypovolaemic: collapsing IVC, hyperdynamic heart, free fluid in Morison's pouch (ruptured ectopic/haemorrhage)."
+            }
+          ]
+        },
+        {
+          "item": "EZ-IO Intraosseous Drill Use",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Adult Landmarking",
+              "details": "(1) Proximal Humerus: anterior shoulder, aim 45-degree angle toward opposite hip. (2) Proximal Tibia: 2cm medial or mid-point between medial/lateral along flat aspect of anterior tibia, 3cm below tibial tuberosity, aim 90 degrees. (3) Distal Tibia: 3cm proximal to medial malleolus, aim 90 degrees."
+            },
+            {
+              "step_number": "2",
+              "action": "Neonate/Young Child Landmarking",
+              "details": "(1) Distal Femur: 1-2cm proximal to superior border of patella, 1cm medial to midline, aim 90 degrees. (2) Proximal Tibia: 1-2cm below patella, 1cm medial, aim 90 degrees. (3) Distal Tibia: 1-2cm proximal to medial malleolus, aim 90 degrees."
+            },
+            {
+              "step_number": "3",
+              "action": "Insertion Technique",
+              "details": "Clean site. Prepare driver and extension set. Push needle through skin until tip rests against bone (black line must be visible). Squeeze trigger with steady gentle pressure. Release trigger immediately upon feel of sudden 'give' or loss of resistance. Stabilize hub, remove stylet. Confirm placement (flush with saline)."
+            }
+          ]
+        },
+        {
+          "item": "ECG Analysis in Toxicology",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Analyse Rate & Rhythm",
+              "details": "Bradycardia: indicates CCB, BB, Digoxin, Clonidine, or lithium. Tachycardia: indicates anticholinergics, antihistamines, sympathomimetics (cocaine, amphetamines). AF: alcohol binge (holiday heart) or withdrawal. Ventricular Fibrillation: verapamil in AF+WPW."
+            },
+            {
+              "step_number": "2",
+              "action": "Analyse Intervals & Waves",
+              "details": "PR Prolongation (>200ms): BB, CCB, Digoxin, TCA. QRS Prolongation (>100ms): Sodium channel blockade (TCA, carbamazepine, local anaesthetics, cocaine). QTc Prolongation: Potassium channel blockade (TCA, sotalol, antihistamines). J Wave: hypothermia. Scooped ST segment (Salvador Dali moustache): Digoxin."
+            },
+            {
+              "step_number": "3",
+              "action": "Identify Axis Shifts",
+              "details": "Right Axis Deviation (terminal R wave > 3mm in aVR, or R/S ratio > 0.7 in aVR) indicates fast sodium channel blockade (highly predictive of TCA seizures/arrhythmias)."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "12_ed_toxicology": {
+    "protocols": [
+      {
+        "item": "Anaphylaxis",
+        "protocol_type": "ed_protocol",
+        "management_steps": [
+          {
+            "step_number": "1",
+            "action": "Stop suspected allergen & Position Patient",
+            "details": "Place supine, elevate legs. Stop trigger."
+          },
+          {
+            "step_number": "2",
+            "action": "Adrenaline IM STAT",
+            "details": "0.5ml neat 1:1000 IM in anterolateral thigh. Repeat q3-5min if required."
+          },
+          {
+            "step_number": "3",
+            "action": "High-Flow Oxygen & Aggressive Fluids",
+            "details": "20ml/kg Crystalloid bolus (Ringer's Lactate/Balsol). Airway management ready."
+          },
+          {
+            "step_number": "4",
+            "action": "Adjunctive Steroids/Antihistamines",
+            "details": "Hydrocortisone 200mg IV stat + Promethazine 12.5mg slow IV."
+          }
+        ],
+        "drugs": [
+          {
+            "item": "Adrenaline (IM)",
+            "adult_dose": "0.5ml 1:1000 IM STAT",
+            "notes": "Cornerstone. Do not wait."
+          }
+        ],
+        "warnings": [
+          "Biphasic reaction occurs in 5-20% of cases \u2014 monitor for 4-8 hours minimum",
+          "Avoid beta-blockers as they cause unopposed alpha-agonism during treatment"
+        ]
+      },
+      {
+        "item": "Angioedema",
+        "protocol_type": "ed_protocol",
+        "management_steps": [
+          {
+            "step_number": "1",
+            "action": "Assess Airway & Prepare for difficult airway",
+            "details": "Stridor, drooling, dyspnoea are red flags. Double surgical setup ready."
+          },
+          {
+            "step_number": "2",
+            "action": "Identify Type: Histaminergic vs Bradykinin-mediated",
+            "details": "If ACE-I induced (Bradykinin-mediated): Adrenaline, steroids, antihistamines are ineffective. Give Tranexamic Acid 1g IV over 10 min + FFP 2 units."
+          }
+        ]
+      }
+    ]
+  },
+  "13_ed_trauma_surgical": {
+    "protocols": [
+      {
+        "item": "Head Injury",
+        "protocol_type": "ed_protocol",
+        "management_steps": [
+          {
+            "step_number": "1",
+            "action": "GCS and Pupil assessment",
+            "details": "Verify Eye, Verbal, Motor responses (GCS 3-15)"
+          },
+          {
+            "step_number": "2",
+            "action": "Determine CT Scan Indication",
+            "details": "Absolute indications: GCS <13 initially or <15 at 2 hours, open/depressed/base-of-skull fracture, post-traumatic seizure, focal neuro deficit, anticoagulants"
+          },
+          {
+            "step_number": "3",
+            "action": "Implement Neuroprotective Measures",
+            "details": "Head up 30-45\u00b0, MAP >90 (unless ICH then >75-80), PCO2 34-40 (normocarbia), O2 sats >95% (normoxia), glucose 5-10 mmol/L, avoid neck pressure (C-spine collars)"
+          }
+        ],
+        "warnings": [
+          "Avoid steroids in traumatic intracranial hemorrhage \u2014 no therapeutic role"
+        ]
+      },
+      {
+        "item": "Burns",
+        "protocol_type": "ed_protocol",
+        "management_steps": [
+          {
+            "step_number": "1",
+            "action": "Primary survey & Airway management",
+            "details": "Look for inhalation injury indicators: stridor, facial/neck burns, carbonaceous sputum"
+          },
+          {
+            "step_number": "2",
+            "action": "Fluid Resuscitation via Modified Brooke Formula",
+            "details": "Formula: 2ml x %burn x Weight (kg) of Ringer's Lactate/Balsol. Give half over first 8 hours, half over next 16 hours. Indicated for adults >20% TBSA, children >15%."
+          },
+          {
+            "step_number": "3",
+            "action": "Clean, assess and dress wounds",
+            "details": "Clean with sterile saline, debride blisters. Apply Jelonet and gauze. Face: Chloromex ointment (no dressing)."
+          }
+        ]
+      }
+    ]
+  },
+  "14_ed_metabolic": {
+    "protocols": [
+      {
+        "item": "Diabetic Ketoacidosis (DKA)",
+        "protocol_type": "ed_protocol",
+        "management_steps": [
+          {
+            "step_number": "1",
+            "action": "Confirm diagnosis & Check Potassium First",
+            "details": "HGT >11, pH <7.3, HCO3 <18, Anion Gap >16, ketones positive. Hold insulin if K+ <3.3."
+          },
+          {
+            "step_number": "2",
+            "action": "Aggressive Fluids (Ringer's/Balsol)",
+            "details": "1L/hr for first 1-2 hours, then titrate to maintain urine output 1-2ml/kg/hr. Switch to Dextrose-containing fluids when HGT <15."
+          },
+          {
+            "step_number": "3",
+            "action": "Insulin Therapy & Potassium replacement",
+            "details": "0.1 U/kg/hr Actrapid infusion. Maintain potassium at 4-5 mmol/L by adding KCl to fluid bags."
+          }
+        ],
+        "warnings": [
+          "Delay insulin until potassium is >3.5 mmol/L to prevent precipitous drops",
+          "Avoid routine bicarbonate unless pH <6.8 and in severe shock"
+        ]
+      }
+    ]
+  },
+  "15_ed_procedures": {
+    "protocols": [
+      {
+        "item": "Airway Management Checklist & RSI",
+        "protocol_type": "ed_protocol",
+        "equipment": [
+          "Suction",
+          "ET tubes (various sizes)",
+          "Oxygen source",
+          "Bougie",
+          "Video laryngoscope",
+          "Cricothyrotomy kit"
+        ],
+        "management_steps": [
+          {
+            "step_number": "1",
+            "action": "Check Equipment & Predict Difficult Airway",
+            "details": "Use LEMON criteria. Verify suction and alternative airways."
+          },
+          {
+            "step_number": "2",
+            "action": "Positioning & Pre-oxygenation",
+            "details": "Align ear to sternal notch (sniffing position). Pre-oxygenate 100% for 3 min."
+          },
+          {
+            "step_number": "3",
+            "action": "Pre-load Fluids",
+            "details": "10-20ml/kg Ringer's Lactate/Balsol to offset induction-induced hypotension."
+          },
+          {
+            "step_number": "4",
+            "action": "Induction & Paralysis",
+            "details": "Induction (Ketamine 1-2mg/kg IV or Etomidate 0.3mg/kg IV) followed by paralytic (Suxamethonium 1.5mg/kg IV or Rocuronium 1mg/kg IV)."
+          }
+        ]
+      }
+    ]
+  },
+  "16_score_calculators": {
+    "gcs": {
+      "name": "Glasgow Coma Scale",
+      "category": "neurological",
+      "components": [
+        {
+          "name": "Eye Opening",
+          "key": "eye",
+          "options": [
+            {
+              "value": 4,
+              "label": "Spontaneous",
+              "desc": "Eyes open spontaneously"
+            },
+            {
+              "value": 3,
+              "label": "To speech",
+              "desc": "Eyes open to verbal command"
+            },
+            {
+              "value": 2,
+              "label": "To pain",
+              "desc": "Eyes open to pressure/pain"
+            },
+            {
+              "value": 1,
+              "label": "None",
+              "desc": "No eye opening"
+            }
+          ]
+        },
+        {
+          "name": "Verbal Response",
+          "key": "verbal",
+          "options": [
+            {
+              "value": 5,
+              "label": "Oriented",
+              "desc": "Oriented to time, place, person"
+            },
+            {
+              "value": 4,
+              "label": "Confused",
+              "desc": "Confused, disorientated speech"
+            },
+            {
+              "value": 3,
+              "label": "Inappropriate",
+              "desc": "Inappropriate words only"
+            },
+            {
+              "value": 2,
+              "label": "Incomprehensible",
+              "desc": "Incomprehensible sounds/moans"
+            },
+            {
+              "value": 1,
+              "label": "None",
+              "desc": "No verbal response"
+            }
+          ]
+        },
+        {
+          "name": "Motor Response",
+          "key": "motor",
+          "options": [
+            {
+              "value": 6,
+              "label": "Obeys commands",
+              "desc": "Follows simple verbal instructions"
+            },
+            {
+              "value": 5,
+              "label": "Localises pain",
+              "desc": "Localises to painful stimulus (e.g. supraorbital pressure)"
+            },
+            {
+              "value": 4,
+              "label": "Withdraws",
+              "desc": "Normal withdrawal from painful stimulus"
+            },
+            {
+              "value": 3,
+              "label": "Flexion abnormal",
+              "desc": "Abnormal flexion (decorticate posturing)"
+            },
+            {
+              "value": 2,
+              "label": "Extension",
+              "desc": "Abnormal extension (decerebrate posturing)"
+            },
+            {
+              "value": 1,
+              "label": "None",
+              "desc": "No motor response"
+            }
+          ]
+        }
+      ],
+      "interpretation": [
+        {
+          "min": 13,
+          "max": 15,
+          "label": "Mild head injury",
+          "action": "Observe closely. Perform CT head if risk factors present."
+        },
+        {
+          "min": 9,
+          "max": 12,
+          "label": "Moderate head injury",
+          "action": "Urgent CT Head and Neurosurgical consultation required."
+        },
+        {
+          "min": 3,
+          "max": 8,
+          "label": "Severe head injury",
+          "action": "Intubate for airway protection. Urgent CT head and neurosurgical intervention."
+        }
+      ]
+    },
+    "nexus": {
+      "name": "NEXUS Criteria",
+      "category": "trauma",
+      "components": [
+        {
+          "name": "Midline cervical tenderness",
+          "key": "midline_tender"
+        },
+        {
+          "name": "Focal neurological deficit",
+          "key": "focal_deficit"
+        },
+        {
+          "name": "Altered level of alertness",
+          "key": "altered_alertness"
+        },
+        {
+          "name": "Intoxication (alcohol/drugs)",
+          "key": "intoxication"
+        },
+        {
+          "name": "Distracting painful injury",
+          "key": "distracting_injury"
+        }
+      ],
+      "interpretation": [
+        {
+          "condition": "all_no",
+          "label": "Low Risk",
+          "action": "C-spine imaging NOT indicated. Clinically clear."
+        },
+        {
+          "condition": "any_yes",
+          "label": "High Risk",
+          "action": "C-spine imaging (CT) IS indicated."
+        }
+      ]
+    },
+    "canadian_cspine": {
+      "name": "Canadian C-Spine Rule",
+      "category": "trauma",
+      "components": [
+        {
+          "name": "Age >= 65 years",
+          "key": "age_65",
+          "dangerous": true
+        },
+        {
+          "name": "Dangerous mechanism (e.g. fall > 1m, high-speed MVA)",
+          "key": "dangerous_mechanism",
+          "dangerous": true
+        },
+        {
+          "name": "Paresthesias in extremities",
+          "key": "paresthesias",
+          "dangerous": true
+        },
+        {
+          "name": "Sitting position in ED",
+          "key": "sitting",
+          "simple": true
+        },
+        {
+          "name": "Ambulatory at any time",
+          "key": "ambulatory",
+          "simple": true
+        },
+        {
+          "name": "Delayed onset of neck pain",
+          "key": "delayed_pain",
+          "simple": true
+        },
+        {
+          "name": "Midline cervical tenderness",
+          "key": "midline_tender",
+          "simple": true
+        }
+      ]
+    },
+    "alvarado": {
+      "name": "Alvarado Score",
+      "category": "surgical",
+      "components": [
+        {
+          "name": "Migratory RIF pain",
+          "points": 1,
+          "key": "migratory"
+        },
+        {
+          "name": "Anorexia",
+          "points": 1,
+          "key": "anorexia"
+        },
+        {
+          "name": "Nausea/Vomiting",
+          "points": 1,
+          "key": "vomiting"
+        },
+        {
+          "name": "Tenderness in RIF",
+          "points": 2,
+          "key": "tenderness"
+        },
+        {
+          "name": "Rebound tenderness",
+          "points": 1,
+          "key": "rebound"
+        },
+        {
+          "name": "Elevated temperature (>= 37.3\u00b0C)",
+          "points": 1,
+          "key": "fever"
+        },
+        {
+          "name": "Leukocytosis (WCC > 10)",
+          "points": 2,
+          "key": "leukocytosis"
+        },
+        {
+          "name": "Left shift (neutrophils > 75%)",
+          "points": 1,
+          "key": "left_shift"
+        }
+      ],
+      "interpretation": [
+        {
+          "min": 0,
+          "max": 4,
+          "label": "Appendicitis Unlikely",
+          "action": "Consider other causes. Observe if pain persists."
+        },
+        {
+          "min": 5,
+          "max": 6,
+          "label": "Appendicitis Possible",
+          "action": "Keep NPO, active observation, consider ultrasound."
+        },
+        {
+          "min": 7,
+          "max": 10,
+          "label": "Appendicitis Probable/Highly Probable",
+          "action": "Urgent surgical consultation. Prepare for appendectomy."
+        }
+      ]
+    },
+    "wells_dvt": {
+      "name": "Wells Score for DVT",
+      "category": "vascular",
+      "components": [
+        {
+          "name": "Active cancer (treatment within 6 months or palliative)",
+          "points": 1,
+          "key": "cancer"
+        },
+        {
+          "name": "Paralysis, paresis, or recent plaster immobilisation of lower extremity",
+          "points": 1,
+          "key": "paralysis"
+        },
+        {
+          "name": "Recently bedridden >=3 days or major surgery within 12 weeks",
+          "points": 1,
+          "key": "bedridden"
+        },
+        {
+          "name": "Localised tenderness along deep venous system",
+          "points": 1,
+          "key": "tenderness"
+        },
+        {
+          "name": "Entire leg swollen",
+          "points": 1,
+          "key": "entire_swollen"
+        },
+        {
+          "name": "Calf swelling >3cm compared to asymptomatic leg",
+          "points": 1,
+          "key": "calf_swelling"
+        },
+        {
+          "name": "Pitting oedema confined to symptomatic leg",
+          "points": 1,
+          "key": "pitting"
+        },
+        {
+          "name": "Collateral superficial veins (non-varicose)",
+          "points": 1,
+          "key": "collateral"
+        },
+        {
+          "name": "Alternative diagnosis as likely or more likely than DVT",
+          "points": -2,
+          "key": "alt_dx"
+        }
+      ],
+      "interpretation": [
+        {
+          "min": -2,
+          "max": 0,
+          "label": "DVT Unlikely",
+          "action": "Perform D-dimer. If negative, exclude DVT. If positive, perform ultrasound."
+        },
+        {
+          "min": 1,
+          "max": 10,
+          "label": "DVT Likely",
+          "action": "Perform formal compressive ultrasound of lower limb. Cautiously bridge with Clexane."
+        }
+      ]
+    },
+    "wells_pe": {
+      "name": "Wells Score for PE",
+      "category": "respiratory",
+      "components": [
+        {
+          "name": "Clinical signs and symptoms of DVT",
+          "points": 3,
+          "key": "dvt_signs"
+        },
+        {
+          "name": "Alternative diagnosis is less likely than PE",
+          "points": 3,
+          "key": "alt_dx"
+        },
+        {
+          "name": "Heart rate > 100 bpm",
+          "points": 1.5,
+          "key": "tachycardia"
+        },
+        {
+          "name": "Immobilisation >= 3 days or surgery in previous 4 weeks",
+          "points": 1.5,
+          "key": "immobilisation"
+        },
+        {
+          "name": "Previous documented DVT/PE",
+          "points": 1.5,
+          "key": "prior_pe"
+        },
+        {
+          "name": "Haemoptysis",
+          "points": 1,
+          "key": "haemoptysis"
+        },
+        {
+          "name": "Active cancer (treatment within 6 months or palliative)",
+          "points": 1,
+          "key": "cancer"
+        }
+      ],
+      "interpretation": [
+        {
+          "min": 0,
+          "max": 4,
+          "label": "PE Unlikely",
+          "action": "Assess PERC criteria. If PERC negative, rule out PE. If PERC positive, order D-dimer."
+        },
+        {
+          "min": 4.5,
+          "max": 15,
+          "label": "PE Likely",
+          "action": "Do NOT order D-dimer. Bridge with Clexane and proceed directly to CTPA."
+        }
+      ]
+    },
+    "perc": {
+      "name": "PERC Rule for PE Exclusion",
+      "category": "respiratory",
+      "components": [
+        {
+          "name": "Age >= 50 years",
+          "key": "age"
+        },
+        {
+          "name": "Heart rate >= 100 bpm",
+          "key": "tachycardia"
+        },
+        {
+          "name": "Oxygen saturation < 95% on room air",
+          "key": "hypoxia"
+        },
+        {
+          "name": "Unilateral leg swelling",
+          "key": "leg_swelling"
+        },
+        {
+          "name": "Haemoptysis",
+          "key": "haemoptysis"
+        },
+        {
+          "name": "Recent surgery or trauma (within 4 weeks)",
+          "key": "surgery"
+        },
+        {
+          "name": "Prior DVT or PE",
+          "key": "prior_dvt"
+        },
+        {
+          "name": "Hormone use (estrogen/OCP)",
+          "key": "hormones"
+        }
+      ]
+    },
+    "curb65": {
+      "name": "CURB-65 Score",
+      "category": "respiratory",
+      "components": [
+        {
+          "name": "Confusion (new onset)",
+          "points": 1,
+          "key": "confusion"
+        },
+        {
+          "name": "Urea >= 7 mmol/L",
+          "points": 1,
+          "key": "urea"
+        },
+        {
+          "name": "Respiratory rate >= 30/min",
+          "points": 1,
+          "key": "rr"
+        },
+        {
+          "name": "Blood pressure (SBP <90 or DBP <=60)",
+          "points": 1,
+          "key": "bp"
+        },
+        {
+          "name": "Age >= 65 years",
+          "points": 1,
+          "key": "age"
+        }
+      ],
+      "interpretation": [
+        {
+          "min": 0,
+          "max": 1,
+          "label": "Low Risk (Mortality <3%)",
+          "action": "Outpatient treatment with oral antibiotics (Amoxicillin)."
+        },
+        {
+          "min": 2,
+          "max": 2,
+          "label": "Intermediate Risk (Mortality <9%)",
+          "action": "Inpatient admission. Intravenous antibiotics (Augmentin)."
+        },
+        {
+          "min": 3,
+          "max": 5,
+          "label": "High Risk (Mortality 15-40%)",
+          "action": "Urgent inpatient or ICU admission. Broad-spectrum IV antibiotics + steroid."
+        }
+      ]
+    },
+    "burch_wartofsky": {
+      "name": "Burch-Wartofsky Score",
+      "category": "endocrine",
+      "components": [
+        {
+          "name": "Temperature Component",
+          "key": "temp",
+          "options": [
+            {
+              "value": 0,
+              "label": "<37.2\u00b0C"
+            },
+            {
+              "value": 5,
+              "label": "37.2 - 37.7\u00b0C"
+            },
+            {
+              "value": 10,
+              "label": "37.8 - 38.3\u00b0C"
+            },
+            {
+              "value": 15,
+              "label": "38.4 - 38.8\u00b0C"
+            },
+            {
+              "value": 20,
+              "label": "38.9 - 39.4\u00b0C"
+            },
+            {
+              "value": 25,
+              "label": "39.5 - 39.9\u00b0C"
+            },
+            {
+              "value": 30,
+              "label": ">=40.0\u00b0C"
+            }
+          ]
+        },
+        {
+          "name": "Cardiovascular Component (Heart Rate)",
+          "key": "cvs",
+          "options": [
+            {
+              "value": 0,
+              "label": "<90 bpm"
+            },
+            {
+              "value": 5,
+              "label": "90 - 109 bpm"
+            },
+            {
+              "value": 10,
+              "label": "110 - 119 bpm"
+            },
+            {
+              "value": 15,
+              "label": "120 - 139 bpm"
+            },
+            {
+              "value": 25,
+              "label": ">=140 bpm"
+            }
+          ]
+        },
+        {
+          "name": "CNS Component",
+          "key": "cns",
+          "options": [
+            {
+              "value": 0,
+              "label": "Normal"
+            },
+            {
+              "value": 10,
+              "label": "Mild Agitation"
+            },
+            {
+              "value": 20,
+              "label": "Delirium / Psychosis / Severe lethargy"
+            },
+            {
+              "value": 30,
+              "label": "Seizures / Coma"
+            }
+          ]
+        },
+        {
+          "name": "Gastrointestinal Component",
+          "key": "gi",
+          "options": [
+            {
+              "value": 0,
+              "label": "Normal"
+            },
+            {
+              "value": 10,
+              "label": "Diarrhoea, nausea, vomiting, abdominal pain"
+            },
+            {
+              "value": 20,
+              "label": "Unexplained Jaundice"
+            }
+          ]
+        }
+      ],
+      "interpretation": [
+        {
+          "min": 0,
+          "max": 24,
+          "label": "Thyroid Storm Unlikely",
+          "action": "Perform thyroid function tests, manage supportively."
+        },
+        {
+          "min": 25,
+          "max": 44,
+          "label": "Impending Thyroid Storm",
+          "action": "Highly suggestive of developing storm. Initiate therapy, consult endocrine."
+        },
+        {
+          "min": 45,
+          "max": 140,
+          "label": "Thyroid Storm Highly Probable",
+          "action": "Clinical emergency. Admit ICU. Initiate PTU, Lugol's iodine, beta-blocker, steroids."
+        }
+      ]
+    },
+    "parkland": {
+      "name": "Parkland Formula",
+      "category": "trauma",
+      "calculator_type": "formula",
+      "formula": "4 * weight * tbsa",
+      "inputs": [
+        {
+          "name": "Weight",
+          "key": "weight",
+          "unit": "kg"
+        },
+        {
+          "name": "TBSA Burned",
+          "key": "tbsa",
+          "unit": "%"
+        }
+      ]
+    },
+    "anion_gap": {
+      "name": "Anion Gap",
+      "category": "metabolic",
+      "calculator_type": "formula",
+      "formula": "na - (cl + hco3)",
+      "inputs": [
+        {
+          "name": "Sodium (Na)",
+          "key": "na",
+          "unit": "mmol/L"
+        },
+        {
+          "name": "Chloride (Cl)",
+          "key": "cl",
+          "unit": "mmol/L"
+        },
+        {
+          "name": "Bicarbonate (HCO3)",
+          "key": "hco3",
+          "unit": "mmol/L"
+        }
+      ]
+    },
+    "corrected_na": {
+      "name": "Corrected Sodium",
+      "category": "metabolic",
+      "calculator_type": "formula",
+      "formula": "na + (1.6 * (glucose - 5.5) / 5.5)",
+      "inputs": [
+        {
+          "name": "Measured Sodium (Na)",
+          "key": "na",
+          "unit": "mmol/L"
+        },
+        {
+          "name": "Glucose",
+          "key": "glucose",
+          "unit": "mmol/L"
+        }
+      ]
+    },
+    "free_water_deficit": {
+      "name": "Free Water Deficit",
+      "category": "metabolic",
+      "calculator_type": "formula",
+      "formula": "0.6 * weight * ((na / 140) - 1)",
+      "inputs": [
+        {
+          "name": "Weight",
+          "key": "weight",
+          "unit": "kg"
+        },
+        {
+          "name": "Sodium (Na)",
+          "key": "na",
+          "unit": "mmol/L"
+        }
+      ]
+    },
+    "sodium_deficit": {
+      "name": "Sodium Deficit",
+      "category": "metabolic",
+      "calculator_type": "formula",
+      "formula": "0.6 * weight * (140 - na)",
+      "inputs": [
+        {
+          "name": "Weight",
+          "key": "weight",
+          "unit": "kg"
+        },
+        {
+          "name": "Actual Sodium (Na)",
+          "key": "na",
+          "unit": "mmol/L"
+        }
+      ]
+    },
+    "pf_ratio": {
+      "name": "P/F Ratio",
+      "category": "respiratory",
+      "calculator_type": "formula",
+      "formula": "pao2 / fio2",
+      "inputs": [
+        {
+          "name": "PaO2",
+          "key": "pao2",
+          "unit": "mmHg"
+        },
+        {
+          "name": "FiO2 (decimal)",
+          "key": "fio2",
+          "unit": "0.21 - 1.0"
+        }
+      ]
+    }
+  }
+}

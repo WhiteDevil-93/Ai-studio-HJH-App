@@ -1,0 +1,6 @@
+{
+  "name": "Titrate",
+  "description": "ICU & ED Clinical Reference v4.4 - Progressive Web App combining the Chris Hani Baragwanath Academic Hospital ICU Dosing Card with the Helen Joseph Hospital Emergency Department Clinical Guidelines 2026.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
