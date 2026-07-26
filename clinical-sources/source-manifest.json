@@ -1,0 +1,30 @@
+{
+  "sources": [
+    {
+      "id": "hjh-ed-2026-v1",
+      "title": "Helen Joseph Tertiary Hospital Emergency Department Clinical Guidelines",
+      "version": "January 2026",
+      "documentDate": "2025-12-24",
+      "pageCount": 247,
+      "sha256": "2845afd7491ff8937c2eac22bc99eb25e94531bbb0774fc3a66c51ca5ba805f8",
+      "scope": "Largely adult emergency patients; use with RMMCH ED protocols for paediatric patients.",
+      "status": "source-received",
+      "distributionPermission": "unconfirmed"
+    },
+    {
+      "id": "chbah-icu-dosing-card-2024",
+      "title": "Chris Hani Baragwanath Academic Hospital ICU Dosing Card",
+      "version": "2024 updates",
+      "scope": "ICU drug dosing and infusions",
+      "status": "content-retained-review-copy-required",
+      "distributionPermission": "unconfirmed"
+    },
+    {
+      "id": "rmmch-paediatric-protocols",
+      "title": "RMMCH Emergency Department Protocols",
+      "scope": "Paediatric emergency guidance referenced by the HJH source",
+      "status": "source-required",
+      "distributionPermission": "unconfirmed"
+    }
+  ]
+}

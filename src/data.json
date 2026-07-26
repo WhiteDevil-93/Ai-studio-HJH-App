@@ -524,25 +524,49 @@
   "7_useful_formulae": {
     "formulae": [
       {
-        "category": "Inotopes",
+        "category": "Bara ICU — Inotropes",
         "item": "Adrenaline",
         "formula": "ml/hr = (ug/kg/min x kg x 60) / 60",
         "standard_dilutions": "Standard: 12 mg (12 amps) in 200 mL N/S (60 mcg/mL)"
       },
       {
-        "category": "Inotopes",
+        "category": "Bara ICU — Inotropes",
         "item": "Noradrenaline",
         "formula": "ml/hr = (ug/kg/min x kg x 60) / 50",
         "standard_dilutions": "Double Strength: 10mg in 200ml N/S"
       },
       {
-        "category": "Inotopes",
+        "category": "Bara ICU — Inotropes",
         "item": "Dobutamine",
         "formula": "ml/hr = (ug/kg/min x kg x 60) / 1250",
         "standard_dilutions": "250mg in 200ml N/S"
       },
       {
-        "category": "Electrolytes",
+        "category": "HJH ED Protocol — Infusions",
+        "item": "Esmolol",
+        "formula": "Dose x weight x 60 / prepared concentration",
+        "standard_dilutions": "500mg undiluted in a 50ml syringe (10mg/ml)"
+      },
+      {
+        "category": "HJH ED Protocol — Infusions",
+        "item": "Isosorbide Dinitrate",
+        "formula": "Dose / prepared concentration",
+        "standard_dilutions": "20mg in 200ml (0.1mg/ml); protocol also lists 100mg in 200ml (0.5mg/ml)"
+      },
+      {
+        "category": "HJH ED Protocol — Infusions",
+        "item": "Nitroglycerin",
+        "formula": "Dose x 60 / prepared concentration",
+        "standard_dilutions": "10mg in 200ml N/S (50mcg/ml)"
+      },
+      {
+        "category": "HJH ED Protocol — Infusions",
+        "item": "Morphine + Midazolam",
+        "formula": "Dose x weight / prepared concentration",
+        "standard_dilutions": "90mg morphine + 90mg midazolam in 180ml (0.5mg/ml of each)"
+      },
+      {
+        "category": "Bara ICU — Electrolytes",
         "item": "Sodium Deficit",
         "formula": "Na deficit = 0.6 x Wt(kg) x (Desired Na - Actual Na)",
         "standard_dilutions": "Correct max 8-10mmol/L per day"
@@ -560,10 +584,10 @@
         "standard_dilutions": "Normal approx 12 mEq/L"
       },
       {
-        "category": "Metabolic",
+        "category": "HJH ED Protocol — Metabolic",
         "item": "Corrected Na",
-        "formula": "Measured Na + [1.6 x (Glucose - 5.5) / 5.5]",
-        "standard_dilutions": "Used in hyperglycaemia"
+        "formula": "Page 92: Na + [1.6 x (Glucose - 5.5) / 5.5] for glucose 11-22; use 2.4 if glucose >22",
+        "standard_dilutions": "Page 97: Na + [2.4 x (Glucose - 5.4) / 5.4]"
       },
       {
         "category": "Respiratory",
@@ -1911,6 +1935,7 @@
     "gcs": {
       "name": "Glasgow Coma Scale",
       "category": "neurological",
+      "source_pages": [89],
       "components": [
         {
           "name": "Eye Opening",
@@ -2030,6 +2055,7 @@
     "nexus": {
       "name": "NEXUS Criteria",
       "category": "trauma",
+      "source_pages": [54],
       "components": [
         {
           "name": "Midline cervical tenderness",
@@ -2068,9 +2094,19 @@
     "canadian_cspine": {
       "name": "Canadian C-Spine Rule",
       "category": "trauma",
+      "source_pages": [54],
+      "applicability": [
+        "Traumatic neck injury",
+        "GCS 15",
+        "Stable vital signs",
+        "Age 16 years or older",
+        "No acute paralysis",
+        "No known vertebral disease or previous C-spine surgery",
+        "Not pregnant"
+      ],
       "components": [
         {
-          "name": "Age >= 65 years",
+          "name": "Age > 65 years",
           "key": "age_65",
           "dangerous": true
         },
@@ -2080,9 +2116,14 @@
           "dangerous": true
         },
         {
-          "name": "Paresthesias in extremities",
+          "name": "Focal peripheral neurological deficit or paraesthesias",
           "key": "paresthesias",
           "dangerous": true
+        },
+        {
+          "name": "Simple rear-end motor vehicle collision",
+          "key": "simple_rear_end",
+          "simple": true
         },
         {
           "name": "Sitting position in ED",
@@ -2100,15 +2141,17 @@
           "simple": true
         },
         {
-          "name": "Midline cervical tenderness",
+          "name": "Absence of midline cervical tenderness",
           "key": "midline_tender",
           "simple": true
         }
-      ]
+      ],
+      "requires_rotation_assessment": true
     },
     "alvarado": {
       "name": "Alvarado Score",
       "category": "surgical",
+      "source_pages": [7],
       "components": [
         {
           "name": "Migratory RIF pain",
@@ -2175,6 +2218,7 @@
     "wells_dvt": {
       "name": "Wells Score for DVT",
       "category": "vascular",
+      "source_pages": [63],
       "components": [
         {
           "name": "Active cancer (treatment within 6 months or palliative)",
@@ -2280,21 +2324,32 @@
       "interpretation": [
         {
           "min": 0,
+          "max": 1.5,
+          "label": "Low Risk",
+          "action": "Apply PERC only after confirming the patient is otherwise appropriate for the low-risk pathway."
+        },
+        {
+          "min": 2,
           "max": 4,
-          "label": "PE Unlikely",
-          "action": "Assess PERC criteria. If PERC negative, rule out PE. If PERC positive, order D-dimer."
+          "label": "Moderate Risk",
+          "action": "Use the HJH pulmonary embolism algorithm, including age-adjusted D-dimer where applicable."
         },
         {
           "min": 4.5,
           "max": 15,
-          "label": "PE Likely",
-          "action": "Do NOT order D-dimer. Bridge with Clexane and proceed directly to CTPA."
+          "label": "High Risk",
+          "action": "Follow the HJH high-risk pathway: assess contraindications, anticoagulation, and CTPA eligibility."
         }
       ]
     },
     "perc": {
       "name": "PERC Rule for PE Exclusion",
       "category": "respiratory",
+      "source_pages": [159, 160],
+      "applicability": [
+        "Use only in the HJH low-risk pulmonary embolism pathway",
+        "All eight criteria must be explicitly confirmed"
+      ],
       "components": [
         {
           "name": "Age >= 50 years",
@@ -2333,6 +2388,7 @@
     "curb65": {
       "name": "CURB-65 Score",
       "category": "respiratory",
+      "source_pages": [58],
       "components": [
         {
           "name": "Confusion (new onset)",
@@ -2384,6 +2440,8 @@
     "burch_wartofsky": {
       "name": "Burch-Wartofsky Score",
       "category": "endocrine",
+      "source_pages": [189, 190],
+      "review_status": "clinical-review",
       "components": [
         {
           "name": "Temperature Component",
@@ -2437,11 +2495,51 @@
             },
             {
               "value": 15,
-              "label": "120 - 139 bpm"
+              "label": "120 - 129 bpm"
+            },
+            {
+              "value": 20,
+              "label": "130 - 139 bpm"
             },
             {
               "value": 25,
               "label": ">=140 bpm"
+            }
+          ]
+        },
+        {
+          "name": "Atrial Fibrillation",
+          "key": "af",
+          "options": [
+            {
+              "value": 0,
+              "label": "Absent"
+            },
+            {
+              "value": 10,
+              "label": "Present"
+            }
+          ]
+        },
+        {
+          "name": "Congestive Heart Failure",
+          "key": "chf",
+          "options": [
+            {
+              "value": 0,
+              "label": "Absent"
+            },
+            {
+              "value": 5,
+              "label": "Mild"
+            },
+            {
+              "value": 10,
+              "label": "Moderate"
+            },
+            {
+              "value": 20,
+              "label": "Severe"
             }
           ]
         },
@@ -2480,8 +2578,22 @@
               "label": "Diarrhoea, nausea, vomiting, abdominal pain"
             },
             {
-              "value": 20,
+              "value": 15,
               "label": "Unexplained Jaundice"
+            }
+          ]
+        },
+        {
+          "name": "Precipitating Event",
+          "key": "precipitant",
+          "options": [
+            {
+              "value": 0,
+              "label": "Absent"
+            },
+            {
+              "value": 10,
+              "label": "Present"
             }
           ]
         }
@@ -2508,10 +2620,12 @@
       ]
     },
     "parkland": {
-      "name": "Parkland Formula",
+      "name": "Modified Brooke Formula",
       "category": "trauma",
       "calculator_type": "formula",
-      "formula": "4 * weight * tbsa",
+      "formula_id": "modified_brooke",
+      "formula": "2 * weight * tbsa",
+      "source_pages": [51],
       "inputs": [
         {
           "name": "Weight",
@@ -2526,14 +2640,21 @@
       ]
     },
     "anion_gap": {
-      "name": "Anion Gap",
+      "name": "Anion Gap (HJH, potassium-inclusive)",
       "category": "metabolic",
       "calculator_type": "formula",
-      "formula": "na - (cl + hco3)",
+      "formula_id": "anion_gap_hjh",
+      "formula": "(na + k) - (cl + hco3)",
+      "source_pages": [92],
       "inputs": [
         {
           "name": "Sodium (Na)",
           "key": "na",
+          "unit": "mmol/L"
+        },
+        {
+          "name": "Potassium (K)",
+          "key": "k",
           "unit": "mmol/L"
         },
         {
@@ -2548,11 +2669,35 @@
         }
       ]
     },
-    "corrected_na": {
-      "name": "Corrected Sodium",
+    "corrected_na_hjh_page92": {
+      "name": "Corrected Sodium — DKA/HHS protocol",
       "category": "metabolic",
       "calculator_type": "formula",
-      "formula": "na + (1.6 * (glucose - 5.5) / 5.5)",
+      "formula_id": "corrected_na_hjh_page92",
+      "formula": "Na + [factor × (glucose - 5.5) / 5.5], factor 1.6 at glucose 11–22 and 2.4 above 22",
+      "source_pages": [92],
+      "review_note": "Transcribed from the DKA/HHS page. Compare with the separate page 97 equation during clinical review.",
+      "inputs": [
+        {
+          "name": "Measured Sodium (Na)",
+          "key": "na",
+          "unit": "mmol/L"
+        },
+        {
+          "name": "Glucose",
+          "key": "glucose",
+          "unit": "mmol/L"
+        }
+      ]
+    },
+    "corrected_na_hjh_page97": {
+      "name": "Corrected Sodium — Hyponatraemia protocol",
+      "category": "metabolic",
+      "calculator_type": "formula",
+      "formula_id": "corrected_na_hjh_page97",
+      "formula": "Na + [2.4 × (glucose - 5.4) / 5.4]",
+      "source_pages": [97],
+      "review_note": "Transcribed from the Hyponatraemia page. Compare with the separate page 92 rule during clinical review.",
       "inputs": [
         {
           "name": "Measured Sodium (Na)",
@@ -2570,6 +2715,8 @@
       "name": "Free Water Deficit",
       "category": "metabolic",
       "calculator_type": "formula",
+      "formula_id": "free_water_deficit",
+      "source_pages": [96],
       "formula": "0.6 * weight * ((na / 140) - 1)",
       "inputs": [
         {
@@ -2585,10 +2732,12 @@
       ]
     },
     "sodium_deficit": {
-      "name": "Sodium Deficit",
+      "name": "Sodium Deficit — Bara ICU dosing",
       "category": "metabolic",
       "calculator_type": "formula",
-      "formula": "0.6 * weight * (140 - na)",
+      "formula_id": "sodium_deficit_chbah",
+      "formula": "0.6 × weight × (desired sodium - actual sodium)",
+      "source_label": "Chris Hani Baragwanath ICU dosing material · review pending",
       "inputs": [
         {
           "name": "Weight",
@@ -2599,6 +2748,11 @@
           "name": "Actual Sodium (Na)",
           "key": "na",
           "unit": "mmol/L"
+        },
+        {
+          "name": "Desired Sodium (Na)",
+          "key": "desired_na",
+          "unit": "mmol/L"
         }
       ]
     },
@@ -2606,6 +2760,8 @@
       "name": "P/F Ratio",
       "category": "respiratory",
       "calculator_type": "formula",
+      "formula_id": "pf_ratio",
+      "source_pages": [],
       "formula": "pao2 / fio2",
       "inputs": [
         {

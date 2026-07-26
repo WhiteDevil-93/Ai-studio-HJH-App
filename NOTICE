@@ -1,0 +1,11 @@
+Titrate clinical-reference prototype
+
+The application code is licensed under Apache-2.0.
+
+Clinical content is derived in part from hospital guideline material whose
+redistribution permission has not yet been recorded in this repository.
+Nothing in the software licence grants permission to redistribute that
+third-party clinical content.
+
+The controlled HJH source is identified by metadata and SHA-256 in
+clinical-sources/source-manifest.json. The source PDF itself is not included.

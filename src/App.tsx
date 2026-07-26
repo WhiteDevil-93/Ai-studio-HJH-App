@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
   Star, Search, Scale, ChevronDown, Check,
@@ -11,7 +11,21 @@ import {
   Calculator, Stethoscope, Activity, Heart, ShieldAlert,
   Info, Sparkles, CheckSquare, Plus, RefreshCw, Clock
 } from 'lucide-react';
-import D from './data.json';
+import {clinicalData} from './clinical/legacyAdapter';
+import {calculateFormula, type FormulaKey} from './clinical/calculations/formulas';
+import {
+  calculateInfusionRate,
+  INFUSION_DEFINITIONS,
+  type InfusionDefinition,
+} from './clinical/calculations/infusions';
+import {
+  extractWeightDoseResults,
+  infusionDefinitionFromDoseText,
+} from './clinical/calculations/weightDose';
+import {calculateChecklistScore} from './clinical/scores';
+import type {CriterionAnswer} from './clinical/types';
+
+const D = clinicalData as any;
 
 // Category mapping keys
 const CATEGORIES: Record<string, string> = {
@@ -98,186 +112,12 @@ interface DrugItem {
   notes?: string;
 }
 
-interface InfusionPreset {
-  dose: string;
-  conc: string;
-  unit: string;
-  dilutionDesc: string;
-  dosesDesc: string;
-}
-
-const INFUSION_PRESETS: Record<string, InfusionPreset> = {
-  noradrenaline: {
-    dose: '0.05',
-    conc: '0.05',
-    unit: 'mcg/kg/min',
-    dilutionDesc: 'Double Strength: 10 mg in 200 mL Normal Saline (0.05 mg/mL)',
-    dosesDesc: '0.05 - 1.0 mcg/kg/min'
-  },
-  adrenaline: {
-    dose: '0.05',
-    conc: '0.06',
-    unit: 'mcg/kg/min',
-    dilutionDesc: 'Standard: 12 mg in 200 mL Normal Saline (0.06 mg/mL / 60 mcg/mL)',
-    dosesDesc: 'Push-dose: 0.5 mL (50 mcg) IV STAT. Infusion: 0.05 - 1.0 mcg/kg/min'
-  },
-  dobutamine: {
-    dose: '2.5',
-    conc: '1.25',
-    unit: 'mcg/kg/min',
-    dilutionDesc: 'Standard: 250 mg in 200 mL Normal Saline (1.25 mg/mL)',
-    dosesDesc: '2.5 - 10 mcg/kg/min (Max: 40 mcg/kg/min)'
-  },
-  dopamine: {
-    dose: '2',
-    conc: '1.0',
-    unit: 'mcg/kg/min',
-    dilutionDesc: 'Standard: 200 mg in 200 mL Normal Saline (1.0 mg/mL)',
-    dosesDesc: '2 - 20 mcg/kg/min'
-  },
-  phenylephrine: {
-    dose: '0.1',
-    conc: '0.1',
-    unit: 'mcg/kg/min',
-    dilutionDesc: 'Standard: 20 mg (2 amps) in 200 mL Normal Saline (0.1 mg/mL / 100 mcg/mL)',
-    dosesDesc: '0.1 - 6.0 mcg/kg/min (Bolus: 50 - 250 mcg)'
-  },
-  esmolol: {
-    dose: '50',
-    conc: '10.0',
-    unit: 'mcg/kg/min',
-    dilutionDesc: 'Standard: 5 ampoules (500 mg) undiluted in a 50 mL syringe (10.0 mg/mL)',
-    dosesDesc: 'Loading: 500 mcg/kg over 60s. Maintenance: 50 - 300 mcg/kg/min'
-  },
-  labetalol: {
-    dose: '1',
-    conc: '0.76',
-    unit: 'mg/min',
-    dilutionDesc: 'Standard: 180 mg (36 mL) in 200 mL 0.9% Normal Saline (0.76 mg/mL)',
-    dosesDesc: 'Bolus: 20 mg (4 mL). Infusion: Start 1 mg/min (80 mL/hr), increase by 10 mL/hr q5min to Max 2 mg/min (160 mL/hr)'
-  },
-  isosorbide: {
-    dose: '1',
-    conc: '0.1',
-    unit: 'mg/hr',
-    dilutionDesc: 'Low: 20 mg in 200 mL (0.1 mg/mL) | High: 100 mg in 200 mL (0.5 mg/mL)',
-    dosesDesc: 'Initial: 1 - 2 mg/hr. Max: 8 - 10 mg/hr (up to 50 mg/hr in acute heart failure)'
-  },
-  insulin: {
-    dose: '0.1',
-    conc: '1.0',
-    unit: 'units/kg/hr',
-    dilutionDesc: 'Standard Actrapid: 50 units in 50 mL 0.9% NaCl (1.0 unit/mL)',
-    dosesDesc: 'Standard DKA: 0.1 units/kg/hr | HIET (Tox): 0.5 - 10 units/kg/hr'
-  },
-  heparin: {
-    dose: '12',
-    conc: '500.0',
-    unit: 'units/kg/hr',
-    dilutionDesc: 'Standard: 25,000 units in 50 mL N/S or D5W (500 units/mL)',
-    dosesDesc: 'Loading: 60 IU/kg (max 4000 IU) IV stat. Maintenance: 12 IU/kg/hr (max 1000 IU/hr)'
-  },
-  amiodarone: {
-    dose: '39',
-    conc: '4.13',
-    unit: 'mg/hr',
-    dilutionDesc: 'Infusion: 900 mg (18 mL) in 200 mL 5% Dextrose (4.13 mg/mL total volume 218 mL)',
-    dosesDesc: 'Loading: 5 mg/kg (Max 300 mg) over 1 hr. Maintenance: 900 mg over 23 hours (runs at 9.5 mL/hr)'
-  },
-  furosemide: {
-    dose: '10',
-    conc: '10.0',
-    unit: 'mg/hr',
-    dilutionDesc: 'Neat: Undiluted Furosemide (10.0 mg/mL)',
-    dosesDesc: '5 - 40 mg/hr'
-  },
-  propofol: {
-    dose: '1',
-    conc: '10.0',
-    unit: 'mg/kg/hr',
-    dilutionDesc: 'Standard 1%: 400 mg pure Propofol in 40 mL (10.0 mg/mL)',
-    dosesDesc: '1 - 15 mg/kg/hr (Rates > 4 mg/kg/hr not recommended for prolonged sedation)'
-  },
-  midazolam: {
-    dose: '0.05',
-    conc: '2.0',
-    unit: 'mg/kg/hr',
-    dilutionDesc: 'Continuation: 90 mg in 45 mL volume (2.0 mg/mL)',
-    dosesDesc: 'Loading: 0.2 mg/kg. Continuation: 0.05 - 0.3 mg/kg/hr (up to 1.0 mg/kg/hr)'
-  },
-  morphine: {
-    dose: '0.025',
-    conc: '0.5',
-    unit: 'mg/kg/hr',
-    dilutionDesc: 'Continuous (intubated): 90 mg in 180 mL Normal Saline (0.5 mg/mL)',
-    dosesDesc: '0.025 - 0.4 mg/kg/hr'
-  },
-  morphine_midazolam: {
-    dose: '0.05',
-    conc: '0.5',
-    unit: 'mg/kg/hr',
-    dilutionDesc: 'Standard: 90 mg Morphine + 90 mg Midazolam in 180 mL total volume (0.5 mg/mL of EACH)',
-    dosesDesc: '0.05 - 0.5 mg/kg/hr (only for use in ventilated patients)'
-  },
-  ketamine: {
-    dose: '0.05',
-    conc: '1.0',
-    unit: 'mg/kg/hr',
-    dilutionDesc: 'Standard: 200 mg ketamine in 200 mL Normal Saline (1.0 mg/mL)',
-    dosesDesc: 'Analgesia: 0.05 - 0.1 mg/kg/hr | Sedation: 0.2 - 1.0 mg/kg/hr'
-  },
-  atracurium: {
-    dose: '0.3',
-    conc: '2.0',
-    unit: 'mg/kg/hr',
-    dilutionDesc: 'Standard: 100 mg in 50 mL N/S (2.0 mg/mL)',
-    dosesDesc: '0.3 - 0.6 mg/kg/hr'
-  },
-  nitroglycerin: {
-    dose: '10',
-    conc: '0.05',
-    unit: 'mcg/min',
-    dilutionDesc: 'Standard: 10 mg in 200 mL Normal Saline (0.05 mg/mL / 50 mcg/mL)',
-    dosesDesc: '10 - 200 mcg/min (10 mcg/min is 12 mL/hr, 200 mcg/min is 240 mL/hr)'
-  }
-};
-
-const getInfusionPreset = (drugName: string): InfusionPreset | undefined => {
-  const nameLower = drugName.toLowerCase();
-  
-  // High-priority combination checks first
-  if (nameLower.includes('morphine') && nameLower.includes('midazolam')) {
-    return INFUSION_PRESETS.morphine_midazolam;
-  }
-  
-  if (nameLower.includes('noradrenaline')) return INFUSION_PRESETS.noradrenaline;
-  if (nameLower.includes('adrenaline') || nameLower.includes('adrenalin')) {
-    if (nameLower.includes('noradrenaline')) return INFUSION_PRESETS.noradrenaline;
-    return INFUSION_PRESETS.adrenaline;
-  }
-  if (nameLower.includes('dobutamine')) return INFUSION_PRESETS.dobutamine;
-  if (nameLower.includes('dopamine')) return INFUSION_PRESETS.dopamine;
-  if (nameLower.includes('phenylephrine')) return INFUSION_PRESETS.phenylephrine;
-  if (nameLower.includes('insulin')) return INFUSION_PRESETS.insulin;
-  if (nameLower.includes('heparin')) return INFUSION_PRESETS.heparin;
-  if (nameLower.includes('amiodarone')) return INFUSION_PRESETS.amiodarone;
-  if (nameLower.includes('furosemide') || nameLower.includes('lasix')) return INFUSION_PRESETS.furosemide;
-  if (nameLower.includes('propofol')) return INFUSION_PRESETS.propofol;
-  if (nameLower.includes('midazolam') || nameLower.includes('dormicum')) return INFUSION_PRESETS.midazolam;
-  if (nameLower.includes('morphine')) return INFUSION_PRESETS.morphine;
-  if (nameLower.includes('ketamine')) return INFUSION_PRESETS.ketamine;
-  if (nameLower.includes('atracurium')) return INFUSION_PRESETS.atracurium;
-  if (nameLower.includes('esmolol')) return INFUSION_PRESETS.esmolol;
-  if (nameLower.includes('labetalol')) return INFUSION_PRESETS.labetalol;
-  if (nameLower.includes('isoket') || nameLower.includes('isosorbide')) return INFUSION_PRESETS.isosorbide;
-  if (nameLower.includes('nitroglycerin') || nameLower.includes('nitrocine')) return INFUSION_PRESETS.nitroglycerin;
-  return undefined;
-};
 
 export default function App() {
   // Theme state
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
-    return (localStorage.getItem('tr_theme') as 'dark' | 'light') || 'dark';
+    const stored = localStorage.getItem('tr_theme');
+    return stored === 'light' || stored === 'dark' ? stored : 'dark';
   });
 
   // Core Inputs
@@ -288,7 +128,8 @@ export default function App() {
   // Favorites
   const [favourites, setFavourites] = useState<string[]>(() => {
     try {
-      return JSON.parse(localStorage.getItem('tr_f') || '[]');
+      const parsed: unknown = JSON.parse(localStorage.getItem('tr_f') || '[]');
+      return Array.isArray(parsed) ? parsed.filter((value): value is string => typeof value === 'string') : [];
     } catch {
       return [];
     }
@@ -305,7 +146,19 @@ export default function App() {
 
   const [recentlyViewed, setRecentlyViewed] = useState<RecentlyViewedItem[]>(() => {
     try {
-      return JSON.parse(localStorage.getItem('tr_rv') || '[]');
+      const parsed: unknown = JSON.parse(localStorage.getItem('tr_rv') || '[]');
+      if (!Array.isArray(parsed)) return [];
+      return parsed.filter((value): value is RecentlyViewedItem => {
+        if (!value || typeof value !== 'object') return false;
+        const candidate = value as Partial<RecentlyViewedItem>;
+        return (
+          typeof candidate.key === 'string' &&
+          typeof candidate.name === 'string' &&
+          typeof candidate.catKey === 'string' &&
+          typeof candidate.timestamp === 'number' &&
+          ['drug', 'procedure', 'calculator'].includes(candidate.type ?? '')
+        );
+      });
     } catch {
       return [];
     }
@@ -333,20 +186,25 @@ export default function App() {
   const [expandedSubCategories, setExpandedSubCategories] = useState<Record<string, boolean>>({});
   const [checklistStatus, setChecklistStatus] = useState<Record<string, boolean>>({});
   const [aboutOpen, setAboutOpen] = useState<boolean>(false);
+  const aboutTriggerRef = useRef<HTMLButtonElement>(null);
+  const aboutDialogRef = useRef<HTMLDivElement>(null);
 
   // Score Calculator states
   const [gcsState, setGcsState] = useState<Record<string, number>>({});
   const [nexusState, setNexusState] = useState<Record<string, boolean>>({});
-  const [alvaradoState, setAlvaradoState] = useState<Record<string, boolean>>({});
-  const [wellsDvtState, setWellsDvtState] = useState<Record<string, boolean>>({});
-  const [wellsPeState, setWellsPeState] = useState<Record<string, boolean>>({});
-  const [percState, setPercState] = useState<Record<string, boolean>>({});
-  const [curb65State, setCurb65State] = useState<Record<string, boolean>>({});
+  const [alvaradoState, setAlvaradoState] = useState<Record<string, CriterionAnswer>>({});
+  const [wellsDvtState, setWellsDvtState] = useState<Record<string, CriterionAnswer>>({});
+  const [wellsPeState, setWellsPeState] = useState<Record<string, CriterionAnswer>>({});
+  const [percState, setPercState] = useState<Record<string, CriterionAnswer>>({});
+  const [curb65State, setCurb65State] = useState<Record<string, CriterionAnswer>>({});
   const [burchWartofskyState, setBurchWartofskyState] = useState<Record<string, number>>({});
   const [ccsState, setCcsState] = useState<Record<string, boolean>>({});
+  const [ccsApplicable, setCcsApplicable] = useState<CriterionAnswer>('unanswered');
+  const [ccsRotation, setCcsRotation] = useState<CriterionAnswer>('unanswered');
   const [tetanusState, setTetanusState] = useState<Record<string, number>>({}); // 0: doses, 1: wound
   const [formulaInputs, setFormulaInputs] = useState<Record<string, Record<string, string>>>({});
   const [infusionDoses, setInfusionDoses] = useState<Record<string, { dose: string; conc: string; weight: string }>>({});
+  const [infusionConfirmed, setInfusionConfirmed] = useState<Record<string, boolean>>({});
 
   // Sync theme
   useEffect(() => {
@@ -370,8 +228,40 @@ export default function App() {
     localStorage.setItem('tr_f', JSON.stringify(favourites));
   }, [favourites]);
 
-  const toggleFavourite = (key: string, e: React.MouseEvent) => {
-    e.stopPropagation();
+  useEffect(() => {
+    if (!aboutOpen) return;
+    const dialog = aboutDialogRef.current;
+    const focusable = dialog?.querySelectorAll<HTMLElement>(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+    );
+    focusable?.[0]?.focus();
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setAboutOpen(false);
+        return;
+      }
+      if (event.key !== 'Tab' || !focusable || focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      aboutTriggerRef.current?.focus();
+    };
+  }, [aboutOpen]);
+
+  const toggleFavourite = (key: string, e?: React.MouseEvent) => {
+    e?.stopPropagation();
     setFavourites(prev => {
       const next = prev.includes(key) ? prev.filter(x => x !== key) : [...prev, key];
       return next;
@@ -379,11 +269,21 @@ export default function App() {
   };
 
   const isFavourite = (key: string) => favourites.includes(key);
-
-  const parsedWeight = useMemo(() => {
-    const val = parseFloat(weight);
-    return isNaN(val) || val <= 0 ? 0 : val;
-  }, [weight]);
+  const scoreFavouriteKey = (key: string) => `score.${key}`;
+  const renderScoreFavouriteButton = (key: string) => {
+    const favouriteKey = scoreFavouriteKey(key);
+    const favourite = isFavourite(favouriteKey);
+    return (
+      <button
+        type="button"
+        onClick={event => toggleFavourite(favouriteKey, event)}
+        aria-label={favourite ? 'Remove calculator from favourites' : 'Add calculator to favourites'}
+        className={`rounded-full p-1.5 ${favourite ? 'text-yellow-400' : 'text-slate-500'}`}
+      >
+        <Star className={`h-4 w-4 ${favourite ? 'fill-yellow-400' : ''}`} />
+      </button>
+    );
+  };
 
   const toggleCategory = (key: string) => {
     setExpandedCategories(prev => ({ ...prev, [key]: !prev[key] }));
@@ -457,42 +357,9 @@ export default function App() {
 
   // Helper to generate key for drugs/protocols
   const getEntryKey = (item: any, category: string) => {
+    if (item?._meta?.id) return item._meta.id;
     const name = item.item || item.drug || item.condition_or_drug || item.poison_or_drug || item.antidote_treatment || item.product || '';
     return `${category}::${name}`;
-  };
-
-  // Dose calculator for weight-based doses
-  const calcWeightDose = (doseStr: string, wt: number) => {
-    if (!doseStr || !wt) return null;
-    const s = doseStr.toString().toLowerCase();
-    const unitMatch = s.match(/(ug|mcg|mg|g|units|mEq|mmol|ml)\s*\/\s*kg|per\s*kg/);
-    if (!unitMatch) return null;
-    const unit = unitMatch[1] || '';
-    const numMatch = s.match(/([\d.]+)\s*(?:-|\s+to\s+)\s*([\d.]+)/);
-    const singleMatch = s.match(/([\d.]+)/);
-    let min = 0, max = 0;
-    if (numMatch) {
-      min = parseFloat(numMatch[1]);
-      max = parseFloat(numMatch[2]);
-    } else if (singleMatch) {
-      min = parseFloat(singleMatch[1]);
-      max = min;
-    } else return null;
-
-    const calcMin = (min * wt).toFixed(1).replace(/\.0$/, '');
-    const calcMax = (max * wt).toFixed(1).replace(/\.0$/, '');
-    const outUnit = unit === 'ug' ? 'mcg' : unit;
-
-    if (min === max) return `${calcMin} ${outUnit}`;
-    return `${calcMin} - ${calcMax} ${outUnit}`;
-  };
-
-  // Check if a drug should show an infusion calculator
-  const isInfusionDrug = (name: string, item: any) => {
-    const n = (name || '').toLowerCase();
-    const d = ((item.adult_dose || item.adult_settings || item.paediatric_dose || item.paediatric_settings || '') + '').toLowerCase();
-    const infusionNames = ['noradrenaline', 'adrenaline', 'dopamine', 'dobutamine', 'phenylephrine', 'nitroglycerin', 'sodium nitroprusside', 'lignocaine', 'amiodarone', 'furosemide', 'morphine', 'midazolam', 'propofol', 'atracurium', 'alteplase', 'heparin', 'insulin', 'esmolol', 'labetalol', 'isoket', 'isosorbide'];
-    return infusionNames.some(x => n.includes(x)) || d.includes('/min') || d.includes('infusion') || d.includes('ivi') || d.includes('mcg/kg/min') || d.includes('mg/kg/hr') || d.includes('units/hr') || d.includes('mg/min') || d.includes('mg/hr');
   };
 
   // Scroll to top check
@@ -511,22 +378,56 @@ export default function App() {
     return text.split('|').map(x => x.trim()).filter(x => x.length > 0);
   };
 
-  // Safe Math formula evaluator
-  const evalFormula = (formula: string, inputs: Record<string, string>) => {
+  const evalFormula = (formulaKey: FormulaKey, inputs: Record<string, string>) => {
     try {
-      let expr = formula.toLowerCase();
-      for (const [k, v] of Object.entries(inputs)) {
-        if (!v) return null;
-        expr = expr.replace(new RegExp(`\\b${k}\\b`, 'g'), v);
+      const numericInputs: Record<string, number> = {};
+      for (const [key, value] of Object.entries(inputs)) {
+        if (value === '') return {result: null, error: ''};
+        numericInputs[key] = Number(value);
       }
-      expr = expr.replace(/\[([^\]]+)\]/g, '($1)');
-      const safeExpr = /^[\d\s+\-*/().,^%!&|<>='"a-zA-Z]+$/.test(expr);
-      if (!safeExpr) return null;
-      const res = new Function(`return (${expr})`)();
-      return isFinite(res) ? res : null;
-    } catch {
-      return null;
+      return {result: calculateFormula(formulaKey, numericInputs), error: ''};
+    } catch (error) {
+      return {
+        result: null,
+        error: error instanceof Error ? error.message : 'Unable to calculate',
+      };
     }
+  };
+
+  const formatCalculatedDose = (value: number): string => {
+    if (Math.abs(value) >= 100) return value.toFixed(0);
+    if (Math.abs(value) >= 10) return value.toFixed(1).replace(/\.0$/, '');
+    return value.toFixed(2).replace(/\.?0+$/, '');
+  };
+
+  const renderWeightDoseSummary = (text: string, label?: string) => {
+    const patientWeight = Number(weight);
+    const results = extractWeightDoseResults(text, patientWeight);
+    if (results.length === 0) return null;
+
+    return (
+      <div className="mt-1.5 space-y-1" aria-live="polite">
+        {results.map(result => (
+          <div
+            key={`${label ?? ''}-${result.sourceExpression}`}
+            className="rounded border border-teal-900/30 bg-teal-950/20 px-2 py-1 text-[10px] text-teal-200"
+          >
+            {label && <span className="font-bold">{label}: </span>}
+            At {formatCalculatedDose(patientWeight)} kg, {result.sourceExpression} ={' '}
+            <strong>
+              {formatCalculatedDose(result.minimum)}
+              {result.maximum !== result.minimum
+                ? `–${formatCalculatedDose(result.maximum)}`
+                : ''}{' '}
+              {result.resultUnit}
+            </strong>
+            {/\bmax(?:imum)?\b/i.test(text) && (
+              <span className="ml-1 text-slate-400">— apply the printed maximum</span>
+            )}
+          </div>
+        ))}
+      </div>
+    );
   };
 
   // Update formula input values
@@ -545,18 +446,18 @@ export default function App() {
     if (result === null || isNaN(result)) return null;
 
     if (calcKey === 'parkland') {
-      const totalVolume = result; // 4 * wt * TBSA
+      const totalVolume = result;
       const first8h = totalVolume / 2;
       const next16h = totalVolume / 2;
       const hourlyFirst8h = first8h / 8;
       const hourlyNext16h = next16h / 16;
       return (
         <div className="mt-3 p-3 rounded-lg bg-teal-950/20 border border-teal-500/20 text-sm space-y-2 text-slate-300">
-          <div className="text-teal-400 font-bold">Resuscitation Plan (Ringer's Lactate / Balsol)</div>
+          <div className="text-teal-400 font-bold">HJH Modified Brooke Resuscitation Plan</div>
           <div>Total 24-hour Volume: <strong className="text-white">{totalVolume.toFixed(0)} mL</strong></div>
           <div className="grid grid-cols-2 gap-2 mt-1">
             <div className="p-2 bg-slate-900/50 rounded border border-slate-800">
-              <div className="text-xs text-slate-400">First 8 Hours (50%)</div>
+              <div className="text-xs text-slate-400">First 8 Hours From Time of Burn (50%)</div>
               <div className="font-bold text-teal-300">{first8h.toFixed(0)} mL</div>
               <div className="text-[11px] text-teal-400">{hourlyFirst8h.toFixed(1)} mL/hr</div>
             </div>
@@ -566,7 +467,7 @@ export default function App() {
               <div className="text-[11px] text-teal-400">{hourlyNext16h.toFixed(1)} mL/hr</div>
             </div>
           </div>
-          <div className="text-xs text-rose-300">⚠️ Monitor urine output. Targets: Adults 0.5–1 mL/kg/hr, Children 1–2 mL/kg/hr.</div>
+          <div className="text-xs text-rose-300">⚠️ HJH initiation thresholds: adults &gt;20% TBSA and children &gt;15% TBSA. Paediatric maintenance fluid is separate.</div>
         </div>
       );
     }
@@ -585,7 +486,7 @@ export default function App() {
       );
     }
 
-    if (calcKey === 'corrected_na') {
+    if (calcKey.startsWith('corrected_na_hjh_')) {
       return (
         <div className="mt-3 p-3 rounded-lg bg-teal-950/20 border border-teal-500/20 text-sm text-slate-300">
           <div>Corrected Sodium: <strong className="text-white">{result.toFixed(1)} mmol/L</strong></div>
@@ -645,10 +546,27 @@ export default function App() {
   // Render individual score cards
   const renderScoreCalculator = (key: string, sc: any) => {
     const isFormula = sc.calculator_type === 'formula';
+    const renderScoreTitle = () => (
+      <div className="min-w-0">
+        <div className="font-bold text-md text-[#00d9b5]">{sc.name}</div>
+        <div className="text-[9px] font-normal text-slate-500">
+          {sc.source_label
+            ? sc.source_label
+            : sc.source_pages?.length > 0
+            ? `HJH PDF page${sc.source_pages.length > 1 ? 's' : ''} ${sc.source_pages.join(', ')} · clinical review pending`
+            : 'Source page mapping or external-source approval required'}
+        </div>
+      </div>
+    );
 
     if (isFormula) {
       const inputs = formulaInputs[key] || {};
-      const result = evalFormula(sc.formula, inputs);
+      const formulaKey = sc.formula_id as FormulaKey | undefined;
+      const hasStarted = Object.values(inputs).some(value => value !== '');
+      const evaluation = formulaKey && !sc.disabled_reason && hasStarted
+        ? evalFormula(formulaKey, inputs)
+        : {result: null, error: ''};
+      const result = evaluation.result;
 
       return (
         <div 
@@ -656,10 +574,23 @@ export default function App() {
           onClick={() => recordRecentlyViewed(key, sc.name, '16_score_calculators', 'calculator')}
           className={`p-4 rounded-xl border transition mb-4 cursor-pointer ${theme === 'dark' ? 'bg-[#0f1d1d] border-teal-900/40' : 'bg-white border-slate-200 shadow-sm'}`}
         >
-          <div className="flex items-center gap-2 mb-3">
-            <Calculator className="h-5 w-5 text-teal-400" />
-            <span className="font-bold text-md text-[#00d9b5]">{sc.name}</span>
+          <div className="flex items-center justify-between gap-2 mb-3">
+            <div className="flex items-center gap-2">
+              <Calculator className="h-5 w-5 text-teal-400" />
+              {renderScoreTitle()}
+            </div>
+            {renderScoreFavouriteButton(key)}
           </div>
+          {sc.disabled_reason && (
+            <div className="mb-3 rounded-lg border border-amber-500/40 bg-amber-950/20 p-3 text-xs text-amber-200" role="alert">
+              <strong>Calculation unavailable:</strong> {sc.disabled_reason}
+            </div>
+          )}
+          {sc.review_note && (
+            <div className="mb-3 text-[10px] leading-normal text-slate-400">
+              {sc.review_note}
+            </div>
+          )}
           <div className="space-y-3">
             {sc.inputs.map((inp: any) => (
               <div key={inp.key} className="flex items-center justify-between gap-4">
@@ -668,9 +599,12 @@ export default function App() {
                   <input
                     type="number"
                     step="any"
+                    min="0"
                     value={inputs[inp.key] || ''}
                     placeholder="--"
                     onChange={e => handleFormulaInputChange(key, inp.key, e.target.value)}
+                    disabled={Boolean(sc.disabled_reason)}
+                    aria-label={`${sc.name}: ${inp.name} (${inp.unit})`}
                     className="w-24 px-2 py-1 bg-black/20 border border-teal-800/40 rounded text-center text-sm text-teal-300 font-bold focus:outline-none focus:border-teal-400"
                   />
                   <span className="text-xs text-slate-400 w-12">{inp.unit}</span>
@@ -678,11 +612,19 @@ export default function App() {
               </div>
             ))}
           </div>
+          {evaluation.error && (
+            <div className="mt-3 rounded-lg border border-rose-500/40 bg-rose-950/20 p-2 text-xs text-rose-200" role="alert">
+              {evaluation.error}
+            </div>
+          )}
           {result !== null && (
-            <div className="mt-4 pt-3 border-t border-teal-900/20">
+            <div className="mt-4 pt-3 border-t border-teal-900/20" aria-live="polite">
               <div className="text-xs text-slate-400">Calculated Output:</div>
-              <div className="text-2xl font-black text-teal-400 mt-1">{result.toFixed(2)}</div>
-              {getFormulaResultDesc(key, result)}
+              <div className="text-2xl font-black text-teal-400 mt-1">
+                {result.value.toFixed(2)} <span className="text-sm">{result.unit}</span>
+              </div>
+              <div className="mt-1 text-[11px] text-slate-400">Working: {result.working}</div>
+              {getFormulaResultDesc(key, result.value)}
             </div>
           )}
         </div>
@@ -722,9 +664,12 @@ export default function App() {
           onClick={() => recordRecentlyViewed(key, sc.name, '16_score_calculators', 'calculator')}
           className={`p-4 rounded-xl border mb-4 cursor-pointer ${theme === 'dark' ? 'bg-[#0f1d1d] border-teal-900/40' : 'bg-white border-slate-200 shadow-sm'}`}
         >
-          <div className="flex items-center gap-2 mb-3">
-            <Calculator className="h-5 w-5 text-teal-400" />
-            <span className="font-bold text-md text-[#00d9b5]">{sc.name}</span>
+          <div className="flex items-center justify-between gap-2 mb-3">
+            <div className="flex items-center gap-2">
+              <Calculator className="h-5 w-5 text-teal-400" />
+              {renderScoreTitle()}
+            </div>
+            {renderScoreFavouriteButton(key)}
           </div>
 
           <div className="space-y-4">
@@ -779,9 +724,12 @@ export default function App() {
 
       return (
         <div key={key} className={`p-4 rounded-xl border mb-4 ${theme === 'dark' ? 'bg-[#0f1d1d] border-teal-900/40' : 'bg-white border-slate-200 shadow-sm'}`}>
-          <div className="flex items-center gap-2 mb-3">
-            <Calculator className="h-5 w-5 text-teal-400" />
-            <span className="font-bold text-md text-[#00d9b5]">{sc.name}</span>
+          <div className="flex items-center justify-between gap-2 mb-3">
+            <div className="flex items-center gap-2">
+              <Calculator className="h-5 w-5 text-teal-400" />
+              {renderScoreTitle()}
+            </div>
+            {renderScoreFavouriteButton(key)}
           </div>
 
           <div className="space-y-2">
@@ -832,19 +780,48 @@ export default function App() {
     }
 
     if (key === 'canadian_cspine') {
-      const isDangerous = sc.components.some((comp: any) => comp.dangerous && ccsState[comp.key] === true);
-      const isSimple = sc.components.some((comp: any) => comp.simple && ccsState[comp.key] === true);
+      const highRiskComponents = sc.components.filter((comp: any) => comp.dangerous);
+      const lowRiskComponents = sc.components.filter((comp: any) => comp.simple);
+      const highRiskComplete = highRiskComponents.every(
+        (comp: any) => ccsState[comp.key] !== undefined,
+      );
+      const lowRiskComplete = lowRiskComponents.every(
+        (comp: any) => ccsState[comp.key] !== undefined,
+      );
+      const isDangerous = highRiskComponents.some(
+        (comp: any) => ccsState[comp.key] === true,
+      );
+      const isSimple = lowRiskComponents.some(
+        (comp: any) => ccsState[comp.key] === true,
+      );
 
       return (
         <div key={key} className={`p-4 rounded-xl border mb-4 ${theme === 'dark' ? 'bg-[#0f1d1d] border-teal-900/40' : 'bg-white border-slate-200 shadow-sm'}`}>
-          <div className="flex items-center gap-2 mb-2">
-            <Calculator className="h-5 w-5 text-teal-400" />
-            <span className="font-bold text-md text-[#00d9b5]">{sc.name}</span>
+          <div className="flex items-center justify-between gap-2 mb-2">
+            <div className="flex items-center gap-2">
+              <Calculator className="h-5 w-5 text-teal-400" />
+              {renderScoreTitle()}
+            </div>
+            {renderScoreFavouriteButton(key)}
           </div>
 
-          <p className="text-[11px] text-slate-400 mb-3">Canadian C-Spine Rule for alert and stable trauma patients.</p>
+          <p className="text-[11px] text-slate-400 mb-3">HJH Canadian C-Spine workflow for eligible alert and stable trauma patients (PDF page 54).</p>
+          <div className="mb-3 rounded border border-amber-500/30 bg-amber-950/20 p-2 text-[10px] text-amber-100">
+            If the HJH Head Injury protocol indicates CT brain, the source pathway directs non-contrast CT brain and C-spine.
+          </div>
 
-          <div className="space-y-3">
+          <div className="mb-4 rounded-lg border border-teal-900/30 bg-black/10 p-3">
+            <div className="mb-2 text-xs font-bold text-teal-300">Applicability confirmed?</div>
+            <p className="mb-2 text-[10px] text-slate-400">
+              Trauma, GCS 15, stable vitals, age ≥16, no acute paralysis, no known vertebral disease or prior C-spine surgery, and not pregnant.
+            </p>
+            <div className="flex gap-2">
+              <button type="button" onClick={() => setCcsApplicable('no')} aria-pressed={ccsApplicable === 'no'} className={`rounded border px-3 py-1 text-xs ${ccsApplicable === 'no' ? 'border-rose-400 bg-rose-500/20 text-rose-200' : 'border-slate-700'}`}>No</button>
+              <button type="button" onClick={() => setCcsApplicable('yes')} aria-pressed={ccsApplicable === 'yes'} className={`rounded border px-3 py-1 text-xs ${ccsApplicable === 'yes' ? 'border-teal-400 bg-teal-500/20 text-teal-200' : 'border-slate-700'}`}>Yes</button>
+            </div>
+          </div>
+
+          {ccsApplicable === 'yes' && <div className="space-y-3">
             <div className="space-y-1.5">
               <div className="text-xs font-bold text-rose-400 uppercase tracking-wider">Step 1: Any High-Risk Factors?</div>
               {sc.components.filter((c: any) => c.dangerous).map((comp: any) => {
@@ -875,7 +852,7 @@ export default function App() {
               })}
             </div>
 
-            <div className="space-y-1.5">
+            {highRiskComplete && !isDangerous && <div className="space-y-1.5">
               <div className="text-xs font-bold text-teal-400 uppercase tracking-wider">Step 2: Any Low-Risk Factors?</div>
               {sc.components.filter((c: any) => c.simple).map((comp: any) => {
                 const currentVal = ccsState[comp.key];
@@ -903,21 +880,55 @@ export default function App() {
                   </div>
                 );
               })}
-            </div>
-          </div>
+            </div>}
+          </div>}
 
           <div className="mt-4 pt-3 border-t border-teal-900/20">
-            {isDangerous ? (
+            {ccsApplicable === 'no' ? (
+              <div className="p-3 bg-rose-950/20 border border-rose-500/20 text-rose-200 rounded-lg text-xs font-bold">
+                The Canadian C-Spine Rule is not applicable. Use clinical assessment and the appropriate imaging pathway.
+              </div>
+            ) : ccsApplicable !== 'yes' ? (
+              <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg text-xs text-slate-400">
+                Confirm applicability before entering criteria.
+              </div>
+            ) : isDangerous ? (
               <div className="p-3 bg-rose-950/20 border border-rose-500/20 text-rose-200 rounded-lg text-xs font-bold">
                 🔴 High risk factor present. Do NOT test range of motion. CT C-spine is indicated.
               </div>
-            ) : isSimple ? (
+            ) : !highRiskComplete ? (
+              <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg text-xs text-slate-400">
+                Complete all high-risk criteria first.
+              </div>
+            ) : !lowRiskComplete ? (
+              <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg text-xs text-slate-400">
+                Complete all low-risk criteria.
+              </div>
+            ) : !isSimple ? (
+              <div className="p-3 bg-rose-950/20 border border-rose-500/20 text-rose-200 rounded-lg text-xs font-bold">
+                No low-risk factor is present. Imaging is indicated in the HJH pathway.
+              </div>
+            ) : ccsRotation === 'unanswered' ? (
               <div className="p-3 bg-teal-950/20 border border-teal-500/20 text-teal-200 rounded-lg text-xs">
-                <strong>🟢 Low risk criteria present.</strong> Safe to clinically assess Range of Motion. If patient can rotate neck 45° left and right, C-spine may be clinically cleared.
+                <strong>Low-risk factor present.</strong>
+                <div className="my-2">Can the patient actively rotate the neck 45° left and right?</div>
+                <div className="flex gap-2">
+                  <button type="button" onClick={() => setCcsRotation('no')} className="rounded border border-rose-500 px-3 py-1">No</button>
+                  <button type="button" onClick={() => setCcsRotation('yes')} className="rounded border border-teal-500 px-3 py-1">Yes</button>
+                </div>
+              </div>
+            ) : ccsRotation === 'yes' ? (
+              <div className="p-3 bg-teal-950/20 border border-teal-500/20 text-teal-200 rounded-lg text-xs font-bold">
+                HJH pathway complete: no C-spine imaging required.
               </div>
             ) : (
+              <div className="p-3 bg-rose-950/20 border border-rose-500/20 text-rose-200 rounded-lg text-xs font-bold">
+                Unable to rotate 45° left and right: imaging is indicated.
+              </div>
+            )}
+            {ccsApplicable === 'yes' && highRiskComplete && !isDangerous && !lowRiskComplete && (
               <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg text-xs text-slate-400">
-                Provide criteria answers to evaluate low/high risk pathways.
+                Do not proceed to range-of-motion assessment until the low-risk section is complete.
               </div>
             )}
           </div>
@@ -926,13 +937,15 @@ export default function App() {
     }
 
     if (key === 'burch_wartofsky') {
-      const tempVal = burchWartofskyState.temp !== undefined ? burchWartofskyState.temp : null;
-      const cvsVal = burchWartofskyState.cvs !== undefined ? burchWartofskyState.cvs : null;
-      const cnsVal = burchWartofskyState.cns !== undefined ? burchWartofskyState.cns : null;
-      const giVal = burchWartofskyState.gi !== undefined ? burchWartofskyState.gi : null;
-
-      const totalBurch = (tempVal || 0) + (cvsVal || 0) + (cnsVal || 0) + (giVal || 0);
-      const isAllSelected = tempVal !== null && cvsVal !== null && cnsVal !== null && giVal !== null;
+      const componentKeys = sc.components.map((component: any) => component.key);
+      const isAllSelected = componentKeys.every(
+        (componentKey: string) => burchWartofskyState[componentKey] !== undefined,
+      );
+      const totalBurch = componentKeys.reduce(
+        (total: number, componentKey: string) =>
+          total + (burchWartofskyState[componentKey] ?? 0),
+        0,
+      );
 
       let burchLabel = 'Select values';
       let burchClass = 'text-slate-400 border-slate-800 bg-slate-900/50';
@@ -963,13 +976,16 @@ export default function App() {
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2">
               <Calculator className="h-5 w-5 text-teal-400" />
-              <span className="font-bold text-md text-[#00d9b5]">{sc.name}</span>
+              {renderScoreTitle()}
             </div>
-            {isAllSelected && (
-              <div className="px-2 py-0.5 rounded bg-teal-950 text-teal-300 border border-teal-800 text-xs font-bold">
-                Score: {totalBurch}
-              </div>
-            )}
+            <div className="flex items-center gap-2">
+              {isAllSelected && (
+                <div className="px-2 py-0.5 rounded bg-teal-950 text-teal-300 border border-teal-800 text-xs font-bold">
+                  Score: {totalBurch}
+                </div>
+              )}
+              {renderScoreFavouriteButton(key)}
+            </div>
           </div>
 
           <div className="space-y-4">
@@ -1005,6 +1021,9 @@ export default function App() {
             <div className="font-bold">{burchLabel}</div>
             <div className="text-xs mt-1 text-slate-300">{burchAction}</div>
           </div>
+          <div className="mt-2 text-[10px] text-amber-300">
+            Clinical review pending for source-table errata on HJH PDF page 190.
+          </div>
         </div>
       );
     }
@@ -1024,21 +1043,41 @@ export default function App() {
       key === 'perc' ? setPercState :
       key === 'curb65' ? setCurb65State : () => {};
 
-    const pointsSum = sc.components.reduce((acc: number, comp: any) => {
-      const cid = comp.key || comp.name;
-      const isChecked = currentScoresState[cid];
-      if (isChecked) {
-        return acc + (comp.points || 1);
-      }
-      return acc;
-    }, 0);
+    const checklistResult = calculateChecklistScore(
+      sc.components.map((comp: any) => ({
+        key: comp.key || comp.name,
+        points: comp.points,
+      })),
+      currentScoresState,
+    );
+    const pointsSum = checklistResult.score;
+    const answeredCount = checklistResult.answeredCount;
+    const isComplete = checklistResult.complete;
 
     const getScorerBadgeAndInterp = () => {
+      if (!isComplete) {
+        return (
+          <div className="mt-4 rounded-lg border border-slate-700 bg-slate-900/40 p-3 text-sm text-slate-300" aria-live="polite">
+            <div className="font-bold">Assessment incomplete</div>
+            <div className="mt-1 text-xs">{answeredCount} of {sc.components.length} criteria answered. No interpretation is available yet.</div>
+          </div>
+        );
+      }
+
       let severityClass = 'bg-teal-950/20 border-teal-500/20 text-teal-300';
       let title = 'Low risk';
       let desc = 'Reference standard guidelines.';
 
-      if (sc.interpretation) {
+      if (key === 'perc') {
+        if (pointsSum === 0) {
+          title = 'PERC Negative';
+          desc = 'All eight HJH PERC criteria have been explicitly confirmed as negative. Apply only within the HJH low-risk PE pathway.';
+        } else {
+          title = 'PERC Positive';
+          desc = `${pointsSum} positive criterion${pointsSum === 1 ? '' : 'a'}. Follow the HJH pulmonary embolism algorithm.`;
+          severityClass = 'bg-orange-950/20 border-orange-500/20 text-orange-300';
+        }
+      } else if (sc.interpretation) {
         const match = sc.interpretation.find((x: any) => pointsSum >= x.min && pointsSum <= x.max);
         if (match) {
           title = match.label;
@@ -1068,33 +1107,46 @@ export default function App() {
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
             <Calculator className="h-5 w-5 text-teal-400" />
-            <span className="font-bold text-md text-[#00d9b5]">{sc.name}</span>
+            {renderScoreTitle()}
           </div>
-          <div className="px-2 py-0.5 rounded bg-teal-950 text-teal-300 border border-teal-800 text-xs font-bold">
-            Score: {pointsSum}
+          <div className="flex items-center gap-2">
+            <div className="px-2 py-0.5 rounded bg-teal-950 text-teal-300 border border-teal-800 text-xs font-bold">
+              {isComplete ? `Score: ${pointsSum}` : `${answeredCount}/${sc.components.length} answered`}
+            </div>
+            {renderScoreFavouriteButton(key)}
           </div>
         </div>
 
         <div className="space-y-1.5">
           {sc.components.map((comp: any) => {
             const cid = comp.key || comp.name;
-            const isChecked = currentScoresState[cid] === true;
+            const answer = currentScoresState[cid] as CriterionAnswer | undefined;
             return (
               <div 
                 key={cid}
-                onClick={() => setCurrentScoresState((prev: any) => ({ ...prev, [cid]: !prev[cid] }))}
-                className={`flex items-center justify-between p-2 rounded-lg cursor-pointer transition ${
-                  isChecked ? 'bg-teal-500/10 border border-teal-500/30' : 'bg-black/10 border border-transparent hover:border-teal-950/40'
+                className={`flex items-center justify-between gap-3 p-2 rounded-lg transition ${
+                  answer === 'yes' ? 'bg-teal-500/10 border border-teal-500/30' : 'bg-black/10 border border-transparent'
                 }`}
               >
                 <span className="text-xs text-slate-300 pr-4">{comp.name}</span>
                 <div className="flex items-center gap-2 flex-shrink-0">
                   {comp.points && <span className="text-[10px] text-teal-400">+{comp.points}</span>}
-                  <div className={`w-4 h-4 rounded border flex items-center justify-center text-[10px] ${
-                    isChecked ? 'bg-teal-400 border-teal-400 text-black' : 'border-slate-600'
-                  }`}>
-                    {isChecked && '✓'}
-                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setCurrentScoresState((prev: any) => ({...prev, [cid]: 'no'}))}
+                    aria-pressed={answer === 'no'}
+                    className={`rounded border px-2 py-1 text-[10px] font-bold ${answer === 'no' ? 'border-teal-400 bg-teal-500/20 text-teal-200' : 'border-slate-700 text-slate-400'}`}
+                  >
+                    No
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setCurrentScoresState((prev: any) => ({...prev, [cid]: 'yes'}))}
+                    aria-pressed={answer === 'yes'}
+                    className={`rounded border px-2 py-1 text-[10px] font-bold ${answer === 'yes' ? 'border-rose-400 bg-rose-500/20 text-rose-200' : 'border-slate-700 text-slate-400'}`}
+                  >
+                    Yes
+                  </button>
                 </div>
               </div>
             );
@@ -1122,22 +1174,114 @@ export default function App() {
   };
 
   // Infusion calculator implementation inside cards
-  const renderInfusionCalculatorWidget = (drugName: string, item: any) => {
-    const key = drugName.replace(/\s+/g, '_');
-    const preset = getInfusionPreset(drugName);
-    
-    // Fallbacks for when no local state is set yet, initializing with standard clinical presets
-    const state = infusionDoses[key] || { 
-      dose: preset?.dose || '', 
-      conc: preset?.conc || '', 
-      weight: weight || '' 
+  const renderAtropineInfusionWidget = () => {
+    const key = 'atropine-percent';
+    const state = infusionDoses[key] || {dose: '', conc: '', weight: ''};
+    const totalDose = Number(state.dose);
+    const concentration = Number(state.conc);
+    const percentage = Number(state.weight);
+    const confirmed = infusionConfirmed[key] === true;
+    const valid = totalDose > 0 && concentration > 0 && percentage > 0;
+    const rate = confirmed && valid
+      ? (totalDose * percentage / 100) / concentration
+      : null;
+
+    const update = (field: 'dose' | 'conc' | 'weight', value: string) => {
+      setInfusionDoses(previous => ({
+        ...previous,
+        [key]: {...state, [field]: value},
+      }));
+      setInfusionConfirmed(previous => ({...previous, [key]: false}));
     };
+
+    return (
+      <div data-dark-surface className="mt-3 space-y-2 rounded-lg border border-teal-900/40 bg-[#071111] p-3 text-xs">
+        <div className="font-bold text-[#00d9b5]">Atropine maintenance infusion</div>
+        <div className="text-[10px] text-slate-400">
+          Protocol: 200 mg in 200 mL saline (1 mg/mL), run at 10–20% of the total atropinisation dose per hour.
+        </div>
+        <div className="grid grid-cols-3 gap-2">
+          <label className="text-[10px] text-slate-400">
+            Total dose given (mg)
+            <input
+              type="number"
+              min="0"
+              step="any"
+              value={state.dose}
+              onChange={event => update('dose', event.target.value)}
+              className="mt-1 w-full rounded border border-teal-800/30 bg-black/40 px-1.5 py-1 text-center font-bold text-teal-300"
+            />
+          </label>
+          <label className="text-[10px] text-slate-400">
+            Dose per hour (%)
+            <input
+              type="number"
+              min="10"
+              max="20"
+              step="any"
+              value={state.weight}
+              onChange={event => update('weight', event.target.value)}
+              placeholder="10–20"
+              className="mt-1 w-full rounded border border-teal-800/30 bg-black/40 px-1.5 py-1 text-center font-bold text-teal-300"
+            />
+          </label>
+          <label className="text-[10px] text-slate-400">
+            Actual conc. (mg/mL)
+            <input
+              type="number"
+              min="0"
+              step="any"
+              value={state.conc}
+              onChange={event => update('conc', event.target.value)}
+              placeholder="1"
+              className="mt-1 w-full rounded border border-teal-800/30 bg-black/40 px-1.5 py-1 text-center font-bold text-teal-300"
+            />
+          </label>
+        </div>
+        <label className="flex items-start gap-2 rounded border border-teal-900/30 p-2 text-[10px] text-slate-300">
+          <input
+            type="checkbox"
+            checked={confirmed}
+            onChange={event => setInfusionConfirmed(previous => ({
+              ...previous,
+              [key]: event.target.checked,
+            }))}
+          />
+          I have confirmed the total dose, selected percentage, and actual concentration.
+        </label>
+        {confirmed && !valid && (
+          <div className="text-[10px] text-rose-300">Complete all three inputs with values greater than zero.</div>
+        )}
+        {rate !== null && (
+          <div className="border-t border-teal-900/20 pt-2" aria-live="polite">
+            <strong className="text-sm text-teal-300">{formatCalculatedDose(rate)} mL/hr</strong>
+            <div className="text-[10px] text-slate-400">
+              ({totalDose} mg × {percentage}%) ÷ {concentration} mg/mL
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  const renderInfusionCalculatorWidget = (
+    presetOrDefinition: string | InfusionDefinition,
+  ) => {
+    if (presetOrDefinition === 'atropine_percent') {
+      return renderAtropineInfusionWidget();
+    }
+    const definition = typeof presetOrDefinition === 'string'
+      ? INFUSION_DEFINITIONS[presetOrDefinition]
+      : presetOrDefinition;
+    if (!definition) return null;
+    const key = definition.id;
+    const state = infusionDoses[key] || {dose: '', conc: '', weight: weight || ''};
 
     const updateInfusionState = (field: string, val: string) => {
       setInfusionDoses(prev => ({
         ...prev,
         [key]: {
-          ...(prev[key] || { dose: preset?.dose || '', conc: preset?.conc || '', weight: weight || '' }),
+          ...(prev[key] || {dose: '', conc: '', weight: weight || ''}),
           [field]: val
         }
       }));
@@ -1145,66 +1289,79 @@ export default function App() {
 
     const dVal = parseFloat(state.dose);
     const cVal = parseFloat(state.conc);
-    const wVal = parseFloat(state.weight) || parsedWeight || 70;
-    const unit = preset?.unit || 'mcg/kg/min';
-
-    let calculatedMLhr: number | null = null;
-    if (dVal > 0 && cVal > 0) {
-      if (unit === 'mcg/kg/min') {
-        calculatedMLhr = (dVal * wVal * 60) / (cVal * 1000);
-      } else if (unit === 'mcg/min') {
-        calculatedMLhr = (dVal * 60) / (cVal * 1000);
-      } else if (unit === 'mg/hr') {
-        calculatedMLhr = dVal / cVal;
-      } else if (unit === 'mg/kg/hr' || unit === 'units/kg/hr') {
-        calculatedMLhr = (dVal * wVal) / cVal;
-      } else if (unit === 'mg/min') {
-        calculatedMLhr = (dVal * 60) / cVal;
+    const wVal = parseFloat(state.weight);
+    let result: ReturnType<typeof calculateInfusionRate> | null = null;
+    let calculationError = '';
+    if (infusionConfirmed[key]) {
+      try {
+        result = calculateInfusionRate(definition, {
+          dose: dVal,
+          concentration: cVal,
+          weight: definition.requiresWeight ? wVal : undefined,
+        });
+      } catch (error) {
+        calculationError = error instanceof Error ? error.message : 'Unable to calculate';
       }
     }
 
-    const calculatedGttMin = calculatedMLhr ? (calculatedMLhr * 20) / 60 : null; // 20 drops/mL standard IV set
-
     return (
-      <div className="mt-3 p-3 rounded-lg bg-black/35 border border-teal-900/40 text-xs space-y-2">
+      <div data-dark-surface className="mt-3 p-3 rounded-lg bg-[#071111] border border-teal-900/40 text-xs space-y-2">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-1.5 text-[#00d9b5] font-bold">
             <Activity className="h-3.5 w-3.5 animate-pulse" />
-            <span>Infusion Rate Calculator</span>
+            <span>{definition.title}</span>
           </div>
-          {preset && (
-            <span className="text-[10px] px-1.5 py-0.5 rounded bg-teal-950/50 text-teal-400 font-bold border border-teal-900/30">
-              {preset.unit} preset
-            </span>
-          )}
+          <span className="text-[10px] px-1.5 py-0.5 rounded bg-teal-950/50 text-teal-400 font-bold border border-teal-900/30">
+            {definition.doseUnit}
+          </span>
         </div>
 
-        {preset && (
-          <div className="text-[10px] text-slate-400 space-y-0.5 border-b border-teal-950/30 pb-2 mb-2">
-            <div><span className="text-teal-400 font-medium">Standard Dilution:</span> {preset.dilutionDesc}</div>
-            <div><span className="text-teal-400 font-medium">Therapeutic Range:</span> {preset.dosesDesc}</div>
+        <div className="text-[10px] text-slate-400 space-y-0.5 border-b border-teal-950/30 pb-2 mb-2">
+          <div><span className="text-teal-400 font-medium">Source preparation:</span> {definition.preparation}</div>
+          <div><span className="text-teal-400 font-medium">Configured range:</span> {definition.minimumDose}–{definition.maximumDose} {definition.doseUnit}</div>
+          <div><span className="text-teal-400 font-medium">Source:</span> {definition.sourceId}{definition.pdfPages.length > 0 ? `, PDF page ${definition.pdfPages.join(', ')}` : ''}</div>
+        </div>
+
+        {definition.warnings.length > 0 && (
+          <details className="rounded border border-slate-800 px-2 py-1 text-[10px] text-slate-400">
+            <summary className="cursor-pointer">Protocol notes</summary>
+            <ul className="mt-1 list-disc space-y-1 pl-4">
+              {definition.warnings.map(note => <li key={note}>{note}</li>)}
+            </ul>
+          </details>
+        )}
+
+        {definition.status === 'blocked' && (
+          <div className="rounded border border-amber-500/40 bg-amber-950/20 p-2 text-amber-200" role="alert">
+            <strong>Unavailable:</strong> {definition.blockedReason}
           </div>
         )}
 
-        <div className="grid grid-cols-3 gap-2">
+        {definition.status === 'available' && <div className="grid grid-cols-3 gap-2">
           <div>
-            <label className="text-[10px] text-slate-400 block mb-0.5">Target Dose ({unit})</label>
+            <label className="text-[10px] text-slate-400 block mb-0.5">Target Dose ({definition.doseUnit})</label>
             <input
               type="number"
               value={state.dose}
-              placeholder={preset?.dose || "Dose"}
+              min="0"
+              step="any"
+              placeholder="Required"
               onChange={e => updateInfusionState('dose', e.target.value)}
               className="w-full px-1.5 py-1 bg-black/40 border border-teal-800/30 rounded text-center text-teal-300 font-bold focus:outline-none focus:border-teal-500"
             />
           </div>
           <div>
-            <label className="text-[10px] text-slate-400 block mb-0.5">Conc ({unit.includes('units') ? 'units/mL' : 'mg/mL'})</label>
+            <label className="text-[10px] text-slate-400 block mb-0.5">Actual Conc ({definition.concentrationUnit})</label>
             <input
               type="number"
               value={state.conc}
               step="any"
-              placeholder={preset?.conc || "Conc"}
-              onChange={e => updateInfusionState('conc', e.target.value)}
+              min="0"
+              placeholder={definition.concentration.toString()}
+              onChange={e => {
+                updateInfusionState('conc', e.target.value);
+                setInfusionConfirmed(prev => ({...prev, [key]: false}));
+              }}
               className="w-full px-1.5 py-1 bg-black/40 border border-teal-800/30 rounded text-center text-teal-300 font-bold focus:outline-none focus:border-teal-500"
             />
           </div>
@@ -1213,23 +1370,39 @@ export default function App() {
             <input
               type="number"
               value={state.weight}
-              placeholder={wVal.toString()}
+              min="0"
+              step="any"
+              disabled={!definition.requiresWeight}
+              placeholder={definition.requiresWeight ? 'Required' : 'N/A'}
               onChange={e => updateInfusionState('weight', e.target.value)}
               className="w-full px-1.5 py-1 bg-black/40 border border-teal-800/30 rounded text-center text-teal-300 font-bold focus:outline-none focus:border-teal-500"
             />
           </div>
-        </div>
+        </div>}
 
-        {calculatedMLhr !== null && (
-          <div className="pt-2 border-t border-teal-900/20 flex items-center justify-between gap-2">
+        {definition.status === 'available' && (
+          <label className="flex cursor-pointer items-start gap-2 rounded border border-teal-900/30 p-2 text-[10px] text-slate-300">
+            <input
+              type="checkbox"
+              checked={infusionConfirmed[key] === true}
+              onChange={event => setInfusionConfirmed(prev => ({...prev, [key]: event.target.checked}))}
+            />
+            I have confirmed the actual prepared concentration and patient-specific inputs.
+          </label>
+        )}
+
+        {calculationError && (
+          <div className="rounded border border-rose-500/40 bg-rose-950/20 p-2 text-rose-200" role="alert">{calculationError}</div>
+        )}
+
+        {result !== null && (
+          <div className="pt-2 border-t border-teal-900/20 space-y-2" aria-live="polite">
             <div>
               <span className="text-[10px] text-slate-400 block font-medium">Infusion Rate:</span>
-              <strong className="text-teal-300 font-black text-sm">{calculatedMLhr.toFixed(1)} mL/hr</strong>
+              <strong className="text-teal-300 font-black text-sm">{result.mlPerHour.toFixed(1)} mL/hr</strong>
             </div>
-            <div>
-              <span className="text-[10px] text-slate-400 block font-medium">Drip Rate (20 gtt/mL):</span>
-              <strong className="text-teal-400 font-bold">{calculatedGttMin ? calculatedGttMin.toFixed(0) : '0'} drops/min</strong>
-            </div>
+            <div className="text-[10px] text-slate-400">Working: {result.working}</div>
+            {result.outsideRecommendedRange && <div className="font-bold text-rose-300">Entered dose is outside the configured source range.</div>}
           </div>
         )}
       </div>
@@ -1243,6 +1416,38 @@ export default function App() {
     const n = it.item || it.drug || it.condition_or_drug || it.poison_or_drug || it.antidote_treatment || it.product || '';
     const nt = it.notes_updates || it.notes || '';
     const ntLower = nt.toLowerCase();
+    const adultDoseText = String(it.adult_dose || it.adult_settings || '');
+    const paediatricDoseText = String(it.paediatric_dose || it.paediatric_settings || '');
+    const protocolDoseText = String(it.protocol_dose || '');
+    const primarySource = it?._meta?.sourceRefs?.[0];
+    const dynamicInfusions = it?._meta?.infusionPresetId
+      ? []
+      : [
+          infusionDefinitionFromDoseText(
+            `${key}.adult-infusion`,
+            `${n} adult infusion`,
+            adultDoseText,
+            it.standard_dilutions,
+            primarySource?.sourceId ?? 'source-unresolved',
+            primarySource?.pdfPages ?? [],
+          ),
+          infusionDefinitionFromDoseText(
+            `${key}.paediatric-infusion`,
+            `${n} paediatric infusion`,
+            paediatricDoseText,
+            it.standard_dilutions,
+            primarySource?.sourceId ?? 'source-unresolved',
+            primarySource?.pdfPages ?? [],
+          ),
+          infusionDefinitionFromDoseText(
+            `${key}.protocol-infusion`,
+            `${n} protocol infusion`,
+            protocolDoseText,
+            it.standard_dilutions,
+            primarySource?.sourceId ?? 'source-unresolved',
+            primarySource?.pdfPages ?? [],
+          ),
+        ].filter((definition): definition is InfusionDefinition => Boolean(definition));
 
     // Check tags
     const isFirstLine = ntLower.includes('first-line');
@@ -1283,11 +1488,7 @@ export default function App() {
               <span className="text-[10px] uppercase font-black bg-slate-800 text-slate-300 px-1.5 py-0.5 rounded flex-shrink-0 mt-0.5 w-6 text-center">A</span>
               <div className="text-slate-300 flex-1 leading-relaxed">
                 {it.adult_dose || it.adult_settings}
-                {parsedWeight > 0 && (it.adult_dose || '').toLowerCase().includes('/kg') && (
-                  <div className="text-teal-400 text-xs font-bold mt-1">
-                    ⚡ Weight Calculated: {calcWeightDose(it.adult_dose || '', parsedWeight)} (for {parsedWeight}kg)
-                  </div>
-                )}
+                {renderWeightDoseSummary(adultDoseText, 'Adult')}
               </div>
             </div>
           )}
@@ -1297,11 +1498,7 @@ export default function App() {
               <span className="text-[10px] uppercase font-black bg-[#135050] text-[#00d9b5] px-1.5 py-0.5 rounded flex-shrink-0 mt-0.5 w-6 text-center">P</span>
               <div className="text-[#00d9b5] flex-1 leading-relaxed">
                 {it.paediatric_dose || it.paediatric_settings}
-                {parsedWeight > 0 && (it.paediatric_dose || '').toLowerCase().includes('/kg') && (
-                  <div className="text-teal-400 text-xs font-bold mt-1">
-                    ⚡ Weight Calculated: {calcWeightDose(it.paediatric_dose || '', parsedWeight)} (for {parsedWeight}kg)
-                  </div>
-                )}
+                {renderWeightDoseSummary(paediatricDoseText, 'Paediatric')}
               </div>
             </div>
           )}
@@ -1309,12 +1506,20 @@ export default function App() {
           {it.protocol_dose && (
             <div className="flex items-start gap-2.5 text-sm">
               <span className="text-[10px] uppercase font-black bg-purple-950/40 text-purple-300 border border-purple-900/30 px-1.5 py-0.5 rounded flex-shrink-0 mt-0.5 w-6 text-center">Rx</span>
-              <span className="text-slate-300 flex-1 leading-relaxed">{it.protocol_dose}</span>
+              <span className="text-slate-300 flex-1 leading-relaxed">
+                {it.protocol_dose}
+                {renderWeightDoseSummary(protocolDoseText, 'Protocol')}
+              </span>
             </div>
           )}
 
           {/* Inline Infusion Widget */}
-          {isInfusionDrug(n, it) && renderInfusionCalculatorWidget(n, it)}
+          {it?._meta?.infusionPresetId && renderInfusionCalculatorWidget(it._meta.infusionPresetId)}
+          {dynamicInfusions.map(definition => (
+            <React.Fragment key={definition.id}>
+              {renderInfusionCalculatorWidget(definition)}
+            </React.Fragment>
+          ))}
 
           {/* Formula Display */}
           {it.formula && (
@@ -1337,6 +1542,19 @@ export default function App() {
               'bg-black/10 border-teal-950/20 text-slate-400'
             }`}>
               {nt}
+              {renderWeightDoseSummary(nt, 'Weight calculation')}
+            </div>
+          )}
+
+          {it?._meta?.sourceRefs?.length > 0 && (
+            <div className="mt-3 border-t border-teal-950/30 pt-2 text-[10px] text-slate-500">
+              {it._meta.sourceRefs.map((source: any) => (
+                <div key={`${source.sourceId}-${source.pdfPages.join('-')}`}>
+                  Source: {source.sourceId}
+                  {source.pdfPages.length > 0 ? ` · PDF page${source.pdfPages.length > 1 ? 's' : ''} ${source.pdfPages.join(', ')}` : ' · mapping required'}
+                  {' · '}Review: {it._meta.reviewState}
+                </div>
+              ))}
             </div>
           )}
         </div>
@@ -1362,6 +1580,16 @@ export default function App() {
             toggleProtocol(key);
             recordRecentlyViewed(key, p.item, cat, 'procedure');
           }}
+          onKeyDown={event => {
+            if (event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault();
+              toggleProtocol(key);
+              recordRecentlyViewed(key, p.item, cat, 'procedure');
+            }
+          }}
+          role="button"
+          tabIndex={0}
+          aria-expanded={isExpanded}
           className="flex items-start justify-between gap-4 cursor-pointer"
         >
           <div className="flex items-center gap-2">
@@ -1404,20 +1632,25 @@ export default function App() {
                   {p.checklist_items.map((item: string) => {
                     const isChecked = checklistStatus[key + '::' + item] === true;
                     return (
-                      <div 
+                      <label
                         key={item}
-                        onClick={() => setChecklistStatus(prev => ({ ...prev, [key + '::' + item]: !prev[key + '::' + item] }))}
                         className={`flex items-center gap-2.5 p-2 rounded-lg cursor-pointer transition ${
                           isChecked ? 'bg-teal-500/10 text-slate-400 line-through' : 'bg-black/10 text-slate-200'
                         }`}
                       >
+                        <input
+                          type="checkbox"
+                          checked={isChecked}
+                          onChange={() => setChecklistStatus(prev => ({ ...prev, [key + '::' + item]: !prev[key + '::' + item] }))}
+                          className="sr-only"
+                        />
                         <div className={`w-4 h-4 rounded border flex items-center justify-center text-[10px] flex-shrink-0 ${
                           isChecked ? 'bg-teal-400 border-teal-400 text-black' : 'border-slate-600'
                         }`}>
                           {isChecked && '✓'}
                         </div>
                         <span className="text-xs leading-normal">{item}</span>
-                      </div>
+                      </label>
                     );
                   })}
                 </div>
@@ -1437,15 +1670,32 @@ export default function App() {
               <div className="space-y-2">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Step-by-step Timeline</span>
                 <div className="relative border-l border-teal-900/40 pl-4 ml-2 space-y-4">
-                  {p.management_steps.map((s: any) => (
+                  {p.management_steps.map((s: any) => {
+                    const stepDetails = String(s.details || '');
+                    const source = p?._meta?.sourceRefs?.[0];
+                    const stepInfusion = infusionDefinitionFromDoseText(
+                      `${key}.step-${s.step_number}-infusion`,
+                      `${p.item}: ${s.action}`,
+                      stepDetails,
+                      undefined,
+                      source?.sourceId ?? 'source-unresolved',
+                      source?.pdfPages ?? [],
+                    );
+                    return (
                     <div key={s.step_number} className="relative">
                       <div className="absolute -left-[21px] top-1 bg-teal-400 text-black w-4.5 h-4.5 rounded-full flex items-center justify-center font-bold text-[9px]">
                         {s.step_number}
                       </div>
                       <div className="font-bold text-xs text-teal-300">{s.action}</div>
-                      {s.details && <div className="text-xs text-slate-400 mt-0.5 leading-relaxed">{s.details}</div>}
+                      {s.details && (
+                        <div className="text-xs text-slate-400 mt-0.5 leading-relaxed">
+                          {s.details}
+                          {renderWeightDoseSummary(stepDetails, 'Weight calculation')}
+                        </div>
+                      )}
+                      {stepInfusion && renderInfusionCalculatorWidget(stepInfusion)}
                     </div>
-                  ))}
+                  )})}
                 </div>
               </div>
             )}
@@ -1454,12 +1704,55 @@ export default function App() {
             {p.notes_updates && (
               <div className="p-3 rounded-lg bg-black/20 border border-teal-950/20 text-xs leading-relaxed text-slate-400">
                 {p.notes_updates}
+                {renderWeightDoseSummary(String(p.notes_updates), 'Weight calculation')}
+              </div>
+            )}
+
+            {p?._meta?.warnings?.length > 0 && (
+              <div className="space-y-2">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-rose-300">Warnings and contraindications</span>
+                {p._meta.warnings.map((warning: any) => (
+                  <div
+                    key={warning.id}
+                    role="alert"
+                    className={`rounded-lg border p-3 text-xs leading-relaxed ${
+                      warning.severity === 'critical'
+                        ? 'border-rose-500/40 bg-rose-950/30 text-rose-100'
+                        : warning.severity === 'caution'
+                          ? 'border-amber-500/40 bg-amber-950/20 text-amber-100'
+                          : 'border-blue-500/30 bg-blue-950/20 text-blue-100'
+                    }`}
+                  >
+                    {warning.text}
+                    {renderWeightDoseSummary(String(warning.text), 'Weight calculation')}
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {p?._meta?.sourceRefs?.length > 0 && (
+              <div className="border-t border-teal-900/20 pt-2 text-[10px] text-slate-500">
+                {p._meta.sourceRefs.map((source: any) => (
+                  <div key={`${source.sourceId}-${source.pdfPages.join('-')}`}>
+                    Source: {source.sourceId}
+                    {source.pdfPages.length > 0 ? ` · PDF page${source.pdfPages.length > 1 ? 's' : ''} ${source.pdfPages.join(', ')}` : ' · page mapping required'}
+                    {' · '}Review: {p._meta.reviewState}
+                  </div>
+                ))}
               </div>
             )}
           </div>
         )}
       </div>
     );
+  };
+
+  const renderClinicalEntryCard = (entry: any, cat: string) => {
+    const type = entry?._meta?.type;
+    if (type === 'protocol' || type === 'procedure' || entry?.protocol_type === 'ed_protocol') {
+      return renderEDProcedureCard(entry, cat);
+    }
+    return renderDrugCard(entry, cat);
   };
 
   // Re-usable component to render sub-headers of categories
@@ -1488,17 +1781,27 @@ export default function App() {
             const itemName = item.item || item.drug || item.condition_or_drug || item.poison_or_drug || item.antidote_treatment || item.product || '';
             const matchName = itemName.toLowerCase().includes(searchQuery.toLowerCase());
             const matchNotes = (item.notes_updates || item.notes || '').toLowerCase().includes(searchQuery.toLowerCase());
+            const matchStructuredContent = JSON.stringify({
+              management_steps: item.management_steps,
+              equipment: item.equipment,
+              warnings: item.warnings,
+              drugs: item.drugs,
+              standard_dilutions: item.standard_dilutions,
+              adult_dose: item.adult_dose,
+              paediatric_dose: item.paediatric_dose,
+            }).toLowerCase().includes(searchQuery.toLowerCase());
 
-            if (!searchQuery || matchName || matchNotes) {
+            if (!searchQuery || matchName || matchNotes || matchStructuredContent) {
               matchedItems.push({ item, subCategory: sk });
             }
           });
         } else if (sv && typeof sv === 'object') {
-          const itemName = sv.item || sv.drug || sv.condition_or_drug || '';
-          const matchName = itemName.toLowerCase().includes(searchQuery.toLowerCase());
-          const matchNotes = (sv.notes_updates || sv.notes || '').toLowerCase().includes(searchQuery.toLowerCase());
+            const itemName = sv.item || sv.drug || sv.condition_or_drug || '';
+            const matchName = itemName.toLowerCase().includes(searchQuery.toLowerCase());
+            const matchNotes = (sv.notes_updates || sv.notes || '').toLowerCase().includes(searchQuery.toLowerCase());
+            const matchStructuredContent = JSON.stringify(sv).toLowerCase().includes(searchQuery.toLowerCase());
 
-          if (!searchQuery || matchName || matchNotes) {
+            if (!searchQuery || matchName || matchNotes || matchStructuredContent) {
             matchedItems.push({ item: sv, subCategory: sk });
           }
         }
@@ -1508,7 +1811,7 @@ export default function App() {
     // Filter favorites
     const finalItems = matchedItems.filter(entry => {
       if (selectedCategory === 'favourites') {
-        const entryKey = entry.sc ? `16_score_calculators::${entry.sc.name}` : getEntryKey(entry.item, catKey);
+        const entryKey = entry.sc ? scoreFavouriteKey(entry.key) : getEntryKey(entry.item, catKey);
         return isFavourite(entryKey);
       }
       return true;
@@ -1523,11 +1826,13 @@ export default function App() {
           theme === 'dark' ? 'bg-[#081212] border-teal-950/60' : 'bg-white border-slate-200'
         }`}
       >
-        <div 
+        <button
+          type="button"
           onClick={() => toggleCategory(catKey)}
+          aria-expanded={isExpanded}
           className={`flex items-center justify-between px-4 py-3 cursor-pointer select-none transition ${
             theme === 'dark' ? 'bg-[#0d2222]/80 hover:bg-[#112a22]' : 'bg-slate-100 hover:bg-slate-200'
-          }`}
+          } w-full text-left`}
         >
           <div className="flex items-center gap-2.5">
             <span className="text-xl">{CATEGORY_ICONS[catKey] || '📋'}</span>
@@ -1537,14 +1842,14 @@ export default function App() {
             </span>
           </div>
           <ChevronDown className={`h-5 w-5 text-slate-400 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} />
-        </div>
+        </button>
 
         {isExpanded && (
           <div className="p-4 space-y-4">
             {catKey === '16_score_calculators' ? (
-              renderScores(catData)
+              renderScores(Object.fromEntries(finalItems.map(entry => [entry.key, entry.sc])))
             ) : catKey === '15_ed_procedures' ? (
-              finalItems.map(entry => renderEDProcedureCard(entry.item, catKey))
+              finalItems.map(entry => renderClinicalEntryCard(entry.item, catKey))
             ) : (
               // Group normal entries by subCategory
               (Object.entries(
@@ -1560,16 +1865,18 @@ export default function App() {
 
                 return (
                   <div key={subCatName} className="space-y-2 border-l border-teal-950/20 pl-3">
-                    <div 
+                    <button
+                      type="button"
                       onClick={() => setExpandedSubCategories(prev => ({ ...prev, [subCatKey]: !isSubCatExpanded }))}
-                      className="text-xs font-bold text-teal-400 uppercase tracking-widest border-b border-teal-950/20 pb-1.5 mb-2 flex items-center justify-between cursor-pointer select-none hover:text-teal-300 transition-colors"
+                      aria-expanded={isSubCatExpanded}
+                      className="w-full text-left text-xs font-bold text-teal-400 uppercase tracking-widest border-b border-teal-950/20 pb-1.5 mb-2 flex items-center justify-between cursor-pointer select-none hover:text-teal-300 transition-colors"
                     >
                       <span>{subCatName.replace(/_/g, ' ')}</span>
                       <ChevronDown className={`h-3.5 w-3.5 text-slate-400 transition-transform duration-200 ${isSubCatExpanded ? 'rotate-180' : ''}`} />
-                    </div>
+                    </button>
                     {isSubCatExpanded && (
                       <div className="space-y-2">
-                        {subCatItems.map(it => renderDrugCard(it, catKey))}
+                        {subCatItems.map(it => renderClinicalEntryCard(it, catKey))}
                       </div>
                     )}
                   </div>
@@ -1718,31 +2025,21 @@ export default function App() {
     return renderCategorySect(selectedCategory);
   };
 
-  // Short naming vars for backwards-compatibility or easy sync
-  const act = selectedCategory;
-  const setCat = setSelectedCategory;
-  const q = searchQuery;
-  const setQ = setSearchQuery;
-  const W = weight;
-  const sW = setWeight;
-  const D_keys = ORDER;
-  const TAB_NAMES = CATEGORIES;
-  const I = CATEGORY_ICONS;
-  const C = CATEGORIES;
-
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${theme === 'dark' ? 'bg-[#0a1414] text-slate-100' : 'bg-slate-50 text-slate-900'}`}>
+    <div className={`min-h-screen transition-colors duration-300 ${theme === 'dark' ? 'theme-dark bg-[#0a1414] text-slate-100' : 'theme-light bg-slate-50 text-slate-900'}`}>
       
       {/* HEADER */}
       <header className={`sticky top-0 z-50 px-4 py-3 flex items-center justify-between shadow-md transition-colors duration-300 ${theme === 'dark' ? 'bg-[#0f2424] border-b border-[#1c3838]' : 'bg-[#0d3b3b] text-white border-b border-[#135050]'}`}>
         <div className="flex items-center gap-2">
           <Activity className="h-6 w-6 text-[#00d9b5] animate-pulse" />
           <h1 className="text-2xl font-extrabold font-sans tracking-tight">Tit<span className="text-[#00d9b5]">rate</span></h1>
-          <span className="text-[10px] bg-[#165252] text-[#00d9b5] font-bold px-1.5 py-0.5 rounded ml-1">v4.4</span>
+          <span className="ml-1 rounded bg-slate-700/70 px-1.5 py-0.5 text-[10px] font-bold text-slate-300">REVIEW</span>
         </div>
         <div className="flex items-center gap-3">
           <button 
+            ref={aboutTriggerRef}
             onClick={() => setAboutOpen(true)}
+            aria-label="About, clinical status, and sources"
             className="p-1.5 rounded-full hover:bg-white/10 transition-colors"
             title="About / Clinical Sources"
           >
@@ -1750,6 +2047,7 @@ export default function App() {
           </button>
           <button 
             onClick={() => setTheme(theme => theme === 'light' ? 'dark' : 'light')}
+            aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
             id="theme-tog"
             className="p-1.5 rounded-full bg-white/5 hover:bg-white/15 transition"
             title="Toggle Theme"
@@ -1771,6 +2069,7 @@ export default function App() {
             value={searchQuery} 
             onChange={e => setSearchQuery(e.target.value)}
             placeholder="Search drug, protocol, score..." 
+            aria-label="Search clinical reference"
             className={`w-full pl-9 pr-3 py-1.5 rounded-lg text-sm transition focus:outline-none ${
               theme === 'dark' 
                 ? 'bg-black/30 border border-teal-950 text-slate-100 focus:border-teal-400' 
@@ -1788,6 +2087,7 @@ export default function App() {
             min="0"
             value={weight}
             onChange={e => setWeight(e.target.value)}
+            aria-label="Patient weight in kilograms"
             className={`w-16 p-1 text-center font-bold text-sm rounded ${
               theme === 'dark' 
                 ? 'bg-black/30 border border-teal-950 text-[#00d9b5]' 
@@ -1873,13 +2173,14 @@ export default function App() {
 
       {/* FOOTER */}
       <footer className="text-center py-8 text-xs opacity-60">
-        Created by Tashriq Hendricks &amp; Kimi · Helen Joseph Hospital guidelines © 2026
+        Titrate validation prototype · Clinical content rights remain with the respective source owners
       </footer>
 
       {/* TO TOP BUTTON */}
       {showScrollTop && (
         <button 
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          aria-label="Scroll to top"
           className="fixed bottom-6 right-6 p-3 rounded-full bg-teal-400 hover:bg-teal-300 text-black shadow-lg transition-transform active:scale-95 z-50 cursor-pointer"
         >
           ↑
@@ -1888,18 +2189,22 @@ export default function App() {
 
       {/* ABOUT / CLINICAL REFERENCE MODAL */}
       {aboutOpen && (
-        <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-          <div className="bg-slate-900 border border-teal-500/30 text-slate-100 rounded-xl max-w-lg w-full p-6 max-h-[85vh] overflow-y-auto shadow-2xl relative">
+        <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4" role="dialog" aria-modal="true" aria-labelledby="about-title">
+          <div ref={aboutDialogRef} className="bg-slate-900 border border-teal-500/30 text-slate-100 rounded-xl max-w-lg w-full p-6 max-h-[85vh] overflow-y-auto shadow-2xl relative">
             <button 
               onClick={() => setAboutOpen(false)}
+              aria-label="Close about dialog"
               className="absolute top-4 right-4 text-slate-400 hover:text-white text-xl"
             >
               ✕
             </button>
-            <h2 className="text-xl font-bold border-b border-teal-500/20 pb-2 mb-4 text-[#00d9b5]">Titrate Reference App</h2>
+            <h2 id="about-title" className="text-xl font-bold border-b border-teal-500/20 pb-2 mb-4 text-[#00d9b5]">Titrate Reference App</h2>
             <div className="space-y-4 text-sm leading-relaxed text-slate-300">
               <p>
                 <strong>Titrate</strong> is a specialized clinical reference database designed for rapid dosing, protocol exploration, and medical calculation in high-acuity environments (ICU and Emergency Department).
+              </p>
+              <p className="text-xs text-slate-400">
+                <strong>Clinical status:</strong> Protocol transcription in review. HJH is largely adult-focused and refers paediatric users to RMMCH protocols.
               </p>
               <div>
                 <h3 className="font-bold text-white mb-1 font-sans">🏥 Primary Data Sources</h3>
