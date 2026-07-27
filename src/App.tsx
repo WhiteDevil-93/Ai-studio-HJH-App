@@ -9,8 +9,9 @@ import {
   Star, Search, Scale, ChevronDown, Check,
   AlertTriangle, Moon, Sun, BookOpen,
   Calculator, Stethoscope, Activity, Heart, ShieldAlert,
-  Info, Sparkles, CheckSquare, Plus, RefreshCw, Clock, Home, Menu, X
+  Info, Sparkles, CheckSquare, Plus, RefreshCw, Clock, Home, Menu, X, Smartphone, Download
 } from 'lucide-react';
+import { PWAInstallPrompt, usePWAInstall } from './components/PWAInstallPrompt';
 import {
   clinicalData,
   getAssociatedDiseasesForDrug,
@@ -183,6 +184,8 @@ interface DrugItem {
 
 
 export default function App() {
+  const { canInstall, triggerInstall } = usePWAInstall();
+
   // Theme state
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     const stored = localStorage.getItem('tr_theme');
@@ -2687,6 +2690,19 @@ export default function App() {
                   <span>→</span>
                 </button>
 
+                {/* PWA Install App Button */}
+                <button
+                  type="button"
+                  onClick={() => { triggerInstall(); setSidebarOpen(false); }}
+                  className="w-full flex items-center justify-between p-3 rounded-xl bg-indigo-600/90 hover:bg-indigo-500 text-white font-bold text-xs shadow-md transition-all cursor-pointer border border-indigo-400/30"
+                >
+                  <div className="flex items-center gap-2.5">
+                    <Smartphone className="w-4 h-4 text-indigo-200" />
+                    <span>INSTALL ASCLEPIUS PWA APP</span>
+                  </div>
+                  <Download className="w-4 h-4" />
+                </button>
+
                 {/* Patient Weight Config & Quick Presets */}
                 <div className="space-y-2 p-3.5 rounded-xl bg-slate-800/60 border border-slate-700/50">
                   <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
@@ -3044,6 +3060,9 @@ export default function App() {
           setActivePolicy(null);
         }}
       />
+
+      {/* PWA Installation Prompt Banner & Modal */}
+      <PWAInstallPrompt />
     </div>
   );
 }
