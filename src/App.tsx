@@ -2390,7 +2390,7 @@ export default function App() {
       <header className={`sticky top-0 z-50 px-4 py-3 flex items-center justify-between shadow-md transition-colors duration-300 ${theme === 'dark' ? 'bg-[#0f2424] border-b border-[#1c3838]' : 'bg-[#0d3b3b] text-white border-b border-[#135050]'}`}>
         <div className="flex items-center gap-2">
           <Activity className="h-6 w-6 text-[#00d9b5] animate-pulse" />
-          <h1 className="text-2xl font-extrabold font-sans tracking-tight">Tit<span className="text-[#00d9b5]">rate</span></h1>
+          <h1 className="text-2xl font-extrabold font-sans tracking-tight">Asclep<span className="text-[#00d9b5]">ius</span></h1>
           <span className="ml-1 rounded bg-slate-700/70 px-1.5 py-0.5 text-[10px] font-bold text-slate-300">CLINICAL REFERENCE</span>
         </div>
         <div className="flex items-center gap-3">
@@ -2564,7 +2564,7 @@ export default function App() {
 
       {/* FOOTER */}
       <footer className="text-center py-8 text-xs opacity-60">
-        Titrate validation prototype · Clinical content rights remain with the respective source owners
+        Asclepius validation prototype · Clinical content rights remain with the respective source owners
       </footer>
 
       {/* TO TOP BUTTON */}
@@ -2589,10 +2589,10 @@ export default function App() {
             >
               ✕
             </button>
-            <h2 id="about-title" className="text-xl font-bold border-b border-teal-500/20 pb-2 mb-4 text-[#00d9b5]">Titrate Reference App</h2>
+            <h2 id="about-title" className="text-xl font-bold border-b border-teal-500/20 pb-2 mb-4 text-[#00d9b5]">Asclepius Reference App</h2>
             <div className="space-y-4 text-sm leading-relaxed text-slate-300">
               <p>
-                <strong>Titrate</strong> is a specialized clinical reference database designed for rapid dosing, protocol exploration, and medical calculation in high-acuity environments (ICU and Emergency Department).
+                <strong>Asclepius</strong> is a specialized clinical reference database designed for rapid dosing, protocol exploration, and medical calculation in high-acuity environments (ICU and Emergency Department).
               </p>
               <p className="text-xs text-slate-400">
                 <strong>Clinical status:</strong> Protocol transcription in review. HJH is largely adult-focused and refers paediatric users to RMMCH protocols.

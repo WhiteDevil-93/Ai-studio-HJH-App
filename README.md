@@ -1,6 +1,6 @@
-# Titrate
+# Asclepius
 
-Titrate is a clinical-reference prototype for high-acuity Emergency Department
+Asclepius is a clinical-reference prototype for high-acuity Emergency Department
 and ICU workflows. It combines a curated subset of the Helen Joseph Tertiary
 Hospital Emergency Department Clinical Guidelines with ICU dosing material.
 
