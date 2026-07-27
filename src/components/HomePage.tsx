@@ -2,7 +2,8 @@ import React from 'react';
 import {
   Building2, Stethoscope, ShieldAlert, FileText, Activity, Heart,
   Calculator, Syringe, Flame, Compass, ChevronRight, Search,
-  Award, AlertTriangle, Users, MapPin, Layers, Baby, Brain, FlaskConical
+  Award, AlertTriangle, Users, MapPin, Layers, Baby, Brain, FlaskConical,
+  Star, Clock, BookOpen, Globe2
 } from 'lucide-react';
 
 interface HomePageProps {
@@ -154,6 +155,34 @@ export const HomePage: React.FC<HomePageProps> = ({
         {/* Ambient background decoration */}
         <div className="absolute -right-12 -bottom-12 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -left-12 -top-12 w-96 h-96 bg-sky-600/10 rounded-full blur-3xl pointer-events-none" />
+      </div>
+
+      {/* Quick Links — the only route to these tabs since the category pill bar is hidden on Home */}
+      <div className="flex flex-wrap gap-2">
+        <button
+          onClick={() => onSelectCategory('favourites')}
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+        >
+          <Star className="w-3.5 h-3.5" /> Favourites
+        </button>
+        <button
+          onClick={() => onSelectCategory('recently_viewed')}
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+        >
+          <Clock className="w-3.5 h-3.5" /> Recently Viewed
+        </button>
+        <button
+          onClick={() => onSelectCategory('trials_guidelines')}
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-purple-100 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/40 hover:bg-purple-200 dark:hover:bg-purple-900/40 transition-colors"
+        >
+          <BookOpen className="w-3.5 h-3.5" /> Trials & Int'l Guidelines
+        </button>
+        <button
+          onClick={() => onSelectCategory('sa_edl_phc_guidelines')}
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-blue-100 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800/40 hover:bg-blue-200 dark:hover:bg-blue-900/40 transition-colors"
+        >
+          <Globe2 className="w-3.5 h-3.5" /> SA EDL / PHC Guidelines
+        </button>
       </div>
 
       {/* Select Hospital / Facility Section */}

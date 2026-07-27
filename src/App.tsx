@@ -2489,7 +2489,8 @@ export default function App() {
       </div>
       )}
 
-      {/* CATEGORY BAR (PILLS) */}
+      {/* CATEGORY BAR (PILLS) — hidden on the Home landing page, which has its own navigation */}
+      {!(selectedCategory === 'home' && !activeMindMap && !activePolicy) && (
       <div className={`sticky top-[7rem] z-30 flex gap-2 p-3 overflow-x-auto whitespace-nowrap border-b transition-colors duration-300 no-scrollbar ${
         theme === 'dark' ? 'bg-[#0a1414] border-teal-950/40' : 'bg-slate-50 border-slate-200'
       }`}>
@@ -2502,8 +2503,8 @@ export default function App() {
               key={k}
               onClick={() => setSelectedCategory(k)}
               className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-bold transition duration-200 cursor-pointer ${
-                isSelected 
-                  ? 'bg-teal-400 text-black shadow-lg shadow-teal-500/10' 
+                isSelected
+                  ? 'bg-teal-400 text-black shadow-lg shadow-teal-500/10'
                   : theme === 'dark'
                     ? 'bg-[#142e2e] text-teal-400/80 border border-teal-950 hover:bg-[#1a3838]'
                     : 'bg-slate-200 text-slate-700 hover:bg-slate-300'
@@ -2520,6 +2521,7 @@ export default function App() {
           );
         })}
       </div>
+      )}
 
       {/* MAIN CONTAINER */}
       <main className="max-w-7xl mx-auto p-4 pb-20">
