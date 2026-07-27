@@ -31,8 +31,8 @@ import { calculateChecklistScore } from './clinical/scores';
 import type { CriterionAnswer } from './clinical/types';
 import trialsReference from './trials-reference.json';
 import { HomePage } from './components/HomePage';
-import { MindMapViewer } from './components/MindMapViewer';
-import { PolicyViewer } from './components/PolicyViewer';
+import { MindMapViewer, MIND_MAPS_DATABASE } from './components/MindMapViewer';
+import { PolicyViewer, POLICIES_DATABASE } from './components/PolicyViewer';
 import { CodeRedDrawer } from './components/CodeRedDrawer';
 
 const D = clinicalData as any;
@@ -58,7 +58,10 @@ const CATEGORIES: Record<string, string> = {
   recently_viewed: 'Recently Viewed',
   bara_icu_card: '🏥 Bara ICU Dosing Card',
   helen_guidelines: '🩺 Helen (HJTH) Guidelines',
+  edl_phc_guidelines: '🇿🇦 SA EDL / PHC Guidelines',
   trials_guidelines: '🔬 Trials & Int\'l Guidelines',
+  mindmaps: '⚡ Resuscitation Mind Maps',
+  policies: '📑 Hospital SOPs & Policies',
   all: 'All Categories',
   '1_resuscitation_fluids_and_inotropes': 'Resuscitation',
   '2_airway_and_ventilation': 'Airway & Ventilation',
@@ -84,7 +87,10 @@ const CATEGORY_ICONS: Record<string, string> = {
   recently_viewed: '⏱️',
   bara_icu_card: '🏥',
   helen_guidelines: '🩺',
+  edl_phc_guidelines: '🇿🇦',
   trials_guidelines: '🔬',
+  mindmaps: '⚡',
+  policies: '📑',
   all: '📋',
   '1_resuscitation_fluids_and_inotropes': '💉',
   '2_airway_and_ventilation': '🫁',
@@ -110,7 +116,10 @@ const ORDER = [
   'recently_viewed',
   'bara_icu_card',
   'helen_guidelines',
+  'edl_phc_guidelines',
   'trials_guidelines',
+  'mindmaps',
+  'policies',
   'all',
   '1_resuscitation_fluids_and_inotropes',
   '2_airway_and_ventilation',
@@ -164,7 +173,7 @@ export default function App() {
   const [activeMindMap, setActiveMindMap] = useState<string | null>(null);
   const [activePolicy, setActivePolicy] = useState<string | null>(null);
   const [codeRedOpen, setCodeRedOpen] = useState<boolean>(false);
-  const [sourceFilter, setSourceFilter] = useState<'all' | 'bara_icu' | 'hjth'>('all');
+  const [sourceFilter, setSourceFilter] = useState<'all' | 'bara_icu' | 'edl_phc'>('all');
 
   // Favorites
   const [favourites, setFavourites] = useState<string[]>(() => {
@@ -1499,10 +1508,12 @@ export default function App() {
           <div className="space-y-1">
             <h4 className="font-bold text-md text-slate-100 dark:text-slate-100 flex items-center gap-1.5 flex-wrap">
               <span className={theme === 'light' ? 'text-slate-900' : 'text-slate-100'}>{n}</span>
-              {it?._meta?.sourceGroup === 'bara_icu' ? (
-                <span className="text-[10px] bg-cyan-950/80 text-cyan-300 border border-cyan-800/40 font-bold px-1.5 py-0.5 rounded">🏥 Bara ICU Card</span>
+              {it?._meta?.sourceGroup === 'hjth' ? (
+                <span className="text-[10px] bg-indigo-950/80 text-indigo-300 border border-indigo-800/40 font-bold px-1.5 py-0.5 rounded">🩺 Helen (HJTH)</span>
+              ) : it?._meta?.sourceGroup === 'edl_phc' ? (
+                <span className="text-[10px] bg-blue-950/80 text-blue-300 border border-blue-800/40 font-bold px-1.5 py-0.5 rounded">🇿🇦 SA EDL / PHC</span>
               ) : (
-                <span className="text-[10px] bg-blue-950/80 text-blue-300 border border-blue-800/40 font-bold px-1.5 py-0.5 rounded">🩺 Helen (HJTH)</span>
+                <span className="text-[10px] bg-cyan-950/80 text-cyan-300 border border-cyan-800/40 font-bold px-1.5 py-0.5 rounded">🏥 Bara ICU Card</span>
               )}
               {isFirstLine && <span className="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-bold px-1.5 py-0.5 rounded uppercase">1st Line</span>}
               {isSection21 && <span className="text-[10px] bg-blue-500/20 text-blue-400 border border-blue-500/30 font-bold px-1.5 py-0.5 rounded uppercase">Section 21</span>}
@@ -1653,8 +1664,12 @@ export default function App() {
           <div className="flex items-center gap-2 flex-wrap">
             <span className="text-lg">🛠️</span>
             <h4 className="font-bold text-md text-[#00d9b5]">{p.item}</h4>
-            <span className="text-[10px] bg-blue-950/80 text-blue-300 border border-blue-800/40 font-bold px-1.5 py-0.5 rounded">
-              🩺 Helen (HJTH)
+            <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded border ${
+              p?._meta?.sourceGroup === 'hjth'
+                ? 'bg-indigo-950/80 text-indigo-300 border-indigo-800/40'
+                : 'bg-blue-950/80 text-blue-300 border-blue-800/40'
+            }`}>
+              {p?._meta?.sourceGroup === 'hjth' ? '🩺 Helen (HJTH)' : '🇿🇦 SA EDL / PHC'}
             </span>
           </div>
           <div className="flex items-center gap-2">
@@ -1828,35 +1843,40 @@ export default function App() {
   };
 
   // Re-usable component to render sub-headers of categories
-  const renderCategorySect = (catKey: string) => {
+  const renderCategorySect = (catKey: string, sourceGroupFilter?: 'hjth') => {
     const catData = D[catKey as keyof typeof D] as any;
     if (!catData) return null;
 
-    // Filter sourceGroup if sourceFilter is active
-    if (sourceFilter === 'bara_icu') {
-      const isBaraCategory = [
-        '1_resuscitation_fluids_and_inotropes',
-        '2_airway_and_ventilation',
-        '3_sedation_analgesia_and_neurology',
-        '4_antimicrobials_and_infectious_diseases',
-        '5_metabolic_electrolytes_and_nutrition',
-        '6_poisoning_and_toxicology',
-        '7_useful_formulae',
-        '8_cardiovascular',
-        '9_blood_products',
-        '10_endocrine_and_other',
-        '16_score_calculators',
-      ].includes(catKey);
-      if (!isBaraCategory) return null;
-    } else if (sourceFilter === 'hjth') {
-      const isHelenCategory = [
-        '11_ed_medical_emergencies',
-        '12_ed_toxicology',
-        '13_ed_trauma_surgical',
-        '14_ed_metabolic',
-        '15_ed_procedures',
-      ].includes(catKey);
-      if (!isHelenCategory) return null;
+    // Category-level source filter (the secondary "Source Filter" toggle used
+    // while browsing generic categories). Skipped when a per-item
+    // sourceGroupFilter is supplied — that filter is applied per-entry below
+    // instead, since it can match entries from any category.
+    if (!sourceGroupFilter) {
+      if (sourceFilter === 'bara_icu') {
+        const isBaraCategory = [
+          '1_resuscitation_fluids_and_inotropes',
+          '2_airway_and_ventilation',
+          '3_sedation_analgesia_and_neurology',
+          '4_antimicrobials_and_infectious_diseases',
+          '5_metabolic_electrolytes_and_nutrition',
+          '6_poisoning_and_toxicology',
+          '7_useful_formulae',
+          '8_cardiovascular',
+          '9_blood_products',
+          '10_endocrine_and_other',
+          '16_score_calculators',
+        ].includes(catKey);
+        if (!isBaraCategory) return null;
+      } else if (sourceFilter === 'edl_phc') {
+        const isEdlCategory = [
+          '11_ed_medical_emergencies',
+          '12_ed_toxicology',
+          '13_ed_trauma_surgical',
+          '14_ed_metabolic',
+          '15_ed_procedures',
+        ].includes(catKey);
+        if (!isEdlCategory) return null;
+      }
     }
 
     const isExpanded = expandedCategories[catKey] === true;
@@ -1907,8 +1927,11 @@ export default function App() {
       });
     }
 
-    // Filter favorites
+    // Filter favorites, plus the per-item sourceGroup filter (used by the Helen tab)
     const finalItems = matchedItems.filter(entry => {
+      if (sourceGroupFilter && entry.item?._meta?.sourceGroup !== sourceGroupFilter) {
+        return false;
+      }
       if (selectedCategory === 'favourites') {
         const entryKey = entry.sc ? scoreFavouriteKey(entry.key) : getEntryKey(entry.item, catKey);
         return isFavourite(entryKey);
@@ -1916,7 +1939,7 @@ export default function App() {
       return true;
     });
 
-    if (finalItems.length === 0 && catKey !== '7_useful_formulae') return null;
+    if (finalItems.length === 0 && (catKey !== '7_useful_formulae' || sourceGroupFilter)) return null;
 
     return (
       <div
@@ -2046,8 +2069,8 @@ export default function App() {
   };
 
   // Dedicated view for Helen Joseph Tertiary Hospital (HJTH) ED Guidelines
-  const renderHelenGuidelinesView = () => {
-    const helenCategories = [
+  const renderEdlPhcView = () => {
+    const edlCategories = [
       '11_ed_medical_emergencies',
       '12_ed_toxicology',
       '13_ed_trauma_surgical',
@@ -2059,16 +2082,49 @@ export default function App() {
       <div className="space-y-4">
         <div className="p-4 rounded-xl bg-[#081826] border border-blue-900/50 flex items-center justify-between">
           <div>
-            <div className="text-xs font-bold uppercase tracking-wider text-blue-400">Helen Joseph Tertiary Hospital Pillar</div>
+            <div className="text-xs font-bold uppercase tracking-wider text-blue-400">Emergency & Primary Care Pillar</div>
             <h2 className="text-xl font-black text-white flex items-center gap-2 mt-0.5">
-              <span>🩺 Helen Joseph Tertiary Hospital ED Guidelines</span>
+              <span>🇿🇦 South African Essential Drugs List & Emergency Department Guidelines</span>
             </h2>
             <p className="text-xs text-slate-400 mt-1">
-              Complete ED emergency management algorithms sourced from the HJH document (ACS, Stroke, Heart Failure, Sepsis, Asthma, COPD, UGIB, Seizures, Trauma, Procedures).
+              Complete, independent ED emergency management algorithms (ACS, Stroke, Heart Failure, Sepsis, Asthma, COPD, UGIB, Seizures, Trauma, Procedures).
             </p>
           </div>
         </div>
-        {helenCategories.map(k => renderCategorySect(k))}
+        {edlCategories.map(k => renderCategorySect(k))}
+      </div>
+    );
+  };
+
+  // Dedicated view for entries individually verified against the hjh-ed-2026-v1
+  // source map (clinical-sources/source-map.json), wherever they live in the
+  // category tree. Distinct from the EDL/PHC pillar above (which is included
+  // by category, not by per-item match) — an entry can legitimately appear in
+  // both if it's a categories-11-15 item that also happens to be source-mapped.
+  const renderHelenGuidelinesView = () => {
+    const allContentCategories = ORDER.filter(k =>
+      !['home', 'favourites', 'recently_viewed', 'bara_icu_card', 'helen_guidelines', 'edl_phc_guidelines', 'trials_guidelines', 'all'].includes(k)
+    );
+    const matched = allContentCategories
+      .map(k => renderCategorySect(k, 'hjth'))
+      .filter(Boolean);
+
+    return (
+      <div className="space-y-4">
+        <div className="p-4 rounded-xl bg-[#0d1b3a] border border-indigo-900/50 flex items-center justify-between">
+          <div>
+            <div className="text-xs font-bold uppercase tracking-wider text-indigo-400">Verified Source Pillar</div>
+            <h2 className="text-xl font-black text-white flex items-center gap-2 mt-0.5">
+              <span>🩺 Helen Joseph Tertiary Hospital — Source-Verified Entries</span>
+            </h2>
+            <p className="text-xs text-slate-400 mt-1">
+              Every entry here has a resolved page citation against the HJH document (clinical-sources/source-map.json), regardless of which category it's filed under. Some also appear under EDL/PHC or Bara ICU — that overlap is expected.
+            </p>
+          </div>
+        </div>
+        {matched.length === 0 ? (
+          <div className="text-center py-16 text-sm text-slate-500">No source-verified entries match your search.</div>
+        ) : matched}
       </div>
     );
   };
@@ -2170,6 +2226,116 @@ export default function App() {
             </div>
           </div>
         ))}
+      </div>
+    );
+  };
+
+  // Dedicated view for Mind Maps & Flowcharts gallery
+  const renderMindMapsView = () => {
+    const maps = Object.values(MIND_MAPS_DATABASE).filter(m =>
+      !searchQuery ||
+      m.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      m.subtitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      m.category.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    return (
+      <div className="space-y-4">
+        <div className="p-4 rounded-xl bg-[#1f0f18] border border-rose-900/50 flex items-center justify-between">
+          <div>
+            <div className="text-xs font-bold uppercase tracking-wider text-rose-400">Interactive Resuscitation Flowcharts</div>
+            <h2 className="text-xl font-black text-white flex items-center gap-2 mt-0.5">
+              <span>⚡ Emergency Mind Maps & Visual Algorithms</span>
+            </h2>
+            <p className="text-xs text-slate-400 mt-1">
+              Step-by-step interactive decision pathways for cardiac arrest, trauma, anaphylaxis, RSI, seizures, STEMI, stroke, envenomation, and acute psychiatric emergencies.
+            </p>
+          </div>
+          <span className="text-[10px] bg-rose-950 text-rose-300 font-bold px-2 py-0.5 rounded border border-rose-800/30 flex-shrink-0">
+            {maps.length} Algorithms
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+          {maps.map(m => (
+            <button
+              key={m.id}
+              onClick={() => setActiveMindMap(m.id)}
+              className={`text-left p-4 rounded-xl border transition-all hover:scale-[1.01] cursor-pointer flex flex-col justify-between space-y-3 ${theme === 'dark' ? 'bg-[#081212] border-teal-950/60 hover:border-rose-500/50' : 'bg-white border-slate-200 hover:border-rose-500'
+                }`}
+            >
+              <div>
+                <div className="flex items-center justify-between mb-1.5">
+                  <span className="text-[10px] font-black uppercase text-rose-400 bg-rose-950/50 px-2 py-0.5 rounded border border-rose-900/40">
+                    {m.category}
+                  </span>
+                  <span className="text-[10px] font-bold text-slate-500">PDF p. {m.pdfPage}</span>
+                </div>
+                <h3 className="font-extrabold text-sm text-slate-100">{m.title}</h3>
+                <p className="text-xs text-slate-400 mt-1 leading-relaxed">{m.subtitle}</p>
+              </div>
+              <div className="text-xs font-bold text-rose-400 flex items-center justify-end gap-1 pt-2 border-t border-rose-950/30">
+                Launch Flowchart →
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
+    );
+  };
+
+  // Dedicated view for Hospital SOPs & Policies
+  const renderPoliciesView = () => {
+    const policies = Object.values(POLICIES_DATABASE).filter(p =>
+      !searchQuery ||
+      p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      JSON.stringify(p.sections).toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    return (
+      <div className="space-y-4">
+        <div className="p-4 rounded-xl bg-[#091f18] border border-emerald-900/50 flex items-center justify-between">
+          <div>
+            <div className="text-xs font-bold uppercase tracking-wider text-emerald-400">Hospital SOPs & Governance</div>
+            <h2 className="text-xl font-black text-white flex items-center gap-2 mt-0.5">
+              <span>📑 Hospital Administrative Policies & Clinical SOPs</span>
+            </h2>
+            <p className="text-xs text-slate-400 mt-1">
+              Official hospital policies for triage discriminators, ambulance divert, ICU referrals, CT contrast consent, medicolegal J88 reports, death certification, and notifiable conditions.
+            </p>
+          </div>
+          <span className="text-[10px] bg-emerald-950 text-emerald-300 font-bold px-2 py-0.5 rounded border border-emerald-800/30 flex-shrink-0">
+            {policies.length} SOPs
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+          {policies.map(p => (
+            <button
+              key={p.id}
+              onClick={() => setActivePolicy(p.id)}
+              className={`text-left p-4 rounded-xl border transition-all hover:scale-[1.01] cursor-pointer flex flex-col justify-between space-y-3 ${theme === 'dark' ? 'bg-[#081212] border-teal-950/60 hover:border-emerald-500/50' : 'bg-white border-slate-200 hover:border-emerald-500'
+                }`}
+            >
+              <div>
+                <div className="flex items-center justify-between mb-1.5">
+                  <span className="text-[10px] font-black uppercase text-emerald-400 bg-emerald-950/50 px-2 py-0.5 rounded border border-emerald-900/40">
+                    {p.category}
+                  </span>
+                  <span className="text-[10px] font-bold text-slate-500">PDF p. {p.pdfPage}</span>
+                </div>
+                <h3 className="font-extrabold text-sm text-slate-100">{p.title}</h3>
+                <p className="text-xs text-slate-400 mt-1 leading-relaxed">
+                  {p.sections[0]?.items[0]?.slice(0, 110)}...
+                </p>
+              </div>
+              <div className="text-xs font-bold text-emerald-400 flex items-center justify-end gap-1 pt-2 border-t border-emerald-950/30">
+                View Official SOP →
+              </div>
+            </button>
+          ))}
+        </div>
       </div>
     );
   };
@@ -2288,7 +2454,7 @@ export default function App() {
 
     return (
       <div className="space-y-4">
-        {ORDER.filter(k => k !== 'home' && k !== 'favourites' && k !== 'recently_viewed' && k !== 'bara_icu_card' && k !== 'helen_guidelines' && k !== 'trials_guidelines' && k !== 'all').map(k => renderCategorySect(k))}
+        {ORDER.filter(k => k !== 'home' && k !== 'favourites' && k !== 'recently_viewed' && k !== 'bara_icu_card' && k !== 'helen_guidelines' && k !== 'edl_phc_guidelines' && k !== 'trials_guidelines' && k !== 'mindmaps' && k !== 'policies' && k !== 'all').map(k => renderCategorySect(k))}
       </div>
     );
   };
@@ -2355,12 +2521,24 @@ export default function App() {
       return renderHelenGuidelinesView();
     }
 
+    if (selectedCategory === 'edl_phc_guidelines') {
+      return renderEdlPhcView();
+    }
+
     if (selectedCategory === 'trials_guidelines') {
       return renderTrialsView();
     }
 
+    if (selectedCategory === 'mindmaps') {
+      return renderMindMapsView();
+    }
+
+    if (selectedCategory === 'policies') {
+      return renderPoliciesView();
+    }
+
     if (selectedCategory === 'all') {
-      return ORDER.filter(k => k !== 'home' && k !== 'favourites' && k !== 'recently_viewed' && k !== 'bara_icu_card' && k !== 'helen_guidelines' && k !== 'trials_guidelines' && k !== 'all').map(k => renderCategorySect(k));
+      return ORDER.filter(k => k !== 'home' && k !== 'favourites' && k !== 'recently_viewed' && k !== 'bara_icu_card' && k !== 'helen_guidelines' && k !== 'edl_phc_guidelines' && k !== 'trials_guidelines' && k !== 'mindmaps' && k !== 'policies' && k !== 'all').map(k => renderCategorySect(k));
     }
 
     return renderCategorySect(selectedCategory);
@@ -2461,11 +2639,11 @@ export default function App() {
             </button>
             <button
               type="button"
-              onClick={() => setSourceFilter('hjth')}
-              className={`px-2.5 py-1 text-xs font-bold rounded transition cursor-pointer ${sourceFilter === 'hjth' ? 'bg-blue-500/30 text-blue-300 border border-blue-500/40' : 'text-slate-400 hover:text-slate-200'
+              onClick={() => setSourceFilter('edl_phc')}
+              className={`px-2.5 py-1 text-xs font-bold rounded transition cursor-pointer ${sourceFilter === 'edl_phc' ? 'bg-blue-500/30 text-blue-300 border border-blue-500/40' : 'text-slate-400 hover:text-slate-200'
                 }`}
             >
-              🩺 Helen (HJTH)
+              🇿🇦 SA EDL / PHC
             </button>
           </div>
 

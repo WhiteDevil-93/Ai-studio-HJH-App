@@ -24,7 +24,7 @@ export interface LegacyClinicalRecord extends Record<string, unknown> {
     reviewState: 'unreviewed';
     warnings: ClinicalWarning[];
     infusionPresetId?: string;
-    sourceGroup?: 'bara_icu' | 'hjth';
+    sourceGroup?: 'bara_icu' | 'edl_phc' | 'hjth';
   };
 }
 
@@ -139,20 +139,23 @@ function annotateRecord(
       reviewState: 'unreviewed',
       warnings,
       infusionPresetId: explicitInfusions[`${categoryId}::${title}`],
-      // 'hjth' = genuinely from the Helen Joseph Tertiary Hospital ED guideline
-      // (categories 11-15 are structurally HJH ED protocol content, and any
-      // entry elsewhere whose title resolves to the hjh-ed-2026-v1 source map).
-      // Everything else defaults to 'bara_icu' (Chris Hani Baragwanath ICU
-      // Dosing Card) — there is no per-item Bara source map, so this is the
-      // fallback bucket, not independently verified per entry.
-      sourceGroup: (
-        categoryId.startsWith('11_ed_') ||
-        categoryId.startsWith('12_ed_') ||
-        categoryId.startsWith('13_ed_') ||
-        categoryId.startsWith('14_ed_') ||
-        categoryId.startsWith('15_ed_') ||
-        sourceRefs.some(s => s.sourceId === 'hjh-ed-2026-v1')
-      ) ? 'hjth' : 'bara_icu',
+      // Three independent labels, allowed to overlap on the same entry:
+      // - 'hjth': title resolves to the hjh-ed-2026-v1 source map (verified,
+      //   wherever the entry lives) — drives the dedicated "Helen" tab.
+      // - 'edl_phc': categories 11-15, the ED protocol/algorithm section of
+      //   the app, kept as its own tab regardless of per-item HJH match.
+      // - 'bara_icu': fallback for everything in categories 1-10/16 that
+      //   isn't HJH-matched — there is no per-item Bara source map, so this
+      //   bucket is not independently verified per entry.
+      sourceGroup: sourceRefs.some(s => s.sourceId === 'hjh-ed-2026-v1')
+        ? 'hjth'
+        : (
+          categoryId.startsWith('11_ed_') ||
+          categoryId.startsWith('12_ed_') ||
+          categoryId.startsWith('13_ed_') ||
+          categoryId.startsWith('14_ed_') ||
+          categoryId.startsWith('15_ed_')
+        ) ? 'edl_phc' : 'bara_icu',
     },
   };
 }

@@ -209,6 +209,67 @@ export const POLICIES_DATABASE: Record<string, PolicyDefinition> = {
         ]
       }
     ]
+  },
+  ambulance_handover: {
+    id: 'ambulance_handover',
+    title: 'Ambulance Handover & Clinical Transfer Policy',
+    category: 'Pre-hospital / SOPs',
+    pdfPage: 210,
+    sections: [
+      {
+        title: 'Structured Handover (ATMIST Format)',
+        items: [
+          'A - Age & Patient Identification',
+          'T - Time of incident / onset of symptoms',
+          'M - Mechanism of injury or medical complaint',
+          'I - Injuries / Illness found on physical examination',
+          'S - Signs & Baseline Vitals (BP, Pulse, RR, SpO2, GCS, HGT)',
+          'T - Treatment administered pre-hospital & patient response'
+        ]
+      },
+      {
+        title: 'EMS Stretcher Release & Offload Time Targets',
+        items: [
+          'Immediate offload required for Red/Orange priority patients.',
+          'Offload target time: < 15 minutes from EMS arrival at ED triage.',
+          'Signed EMS handover form must be filed in patient record prior to crew departure.'
+        ]
+      }
+    ]
+  },
+  internal_medicine_admissions: {
+    id: 'internal_medicine_admissions',
+    title: 'Internal Medicine Admissions & Bed Allocation Pathway',
+    category: 'Admissions / Referral',
+    pdfPage: 216,
+    sections: [
+      {
+        title: 'Internal Medicine Consult Workflow',
+        items: [
+          '1. ED Doctor completes initial resuscitation, bloods, and ECG.',
+          '2. Case presented to Medical Registrar on duty using SBAR format.',
+          '3. Patient handed over in ED Resus / Acute Medical Area.',
+          '4. Bed manager notified once decision to admit is documented.'
+        ]
+      }
+    ]
+  },
+  stat_lab_use: {
+    id: 'stat_lab_use',
+    title: 'Stat Laboratory Use & Urgent Specimen Handling SOP',
+    category: 'Laboratory / SOPs',
+    pdfPage: 222,
+    sections: [
+      {
+        title: 'Stat Laboratory Criteria & High-Priority Tests',
+        items: [
+          'Stat Processing Allowed ONLY for: Cardiac Troponin, Blood Gas (ABG/VBG), Serum Potassium, Emergency Blood Crossmatch, CSF Microscopy & Culture, Coagulation Screen (INR/PTT for thrombolysis/active bleed).',
+          'Specimen tubes must be clearly labeled with red "STAT" sticker.',
+          'Pneumatic tube or dedicated porter transport directly to NHLS Stat Bench.',
+          'Target Turnaround Time: < 45 minutes for Troponin & Blood Gas.'
+        ]
+      }
+    ]
   }
 };
 
