@@ -9,7 +9,7 @@ import {
   Star, Search, Scale, ChevronDown, Check,
   AlertTriangle, Moon, Sun, BookOpen,
   Calculator, Stethoscope, Activity, Heart, ShieldAlert,
-  Info, Sparkles, CheckSquare, Plus, RefreshCw, Clock
+  Info, Sparkles, CheckSquare, Plus, RefreshCw, Clock, Home
 } from 'lucide-react';
 import {
   clinicalData,
@@ -2369,12 +2369,25 @@ export default function App() {
 
       {/* HEADER */}
       <header className={`sticky top-0 z-50 px-4 py-3 flex items-center justify-between shadow-md transition-colors duration-300 ${theme === 'dark' ? 'bg-[#0f2424] border-b border-[#1c3838]' : 'bg-[#0d3b3b] text-white border-b border-[#135050]'}`}>
-        <div className="flex items-center gap-2">
+        <button
+          type="button"
+          onClick={() => { setSelectedCategory('home'); setActiveMindMap(null); setActivePolicy(null); }}
+          aria-label="Go to Home"
+          className="flex items-center gap-2 cursor-pointer bg-transparent border-0 p-0"
+        >
           <Activity className="h-6 w-6 text-[#00d9b5] animate-pulse" />
           <h1 className="text-2xl font-extrabold font-sans tracking-tight">Asclep<span className="text-[#00d9b5]">ius</span></h1>
           <span className="ml-1 rounded bg-slate-700/70 px-1.5 py-0.5 text-[10px] font-bold text-slate-300">CLINICAL REFERENCE</span>
-        </div>
+        </button>
         <div className="flex items-center gap-3">
+          <button
+            onClick={() => { setSelectedCategory('home'); setActiveMindMap(null); setActivePolicy(null); }}
+            aria-label="Home"
+            className="p-1.5 rounded-full hover:bg-white/10 transition-colors"
+            title="Home"
+          >
+            <Home className="h-5 w-5" />
+          </button>
           <button
             ref={aboutTriggerRef}
             onClick={() => setAboutOpen(true)}
