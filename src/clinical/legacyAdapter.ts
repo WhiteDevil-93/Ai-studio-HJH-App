@@ -24,6 +24,7 @@ export interface LegacyClinicalRecord extends Record<string, unknown> {
     reviewState: 'unreviewed';
     warnings: ClinicalWarning[];
     infusionPresetId?: string;
+    sourceGroup?: 'bara_icu' | 'sa_edl_phc';
   };
 }
 

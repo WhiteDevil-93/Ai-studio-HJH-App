@@ -29,15 +29,35 @@ import {
 } from './clinical/calculations/weightDose';
 import {calculateChecklistScore} from './clinical/scores';
 import type {CriterionAnswer} from './clinical/types';
+import trialsReference from './trials-reference.json';
+import {HomePage} from './components/HomePage';
+import {MindMapViewer} from './components/MindMapViewer';
+import {PolicyViewer} from './components/PolicyViewer';
 
 const D = clinicalData as any;
 
+interface TrialReferenceEntry {
+  id: string;
+  type: 'clinical_trial' | 'clinical_decision_rule';
+  title: string;
+  reference: string;
+  domain: string;
+  the_hook: string;
+  if_consultant_asks: string;
+  killer_stat: string;
+  shift_action?: string;
+}
+
+const TRIALS_REFERENCE = trialsReference as TrialReferenceEntry[];
+
 // Category mapping keys
 const CATEGORIES: Record<string, string> = {
+  home: '🏠 Home Page',
   favourites: 'Favourites',
   recently_viewed: 'Recently Viewed',
   bara_icu_card: '🏥 Bara ICU Dosing Card',
   sa_edl_phc_guidelines: '🇿🇦 SA EDL / PHC Guidelines',
+  trials_guidelines: '🔬 Trials & Int\'l Guidelines',
   all: 'All Categories',
   '1_resuscitation_fluids_and_inotropes': 'Resuscitation',
   '2_airway_and_ventilation': 'Airway & Ventilation',
@@ -58,10 +78,12 @@ const CATEGORIES: Record<string, string> = {
 };
 
 const CATEGORY_ICONS: Record<string, string> = {
+  home: '🏠',
   favourites: '⭐',
   recently_viewed: '⏱️',
   bara_icu_card: '🏥',
   sa_edl_phc_guidelines: '🇿🇦',
+  trials_guidelines: '🔬',
   all: '📋',
   '1_resuscitation_fluids_and_inotropes': '💉',
   '2_airway_and_ventilation': '🫁',
@@ -82,10 +104,12 @@ const CATEGORY_ICONS: Record<string, string> = {
 };
 
 const ORDER = [
+  'home',
   'favourites',
   'recently_viewed',
   'bara_icu_card',
   'sa_edl_phc_guidelines',
+  'trials_guidelines',
   'all',
   '1_resuscitation_fluids_and_inotropes',
   '2_airway_and_ventilation',
@@ -131,10 +155,13 @@ export default function App() {
     return stored === 'light' || stored === 'dark' ? stored : 'dark';
   });
 
-  // Core Inputs
+  // Core Inputs & Navigation
   const [weight, setWeight] = useState<string>(() => localStorage.getItem('tr_w') || '');
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [selectedCategory, setSelectedCategory] = useState<string>('home');
+  const [selectedFacility, setSelectedFacility] = useState<string | null>(null);
+  const [activeMindMap, setActiveMindMap] = useState<string | null>(null);
+  const [activePolicy, setActivePolicy] = useState<string | null>(null);
   const [sourceFilter, setSourceFilter] = useState<'all' | 'bara_icu' | 'sa_edl_phc'>('all');
 
   // Favorites
@@ -2060,6 +2087,110 @@ export default function App() {
     );
   };
 
+  // Dedicated view for Trials & International Guidelines reference cards
+  const renderTrialsView = () => {
+    const q = searchQuery.toLowerCase();
+    const matched = TRIALS_REFERENCE.filter(t => {
+      if (!q) return true;
+      return (
+        t.title.toLowerCase().includes(q) ||
+        t.domain.toLowerCase().includes(q) ||
+        t.reference.toLowerCase().includes(q) ||
+        t.the_hook.toLowerCase().includes(q) ||
+        t.if_consultant_asks.toLowerCase().includes(q) ||
+        t.killer_stat.toLowerCase().includes(q) ||
+        (t.shift_action || '').toLowerCase().includes(q)
+      );
+    });
+
+    const byDomain = matched.reduce((acc, t) => {
+      if (!acc[t.domain]) acc[t.domain] = [];
+      acc[t.domain].push(t);
+      return acc;
+    }, {} as Record<string, TrialReferenceEntry[]>);
+
+    return (
+      <div className="space-y-4">
+        <div className="p-4 rounded-xl bg-[#1a0f26] border border-purple-900/50 flex items-center justify-between">
+          <div>
+            <div className="text-xs font-bold uppercase tracking-wider text-purple-400">Evidence Base Pillar</div>
+            <h2 className="text-xl font-black text-white flex items-center gap-2 mt-0.5">
+              <span>🔬 Landmark Trials & International Guidelines</span>
+            </h2>
+            <p className="text-xs text-slate-400 mt-1">
+              Key clinical trials and validated clinical decision rules — the evidence behind the protocols, for when a consultant asks "why".
+            </p>
+          </div>
+          <span className="text-[10px] bg-purple-950 text-purple-300 font-bold px-2 py-0.5 rounded border border-purple-800/30 flex-shrink-0">
+            {matched.length} Entries
+          </span>
+        </div>
+
+        {matched.length === 0 && (
+          <div className="text-center py-16 text-sm text-slate-500">No trials or guidelines match your search.</div>
+        )}
+
+        {Object.entries(byDomain).map(([domain, entries]) => (
+          <div
+            key={domain}
+            className={`rounded-xl border overflow-hidden ${
+              theme === 'dark' ? 'bg-[#081212] border-teal-950/60' : 'bg-white border-slate-200'
+            }`}
+          >
+            <div className={`flex items-center gap-2.5 px-4 py-3 ${theme === 'dark' ? 'bg-[#0d2222]/80' : 'bg-slate-100'}`}>
+              <h3 className="font-extrabold text-sm uppercase tracking-wider text-purple-400">{domain}</h3>
+              <span className="text-[10px] bg-purple-950 text-purple-300 font-bold px-1.5 py-0.5 rounded">
+                {entries.length}
+              </span>
+            </div>
+            <div className="p-4 space-y-3">
+              {entries.map(t => (
+                <div
+                  key={t.id}
+                  className={`rounded-lg border p-3.5 space-y-2 ${
+                    theme === 'dark' ? 'border-teal-950/40 bg-black/10' : 'border-slate-200 bg-slate-50'
+                  }`}
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <h4 className="font-bold text-sm text-slate-100">{t.title}</h4>
+                    <span
+                      className={`flex-shrink-0 text-[9px] font-black uppercase px-1.5 py-0.5 rounded border ${
+                        t.type === 'clinical_trial'
+                          ? 'bg-sky-950/60 text-sky-300 border-sky-800/40'
+                          : 'bg-amber-950/60 text-amber-300 border-amber-800/40'
+                      }`}
+                    >
+                      {t.type === 'clinical_trial' ? 'Trial' : 'Decision Rule'}
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-slate-500 italic">{t.reference}</p>
+                  <p className="text-xs text-slate-300 leading-relaxed">{t.the_hook}</p>
+
+                  <div className="pt-1.5 border-t border-teal-950/20 space-y-1.5">
+                    <p className="text-xs text-slate-400 leading-relaxed">
+                      <span className="font-bold text-teal-400">If the consultant asks: </span>
+                      {t.if_consultant_asks}
+                    </p>
+                    <p className="text-xs text-slate-400 leading-relaxed">
+                      <span className="font-bold text-emerald-400">Killer stat: </span>
+                      {t.killer_stat}
+                    </p>
+                    {t.shift_action && (
+                      <p className="text-xs text-slate-400 leading-relaxed">
+                        <span className="font-bold text-amber-400">On shift: </span>
+                        {t.shift_action}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
   // Help find procedure item from JSON structure
   const findProcedureItem = (itemName: string) => {
     const procs = D['15_ed_procedures'];
@@ -2174,13 +2305,57 @@ export default function App() {
 
     return (
       <div className="space-y-4">
-        {ORDER.filter(k => k !== 'favourites' && k !== 'recently_viewed' && k !== 'bara_icu_card' && k !== 'sa_edl_phc_guidelines' && k !== 'all').map(k => renderCategorySect(k))}
+        {ORDER.filter(k => k !== 'home' && k !== 'favourites' && k !== 'recently_viewed' && k !== 'bara_icu_card' && k !== 'sa_edl_phc_guidelines' && k !== 'trials_guidelines' && k !== 'all').map(k => renderCategorySect(k))}
       </div>
     );
   };
 
   // Switch rendering based on active categories
   const renderContent = () => {
+    if (activeMindMap) {
+      return (
+        <MindMapViewer
+          mindMapId={activeMindMap}
+          onBack={() => setActiveMindMap(null)}
+          weight={weight}
+        />
+      );
+    }
+
+    if (activePolicy) {
+      return (
+        <PolicyViewer
+          policyId={activePolicy}
+          onBack={() => setActivePolicy(null)}
+        />
+      );
+    }
+
+    if (selectedCategory === 'home') {
+      return (
+        <HomePage
+          onSelectFacility={(facId) => {
+            setSelectedFacility(facId);
+            if (facId === 'hjth') {
+              setSourceFilter('all');
+              setSelectedCategory('all');
+            } else if (facId === 'chbah') {
+              setSelectedCategory('bara_icu_card');
+            }
+            // rmmch / cmjah: no confirmed source content yet (see clinical-sources/source-manifest.json) — HomePage marks these "Coming Soon" and does not navigate.
+          }}
+          onSelectCategory={(catId) => setSelectedCategory(catId)}
+          onSelectMindMap={(mapId) => setActiveMindMap(mapId)}
+          onSelectPolicy={(polId) => setActivePolicy(polId)}
+          onSelectScore={() => setSelectedCategory('16_score_calculators')}
+          weight={weight}
+          setWeight={setWeight}
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+        />
+      );
+    }
+
     if (selectedCategory === 'favourites') {
       return renderFavouritesTab();
     }
@@ -2197,8 +2372,12 @@ export default function App() {
       return renderSaEdlPhcView();
     }
 
+    if (selectedCategory === 'trials_guidelines') {
+      return renderTrialsView();
+    }
+
     if (selectedCategory === 'all') {
-      return ORDER.filter(k => k !== 'favourites' && k !== 'recently_viewed' && k !== 'bara_icu_card' && k !== 'sa_edl_phc_guidelines' && k !== 'all').map(k => renderCategorySect(k));
+      return ORDER.filter(k => k !== 'home' && k !== 'favourites' && k !== 'recently_viewed' && k !== 'bara_icu_card' && k !== 'sa_edl_phc_guidelines' && k !== 'trials_guidelines' && k !== 'all').map(k => renderCategorySect(k));
     }
 
     return renderCategorySect(selectedCategory);
@@ -2236,7 +2415,8 @@ export default function App() {
         </div>
       </header>
 
-      {/* SEARCH + WEIGHT CONFIG + SOURCE FILTER BAR */}
+      {/* SEARCH + WEIGHT CONFIG + SOURCE FILTER BAR (hidden on the Home landing page, which has its own) */}
+      {!(selectedCategory === 'home' && !activeMindMap && !activePolicy) && (
       <div className={`sticky top-[3.5rem] z-40 p-3 shadow-md flex flex-wrap md:flex-nowrap gap-3 items-center border-b transition-colors duration-300 ${
         theme === 'dark' ? 'bg-[#0f1f1f] border-teal-950/60' : 'bg-white border-slate-200'
       }`}>
@@ -2299,6 +2479,16 @@ export default function App() {
             value={weight}
             onChange={e => setWeight(e.target.value)}
             aria-label="Patient weight in kilograms"
+            className={`w-20 pl-2 pr-2 py-1.5 rounded-lg text-sm transition focus:outline-none ${
+              theme === 'dark'
+                ? 'bg-black/30 border border-teal-950 text-slate-100 focus:border-teal-400'
+                : 'bg-slate-100 border border-slate-200 text-slate-900 focus:border-teal-600 focus:bg-white'
+            }`}
+          />
+        </div>
+      </div>
+      )}
+
       {/* CATEGORY BAR (PILLS) */}
       <div className={`sticky top-[7rem] z-30 flex gap-2 p-3 overflow-x-auto whitespace-nowrap border-b transition-colors duration-300 no-scrollbar ${
         theme === 'dark' ? 'bg-[#0a1414] border-teal-950/40' : 'bg-slate-50 border-slate-200'

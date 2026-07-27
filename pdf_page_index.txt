@@ -1,0 +1,247 @@
+Page 1 (len 155): HELEN JOSEPH TERTIARY HOSPITAL | EMERGENCY DEPARTMENT | CLINICAL GUIDELINES | 2026
+Page 2 (len 1153): HJTH Emergency Department | Clinical Guidelines | Acknowledgements 2025/2026 | Editor:
+Page 3 (len 2146): Table of Contents | 1. Acetylcholinesterase Inhibitor Overdose (Organophosphate/Carbamate) | 2. Acute Appendicitis | 3. Acute Cholecystitis
+Page 4 (len 1719): 35. Head injury: general management, radiography, GCS, DC advice sheet | 36. Hyperglycaemia flowchart | 37. Hyperglycaemic Emergencies (DKA/HHS) | 38. Hypoglycaemia
+Page 5 (len 1331): 72. Sexual assault & Rape Crisis centre referral numbers | 73. Snakebite Pathway (EMCT) | 74. Status Epilepsy Anticonvulsant Therapy Algorithm | 75. Status Epilepticus
+Page 6 (len 1974): Contents | ACETYLCHOLINESTERASE INHIBITOR (AChE-i) OVERDOSE | (ORGANOPHOSPHATE/CARBAMATE) | SYMPTOMS & SIGNS
+Page 7 (len 2097): Contents | APPENDICITIS | Alvarado Score for the Diagnosis of | Acute Appendicitis in Adults
+Page 8 (len 2026): Contents | ACUTE CHOLECYSTITIS | CLINICAL FEATURES | Symptoms
+Page 9 (len 2451): Contents | Risk Factors for ACS | * Age ≥ 65 years | * Smoker
+Page 10 (len 2201): Contents | STEMI/OMI | ST Elevation in 2 or more contiguous leads | (see box for criteria)
+Page 11 (len 1338): Contents | Absolute Contraindications Thrombolysis | * Any prior intracranial haemorrhage | *  Known structural cerebral vascular lesion e.g. AV
+Page 12 (len 476): Contents | STEMI EQUIVALENTS | ECG Patterns Hinting for Potentially High-Risk Critical Artery Stenosis or Occlusion | (A) Conventional STEMI (B-K) Potential STEMI Equivalents
+Page 13 (len 2715): TIMI Risk Score for Patients with NSTE - ACS | 1 point for each variable present | Age ≥ 65years | ≥ 3 risk factors for CAD
+Page 14 (len 3194): Intermediate risk = High | sensitivity trop (lab) OR Stat | Trop I > 6 hours after pain onset | Start Adjunctive Treatments
+Page 15 (len 1729): Contents | TPA / ALTEPLASE (ACTILYSE®) PROTOCOL | THROMBOLYSIS FOR ST ELEVATION MYOCARDIAL INFARCTION | • Provided there are NO contraindications
+Page 16 (len 2858): ACUTE HEART FAILURE | GENERAL APPROACH | • Clinical features: Dyspnoea, orthopnoea, effort intolerance, peripheral oedema, PND. Gallop rhythm, | increased JVP, chest crackles, cardiac murmurs.
+Page 17 (len 2328): EXCLUDE STROKE MIMICS | *Hypoglycaemia | *Seizures (Todd’s paresis) | *Migraines
+Page 18 (len 2341): httpos://www.ahajournals.org/doi/pdf/10.1161/STR.0000000000000158 | THROMBOLYSIS EXCLUSION CRITERIA | ABSOLUTE CONTRAINDICATIONS | - Uncertain time of onset (last seen well >4.5hrs)
+Page 19 (len 2809): AGITATION & AGGRESSION | SAFETY IS THE FIRST PRIORITY! | Contain the patient to protect staff and self | DRUG ALTERNATIVE
+Page 20 (len 2409): CAUSES | • NEUROLOGIC – SOL, ICH, CVA, post-ictal, neurodegenerative | • METABOLIC – hypoxia, hypercarbia, hyperthermia, | hypo/hyperglycemia, thyrotoxicosis, nutritional deficiencies,
+Page 21 (len 779): ADDITIONAL SEDATION OPTIONS | DRUG ADULT (70kg) GERIATRIC (70kg) NOTES | Haloperidol | NB SECTION 21
+Page 22 (len 1038): AIRWAY MANAGEMENT CHECKLISTS | Check Equipment | 1. Suction (Yankauer) | 2. Tubes (ETT)
+Page 23 (len 892): Drug Dose | (mix) | Onset/ | Duration
+Page 24 (len 7): IMAGE-ONLY / NO TEXT
+Page 25 (len 8): IMAGE-ONLY / NO TEXT
+Page 26 (len 1548): Adult Basic Life Support Algorithm for Healthcare Providers | Verify scene safety. | • Check for responsiveness. | • Shout for nearby help.
+Page 27 (len 2540): Adult Cardiac Arrest Algorithm | 1 | Start CPR | • Give oxygen
+Page 28 (len 2278): ACLS Healthcare Provider Post– | Cardiac Arrest Care Algorithm | © 2020 American Heart Association | Manage airway
+Page 29 (len 1191): Assess appropriateness for clinical condition. | Heart rate typically <50/min if bradyarrhythmia. | Identify and treat underlying cause | Maintain patent airway; assist breathing as necessary
+Page 30 (len 1604): Assess appropriateness for clinical condition. | Heart rate typically ≥150/min if tachyarrhythmia. | Identify and treat underlying cause | Maintain patent airway; assist breathing as necessary
+Page 31 (len 1787): Continue BLS/ACLS | High-quality CPR | Defibrillation when indicated | (eg, epinephrine)
+Page 32 (len 58): https://sinaiem.org/foam/trauma-in-pregnancy/
+Page 33 (len 926): Antenatal counseling | Team briefing and equipment check | Birth | Term gestation?
+Page 34 (len 1756): Pediatric Basic Life Support Algorithm for Healthcare Providers—Single Rescuer | Verify scene safety. | • Check for responsiveness. | • Shout for nearby help.
+Page 35 (len 1588): Pediatric Basic Life Support Algorithm for Healthcare Providers—2 or More Rescuers | Verify scene safety. | • Check for responsiveness. | • Shout for nearby help.
+Page 36 (len 2035): Pediatric Cardiac Arrest Algorithm | CPR Quality | • Push hard (≥⅓ of anteroposterior | diameter of chest) and fast
+Page 37 (len 1943): Components of Post–Cardiac Arrest Care Check | Oxygenation and ventilation | Measure oxygenation and target normoxemia 94%-99% (or child’s normal/appropriate oxygen saturation). ☐ | Measure and target Paco appropriate to the patient’s underlying condition 2
+Page 38 (len 991): Patient with bradycardia | Cardiopulmonary | compromise? | Signs of shock
+Page 39 (len 1953): Pediatric Tachycardia With a Pulse Algorithm | Initial assessment and support | • Maintain patent airway; assist breathing as necessary | • Administer oxygen
+Page 40 (len 8): IMAGE-ONLY / NO TEXT
+Page 41 (len 1827): ANAPHYLAXIS | DIAGNOSTIC CRITERIA | (1 of the following) | Acute illness with involvement of skin, mucosa or
+Page 42 (len 3731): ANGIOEDEMA | SPECIAL INVESTIGATIONS | • Limited role for point of care tests in emergency setting | • When available, fibreoptic laryngoscopy to assess extent of airway
+Page 43 (len 1396): ASTHMA | PULSE | (bpm) | SEVERE ASTHMA
+Page 44 (len 1918): ASTHMA cnt. | DISCHARGE CRITERIA | * Pulse < 110bpm, RR < 25 bpm, O2 Sats > 92% on room air | * No high-risk patient features (see box)
+Page 45 (len 604): For use with EU/EN13826 scale PEF meters only | Acknowledgement | Adapted by Clement Clarke for use with EN13826/ EU scale peak flow meters | from Nunn AJ Gregg I, Br Med J 1989: 298;1068-70
+Page 46 (len 1765): UNSTABLE AF causing: | *Hypotension | *Acute cardiac failure | *Chest pain
+Page 47 (len 2491): References: | 1. First 10 EM. Cardiology. Unstable atrial fibrillation – ED Management. Available: https://first10em.com/atrial-fibrillation/ [accessed 11/08/2020] | 2. Life in the Fastlane. Atrial Fibrillation. Available: https://litfl.com/atrial-fibrillation/ [accessed 11/08/2020] | 3. Atzema, C, Meshkat, N, Au, B, Helman, A. Atrial Fibrillation. Emergency Medicine Cases. February, 2012. Available: https://emergencymedicinecases.com/episode-20-
+Page 48 (len 2566): NON-TRAUMATIC BACK PAIN | RED FLAGS | • New pain at extremes of age (< 20 or >50) | • History of malignancy
+Page 49 (len 3192): GENERAL | • Consent is required for all blood products! | • Blood warming only necessary if > 2 units to be transfused (>50ml/kg/hr adults) | • Continuous monitoring during transfusion
+Page 50 (len 2177): BRAINSTEM DEATH TESTING | APNOEA TEST | • Two doctors should perform a single apnoea test together | • Only proceed if all other brainstem reflexes are absent and pt is
+Page 51 (len 3078): Moderate Burns | • Partial thickness burns 10 - 14% | • Smaller TBSA + unstable patient | • Major involvement of special areas
+Page 52 (len 1032): LUND AND BROWDER CHART | & BURN CLASSIFICATION | Escharotomy | Indications
+Page 53 (len 4310): BURNS: Special considerations | PALLIATIVE CARE | Considerations for >50% TBSA | • Involve ED consultant and surgeon early
+Page 54 (len 1378): C-SPINE IMAGING IN TRAUMA | NO | YES | NO
+Page 55 (len 2417): -BLOCKER & CALCIUM-CHANNEL BLOCKER OVERDOSE | CLINICAL FEATURES | * Hypotension, bradycardia, hyperglycaemia (CCB) hypoglycaemia (BB), acidosis, | CNS depression
+Page 56 (len 1402): COPD | SEVERE COPD | PULSE | (bpm)
+Page 57 (len 1711): INTUBATED PATIENT CONSIDERATIONS | * Ventilator Settings | MODE Volume Assist Control | TV 6ml/kg (4-6ml/kg)
+Page 58 (len 1736): COMMUNITY ACQUIRED PNEUMONIA | CURB 65 Severity Score 0 - 1 | (risk of death < 3%) | Other reasons for admission?
+Page 59 (len 2185): COMPARTMENT PRESSURES | Normal: < 10 mmHg | Fasciotomy if: | Absolute pressure > 30mmHg
+Page 60 (len 1397): CRITICAL CARE MANAGEMENT PRINCIPLES | GENERAL FOR ALL PATIENTS IN THE ED | “FASTHUGS IN BED” | F – Fluid therapy and Feeding
+Page 61 (len 1314): VENTILATOR TROUBLESHOOTING | * Displacement of ET tube | * Obstruction of ET tube / mucous plug | * Pneumothorax / pneumomediastinum
+Page 62 (len 2042): ED Management | * ABCD approach to resuscitation | * Aggressive fluid administration | - Crystalloids (Balsol / Ringers Lactate)
+Page 63 (len 999): History and Examination | Wells Score for DVT | DVT UNLIKELY | DVT LIKELY
+Page 64 (len 1682): SPECIAL CONSIDERATIONS | • Anaphylaxis and angioedema: LMA unlikely to be effective. If | unable to intubate, consider early surgical airway | • UGIB/Haemoptysis: Consider suction assisted laryngoscopy and
+Page 65 (len 42): https://aimeairway.ca/algorithms
+Page 66 (len 8): IMAGE-ONLY / NO TEXT
+Page 67 (len 4409): DIZZINESS AND VERTIGO | CLINICAL FINDINGS | CHARACTERISTIC PERIPHERAL CENTRAL | Onset Sudden Gradual or Sudden
+Page 68 (len 2795): Important information to note | Duration/frequency/side | Severity & estimated blood loss | Bleeding diathesis
+Page 69 (len 1103): PRESENTATION | • Barking cough, Inspiratory stridor, widespread wheeze, increased | WOB. +- Fever, but no signs of toxicity | • Age: 6 – 36 months, can affect older children
+Page 70 (len 988): URGENT PAEDS REFERRAL: | • Severe airway obstruction | • No improvement with nebulized | adrenaline
+Page 71 (len 2390): CROUP TREATMENT | Mild ≤ 2 | Moderate 3 - 7 | Severe 8 - 11
+Page 72 (len 773): CLINICAL FEATURES | • Drooling | • Dysphagia | • Dysphonia
+Page 73 (len 1021): CLINICAL FEATURES | • Ear pain | • Fever | • Anorexia
+Page 74 (len 1792): CLINICAL FEATURES - BACTERIAL | • Group A Beta-haemolytic strep 50% of bacterial infections | • Typically age 5 – 15 (rare under 2 years) | • Throat pain
+Page 75 (len 1512): FIRST ONSET SEIZURES | Immediate Management | • ABCD approach to initial resuscitation | • Don’t ever forget glucose
+Page 76 (len 2066): SIGNS OF DEHYDRATION | * Loss of weight | * Sunken eyes & fontanelle | * Dry mucous membranes
+Page 77 (len 2465): GENERAL TOXICOLOGY APPROACH | Remembered by the mnemonic “Resus – RSI – DEAD” | Resuscitation | • Airway
+Page 78 (len 471): HAEMATOLOGICAL | EMERGENCIES | SICKLE CELL CRISIS | • Fever
+Page 79 (len 1591): ASSESSMENT | Always consider the presence of all types of sickle cell crisis, | regardless of the dominant presentation | *Symptoms and signs of local and systemic infection
+Page 80 (len 1577): MANAGEMENT | RESUSCITATION | *ABC approach | *Correct hypoxia
+Page 81 (len 1415): GENERAL | • Haemophilia A = Factor VIII (80% of cases) | • Haemophilia B = IX deficiency (20% of cases) | • Acquired: malignancies, pregnancy, auto-immune (SLE, RA), idiopathic
+Page 82 (len 1541): HAEMATOLOGICAL EMERGENCIES | THROMBOTIC MICROANGIOPATHY - THROMBOTIC THROMBOCYTOPAENIC PURPURA (TTP) | PATHOPHYSIOLOGY | Deficiency of ADAMTS 13 (vWF cleaving protease) resulting in large
+Page 83 (len 1018): ED MANAGEMENT | * Goal – obtain a safe platelet count | * Resuscitation – ABC approach | * Specific Treatment
+Page 84 (len 610): HUS | * In children mostly | * Typically have a history of bloody diarrhoea | * Associated with Shiga-toxin producing bacteria
+Page 85 (len 1288): CAUSES | DIC is not itself a specific illness. It is a complication or an effect of the progression of | other illnesses. It is always 2° to an underlying disorder and is associated with a number of | clinical conditions, generally involving activation of systemic inflammation e.g.
+Page 86 (len 2954): HEADACHE | SECONDARY HEADACHE | DIFFERENTIAL DIAGNOSIS | • Intracranial haemorrhage: Hx of trauma, hypertension,
+Page 87 (len 2628): ADULT PATIENT PRESENTING WITH A HEAD INJURY | • Resuscitate as required | • Use radiography for head injury and c-spine protocols to evaluate the need for imaging | • Consider facial/skull fractures when evaluating need for CT
+Page 88 (len 1050): ADULT PATIENT (>16 years old) PRESENTING WITH A HEAD INJURY | Any of the following risk factors? | GCS < 13 on initial assessment OR < 15 at 2 hours after injury on assessment in the ED | Suspected open/depressed skull fracture/base of skull fracture/facial fractures
+Page 89 (len 434): GLASGOW COMA SCALE (GCS) | Eyes Opening | Opening Spontaneously 4 | Opening to verbal command 3
+Page 90 (len 2548): Acknowledgements | Adapted from the National Institute for Health and Care Excellence. Head injury: | triage, assessment, investigation and early management of head injury in infants, | children and adults. (Clinical guideline 176) 2014 www.nice.org.uk/CG176.
+Page 91 (len 1023): NO | YES | Causes of Hyperglycaemia | * Infection (UTI, pneumonia)
+Page 92 (len 2844): HYPERGLYCAEMIA: | DKA & HHS | DIABETIC KETOACIDOSIS (DKA) HYPEROSMOLAR HYPERGLYCAEMIC | STATE (HHS)
+Page 93 (len 2220): PATIENT EDUCATION | • Good understanding of treatment and HGT checks, follow-up plan | • No insulin without meals! (Most common cause of presentation) | • Regular small meals – can refer to Diabetic clinic/dietician for diabetic education
+Page 94 (len 2028): HYPERKALAEMIA = K+ > 5.5mmol/l | STABILISATION & K+ SHIFTING & EXCRETION | MEDICATION DOSE ONSET | OF
+Page 95 (len 470): K+ < 3.5mmol/l | BOTH Potassium & Magnesium need to be replaced simultaneously in | hypokalaemia (Mg2+ activates the Na+- K+ ATPase pump to promote cellular | uptake of K+)
+Page 96 (len 3105): HYPERNATRAEMIA Definition: Na+ > 145mmol/l | Correction only needed if >150mmol/l | Investigations: | Serum - U&E, sOsmolality,
+Page 97 (len 2894): HYPONATRAEMIA Definition: Na < 135mmol/l | Usually Asymptomatic unless acute or severe (<120mmol/l) | Investigations: | Serum - U&E, sOsmolality, Gluc, Lipids, Prot
+Page 98 (len 1103): Does the patient have ACUTE, LIFE- | THREATENING end-organ damage? | • Hypertensive encephalopathy & retinopathy | • Haemorrhagic / Ischaemic CVA
+Page 99 (len 2259): HYPERTENSIVE EMERGENCIES | Management of Hypertensive Emergencies | • ABC approach to resuscitation | • A – definitive airway if a depressed level of consciousness
+Page 100 (len 2430): HYPERTHERMIA GENERAL APPROACH | • Clinical features: Decreased GCS, agitation, sweating (no sweating in heat stroke) | DEFINITIONS | Minor heat illness
+Page 101 (len 2106): DEFINITION | Core temperature of ≤35°C for non-trauma patients | Core Temperature of ≤36°C for trauma patients | The preferred site to measure core temperature in severely
+Page 102 (len 1930): CPR GUIDELINES VARY IN HYPOTHERMIA | ALWAYS LOOK FOR TRAUMA IN DEPRESSED CONSCIOUSNESS | GUIDELINES | Defib – no suggestion on variation from routine
+Page 103 (len 674): SLOW ATRIAL FIBRILLATION | https://litfl.com/wp-content/uploads/2018/08/ECG-Hypothermia-slow-atrial-fibrillation-AF.jpg | PROLONG QTc | Bradyarrhythmias
+Page 104 (len 548): ACIDOSIS | * pH < 7.2 | Refractory to HCO3 | Symptomatic arrhythmias
+Page 105 (len 364): 900mg over 23 hours | Add 900mg (18mℓ) amiodarone to 200mℓ 5% dextrose Run at 9.5mℓ/hr | Infusio | n:
+Page 106 (len 958): 200mg ketamine in 200mℓ normal saline | NOTE: Use ketamine with concentration of 100mg/mℓ NOT ketamine 10mg/mℓ. Withdraw 2mℓ normal saline | before adding 2mℓ (200mg) of ketamine | 1mg/mℓ
+Page 107 (len 742): 1 amp of morphine (15mg/1mℓ) with 14mℓ of normal saline in a 20mℓ syringe | Slow IV push in mℓ | Loading Dose | Morphine:
+Page 108 (len 1380): Use one ampoule (100mg/10mℓ) to draw up loading dose | Draw up 5 ampoules undiluted into a 50mℓ syringe for infusion | 10mg/mℓ | GIVE a 10-20mℓ/kg fluid bolus - Ringer lactate/Balsol FIRST
+Page 109 (len 986): 100mcg/mℓ | ADRENALINE PUSH DOSE | 1mg in 10mℓ normal saline | 1mℓ of adrenaline with 9mℓ normal saline in 10mℓ syringe
+Page 110 (len 813): Inotropes | Dobutamine (Infusion) | Weight (kg) | RATE | mcg/kg/min 40 50 60 70 80 90 100 110 120
+Page 111 (len 1361): Inotropes | Phenylephrine (Infusion) | Weight (kg) | RATE | mcg/kg/min 40 50 60 70 80 90 100 110 120
+Page 112 (len 515): Labetalol infusion | Compelling Indications: | • Aortic dissection, | • Encephalopathy,
+Page 113 (len 905): 100mg in 200mℓ normal saline | withdraw 100mℓ normal saline (or 5% dextrose) before adding 100mℓ (10 amps) isosorbide dinitrate | 0.5mg/mℓ | Initial treatment is started at a dose of 1-2mg/hour - adjust according to desired patient response
+Page 114 (len 442): Nitroglycerin (Nitrocine) Infusion | mcg/min 10 20 30 40 50 60 70 80 90 100 | mℓ/hr 12 24 36 48 60 72 84 96 108 120 | mcg/min 110 120 130 140 150 160 170 180 190 200
+Page 115 (len 884): Sedation | Morphine & Midazolam | Infusion Dose (Infusion Pump Rate in mℓ/hour): 0.5mg/mℓ of | EACH DRUG | 90mg of Midazolam + 90mg of Morphine in 180 mℓ volume
+Page 116 (len 1112): Sedation | Midazolam (Dormicum) | Loading Dose (Slow IV Push in mℓ): 1mg/mℓ | 1 amp of midazolam (15mg/3mℓ) with 12mℓ normal saline in a 20mℓ syringe | Weight (kg)
+Page 117 (len 1197): Loading Dose (Slow IV Push in mℓ) | Continuation Dose (Infusion Pump Rate in mℓ/hour): | 400mg pure propofol | 2 x 20mℓ amps of propofol (40mℓ) in a 50mℓ empty NS bag for infusion pump
+Page 118 (len 2189): DISPOSITION | • Internal medicine referral | • Will likely require ICU/High care | • Continue serial ECG and VBG monitoring in ED
+Page 119 (len 3500): WEST HAVEN GRADING HEPATIC ENCEPHALOPATHY | CAUSES FULMINANT HEPATIC FAILURE | JAUNDICE | If unstable, first resuscitate:
+Page 120 (len 1989): JAUNDICE | Assess for presence of | urobilinogen and | bilirubin fraction
+Page 121 (len 1681): Definition | ACUTE LIVER FAILURE | Rapid development of severe acute liver injury characterised by impaired synthetic function | (INR  1.5) and complicated by the development of encephalopathy, in a person without a history of liver
+Page 122 (len 1217): Neurological | Hepatic encephalopathy | Cerebral oedema | Seizures
+Page 123 (len 2383): • Hypotension should first be addressed by correcting hypovolaemia with crystalloids. | • Commence inotropes (Adrenaline) if needed. | • Glucose monitoring 2 hourly | • Stop all hepatotoxic and nephrotoxic drugs
+Page 124 (len 608): Emergency Department Investigations | Bedside | • Glucose | • Urine dipstix and U-HCG
+Page 125 (len 1393): *ABCD approach to resuscitation | *Blood glucose | *Face mask oxygen if hypoxic | *IV access
+Page 126 (len 1808): MALARIA | * Mild symptoms | * Ambulant | UNCOMPLICATED MALARIA
+Page 127 (len 1825): COMPLICATED MALARIA | IMMEDIATE ASSESSMENT & MANAGEMENT | * ABC approach to resuscitation | * Monitors
+Page 128 (len 2785): MCHA FORMS | o FORM 22: if brought by police, to be filled in duplicate by | SAPS officer – confirms condition of patient on handover | from SAPS
+Page 129 (len 76): ACUTE PSYCHOSIS/MANIA FLOWCHART
+Page 130 (len 1801): Neisseria meningitidis is transmitted by PROLONGED (generally >8 hours) | DIRECT CLOSE CONTACT (<1 metre) | with LARGE-DROPLET RESPIRATORY SECRETIONS of an infected individual. | The INFECTION CONTROL DEPARTMENT must be informed immediately.
+Page 131 (len 2103): References | 1. Adapted from CDC/ WHO GUIDELINES | This includes: | • Isolation in a separate cubicle
+Page 132 (len 1378): Contents | NON-INVASIVE VENTILATION (NIV) | INDICATIONS | • Cardiogenic pulmonary oedema
+Page 133 (len 507): ONCOLOGICAL EMERGENCIES IN THE ED | ONCOLOGICAL EMERGENCIES | LOCAL EFFECTS | • SVC syndrome
+Page 134 (len 1961): MALIGNANT PERICARDIAL EFFUSION | • Cancers: Lung, breast, oesophageal, melanoma, leukaemia, lymphoma | • Life-threatening = tamponade | • Can have rapid (more dangerous) vs chronic accumulation
+Page 135 (len 1834): MALIGNANT SPINAL CORD COMPRESSION | • Cancers: Breast, prostate, lung, lymphoma, MM | • Symptoms vary according to level of compression | • Signs and Symptoms
+Page 136 (len 2336): TUMOUR LYSIS SYNDROME | • Metabolic emergency = massive tumour cell lysis | ■ Release tumour cell contents into circulation | ■ Electrolyte derangement: Ca2+ K+ PO4 Uric Acid
+Page 137 (len 2080): NEUTROPENIC FEVER | • Fever + neutropaenia: consider life-threatening infection | Trigger: Rapid work-up and empiric AB | • Neutropaenia: Absolute neutrophil count <1000/microlitre
+Page 138 (len 1610): HISTORY | • Pain/photophobia | • Vision changes | • Systemic symptoms
+Page 139 (len 2664): PENETRATING EYE INJURY | History: | • Time of injury | • Type of incident
+Page 140 (len 99): OPHTHALMOLOGY: ACUTE PAINLESS MONOCULAR VISUAL LOSS | https://litfl.com/loss-of-vision/
+Page 141 (len 1059): PAIN MANAGEMENT IN THE ED | PARACETAMOL | Adults | • 1g PO
+Page 142 (len 1990): PAIN MANAGEMENT cnt. | Available Agents | No. Category Name Stat Application Notes | 1
+Page 143 (len 1855): N-Acetylcysteine (NAC) Parvolex / Paradote | * Use the Paracetamol Treatment Nomogram to establish need for antidote | * If a high dosage is suspected, rather give the antidote to the patient | * DO NOT withhold even if the ingestion was 48-72hrs prior to presentation
+Page 144 (len 61): Dr R Gihwala CMJAH Emergency Department June 2020
+Page 145 (len 1969): EXPLANATION | * If recipient presents after 72 hours and has significant exposure please consult HIV | doctor regarding initiating nPEP | ** HIV Tests: HIV rapid takes 30minutes. If positive then source has HIV, but if
+Page 146 (len 2689): Window Period and Acute Retroviral Syndrome | Acute retroviral syndrome (ARS) is the period between when one is infected with HIV and the completion of | the initial immune response. This can vary from 2 -4 weeks but can present months later.  When the source | is in this period it is not uncommon for the HIV tests to be negative but for the patient to still have a high VL.
+Page 147 (len 304): Based on the National Clinical Guidelines for post-exposure prophylaxis (PEP) in occupational and non-occupational exposure, | South African Department of Health, Published 2020
+Page 148 (len 2443): PLEASE NOTE: Dual Therapy is no longer recommended. | Caveat: These guidelines DO NOT take into account: Tetanus exposure, STI Prophylaxis | and Emergency Contraception. (See Sexual assault protocol) | Drug Combination Options
+Page 149 (len 2716): EXPLANATION | * If recipient presents after 72 hours and has significant exposure please consult HIV | doctor regarding initiating Npep | ** HIV Tests: HIV rapid takes 30minutes. If positive then source has HIV, but if
+Page 150 (len 1222): 1. WCL2 (employers report of an accident) | 2. WCL3 (claim for compensation) | 3. WCL4 (first medical report) | 4. WCL5 (progress/final medical report)
+Page 151 (len 1210): Caveat: These guidelines DO NOT take into account: Tetanus exposure, STI Prophylaxis | and Emergency Contraception. (See Sexual Assault protocol) | As above (refer to section 28.1 above | non-occupational exposure) (TLD 1 tab dly x28/7) | Based on the National Clinical Guidelines for post-exposure prophylaxis (PEP) in occupational and non-occupational exposure,
+Page 152 (len 1656): REFERENCES | 1. Based on the Centers for Medicare & Medicaid Services, TrailBlazer | Health Enterprises, LLC, | http://www.msdc.org/memberCenter/10PrinciplesofDocumentatio
+Page 153 (len 10): IMAGE-ONLY / NO TEXT
+Page 154 (len 30): Doctor/ Nursing Notes
+Page 155 (len 36): Laboratory Investigations
+Page 156 (len 257): IMAGE-ONLY / NO TEXT
+Page 157 (len 1799): DISCHARGE FROM ED | • All patients discharged from the Emergency Department must receive an ED discharge summary | • This allows local clinic or OPD follow up with all relevant information available to the receiving doctor | HELEN JOSEPH EMERGENCY DEPARTMENT DISCHARGE SUMMARY
+Page 158 (len 36): PROCEDURAL SEDATION & ANALGESIA
+Page 159 (len 3090): *Chest pain | *Shortness of breath | *Palpitations | *Haemoptysis
+Page 160 (len 1179): WELL’S SCORE for PULMONARY EMBOLISM | PULMONARY EMBOLISM ALGORITHM | CLINICAL FEATURE POINTS | Clinical signs and symptoms of DVT 3
+Page 161 (len 12): RABIES
+Page 162 (len 6): IMAGE-ONLY / NO TEXT
+Page 163 (len 2362): Animal bites are REPORTABLE if any suspicion of Rabies | MANAGEMENT OF ANIMAL/DOG BITES | Risk assessment for post exposure prophylaxis | • Unprovoked animal attack – dogs, cats, cattle, goats, horses, sheep, pigs, jackals, wild cat species, mongoose,
+Page 164 (len 864): The Dosage of Anti-Rabies immunoglobulin to be administered according to Body Weight | ANTI-RABIES IMMUNOGLOBULIN | BE AWARE: The risk of ANAPHYLAXIS is more common with Equine immunoglobulin than Rabigam | i.e. 1:150,000 patients DOSAGE = 40IU/kg
+Page 165 (len 1936): FEATURES OF RAISED ICP/IMPENDING HERNIATION | • Headache, vomiting, altered LOC, visual alterations, abducens nerve palsies | (lateral gaze palsy) | • Cushing’s triad: Hypertension, bradycardia, irregular respiration – late
+Page 166 (len 2026): NEUROPROTECTIVE MEASURES AND SPECIFIC MANAGEMENT | • Head up 30 – 45 degrees | • MAP > 90mmHg unless ICH, then MAP > 75-80mmHg | • Normocarbia (PCO2 34 - 40mmHg) – lower end of normal
+Page 167 (len 2280): History | * sudden onset severe “loin to groin” pain | * unilateral | * nausea & vomiting
+Page 168 (len 2499): SALICYLATE OVERDOSE | CLINICAL FEATURES | May take up to 6 hours to appear | * MINIMAL (<150 mg/kg): minimal symptoms
+Page 169 (len 3018): Management: | • Scorpion antivenom should be given to all patients with symptoms and signs of severe envenomation. | o Standard dose is 5 – 10 mL intravenously for both children and adults, diluted in a small volume of | normal saline and given over 15 minutes.
+Page 170 (len 2184): SEPSIS AND SEPTIC SHOCK | RESUSCITATION | ABC’s | Large bore IV access with appropriate fluid bolus (balanced
+Page 171 (len 1454): HAVE TO HAVE A HIGH INDEX OF CLINICAL SUSPICION | NB: Young patients may compensate BP till late and have isolated raised lactate | NB: Elderly may have isolated hypotension and very non-specific lactate levels | NB Subgroups: Immuno-compromised, DM, Elderly, Pregnant females, Paediatrics
+Page 172 (len 1997): POSSIBLE SOURCE – GO ON A HUNT! | Meningitis Headache, photophobia, meningism, low GCS | Pneumonia Respiratory Sx, U/S/CXR findings | BLOOD STREAM INFECTION
+Page 173 (len 1869): (1) Triage | (2) Resuscitation (Treatment of life-threatening injuries) if required | (3) Open a file | (4) Patient to be escorted through to medicolegal room
+Page 174 (len 1254): * Azithromycin 2g PO stat (if penicillin allergic) | • HIV PEP starter pack (for 3 days) | Refer to non-occupational post exposure prophylaxis (NPEP) protocol (TLD 1 tab dly 28/7) | • STI Prophylaxis Ceftriaxone 250mg IM stat*
+Page 175 (len 1082): JHB HEALTH DISTRICT | Clinical Forensic Medicine Services | Facility Location Working Hours Telephone Number Contact Person | District Office Hillbrow CHC 07h:30- 16h:00
+Page 176 (len 76): Source: EM Guidance EMCT Snakebite Emergencies, accessed | 24/10/2024
+Page 177 (len 1235): ABORT SEIZURE | FIRST LINE AGENTS - BENZODIAZEPINE | 0.3 mg/kg buccal / intranasal | ** If the seizure continues, administer a 2nd dose of the chosen benzodiazepine
+Page 178 (len 1866): STATUS EPILEPTICUS | Immediate Management | • ABCD approach to initial resuscitation | • Don’t ever forget glucose
+Page 179 (len 2181): SUBARACHNOID HAEMORRHAGE | ED MANAGEMENT | Resus, Fluids & Monitoring | *ABC approach
+Page 180 (len 2590): SYNCOPE | GENERAL APPROACH | Transient, self-limiting LOC with spontaneous recovery | NB! History and examination more useful than special investigations.
+Page 181 (len 448): ECG FOR CAUSES OF SYNCOPE | - ECG = Principal Investigation | - Memory Aid | Can Quick BRAD Walk Home In Adverse Events?
+Page 182 (len 181): Bundle Branch Block (>120ms) | Incomplete Block (80-110ms): Consider LAFB or LPFB | QT CHANGES | Several Formulae (commonly Bazett’s).
+Page 183 (len 105): BRUGADA SYNDROME | Type 1 is Diagnostic. | Type 2 must meet additional Criteria | RV INFARCTION
+Page 184 (len 807): ARVD (ARRHYTHMOGENIC RIGHT VENTRICULAR DYSPLASIA) | Fibro-fatty replacement of the right ventricular myocardium | Epsilon wave (ARROW - most specific finding, seen in 30% of patients) | T wave inversion in V1-3 (85% of patients)
+Page 185 (len 205): WOLFF-PARKINSON-WHITE SYNDROME (OR OTHER PRE-EXCITATION SYNDROMES) | Shortened PR | Prone to tachydysrhythmias (AVRT) | HYPERTROPHY
+Page 186 (len 1798): ARRHYTHMIAS | Tachydysrhythmia | Regular Irregular | Narrow
+Page 187 (len 103): ELECTRICAL ALTERNANS
+Page 188 (len 2624): TETANUS | MANAGEMENT | RESUSCITATION | *Resus according to ABCs
+Page 189 (len 2609): THYROID EMERGENCIES | HYPERTHYROIDISM | * History: Fatigue, palpitations, heat intolerance, anxiety, weight loss | despite increased appetite, pathological fractures 2nd to
+Page 190 (len 2230): THYROID STORM | *Life threatening endocrine emergency, high | mortality | *Features of severe thyrotoxicosis AND altered
+Page 191 (len 2616): GENERAL APPROACH | • Triage to RESUS AREA, even if patient initially appears well | • Rapid ABC assessment, 2 IV lines, monitors, HGT, VBG, urine HCG, ECG | • Correct abnormal electrolytes
+Page 192 (len 2042): SYMPATHOMIMETIC | *Common agents: Amphetamines (“Tik”), cocaine, withdrawal states, | hypermetabolic syndromes (MH, NMS), various | illicit novel street drugs, “body packers”
+Page 193 (len 3878): TRAUMA BASICS & PEARLS | FLUID CONSIDERATIONS | • NO COLLOIDS e.g. Voluven, Gelofusin | • Avoid large crystalloid volumes – give blood products
+Page 194 (len 1412): TRIAGE: TEWS CALCULATOR | TRIAGE DISCRIMINATORS | COLOUR RED ORANGE YELLOW GREEN BLUE | TEWS ≥ 7 5 - 6 3 - 4 0 - 2
+Page 195 (len 113): TEWS CALCULATOR | https://emssa.org.za/wp-content/uploads/2011/04/SATS-Manual-A5-LR-spreads.pdf
+Page 196 (len 2526): GENERAL APPROACH | • Triage to RESUS AREA, even if patient initially appears well | • Rapid ABC assessment, 2 IV lines, monitors, HGT, VBG, urine BHCG | • Correct electrolyte abnormalities
+Page 197 (len 985): ULTRASOUND GUIDED FEMORAL NERVE BLOCK | INDICATIONS | * Neck of femur fractures | * Femoral fractures
+Page 198 (len 1792): DISPOSITION | Discharge only if patient meets ALL criteria: | • Stable | • No witnessed haematemesis in ED
+Page 199 (len 2869): IMMEDIATE ED INVESTIGATIONS | * VBG and urine pregnancy test | * Bedside ultrasound | - viable intrauterine pregnancy (threatened)
+Page 200 (len 3426): VASCULAR EMERGENCIES | ABDOMINAL AORTIC ANEURYSM (AAA) | • History: Sudden onset abdo/flank/back/groin/sciatic pain. Syncope. | Hypovolaemic shock/Haemodynamic instability if leaking/ruptured.
+Page 201 (len 3654): WARFARIN TOXICITY | HIGH INR, NOT BLEEDING/MINOR BLEEDING | Non-bleeding patients should not receive PCC/FFP | * 3 – 4.5: Lower or omit next dose, retest dly, resume at lower dose once
+Page 202 (len 798): VENTILATOR GUIDELINES | Savina 300 Ventilator | 1. Ensure ventilator is plugged into power (green LED on bottom right | x 3)
+Page 203 (len 1324): HAMILTON T1 & C3 | 1. Ensure ventilator is plugged into power (battery icon will have a lightning bolt above it to indicate it is charging) | 2. Plug in oxygen hose into wall Heuer valve | 3. Attach HAMILTON SPECIFIC CIRCUIT WITH FLOW SENSOR (Blue pipe inside clear pipe)
+Page 204 (len 303): APPENDICES & UNIT POLICIES | Policies and Standard Operating Procedures (SOP’s) may change from time | to time. | Please ensure that you follow the most recent SIGNED protocols.
+Page 205 (len 5): IMAGE-ONLY / NO TEXT
+Page 206 (len 33): AMBULANCE DIVERT PROTOCOL
+Page 207 (len 35): AMBULANCE HANDOVER POLICY
+Page 208 (len 5): IMAGE-ONLY / NO TEXT
+Page 209 (len 6): IMAGE-ONLY / NO TEXT
+Page 210 (len 6): IMAGE-ONLY / NO TEXT
+Page 211 (len 5): IMAGE-ONLY / NO TEXT
+Page 212 (len 5): IMAGE-ONLY / NO TEXT
+Page 213 (len 839): Regards | There is currently no place for TB cultures in the ED. | Please remember to put a minimum of 10mℓ (preferably 20mℓ) of blood in the bottle and that | an AEROBIC bottle ONLY is required as anaerobic bacteria are able to grow in an aerobic
+Page 214 (len 2444): The below checklist is designed for use in the HJH ED where patients are unable to give consent, no surrogate can be | found or contacted via telephone and require a contrast radiological study for further management. | CONSENT FOR RADIOLOGICAL INVESTIGATIONS REQUIRING CONTRAST (HJH ED) | (Name in FULL)
+Page 215 (len 16): IMAGE-ONLY / NO TEXT
+Page 216 (len 20): IMAGE-ONLY / NO TEXT
+Page 217 (len 18): IMAGE-ONLY / NO TEXT
+Page 218 (len 9): IMAGE-ONLY / NO TEXT
+Page 219 (len 437): Skin traction can only perform this function if it is connected to a bed | with a pulley system based on the vectors of the forces… | AND NOT THIS! | MIDSHAFT FEMUR FRACTURES & TRACTION
+Page 220 (len 611): Dear Doctor | If a patient is deemed to Require ICU | by the doctors in the ED, the following will occur: | 1. ED doctor to contact ICU Doctor to request consult
+Page 221 (len 34): INTERNAL MEDICINE ADMISSIONS
+Page 222 (len 500): STAT LAB USE | • The Stat Lab in ED is for the use of ED doctors only | • Only doctors who have been trained are allowed to access the | Stat Lab machines
+Page 223 (len 1671): J88 Form | Guidelines for Completion | General | • The more legible completed and detailed the report, the less the chance that the doctor will have to appear | in court to testify.
+Page 224 (len 2090): GENERAL HISTORY | NB State clearly whether source of information was the complainant | himself/herself or a third party (who must be identified). | Relevant Medical History and Medication:
+Page 225 (len 2269): NB: Never give the name of the accused or alleged perpetrator. | Do not give any more detailed information as it might not be exactly the same as in the | statement given to the Police by the complainant. | • Mental health and emotional status:
+Page 226 (len 548): The more complete, legible and comprehensive the submitted form is, | the less the chances are of having to testify in court | REFERENCES | Adapted from the “Guidelines for the Completion of the J88 form”
+Page 227 (len 2089): FILLING FORMS AFTER DEATH | (BI 1663 and D28) | After death a person must be registered as dead with the | Department of Home Affairs so that a death certificate can be
+Page 228 (len 2097): Notifiable Medical Conditions and ICD 10 | Revised List of Notifiable Medical Conditions and ICD 10 codes for South Africa, | National Health Act, 2003 (Act No. 61 of 2011) | Notifiable Medical Condition ICD-10 Code
+Page 229 (len 620): Organ donation | • Gauteng South Transplant Coordinator: Anja Mayer 076 729 2801 (for all | potential donor cases) | • HJH Transplant Educator: Mabeleng 071 729 6609
+Page 230 (len 6): IMAGE-ONLY / NO TEXT
+Page 231 (len 2244): Referrals Procedure | Between Departments: | • Discuss the patient with the doctor you are referring to, if patient needs opinion from | that department while they are in ED or needs admission to a ward.
+Page 232 (len 1474): REFERRAL PATHWAYS & DRAINAGE AREAS | 1. HJH DRAINAGE AREA (GEOGRAPHICAL): | Annexures with region B and C suburbs and Regional Map attached | • City of Johannesburg Regions B and C
+Page 233 (len 2976): • Maxillofacial surgery – CMJAH | • Burns Unit – CHBAH | 3. REFERRAL TO HJH PROCESS: PHC, CHC, HOSPITAL: | NB Appropriate referral documentation must accompany all patients. See HJH ED
+Page 234 (len 1906): after Triage review by a doctor. | Down-referral to local clinic: Down-referrals for further management (wound | dressings, chronic follow-up etc.): Many patients do not require specialist follow-up at | hospital OPDs. Upon discharge from ED, every patient will be issued with an ED
+Page 235 (len 2115): Annexures | a. Suburb list | REGION B | Albertskroon
+Page 236 (len 1918): Floracliffe, & Ext.1 | Florida, & Extensions | Florida Hills, & Ext. 2 & 4 | Florida Lake
+Page 237 (len 19): b. Regional Map
+Page 238 (len 3561): TRIAGE SOP | PROCESS | • All patients are to be triaged as soon as possible after arrival at the facility | • A dedicated triage nurse is required at all times and Triage should never be left unmanned
+Page 239 (len 1670): • Ambulant patients with referral letters – these patients will be seen at triage and it will be decided if they are | stable to be sent to polyclinic, or another clinic as per referral letter. If the patient is acutely ill they will be | triaged and follow ED pathway. | • MEDICAL ORANGE patients are to be taken to the medical high care (Orange) area and handed over for
+Page 240 (len 39): ULTRASOUND VIEWS QUICK REFERENCE
+Page 241 (len 9): IMAGE-ONLY / NO TEXT
+Page 242 (len 4): IMAGE-ONLY / NO TEXT
+Page 243 (len 5): IMAGE-ONLY / NO TEXT
+Page 244 (len 2413): ECG ANALYSIS IN TOXICOLOGY | ANALYSE FOR RISK OF ADVERSE CARDIAC EVENTS: | • Ectopy, QT prolongation, non-sinus rhythm, any evidence of | ischemia/infarction
+Page 245 (len 2426): INTERVALS, SEGMENTS & WAVES | PR | • Prolongation (≧200 msec):BB, CCB, digoxin, TCA | QRS
+Page 246 (len 3183): TOXICOLOGY DRUG SPECIFIC ECG CHANGES | SODIUM CHANNEL BLOCKERS | • Prolong ventricular depolarization (phase 0) | • Wide QRS
+Page 247 (len 3509): Myocardial excitation: | • Slow atrial fibrillation | • Bi-directional ventricular | tachycardia – specific but rare
