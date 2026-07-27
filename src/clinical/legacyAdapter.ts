@@ -24,7 +24,7 @@ export interface LegacyClinicalRecord extends Record<string, unknown> {
     reviewState: 'unreviewed';
     warnings: ClinicalWarning[];
     infusionPresetId?: string;
-    sourceGroup?: 'bara_icu' | 'edl_phc' | 'hjth';
+    sourceGroup?: 'bara_icu' | 'edl_phc' | 'hjth' | 'cmjah';
   };
 }
 
@@ -54,6 +54,21 @@ const explicitInfusions: Record<string, string> = {
   '7_useful_formulae::Isosorbide Dinitrate': 'isosorbide_low',
   '7_useful_formulae::Nitroglycerin': 'nitroglycerin',
   '7_useful_formulae::Morphine + Midazolam': 'morphine_midazolam',
+};
+
+// Page citations for entries transcribed from the CMJAH ED Protocols source
+// (clinical-sources/source-manifest.json id "cmjah-ed-protocols-2020-v2").
+// These entries are identified by an explicit "(CMJAH)" title suffix rather
+// than title-matching, since several titles intentionally overlap with
+// existing HJH/Bara entries in the same category (e.g. both hospitals have
+// an "Anaphylaxis" protocol) — the suffix keeps them distinct.
+const cmjahPageRefs: Record<string, number[]> = {
+  'Sepsis and Septic Shock (CMJAH)': [114, 115, 116],
+  'Status Epilepticus (CMJAH)': [119, 120],
+  'Anaphylaxis (CMJAH)': [31],
+  'Scorpion Envenomation (CMJAH)': [113],
+  'Snakebite Pathway (CMJAH)': [117, 118],
+  'Hyperglycaemic Emergencies (DKA/HHS) (CMJAH)': [69],
 };
 
 export const legacyTitle = (record: LegacyClinicalRecord): string =>
@@ -120,7 +135,15 @@ function annotateRecord(
 
   const baseId = `${categoryId}.${subcategoryId}.${slugify(title)}`;
   const id = duplicateIndex > 0 ? `${baseId}.${duplicateIndex + 1}` : baseId;
-  const sourceRefs = sourceReferencesFor(title);
+  const cmjahPages = cmjahPageRefs[title];
+  const sourceRefs = cmjahPages
+    ? [{
+      sourceId: 'cmjah-ed-protocols-2020-v2',
+      pdfPages: cmjahPages,
+      sectionTitle: title,
+      transformation: 'condensed' as const,
+    }]
+    : sourceReferencesFor(title);
   const warnings = (record.warnings ?? []).map((text, index) => ({
     id: `${id}.warning.${index + 1}`,
     severity: warningSeverity(text),
@@ -139,7 +162,8 @@ function annotateRecord(
       reviewState: 'unreviewed',
       warnings,
       infusionPresetId: explicitInfusions[`${categoryId}::${title}`],
-      // Three independent labels, allowed to overlap on the same entry:
+      // Four independent labels, allowed to overlap on the same entry:
+      // - 'cmjah': title is in cmjahPageRefs (explicit, page-cited).
       // - 'hjth': title resolves to the hjh-ed-2026-v1 source map (verified,
       //   wherever the entry lives) — drives the dedicated "Helen" tab.
       // - 'edl_phc': categories 11-15, the ED protocol/algorithm section of
@@ -147,7 +171,9 @@ function annotateRecord(
       // - 'bara_icu': fallback for everything in categories 1-10/16 that
       //   isn't HJH-matched — there is no per-item Bara source map, so this
       //   bucket is not independently verified per entry.
-      sourceGroup: sourceRefs.some(s => s.sourceId === 'hjh-ed-2026-v1')
+      sourceGroup: cmjahPages
+        ? 'cmjah'
+        : sourceRefs.some(s => s.sourceId === 'hjh-ed-2026-v1')
         ? 'hjth'
         : (
           categoryId.startsWith('11_ed_') ||

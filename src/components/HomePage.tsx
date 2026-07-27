@@ -45,13 +45,13 @@ export const FACILITIES = [
   {
     id: 'cmjah',
     name: 'Charlotte Maxeke Academic Hospital (CMJAH)',
-    subtitle: 'Tertiary & Specialist Referral Protocols',
-    description: 'No source material has been supplied for CMJAH yet. This card will activate once referral protocols are confirmed and fingerprinted.',
+    subtitle: 'ED Protocols, Version 2 (December 2020)',
+    description: 'An initial batch of protocols transcribed from the CMJAH ED Protocols source (Sepsis, Status Epilepticus, Anaphylaxis, Scorpion & Snakebite envenomation, DKA/HHS). Most of the 74-protocol document is still to be digitized.',
     color: 'from-purple-600 to-indigo-800',
-    badge: 'Coming Soon',
-    protocolCount: 0,
+    badge: 'Tertiary Referral',
+    protocolCount: 6,
     icon: Award,
-    available: false
+    available: true
   },
   {
     id: 'chbah',

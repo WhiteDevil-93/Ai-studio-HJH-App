@@ -25,6 +25,17 @@
       "scope": "Paediatric emergency guidance referenced by the HJH source",
       "status": "source-required",
       "distributionPermission": "unconfirmed"
+    },
+    {
+      "id": "cmjah-ed-protocols-2020-v2",
+      "title": "Charlotte Maxeke Johannesburg Academic Hospital Emergency Department Protocols",
+      "version": "Version 2",
+      "documentDate": "2020-12",
+      "pageCount": 147,
+      "sha256": "70187c9d418f08dc36faf6637c85a50a4aed4229371f5b73004c14fa152502b9",
+      "scope": "Adult & paediatric ED protocols: resuscitation (AHA 2020 algorithms), toxicology, infusions, triage, and administrative policy. Editor: Dr Radha Gihwala.",
+      "status": "source-received",
+      "distributionPermission": "confirmed-public"
     }
   ]
 }

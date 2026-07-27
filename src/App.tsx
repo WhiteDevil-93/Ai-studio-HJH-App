@@ -59,6 +59,7 @@ const CATEGORIES: Record<string, string> = {
   recently_viewed: 'Recently Viewed',
   bara_icu_card: '🏥 Bara ICU Dosing Card',
   helen_guidelines: '🩺 Helen (HJTH) Guidelines',
+  cmjah_guidelines: '🏨 CMJAH Guidelines',
   edl_phc_guidelines: '🇿🇦 SA EDL / PHC Guidelines',
   trials_guidelines: '🔬 Trials & Int\'l Guidelines',
   mindmaps: '⚡ Resuscitation Mind Maps',
@@ -88,6 +89,7 @@ const CATEGORY_ICONS: Record<string, string> = {
   recently_viewed: '⏱️',
   bara_icu_card: '🏥',
   helen_guidelines: '🩺',
+  cmjah_guidelines: '🏨',
   edl_phc_guidelines: '🇿🇦',
   trials_guidelines: '🔬',
   mindmaps: '⚡',
@@ -117,6 +119,7 @@ const ORDER = [
   'recently_viewed',
   'bara_icu_card',
   'helen_guidelines',
+  'cmjah_guidelines',
   'edl_phc_guidelines',
   'trials_guidelines',
   'mindmaps',
@@ -1539,6 +1542,8 @@ export default function App() {
               <span className={theme === 'light' ? 'text-slate-900' : 'text-slate-100'}>{n}</span>
               {selectedCategory === 'helen_guidelines' ? (
                 <span className="text-[10px] bg-indigo-950/80 text-indigo-300 border border-indigo-800/40 font-bold px-1.5 py-0.5 rounded">🩺 Helen (HJTH)</span>
+              ) : selectedCategory === 'cmjah_guidelines' ? (
+                <span className="text-[10px] bg-violet-950/80 text-violet-300 border border-violet-800/40 font-bold px-1.5 py-0.5 rounded">🏨 CMJAH</span>
               ) : isEdlCategory(cat) ? (
                 <span className="text-[10px] bg-blue-950/80 text-blue-300 border border-blue-800/40 font-bold px-1.5 py-0.5 rounded">🇿🇦 SA EDL / PHC</span>
               ) : (
@@ -1696,9 +1701,11 @@ export default function App() {
             <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded border ${
               selectedCategory === 'helen_guidelines'
                 ? 'bg-indigo-950/80 text-indigo-300 border-indigo-800/40'
+                : selectedCategory === 'cmjah_guidelines'
+                ? 'bg-violet-950/80 text-violet-300 border-violet-800/40'
                 : 'bg-blue-950/80 text-blue-300 border-blue-800/40'
             }`}>
-              {selectedCategory === 'helen_guidelines' ? '🩺 Helen (HJTH)' : '🇿🇦 SA EDL / PHC'}
+              {selectedCategory === 'helen_guidelines' ? '🩺 Helen (HJTH)' : selectedCategory === 'cmjah_guidelines' ? '🏨 CMJAH' : '🇿🇦 SA EDL / PHC'}
             </span>
           </div>
           <div className="flex items-center gap-2">
@@ -1881,7 +1888,7 @@ export default function App() {
   };
 
   // Re-usable component to render sub-headers of categories
-  const renderCategorySect = (catKey: string, sourceGroupFilter?: 'hjth') => {
+  const renderCategorySect = (catKey: string, sourceGroupFilter?: 'hjth' | 'cmjah') => {
     const catData = D[catKey as keyof typeof D] as any;
     if (!catData) return null;
 
@@ -2145,7 +2152,7 @@ export default function App() {
   // both if it's a categories-11-15 item that also happens to be source-mapped.
   const renderHelenGuidelinesView = () => {
     const allContentCategories = ORDER.filter(k =>
-      !['home', 'favourites', 'recently_viewed', 'bara_icu_card', 'helen_guidelines', 'edl_phc_guidelines', 'trials_guidelines', 'all'].includes(k)
+      !['home', 'favourites', 'recently_viewed', 'bara_icu_card', 'helen_guidelines', 'cmjah_guidelines', 'edl_phc_guidelines', 'trials_guidelines', 'mindmaps', 'policies', 'all'].includes(k)
     );
     const matched = allContentCategories
       .map(k => renderCategorySect(k, 'hjth'))
@@ -2166,6 +2173,37 @@ export default function App() {
         </div>
         {matched.length === 0 ? (
           <div className="text-center py-16 text-sm text-slate-500">No source-verified entries match your search.</div>
+        ) : matched}
+      </div>
+    );
+  };
+
+  // Dedicated view for entries transcribed from the CMJAH ED Protocols source
+  // (clinical-sources/source-manifest.json id cmjah-ed-protocols-2020-v2),
+  // wherever they live in the category tree. Same item-level model as Helen.
+  const renderCmjahGuidelinesView = () => {
+    const allContentCategories = ORDER.filter(k =>
+      !['home', 'favourites', 'recently_viewed', 'bara_icu_card', 'helen_guidelines', 'cmjah_guidelines', 'edl_phc_guidelines', 'trials_guidelines', 'mindmaps', 'policies', 'all'].includes(k)
+    );
+    const matched = allContentCategories
+      .map(k => renderCategorySect(k, 'cmjah'))
+      .filter(Boolean);
+
+    return (
+      <div className="space-y-4">
+        <div className="p-4 rounded-xl bg-[#2a0d3a] border border-violet-900/50 flex items-center justify-between">
+          <div>
+            <div className="text-xs font-bold uppercase tracking-wider text-violet-400">Verified Source Pillar</div>
+            <h2 className="text-xl font-black text-white flex items-center gap-2 mt-0.5">
+              <span>🏨 Charlotte Maxeke Johannesburg Academic Hospital — ED Protocols</span>
+            </h2>
+            <p className="text-xs text-slate-400 mt-1">
+              Every entry here has a resolved page citation against the CMJAH ED Protocols document (Version 2, December 2020). This is an initial batch — most of the 74-protocol source hasn't been digitized yet.
+            </p>
+          </div>
+        </div>
+        {matched.length === 0 ? (
+          <div className="text-center py-16 text-sm text-slate-500">No CMJAH entries match your search.</div>
         ) : matched}
       </div>
     );
@@ -2522,7 +2560,7 @@ export default function App() {
 
     return (
       <div className="space-y-4">
-        {ORDER.filter(k => k !== 'home' && k !== 'favourites' && k !== 'recently_viewed' && k !== 'bara_icu_card' && k !== 'helen_guidelines' && k !== 'edl_phc_guidelines' && k !== 'trials_guidelines' && k !== 'mindmaps' && k !== 'policies' && k !== 'all').map(k => renderCategorySect(k))}
+        {ORDER.filter(k => k !== 'home' && k !== 'favourites' && k !== 'recently_viewed' && k !== 'bara_icu_card' && k !== 'helen_guidelines' && k !== 'cmjah_guidelines' && k !== 'edl_phc_guidelines' && k !== 'trials_guidelines' && k !== 'mindmaps' && k !== 'policies' && k !== 'all').map(k => renderCategorySect(k))}
       </div>
     );
   };
@@ -2557,8 +2595,10 @@ export default function App() {
               setSelectedCategory('helen_guidelines');
             } else if (facId === 'chbah') {
               setSelectedCategory('bara_icu_card');
+            } else if (facId === 'cmjah') {
+              setSelectedCategory('cmjah_guidelines');
             }
-            // rmmch / cmjah: no confirmed source content yet (see clinical-sources/source-manifest.json) — HomePage marks these "Coming Soon" and does not navigate.
+            // rmmch: no confirmed source content yet (see clinical-sources/source-manifest.json) — HomePage marks it "Coming Soon" and does not navigate.
           }}
           onSelectCategory={(catId) => setSelectedCategory(catId)}
           onSelectMindMap={(mapId) => setActiveMindMap(mapId)}
@@ -2589,6 +2629,10 @@ export default function App() {
       return renderHelenGuidelinesView();
     }
 
+    if (selectedCategory === 'cmjah_guidelines') {
+      return renderCmjahGuidelinesView();
+    }
+
     if (selectedCategory === 'edl_phc_guidelines') {
       return renderEdlPhcView();
     }
@@ -2606,7 +2650,7 @@ export default function App() {
     }
 
     if (selectedCategory === 'all') {
-      return ORDER.filter(k => k !== 'home' && k !== 'favourites' && k !== 'recently_viewed' && k !== 'bara_icu_card' && k !== 'helen_guidelines' && k !== 'edl_phc_guidelines' && k !== 'trials_guidelines' && k !== 'mindmaps' && k !== 'policies' && k !== 'all').map(k => renderCategorySect(k));
+      return ORDER.filter(k => k !== 'home' && k !== 'favourites' && k !== 'recently_viewed' && k !== 'bara_icu_card' && k !== 'helen_guidelines' && k !== 'cmjah_guidelines' && k !== 'edl_phc_guidelines' && k !== 'trials_guidelines' && k !== 'mindmaps' && k !== 'policies' && k !== 'all').map(k => renderCategorySect(k));
     }
 
     // Single-category view: let users jump straight to another specialty
@@ -2784,6 +2828,7 @@ export default function App() {
                       { id: 'policies', label: '📑 Hospital SOPs & Policies' },
                       { id: 'bara_icu_card', label: '🏥 Bara ICU Dosing Reference' },
                       { id: 'helen_guidelines', label: '🩺 Helen Joseph ED Guidelines' },
+                      { id: 'cmjah_guidelines', label: '🏨 CMJAH ED Protocols' },
                       { id: 'edl_phc_guidelines', label: '🇿🇦 SA EDL / PHC Protocols' },
                       { id: 'trials_guidelines', label: '🔬 Landmark Trials & Rules' },
                       { id: 'favourites', label: `⭐ Favourites (${favourites.length})` },

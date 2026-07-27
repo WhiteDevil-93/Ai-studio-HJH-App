@@ -1071,6 +1071,91 @@
             "details": "BPPV: Dix-Hallpike maneuver to elicit nystagmus and confirm affected canal. Epley maneuver to reposition canaliths and resolve symptoms."
           }
         ]
+      },
+      {
+        "item": "Sepsis and Septic Shock (CMJAH)",
+        "protocol_type": "ed_protocol",
+        "clinical_features": {
+          "symptoms": [
+            "Sepsis: life-threatening organ dysfunction due to a dysregulated host response to infection (clinical criteria: increase of >=2 in SOFA score).",
+            "Septic shock: sepsis plus, despite adequate fluid resuscitation, persistent hypotension requiring vasopressor to maintain MAP > 65 and lactate > 2."
+          ],
+          "signs": [
+            "Young patients may compensate BP until late and have isolated raised lactate; elderly may have isolated hypotension with non-specific lactate levels.",
+            "High-risk subgroups: immunocompromised, diabetes mellitus, elderly, pregnant, paediatric."
+          ]
+        },
+        "management_steps": [
+          {
+            "step_number": "1",
+            "action": "Resuscitation (ABCs)",
+            "details": "Large-bore IV access with balanced crystalloid bolus. Consider early inotrope (adrenaline) to keep MAP > 65. Consider early intubation if needed (correct hypotension and acidosis first). Don't ever forget the glucose."
+          },
+          {
+            "step_number": "2",
+            "action": "Fluid Bolus Approach",
+            "details": "Features of hypovolaemia / profuse vomiting or diarrhoea: generous fluid bolus 20-30ml/kg. No features of hypovolaemia or fluid overload: gentle fluid bolus 10-20ml/kg. Features of fluid overload: be very cautious with fluids. Don't wait for the fluid bolus to finish before considering inotropic support."
+          },
+          {
+            "step_number": "3",
+            "action": "Early Antibiotics & Source Control",
+            "details": "Consider the possible source and take appropriate samples before antibiotics if possible. Give broad-spectrum antibiotics ASAP, within 1 hour. Choice depends on suspected source (e.g. Augmentin for soft tissue, add Azithromycin for atypical pneumonia, Ceftriaxone for meningitis, Piperacillin-Tazobactam for nosocomial infection)."
+          },
+          {
+            "step_number": "4",
+            "action": "Surviving Sepsis Bundles",
+            "details": "Within 3 hours: measure lactate, obtain blood cultures prior to antibiotics, administer broad-spectrum antibiotics, give 30ml/kg crystalloid bolus for hypotension or lactate > 4 (consider patient factors before giving this volume). Within 6 hours: apply vasopressors to maintain MAP > 65mmHg; if persistent hypotension or initial lactate > 4, re-assess volume status and tissue perfusion and document findings; re-measure lactate if initial level was high."
+          },
+          {
+            "step_number": "5",
+            "action": "Re-assess & Disposition",
+            "details": "Monitor vitals, ABG/VBG for improving acidosis, lactate clearance, urine output > 0.5ml/kg/hr. Consider steroids (hydrocortisone 100mg TDS). Appropriate referral; ICU consult if requiring continuous inotrope or ventilatory support."
+          }
+        ],
+        "warnings": [
+          "Have a high index of clinical suspicion — presentation can be subtle, especially in the very young, elderly, or immunocompromised.",
+          "Consider the volume of fluid before giving 30ml/kg — this may be too much for some patients (e.g. heart failure, renal failure)."
+        ]
+      },
+      {
+        "item": "Status Epilepticus (CMJAH)",
+        "protocol_type": "ed_protocol",
+        "clinical_features": {
+          "symptoms": [
+            "Status epilepticus: continuous seizures for >= 5 minutes, or >= 2 discrete seizures in close succession without full recovery of consciousness between episodes.",
+            "Refractory status epilepticus: seizures persisting despite >= 2 anticonvulsant agents (1st and 2nd line)."
+          ]
+        },
+        "management_steps": [
+          {
+            "step_number": "1",
+            "action": "Immediate Management & ABCD",
+            "details": "ABCD approach to initial resuscitation. Don't ever forget glucose — hypoglycaemia: 1ml/kg of 50% dextrose IV (or 5ml/kg 10% dextrose in children); if no IV line, 50% dextrose buccal (1ml in children, 2-5ml in adults). Lateral patient position, supplemental oxygen. Rapid sequence intubation if seizures continue >= 5 minutes."
+          },
+          {
+            "step_number": "2",
+            "action": "First-Line Benzodiazepine",
+            "details": "Lorazepam 0.1mg/kg IV (max rate 2mg/min), OR Clonazepam 0.02mg/kg IV, OR Diazepam 0.2-0.3mg/kg IV (max rate 5mg/min), OR Midazolam 0.2mg/kg IV or 0.3mg/kg buccal/intranasal. If the seizure continues, give a second dose of the chosen benzodiazepine."
+          },
+          {
+            "step_number": "3",
+            "action": "Second-Line Anticonvulsant (if seizure continues)",
+            "details": "Phenytoin 20mg/kg IV (max rate 50mg/min), OR Sodium Valproate 20-30mg/kg IV (max rate 3-6mg/kg/min), OR Phenobarbitone 20mg/kg IV. If seizure continues after 20 minutes, repeat at half dose: Phenytoin 10mg/kg IV, Sodium Valproate 10mg/kg IV, or Phenobarbitone 10mg/kg."
+          },
+          {
+            "step_number": "4",
+            "action": "Refractory Status Epilepticus — Third-Line",
+            "details": "Midazolam infusion: loading dose 0.2mg/kg IV then 0.1mg/kg/hr (range 0.05-2mg/kg/hr). Propofol infusion: loading dose 3-5mg/kg IV then 1-15mg/kg/hr. Ketamine infusion: loading dose 1.5mg/kg then 0.01-0.05mg/kg/hr."
+          },
+          {
+            "step_number": "5",
+            "action": "Identify Precipitant & Disposition",
+            "details": "Consider infection/intoxication, metabolic/electrolyte abnormalities, trauma/toxins, drug toxicity, eclampsia, intracranial haemorrhage/ischaemic stroke. ECG, blood glucose and blood gas on all patients; urine bHCG on all female patients. Urgent CT brain with contrast if no return to baseline or focal neurological deficit. Consult Neurology/ICU."
+          }
+        ],
+        "warnings": [
+          "Always check blood glucose before/alongside anticonvulsant therapy — never forget the glucose."
+        ]
       }
     ],
     "12_ed_toxicology": {
@@ -1300,6 +1385,106 @@
           ],
           "warnings": [
             "Antivenom carries high risk of ANAPHYLAXIS. Always prepare resuscitation equipment, Adrenaline, and antihistamines beforehand."
+          ]
+        },
+        {
+          "item": "Anaphylaxis (CMJAH)",
+          "protocol_type": "ed_protocol",
+          "clinical_features": {
+            "symptoms": [
+              "Diagnostic criteria (any one of): acute illness with skin/mucosal involvement AND respiratory compromise, hypotension, or end-organ dysfunction; OR >=2 features after exposure to a likely allergen (skin/mucosal involvement, respiratory compromise, hypotension/end-organ dysfunction, persistent GI symptoms); OR hypotension after exposure to a known allergen (SBP fall >=30%)."
+            ]
+          },
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Immediate Management",
+              "details": "Stop/remove the suspected allergen. Place supine and elevate legs. High-flow oxygen, monitors, IV access."
+            },
+            {
+              "step_number": "2",
+              "action": "Adrenaline IM Stat",
+              "details": "Adrenaline 1mg/ml (1:1000), 0.01mg/kg up to 0.5mg, IM into the anterolateral thigh (0.5ml adult dose)."
+            },
+            {
+              "step_number": "3",
+              "action": "Airway / Breathing / Circulation",
+              "details": "Airway obstruction (partial): nebulised adrenaline 5mg, prepare for a difficult airway. Airway obstruction (complete): bag-mask ventilation with high-flow oxygen, prepare for a difficult airway. Wheeze/dyspnoea: continuous nebulisation with beta-2 agonists. Hypotension: crystalloid (Ringer's Lactate/Balsol) 20ml/kg, repeat as necessary — large volumes may be required."
+            },
+            {
+              "step_number": "4",
+              "action": "Antihistamine & Steroid",
+              "details": "Promethazine (Phenergan) 12.5mg slow IV (max 25mg), weight-dependent in children. Hydrocortisone (Solu-Cortef) 200mg slow IV, weight-dependent in children."
+            },
+            {
+              "step_number": "5",
+              "action": "Immediate Life Threat / Poor Response / Deterioration",
+              "details": "Repeat IM adrenaline every 3-5 minutes if no improvement, or start an adrenaline infusion per protocol. Cardiac arrest secondary to anaphylaxis: follow ACLS, give immediate adrenaline, consider rapid escalation to high-dose adrenaline (3-5mg every 2-3 minutes), high-volume IV fluids."
+            }
+          ],
+          "warnings": [
+            "Biphasic reaction occurs in 5-20% and can recur after the initial episode. Risk factors: delayed adrenaline administration, slow response to adrenaline, need for repeated adrenaline doses, requiring IV fluids, lack of steroid use."
+          ]
+        },
+        {
+          "item": "Scorpion Envenomation (CMJAH)",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Recognise Severe Envenomation",
+              "details": "Immediate severe local pain, generalised paraesthesia/hyperaesthesia, muscle pain and cramps, tremors and fasciculations, involuntary movements, agitation, visual disturbances, hypertension/tachycardia/arrhythmias, general weakness (unable to walk, dysphagia, drooling, difficulty breathing). Severity is usually evident within 15-60 minutes but may be delayed up to 8 hours in adults. In South Africa, severe envenomation (scorpionism) is mainly caused by Parabuthus granulatus and Parabuthus transvaalicus."
+            },
+            {
+              "step_number": "2",
+              "action": "Antivenom",
+              "details": "Give scorpion antivenom to all patients with symptoms and signs of severe envenomation. Standard dose: 5-10ml IV for both children and adults, diluted in a small volume of normal saline, given over 15 minutes. May take 2-6 hours for maximum effect. An additional 5ml dose may be given after 6 hours if the response to the first dose is inadequate. Observe for 6-12 hours after antivenom administration."
+            },
+            {
+              "step_number": "3",
+              "action": "Pain & Supportive Management",
+              "details": "If simple analgesia is ineffective, infiltrate the sting site with local anaesthetic. Opioids are relatively ineffective and increase the risk of respiratory depression. Generalised muscle cramps can be alleviated temporarily (20-30 min) with IV calcium gluconate 10% (adults 10ml, children 0.5ml/kg). Support cardiorespiratory function as needed. Tetanus toxoid if required."
+            }
+          ],
+          "warnings": [
+            "Do NOT give antihistamines or steroids routinely.",
+            "Children may present with a unique form of restlessness (crying and thrashing) indicating severe systemic envenomation — bulbar paralysis with respiratory failure is more frequent in children and is the primary cause of death."
+          ]
+        },
+        {
+          "item": "Snakebite Pathway (CMJAH)",
+          "protocol_type": "ed_protocol",
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Targeted History & Assessment",
+              "details": "Body part bitten, time of bite, description of the snake if known, signs and symptoms (severe pain, headache, dizziness, dry mouth, severe thirst, nausea/vomiting, increased/severe sweating, limbs feeling weak, breathless, bitter taste in mouth). Ask about previous snakebites, prior antivenom treatment, and prior anaphylaxis to antivenom."
+            },
+            {
+              "step_number": "2",
+              "action": "Classify the Envenomation Syndrome",
+              "details": "PPS/PW syndrome (mixed cytotoxic & neurotoxic, e.g. Mozambique spitting cobra): painful progressive swelling and progressive weakening. PPS syndrome (cytotoxic, e.g. puff adder, Gaboon viper, rinkhals, berg adder): local swelling, may need surgical review. PW syndrome (neurotoxic, e.g. black/green mamba, non-spitting cobra): progressive weakening, ptosis, difficulty swallowing, respiratory paralysis — protect airway. B syndrome (haemotoxic, e.g. boomslang, vine snake): bleeding, fang punctures that do not stop bleeding, use the 20-minute whole blood clotting test."
+            },
+            {
+              "step_number": "3",
+              "action": "20-Minute Whole Blood Clotting Test (Haemotoxic/B syndrome)",
+              "details": "Take a few millilitres of blood by venepuncture into a new, clean, dry glass vessel. Leave undisturbed at room temperature for 20 minutes, then tilt once to see if the blood has clotted. If blood remains incoagulable 6 hours after the first antivenom dose, repeat the dose until coagulability is restored."
+            },
+            {
+              "step_number": "4",
+              "action": "Antivenom Administration",
+              "details": "Insert an IV line (not in the same limb as the bite). Doctor to administer antivenom; no test dose required. Diluted 50/50 in isotonic fluid infused over 15-30 minutes, EXCEPT boomslang/vine snake monovalent antivenom which is given as a slow IV push (1 ampoule/min). Indicative starting doses: rinkhals 50ml; puff adder/spitting cobras/Gaboon adder 50-200ml depending on species; other species (mamba, non-spitting cobra) per polyvalent protocol; boomslang/vine snake 20ml monovalent. Monitor swelling hourly, neurological symptoms closely, and repeat the clotting test as needed."
+            },
+            {
+              "step_number": "5",
+              "action": "Anaphylaxis Pre-Treatment & Monitoring",
+              "details": "If any allergy screen answer is positive (medication allergy, prior antivenom, asthma/hay fever, infantile eczema, other allergies, prior snakebite), prepare for a high possibility of anaphylaxis: give IM adrenaline 15 minutes prior to antivenom (weight/age-based dosing, e.g. 1-3 years <11kg: 0.10mg IM). Monitor closely during antivenom infusion for shortness of breath, laryngeal swelling, bronchospasm, cyanosis, or cardiovascular collapse."
+            }
+          ],
+          "warnings": [
+            "Do NOT apply a tourniquet, incise the wound, or attempt suction.",
+            "Natal black snake / stiletto snake bites cause local damage only and require conservative management — no antivenom; consult the Snakebite Advisory group before any digit amputation.",
+            "Antivenom carries a real risk of anaphylaxis — always prepare resuscitation equipment, adrenaline, and antihistamines beforehand."
           ]
         }
       ]
@@ -1579,6 +1764,46 @@
               "action": "Myxoedema Coma (Severe Hypothyroidism)",
               "details": "Bradycardia, hypothermia, GCS stupor, hypotension, hyponatraemia, sepsis trigger. Urgent treatment: give Levothyroxine (Eltroxin) 300-500 mcg IV loading dose, then 50 mcg daily. Give Hydrocortisone 100mg IV q8h (covers concomitant adrenal insufficiency). Perform gentle active rewarming."
             }
+          ]
+        },
+        {
+          "item": "Hyperglycaemic Emergencies (DKA/HHS) (CMJAH)",
+          "protocol_type": "ed_protocol",
+          "clinical_features": {
+            "symptoms": [
+              "DKA: onset often <=30 years (younger), hours-to-days presentation, ketones positive, metabolic acidosis, anion gap high (>16).",
+              "HHS: onset >=30 years (elderly), several-day presentation, CNS findings, ketones absent/weakly positive, minimal acidosis, serum osmolarity >350, anion gap normal (12-16). DKA and HHS may overlap."
+            ]
+          },
+          "management_steps": [
+            {
+              "step_number": "1",
+              "action": "Resuscitation & Diagnosis",
+              "details": "ABC approach, oxygen, monitors, large-bore IV line, blood gas, ECG."
+            },
+            {
+              "step_number": "2",
+              "action": "Correct Dehydration",
+              "details": "If shocked: Balsol/Ringer's Lactate 20ml/kg bolus. DKA: 1st litre over 1 hour, 2nd litre over 1 hour, then maintenance aiming for urine output 1-2ml/kg/hr. HHS: fluids at a slower rate, 250-500ml/hr. Change IV fluid to 5% dextrose water once HGT <=15 or if serum Na >150."
+            },
+            {
+              "step_number": "3",
+              "action": "Correct Hyperglycaemia (Insulin)",
+              "details": "Delay insulin until serum K+ > 3.5mmol/L. Actrapid 0.1u/kg IV stat (max 10u), then hourly or as an Actrapid infusion at 0.1u/kg/hr. Hourly HGT monitoring."
+            },
+            {
+              "step_number": "4",
+              "action": "Correct Electrolyte Abnormalities",
+              "details": "K+: corrected K+ = for every 0.1 drop in pH from 7.4, K+ drops by 0.5; add 20-40mmol/L to IV fluids to maintain K+ 4-5mmol/L. Na+: corrected Na+ = for every 5.5mmol/L glucose above 5.5, Na+ increases by 1.6 (glucose 11-22) or 2.4 (glucose >22). Mg2+: 2g MgSO4 added to IV fluids (not as a bolus). PO4-: use KPO4 if phosphate is low, at a rate of 20mmol/hr."
+            },
+            {
+              "step_number": "5",
+              "action": "Correct Acidosis, Anticoagulation & Disposition",
+              "details": "Sodium bicarbonate is not routinely used — only if pH <=6.85 and HCO3 <5: give NaHCO3 8.5% 1ml/kg IV over 30 min, may repeat until pH >6.85. HHS: Clexane 0.5mg/kg SC stat for VTE prophylaxis. Identify and treat the underlying cause (infection, infarction, ischaemia, non-adherence, intoxication, pregnancy, intra-abdominal cause). Endocrine consultation for disposition."
+            }
+          ],
+          "warnings": [
+            "Give insulin only once serum potassium is confirmed > 3.5mmol/L — insulin before this can precipitate dangerous hypokalaemia."
           ]
         }
       ]
