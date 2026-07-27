@@ -31,9 +31,6 @@ Source metadata is recorded in
 [`clinical-sources/source-manifest.json`](clinical-sources/source-manifest.json).
 Known source ambiguities are recorded in
 [`clinical-sources/errata.json`](clinical-sources/errata.json).
-The focused clinical review queue is in
-[`clinical-sources/MONDAY_REVIEW.md`](clinical-sources/MONDAY_REVIEW.md).
-
 The PDF is not committed to this repository because distribution permission is
 not yet recorded.
 
