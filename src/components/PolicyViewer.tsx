@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import {
   FileText, ArrowLeft, ShieldAlert, Award, Building2, MapPin,
-  CheckCircle2, AlertTriangle, Info, BookOpen, Layers, Search
+  CheckCircle2, AlertTriangle, Info, BookOpen, Layers, Search,
+  Printer, Star
 } from 'lucide-react';
 
 interface PolicyViewerProps {
   policyId: string;
   onBack: () => void;
+  isFavourite?: boolean;
+  onToggleFavourite?: (id: string) => void;
 }
 
 export interface PolicyDefinition {
@@ -206,76 +209,26 @@ export const POLICIES_DATABASE: Record<string, PolicyDefinition> = {
         ]
       }
     ]
-  },
-  ambulance_handover: {
-    id: 'ambulance_handover',
-    title: 'Ambulance Handover Policy',
-    category: 'Hospital SOPs',
-    pdfPage: 207,
-    sections: [
-      {
-        title: 'Structured Handover (ISBAR)',
-        items: [
-          'Identify yourself and the patient.',
-          'Situation: presenting complaint and acuity.',
-          'Background: relevant history, mechanism of injury/illness, interventions already given.',
-          'Assessment: vital signs and working diagnosis.',
-          'Recommendation: what is needed next (bed, specialty, monitoring level).'
-        ]
-      },
-      {
-        title: 'Handover Process',
-        items: [
-          'Triage nurse or doctor formally receives handover before the ambulance crew leaves.',
-          'The patient is not left unattended until formally accepted by ED staff.',
-          'Document the time of handover and the receiving clinician\'s name.'
-        ]
-      }
-    ],
-    warning: 'The full local Ambulance Handover Policy text could not be extracted from the source PDF (page 207 is diagram/image-based in the supplied scan). This reflects standard ISBAR handover practice — confirm wording against the printed policy.'
-  },
-  internal_medicine_admissions: {
-    id: 'internal_medicine_admissions',
-    title: 'Internal Medicine Admissions Pathway',
-    category: 'Hospital SOPs',
-    pdfPage: 221,
-    sections: [
-      {
-        title: 'Referral Process',
-        items: [
-          'Discuss all planned medical admissions with the Internal Medicine team on call.',
-          'Complete relevant workup (bloods, ECG, imaging) before referral where clinically appropriate.',
-          'Document the referral discussion, time, and receiving doctor\'s name in the patient file.'
-        ]
-      }
-    ],
-    warning: 'The full local Internal Medicine Admissions policy text could not be extracted from the source PDF (page 221 is diagram/image-based in the supplied scan). Confirm the current referral workflow against the printed policy or the Internal Medicine department.'
-  },
-  stat_lab_use: {
-    id: 'stat_lab_use',
-    title: 'Stat Lab Use Policy',
-    category: 'Hospital SOPs',
-    pdfPage: 222,
-    sections: [
-      {
-        title: 'Access & Use',
-        items: [
-          'The Stat Lab in ED is for the use of ED doctors only.',
-          'Only doctors who have been trained are allowed to access the Stat Lab machines.'
-        ]
-      }
-    ]
   }
 };
 
-export const PolicyViewer: React.FC<PolicyViewerProps> = ({ policyId, onBack }) => {
+export const PolicyViewer: React.FC<PolicyViewerProps> = ({
+  policyId,
+  onBack,
+  isFavourite = false,
+  onToggleFavourite
+}) => {
   const policy = POLICIES_DATABASE[policyId] || POLICIES_DATABASE['triage_sop'];
   const [filterText, setFilterText] = useState('');
 
+  const handlePrint = () => {
+    window.print();
+  };
+
   return (
-    <div className="space-y-6 max-w-5xl mx-auto pb-12">
+    <div className="space-y-6 max-w-5xl mx-auto pb-12 print:max-w-none print:p-0">
       {/* Top Navigation */}
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between print:hidden">
         <button
           onClick={onBack}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 font-semibold text-xs transition-colors"
@@ -284,17 +237,42 @@ export const PolicyViewer: React.FC<PolicyViewerProps> = ({ policyId, onBack }) 
           Back to Home
         </button>
 
-        <span className="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-          PDF Page {policy.pdfPage} • {policy.category}
-        </span>
+        <div className="flex items-center gap-2">
+          {onToggleFavourite && (
+            <button
+              onClick={() => onToggleFavourite(`policy.${policy.id}`)}
+              className={`p-2 rounded-xl border transition-colors ${
+                isFavourite
+                  ? 'bg-amber-500/10 border-amber-500/30 text-amber-500'
+                  : 'bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-400'
+              }`}
+              title={isFavourite ? 'Remove from Favourites' : 'Add to Favourites'}
+            >
+              <Star className={`w-4 h-4 ${isFavourite ? 'fill-amber-500' : ''}`} />
+            </button>
+          )}
+
+          <button
+            onClick={handlePrint}
+            className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-semibold inline-flex items-center gap-1.5 transition-colors"
+            title="Print Policy Document"
+          >
+            <Printer className="w-4 h-4" />
+            <span className="hidden sm:inline">Print Document</span>
+          </button>
+
+          <span className="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+            PDF Page {policy.pdfPage} • {policy.category}
+          </span>
+        </div>
       </div>
 
       {/* Policy Header */}
-      <div className="bg-gradient-to-r from-slate-900 via-emerald-950 to-slate-900 rounded-2xl p-6 sm:p-8 text-white border border-slate-800 shadow-xl">
-        <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">Hospital Administrative Policy & SOP</span>
+      <div className="bg-gradient-to-r from-slate-900 via-emerald-950 to-slate-900 rounded-2xl p-6 sm:p-8 text-white border border-slate-800 shadow-xl print:bg-none print:text-black print:border-b print:p-0">
+        <span className="text-xs font-bold uppercase tracking-wider text-emerald-400 print:text-slate-600">Hospital Administrative Policy & SOP</span>
         <h1 className="text-2xl sm:text-3xl font-extrabold mt-1">{policy.title}</h1>
 
-        <div className="mt-4 relative max-w-md">
+        <div className="mt-4 relative max-w-md print:hidden">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
           <input
             type="text"

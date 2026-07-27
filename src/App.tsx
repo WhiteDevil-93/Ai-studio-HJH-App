@@ -17,7 +17,7 @@ import {
   getPairedDrugsForDisease,
   DISEASE_DRUG_PAIRINGS
 } from './clinical/legacyAdapter';
-import {calculateFormula, type FormulaKey} from './clinical/calculations/formulas';
+import { calculateFormula, type FormulaKey } from './clinical/calculations/formulas';
 import {
   calculateInfusionRate,
   INFUSION_DEFINITIONS,
@@ -27,12 +27,12 @@ import {
   extractWeightDoseResults,
   infusionDefinitionFromDoseText,
 } from './clinical/calculations/weightDose';
-import {calculateChecklistScore} from './clinical/scores';
-import type {CriterionAnswer} from './clinical/types';
+import { calculateChecklistScore } from './clinical/scores';
+import type { CriterionAnswer } from './clinical/types';
 import trialsReference from './trials-reference.json';
-import {HomePage} from './components/HomePage';
-import {MindMapViewer} from './components/MindMapViewer';
-import {PolicyViewer} from './components/PolicyViewer';
+import { HomePage } from './components/HomePage';
+import { MindMapViewer } from './components/MindMapViewer';
+import { PolicyViewer } from './components/PolicyViewer';
 
 const D = clinicalData as any;
 
@@ -421,10 +421,10 @@ export default function App() {
     try {
       const numericInputs: Record<string, number> = {};
       for (const [key, value] of Object.entries(inputs)) {
-        if (value === '') return {result: null, error: ''};
+        if (value === '') return { result: null, error: '' };
         numericInputs[key] = Number(value);
       }
-      return {result: calculateFormula(formulaKey, numericInputs), error: ''};
+      return { result: calculateFormula(formulaKey, numericInputs), error: '' };
     } catch (error) {
       return {
         result: null,
@@ -517,7 +517,7 @@ export default function App() {
         <div className={`mt-3 p-3 rounded-lg text-sm border ${isHigh ? 'bg-rose-950/20 border-rose-500/20 text-rose-200' : 'bg-teal-950/20 border-teal-500/20 text-teal-200'}`}>
           <div className="font-bold">{isHigh ? '🔴 Elevated Anion Gap' : '🟢 Normal Anion Gap'}</div>
           <div className="text-xs mt-1 leading-normal text-slate-300">
-            {isHigh 
+            {isHigh
               ? 'MUDPILES / GOLD MARK differential: Methanol, Uremia, DKA/Ketoacidosis, Paracetamol/Propofol, Iron/INH, Lactic acidosis, Ethylene glycol, Salicylates.'
               : 'Normal reference range: 8–16 mmol/L.'}
           </div>
@@ -592,8 +592,8 @@ export default function App() {
           {sc.source_label
             ? sc.source_label
             : sc.source_pages?.length > 0
-            ? `HJH PDF page${sc.source_pages.length > 1 ? 's' : ''} ${sc.source_pages.join(', ')} · clinical review pending`
-            : 'Source page mapping or external-source approval required'}
+              ? `HJH PDF page${sc.source_pages.length > 1 ? 's' : ''} ${sc.source_pages.join(', ')} · clinical review pending`
+              : 'Source page mapping or external-source approval required'}
         </div>
       </div>
     );
@@ -604,12 +604,12 @@ export default function App() {
       const hasStarted = Object.values(inputs).some(value => value !== '');
       const evaluation = formulaKey && !sc.disabled_reason && hasStarted
         ? evalFormula(formulaKey, inputs)
-        : {result: null, error: ''};
+        : { result: null, error: '' };
       const result = evaluation.result;
 
       return (
-        <div 
-          key={key} 
+        <div
+          key={key}
           onClick={() => recordRecentlyViewed(key, sc.name, '16_score_calculators', 'calculator')}
           className={`p-4 rounded-xl border transition mb-4 cursor-pointer ${theme === 'dark' ? 'bg-[#0f1d1d] border-teal-900/40' : 'bg-white border-slate-200 shadow-sm'}`}
         >
@@ -698,8 +698,8 @@ export default function App() {
       }
 
       return (
-        <div 
-          key={key} 
+        <div
+          key={key}
           onClick={() => recordRecentlyViewed(key, sc.name, '16_score_calculators', 'calculator')}
           className={`p-4 rounded-xl border mb-4 cursor-pointer ${theme === 'dark' ? 'bg-[#0f1d1d] border-teal-900/40' : 'bg-white border-slate-200 shadow-sm'}`}
         >
@@ -722,11 +722,10 @@ export default function App() {
                       <button
                         key={opt.value}
                         onClick={() => setGcsState(prev => ({ ...prev, [comp.key]: opt.value }))}
-                        className={`px-2 py-1.5 rounded-lg border text-left flex flex-col justify-between transition h-14 ${
-                          isSelected 
-                            ? 'bg-teal-500/20 border-teal-400 text-teal-300' 
+                        className={`px-2 py-1.5 rounded-lg border text-left flex flex-col justify-between transition h-14 ${isSelected
+                            ? 'bg-teal-500/20 border-teal-400 text-teal-300'
                             : 'bg-black/10 border-teal-950/20 hover:border-teal-700/40 text-slate-300'
-                        }`}
+                          }`}
                       >
                         <div className="flex justify-between w-full items-start">
                           <span className="text-[11px] font-bold truncate pr-1">{opt.label}</span>
@@ -780,21 +779,19 @@ export default function App() {
                   <div className="flex gap-1">
                     <button
                       onClick={() => setNexusState(prev => ({ ...prev, [comp.key]: false }))}
-                      className={`px-3 py-1 text-xs font-bold rounded border transition ${
-                        currentVal === false
+                      className={`px-3 py-1 text-xs font-bold rounded border transition ${currentVal === false
                           ? 'bg-teal-500/20 border-teal-400 text-teal-300'
                           : 'bg-slate-900/50 border-slate-800 text-slate-400'
-                      }`}
+                        }`}
                     >
                       No
                     </button>
                     <button
                       onClick={() => setNexusState(prev => ({ ...prev, [comp.key]: true }))}
-                      className={`px-3 py-1 text-xs font-bold rounded border transition ${
-                        currentVal === true
+                      className={`px-3 py-1 text-xs font-bold rounded border transition ${currentVal === true
                           ? 'bg-rose-500/20 border-rose-500 text-rose-300'
                           : 'bg-slate-900/50 border-slate-800 text-slate-400'
-                      }`}
+                        }`}
                     >
                       Yes
                     </button>
@@ -808,7 +805,7 @@ export default function App() {
             <div className={`mt-4 p-3 rounded-lg border text-sm ${isHighRisk ? 'bg-rose-950/20 border-rose-500/20 text-rose-200' : 'bg-teal-950/20 border-teal-500/20 text-teal-200'}`}>
               <div className="font-bold">{isHighRisk ? '🔴 C-Spine Imaging Required' : '🟢 Clinical Clearance Possible'}</div>
               <div className="text-xs mt-1 text-slate-300">
-                {isHighRisk 
+                {isHighRisk
                   ? 'High-risk factors present. Maintain inline spinal stabilization and order non-contrast C-spine CT.'
                   : 'Meets low-risk criteria. C-spine may be clinically cleared without radiographs.'}
               </div>
@@ -871,17 +868,15 @@ export default function App() {
                     <div className="flex gap-1 flex-shrink-0">
                       <button
                         onClick={() => setCcsState(prev => ({ ...prev, [comp.key]: false }))}
-                        className={`px-2 py-0.5 text-xs font-bold rounded border ${
-                          currentVal === false ? 'bg-teal-500/20 border-teal-400 text-teal-300' : 'bg-slate-900/50 border-slate-800'
-                        }`}
+                        className={`px-2 py-0.5 text-xs font-bold rounded border ${currentVal === false ? 'bg-teal-500/20 border-teal-400 text-teal-300' : 'bg-slate-900/50 border-slate-800'
+                          }`}
                       >
                         No
                       </button>
                       <button
                         onClick={() => setCcsState(prev => ({ ...prev, [comp.key]: true }))}
-                        className={`px-2 py-0.5 text-xs font-bold rounded border ${
-                          currentVal === true ? 'bg-rose-500/20 border-rose-500 text-rose-300' : 'bg-slate-900/50 border-slate-800'
-                        }`}
+                        className={`px-2 py-0.5 text-xs font-bold rounded border ${currentVal === true ? 'bg-rose-500/20 border-rose-500 text-rose-300' : 'bg-slate-900/50 border-slate-800'
+                          }`}
                       >
                         Yes
                       </button>
@@ -901,17 +896,15 @@ export default function App() {
                     <div className="flex gap-1 flex-shrink-0">
                       <button
                         onClick={() => setCcsState(prev => ({ ...prev, [comp.key]: false }))}
-                        className={`px-2 py-0.5 text-xs font-bold rounded border ${
-                          currentVal === false ? 'bg-rose-500/20 border-rose-400 text-rose-300' : 'bg-slate-900/50 border-slate-800'
-                        }`}
+                        className={`px-2 py-0.5 text-xs font-bold rounded border ${currentVal === false ? 'bg-rose-500/20 border-rose-400 text-rose-300' : 'bg-slate-900/50 border-slate-800'
+                          }`}
                       >
                         No
                       </button>
                       <button
                         onClick={() => setCcsState(prev => ({ ...prev, [comp.key]: true }))}
-                        className={`px-2 py-0.5 text-xs font-bold rounded border ${
-                          currentVal === true ? 'bg-teal-500/20 border-teal-400 text-teal-300' : 'bg-slate-900/50 border-slate-800'
-                        }`}
+                        className={`px-2 py-0.5 text-xs font-bold rounded border ${currentVal === true ? 'bg-teal-500/20 border-teal-400 text-teal-300' : 'bg-slate-900/50 border-slate-800'
+                          }`}
                       >
                         Yes
                       </button>
@@ -1007,8 +1000,8 @@ export default function App() {
       }
 
       return (
-        <div 
-          key={key} 
+        <div
+          key={key}
           onClick={() => recordRecentlyViewed(key, sc.name, '16_score_calculators', 'calculator')}
           className={`p-4 rounded-xl border mb-4 cursor-pointer ${theme === 'dark' ? 'bg-[#0f1d1d] border-teal-900/40' : 'bg-white border-slate-200 shadow-sm'}`}
         >
@@ -1038,11 +1031,10 @@ export default function App() {
                       <button
                         key={opt.value}
                         onClick={() => setBurchWartofskyState(prev => ({ ...prev, [comp.key]: opt.value }))}
-                        className={`px-3 py-2 rounded-lg border text-left flex justify-between items-center transition ${
-                          isSelected 
-                            ? 'bg-teal-500/20 border-teal-400 text-teal-300' 
+                        className={`px-3 py-2 rounded-lg border text-left flex justify-between items-center transition ${isSelected
+                            ? 'bg-teal-500/20 border-teal-400 text-teal-300'
                             : 'bg-black/10 border-teal-950/20 hover:border-teal-700/40 text-slate-300'
-                        }`}
+                          }`}
                       >
                         <span className="text-xs font-medium">{opt.label}</span>
                         <span className={`text-[10px] font-black px-1.5 py-0.5 rounded ${isSelected ? 'bg-teal-400 text-black' : 'bg-slate-800 text-slate-400'}`}>
@@ -1068,19 +1060,19 @@ export default function App() {
     }
 
     // Default checklist/point-based scorers
-    const currentScoresState = 
+    const currentScoresState =
       key === 'alvarado' ? alvaradoState :
-      key === 'wells_dvt' ? wellsDvtState :
-      key === 'wells_pe' ? wellsPeState :
-      key === 'perc' ? percState :
-      key === 'curb65' ? curb65State : {};
+        key === 'wells_dvt' ? wellsDvtState :
+          key === 'wells_pe' ? wellsPeState :
+            key === 'perc' ? percState :
+              key === 'curb65' ? curb65State : {};
 
-    const setCurrentScoresState = 
+    const setCurrentScoresState =
       key === 'alvarado' ? setAlvaradoState :
-      key === 'wells_dvt' ? setWellsDvtState :
-      key === 'wells_pe' ? setWellsPeState :
-      key === 'perc' ? setPercState :
-      key === 'curb65' ? setCurb65State : () => {};
+        key === 'wells_dvt' ? setWellsDvtState :
+          key === 'wells_pe' ? setWellsPeState :
+            key === 'perc' ? setPercState :
+              key === 'curb65' ? setCurb65State : () => { };
 
     const checklistResult = calculateChecklistScore(
       sc.components.map((comp: any) => ({
@@ -1138,8 +1130,8 @@ export default function App() {
     };
 
     return (
-      <div 
-        key={key} 
+      <div
+        key={key}
         onClick={() => recordRecentlyViewed(key, sc.name, '16_score_calculators', 'calculator')}
         className={`p-4 rounded-xl border mb-4 cursor-pointer ${theme === 'dark' ? 'bg-[#0f1d1d] border-teal-900/40' : 'bg-white border-slate-200 shadow-sm'}`}
       >
@@ -1161,18 +1153,17 @@ export default function App() {
             const cid = comp.key || comp.name;
             const answer = currentScoresState[cid] as CriterionAnswer | undefined;
             return (
-              <div 
+              <div
                 key={cid}
-                className={`flex items-center justify-between gap-3 p-2 rounded-lg transition ${
-                  answer === 'yes' ? 'bg-teal-500/10 border border-teal-500/30' : 'bg-black/10 border border-transparent'
-                }`}
+                className={`flex items-center justify-between gap-3 p-2 rounded-lg transition ${answer === 'yes' ? 'bg-teal-500/10 border border-teal-500/30' : 'bg-black/10 border border-transparent'
+                  }`}
               >
                 <span className="text-xs text-slate-300 pr-4">{comp.name}</span>
                 <div className="flex items-center gap-2 flex-shrink-0">
                   {comp.points && <span className="text-[10px] text-teal-400">+{comp.points}</span>}
                   <button
                     type="button"
-                    onClick={() => setCurrentScoresState((prev: any) => ({...prev, [cid]: 'no'}))}
+                    onClick={() => setCurrentScoresState((prev: any) => ({ ...prev, [cid]: 'no' }))}
                     aria-pressed={answer === 'no'}
                     className={`rounded border px-2 py-1 text-[10px] font-bold ${answer === 'no' ? 'border-teal-400 bg-teal-500/20 text-teal-200' : 'border-slate-700 text-slate-400'}`}
                   >
@@ -1180,7 +1171,7 @@ export default function App() {
                   </button>
                   <button
                     type="button"
-                    onClick={() => setCurrentScoresState((prev: any) => ({...prev, [cid]: 'yes'}))}
+                    onClick={() => setCurrentScoresState((prev: any) => ({ ...prev, [cid]: 'yes' }))}
                     aria-pressed={answer === 'yes'}
                     className={`rounded border px-2 py-1 text-[10px] font-bold ${answer === 'yes' ? 'border-rose-400 bg-rose-500/20 text-rose-200' : 'border-slate-700 text-slate-400'}`}
                   >
@@ -1215,7 +1206,7 @@ export default function App() {
   // Infusion calculator implementation inside cards
   const renderAtropineInfusionWidget = () => {
     const key = 'atropine-percent';
-    const state = infusionDoses[key] || {dose: '', conc: '', weight: ''};
+    const state = infusionDoses[key] || { dose: '', conc: '', weight: '' };
     const totalDose = Number(state.dose);
     const concentration = Number(state.conc);
     const percentage = Number(state.weight);
@@ -1228,9 +1219,9 @@ export default function App() {
     const update = (field: 'dose' | 'conc' | 'weight', value: string) => {
       setInfusionDoses(previous => ({
         ...previous,
-        [key]: {...state, [field]: value},
+        [key]: { ...state, [field]: value },
       }));
-      setInfusionConfirmed(previous => ({...previous, [key]: false}));
+      setInfusionConfirmed(previous => ({ ...previous, [key]: false }));
     };
 
     return (
@@ -1314,13 +1305,13 @@ export default function App() {
       : presetOrDefinition;
     if (!definition) return null;
     const key = definition.id;
-    const state = infusionDoses[key] || {dose: '', conc: '', weight: weight || ''};
+    const state = infusionDoses[key] || { dose: '', conc: '', weight: weight || '' };
 
     const updateInfusionState = (field: string, val: string) => {
       setInfusionDoses(prev => ({
         ...prev,
         [key]: {
-          ...(prev[key] || {dose: '', conc: '', weight: weight || ''}),
+          ...(prev[key] || { dose: '', conc: '', weight: weight || '' }),
           [field]: val
         }
       }));
@@ -1399,7 +1390,7 @@ export default function App() {
               placeholder={definition.concentration.toString()}
               onChange={e => {
                 updateInfusionState('conc', e.target.value);
-                setInfusionConfirmed(prev => ({...prev, [key]: false}));
+                setInfusionConfirmed(prev => ({ ...prev, [key]: false }));
               }}
               className="w-full px-1.5 py-1 bg-black/40 border border-teal-800/30 rounded text-center text-teal-300 font-bold focus:outline-none focus:border-teal-500"
             />
@@ -1424,7 +1415,7 @@ export default function App() {
             <input
               type="checkbox"
               checked={infusionConfirmed[key] === true}
-              onChange={event => setInfusionConfirmed(prev => ({...prev, [key]: event.target.checked}))}
+              onChange={event => setInfusionConfirmed(prev => ({ ...prev, [key]: event.target.checked }))}
             />
             I have confirmed the actual prepared concentration and patient-specific inputs.
           </label>
@@ -1462,31 +1453,31 @@ export default function App() {
     const dynamicInfusions = it?._meta?.infusionPresetId
       ? []
       : [
-          infusionDefinitionFromDoseText(
-            `${key}.adult-infusion`,
-            `${n} adult infusion`,
-            adultDoseText,
-            it.standard_dilutions,
-            primarySource?.sourceId ?? 'source-unresolved',
-            primarySource?.pdfPages ?? [],
-          ),
-          infusionDefinitionFromDoseText(
-            `${key}.paediatric-infusion`,
-            `${n} paediatric infusion`,
-            paediatricDoseText,
-            it.standard_dilutions,
-            primarySource?.sourceId ?? 'source-unresolved',
-            primarySource?.pdfPages ?? [],
-          ),
-          infusionDefinitionFromDoseText(
-            `${key}.protocol-infusion`,
-            `${n} protocol infusion`,
-            protocolDoseText,
-            it.standard_dilutions,
-            primarySource?.sourceId ?? 'source-unresolved',
-            primarySource?.pdfPages ?? [],
-          ),
-        ].filter((definition): definition is InfusionDefinition => Boolean(definition));
+        infusionDefinitionFromDoseText(
+          `${key}.adult-infusion`,
+          `${n} adult infusion`,
+          adultDoseText,
+          it.standard_dilutions,
+          primarySource?.sourceId ?? 'source-unresolved',
+          primarySource?.pdfPages ?? [],
+        ),
+        infusionDefinitionFromDoseText(
+          `${key}.paediatric-infusion`,
+          `${n} paediatric infusion`,
+          paediatricDoseText,
+          it.standard_dilutions,
+          primarySource?.sourceId ?? 'source-unresolved',
+          primarySource?.pdfPages ?? [],
+        ),
+        infusionDefinitionFromDoseText(
+          `${key}.protocol-infusion`,
+          `${n} protocol infusion`,
+          protocolDoseText,
+          it.standard_dilutions,
+          primarySource?.sourceId ?? 'source-unresolved',
+          primarySource?.pdfPages ?? [],
+        ),
+      ].filter((definition): definition is InfusionDefinition => Boolean(definition));
 
     // Check tags
     const isFirstLine = ntLower.includes('first-line');
@@ -1496,12 +1487,11 @@ export default function App() {
     const associatedDiseases = getAssociatedDiseasesForDrug(n);
 
     return (
-      <div 
-        key={key} 
+      <div
+        key={key}
         onClick={() => recordRecentlyViewed(key, n, cat, 'drug')}
-        className={`p-4 rounded-xl border transition-all duration-200 mb-3 cursor-pointer ${
-          theme === 'dark' ? 'bg-[#0b1717] border-teal-950/40 hover:border-teal-800/30' : 'bg-white border-slate-200 shadow-sm hover:shadow-md'
-        }`}
+        className={`p-4 rounded-xl border transition-all duration-200 mb-3 cursor-pointer ${theme === 'dark' ? 'bg-[#0b1717] border-teal-950/40 hover:border-teal-800/30' : 'bg-white border-slate-200 shadow-sm hover:shadow-md'
+          }`}
       >
         <div className="flex items-start justify-between gap-4">
           <div className="space-y-1">
@@ -1518,7 +1508,7 @@ export default function App() {
               {isCaution && !isWarning && <span className="text-[10px] bg-amber-500/20 text-amber-400 border border-amber-500/30 font-bold px-1.5 py-0.5 rounded uppercase">Caution</span>}
             </h4>
           </div>
-          <button 
+          <button
             onClick={e => toggleFavourite(key, e)}
             className={`p-1.5 rounded-full hover:bg-slate-800/40 transition active:scale-95 ${fav ? 'text-yellow-400' : 'text-slate-600'}`}
           >
@@ -1603,11 +1593,10 @@ export default function App() {
 
           {/* Notes updates callouts */}
           {nt && (
-            <div className={`mt-3 p-3 rounded-lg text-xs leading-normal border ${
-              isWarning ? 'bg-rose-950/25 border-rose-900/35 text-rose-200' :
-              isCaution ? 'bg-amber-950/20 border-amber-900/35 text-amber-200' :
-              'bg-black/10 border-teal-950/20 text-slate-400'
-            }`}>
+            <div className={`mt-3 p-3 rounded-lg text-xs leading-normal border ${isWarning ? 'bg-rose-950/25 border-rose-900/35 text-rose-200' :
+                isCaution ? 'bg-amber-950/20 border-amber-900/35 text-amber-200' :
+                  'bg-black/10 border-teal-950/20 text-slate-400'
+              }`}>
               {nt}
               {renderWeightDoseSummary(nt, 'Weight calculation')}
             </div>
@@ -1637,13 +1626,12 @@ export default function App() {
     const pairedDrugs = getPairedDrugsForDisease(p.item);
 
     return (
-      <div 
-        key={key} 
-        className={`p-4 rounded-xl border transition mb-4 ${
-          theme === 'dark' ? 'bg-[#0b1717] border-teal-950/40 hover:border-teal-900/30' : 'bg-white border-slate-200 shadow-sm'
-        }`}
+      <div
+        key={key}
+        className={`p-4 rounded-xl border transition mb-4 ${theme === 'dark' ? 'bg-[#0b1717] border-teal-950/40 hover:border-teal-900/30' : 'bg-white border-slate-200 shadow-sm'
+          }`}
       >
-        <div 
+        <div
           onClick={() => {
             toggleProtocol(key);
             recordRecentlyViewed(key, p.item, cat, 'procedure');
@@ -1668,7 +1656,7 @@ export default function App() {
             </span>
           </div>
           <div className="flex items-center gap-2">
-            <button 
+            <button
               onClick={e => toggleFavourite(key, e)}
               className={`p-1 rounded-full hover:bg-slate-800/40 transition active:scale-95 ${fav ? 'text-yellow-400' : 'text-slate-600'}`}
             >
@@ -1680,7 +1668,7 @@ export default function App() {
 
         {isExpanded && (
           <div className="mt-4 pt-3 border-t border-teal-900/10 space-y-4">
-            
+
             {/* Equipment checklist tags */}
             {p.equipment && p.equipment.length > 0 && (
               <div className="space-y-1.5">
@@ -1705,9 +1693,8 @@ export default function App() {
                     return (
                       <label
                         key={item}
-                        className={`flex items-center gap-2.5 p-2 rounded-lg cursor-pointer transition ${
-                          isChecked ? 'bg-teal-500/10 text-slate-400 line-through' : 'bg-black/10 text-slate-200'
-                        }`}
+                        className={`flex items-center gap-2.5 p-2 rounded-lg cursor-pointer transition ${isChecked ? 'bg-teal-500/10 text-slate-400 line-through' : 'bg-black/10 text-slate-200'
+                          }`}
                       >
                         <input
                           type="checkbox"
@@ -1715,9 +1702,8 @@ export default function App() {
                           onChange={() => setChecklistStatus(prev => ({ ...prev, [key + '::' + item]: !prev[key + '::' + item] }))}
                           className="sr-only"
                         />
-                        <div className={`w-4 h-4 rounded border flex items-center justify-center text-[10px] flex-shrink-0 ${
-                          isChecked ? 'bg-teal-400 border-teal-400 text-black' : 'border-slate-600'
-                        }`}>
+                        <div className={`w-4 h-4 rounded border flex items-center justify-center text-[10px] flex-shrink-0 ${isChecked ? 'bg-teal-400 border-teal-400 text-black' : 'border-slate-600'
+                          }`}>
                           {isChecked && '✓'}
                         </div>
                         <span className="text-xs leading-normal">{item}</span>
@@ -1766,20 +1752,21 @@ export default function App() {
                       source?.pdfPages ?? [],
                     );
                     return (
-                    <div key={s.step_number} className="relative">
-                      <div className="absolute -left-[21px] top-1 bg-teal-400 text-black w-4.5 h-4.5 rounded-full flex items-center justify-center font-bold text-[9px]">
-                        {s.step_number}
-                      </div>
-                      <div className="font-bold text-xs text-teal-300">{s.action}</div>
-                      {s.details && (
-                        <div className="text-xs text-slate-400 mt-0.5 leading-relaxed">
-                          {s.details}
-                          {renderWeightDoseSummary(stepDetails, 'Weight calculation')}
+                      <div key={s.step_number} className="relative">
+                        <div className="absolute -left-[21px] top-1 bg-teal-400 text-black w-4.5 h-4.5 rounded-full flex items-center justify-center font-bold text-[9px]">
+                          {s.step_number}
                         </div>
-                      )}
-                      {stepInfusion && renderInfusionCalculatorWidget(stepInfusion)}
-                    </div>
-                  )})}
+                        <div className="font-bold text-xs text-teal-300">{s.action}</div>
+                        {s.details && (
+                          <div className="text-xs text-slate-400 mt-0.5 leading-relaxed">
+                            {s.details}
+                            {renderWeightDoseSummary(stepDetails, 'Weight calculation')}
+                          </div>
+                        )}
+                        {stepInfusion && renderInfusionCalculatorWidget(stepInfusion)}
+                      </div>
+                    )
+                  })}
                 </div>
               </div>
             )}
@@ -1799,13 +1786,12 @@ export default function App() {
                   <div
                     key={warning.id}
                     role="alert"
-                    className={`rounded-lg border p-3 text-xs leading-relaxed ${
-                      warning.severity === 'critical'
+                    className={`rounded-lg border p-3 text-xs leading-relaxed ${warning.severity === 'critical'
                         ? 'border-rose-500/40 bg-rose-950/30 text-rose-100'
                         : warning.severity === 'caution'
                           ? 'border-amber-500/40 bg-amber-950/20 text-amber-100'
                           : 'border-blue-500/30 bg-blue-950/20 text-blue-100'
-                    }`}
+                      }`}
                   >
                     {warning.text}
                     {renderWeightDoseSummary(String(warning.text), 'Weight calculation')}
@@ -1907,12 +1893,12 @@ export default function App() {
             }
           });
         } else if (sv && typeof sv === 'object') {
-            const itemName = sv.item || sv.drug || sv.condition_or_drug || '';
-            const matchName = itemName.toLowerCase().includes(searchQuery.toLowerCase());
-            const matchNotes = (sv.notes_updates || sv.notes || '').toLowerCase().includes(searchQuery.toLowerCase());
-            const matchStructuredContent = JSON.stringify(sv).toLowerCase().includes(searchQuery.toLowerCase());
+          const itemName = sv.item || sv.drug || sv.condition_or_drug || '';
+          const matchName = itemName.toLowerCase().includes(searchQuery.toLowerCase());
+          const matchNotes = (sv.notes_updates || sv.notes || '').toLowerCase().includes(searchQuery.toLowerCase());
+          const matchStructuredContent = JSON.stringify(sv).toLowerCase().includes(searchQuery.toLowerCase());
 
-            if (!searchQuery || matchName || matchNotes || matchStructuredContent) {
+          if (!searchQuery || matchName || matchNotes || matchStructuredContent) {
             matchedItems.push({ item: sv, subCategory: sk });
           }
         }
@@ -1931,19 +1917,17 @@ export default function App() {
     if (finalItems.length === 0 && catKey !== '7_useful_formulae') return null;
 
     return (
-      <div 
-        key={catKey} 
-        className={`rounded-xl border overflow-hidden mb-4 transition-all ${
-          theme === 'dark' ? 'bg-[#081212] border-teal-950/60' : 'bg-white border-slate-200'
-        }`}
+      <div
+        key={catKey}
+        className={`rounded-xl border overflow-hidden mb-4 transition-all ${theme === 'dark' ? 'bg-[#081212] border-teal-950/60' : 'bg-white border-slate-200'
+          }`}
       >
         <button
           type="button"
           onClick={() => toggleCategory(catKey)}
           aria-expanded={isExpanded}
-          className={`flex items-center justify-between px-4 py-3 cursor-pointer select-none transition ${
-            theme === 'dark' ? 'bg-[#0d2222]/80 hover:bg-[#112a22]' : 'bg-slate-100 hover:bg-slate-200'
-          } w-full text-left`}
+          className={`flex items-center justify-between px-4 py-3 cursor-pointer select-none transition ${theme === 'dark' ? 'bg-[#0d2222]/80 hover:bg-[#112a22]' : 'bg-slate-100 hover:bg-slate-200'
+            } w-full text-left`}
         >
           <div className="flex items-center gap-2.5">
             <span className="text-xl">{CATEGORY_ICONS[catKey] || '📋'}</span>
@@ -2133,9 +2117,8 @@ export default function App() {
         {Object.entries(byDomain).map(([domain, entries]) => (
           <div
             key={domain}
-            className={`rounded-xl border overflow-hidden ${
-              theme === 'dark' ? 'bg-[#081212] border-teal-950/60' : 'bg-white border-slate-200'
-            }`}
+            className={`rounded-xl border overflow-hidden ${theme === 'dark' ? 'bg-[#081212] border-teal-950/60' : 'bg-white border-slate-200'
+              }`}
           >
             <div className={`flex items-center gap-2.5 px-4 py-3 ${theme === 'dark' ? 'bg-[#0d2222]/80' : 'bg-slate-100'}`}>
               <h3 className="font-extrabold text-sm uppercase tracking-wider text-purple-400">{domain}</h3>
@@ -2147,18 +2130,16 @@ export default function App() {
               {entries.map(t => (
                 <div
                   key={t.id}
-                  className={`rounded-lg border p-3.5 space-y-2 ${
-                    theme === 'dark' ? 'border-teal-950/40 bg-black/10' : 'border-slate-200 bg-slate-50'
-                  }`}
+                  className={`rounded-lg border p-3.5 space-y-2 ${theme === 'dark' ? 'border-teal-950/40 bg-black/10' : 'border-slate-200 bg-slate-50'
+                    }`}
                 >
                   <div className="flex items-start justify-between gap-2">
                     <h4 className="font-bold text-sm text-slate-100">{t.title}</h4>
                     <span
-                      className={`flex-shrink-0 text-[9px] font-black uppercase px-1.5 py-0.5 rounded border ${
-                        t.type === 'clinical_trial'
+                      className={`flex-shrink-0 text-[9px] font-black uppercase px-1.5 py-0.5 rounded border ${t.type === 'clinical_trial'
                           ? 'bg-sky-950/60 text-sky-300 border-sky-800/40'
                           : 'bg-amber-950/60 text-amber-300 border-amber-800/40'
-                      }`}
+                        }`}
                     >
                       {t.type === 'clinical_trial' ? 'Trial' : 'Decision Rule'}
                     </span>
@@ -2238,7 +2219,7 @@ export default function App() {
       <div className="space-y-4">
         <div className="flex items-center justify-between border-b border-teal-950/20 pb-2 mb-2">
           <span className="text-xs text-slate-400 font-bold uppercase tracking-wider">Recently Viewed History</span>
-          <button 
+          <button
             onClick={() => {
               setRecentlyViewed([]);
               localStorage.removeItem('tr_rv');
@@ -2385,7 +2366,7 @@ export default function App() {
 
   return (
     <div className={`min-h-screen transition-colors duration-300 ${theme === 'dark' ? 'theme-dark bg-[#0a1414] text-slate-100' : 'theme-light bg-slate-50 text-slate-900'}`}>
-      
+
       {/* HEADER */}
       <header className={`sticky top-0 z-50 px-4 py-3 flex items-center justify-between shadow-md transition-colors duration-300 ${theme === 'dark' ? 'bg-[#0f2424] border-b border-[#1c3838]' : 'bg-[#0d3b3b] text-white border-b border-[#135050]'}`}>
         <div className="flex items-center gap-2">
@@ -2394,7 +2375,7 @@ export default function App() {
           <span className="ml-1 rounded bg-slate-700/70 px-1.5 py-0.5 text-[10px] font-bold text-slate-300">CLINICAL REFERENCE</span>
         </div>
         <div className="flex items-center gap-3">
-          <button 
+          <button
             ref={aboutTriggerRef}
             onClick={() => setAboutOpen(true)}
             aria-label="About, clinical status, and sources"
@@ -2403,7 +2384,7 @@ export default function App() {
           >
             <BookOpen className="h-5 w-5" />
           </button>
-          <button 
+          <button
             onClick={() => setTheme(theme => theme === 'light' ? 'dark' : 'light')}
             aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
             id="theme-tog"
@@ -2417,110 +2398,102 @@ export default function App() {
 
       {/* SEARCH + WEIGHT CONFIG + SOURCE FILTER BAR (hidden on the Home landing page, which has its own) */}
       {!(selectedCategory === 'home' && !activeMindMap && !activePolicy) && (
-      <div className={`sticky top-[3.5rem] z-40 p-3 shadow-md flex flex-wrap md:flex-nowrap gap-3 items-center border-b transition-colors duration-300 ${
-        theme === 'dark' ? 'bg-[#0f1f1f] border-teal-950/60' : 'bg-white border-slate-200'
-      }`}>
-        <div className="relative flex-1 min-w-[200px]">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-teal-500 opacity-60" />
-          <input 
-            type="text" 
-            id="s" 
-            value={searchQuery} 
-            onChange={e => setSearchQuery(e.target.value)}
-            placeholder="Search drug, protocol, emergency condition..." 
-            aria-label="Search clinical reference"
-            className={`w-full pl-9 pr-3 py-1.5 rounded-lg text-sm transition focus:outline-none ${
-              theme === 'dark' 
-                ? 'bg-black/30 border border-teal-950 text-slate-100 focus:border-teal-400' 
-                : 'bg-slate-100 border border-slate-200 text-slate-900 focus:border-teal-600 focus:bg-white'
-            }`}
-          />
-        </div>
+        <div className={`sticky top-[3.5rem] z-40 p-3 shadow-md flex flex-wrap md:flex-nowrap gap-3 items-center border-b transition-colors duration-300 ${theme === 'dark' ? 'bg-[#0f1f1f] border-teal-950/60' : 'bg-white border-slate-200'
+          }`}>
+          <div className="relative flex-1 min-w-[200px]">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-teal-500 opacity-60" />
+            <input
+              type="text"
+              id="s"
+              value={searchQuery}
+              onChange={e => setSearchQuery(e.target.value)}
+              placeholder="Search drug, protocol, emergency condition..."
+              aria-label="Search clinical reference"
+              className={`w-full pl-9 pr-3 py-1.5 rounded-lg text-sm transition focus:outline-none ${theme === 'dark'
+                  ? 'bg-black/30 border border-teal-950 text-slate-100 focus:border-teal-400'
+                  : 'bg-slate-100 border border-slate-200 text-slate-900 focus:border-teal-600 focus:bg-white'
+                }`}
+            />
+          </div>
 
-        {/* SOURCE FILTER TOGGLE BAR */}
-        <div className="flex items-center gap-1 bg-black/20 p-1 rounded-lg border border-teal-950/40">
-          <button
-            type="button"
-            onClick={() => setSourceFilter('all')}
-            className={`px-2.5 py-1 text-xs font-bold rounded transition cursor-pointer ${
-              sourceFilter === 'all' ? 'bg-teal-500/30 text-teal-300 border border-teal-500/40' : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            All Sources
-          </button>
-          <button
-            type="button"
-            onClick={() => setSourceFilter('bara_icu')}
-            className={`px-2.5 py-1 text-xs font-bold rounded transition cursor-pointer ${
-              sourceFilter === 'bara_icu' ? 'bg-cyan-500/30 text-cyan-300 border border-cyan-500/40' : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            🏥 Bara ICU
-          </button>
-          <button
-            type="button"
-            onClick={() => setSourceFilter('sa_edl_phc')}
-            className={`px-2.5 py-1 text-xs font-bold rounded transition cursor-pointer ${
-              sourceFilter === 'sa_edl_phc' ? 'bg-blue-500/30 text-blue-300 border border-blue-500/40' : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            🇿🇦 SA EDL / PHC
-          </button>
-        </div>
+          {/* SOURCE FILTER TOGGLE BAR */}
+          <div className="flex items-center gap-1 bg-black/20 p-1 rounded-lg border border-teal-950/40">
+            <button
+              type="button"
+              onClick={() => setSourceFilter('all')}
+              className={`px-2.5 py-1 text-xs font-bold rounded transition cursor-pointer ${sourceFilter === 'all' ? 'bg-teal-500/30 text-teal-300 border border-teal-500/40' : 'text-slate-400 hover:text-slate-200'
+                }`}
+            >
+              All Sources
+            </button>
+            <button
+              type="button"
+              onClick={() => setSourceFilter('bara_icu')}
+              className={`px-2.5 py-1 text-xs font-bold rounded transition cursor-pointer ${sourceFilter === 'bara_icu' ? 'bg-cyan-500/30 text-cyan-300 border border-cyan-500/40' : 'text-slate-400 hover:text-slate-200'
+                }`}
+            >
+              🏥 Bara ICU
+            </button>
+            <button
+              type="button"
+              onClick={() => setSourceFilter('sa_edl_phc')}
+              className={`px-2.5 py-1 text-xs font-bold rounded transition cursor-pointer ${sourceFilter === 'sa_edl_phc' ? 'bg-blue-500/30 text-blue-300 border border-blue-500/40' : 'text-slate-400 hover:text-slate-200'
+                }`}
+            >
+              🇿🇦 SA EDL / PHC
+            </button>
+          </div>
 
-        <div className="flex items-center gap-2">
-          <Scale className="h-4 w-4 text-teal-400" />
-          <input 
-            type="number" 
-            id="w" 
-            placeholder="Weight" 
-            step="0.1" 
-            min="0"
-            value={weight}
-            onChange={e => setWeight(e.target.value)}
-            aria-label="Patient weight in kilograms"
-            className={`w-20 pl-2 pr-2 py-1.5 rounded-lg text-sm transition focus:outline-none ${
-              theme === 'dark'
-                ? 'bg-black/30 border border-teal-950 text-slate-100 focus:border-teal-400'
-                : 'bg-slate-100 border border-slate-200 text-slate-900 focus:border-teal-600 focus:bg-white'
-            }`}
-          />
+          <div className="flex items-center gap-2">
+            <Scale className="h-4 w-4 text-teal-400" />
+            <input
+              type="number"
+              id="w"
+              placeholder="Weight"
+              step="0.1"
+              min="0"
+              value={weight}
+              onChange={e => setWeight(e.target.value)}
+              aria-label="Patient weight in kilograms"
+              className={`w-20 pl-2 pr-2 py-1.5 rounded-lg text-sm transition focus:outline-none ${theme === 'dark'
+                  ? 'bg-black/30 border border-teal-950 text-slate-100 focus:border-teal-400'
+                  : 'bg-slate-100 border border-slate-200 text-slate-900 focus:border-teal-600 focus:bg-white'
+                }`}
+            />
+          </div>
         </div>
-      </div>
       )}
 
       {/* CATEGORY BAR (PILLS) — hidden on the Home landing page, which has its own navigation */}
       {!(selectedCategory === 'home' && !activeMindMap && !activePolicy) && (
-      <div className={`sticky top-[7rem] z-30 flex gap-2 p-3 overflow-x-auto whitespace-nowrap border-b transition-colors duration-300 no-scrollbar ${
-        theme === 'dark' ? 'bg-[#0a1414] border-teal-950/40' : 'bg-slate-50 border-slate-200'
-      }`}>
-        {ORDER.map(k => {
-          const label = CATEGORIES[k] || k;
-          const isSelected = selectedCategory === k;
-          const favsCount = favourites.length;
-          return (
-            <button
-              key={k}
-              onClick={() => setSelectedCategory(k)}
-              className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-bold transition duration-200 cursor-pointer ${
-                isSelected
-                  ? 'bg-teal-400 text-black shadow-lg shadow-teal-500/10'
-                  : theme === 'dark'
-                    ? 'bg-[#142e2e] text-teal-400/80 border border-teal-950 hover:bg-[#1a3838]'
-                    : 'bg-slate-200 text-slate-700 hover:bg-slate-300'
-              }`}
-            >
-              <span className="mr-1">{CATEGORY_ICONS[k] || '📋'}</span>
-              <span>{label}</span>
-              {k === 'favourites' && favsCount > 0 && (
-                <span className="ml-1.5 bg-black/20 text-[10px] px-1.5 py-0.5 rounded-full font-black">
-                  {favsCount}
-                </span>
-              )}
-            </button>
-          );
-        })}
-      </div>
+        <div className={`sticky top-[7rem] z-30 flex gap-2 p-3 overflow-x-auto whitespace-nowrap border-b transition-colors duration-300 no-scrollbar ${theme === 'dark' ? 'bg-[#0a1414] border-teal-950/40' : 'bg-slate-50 border-slate-200'
+          }`}>
+          {ORDER.map(k => {
+            const label = CATEGORIES[k] || k;
+            const isSelected = selectedCategory === k;
+            const favsCount = favourites.length;
+            return (
+              <button
+                key={k}
+                onClick={() => setSelectedCategory(k)}
+                className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-bold transition duration-200 cursor-pointer ${isSelected
+                    ? 'bg-teal-400 text-black shadow-lg shadow-teal-500/10'
+                    : theme === 'dark'
+                      ? 'bg-[#142e2e] text-teal-400/80 border border-teal-950 hover:bg-[#1a3838]'
+                      : 'bg-slate-200 text-slate-700 hover:bg-slate-300'
+                  }`}
+              >
+                <span className="mr-1">{CATEGORY_ICONS[k] || '📋'}</span>
+                <span>{label}</span>
+                {k === 'favourites' && favsCount > 0 && (
+                  <span className="ml-1.5 bg-black/20 text-[10px] px-1.5 py-0.5 rounded-full font-black">
+                    {favsCount}
+                  </span>
+                )}
+              </button>
+            );
+          })}
+        </div>
       )}
 
       {/* MAIN CONTAINER */}
@@ -2530,21 +2503,19 @@ export default function App() {
           <div className="flex justify-end gap-2 mb-4">
             <button
               onClick={expandAllContainers}
-              className={`px-3 py-1 text-xs font-bold rounded-lg transition duration-150 flex items-center gap-1 cursor-pointer ${
-                theme === 'dark'
+              className={`px-3 py-1 text-xs font-bold rounded-lg transition duration-150 flex items-center gap-1 cursor-pointer ${theme === 'dark'
                   ? 'bg-teal-950/40 text-teal-300 border border-teal-900/30 hover:bg-teal-900/30'
                   : 'bg-teal-50 text-teal-700 border border-teal-200/50 hover:bg-teal-100/50'
-              }`}
+                }`}
             >
               <Plus className="h-3.5 w-3.5" /> Expand All
             </button>
             <button
               onClick={collapseAllContainers}
-              className={`px-3 py-1 text-xs font-bold rounded-lg transition duration-150 flex items-center gap-1 cursor-pointer ${
-                theme === 'dark'
+              className={`px-3 py-1 text-xs font-bold rounded-lg transition duration-150 flex items-center gap-1 cursor-pointer ${theme === 'dark'
                   ? 'bg-slate-900/50 text-slate-300 border border-slate-800 hover:bg-slate-800/40'
                   : 'bg-slate-100 text-slate-600 border border-slate-200 hover:bg-slate-200'
-              }`}
+                }`}
             >
               <ChevronDown className="h-3.5 w-3.5 rotate-180" /> Collapse All
             </button>
@@ -2552,8 +2523,8 @@ export default function App() {
         )}
 
         <AnimatePresence mode="wait">
-          <motion.div 
-            key={selectedCategory + '-' + searchQuery} 
+          <motion.div
+            key={selectedCategory + '-' + searchQuery}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
@@ -2571,7 +2542,7 @@ export default function App() {
 
       {/* TO TOP BUTTON */}
       {showScrollTop && (
-        <button 
+        <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           aria-label="Scroll to top"
           className="fixed bottom-6 right-6 p-3 rounded-full bg-teal-400 hover:bg-teal-300 text-black shadow-lg transition-transform active:scale-95 z-50 cursor-pointer"
@@ -2584,7 +2555,7 @@ export default function App() {
       {aboutOpen && (
         <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4" role="dialog" aria-modal="true" aria-labelledby="about-title">
           <div ref={aboutDialogRef} className="bg-slate-900 border border-teal-500/30 text-slate-100 rounded-xl max-w-lg w-full p-6 max-h-[85vh] overflow-y-auto shadow-2xl relative">
-            <button 
+            <button
               onClick={() => setAboutOpen(false)}
               aria-label="Close about dialog"
               className="absolute top-4 right-4 text-slate-400 hover:text-white text-xl"
@@ -2612,7 +2583,7 @@ export default function App() {
                 <strong>Disclaimer:</strong> This application is intended as a clinical memory-aid and decision support tool for medical professionals. Always double-check calculations and drug properties prior to administration.
               </p>
             </div>
-            <button 
+            <button
               onClick={() => setAboutOpen(false)}
               className="mt-6 w-full py-2 bg-teal-400 hover:bg-teal-300 text-black font-bold rounded-lg transition"
             >

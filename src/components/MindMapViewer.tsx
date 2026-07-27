@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import {
   Activity, ArrowLeft, CheckCircle2, AlertTriangle, Info, ShieldAlert,
-  ChevronRight, Heart, Brain, Stethoscope, Flame, RefreshCw, Zap, Layers
+  ChevronRight, Heart, Brain, Stethoscope, Flame, RefreshCw, Zap, Layers,
+  Printer, Star, LayoutGrid, ListFilter, Share2
 } from 'lucide-react';
 
 interface MindMapViewerProps {
   mindMapId: string;
   onBack: () => void;
   weight?: string;
+  isFavourite?: boolean;
+  onToggleFavourite?: (id: string) => void;
 }
 
 export interface MindMapNode {
@@ -498,329 +501,31 @@ export const MIND_MAPS_DATABASE: Record<string, MindMapDefinition> = {
         ]
       }
     }
-  },
-  acs_stemi_flowchart: {
-    id: 'acs_stemi_flowchart',
-    title: 'Acute Coronary Syndrome & STEMI/OMI Algorithm',
-    subtitle: 'Risk stratification, STEMI/OMI recognition, and reperfusion pathway',
-    category: 'Cardiology',
-    pdfPage: 9,
-    initialNodeId: 'start',
-    nodes: {
-      start: {
-        id: 'start',
-        title: 'Suspected Acute Coronary Syndrome',
-        subtitle: 'ECG within 10 minutes of arrival',
-        type: 'start',
-        details: [
-          'Risk factors: age >= 65, smoker, family history of CAD, diabetes mellitus',
-          'Obtain 12-lead ECG within 10 minutes; repeat if pain persists or evolves',
-          'Aspirin 300mg PO unless contraindicated (active bleeding, hypersensitivity, recent major surgery)'
-        ],
-        options: [
-          { label: 'ECG shows STEMI / OMI pattern', targetId: 'stemi_path' },
-          { label: 'No ST elevation on ECG', targetId: 'nste_acs' }
-        ]
-      },
-      stemi_path: {
-        id: 'stemi_path',
-        title: 'STEMI / OMI Confirmed',
-        type: 'action',
-        details: [
-          'ST elevation in 2 or more contiguous leads, or a STEMI-equivalent pattern (e.g. true posterior MI: tall R in V1 + ST elevation >= 0.5mm in V7-9; RV infarction: ST elevation in right-sided leads)',
-          'Activate the cath lab / thrombolysis pathway per local protocol without delay',
-          'Dual antiplatelet therapy and anticoagulation per local ACS protocol',
-          'Target door-to-balloon or door-to-needle time per departmental policy'
-        ],
-        warning: 'Confirm aspirin/antiplatelet contraindications before administration (active bleeding, known hypersensitivity).'
-      },
-      nste_acs: {
-        id: 'nste_acs',
-        title: 'Non-ST-Elevation ACS Workup',
-        type: 'action',
-        details: [
-          'Calculate TIMI risk score for NSTE-ACS (1 point each): age >= 65; >= 3 risk factors for CAD (family history, hypertension, hypercholesterolaemia, diabetes, smoker); known CAD (stenosis >= 50%); aspirin use in the last 7 days; severe angina (>= 2 episodes in 24h); ST deviation >= 0.5mm; positive cardiac biomarker',
-          'Serial troponins and repeat ECGs',
-          'Risk-stratify disposition (admission vs accelerated diagnostic pathway) per local protocol'
-        ],
-        options: [
-          { label: 'High-risk features / rising troponin', targetId: 'nste_admit' },
-          { label: 'Low-risk, troponin negative x2', targetId: 'nste_discharge' }
-        ]
-      },
-      nste_admit: {
-        id: 'nste_admit',
-        title: 'Admit for Cardiology Workup',
-        type: 'outcome',
-        details: [
-          'Continue antiplatelet/anticoagulation per local protocol',
-          'Cardiology referral for risk-stratified invasive strategy'
-        ]
-      },
-      nste_discharge: {
-        id: 'nste_discharge',
-        title: 'Low-Risk Pathway',
-        type: 'outcome',
-        details: [
-          'Consider early outpatient follow-up and stress testing',
-          'Safety-net advice for recurrent or worsening symptoms'
-        ]
-      }
-    }
-  },
-  stroke_thrombolysis: {
-    id: 'stroke_thrombolysis',
-    title: 'Acute Ischaemic Stroke & Thrombolysis Window',
-    subtitle: 'Exclude mimics, confirm last-known-well time, assess thrombolysis eligibility',
-    category: 'Neurovascular',
-    pdfPage: 17,
-    initialNodeId: 'start',
-    nodes: {
-      start: {
-        id: 'start',
-        title: 'Suspected Acute Stroke',
-        subtitle: 'FAST/BE-FAST screen, urgent imaging, determine onset time',
-        type: 'start',
-        details: [
-          'FAST / BE-FAST screen; urgent non-contrast CT brain',
-          'Point-of-care glucose (exclude hypoglycaemia as a mimic)',
-          'Establish last-known-well time from patient/witnesses — this drives the entire pathway'
-        ],
-        options: [
-          { label: 'Assess for stroke mimics', targetId: 'exclude_mimics' }
-        ]
-      },
-      exclude_mimics: {
-        id: 'exclude_mimics',
-        title: 'Exclude Stroke Mimics',
-        type: 'decision',
-        details: [
-          'Hypoglycaemia',
-          'Seizure with post-ictal (Todd\'s) paresis',
-          'Migraine with aura',
-          'Intracranial tumour',
-          'Infection (abscess, meningitis)'
-        ],
-        options: [
-          { label: 'Mimic identified', targetId: 'mimic_managed' },
-          { label: 'True stroke — CT excludes haemorrhage', targetId: 'window_check' }
-        ]
-      },
-      mimic_managed: {
-        id: 'mimic_managed',
-        title: 'Manage Identified Mimic',
-        type: 'outcome',
-        details: ['Treat the underlying cause (e.g. correct glucose, manage seizure) and reassess neurological status']
-      },
-      window_check: {
-        id: 'window_check',
-        title: 'Time Since Last Known Well',
-        type: 'decision',
-        options: [
-          { label: '< 3 hours', targetId: 'thrombolysis_window' },
-          { label: '3 - 4.5 hours', targetId: 'thrombolysis_window' },
-          { label: '> 4.5 hours or unknown onset', targetId: 'beyond_window' }
-        ]
-      },
-      thrombolysis_window: {
-        id: 'thrombolysis_window',
-        title: 'Assess Thrombolysis Eligibility',
-        type: 'action',
-        details: [
-          'Check standard exclusion criteria: recent major surgery/bleed, therapeutic anticoagulation, uncontrolled BP, seizure at onset, and other local protocol exclusions',
-          'The extended 3-4.5h window carries stricter exclusion criteria (e.g. age, stroke severity, diabetes with prior stroke, anticoagulant use) — confirm against local protocol',
-          'Discuss with the stroke pathway / on-call team before thrombolysis'
-        ],
-        warning: 'Blood pressure must be controlled to below the local thrombolysis threshold (commonly <185/110 mmHg) before treatment.'
-      },
-      beyond_window: {
-        id: 'beyond_window',
-        title: 'Beyond Standard Thrombolysis Window',
-        type: 'action',
-        details: [
-          'Assess for large-vessel occlusion and mechanical thrombectomy eligibility — extended windows (up to 24h) may apply with perfusion-imaging mismatch per local neurointervention pathway',
-          'Admit for secondary prevention workup if not a thrombectomy candidate'
-        ]
-      }
-    }
-  },
-  psychosis_flowchart: {
-    id: 'psychosis_flowchart',
-    title: 'Acute Psychosis / Mania Flowchart',
-    subtitle: 'Exclude organic causes, de-escalate, then select pharmacological management',
-    category: 'Psychiatry',
-    pdfPage: 129,
-    initialNodeId: 'start',
-    nodes: {
-      start: {
-        id: 'start',
-        title: 'Acute Psychosis / Mania Presentation',
-        type: 'start',
-        details: [
-          'ABC, full vital signs, point-of-care glucose',
-          'Screen for organic/toxic causes: substance intoxication or withdrawal, delirium, hypoglycaemia, CNS infection, head injury, thyroid disease',
-          'Obtain collateral history where possible'
-        ],
-        options: [
-          { label: 'Organic cause identified', targetId: 'treat_organic' },
-          { label: 'Primary psychiatric presentation', targetId: 'de_escalate' }
-        ]
-      },
-      treat_organic: {
-        id: 'treat_organic',
-        title: 'Treat the Underlying Cause',
-        type: 'outcome',
-        details: ['Manage the organic cause (e.g. correct glucose, treat sepsis/CNS infection, manage withdrawal), then reassess mental state once medically stable']
-      },
-      de_escalate: {
-        id: 'de_escalate',
-        title: 'Verbal De-escalation First',
-        type: 'action',
-        details: [
-          'Calm, low-stimulus environment; involve security/psychiatric liaison early if agitated',
-          'Offer oral medication before considering parenteral routes'
-        ],
-        options: [
-          { label: 'Severe agitation / danger to self or others', targetId: 'chemical_restraint' },
-          { label: 'Cooperative', targetId: 'psych_referral' }
-        ]
-      },
-      chemical_restraint: {
-        id: 'chemical_restraint',
-        title: 'Consider Pharmacological Sedation',
-        type: 'warning',
-        details: [
-          'Antipsychotic (e.g. IM olanzapine or haloperidol) with or without a benzodiazepine, per local protocol and formulary',
-          'Continuous post-sedation monitoring: vital signs, SpO2, level of consciousness'
-        ],
-        warning: 'Document the justification for restraint/sedation. Monitor for over-sedation, respiratory depression, and QT prolongation. Confirm exact agent and dose against local protocol — not specified here.'
-      },
-      psych_referral: {
-        id: 'psych_referral',
-        title: 'Psychiatric Assessment & Disposition',
-        type: 'outcome',
-        details: ['Refer to psychiatric liaison for assessment and disposition (admission vs outpatient follow-up) per local pathway']
-      }
-    }
-  },
-  snakebite_pathway: {
-    id: 'snakebite_pathway',
-    title: 'Snakebite Envenomation Pathway',
-    subtitle: 'Initial assessment, syndrome recognition, and antivenom decision-making',
-    category: 'Toxicology',
-    pdfPage: 176,
-    initialNodeId: 'start',
-    nodes: {
-      start: {
-        id: 'start',
-        title: 'Suspected Snakebite',
-        type: 'start',
-        details: [
-          'Identify/photograph the snake only if it can be done safely — never handle a dead or live snake',
-          'Note time of bite; immobilize the affected limb; remove rings and constrictive items',
-          'Do NOT apply a tourniquet or incise/suck the wound',
-          'Transport urgently to definitive care'
-        ],
-        options: [
-          { label: 'Assess for envenomation', targetId: 'assess_envenomation' }
-        ]
-      },
-      assess_envenomation: {
-        id: 'assess_envenomation',
-        title: 'Assess Envenomation Syndrome',
-        type: 'decision',
-        details: [
-          'Local signs: swelling, blistering, necrosis',
-          'Systemic — neurotoxic: ptosis, diplopia, bulbar weakness',
-          'Systemic — haemotoxic: bleeding, coagulopathy',
-          'Systemic — cytotoxic: progressive local tissue injury',
-          'Baseline bloods including clotting/INR/fibrinogen; 20-minute whole blood clotting test if available'
-        ],
-        options: [
-          { label: 'Signs of envenomation present', targetId: 'antivenom_path' },
-          { label: 'No envenomation signs', targetId: 'observe' }
-        ]
-      },
-      antivenom_path: {
-        id: 'antivenom_path',
-        title: 'Envenomation — Consider Antivenom',
-        type: 'warning',
-        details: [
-          'Contact your regional poison information centre / snakebite pathway for the antivenom product and dose specific to the implicated species and local stock',
-          'Do not delay life-threatening airway/breathing support while arranging antivenom',
-          'Anticipate anaphylaxis to antivenom — have adrenaline immediately available'
-        ],
-        warning: 'Antivenom product and dose are species- and region-specific. Confirm via poison control / local protocol before administration — vial-count dosing is intentionally not specified here.'
-      },
-      observe: {
-        id: 'observe',
-        title: 'Observe',
-        type: 'action',
-        details: [
-          'Observe a minimum of 24 hours for evolving local or systemic signs before discharge',
-          'Repeat clotting studies as indicated',
-          'Safety-net advice on discharge'
-        ]
-      }
-    }
-  },
-  scorpion_sting: {
-    id: 'scorpion_sting',
-    title: 'Scorpion Sting Envenomation',
-    subtitle: 'Severity assessment and antivenom administration',
-    category: 'Toxicology',
-    pdfPage: 169,
-    initialNodeId: 'start',
-    nodes: {
-      start: {
-        id: 'start',
-        title: 'Scorpion Sting Presentation',
-        type: 'start',
-        details: [
-          'Local pain / paraesthesia at the sting site is typical and expected',
-          'Assess for systemic envenomation: autonomic (sweating, hypertension, tachycardia) and neuromuscular (cranial nerve signs, fasciculations, respiratory compromise)',
-          'Continuous cardiorespiratory monitoring while severity is assessed'
-        ],
-        options: [
-          { label: 'Systemic (severe) envenomation', targetId: 'antivenom_action' },
-          { label: 'Local signs only', targetId: 'supportive_care' }
-        ]
-      },
-      antivenom_action: {
-        id: 'antivenom_action',
-        title: 'Scorpion Antivenom',
-        type: 'action',
-        details: [
-          'Scorpion antivenom should be given to all patients with symptoms and signs of severe envenomation',
-          'Standard dose: 5-10 mL IV for both children and adults, diluted in a small volume of normal saline, given over 15 minutes',
-          'Monitor closely for hypersensitivity reaction during the infusion'
-        ],
-        warning: 'Have adrenaline immediately available in case of antivenom hypersensitivity/anaphylaxis.'
-      },
-      supportive_care: {
-        id: 'supportive_care',
-        title: 'Supportive Care',
-        type: 'action',
-        details: [
-          'Local wound care and analgesia',
-          'Tetanus prophylaxis if indicated',
-          'Observe for progression to systemic signs'
-        ]
-      }
-    }
   }
 };
 
-export const MindMapViewer: React.FC<MindMapViewerProps> = ({ mindMapId, onBack, weight }) => {
+export const MindMapViewer: React.FC<MindMapViewerProps> = ({
+  mindMapId,
+  onBack,
+  weight,
+  isFavourite = false,
+  onToggleFavourite
+}) => {
   const mindMap = MIND_MAPS_DATABASE[mindMapId] || MIND_MAPS_DATABASE['aha_bls_acls'];
   const [currentNodeId, setCurrentNodeId] = useState<string>(mindMap.initialNodeId);
+  const [viewMode, setViewMode] = useState<'step' | 'full_diagram'>('step');
 
   const currentNode = mindMap.nodes[currentNodeId] || mindMap.nodes[mindMap.initialNodeId];
+  const allNodesList = Object.values(mindMap.nodes);
+
+  const handlePrint = () => {
+    window.print();
+  };
 
   return (
-    <div className="space-y-6 max-w-5xl mx-auto pb-12">
+    <div className="space-y-6 max-w-5xl mx-auto pb-12 print:max-w-none print:p-0">
       {/* Top Bar */}
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between print:hidden">
         <button
           onClick={onBack}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 font-semibold text-xs transition-colors"
@@ -829,101 +534,196 @@ export const MindMapViewer: React.FC<MindMapViewerProps> = ({ mindMapId, onBack,
           Back to Home
         </button>
 
-        <span className="text-xs font-semibold px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20">
-          PDF Page {mindMap.pdfPage} • {mindMap.category}
-        </span>
+        <div className="flex items-center gap-2">
+          {onToggleFavourite && (
+            <button
+              onClick={() => onToggleFavourite(`mindmap.${mindMap.id}`)}
+              className={`p-2 rounded-xl border transition-colors ${
+                isFavourite
+                  ? 'bg-amber-500/10 border-amber-500/30 text-amber-500'
+                  : 'bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-400'
+              }`}
+              title={isFavourite ? 'Remove from Favourites' : 'Add to Favourites'}
+            >
+              <Star className={`w-4 h-4 ${isFavourite ? 'fill-amber-500' : ''}`} />
+            </button>
+          )}
+
+          <button
+            onClick={handlePrint}
+            className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-semibold inline-flex items-center gap-1.5 transition-colors"
+            title="Print Protocol Card"
+          >
+            <Printer className="w-4 h-4" />
+            <span className="hidden sm:inline">Print Card</span>
+          </button>
+
+          <span className="text-xs font-semibold px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20">
+            PDF Page {mindMap.pdfPage} • {mindMap.category}
+          </span>
+        </div>
       </div>
 
       {/* Header */}
-      <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 rounded-2xl p-6 sm:p-8 text-white border border-slate-800 shadow-xl">
+      <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 rounded-2xl p-6 sm:p-8 text-white border border-slate-800 shadow-xl print:bg-none print:text-black print:border-b print:p-0">
         <div className="flex items-start justify-between">
           <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-indigo-400">Interactive Visual Mind Map</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-indigo-400 print:text-slate-600">Interactive Visual Mind Map</span>
             <h1 className="text-2xl sm:text-3xl font-extrabold mt-1">{mindMap.title}</h1>
-            <p className="text-slate-300 text-xs sm:text-sm mt-2">{mindMap.subtitle}</p>
+            <p className="text-slate-300 text-xs sm:text-sm mt-2 print:text-slate-700">{mindMap.subtitle}</p>
           </div>
-          <button
-            onClick={() => setCurrentNodeId(mindMap.initialNodeId)}
-            className="p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors"
-            title="Reset Mind Map"
-          >
-            <RefreshCw className="w-5 h-5" />
-          </button>
-        </div>
-      </div>
 
-      {/* Main Interactive Flowchart Card */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-md space-y-6">
-        {/* Node Type Badge */}
-        <div className="flex items-center justify-between">
-          <span className={`text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full ${
-            currentNode.type === 'start' ? 'bg-blue-500/10 text-blue-600 border border-blue-500/20' :
-            currentNode.type === 'warning' ? 'bg-amber-500/10 text-amber-600 border border-amber-500/20' :
-            currentNode.type === 'outcome' ? 'bg-emerald-500/10 text-emerald-600 border border-emerald-500/20' :
-            'bg-indigo-500/10 text-indigo-600 border border-indigo-500/20'
-          }`}>
-            Step: {currentNode.type.toUpperCase()}
-          </span>
-
-          {currentNode.dosage && (
-            <span className="text-xs font-bold px-3 py-1 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20">
-              💊 Dosage: {currentNode.dosage}
-            </span>
-          )}
-        </div>
-
-        {/* Node Title & Subtitle */}
-        <div className="space-y-1">
-          <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white">
-            {currentNode.title}
-          </h2>
-          {currentNode.subtitle && (
-            <p className="text-sm font-medium text-slate-500 dark:text-slate-400">{currentNode.subtitle}</p>
-          )}
-        </div>
-
-        {/* Warning Alert if present */}
-        {currentNode.warning && (
-          <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-800 dark:text-amber-300 flex items-start gap-3">
-            <AlertTriangle className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
-            <p className="text-xs font-semibold leading-relaxed">{currentNode.warning}</p>
-          </div>
-        )}
-
-        {/* Node Clinical Details List */}
-        {currentNode.details && currentNode.details.length > 0 && (
-          <div className="space-y-3 pt-2">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">Clinical Actions & Guidelines</h4>
-            <ul className="space-y-2">
-              {currentNode.details.map((detail, idx) => (
-                <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-                  <CheckCircle2 className="w-4 h-4 text-indigo-500 shrink-0 mt-0.5" />
-                  <span>{detail}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {/* Decision / Next Action Branch Buttons */}
-        {currentNode.options && currentNode.options.length > 0 && (
-          <div className="pt-4 border-t border-slate-100 dark:border-slate-800 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">Select Next Decision / Clinical Branch</h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {currentNode.options.map((option, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentNodeId(option.targetId)}
-                  className="flex items-center justify-between p-4 rounded-xl border border-indigo-200 dark:border-indigo-900/50 bg-indigo-50/50 dark:bg-indigo-950/30 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 text-indigo-950 dark:text-indigo-200 font-bold text-xs sm:text-sm transition-all group"
-                >
-                  <span>{option.label}</span>
-                  <ChevronRight className="w-5 h-5 text-indigo-500 group-hover:translate-x-1 transition-transform" />
-                </button>
-              ))}
+          <div className="flex items-center gap-2 print:hidden">
+            <div className="bg-slate-800/80 p-1 rounded-xl border border-slate-700 flex items-center">
+              <button
+                onClick={() => setViewMode('step')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1 ${
+                  viewMode === 'step' ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                <ListFilter className="w-3.5 h-3.5" />
+                Step View
+              </button>
+              <button
+                onClick={() => setViewMode('full_diagram')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1 ${
+                  viewMode === 'full_diagram' ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                <LayoutGrid className="w-3.5 h-3.5" />
+                Full Diagram
+              </button>
             </div>
+
+            <button
+              onClick={() => setCurrentNodeId(mindMap.initialNodeId)}
+              className="p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors"
+              title="Reset Mind Map"
+            >
+              <RefreshCw className="w-4 h-4" />
+            </button>
           </div>
-        )}
+        </div>
       </div>
+
+      {/* VIEW MODE 1: Interactive Step Card View */}
+      {viewMode === 'step' && (
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-md space-y-6">
+          <div className="flex items-center justify-between">
+            <span className={`text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full ${
+              currentNode.type === 'start' ? 'bg-blue-500/10 text-blue-600 border border-blue-500/20' :
+              currentNode.type === 'warning' ? 'bg-amber-500/10 text-amber-600 border border-amber-500/20' :
+              currentNode.type === 'outcome' ? 'bg-emerald-500/10 text-emerald-600 border border-emerald-500/20' :
+              'bg-indigo-500/10 text-indigo-600 border border-indigo-500/20'
+            }`}>
+              Step: {currentNode.type.toUpperCase()}
+            </span>
+
+            {currentNode.dosage && (
+              <span className="text-xs font-bold px-3 py-1 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20">
+                💊 Dosage: {currentNode.dosage}
+              </span>
+            )}
+          </div>
+
+          <div className="space-y-1">
+            <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white">
+              {currentNode.title}
+            </h2>
+            {currentNode.subtitle && (
+              <p className="text-sm font-medium text-slate-500 dark:text-slate-400">{currentNode.subtitle}</p>
+            )}
+          </div>
+
+          {currentNode.warning && (
+            <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-800 dark:text-amber-300 flex items-start gap-3">
+              <AlertTriangle className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+              <p className="text-xs font-semibold leading-relaxed">{currentNode.warning}</p>
+            </div>
+          )}
+
+          {currentNode.details && currentNode.details.length > 0 && (
+            <div className="space-y-3 pt-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">Clinical Actions & Guidelines</h4>
+              <ul className="space-y-2">
+                {currentNode.details.map((detail, idx) => (
+                  <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                    <CheckCircle2 className="w-4 h-4 text-indigo-500 shrink-0 mt-0.5" />
+                    <span>{detail}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {currentNode.options && currentNode.options.length > 0 && (
+            <div className="pt-4 border-t border-slate-100 dark:border-slate-800 space-y-3">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">Select Next Decision / Clinical Branch</h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {currentNode.options.map((option, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setCurrentNodeId(option.targetId)}
+                    className="flex items-center justify-between p-4 rounded-xl border border-indigo-200 dark:border-indigo-900/50 bg-indigo-50/50 dark:bg-indigo-950/30 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 text-indigo-950 dark:text-indigo-200 font-bold text-xs sm:text-sm transition-all group"
+                  >
+                    <span>{option.label}</span>
+                    <ChevronRight className="w-5 h-5 text-indigo-500 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* VIEW MODE 2: Full Diagram Overview */}
+      {viewMode === 'full_diagram' && (
+        <div className="space-y-4">
+          <div className="p-4 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-900 dark:text-indigo-200 text-xs font-medium">
+            💡 Full Mind Map Overview: Below is the complete visual algorithm tree. Click any node card to jump into that specific step.
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {allNodesList.map((node) => (
+              <div
+                key={node.id}
+                onClick={() => {
+                  setCurrentNodeId(node.id);
+                  setViewMode('step');
+                }}
+                className={`cursor-pointer p-5 rounded-2xl border transition-all hover:scale-[1.01] ${
+                  node.id === currentNodeId
+                    ? 'ring-2 ring-indigo-500 border-indigo-500 bg-indigo-50/30 dark:bg-indigo-950/40'
+                    : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-indigo-300'
+                }`}
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full ${
+                    node.type === 'start' ? 'bg-blue-500/10 text-blue-600' :
+                    node.type === 'warning' ? 'bg-amber-500/10 text-amber-600' :
+                    node.type === 'outcome' ? 'bg-emerald-500/10 text-emerald-600' :
+                    'bg-indigo-500/10 text-indigo-600'
+                  }`}>
+                    {node.type}
+                  </span>
+                  {node.dosage && <span className="text-[10px] font-bold text-purple-600">💊 {node.dosage}</span>}
+                </div>
+
+                <h4 className="font-bold text-sm text-slate-900 dark:text-white mb-1">{node.title}</h4>
+                {node.subtitle && <p className="text-xs text-slate-500 mb-2">{node.subtitle}</p>}
+
+                {node.details && (
+                  <ul className="space-y-1">
+                    {node.details.slice(0, 3).map((d, i) => (
+                      <li key={i} className="text-[11px] text-slate-600 dark:text-slate-400 truncate">• {d}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
