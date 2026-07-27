@@ -1523,9 +1523,9 @@ export default function App() {
           <div className="space-y-1">
             <h4 className="font-bold text-md text-slate-100 dark:text-slate-100 flex items-center gap-1.5 flex-wrap">
               <span className={theme === 'light' ? 'text-slate-900' : 'text-slate-100'}>{n}</span>
-              {it?._meta?.sourceGroup === 'hjth' ? (
+              {selectedCategory === 'helen_guidelines' ? (
                 <span className="text-[10px] bg-indigo-950/80 text-indigo-300 border border-indigo-800/40 font-bold px-1.5 py-0.5 rounded">🩺 Helen (HJTH)</span>
-              ) : it?._meta?.sourceGroup === 'edl_phc' ? (
+              ) : isEdlCategory(cat) ? (
                 <span className="text-[10px] bg-blue-950/80 text-blue-300 border border-blue-800/40 font-bold px-1.5 py-0.5 rounded">🇿🇦 SA EDL / PHC</span>
               ) : (
                 <span className="text-[10px] bg-cyan-950/80 text-cyan-300 border border-cyan-800/40 font-bold px-1.5 py-0.5 rounded">🏥 Bara ICU Card</span>
@@ -1680,11 +1680,11 @@ export default function App() {
             <span className="text-lg">🛠️</span>
             <h4 className="font-bold text-md text-[#00d9b5]">{p.item}</h4>
             <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded border ${
-              p?._meta?.sourceGroup === 'hjth'
+              selectedCategory === 'helen_guidelines'
                 ? 'bg-indigo-950/80 text-indigo-300 border-indigo-800/40'
                 : 'bg-blue-950/80 text-blue-300 border-blue-800/40'
             }`}>
-              {p?._meta?.sourceGroup === 'hjth' ? '🩺 Helen (HJTH)' : '🇿🇦 SA EDL / PHC'}
+              {selectedCategory === 'helen_guidelines' ? '🩺 Helen (HJTH)' : '🇿🇦 SA EDL / PHC'}
             </span>
           </div>
           <div className="flex items-center gap-2">
