@@ -153,6 +153,16 @@ const EDL_CATEGORIES = [
 ];
 const isEdlCategory = (catKey: string) => EDL_CATEGORIES.includes(catKey);
 
+// Explicit protocol-title -> mind map id links, for the protocols that have a
+// genuine matching interactive flowchart. Most protocols don't have one yet —
+// this is intentionally a short, curated list rather than a fuzzy title match.
+const PROTOCOL_MINDMAP_LINKS: Record<string, string> = {
+  'Acute Coronary Syndrome (ACS) Algorithm': 'acs_stemi_flowchart',
+  'STEMI Equivalents & Sgarbossa Criteria': 'acs_stemi_flowchart',
+  'Acute Ischaemic Stroke': 'stroke_thrombolysis',
+  'Diabetic Ketoacidosis (DKA)': 'dka_hhs_flowchart',
+};
+
 interface DrugItem {
   item?: string;
   drug?: string;
@@ -189,6 +199,7 @@ export default function App() {
   const [codeRedOpen, setCodeRedOpen] = useState<boolean>(false);
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
   const [sourceFilter, setSourceFilter] = useState<'all' | 'bara_icu' | 'edl_phc'>('all');
+  const [policyFacilityFilter, setPolicyFacilityFilter] = useState<'hjh' | 'bara' | 'edl'>('hjh');
 
   // Favorites
   const [favourites, setFavourites] = useState<string[]>(() => {
@@ -1688,6 +1699,15 @@ export default function App() {
             </span>
           </div>
           <div className="flex items-center gap-2">
+            {PROTOCOL_MINDMAP_LINKS[p.item] && (
+              <button
+                onClick={e => { e.stopPropagation(); setActiveMindMap(PROTOCOL_MINDMAP_LINKS[p.item]); }}
+                className="flex items-center gap-1 px-2 py-1 rounded-full bg-rose-500/10 text-rose-400 border border-rose-500/30 text-[10px] font-bold hover:bg-rose-500/20 transition"
+                title="View the interactive flowchart for this protocol"
+              >
+                ⚡ Flowchart
+              </button>
+            )}
             <button
               onClick={e => toggleFavourite(key, e)}
               className={`p-1 rounded-full hover:bg-slate-800/40 transition active:scale-95 ${fav ? 'text-yellow-400' : 'text-slate-600'}`}
@@ -2305,12 +2325,18 @@ export default function App() {
 
   // Dedicated view for Hospital SOPs & Policies
   const renderPoliciesView = () => {
-    const policies = Object.values(POLICIES_DATABASE).filter(p =>
+    const allFacilityPolicies = Object.values(POLICIES_DATABASE).filter(p => p.facility === policyFacilityFilter);
+    const policies = allFacilityPolicies.filter(p =>
       !searchQuery ||
       p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       p.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
       JSON.stringify(p.sections).toLowerCase().includes(searchQuery.toLowerCase())
     );
+    const facilityTabs: { key: 'hjh' | 'bara' | 'edl'; label: string }[] = [
+      { key: 'hjh', label: '🩺 Helen (HJTH)' },
+      { key: 'bara', label: '🏥 Bara ICU' },
+      { key: 'edl', label: '🇿🇦 SA EDL / PHC' },
+    ];
 
     return (
       <div className="space-y-4">
@@ -2328,6 +2354,26 @@ export default function App() {
             {policies.length} SOPs
           </span>
         </div>
+
+        <div className="flex items-center gap-1 bg-black/20 p-1 rounded-lg border border-teal-950/40 w-fit">
+          {facilityTabs.map(tab => (
+            <button
+              key={tab.key}
+              type="button"
+              onClick={() => setPolicyFacilityFilter(tab.key)}
+              className={`px-2.5 py-1 text-xs font-bold rounded transition cursor-pointer ${policyFacilityFilter === tab.key ? 'bg-emerald-500/30 text-emerald-300 border border-emerald-500/40' : 'text-slate-400 hover:text-slate-200'
+                }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        {policies.length === 0 && (
+          <div className="text-center py-16 text-sm text-slate-500">
+            No {facilityTabs.find(t => t.key === policyFacilityFilter)?.label} SOPs yet — this umbrella is a placeholder until facility-specific policies are supplied.
+          </div>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
           {policies.map(p => (
@@ -2560,7 +2606,33 @@ export default function App() {
       return ORDER.filter(k => k !== 'home' && k !== 'favourites' && k !== 'recently_viewed' && k !== 'bara_icu_card' && k !== 'helen_guidelines' && k !== 'edl_phc_guidelines' && k !== 'trials_guidelines' && k !== 'mindmaps' && k !== 'policies' && k !== 'all').map(k => renderCategorySect(k));
     }
 
-    return renderCategorySect(selectedCategory);
+    // Single-category view: let users jump straight to another specialty
+    // module without going back to Home first.
+    const contentCategoryKeys = ORDER.filter(k => /^\d+_/.test(k));
+    return (
+      <>
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 mb-4">
+          {contentCategoryKeys.map(k => (
+            <button
+              key={k}
+              onClick={() => setSelectedCategory(k)}
+              className={`flex flex-col items-center justify-center p-2.5 rounded-xl border transition-all text-center ${k === selectedCategory
+                  ? 'border-teal-400 bg-teal-500/10'
+                  : theme === 'dark'
+                    ? 'border-teal-950/60 bg-[#081212] hover:bg-[#0d2222]'
+                    : 'border-slate-200 bg-white hover:bg-slate-50'
+                }`}
+            >
+              <span className="text-xl mb-1">{CATEGORY_ICONS[k] || '📋'}</span>
+              <span className={`text-[10px] font-semibold leading-tight ${k === selectedCategory ? 'text-teal-300' : 'text-slate-400'}`}>
+                {(CATEGORIES[k] || k).replace(/^[^\w]+\s*/, '')}
+              </span>
+            </button>
+          ))}
+        </div>
+        {renderCategorySect(selectedCategory)}
+      </>
+    );
   };
 
   return (

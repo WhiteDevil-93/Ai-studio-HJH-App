@@ -20,11 +20,16 @@ export interface PolicyDefinition {
   sections: { title: string; items: string[] }[];
   warning?: string;
   reference?: string;
+  // Which pillar's administrative umbrella this SOP falls under. All current
+  // SOPs are HJH-only; Bara/EDL are placeholders for when facility-specific
+  // policies for those pillars are supplied.
+  facility: 'hjh' | 'bara' | 'edl';
 }
 
 export const POLICIES_DATABASE: Record<string, PolicyDefinition> = {
   triage_sop: {
     id: 'triage_sop',
+    facility: 'hjh',
     title: 'Triage SOP & SATS TEWS Discriminators Table',
     category: 'Hospital SOPs',
     pdfPage: 238,
@@ -53,6 +58,7 @@ export const POLICIES_DATABASE: Record<string, PolicyDefinition> = {
   },
   ambulance_divert: {
     id: 'ambulance_divert',
+    facility: 'hjh',
     title: 'Ambulance Divert Protocol',
     category: 'Hospital SOPs',
     pdfPage: 206,
@@ -77,6 +83,7 @@ export const POLICIES_DATABASE: Record<string, PolicyDefinition> = {
   },
   icu_referral: {
     id: 'icu_referral',
+    facility: 'hjh',
     title: 'ICU Consult & Referral Policy',
     category: 'Hospital SOPs',
     pdfPage: 220,
@@ -94,6 +101,7 @@ export const POLICIES_DATABASE: Record<string, PolicyDefinition> = {
   },
   ct_contrast: {
     id: 'ct_contrast',
+    facility: 'hjh',
     title: 'CT Scans & Contrast Protocol + Consent Checklist',
     category: 'Radiology / SOPs',
     pdfPage: 214,
@@ -118,6 +126,7 @@ export const POLICIES_DATABASE: Record<string, PolicyDefinition> = {
   },
   j88_guidelines: {
     id: 'j88_guidelines',
+    facility: 'hjh',
     title: 'J88 Medicolegal Report Completion Guidelines',
     category: 'Medicolegal',
     pdfPage: 223,
@@ -143,6 +152,7 @@ export const POLICIES_DATABASE: Record<string, PolicyDefinition> = {
   },
   death_certification: {
     id: 'death_certification',
+    facility: 'hjh',
     title: 'Filling Forms After Death (BI 1663 & D28)',
     category: 'Medicolegal',
     pdfPage: 227,
@@ -166,6 +176,7 @@ export const POLICIES_DATABASE: Record<string, PolicyDefinition> = {
   },
   notifiable_conditions: {
     id: 'notifiable_conditions',
+    facility: 'hjh',
     title: 'Revised Notifiable Medical Conditions & ICD-10 Codes',
     category: 'Public Health',
     pdfPage: 228,
@@ -192,6 +203,7 @@ export const POLICIES_DATABASE: Record<string, PolicyDefinition> = {
   },
   suburb_directory: {
     id: 'suburb_directory',
+    facility: 'hjh',
     title: 'HJH Geographical Drainage Suburbs (Regions B & C)',
     category: 'Referral Directory',
     pdfPage: 235,
@@ -212,6 +224,7 @@ export const POLICIES_DATABASE: Record<string, PolicyDefinition> = {
   },
   ambulance_handover: {
     id: 'ambulance_handover',
+    facility: 'hjh',
     title: 'Ambulance Handover & Clinical Transfer Policy',
     category: 'Pre-hospital / SOPs',
     pdfPage: 210,
@@ -239,6 +252,7 @@ export const POLICIES_DATABASE: Record<string, PolicyDefinition> = {
   },
   internal_medicine_admissions: {
     id: 'internal_medicine_admissions',
+    facility: 'hjh',
     title: 'Internal Medicine Admissions & Bed Allocation Pathway',
     category: 'Admissions / Referral',
     pdfPage: 216,
@@ -256,6 +270,7 @@ export const POLICIES_DATABASE: Record<string, PolicyDefinition> = {
   },
   stat_lab_use: {
     id: 'stat_lab_use',
+    facility: 'hjh',
     title: 'Stat Laboratory Use & Urgent Specimen Handling SOP',
     category: 'Laboratory / SOPs',
     pdfPage: 222,
