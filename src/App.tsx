@@ -11,7 +11,12 @@ import {
   Calculator, Stethoscope, Activity, Heart, ShieldAlert,
   Info, Sparkles, CheckSquare, Plus, RefreshCw, Clock
 } from 'lucide-react';
-import {clinicalData} from './clinical/legacyAdapter';
+import {
+  clinicalData,
+  getAssociatedDiseasesForDrug,
+  getPairedDrugsForDisease,
+  DISEASE_DRUG_PAIRINGS
+} from './clinical/legacyAdapter';
 import {calculateFormula, type FormulaKey} from './clinical/calculations/formulas';
 import {
   calculateInfusionRate,
@@ -31,6 +36,8 @@ const D = clinicalData as any;
 const CATEGORIES: Record<string, string> = {
   favourites: 'Favourites',
   recently_viewed: 'Recently Viewed',
+  bara_icu_card: '🏥 Bara ICU Dosing Card',
+  sa_edl_phc_guidelines: '🇿🇦 SA EDL / PHC Guidelines',
   all: 'All Categories',
   '1_resuscitation_fluids_and_inotropes': 'Resuscitation',
   '2_airway_and_ventilation': 'Airway & Ventilation',
@@ -53,6 +60,8 @@ const CATEGORIES: Record<string, string> = {
 const CATEGORY_ICONS: Record<string, string> = {
   favourites: '⭐',
   recently_viewed: '⏱️',
+  bara_icu_card: '🏥',
+  sa_edl_phc_guidelines: '🇿🇦',
   all: '📋',
   '1_resuscitation_fluids_and_inotropes': '💉',
   '2_airway_and_ventilation': '🫁',
@@ -75,6 +84,8 @@ const CATEGORY_ICONS: Record<string, string> = {
 const ORDER = [
   'favourites',
   'recently_viewed',
+  'bara_icu_card',
+  'sa_edl_phc_guidelines',
   'all',
   '1_resuscitation_fluids_and_inotropes',
   '2_airway_and_ventilation',
@@ -124,6 +135,7 @@ export default function App() {
   const [weight, setWeight] = useState<string>(() => localStorage.getItem('tr_w') || '');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [sourceFilter, setSourceFilter] = useState<'all' | 'bara_icu' | 'sa_edl_phc'>('all');
 
   // Favorites
   const [favourites, setFavourites] = useState<string[]>(() => {
@@ -1454,6 +1466,7 @@ export default function App() {
     const isSection21 = ntLower.includes('section 21');
     const isWarning = ntLower.includes('warning') || ntLower.includes('avoid') || ntLower.includes('contraindicated') || ntLower.includes('lethal');
     const isCaution = ntLower.includes('caution') || ntLower.includes('side effect') || ntLower.includes('high risk');
+    const associatedDiseases = getAssociatedDiseasesForDrug(n);
 
     return (
       <div 
@@ -1467,6 +1480,11 @@ export default function App() {
           <div className="space-y-1">
             <h4 className="font-bold text-md text-slate-100 dark:text-slate-100 flex items-center gap-1.5 flex-wrap">
               <span className={theme === 'light' ? 'text-slate-900' : 'text-slate-100'}>{n}</span>
+              {it?._meta?.sourceGroup === 'bara_icu' ? (
+                <span className="text-[10px] bg-cyan-950/80 text-cyan-300 border border-cyan-800/40 font-bold px-1.5 py-0.5 rounded">🏥 Bara ICU Card</span>
+              ) : (
+                <span className="text-[10px] bg-blue-950/80 text-blue-300 border border-blue-800/40 font-bold px-1.5 py-0.5 rounded">🇿🇦 SA EDL / PHC</span>
+              )}
               {isFirstLine && <span className="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-bold px-1.5 py-0.5 rounded uppercase">1st Line</span>}
               {isSection21 && <span className="text-[10px] bg-blue-500/20 text-blue-400 border border-blue-500/30 font-bold px-1.5 py-0.5 rounded uppercase">Section 21</span>}
               {isWarning && <span className="text-[10px] bg-rose-500/20 text-rose-400 border border-rose-500/30 font-bold px-1.5 py-0.5 rounded uppercase">Warning</span>}
@@ -1534,6 +1552,28 @@ export default function App() {
             </div>
           )}
 
+          {/* Associated Diseases / Emergency Issues Badges */}
+          {associatedDiseases.length > 0 && (
+            <div className="mt-2.5 pt-2 border-t border-teal-950/20">
+              <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">🩺 Associated Emergencies & Diseases</div>
+              <div className="flex flex-wrap gap-1">
+                {associatedDiseases.map(dis => (
+                  <button
+                    key={dis}
+                    type="button"
+                    onClick={e => {
+                      e.stopPropagation();
+                      setSearchQuery(dis);
+                    }}
+                    className="text-[10px] bg-teal-950/50 hover:bg-teal-900/60 text-teal-300 border border-teal-800/40 px-2 py-0.5 rounded cursor-pointer transition-colors"
+                  >
+                    {dis}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Notes updates callouts */}
           {nt && (
             <div className={`mt-3 p-3 rounded-lg text-xs leading-normal border ${
@@ -1567,6 +1607,7 @@ export default function App() {
     const key = getEntryKey(p, cat);
     const fav = isFavourite(key);
     const isExpanded = expandedProtocols[key] === true;
+    const pairedDrugs = getPairedDrugsForDisease(p.item);
 
     return (
       <div 
@@ -1592,9 +1633,12 @@ export default function App() {
           aria-expanded={isExpanded}
           className="flex items-start justify-between gap-4 cursor-pointer"
         >
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             <span className="text-lg">🛠️</span>
             <h4 className="font-bold text-md text-[#00d9b5]">{p.item}</h4>
+            <span className="text-[10px] bg-blue-950/80 text-blue-300 border border-blue-800/40 font-bold px-1.5 py-0.5 rounded">
+              🇿🇦 SA EDL / PHC
+            </span>
           </div>
           <div className="flex items-center gap-2">
             <button 
@@ -1653,6 +1697,19 @@ export default function App() {
                       </label>
                     );
                   })}
+                </div>
+              </div>
+            )}
+
+            {/* Paired Drugs & Infusions for this Disease / Emergency Issue */}
+            {pairedDrugs.length > 0 && (
+              <div className="space-y-2 border-t border-teal-900/20 pt-3">
+                <div className="text-[10px] font-bold uppercase tracking-wider text-teal-300 flex items-center gap-1.5">
+                  <span>💊 Paired Drugs & Infusions for {p.item}</span>
+                  <span className="text-[9px] bg-teal-950 text-teal-400 px-1.5 py-0.5 rounded font-black">{pairedDrugs.length}</span>
+                </div>
+                <div className="space-y-2">
+                  {pairedDrugs.map(d => renderDrugCard(d, (d._meta as any)?.categoryId || cat))}
                 </div>
               </div>
             )}
@@ -1760,6 +1817,33 @@ export default function App() {
     const catData = D[catKey as keyof typeof D] as any;
     if (!catData) return null;
 
+    // Filter sourceGroup if sourceFilter is active
+    if (sourceFilter === 'bara_icu') {
+      const isBaraCategory = [
+        '1_resuscitation_fluids_and_inotropes',
+        '2_airway_and_ventilation',
+        '3_sedation_analgesia_and_neurology',
+        '4_antimicrobials_and_infectious_diseases',
+        '5_metabolic_electrolytes_and_nutrition',
+        '6_poisoning_and_toxicology',
+        '7_useful_formulae',
+        '8_cardiovascular',
+        '9_blood_products',
+        '10_endocrine_and_other',
+        '16_score_calculators',
+      ].includes(catKey);
+      if (!isBaraCategory) return null;
+    } else if (sourceFilter === 'sa_edl_phc') {
+      const isSaEdlCategory = [
+        '11_ed_medical_emergencies',
+        '12_ed_toxicology',
+        '13_ed_trauma_surgical',
+        '14_ed_metabolic',
+        '15_ed_procedures',
+      ].includes(catKey);
+      if (!isSaEdlCategory) return null;
+    }
+
     const isExpanded = expandedCategories[catKey] === true;
     const catLabel = CATEGORIES[catKey] || catKey;
 
@@ -1817,7 +1901,7 @@ export default function App() {
       return true;
     });
 
-    if (finalItems.length === 0) return null;
+    if (finalItems.length === 0 && catKey !== '7_useful_formulae') return null;
 
     return (
       <div 
@@ -1838,7 +1922,7 @@ export default function App() {
             <span className="text-xl">{CATEGORY_ICONS[catKey] || '📋'}</span>
             <h3 className="font-extrabold text-sm uppercase tracking-wider text-teal-400">{catLabel}</h3>
             <span className="text-[10px] bg-teal-950 text-teal-400 font-bold px-1.5 py-0.5 rounded">
-              {finalItems.length}
+              {finalItems.length + (catKey === '7_useful_formulae' ? Object.keys(INFUSION_DEFINITIONS).length : 0)}
             </span>
           </div>
           <ChevronDown className={`h-5 w-5 text-slate-400 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} />
@@ -1846,6 +1930,31 @@ export default function App() {
 
         {isExpanded && (
           <div className="p-4 space-y-4">
+            {/* Infusion Rate Calculators Section embedded in Useful Formulae */}
+            {catKey === '7_useful_formulae' && (
+              <div className="mb-6 p-4 rounded-xl border border-teal-900/50 bg-[#061414] space-y-4">
+                <div className="flex items-center justify-between border-b border-teal-900/30 pb-2">
+                  <div className="flex items-center gap-2">
+                    <Activity className="h-5 w-5 text-teal-400 animate-pulse" />
+                    <h3 className="font-extrabold text-sm uppercase tracking-wider text-teal-300">⚡ Interactive Infusion Rate Calculators</h3>
+                  </div>
+                  <span className="text-[10px] bg-teal-950 text-teal-400 font-bold px-2 py-0.5 rounded border border-teal-800/30">
+                    {Object.keys(INFUSION_DEFINITIONS).length} Calculators
+                  </span>
+                </div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  Calculate continuous IV infusion rates (mL/hr) in real-time based on weight and prepared concentration for all high-acuity ICU & ED agents.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {Object.entries(INFUSION_DEFINITIONS).map(([infKey, definition]) => (
+                    <div key={infKey}>
+                      {renderInfusionCalculatorWidget(definition)}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {catKey === '16_score_calculators' ? (
               renderScores(Object.fromEntries(finalItems.map(entry => [entry.key, entry.sc])))
             ) : catKey === '15_ed_procedures' ? (
@@ -1885,6 +1994,68 @@ export default function App() {
             )}
           </div>
         )}
+      </div>
+    );
+  };
+
+  // Dedicated view for Bara ICU Dosing Card
+  const renderBaraIcuCardView = () => {
+    const baraCategories = [
+      '1_resuscitation_fluids_and_inotropes',
+      '2_airway_and_ventilation',
+      '3_sedation_analgesia_and_neurology',
+      '4_antimicrobials_and_infectious_diseases',
+      '5_metabolic_electrolytes_and_nutrition',
+      '6_poisoning_and_toxicology',
+      '7_useful_formulae',
+      '8_cardiovascular',
+      '9_blood_products',
+      '10_endocrine_and_other',
+      '16_score_calculators',
+    ];
+
+    return (
+      <div className="space-y-4">
+        <div className="p-4 rounded-xl bg-[#091b1b] border border-cyan-900/50 flex items-center justify-between">
+          <div>
+            <div className="text-xs font-bold uppercase tracking-wider text-cyan-400">ICU Dosing & Reference Pillar</div>
+            <h2 className="text-xl font-black text-white flex items-center gap-2 mt-0.5">
+              <span>🏥 Chris Hani Baragwanath Academic Hospital ICU Dosing Card</span>
+            </h2>
+            <p className="text-xs text-slate-400 mt-1">
+              Complete, independent dosing reference for Intubation, Inotropes, Antiarrhythmics, Electrolyte Replacement, Blood Products, Antimicrobials, Infusions, and ICU Formulae.
+            </p>
+          </div>
+        </div>
+        {baraCategories.map(k => renderCategorySect(k))}
+      </div>
+    );
+  };
+
+  // Dedicated view for SA EDL / PHC Guidelines
+  const renderSaEdlPhcView = () => {
+    const saEdlCategories = [
+      '11_ed_medical_emergencies',
+      '12_ed_toxicology',
+      '13_ed_trauma_surgical',
+      '14_ed_metabolic',
+      '15_ed_procedures',
+    ];
+
+    return (
+      <div className="space-y-4">
+        <div className="p-4 rounded-xl bg-[#081826] border border-blue-900/50 flex items-center justify-between">
+          <div>
+            <div className="text-xs font-bold uppercase tracking-wider text-blue-400">Emergency & Primary Care Pillar</div>
+            <h2 className="text-xl font-black text-white flex items-center gap-2 mt-0.5">
+              <span>🇿🇦 South African Essential Drugs List & Emergency Department Guidelines</span>
+            </h2>
+            <p className="text-xs text-slate-400 mt-1">
+              Complete, independent ED emergency management algorithms (ACS, Stroke, Heart Failure, Sepsis, Asthma, COPD, UGIB, Seizures, Trauma, Procedures).
+            </p>
+          </div>
+        </div>
+        {saEdlCategories.map(k => renderCategorySect(k))}
       </div>
     );
   };
@@ -2003,7 +2174,7 @@ export default function App() {
 
     return (
       <div className="space-y-4">
-        {ORDER.filter(k => k !== 'favourites' && k !== 'recently_viewed' && k !== 'all').map(k => renderCategorySect(k))}
+        {ORDER.filter(k => k !== 'favourites' && k !== 'recently_viewed' && k !== 'bara_icu_card' && k !== 'sa_edl_phc_guidelines' && k !== 'all').map(k => renderCategorySect(k))}
       </div>
     );
   };
@@ -2018,8 +2189,16 @@ export default function App() {
       return renderRecentlyViewedTab();
     }
 
+    if (selectedCategory === 'bara_icu_card') {
+      return renderBaraIcuCardView();
+    }
+
+    if (selectedCategory === 'sa_edl_phc_guidelines') {
+      return renderSaEdlPhcView();
+    }
+
     if (selectedCategory === 'all') {
-      return ORDER.filter(k => k !== 'favourites' && k !== 'recently_viewed' && k !== 'all').map(k => renderCategorySect(k));
+      return ORDER.filter(k => k !== 'favourites' && k !== 'recently_viewed' && k !== 'bara_icu_card' && k !== 'sa_edl_phc_guidelines' && k !== 'all').map(k => renderCategorySect(k));
     }
 
     return renderCategorySect(selectedCategory);
@@ -2033,7 +2212,7 @@ export default function App() {
         <div className="flex items-center gap-2">
           <Activity className="h-6 w-6 text-[#00d9b5] animate-pulse" />
           <h1 className="text-2xl font-extrabold font-sans tracking-tight">Tit<span className="text-[#00d9b5]">rate</span></h1>
-          <span className="ml-1 rounded bg-slate-700/70 px-1.5 py-0.5 text-[10px] font-bold text-slate-300">REVIEW</span>
+          <span className="ml-1 rounded bg-slate-700/70 px-1.5 py-0.5 text-[10px] font-bold text-slate-300">CLINICAL REFERENCE</span>
         </div>
         <div className="flex items-center gap-3">
           <button 
@@ -2057,18 +2236,18 @@ export default function App() {
         </div>
       </header>
 
-      {/* SEARCH + WEIGHT CONFIG BAR */}
-      <div className={`sticky top-[3.5rem] z-40 p-3 shadow-md flex gap-3 items-center border-b transition-colors duration-300 ${
+      {/* SEARCH + WEIGHT CONFIG + SOURCE FILTER BAR */}
+      <div className={`sticky top-[3.5rem] z-40 p-3 shadow-md flex flex-wrap md:flex-nowrap gap-3 items-center border-b transition-colors duration-300 ${
         theme === 'dark' ? 'bg-[#0f1f1f] border-teal-950/60' : 'bg-white border-slate-200'
       }`}>
-        <div className="relative flex-1">
+        <div className="relative flex-1 min-w-[200px]">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-teal-500 opacity-60" />
           <input 
             type="text" 
             id="s" 
             value={searchQuery} 
             onChange={e => setSearchQuery(e.target.value)}
-            placeholder="Search drug, protocol, score..." 
+            placeholder="Search drug, protocol, emergency condition..." 
             aria-label="Search clinical reference"
             className={`w-full pl-9 pr-3 py-1.5 rounded-lg text-sm transition focus:outline-none ${
               theme === 'dark' 
@@ -2077,6 +2256,38 @@ export default function App() {
             }`}
           />
         </div>
+
+        {/* SOURCE FILTER TOGGLE BAR */}
+        <div className="flex items-center gap-1 bg-black/20 p-1 rounded-lg border border-teal-950/40">
+          <button
+            type="button"
+            onClick={() => setSourceFilter('all')}
+            className={`px-2.5 py-1 text-xs font-bold rounded transition cursor-pointer ${
+              sourceFilter === 'all' ? 'bg-teal-500/30 text-teal-300 border border-teal-500/40' : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            All Sources
+          </button>
+          <button
+            type="button"
+            onClick={() => setSourceFilter('bara_icu')}
+            className={`px-2.5 py-1 text-xs font-bold rounded transition cursor-pointer ${
+              sourceFilter === 'bara_icu' ? 'bg-cyan-500/30 text-cyan-300 border border-cyan-500/40' : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            🏥 Bara ICU
+          </button>
+          <button
+            type="button"
+            onClick={() => setSourceFilter('sa_edl_phc')}
+            className={`px-2.5 py-1 text-xs font-bold rounded transition cursor-pointer ${
+              sourceFilter === 'sa_edl_phc' ? 'bg-blue-500/30 text-blue-300 border border-blue-500/40' : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            🇿🇦 SA EDL / PHC
+          </button>
+        </div>
+
         <div className="flex items-center gap-2">
           <Scale className="h-4 w-4 text-teal-400" />
           <input 
@@ -2088,16 +2299,6 @@ export default function App() {
             value={weight}
             onChange={e => setWeight(e.target.value)}
             aria-label="Patient weight in kilograms"
-            className={`w-16 p-1 text-center font-bold text-sm rounded ${
-              theme === 'dark' 
-                ? 'bg-black/30 border border-teal-950 text-[#00d9b5]' 
-                : 'bg-slate-100 border border-slate-200 text-teal-700'
-            }`}
-          />
-          <span className="text-xs text-slate-400 font-bold">kg</span>
-        </div>
-      </div>
-
       {/* CATEGORY BAR (PILLS) */}
       <div className={`sticky top-[7rem] z-30 flex gap-2 p-3 overflow-x-auto whitespace-nowrap border-b transition-colors duration-300 no-scrollbar ${
         theme === 'dark' ? 'bg-[#0a1414] border-teal-950/40' : 'bg-slate-50 border-slate-200'

@@ -246,6 +246,21 @@ export const INFUSION_DEFINITIONS: Record<string, InfusionDefinition> = {
       'Rates above 4 mg/kg/hr are not recommended for prolonged sedation.',
     ],
   },
+  dopamine: {
+    id: 'dopamine',
+    title: 'Dopamine infusion',
+    doseUnit: 'mcg/kg/min',
+    concentration: 1,
+    concentrationUnit: 'mg/mL',
+    requiresWeight: true,
+    minimumDose: 2,
+    maximumDose: 20,
+    preparation: '200 mg dopamine in a final volume of 200 mL normal saline (1 mg/mL)',
+    sourceId: 'chbah-icu-dosing-card-2024',
+    pdfPages: [],
+    status: 'available',
+    warnings: ['Bara ICU dosing entry retained pending scheduled clinical review.'],
+  },
 };
 
 export interface InfusionInput {
