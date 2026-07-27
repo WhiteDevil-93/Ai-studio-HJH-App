@@ -3,7 +3,7 @@ import {
   Building2, Stethoscope, ShieldAlert, FileText, Activity, Heart,
   Calculator, Syringe, Flame, Compass, ChevronRight, Search,
   Award, AlertTriangle, Users, MapPin, Layers, Baby, Brain, FlaskConical,
-  Star, Clock, BookOpen, Globe2
+  Star, Clock, BookOpen
 } from 'lucide-react';
 
 interface HomePageProps {
@@ -12,6 +12,7 @@ interface HomePageProps {
   onSelectMindMap: (mindMapId: string) => void;
   onSelectPolicy: (policyId: string) => void;
   onSelectScore: (scoreId: string) => void;
+  onOpenCodeRed?: () => void;
   weight: string;
   setWeight: (w: string) => void;
   searchQuery: string;
@@ -23,10 +24,10 @@ export const FACILITIES = [
     id: 'hjth',
     name: 'Helen Joseph Tertiary Hospital (HJTH)',
     subtitle: 'Primary ED Guidelines 2026 (Editor: Dr Jana du Plessis)',
-    description: 'Adult emergency medicine, trauma resuscitation, toxicologies, critical care, and hospital SOPs.',
+    description: 'ED protocol algorithms straight from the HJH document: ACS, stroke, sepsis, trauma, toxicology, and ED procedures.',
     color: 'from-blue-600 to-indigo-700',
     badge: 'Main Facility',
-    protocolCount: 145,
+    protocolCount: 24,
     icon: Building2,
     available: true
   },
@@ -100,6 +101,7 @@ export const HomePage: React.FC<HomePageProps> = ({
   onSelectMindMap,
   onSelectPolicy,
   onSelectScore,
+  onOpenCodeRed,
   weight,
   setWeight,
   searchQuery,
@@ -110,9 +112,20 @@ export const HomePage: React.FC<HomePageProps> = ({
       {/* Hero Header Section */}
       <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-8 sm:p-10 border border-slate-800 shadow-2xl text-white">
         <div className="relative z-10 space-y-6 max-w-4xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-xs font-semibold uppercase tracking-wider">
-            <Building2 className="w-3.5 h-3.5" />
-            Helen Joseph Tertiary Hospital • ED Clinical Guidelines 2026
+          <div className="flex flex-wrap items-center gap-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-xs font-semibold uppercase tracking-wider">
+              <Building2 className="w-3.5 h-3.5" />
+              Helen Joseph Tertiary Hospital • ED Clinical Guidelines 2026
+            </div>
+            {onOpenCodeRed && (
+              <button
+                onClick={onOpenCodeRed}
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-600 hover:bg-red-500 border border-red-400 text-white text-xs font-black uppercase tracking-wider shadow-lg animate-pulse cursor-pointer transition-all hover:scale-105"
+              >
+                <ShieldAlert className="w-4 h-4 text-white" />
+                🚨 CODE RED Resuscitation Cards
+              </button>
+            )}
           </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
             Emergency Department <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-sky-400">Clinical Guidelines</span> & Facilities
@@ -159,6 +172,14 @@ export const HomePage: React.FC<HomePageProps> = ({
 
       {/* Quick Links — the only route to these tabs since the category pill bar is hidden on Home */}
       <div className="flex flex-wrap gap-2">
+        {onOpenCodeRed && (
+          <button
+            onClick={onOpenCodeRed}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-black bg-red-600 hover:bg-red-500 text-white border border-red-500 shadow-md animate-pulse cursor-pointer transition-colors"
+          >
+            <ShieldAlert className="w-3.5 h-3.5" /> CODE RED Resuscitation Cards
+          </button>
+        )}
         <button
           onClick={() => onSelectCategory('favourites')}
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
@@ -176,12 +197,6 @@ export const HomePage: React.FC<HomePageProps> = ({
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-purple-100 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/40 hover:bg-purple-200 dark:hover:bg-purple-900/40 transition-colors"
         >
           <BookOpen className="w-3.5 h-3.5" /> Trials & Int'l Guidelines
-        </button>
-        <button
-          onClick={() => onSelectCategory('sa_edl_phc_guidelines')}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-blue-100 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800/40 hover:bg-blue-200 dark:hover:bg-blue-900/40 transition-colors"
-        >
-          <Globe2 className="w-3.5 h-3.5" /> SA EDL / PHC Guidelines
         </button>
       </div>
 

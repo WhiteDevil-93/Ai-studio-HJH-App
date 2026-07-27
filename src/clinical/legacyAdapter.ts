@@ -24,7 +24,7 @@ export interface LegacyClinicalRecord extends Record<string, unknown> {
     reviewState: 'unreviewed';
     warnings: ClinicalWarning[];
     infusionPresetId?: string;
-    sourceGroup?: 'bara_icu' | 'sa_edl_phc';
+    sourceGroup?: 'bara_icu' | 'hjth';
   };
 }
 
@@ -139,6 +139,12 @@ function annotateRecord(
       reviewState: 'unreviewed',
       warnings,
       infusionPresetId: explicitInfusions[`${categoryId}::${title}`],
+      // 'hjth' = genuinely from the Helen Joseph Tertiary Hospital ED guideline
+      // (categories 11-15 are structurally HJH ED protocol content, and any
+      // entry elsewhere whose title resolves to the hjh-ed-2026-v1 source map).
+      // Everything else defaults to 'bara_icu' (Chris Hani Baragwanath ICU
+      // Dosing Card) — there is no per-item Bara source map, so this is the
+      // fallback bucket, not independently verified per entry.
       sourceGroup: (
         categoryId.startsWith('11_ed_') ||
         categoryId.startsWith('12_ed_') ||
@@ -146,7 +152,7 @@ function annotateRecord(
         categoryId.startsWith('14_ed_') ||
         categoryId.startsWith('15_ed_') ||
         sourceRefs.some(s => s.sourceId === 'hjh-ed-2026-v1')
-      ) ? 'sa_edl_phc' : 'bara_icu',
+      ) ? 'hjth' : 'bara_icu',
     },
   };
 }

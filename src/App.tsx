@@ -33,6 +33,7 @@ import trialsReference from './trials-reference.json';
 import { HomePage } from './components/HomePage';
 import { MindMapViewer } from './components/MindMapViewer';
 import { PolicyViewer } from './components/PolicyViewer';
+import { CodeRedDrawer } from './components/CodeRedDrawer';
 
 const D = clinicalData as any;
 
@@ -56,7 +57,7 @@ const CATEGORIES: Record<string, string> = {
   favourites: 'Favourites',
   recently_viewed: 'Recently Viewed',
   bara_icu_card: '🏥 Bara ICU Dosing Card',
-  sa_edl_phc_guidelines: '🇿🇦 SA EDL / PHC Guidelines',
+  helen_guidelines: '🩺 Helen (HJTH) Guidelines',
   trials_guidelines: '🔬 Trials & Int\'l Guidelines',
   all: 'All Categories',
   '1_resuscitation_fluids_and_inotropes': 'Resuscitation',
@@ -82,7 +83,7 @@ const CATEGORY_ICONS: Record<string, string> = {
   favourites: '⭐',
   recently_viewed: '⏱️',
   bara_icu_card: '🏥',
-  sa_edl_phc_guidelines: '🇿🇦',
+  helen_guidelines: '🩺',
   trials_guidelines: '🔬',
   all: '📋',
   '1_resuscitation_fluids_and_inotropes': '💉',
@@ -108,7 +109,7 @@ const ORDER = [
   'favourites',
   'recently_viewed',
   'bara_icu_card',
-  'sa_edl_phc_guidelines',
+  'helen_guidelines',
   'trials_guidelines',
   'all',
   '1_resuscitation_fluids_and_inotropes',
@@ -162,7 +163,8 @@ export default function App() {
   const [selectedFacility, setSelectedFacility] = useState<string | null>(null);
   const [activeMindMap, setActiveMindMap] = useState<string | null>(null);
   const [activePolicy, setActivePolicy] = useState<string | null>(null);
-  const [sourceFilter, setSourceFilter] = useState<'all' | 'bara_icu' | 'sa_edl_phc'>('all');
+  const [codeRedOpen, setCodeRedOpen] = useState<boolean>(false);
+  const [sourceFilter, setSourceFilter] = useState<'all' | 'bara_icu' | 'hjth'>('all');
 
   // Favorites
   const [favourites, setFavourites] = useState<string[]>(() => {
@@ -1353,8 +1355,8 @@ export default function App() {
         </div>
 
         {definition.warnings.length > 0 && (
-          <details className="rounded border border-slate-800 px-2 py-1 text-[10px] text-slate-400">
-            <summary className="cursor-pointer">Protocol notes</summary>
+          <details className="text-[10px] text-slate-400">
+            <summary className="cursor-pointer text-teal-400/80 hover:text-teal-300">Protocol notes</summary>
             <ul className="mt-1 list-disc space-y-1 pl-4">
               {definition.warnings.map(note => <li key={note}>{note}</li>)}
             </ul>
@@ -1411,7 +1413,7 @@ export default function App() {
         </div>}
 
         {definition.status === 'available' && (
-          <label className="flex cursor-pointer items-start gap-2 rounded border border-teal-900/30 p-2 text-[10px] text-slate-300">
+          <label className="flex cursor-pointer items-start gap-2 text-[10px] text-slate-300">
             <input
               type="checkbox"
               checked={infusionConfirmed[key] === true}
@@ -1500,7 +1502,7 @@ export default function App() {
               {it?._meta?.sourceGroup === 'bara_icu' ? (
                 <span className="text-[10px] bg-cyan-950/80 text-cyan-300 border border-cyan-800/40 font-bold px-1.5 py-0.5 rounded">🏥 Bara ICU Card</span>
               ) : (
-                <span className="text-[10px] bg-blue-950/80 text-blue-300 border border-blue-800/40 font-bold px-1.5 py-0.5 rounded">🇿🇦 SA EDL / PHC</span>
+                <span className="text-[10px] bg-blue-950/80 text-blue-300 border border-blue-800/40 font-bold px-1.5 py-0.5 rounded">🩺 Helen (HJTH)</span>
               )}
               {isFirstLine && <span className="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-bold px-1.5 py-0.5 rounded uppercase">1st Line</span>}
               {isSection21 && <span className="text-[10px] bg-blue-500/20 text-blue-400 border border-blue-500/30 font-bold px-1.5 py-0.5 rounded uppercase">Section 21</span>}
@@ -1652,7 +1654,7 @@ export default function App() {
             <span className="text-lg">🛠️</span>
             <h4 className="font-bold text-md text-[#00d9b5]">{p.item}</h4>
             <span className="text-[10px] bg-blue-950/80 text-blue-300 border border-blue-800/40 font-bold px-1.5 py-0.5 rounded">
-              🇿🇦 SA EDL / PHC
+              🩺 Helen (HJTH)
             </span>
           </div>
           <div className="flex items-center gap-2">
@@ -1846,15 +1848,15 @@ export default function App() {
         '16_score_calculators',
       ].includes(catKey);
       if (!isBaraCategory) return null;
-    } else if (sourceFilter === 'sa_edl_phc') {
-      const isSaEdlCategory = [
+    } else if (sourceFilter === 'hjth') {
+      const isHelenCategory = [
         '11_ed_medical_emergencies',
         '12_ed_toxicology',
         '13_ed_trauma_surgical',
         '14_ed_metabolic',
         '15_ed_procedures',
       ].includes(catKey);
-      if (!isSaEdlCategory) return null;
+      if (!isHelenCategory) return null;
     }
 
     const isExpanded = expandedCategories[catKey] === true;
@@ -2043,9 +2045,9 @@ export default function App() {
     );
   };
 
-  // Dedicated view for SA EDL / PHC Guidelines
-  const renderSaEdlPhcView = () => {
-    const saEdlCategories = [
+  // Dedicated view for Helen Joseph Tertiary Hospital (HJTH) ED Guidelines
+  const renderHelenGuidelinesView = () => {
+    const helenCategories = [
       '11_ed_medical_emergencies',
       '12_ed_toxicology',
       '13_ed_trauma_surgical',
@@ -2057,16 +2059,16 @@ export default function App() {
       <div className="space-y-4">
         <div className="p-4 rounded-xl bg-[#081826] border border-blue-900/50 flex items-center justify-between">
           <div>
-            <div className="text-xs font-bold uppercase tracking-wider text-blue-400">Emergency & Primary Care Pillar</div>
+            <div className="text-xs font-bold uppercase tracking-wider text-blue-400">Helen Joseph Tertiary Hospital Pillar</div>
             <h2 className="text-xl font-black text-white flex items-center gap-2 mt-0.5">
-              <span>🇿🇦 South African Essential Drugs List & Emergency Department Guidelines</span>
+              <span>🩺 Helen Joseph Tertiary Hospital ED Guidelines</span>
             </h2>
             <p className="text-xs text-slate-400 mt-1">
-              Complete, independent ED emergency management algorithms (ACS, Stroke, Heart Failure, Sepsis, Asthma, COPD, UGIB, Seizures, Trauma, Procedures).
+              Complete ED emergency management algorithms sourced from the HJH document (ACS, Stroke, Heart Failure, Sepsis, Asthma, COPD, UGIB, Seizures, Trauma, Procedures).
             </p>
           </div>
         </div>
-        {saEdlCategories.map(k => renderCategorySect(k))}
+        {helenCategories.map(k => renderCategorySect(k))}
       </div>
     );
   };
@@ -2286,7 +2288,7 @@ export default function App() {
 
     return (
       <div className="space-y-4">
-        {ORDER.filter(k => k !== 'home' && k !== 'favourites' && k !== 'recently_viewed' && k !== 'bara_icu_card' && k !== 'sa_edl_phc_guidelines' && k !== 'trials_guidelines' && k !== 'all').map(k => renderCategorySect(k))}
+        {ORDER.filter(k => k !== 'home' && k !== 'favourites' && k !== 'recently_viewed' && k !== 'bara_icu_card' && k !== 'helen_guidelines' && k !== 'trials_guidelines' && k !== 'all').map(k => renderCategorySect(k))}
       </div>
     );
   };
@@ -2318,8 +2320,7 @@ export default function App() {
           onSelectFacility={(facId) => {
             setSelectedFacility(facId);
             if (facId === 'hjth') {
-              setSourceFilter('all');
-              setSelectedCategory('all');
+              setSelectedCategory('helen_guidelines');
             } else if (facId === 'chbah') {
               setSelectedCategory('bara_icu_card');
             }
@@ -2329,6 +2330,7 @@ export default function App() {
           onSelectMindMap={(mapId) => setActiveMindMap(mapId)}
           onSelectPolicy={(polId) => setActivePolicy(polId)}
           onSelectScore={() => setSelectedCategory('16_score_calculators')}
+          onOpenCodeRed={() => setCodeRedOpen(true)}
           weight={weight}
           setWeight={setWeight}
           searchQuery={searchQuery}
@@ -2349,8 +2351,8 @@ export default function App() {
       return renderBaraIcuCardView();
     }
 
-    if (selectedCategory === 'sa_edl_phc_guidelines') {
-      return renderSaEdlPhcView();
+    if (selectedCategory === 'helen_guidelines') {
+      return renderHelenGuidelinesView();
     }
 
     if (selectedCategory === 'trials_guidelines') {
@@ -2358,7 +2360,7 @@ export default function App() {
     }
 
     if (selectedCategory === 'all') {
-      return ORDER.filter(k => k !== 'home' && k !== 'favourites' && k !== 'recently_viewed' && k !== 'bara_icu_card' && k !== 'sa_edl_phc_guidelines' && k !== 'trials_guidelines' && k !== 'all').map(k => renderCategorySect(k));
+      return ORDER.filter(k => k !== 'home' && k !== 'favourites' && k !== 'recently_viewed' && k !== 'bara_icu_card' && k !== 'helen_guidelines' && k !== 'trials_guidelines' && k !== 'all').map(k => renderCategorySect(k));
     }
 
     return renderCategorySect(selectedCategory);
@@ -2379,7 +2381,17 @@ export default function App() {
           <h1 className="text-2xl font-extrabold font-sans tracking-tight">Asclep<span className="text-[#00d9b5]">ius</span></h1>
           <span className="ml-1 rounded bg-slate-700/70 px-1.5 py-0.5 text-[10px] font-bold text-slate-300">CLINICAL REFERENCE</span>
         </button>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5 sm:gap-3">
+          <button
+            type="button"
+            onClick={() => setCodeRedOpen(true)}
+            aria-label="Code Red Resuscitation Mode"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-red-600 hover:bg-red-500 text-white font-black text-xs tracking-wider shadow-lg animate-pulse cursor-pointer border border-red-400/50 transition-all hover:scale-105"
+            title="Code Red Emergency Resuscitation Cards"
+          >
+            <ShieldAlert className="w-4 h-4 text-white shrink-0" />
+            <span className="font-extrabold tracking-widest text-[11px]">CODE RED</span>
+          </button>
           <button
             onClick={() => { setSelectedCategory('home'); setActiveMindMap(null); setActivePolicy(null); }}
             aria-label="Home"
@@ -2449,11 +2461,11 @@ export default function App() {
             </button>
             <button
               type="button"
-              onClick={() => setSourceFilter('sa_edl_phc')}
-              className={`px-2.5 py-1 text-xs font-bold rounded transition cursor-pointer ${sourceFilter === 'sa_edl_phc' ? 'bg-blue-500/30 text-blue-300 border border-blue-500/40' : 'text-slate-400 hover:text-slate-200'
+              onClick={() => setSourceFilter('hjth')}
+              className={`px-2.5 py-1 text-xs font-bold rounded transition cursor-pointer ${sourceFilter === 'hjth' ? 'bg-blue-500/30 text-blue-300 border border-blue-500/40' : 'text-slate-400 hover:text-slate-200'
                 }`}
             >
-              🇿🇦 SA EDL / PHC
+              🩺 Helen (HJTH)
             </button>
           </div>
 
@@ -2605,6 +2617,16 @@ export default function App() {
           </div>
         </div>
       )}
+
+      {/* Code Red Resuscitation Drawer */}
+      <CodeRedDrawer
+        isOpen={codeRedOpen}
+        onClose={() => setCodeRedOpen(false)}
+        onSelectMindMap={(id) => {
+          setActiveMindMap(id);
+          setActivePolicy(null);
+        }}
+      />
     </div>
   );
 }
