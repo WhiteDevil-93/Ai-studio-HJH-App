@@ -1,0 +1,24 @@
+{
+  "categoryId": "7_useful_formulae",
+  "subcategoryId": "formulae",
+  "slug": "adrenaline",
+  "order": 0,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      109
+    ],
+    "sectionTitle": "Adrenaline",
+    "transformation": "condensed",
+    "verification": "preview"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "category": "Bara ICU — Inotropes",
+    "item": "Adrenaline",
+    "formula": "ml/hr = (ug/kg/min x kg x 60) / 60",
+    "standard_dilutions": "Standard: 12 mg (12 amps) in 200 mL N/S (60 mcg/mL)"
+  }
+}

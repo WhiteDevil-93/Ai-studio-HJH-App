@@ -1,0 +1,24 @@
+{
+  "categoryId": "2_airway_and_ventilation",
+  "subcategoryId": "sedation",
+  "slug": "ketamine-rsi",
+  "order": 1,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      106
+    ],
+    "sectionTitle": "Ketamine",
+    "transformation": "condensed",
+    "verification": "preview"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Ketamine (RSI)",
+    "adult_dose": "1-2mg/kg IV",
+    "paediatric_dose": "1-2mg/kg IV",
+    "notes": "Preferred for asthma/bronchospasm or trauma intubation"
+  }
+}

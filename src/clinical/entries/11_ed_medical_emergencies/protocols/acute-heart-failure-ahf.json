@@ -1,0 +1,50 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "acute-heart-failure-ahf",
+  "order": 3,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Acute Heart Failure (AHF)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "Severe dyspnoea, orthopnoea, paroxysmal nocturnal dyspnoea (PND), effort intolerance."
+      ],
+      "signs": [
+        "Tachycardia, tachypnoea, elevated JVP, bilateral lung crackles, third heart sound (gallop rhythm), hepatomegaly, peripheral pitting edema."
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Resuscitation & Airway",
+        "details": "Sit patient upright (>45 degrees). Apply high-flow oxygen. Triage to RESUS if in acute distress."
+      },
+      {
+        "step_number": "2",
+        "action": "Non-Invasive Ventilation (NIV)",
+        "details": "Initiate CPAP or BiPAP early (PEEP of 4-10 cmH2O) to decrease work of breathing and improve preload/afterload."
+      },
+      {
+        "step_number": "3",
+        "action": "Vasodilator & Diuretics",
+        "details": "If SBP > 90: Nitrocine (vasodilator) 1-2 mg IV bolus or infusion 30 ug/min (titrate up to 150-200 ug/min). Furosemide (Lasix) 20-40 mg IV (or patient's daily PO dose as IV bolus)."
+      },
+      {
+        "step_number": "4",
+        "action": "Inotropic Support (if cardiogenic shock)",
+        "details": "If SBP < 90 with signs of hypoperfusion: start Dobutamine infusion 2.5-10 ug/kg/min (avoid in pure diastolic dysfunction or severe aortic stenosis)."
+      }
+    ]
+  }
+}

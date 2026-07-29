@@ -1,0 +1,22 @@
+{
+  "categoryId": "3_sedation_analgesia_and_neurology",
+  "subcategoryId": "sedation",
+  "slug": "dexmedetomidine",
+  "order": 2,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "drug": "Dexmedetomidine",
+    "adult_dose": "Load: 1ug/kg (10min), Maint: 0.2-0.7 ug/kg/hr",
+    "paediatric_dose": "Same as Adult",
+    "notes_updates": ""
+  }
+}

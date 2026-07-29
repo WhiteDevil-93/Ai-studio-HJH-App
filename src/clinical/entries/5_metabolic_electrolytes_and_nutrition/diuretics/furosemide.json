@@ -1,0 +1,22 @@
+{
+  "categoryId": "5_metabolic_electrolytes_and_nutrition",
+  "subcategoryId": "diuretics",
+  "slug": "furosemide",
+  "order": 0,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Furosemide",
+    "adult_dose": "Bolus: 20-40mg IV; Infusion: 5-40mg/hr",
+    "paediatric_dose": "0.5-1mg/kg IV 8-12hrly",
+    "notes": "Monitor electrolytes. Ototoxicity at high doses"
+  }
+}

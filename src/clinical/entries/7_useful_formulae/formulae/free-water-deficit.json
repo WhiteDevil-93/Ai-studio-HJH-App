@@ -1,0 +1,24 @@
+{
+  "categoryId": "7_useful_formulae",
+  "subcategoryId": "formulae",
+  "slug": "free-water-deficit",
+  "order": 8,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      96
+    ],
+    "sectionTitle": "Free Water Deficit",
+    "transformation": "condensed",
+    "verification": "preview"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "category": "Electrolytes",
+    "item": "Free Water Deficit",
+    "formula": "Deficit = 0.6 x Wt(kg) x ([Na]/140 - 1)",
+    "standard_dilutions": "Replace slowly over 48-72hrs"
+  }
+}

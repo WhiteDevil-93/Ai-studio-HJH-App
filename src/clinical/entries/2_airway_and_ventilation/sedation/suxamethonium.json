@@ -1,0 +1,22 @@
+{
+  "categoryId": "2_airway_and_ventilation",
+  "subcategoryId": "sedation",
+  "slug": "suxamethonium",
+  "order": 6,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Suxamethonium",
+    "adult_dose": "1-1.5mg/kg IV",
+    "paediatric_dose": "1-2mg/kg IV; Infants: 2-3mg/kg IV",
+    "notes": "Contraindicated: Hyperkalaemia, pseudocholinesterase deficiency"
+  }
+}

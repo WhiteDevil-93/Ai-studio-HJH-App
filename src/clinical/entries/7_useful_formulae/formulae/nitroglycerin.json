@@ -1,0 +1,24 @@
+{
+  "categoryId": "7_useful_formulae",
+  "subcategoryId": "formulae",
+  "slug": "nitroglycerin",
+  "order": 5,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      114
+    ],
+    "sectionTitle": "Nitroglycerin",
+    "transformation": "condensed",
+    "verification": "preview"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "category": "HJH ED Protocol — Infusions",
+    "item": "Nitroglycerin",
+    "formula": "Dose x 60 / prepared concentration",
+    "standard_dilutions": "10mg in 200ml N/S (50mcg/ml)"
+  }
+}

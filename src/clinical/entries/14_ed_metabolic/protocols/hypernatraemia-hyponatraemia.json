@@ -1,0 +1,35 @@
+{
+  "categoryId": "14_ed_metabolic",
+  "subcategoryId": "protocols",
+  "slug": "hypernatraemia-hyponatraemia",
+  "order": 2,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Hypernatraemia & Hyponatraemia",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Hypernatraemia (Na > 145)",
+        "details": "Correction needed if > 150. Estimate free water deficit: 0.6 * weight * ((Na/140) - 1). Infuse 5% Dextrose water or half-normal saline over 48 hours. Aim to correct Na by max 10-12 mmol/L in 24h (max 0.5 mmol/L/hr). Avoid correcting too fast (risk of cerebral edema). If central DI: DDAVP 1-2 ug IM/SC."
+      },
+      {
+        "step_number": "2",
+        "action": "Hyponatraemia (Na < 135)",
+        "details": "Severe CNS symptoms (seizures/coma, usually Na < 110): give 3% hypertonic saline 2ml/kg over 60 min to raise Na to 120. Once stable, limit increase to max 0.5 mmol/L/hr (max 12 mmol/L in 24h) to avoid pontine myelinolysis. Dehydrated: replace fluids (saline/Ringers). Oedematous: fluid restrict + Furosemide."
+      }
+    ],
+    "warnings": [
+      "Hyponatraemia Warning: DO NOT correct chronic hyponatraemia too fast. Rapid correction carries high risk of irreversible osmotic demyelination syndrome / central pontine myelinolysis."
+    ]
+  }
+}

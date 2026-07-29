@@ -1,0 +1,43 @@
+{
+  "categoryId": "12_ed_toxicology",
+  "subcategoryId": "protocols",
+  "slug": "scorpion-envenomation-cmjah",
+  "order": 11,
+  "source": {
+    "sourceId": "cmjah-ed-protocols-2020-v2",
+    "pdfPages": [
+      113
+    ],
+    "sectionTitle": "Scorpion Envenomation (CMJAH)",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "cmjah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Scorpion Envenomation (CMJAH)",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Recognise Severe Envenomation",
+        "details": "Immediate severe local pain, generalised paraesthesia/hyperaesthesia, muscle pain and cramps, tremors and fasciculations, involuntary movements, agitation, visual disturbances, hypertension/tachycardia/arrhythmias, general weakness (unable to walk, dysphagia, drooling, difficulty breathing). Severity is usually evident within 15-60 minutes but may be delayed up to 8 hours in adults. In South Africa, severe envenomation (scorpionism) is mainly caused by Parabuthus granulatus and Parabuthus transvaalicus."
+      },
+      {
+        "step_number": "2",
+        "action": "Antivenom",
+        "details": "Give scorpion antivenom to all patients with symptoms and signs of severe envenomation. Standard dose: 5-10ml IV for both children and adults, diluted in a small volume of normal saline, given over 15 minutes. May take 2-6 hours for maximum effect. An additional 5ml dose may be given after 6 hours if the response to the first dose is inadequate. Observe for 6-12 hours after antivenom administration."
+      },
+      {
+        "step_number": "3",
+        "action": "Pain & Supportive Management",
+        "details": "If simple analgesia is ineffective, infiltrate the sting site with local anaesthetic. Opioids are relatively ineffective and increase the risk of respiratory depression. Generalised muscle cramps can be alleviated temporarily (20-30 min) with IV calcium gluconate 10% (adults 10ml, children 0.5ml/kg). Support cardiorespiratory function as needed. Tetanus toxoid if required."
+      }
+    ],
+    "warnings": [
+      "Do NOT give antihistamines or steroids routinely.",
+      "Children may present with a unique form of restlessness (crying and thrashing) indicating severe systemic envenomation — bulbar paralysis with respiratory failure is more frequent in children and is the primary cause of death."
+    ]
+  }
+}

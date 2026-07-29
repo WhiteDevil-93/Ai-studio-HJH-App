@@ -1,0 +1,22 @@
+{
+  "categoryId": "7_useful_formulae",
+  "subcategoryId": "formulae",
+  "slug": "p-f-ratio",
+  "order": 11,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "category": "Respiratory",
+    "item": "P/F Ratio",
+    "formula": "PaO2 / FiO2",
+    "standard_dilutions": "Normal > 400"
+  }
+}

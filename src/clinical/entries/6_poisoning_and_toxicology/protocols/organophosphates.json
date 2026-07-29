@@ -1,0 +1,23 @@
+{
+  "categoryId": "6_poisoning_and_toxicology",
+  "subcategoryId": "protocols",
+  "slug": "organophosphates",
+  "order": 3,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Organophosphates",
+    "adult_dose": "Atropine: 0.04-0.05mg/kg IV (3-5mg adult), double every 5min until atropinised | Infusion: 200mg Atropine in 200ml 0.9% NaCl (1mg/ml), 10-20% of total dose/hr",
+    "paediatric_dose": "Atropine: 0.04-0.05mg/kg IV",
+    "route": "IV",
+    "notes": "Decontamination is key. Endpoint is clearing of pulmonary secretions, NOT tachycardia or pupil size."
+  }
+}

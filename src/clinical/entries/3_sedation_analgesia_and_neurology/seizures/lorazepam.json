@@ -1,0 +1,22 @@
+{
+  "categoryId": "3_sedation_analgesia_and_neurology",
+  "subcategoryId": "seizures",
+  "slug": "lorazepam",
+  "order": 0,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "drug": "Lorazepam",
+    "adult_dose": "4 mg IV (repeat once)",
+    "paediatric_dose": "0.05 - 0.2 mg/kg IV",
+    "notes_updates": "First-line for Status Epilepticus."
+  }
+}

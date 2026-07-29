@@ -1,0 +1,21 @@
+{
+  "categoryId": "2_airway_and_ventilation",
+  "subcategoryId": "vent_settings",
+  "slug": "rr",
+  "order": 2,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "RR",
+    "adult_settings": "12 - 20 breaths/min",
+    "paediatric_settings": "Age appropriate"
+  }
+}

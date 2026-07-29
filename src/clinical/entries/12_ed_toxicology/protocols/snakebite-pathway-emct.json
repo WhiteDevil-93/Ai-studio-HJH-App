@@ -1,0 +1,40 @@
+{
+  "categoryId": "12_ed_toxicology",
+  "subcategoryId": "protocols",
+  "slug": "snakebite-pathway-emct",
+  "order": 9,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Snakebite Pathway (EMCT)",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Identify Venom Type",
+        "details": "Neurotoxic (Cape Cobra, Black Mamba): weakness, ptosis, paralysis, respiratory failure. Cytotoxic (Puff Adder, Mozambique Spitting Cobra): severe pain, swelling, bruising. Haemotoxic (Boomslang): bleeding, renal failure."
+      },
+      {
+        "step_number": "2",
+        "action": "Stabilisation & ABC",
+        "details": "Immobilise body part. Do NOT apply tourniquet, do NOT cut/incision, do NOT suction. Administer analgesia (Morphine)."
+      },
+      {
+        "step_number": "3",
+        "action": "Antivenom Therapy",
+        "details": "Neuro/Cytotoxic: Polyvalent Antiserum (4-8 vials / 40-80ml) slow IV infusion. Haemotoxic: Monovalent Antivenom (4 vials / 40ml) slow IV."
+      }
+    ],
+    "warnings": [
+      "Antivenom carries high risk of ANAPHYLAXIS. Always prepare resuscitation equipment, Adrenaline, and antihistamines beforehand."
+    ]
+  }
+}

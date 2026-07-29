@@ -1,5 +1,5 @@
 import {describe, expect, it} from 'vitest';
-import clinicalData from '../../data.json';
+import {clinicalData} from '../legacyAdapter';
 import {
   extractWeightDoseResults,
   infusionDefinitionFromDoseText,

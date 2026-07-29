@@ -1,0 +1,46 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "upper-gastrointestinal-bleed-ugib",
+  "order": 8,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Upper Gastrointestinal Bleed (UGIB)",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Resuscitation & Access",
+        "details": "ABCD. Keep NPO. Insert 2x large-bore IVs. Administer warm Balsol/Ringer's Lactate (10ml/kg)."
+      },
+      {
+        "step_number": "2",
+        "action": "Transfusion Triggers",
+        "details": "Transfuse PRCs if haemodynamically unstable despite crystalloid bolus, Hb < 7 in low-risk, or Hb < 9 in high-risk/elderly/coronary disease. If coagulopathic (INR > 1.5) or on Warfarin: give FFP 10-20ml/kg or PCC."
+      },
+      {
+        "step_number": "3",
+        "action": "Acid Suppression & Variceal therapy",
+        "details": "Give Pantoprazole (Pantoloc) 80mg IV loading dose, then start infusion (200mg in 200ml N/S at 8 ml/hr). If variceal/cirrhosis: give Ceftriaxone 1g IV + Octreotide 50mcg bolus followed by 50mcg/hr infusion."
+      },
+      {
+        "step_number": "4",
+        "action": "Surgical/Endoscopy consult",
+        "details": "Notify surgical/gastroenterology registrar on call urgently. Consider Sengstaken-Blakemore tube if catastrophic variceal bleeding."
+      }
+    ],
+    "warnings": [
+      "Avoid over-transfusion in suspected variceal bleeds (increases portal pressure and worsens haemorrhage).",
+      "There is NO role for Tranexamic Acid (TXA) in upper GI bleeding."
+    ]
+  }
+}

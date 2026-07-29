@@ -1,0 +1,38 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "parkland",
+  "slug": "parkland",
+  "order": 9,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "parkland",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "Modified Brooke Formula",
+    "category": "trauma",
+    "calculator_type": "formula",
+    "formula_id": "modified_brooke",
+    "formula": "2 * weight * tbsa",
+    "source_pages": [
+      51
+    ],
+    "inputs": [
+      {
+        "name": "Weight",
+        "key": "weight",
+        "unit": "kg"
+      },
+      {
+        "name": "TBSA Burned",
+        "key": "tbsa",
+        "unit": "%"
+      }
+    ]
+  }
+}

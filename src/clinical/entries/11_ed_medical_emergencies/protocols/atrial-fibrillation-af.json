@@ -1,0 +1,45 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "atrial-fibrillation-af",
+  "order": 4,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Atrial Fibrillation (AF)",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Assess Haemodynamic Stability",
+        "details": "Unstable AF (causing chest pain, hypotension, acute heart failure, dyspnoea, or altered GCS): Perform urgent synchronized cardioversion (150-200 J) under sedation. Give Clexane 1 mg/kg SC stat unless contraindicated."
+      },
+      {
+        "step_number": "2",
+        "action": "Stable AF - Determine Duration",
+        "details": "If < 48 hours and no structural heart disease: consider rhythm control (electrical or chemical with Amiodarone 150mg over 30 mins). If > 48 hours: prioritize rate control (goal < 110 bpm)."
+      },
+      {
+        "step_number": "3",
+        "action": "Implement Rate Control",
+        "details": "Beta-blocker (Atenolol 50mg PO or Carvedilol 3.125mg PO) OR Calcium Channel Blocker (Diltiazem/Verapamil) OR Digoxin (if heart failure present). Alternatively, Amiodarone infusion."
+      },
+      {
+        "step_number": "4",
+        "action": "Assess Thromboembolic Risk",
+        "details": "Calculate CHA2DS2-VASc and HAS-BLED scores to guide long-term anticoagulation. Start SC Clexane 1mg/kg 12h if thromboembolism risk is high."
+      }
+    ],
+    "warnings": [
+      "WPW + Atrial Fibrillation (Wide QRS, rate > 200, irregular): DO NOT give nodal blocking agents (Beta-blockers, CCBs, Digoxin, Amiodarone) as it will precipitate VF! Perform immediate synchronized electrical cardioversion."
+    ]
+  }
+}

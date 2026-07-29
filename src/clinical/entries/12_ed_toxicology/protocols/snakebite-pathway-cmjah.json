@@ -1,0 +1,55 @@
+{
+  "categoryId": "12_ed_toxicology",
+  "subcategoryId": "protocols",
+  "slug": "snakebite-pathway-cmjah",
+  "order": 12,
+  "source": {
+    "sourceId": "cmjah-ed-protocols-2020-v2",
+    "pdfPages": [
+      117,
+      118
+    ],
+    "sectionTitle": "Snakebite Pathway (CMJAH)",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "cmjah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Snakebite Pathway (CMJAH)",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Targeted History & Assessment",
+        "details": "Body part bitten, time of bite, description of the snake if known, signs and symptoms (severe pain, headache, dizziness, dry mouth, severe thirst, nausea/vomiting, increased/severe sweating, limbs feeling weak, breathless, bitter taste in mouth). Ask about previous snakebites, prior antivenom treatment, and prior anaphylaxis to antivenom."
+      },
+      {
+        "step_number": "2",
+        "action": "Classify the Envenomation Syndrome",
+        "details": "PPS/PW syndrome (mixed cytotoxic & neurotoxic, e.g. Mozambique spitting cobra): painful progressive swelling and progressive weakening. PPS syndrome (cytotoxic, e.g. puff adder, Gaboon viper, rinkhals, berg adder): local swelling, may need surgical review. PW syndrome (neurotoxic, e.g. black/green mamba, non-spitting cobra): progressive weakening, ptosis, difficulty swallowing, respiratory paralysis — protect airway. B syndrome (haemotoxic, e.g. boomslang, vine snake): bleeding, fang punctures that do not stop bleeding, use the 20-minute whole blood clotting test."
+      },
+      {
+        "step_number": "3",
+        "action": "20-Minute Whole Blood Clotting Test (Haemotoxic/B syndrome)",
+        "details": "Take a few millilitres of blood by venepuncture into a new, clean, dry glass vessel. Leave undisturbed at room temperature for 20 minutes, then tilt once to see if the blood has clotted. If blood remains incoagulable 6 hours after the first antivenom dose, repeat the dose until coagulability is restored."
+      },
+      {
+        "step_number": "4",
+        "action": "Antivenom Administration",
+        "details": "Insert an IV line (not in the same limb as the bite). Doctor to administer antivenom; no test dose required. Diluted 50/50 in isotonic fluid infused over 15-30 minutes, EXCEPT boomslang/vine snake monovalent antivenom which is given as a slow IV push (1 ampoule/min). Indicative starting doses: rinkhals 50ml; puff adder/spitting cobras/Gaboon adder 50-200ml depending on species; other species (mamba, non-spitting cobra) per polyvalent protocol; boomslang/vine snake 20ml monovalent. Monitor swelling hourly, neurological symptoms closely, and repeat the clotting test as needed."
+      },
+      {
+        "step_number": "5",
+        "action": "Anaphylaxis Pre-Treatment & Monitoring",
+        "details": "If any allergy screen answer is positive (medication allergy, prior antivenom, asthma/hay fever, infantile eczema, other allergies, prior snakebite), prepare for a high possibility of anaphylaxis: give IM adrenaline 15 minutes prior to antivenom (weight/age-based dosing, e.g. 1-3 years <11kg: 0.10mg IM). Monitor closely during antivenom infusion for shortness of breath, laryngeal swelling, bronchospasm, cyanosis, or cardiovascular collapse."
+      }
+    ],
+    "warnings": [
+      "Do NOT apply a tourniquet, incise the wound, or attempt suction.",
+      "Natal black snake / stiletto snake bites cause local damage only and require conservative management — no antivenom; consult the Snakebite Advisory group before any digit amputation.",
+      "Antivenom carries a real risk of anaphylaxis — always prepare resuscitation equipment, adrenaline, and antihistamines beforehand."
+    ]
+  }
+}

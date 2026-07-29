@@ -1,0 +1,32 @@
+{
+  "categoryId": "15_ed_procedures",
+  "subcategoryId": "protocols",
+  "slug": "ultrasound-views-rush-protocol-scan-locations",
+  "order": 5,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Ultrasound Views: RUSH Protocol Scan Locations",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "RUSH Protocol (Rapid Ultrasound in Shock)",
+        "details": "Evaluate 'the pump, the tank, and the pipes' in undifferentiated shock. Scan locations: (1) Heart: PSLA/PSSA, Apical 4-chamber. (2) IVC: subcostal. (3) Morison's: RUQ, LUQ, suprapubic (FAST exam). (4) Aorta: abdominal slide view. (5) Pulmonary: Right/Left anterior chest (check lung sliding)."
+      },
+      {
+        "step_number": "2",
+        "action": "Interpret Shock Findings",
+        "details": "Cardiogenic: poor contractility, plethoric IVC. Obstructive (Tamponade/PE): pericardial effusion with RA/RV collapse, dilated RV, plethoric IVC. Hypovolaemic: collapsing IVC, hyperdynamic heart, free fluid in Morison's pouch (ruptured ectopic/haemorrhage)."
+      }
+    ]
+  }
+}

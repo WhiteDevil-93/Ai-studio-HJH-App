@@ -1,0 +1,37 @@
+{
+  "categoryId": "15_ed_procedures",
+  "subcategoryId": "protocols",
+  "slug": "ez-io-intraosseous-drill-use",
+  "order": 6,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "EZ-IO Intraosseous Drill Use",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Adult Landmarking",
+        "details": "(1) Proximal Humerus: anterior shoulder, aim 45-degree angle toward opposite hip. (2) Proximal Tibia: 2cm medial or mid-point between medial/lateral along flat aspect of anterior tibia, 3cm below tibial tuberosity, aim 90 degrees. (3) Distal Tibia: 3cm proximal to medial malleolus, aim 90 degrees."
+      },
+      {
+        "step_number": "2",
+        "action": "Neonate/Young Child Landmarking",
+        "details": "(1) Distal Femur: 1-2cm proximal to superior border of patella, 1cm medial to midline, aim 90 degrees. (2) Proximal Tibia: 1-2cm below patella, 1cm medial, aim 90 degrees. (3) Distal Tibia: 1-2cm proximal to medial malleolus, aim 90 degrees."
+      },
+      {
+        "step_number": "3",
+        "action": "Insertion Technique",
+        "details": "Clean site. Prepare driver and extension set. Push needle through skin until tip rests against bone (black line must be visible). Squeeze trigger with steady gentle pressure. Release trigger immediately upon feel of sudden 'give' or loss of resistance. Stabilize hub, remove stylet. Confirm placement (flush with saline)."
+      }
+    ]
+  }
+}

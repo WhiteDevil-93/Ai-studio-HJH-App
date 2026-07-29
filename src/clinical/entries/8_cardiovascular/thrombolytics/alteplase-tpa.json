@@ -1,0 +1,22 @@
+{
+  "categoryId": "8_cardiovascular",
+  "subcategoryId": "thrombolytics",
+  "slug": "alteplase-tpa",
+  "order": 0,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "drug": "Alteplase (tPA)",
+    "adult_dose": "PE: 100mg IV over 2hrs. STEMI: 15mg bolus, 50mg/30min, 35mg/60min",
+    "paediatric_dose": "0.1-0.5mg/kg/hr IV",
+    "notes_updates": "Monitor for bleeding"
+  }
+}

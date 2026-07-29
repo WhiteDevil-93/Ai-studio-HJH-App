@@ -1,0 +1,22 @@
+{
+  "categoryId": "5_metabolic_electrolytes_and_nutrition",
+  "subcategoryId": "hyperkalaemia_management",
+  "slug": "insulin-dextrose",
+  "order": 1,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Insulin/Dextrose",
+    "adult_dose": "10 units insulin + 50ml 50% dextrose IV over 15min",
+    "paediatric_dose": "0.1 units/kg + 2ml/kg 25% dextrose IV",
+    "notes": "Drives K+ into cells. Monitor glucose q15min"
+  }
+}

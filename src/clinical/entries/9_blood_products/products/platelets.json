@@ -1,0 +1,22 @@
+{
+  "categoryId": "9_blood_products",
+  "subcategoryId": "products",
+  "slug": "platelets",
+  "order": 2,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Platelets",
+    "adult_dose": "1 pool raises count by 20-40x10^9/L",
+    "paediatric_dose": "10-15ml/kg IV",
+    "notes": "Indicated: count <10 or <50 with bleeding/procedure"
+  }
+}

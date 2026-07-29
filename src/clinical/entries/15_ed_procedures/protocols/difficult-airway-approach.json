@@ -1,0 +1,37 @@
+{
+  "categoryId": "15_ed_procedures",
+  "subcategoryId": "protocols",
+  "slug": "difficult-airway-approach",
+  "order": 1,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Difficult Airway Approach",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Predict Difficulty (LEMON)",
+        "details": "L: Look externally (facial trauma, beard). E: Evaluate 3-3-2 rule. M: Mallampati. O: Obesity/Obstruction. N: Neck mobility."
+      },
+      {
+        "step_number": "2",
+        "action": "Double Setup",
+        "details": "Prepare for difficult intubation: 1 staff member assigned to intubate, 1 staff member scrubbed and ready at neck for surgical airway."
+      },
+      {
+        "step_number": "3",
+        "action": "Apply Surgical Airway (Cricothyrotomy) Technique",
+        "details": "Use SCISSOR TECHNIQUE: (1) Identify cricothyroid membrane via 'laryngeal handshake'. (2) 4cm vertical midline skin incision. (3) Palpate membrane and make horizontal stab incision. (4) Turn scalpel 90 degrees or pass finger. (5) Insert bougie alongside. (6) Railroad size 6.0 ETT. (7) Confirm ETCO2."
+      }
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "categoryId": "12_ed_toxicology",
+  "subcategoryId": "protocols",
+  "slug": "calcium-channel-beta-blocker-overdose",
+  "order": 3,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Calcium Channel & Beta-Blocker Overdose",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Recognize Toxicity & Access",
+        "details": "Symptoms: hypotension, bradycardia, CCB (hyperglycaemia), BB (hypoglycaemia), acidosis, GCS depression. Insert 2x large-bore IVs."
+      },
+      {
+        "step_number": "2",
+        "action": "Myocardial Stabilisation & Elimination",
+        "details": "Give Calcium Chloride 10ml 10% over 10 min (target Ca 2 mmol). Consider activated charcoal 50g via NGT if within 1 hour."
+      },
+      {
+        "step_number": "3",
+        "action": "HIET (High Dose Insulin Euglycaemic Therapy)",
+        "details": "Start with 50ml 50% dextrose bolus. Actrapid 1 IU/kg IV stat. Then Actrapid infusion of 0.5 IU/kg/hr, titrate every 30 mins to max 10 IU/kg/hr. Dextrose infusion 25g/hr to maintain euglycemia."
+      },
+      {
+        "step_number": "4",
+        "action": "Monitoring",
+        "details": "Monitor HGT every 20 mins for 1st hour, then hourly. Monitor and replace Potassium if < 2.5."
+      }
+    ]
+  }
+}

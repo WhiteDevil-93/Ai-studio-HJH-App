@@ -1,0 +1,25 @@
+{
+  "categoryId": "3_sedation_analgesia_and_neurology",
+  "subcategoryId": "seizures",
+  "slug": "midazolam",
+  "order": 1,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      115,
+      116
+    ],
+    "sectionTitle": "Midazolam",
+    "transformation": "condensed",
+    "verification": "preview"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "drug": "Midazolam",
+    "adult_dose": "10mg IM or buccal (if no IV access)",
+    "paediatric_dose": "0.2 - 0.5 mg/kg buccal",
+    "notes_updates": "Alternative if Lorazepam unavailable."
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "categoryId": "12_ed_toxicology",
+  "subcategoryId": "protocols",
+  "slug": "isoniazid-inh-overdose",
+  "order": 6,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Isoniazid (INH) Overdose",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Identify Symptoms",
+        "details": "INH depletes Vit B6 -> decreased GABA -> seizures and severe high anion gap metabolic acidosis (HAGMA) with lactic acidosis."
+      },
+      {
+        "step_number": "2",
+        "action": "Pyridoxine Antidote Therapy",
+        "details": "If known amount ingested: 1g Pyridoxine for each gram of INH, max 5g. If unknown: give 5g total (200 tablets of 25mg, crush and give via NGT once airway secured) or IV if available. Repeat in 10-20 min if seizures continue."
+      }
+    ]
+  }
+}

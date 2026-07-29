@@ -1,0 +1,23 @@
+{
+  "categoryId": "6_poisoning_and_toxicology",
+  "subcategoryId": "protocols",
+  "slug": "paracetamol",
+  "order": 0,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Paracetamol",
+    "adult_dose": "NAC Old Regimen: 150mg/kg in 200ml 5% Dextrose IV over 1hr, then 50mg/kg in 500ml 5% Dextrose IV over 4hrs, then 100mg/kg in 1L 5% Dextrose IV over 16hrs | NAC SNAP Protocol: 100mg/kg in 200ml 5% Dextrose IV over 2hrs, then 200mg/kg in 1L 5% Dextrose IV over 10hrs",
+    "paediatric_dose": "Same weight-based dosing as adults",
+    "route": "IV infusion",
+    "notes": "Toxic dose: 150mg/kg or >10g in adults. Use nomogram to establish need for antidote. Start <8hrs if possible. If in doubt, give NAC."
+  }
+}

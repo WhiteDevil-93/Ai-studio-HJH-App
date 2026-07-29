@@ -1,0 +1,21 @@
+{
+  "categoryId": "2_airway_and_ventilation",
+  "subcategoryId": "sedation",
+  "slug": "rocuronium",
+  "order": 7,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Rocuronium",
+    "adult_dose": "1-1.2mg/kg IV",
+    "paediatric_dose": "1.2mg/kg IV"
+  }
+}

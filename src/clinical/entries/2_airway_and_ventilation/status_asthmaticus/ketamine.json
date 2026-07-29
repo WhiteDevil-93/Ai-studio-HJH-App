@@ -1,0 +1,24 @@
+{
+  "categoryId": "2_airway_and_ventilation",
+  "subcategoryId": "status_asthmaticus",
+  "slug": "ketamine",
+  "order": 5,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      106
+    ],
+    "sectionTitle": "Ketamine",
+    "transformation": "condensed",
+    "verification": "preview"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Ketamine",
+    "adult_dose": "1mg/kg IV",
+    "paediatric_dose": "1mg/kg IV",
+    "notes": "Bronchodilator properties"
+  }
+}

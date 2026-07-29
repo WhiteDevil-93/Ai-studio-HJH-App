@@ -1,0 +1,22 @@
+{
+  "categoryId": "8_cardiovascular",
+  "subcategoryId": "heart_failure",
+  "slug": "digoxin",
+  "order": 0,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "drug": "Digoxin",
+    "adult_dose": "Loading: 0.5-1mg IV/PO; Maint: 125-250mcg daily",
+    "paediatric_dose": "10-15mcg/kg IV/PO",
+    "notes_updates": "Check levels. Toxicity: nausea, visual changes, arrhythmias"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "categoryId": "13_ed_trauma_surgical",
+  "subcategoryId": "protocols",
+  "slug": "non-traumatic-back-pain-red-flags",
+  "order": 4,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Non-Traumatic Back Pain & Red Flags",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Screen for Red Flags",
+        "details": "Extremes of age (<20 or >50), malignancy history, constant non-mechanical pain (worse lying down/at night), any motor/sensory neuro deficit, bilateral symptoms, immunosuppression, IVDU, bowel/bladder dysfunction, fever."
+      },
+      {
+        "step_number": "2",
+        "action": "Specific Management of Serious Causes",
+        "details": "Epidural Abscess: start broad antibiotics (Ceftriaxone, Cefazolin, or Vancomycin) and get urgent MRI. Suspected Spinal Metastases: give Dexamethasone 10mg IV stat and get urgent MRI."
+      }
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "vascular-emergencies-aaa-dissection-limb-ischaemia",
+  "order": 10,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Vascular Emergencies (AAA, Dissection, Limb Ischaemia)",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Ruptured Abdominal Aortic Aneurysm (AAA)",
+        "details": "Sudden onset severe back/flank/abdominal pain with syncope/shock. On palpation: pulsatile mass. On POCUS: aorta > 3cm (aneurysmal), > 6cm (high risk rupture). Unstable patients need immediate THEATRE, NOT CT! Aim for permissive hypotension (SBP 80-90 mmHg), give TXA 1g IV, and notify vascular surgery."
+      },
+      {
+        "step_number": "2",
+        "action": "Thoracic Aortic Dissection",
+        "details": "Sudden tearing central chest pain radiating to back. Signs: BP/pulse discrepancy in arms, new aortic regurgitation murmur. Urgent CTA. Control BP & HR: start Labetalol infusion (target pulse < 60, SBP < 110). If BP still high, add Nitroglycerin infusion."
+      },
+      {
+        "step_number": "3",
+        "action": "Critical/Acute Limb Ischaemia",
+        "details": "The 6 P's: Pain, Pallor, Pulselessness, Paresthesia, Paralysis, Poikilothermia (cold limb). Embolus vs Thrombosis. Perform handheld Doppler, check ABI (< 0.5 is severe). Give IV Heparin bolus (80 U/kg) and refer to vascular surgery urgently."
+      }
+    ]
+  }
+}

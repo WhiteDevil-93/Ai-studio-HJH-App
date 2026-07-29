@@ -1,0 +1,21 @@
+{
+  "categoryId": "2_airway_and_ventilation",
+  "subcategoryId": "vent_settings",
+  "slug": "i-e-ratio",
+  "order": 3,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "I:E Ratio",
+    "adult_settings": "1:2",
+    "paediatric_settings": "1:2"
+  }
+}

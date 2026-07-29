@@ -19,12 +19,14 @@ export interface LegacyClinicalRecord extends Record<string, unknown> {
     subcategoryId: string;
     title: string;
     sourceRefs: SourceReference[];
-    reviewState: 'unreviewed';
+    reviewState: ReviewState;
     warnings: ClinicalWarning[];
     infusionPresetId?: string;
-    sourceGroup?: 'bara_icu' | 'edl_phc' | 'hjth' | 'cmjah';
+    sourceGroup?: 'bara_icu' | 'edl_phc' | 'hjth' | 'cmjah' | 'rmmch' | 'chbah';
   };
 }
+
+export type ReviewState = 'unreviewed' | 'clinical-review' | 'approved' | 'retired';
 
 export type LegacyCategory = Record<string, LegacyClinicalRecord[] | LegacyClinicalRecord>;
 export type LegacyData = Record<string, LegacyCategory>;
@@ -97,3 +99,97 @@ export const warningSeverity = (text: string): ClinicalWarning['severity'] => {
   }
   return 'information';
 };
+
+// --- Per-entry-file loading (used by both the Vite loader and the plain-Node
+// validator, so the two always agree on the exact same tree). ---
+
+export interface CanonicalEntryFile {
+  categoryId: string;
+  subcategoryId: string;
+  slug: string;
+  order: number;
+  source: SourceReference & {
+    verification: 'page-index' | 'preview' | 'unverifiable' | 'manual';
+  };
+  sourceGroup: 'bara_icu' | 'edl_phc' | 'hjth' | 'cmjah' | 'rmmch' | 'chbah';
+  reviewState: ReviewState;
+  errata: string[];
+  record: LegacyClinicalRecord;
+}
+
+// Score calculators are a flat {calcKey: calculatorObject} map with no _meta
+// (App.tsx reads clinicalData['16_score_calculators'][key] directly), so that
+// category is 2-level (entries/16_score_calculators/<slug>.json) while every
+// other category is 3-level (entries/<categoryId>/<subcategoryId>/<slug>.json).
+export const SINGLETON_CATEGORIES = new Set(['16_score_calculators']);
+
+export function parseEntryPath(entryPath: string): {categoryId: string; subcategoryId: string; slug: string} {
+  const marker = '/entries/';
+  const index = entryPath.indexOf(marker);
+  const relative = index >= 0 ? entryPath.slice(index + marker.length) : entryPath;
+  const parts = relative.replace(/\.json$/, '').split('/');
+  if (parts.length === 3) {
+    const [categoryId, subcategoryId, slug] = parts;
+    return {categoryId, subcategoryId, slug};
+  }
+  if (parts.length === 2) {
+    const [categoryId, slug] = parts;
+    return {categoryId, subcategoryId: slug, slug};
+  }
+  throw new Error(`Cannot parse entry path: ${entryPath}`);
+}
+
+export function annotateEntry(file: CanonicalEntryFile): LegacyClinicalRecord {
+  const {categoryId, subcategoryId, slug, record} = file;
+  const title = legacyTitle(record);
+  if (!title) {
+    throw new Error(`Clinical record has no title: ${categoryId}/${subcategoryId}/${slug}`);
+  }
+  const id = `${categoryId}.${subcategoryId}.${slug}`;
+  const warnings = (record.warnings ?? []).map((text, index) => ({
+    id: `${id}.warning.${index + 1}`,
+    severity: warningSeverity(text),
+    text,
+  }));
+
+  return {
+    ...record,
+    _meta: {
+      id,
+      type: entryType(record, categoryId),
+      categoryId,
+      subcategoryId,
+      title,
+      sourceRefs: [file.source],
+      reviewState: file.reviewState,
+      warnings,
+      infusionPresetId: explicitInfusions[`${categoryId}::${title}`],
+      sourceGroup: file.sourceGroup,
+    },
+  };
+}
+
+export function buildTreeFromFiles(files: Array<{path: string; file: CanonicalEntryFile}>): LegacyData {
+  const tree: LegacyData = {};
+  const sorted = [...files].sort((a, b) =>
+    (a.file.order ?? 1e6) - (b.file.order ?? 1e6) || a.file.slug.localeCompare(b.file.slug));
+
+  for (const {path: entryPath, file} of sorted) {
+    const pos = parseEntryPath(entryPath);
+    if (pos.categoryId !== file.categoryId || pos.subcategoryId !== file.subcategoryId || pos.slug !== file.slug) {
+      throw new Error(
+        `${entryPath}: envelope (${file.categoryId}/${file.subcategoryId}/${file.slug}) disagrees with directory position (${pos.categoryId}/${pos.subcategoryId}/${pos.slug})`,
+      );
+    }
+
+    const category = (tree[file.categoryId] ??= {});
+    if (SINGLETON_CATEGORIES.has(file.categoryId)) {
+      category[file.subcategoryId] = file.record;
+    } else {
+      const bucket = (category[file.subcategoryId] ??= []) as LegacyClinicalRecord[];
+      bucket.push(annotateEntry(file));
+    }
+  }
+
+  return tree;
+}

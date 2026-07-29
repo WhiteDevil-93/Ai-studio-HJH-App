@@ -1,0 +1,22 @@
+{
+  "categoryId": "7_useful_formulae",
+  "subcategoryId": "formulae",
+  "slug": "sodium-deficit",
+  "order": 7,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "category": "Bara ICU — Electrolytes",
+    "item": "Sodium Deficit",
+    "formula": "Na deficit = 0.6 x Wt(kg) x (Desired Na - Actual Na)",
+    "standard_dilutions": "Correct max 8-10mmol/L per day"
+  }
+}

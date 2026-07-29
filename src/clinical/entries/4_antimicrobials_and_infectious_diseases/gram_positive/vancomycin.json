@@ -1,0 +1,22 @@
+{
+  "categoryId": "4_antimicrobials_and_infectious_diseases",
+  "subcategoryId": "gram_positive",
+  "slug": "vancomycin",
+  "order": 0,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "condition_or_drug": "Vancomycin",
+    "adult_dose": "Loading: 25mg/kg; Maint: 15-20mg/kg IV 8-12hrly",
+    "paediatric_dose": "15mg/kg IV 6hrly",
+    "notes_updates": "Trough: 15-20mg/L (severe infections)"
+  }
+}

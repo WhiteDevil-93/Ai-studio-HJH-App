@@ -1,0 +1,62 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "perc",
+  "slug": "perc",
+  "order": 6,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "perc",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "PERC Rule for PE Exclusion",
+    "category": "respiratory",
+    "source_pages": [
+      159,
+      160
+    ],
+    "applicability": [
+      "Use only in the HJH low-risk pulmonary embolism pathway",
+      "All eight criteria must be explicitly confirmed"
+    ],
+    "components": [
+      {
+        "name": "Age >= 50 years",
+        "key": "age"
+      },
+      {
+        "name": "Heart rate >= 100 bpm",
+        "key": "tachycardia"
+      },
+      {
+        "name": "Oxygen saturation < 95% on room air",
+        "key": "hypoxia"
+      },
+      {
+        "name": "Unilateral leg swelling",
+        "key": "leg_swelling"
+      },
+      {
+        "name": "Haemoptysis",
+        "key": "haemoptysis"
+      },
+      {
+        "name": "Recent surgery or trauma (within 4 weeks)",
+        "key": "surgery"
+      },
+      {
+        "name": "Prior DVT or PE",
+        "key": "prior_dvt"
+      },
+      {
+        "name": "Hormone use (estrogen/OCP)",
+        "key": "hormones"
+      }
+    ]
+  }
+}

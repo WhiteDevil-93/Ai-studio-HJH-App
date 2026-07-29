@@ -1,0 +1,65 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "sepsis-and-septic-shock-cmjah",
+  "order": 14,
+  "source": {
+    "sourceId": "cmjah-ed-protocols-2020-v2",
+    "pdfPages": [
+      114,
+      115,
+      116
+    ],
+    "sectionTitle": "Sepsis and Septic Shock (CMJAH)",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "cmjah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Sepsis and Septic Shock (CMJAH)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "Sepsis: life-threatening organ dysfunction due to a dysregulated host response to infection (clinical criteria: increase of >=2 in SOFA score).",
+        "Septic shock: sepsis plus, despite adequate fluid resuscitation, persistent hypotension requiring vasopressor to maintain MAP > 65 and lactate > 2."
+      ],
+      "signs": [
+        "Young patients may compensate BP until late and have isolated raised lactate; elderly may have isolated hypotension with non-specific lactate levels.",
+        "High-risk subgroups: immunocompromised, diabetes mellitus, elderly, pregnant, paediatric."
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Resuscitation (ABCs)",
+        "details": "Large-bore IV access with balanced crystalloid bolus. Consider early inotrope (adrenaline) to keep MAP > 65. Consider early intubation if needed (correct hypotension and acidosis first). Don't ever forget the glucose."
+      },
+      {
+        "step_number": "2",
+        "action": "Fluid Bolus Approach",
+        "details": "Features of hypovolaemia / profuse vomiting or diarrhoea: generous fluid bolus 20-30ml/kg. No features of hypovolaemia or fluid overload: gentle fluid bolus 10-20ml/kg. Features of fluid overload: be very cautious with fluids. Don't wait for the fluid bolus to finish before considering inotropic support."
+      },
+      {
+        "step_number": "3",
+        "action": "Early Antibiotics & Source Control",
+        "details": "Consider the possible source and take appropriate samples before antibiotics if possible. Give broad-spectrum antibiotics ASAP, within 1 hour. Choice depends on suspected source (e.g. Augmentin for soft tissue, add Azithromycin for atypical pneumonia, Ceftriaxone for meningitis, Piperacillin-Tazobactam for nosocomial infection)."
+      },
+      {
+        "step_number": "4",
+        "action": "Surviving Sepsis Bundles",
+        "details": "Within 3 hours: measure lactate, obtain blood cultures prior to antibiotics, administer broad-spectrum antibiotics, give 30ml/kg crystalloid bolus for hypotension or lactate > 4 (consider patient factors before giving this volume). Within 6 hours: apply vasopressors to maintain MAP > 65mmHg; if persistent hypotension or initial lactate > 4, re-assess volume status and tissue perfusion and document findings; re-measure lactate if initial level was high."
+      },
+      {
+        "step_number": "5",
+        "action": "Re-assess & Disposition",
+        "details": "Monitor vitals, ABG/VBG for improving acidosis, lactate clearance, urine output > 0.5ml/kg/hr. Consider steroids (hydrocortisone 100mg TDS). Appropriate referral; ICU consult if requiring continuous inotrope or ventilatory support."
+      }
+    ],
+    "warnings": [
+      "Have a high index of clinical suspicion — presentation can be subtle, especially in the very young, elderly, or immunocompromised.",
+      "Consider the volume of fluid before giving 30ml/kg — this may be too much for some patients (e.g. heart failure, renal failure)."
+    ]
+  }
+}

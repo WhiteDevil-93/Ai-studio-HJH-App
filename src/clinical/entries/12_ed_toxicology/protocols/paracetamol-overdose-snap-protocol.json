@@ -1,0 +1,37 @@
+{
+  "categoryId": "12_ed_toxicology",
+  "subcategoryId": "protocols",
+  "slug": "paracetamol-overdose-snap-protocol",
+  "order": 5,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Paracetamol Overdose (SNAP Protocol)",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Initial Assessment",
+        "details": "Toxic dose: 150mg/kg or > 10g in adults. Measure paracetamol level at >= 4 hours post ingestion. Check blood gas, U&E, salicylate level."
+      },
+      {
+        "step_number": "2",
+        "action": "SNAP Protocol (Preferred Regimen)",
+        "details": "(1) 100mg/kg in 200ml 5% Dextrose IV over 2 hours, then (2) 200mg/kg in 1L 5% Dextrose IV over 10 hours."
+      },
+      {
+        "step_number": "3",
+        "action": "Old Regimen Alternative",
+        "details": "(1) 150mg/kg in 200ml 5% D-5-W over 1 hour, (2) 50mg/kg in 500ml over 4 hours, (3) 100mg/kg in 1L over 16 hours."
+      }
+    ]
+  }
+}

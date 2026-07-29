@@ -1,0 +1,22 @@
+{
+  "categoryId": "10_endocrine_and_other",
+  "subcategoryId": "steroids",
+  "slug": "hydrocortisone",
+  "order": 0,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "drug": "Hydrocortisone",
+    "adult_dose": "Stress: 50-100mg IV 6-8hrly; Physiological: 20mg AM + 10mg PM",
+    "paediatric_dose": "Stress: 1-2mg/kg IV 6hrly",
+    "notes_updates": "Stress dose for adrenal insufficiency, septic shock"
+  }
+}

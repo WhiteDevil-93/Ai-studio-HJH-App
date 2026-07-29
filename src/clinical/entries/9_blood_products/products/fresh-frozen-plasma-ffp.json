@@ -1,0 +1,22 @@
+{
+  "categoryId": "9_blood_products",
+  "subcategoryId": "products",
+  "slug": "fresh-frozen-plasma-ffp",
+  "order": 1,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Fresh Frozen Plasma (FFP)",
+    "adult_dose": "15-20ml/kg IV",
+    "paediatric_dose": "15-20ml/kg IV",
+    "notes": "For coagulopathy with active bleeding"
+  }
+}

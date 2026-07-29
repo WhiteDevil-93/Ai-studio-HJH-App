@@ -1,0 +1,22 @@
+{
+  "categoryId": "8_cardiovascular",
+  "subcategoryId": "antihypertensives",
+  "slug": "hydralazine",
+  "order": 1,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "drug": "Hydralazine",
+    "adult_dose": "5-20mg IV 4-6hrly",
+    "paediatric_dose": "0.1-0.2mg/kg IV 4-6hrly",
+    "notes_updates": "Avoid in aortic dissection"
+  }
+}

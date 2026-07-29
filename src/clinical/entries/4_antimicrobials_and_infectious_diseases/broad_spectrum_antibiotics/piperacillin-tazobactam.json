@@ -1,0 +1,21 @@
+{
+  "categoryId": "4_antimicrobials_and_infectious_diseases",
+  "subcategoryId": "broad_spectrum_antibiotics",
+  "slug": "piperacillin-tazobactam",
+  "order": 1,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "condition_or_drug": "Piperacillin/Tazobactam",
+    "adult_dose": "4.5g IV 6-8hrly",
+    "paediatric_dose": "80-100mg/kg IV 6-8hrly"
+  }
+}

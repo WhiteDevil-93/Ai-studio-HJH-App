@@ -1,0 +1,22 @@
+{
+  "categoryId": "1_resuscitation_fluids_and_inotropes",
+  "subcategoryId": "inotropes",
+  "slug": "noradrenaline",
+  "order": 0,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Noradrenaline",
+    "adult_dose": "0.05 - 1 ug/kg/min IV",
+    "paediatric_dose": "0.05 - 1 ug/kg/min IV",
+    "notes_updates": "First-line vasopressor for septic shock. No longer restricted as 'Section 21'."
+  }
+}

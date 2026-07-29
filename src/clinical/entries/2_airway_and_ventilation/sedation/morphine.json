@@ -1,0 +1,23 @@
+{
+  "categoryId": "2_airway_and_ventilation",
+  "subcategoryId": "sedation",
+  "slug": "morphine",
+  "order": 4,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      107
+    ],
+    "sectionTitle": "Morphine",
+    "transformation": "condensed",
+    "verification": "preview"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Morphine",
+    "adult_dose": "0.1-0.3mg/kg IV",
+    "paediatric_dose": "0.1-0.3mg/kg IV"
+  }
+}

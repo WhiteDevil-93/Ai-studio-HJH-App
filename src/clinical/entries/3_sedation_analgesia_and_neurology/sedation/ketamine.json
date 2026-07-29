@@ -1,0 +1,24 @@
+{
+  "categoryId": "3_sedation_analgesia_and_neurology",
+  "subcategoryId": "sedation",
+  "slug": "ketamine",
+  "order": 3,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      106
+    ],
+    "sectionTitle": "Ketamine",
+    "transformation": "condensed",
+    "verification": "preview"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "drug": "Ketamine",
+    "adult_dose": "15 - 30 ug/kg/min IV",
+    "paediatric_dose": "5 - 40 ug/kg/min",
+    "notes_updates": "Preferred for asthma/bronchospasm or trauma intubation."
+  }
+}

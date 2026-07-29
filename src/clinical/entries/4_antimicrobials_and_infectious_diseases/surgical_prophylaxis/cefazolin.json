@@ -1,0 +1,22 @@
+{
+  "categoryId": "4_antimicrobials_and_infectious_diseases",
+  "subcategoryId": "surgical_prophylaxis",
+  "slug": "cefazolin",
+  "order": 0,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "condition_or_drug": "Cefazolin",
+    "adult_dose": "2g IV within 60min of skin incision",
+    "paediatric_dose": "50mg/kg IV",
+    "notes_updates": "Dose increased from 1g to 2g (2024 update)"
+  }
+}

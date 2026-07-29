@@ -1,0 +1,22 @@
+{
+  "categoryId": "3_sedation_analgesia_and_neurology",
+  "subcategoryId": "sedation",
+  "slug": "strategy",
+  "order": 0,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "drug": "Strategy",
+    "adult_dose": "'Analgesia First'",
+    "paediatric_dose": "N/A",
+    "notes_updates": "Avoid routine deep sedation; prioritize pain control and neuro-psychological support."
+  }
+}

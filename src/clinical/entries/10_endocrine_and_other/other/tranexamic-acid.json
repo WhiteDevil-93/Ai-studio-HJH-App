@@ -1,0 +1,22 @@
+{
+  "categoryId": "10_endocrine_and_other",
+  "subcategoryId": "other",
+  "slug": "tranexamic-acid",
+  "order": 0,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "drug": "Tranexamic Acid",
+    "adult_dose": "1g IV over 10min (repeat 8hrly); Trauma: 1g/10min then 1g/8hrs",
+    "paediatric_dose": "15mg/kg IV 8hrly",
+    "notes_updates": "Contraindicated: significant haematuria, DIC"
+  }
+}

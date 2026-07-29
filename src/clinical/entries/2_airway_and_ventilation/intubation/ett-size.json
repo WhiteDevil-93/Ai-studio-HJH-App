@@ -1,0 +1,21 @@
+{
+  "categoryId": "2_airway_and_ventilation",
+  "subcategoryId": "intubation",
+  "slug": "ett-size",
+  "order": 0,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "ETT Size",
+    "adult_settings": "Male: 7.5 - 8.5, Female: 6.5 - 7.5",
+    "paediatric_settings": ">1 year: 4 + (Age in years)/4, <1 year: 3.0 - 4.0"
+  }
+}

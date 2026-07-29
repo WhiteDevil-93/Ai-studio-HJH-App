@@ -1,0 +1,21 @@
+{
+  "categoryId": "2_airway_and_ventilation",
+  "subcategoryId": "status_asthmaticus",
+  "slug": "salbutamol",
+  "order": 1,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Salbutamol",
+    "adult_dose": "2.5-5mg nebulised (Nebulise with O2); 0.25-0.5mg IV",
+    "paediatric_dose": "2.5-5mg nebulised; 5-10ug/kg/min IV"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "categoryId": "15_ed_procedures",
+  "subcategoryId": "protocols",
+  "slug": "ultrasound-guided-femoral-nerve-block",
+  "order": 3,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      197
+    ],
+    "sectionTitle": "Femoral Nerve Block",
+    "transformation": "condensed",
+    "verification": "preview"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Ultrasound Guided Femoral Nerve Block",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Identify Indications",
+        "details": "Perfect for: neck of femur fractures, femoral shaft fractures, knee or patellar injuries, or anterior thigh lacerations."
+      },
+      {
+        "step_number": "2",
+        "action": "How to Perform",
+        "details": "Place patient supine. Clean and drape groin. Place linear transducer in inguinal crease to locate femoral nerve (lateral to pulsatile common femoral artery). Insert needle just below inguinal ligament, lateral to artery. Aspirate to avoid vessel. Infiltrate 20ml Marcaine (2-3mg/kg). Confirm local anaesthetic surrounds nerve."
+      }
+    ],
+    "warnings": [
+      "Anaesthetises: anterior thigh, most of the femur, knee, and skin on the medial aspect of the lower leg."
+    ]
+  }
+}

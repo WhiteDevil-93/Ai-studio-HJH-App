@@ -1,0 +1,41 @@
+{
+  "categoryId": "13_ed_trauma_surgical",
+  "subcategoryId": "protocols",
+  "slug": "burns-brooke-formula-escharotomy",
+  "order": 1,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      51,
+      52,
+      53
+    ],
+    "sectionTitle": "Burns",
+    "transformation": "condensed",
+    "verification": "preview"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Burns (Brooke Formula & Escharotomy)",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Wound Cleaning & Resuscitation",
+        "details": "Cool running water over burn for 20 mins if < 3 hours old. Clean wound, remove all blisters and debris. Estimate TBSA% using Lund and Browder chart."
+      },
+      {
+        "step_number": "2",
+        "action": "Calculate Fluids: Modified Brooke Formula",
+        "details": "Resuscitate with Ringers Lactate/Balsol if TBSA > 20% (adult) or > 15% (paeds): 2ml x TBSA% x Weight (kg). Infuse half in the first 8 hours, and the remainder over the next 16 hours. Target urine output: Adults 0.5-1 ml/kg/hr, Paeds 1-2 ml/kg/hr."
+      },
+      {
+        "step_number": "3",
+        "action": "Perform Escharotomy",
+        "details": "Indications: circumferential burns with vascular compromise (loss of distal pulse, severe pain, cyanosis). Incise deep along axial lines into subcutaneous tissue to breach constricting fascia."
+      }
+    ]
+  }
+}

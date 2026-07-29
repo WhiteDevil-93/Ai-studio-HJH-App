@@ -1,0 +1,58 @@
+{
+  "categoryId": "14_ed_metabolic",
+  "subcategoryId": "protocols",
+  "slug": "hyperglycaemic-emergencies-dka-hhs-cmjah",
+  "order": 4,
+  "source": {
+    "sourceId": "cmjah-ed-protocols-2020-v2",
+    "pdfPages": [
+      69
+    ],
+    "sectionTitle": "Hyperglycaemic Emergencies (DKA/HHS) (CMJAH)",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "cmjah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Hyperglycaemic Emergencies (DKA/HHS) (CMJAH)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "DKA: onset often <=30 years (younger), hours-to-days presentation, ketones positive, metabolic acidosis, anion gap high (>16).",
+        "HHS: onset >=30 years (elderly), several-day presentation, CNS findings, ketones absent/weakly positive, minimal acidosis, serum osmolarity >350, anion gap normal (12-16). DKA and HHS may overlap."
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Resuscitation & Diagnosis",
+        "details": "ABC approach, oxygen, monitors, large-bore IV line, blood gas, ECG."
+      },
+      {
+        "step_number": "2",
+        "action": "Correct Dehydration",
+        "details": "If shocked: Balsol/Ringer's Lactate 20ml/kg bolus. DKA: 1st litre over 1 hour, 2nd litre over 1 hour, then maintenance aiming for urine output 1-2ml/kg/hr. HHS: fluids at a slower rate, 250-500ml/hr. Change IV fluid to 5% dextrose water once HGT <=15 or if serum Na >150."
+      },
+      {
+        "step_number": "3",
+        "action": "Correct Hyperglycaemia (Insulin)",
+        "details": "Delay insulin until serum K+ > 3.5mmol/L. Actrapid 0.1u/kg IV stat (max 10u), then hourly or as an Actrapid infusion at 0.1u/kg/hr. Hourly HGT monitoring."
+      },
+      {
+        "step_number": "4",
+        "action": "Correct Electrolyte Abnormalities",
+        "details": "K+: corrected K+ = for every 0.1 drop in pH from 7.4, K+ drops by 0.5; add 20-40mmol/L to IV fluids to maintain K+ 4-5mmol/L. Na+: corrected Na+ = for every 5.5mmol/L glucose above 5.5, Na+ increases by 1.6 (glucose 11-22) or 2.4 (glucose >22). Mg2+: 2g MgSO4 added to IV fluids (not as a bolus). PO4-: use KPO4 if phosphate is low, at a rate of 20mmol/hr."
+      },
+      {
+        "step_number": "5",
+        "action": "Correct Acidosis, Anticoagulation & Disposition",
+        "details": "Sodium bicarbonate is not routinely used — only if pH <=6.85 and HCO3 <5: give NaHCO3 8.5% 1ml/kg IV over 30 min, may repeat until pH >6.85. HHS: Clexane 0.5mg/kg SC stat for VTE prophylaxis. Identify and treat the underlying cause (infection, infarction, ischaemia, non-adherence, intoxication, pregnancy, intra-abdominal cause). Endocrine consultation for disposition."
+      }
+    ],
+    "warnings": [
+      "Give insulin only once serum potassium is confirmed > 3.5mmol/L — insulin before this can precipitate dangerous hypokalaemia."
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "categoryId": "2_airway_and_ventilation",
+  "subcategoryId": "status_asthmaticus",
+  "slug": "adrenalin",
+  "order": 4,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Adrenalin",
+    "adult_dose": "0.1-1ug/kg/min IV",
+    "paediatric_dose": "0.1-1ug/kg/min IV"
+  }
+}
