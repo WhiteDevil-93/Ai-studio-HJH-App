@@ -1,0 +1,186 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "sofa",
+  "slug": "sofa",
+  "order": 46,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "SOFA (Sequential Organ Failure Assessment) Score",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "SOFA (Sequential Organ Failure Assessment) Score",
+    "category": "critical-care",
+    "components": [
+      {
+        "name": "Respiration (PaO2/FiO2, mmHg)",
+        "key": "respiration",
+        "options": [
+          {
+            "label": ">= 400",
+            "value": 0
+          },
+          {
+            "label": "< 400",
+            "value": 1
+          },
+          {
+            "label": "< 300",
+            "value": 2
+          },
+          {
+            "label": "< 200 with respiratory support",
+            "value": 3
+          },
+          {
+            "label": "< 100 with respiratory support",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "name": "Coagulation (Platelets x10^3/uL)",
+        "key": "coagulation",
+        "options": [
+          {
+            "label": ">= 150",
+            "value": 0
+          },
+          {
+            "label": "< 150",
+            "value": 1
+          },
+          {
+            "label": "< 100",
+            "value": 2
+          },
+          {
+            "label": "< 50",
+            "value": 3
+          },
+          {
+            "label": "< 20",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "name": "Liver (Bilirubin, umol/L)",
+        "key": "liver",
+        "options": [
+          {
+            "label": "< 20",
+            "value": 0
+          },
+          {
+            "label": "20-32",
+            "value": 1
+          },
+          {
+            "label": "33-101",
+            "value": 2
+          },
+          {
+            "label": "102-204",
+            "value": 3
+          },
+          {
+            "label": "> 204",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "name": "Cardiovascular (MAP or vasopressors)",
+        "key": "cardiovascular",
+        "options": [
+          {
+            "label": "MAP >= 70 mmHg",
+            "value": 0
+          },
+          {
+            "label": "MAP < 70 mmHg",
+            "value": 1
+          },
+          {
+            "label": "Dopamine < 5 or dobutamine (any dose)",
+            "value": 2
+          },
+          {
+            "label": "Dopamine 5.1-15, or epinephrine <=0.1, or norepinephrine <=0.1 mcg/kg/min",
+            "value": 3
+          },
+          {
+            "label": "Dopamine > 15, or epinephrine > 0.1, or norepinephrine > 0.1 mcg/kg/min",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "name": "Central nervous system (GCS)",
+        "key": "cns",
+        "options": [
+          {
+            "label": "15",
+            "value": 0
+          },
+          {
+            "label": "13-14",
+            "value": 1
+          },
+          {
+            "label": "10-12",
+            "value": 2
+          },
+          {
+            "label": "6-9",
+            "value": 3
+          },
+          {
+            "label": "< 6",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "name": "Renal (Creatinine umol/L, or urine output)",
+        "key": "renal",
+        "options": [
+          {
+            "label": "< 110",
+            "value": 0
+          },
+          {
+            "label": "110-170",
+            "value": 1
+          },
+          {
+            "label": "171-299",
+            "value": 2
+          },
+          {
+            "label": "300-440 or urine output < 500 mL/day",
+            "value": 3
+          },
+          {
+            "label": "> 440 or urine output < 200 mL/day",
+            "value": 4
+          }
+        ]
+      }
+    ],
+    "interpretation": [
+      {
+        "min": 0,
+        "max": 24,
+        "label": "Organ dysfunction score",
+        "action": "Higher total score correlates with higher probability of hospital mortality. An increase of >=2 from baseline meets sepsis-3 organ dysfunction criteria in the context of infection."
+      }
+    ]
+  }
+}

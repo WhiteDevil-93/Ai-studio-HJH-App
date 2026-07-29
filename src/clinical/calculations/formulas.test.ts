@@ -61,4 +61,24 @@ describe('source-backed formula calculations', () => {
       calculateFormula('free_water_deficit', {weight: 70, na: 160}).value,
     ).toBeCloseTo(6, 8);
   });
+
+  it('floors MELD inputs at 1.0 and clamps the score to 6-40', () => {
+    expect(calculateFormula('meld', {bilirubin: 1, inr: 1, creatinine: 1, on_dialysis: 0}).value).toBe(6);
+    expect(calculateFormula('meld', {bilirubin: 0.4, inr: 0.9, creatinine: 0.6, on_dialysis: 0}).value).toBe(6);
+  });
+
+  it('forces creatinine to 4.0 for dialysis patients, even if the measured value is low', () => {
+    // Dialysis clears creatinine independent of native renal function, so a
+    // low measured value understates true severity - the standard MELD rule
+    // overrides it to 4.0 rather than using the (misleadingly low) reading.
+    const dialysis = calculateFormula('meld', {bilirubin: 3, inr: 2, creatinine: 1.2, on_dialysis: 1});
+    const noDialysis = calculateFormula('meld', {bilirubin: 3, inr: 2, creatinine: 1.2, on_dialysis: 0});
+    expect(dialysis.value).toBeGreaterThan(noDialysis.value);
+  });
+
+  it('caps MELD creatinine at 4.0 even without dialysis', () => {
+    const cappedHigh = calculateFormula('meld', {bilirubin: 3, inr: 2, creatinine: 6, on_dialysis: 0});
+    const atCap = calculateFormula('meld', {bilirubin: 3, inr: 2, creatinine: 4, on_dialysis: 0});
+    expect(cappedHigh.value).toBe(atCap.value);
+  });
 });

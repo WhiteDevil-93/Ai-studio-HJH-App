@@ -1,0 +1,62 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "bova",
+  "slug": "bova",
+  "order": 25,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Bova Score",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "Bova Score",
+    "category": "pulmonary",
+    "components": [
+      {
+        "name": "Systolic BP 90-100 mmHg",
+        "key": "sbp",
+        "points": 2
+      },
+      {
+        "name": "Myocardial injury (elevated troponin)",
+        "key": "troponin",
+        "points": 2
+      },
+      {
+        "name": "Right ventricular dysfunction on echo",
+        "key": "rv_dysfunction",
+        "points": 2
+      },
+      {
+        "name": "Heart rate >= 110 bpm",
+        "key": "hr",
+        "points": 1
+      }
+    ],
+    "interpretation": [
+      {
+        "min": 0,
+        "max": 2,
+        "label": "Stage I - Low risk",
+        "action": "3.1% adverse outcome rate."
+      },
+      {
+        "min": 3,
+        "max": 4,
+        "label": "Stage II - Intermediate risk",
+        "action": "10.1% adverse outcome rate."
+      },
+      {
+        "min": 5,
+        "max": 7,
+        "label": "Stage III - High risk",
+        "action": "25.6% adverse outcome rate."
+      }
+    ]
+  }
+}

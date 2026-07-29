@@ -1,0 +1,77 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "timi_ua",
+  "slug": "timi_ua",
+  "order": 21,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "TIMI Risk Score for UA/NSTEMI",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "TIMI Risk Score for UA/NSTEMI",
+    "category": "cardiovascular",
+    "components": [
+      {
+        "name": "Age >= 65 years",
+        "key": "age",
+        "points": 1
+      },
+      {
+        "name": ">= 3 traditional CAD risk factors",
+        "key": "risk_factors",
+        "points": 1
+      },
+      {
+        "name": "Known coronary stenosis >= 50%",
+        "key": "known_stenosis",
+        "points": 1
+      },
+      {
+        "name": "Aspirin use in the past 7 days",
+        "key": "aspirin_use",
+        "points": 1
+      },
+      {
+        "name": ">= 2 anginal episodes in 24 hours",
+        "key": "severe_angina",
+        "points": 1
+      },
+      {
+        "name": "ST-segment deviation >= 0.5 mm",
+        "key": "st_deviation",
+        "points": 1
+      },
+      {
+        "name": "Elevated cardiac marker (CK-MB or troponin)",
+        "key": "elevated_marker",
+        "points": 1
+      }
+    ],
+    "interpretation": [
+      {
+        "min": 0,
+        "max": 2,
+        "label": "Low risk",
+        "action": "5.3% event rate at 14 days."
+      },
+      {
+        "min": 3,
+        "max": 4,
+        "label": "Intermediate risk",
+        "action": "15.8% event rate at 14 days."
+      },
+      {
+        "min": 5,
+        "max": 7,
+        "label": "High risk",
+        "action": "32.4% event rate at 14 days."
+      }
+    ]
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "ottawa_knee",
+  "slug": "ottawa_knee",
+  "order": 30,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Ottawa Knee Rule",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "Ottawa Knee Rule",
+    "category": "trauma",
+    "components": [
+      {
+        "name": "Age >= 55 years",
+        "key": "age",
+        "points": 1
+      },
+      {
+        "name": "Isolated tenderness of the patella",
+        "key": "patella_tenderness",
+        "points": 1
+      },
+      {
+        "name": "Tenderness at the head of the fibula",
+        "key": "fibula_tenderness",
+        "points": 1
+      },
+      {
+        "name": "Inability to flex knee to 90 degrees",
+        "key": "flexion",
+        "points": 1
+      },
+      {
+        "name": "Inability to bear weight both immediately and in the ED (4 steps)",
+        "key": "weight_bearing",
+        "points": 1
+      }
+    ],
+    "interpretation": [
+      {
+        "min": 0,
+        "max": 0,
+        "label": "X-ray not indicated",
+        "action": "No criteria met."
+      },
+      {
+        "min": 1,
+        "max": 5,
+        "label": "X-ray indicated",
+        "action": "At least one criterion met."
+      }
+    ]
+  }
+}

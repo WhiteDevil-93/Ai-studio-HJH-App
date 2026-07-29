@@ -1,0 +1,132 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "child_pugh",
+  "slug": "child_pugh",
+  "order": 38,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Child-Pugh Score",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "Child-Pugh Score",
+    "category": "hepatology",
+    "components": [
+      {
+        "name": "Total bilirubin",
+        "key": "bilirubin",
+        "options": [
+          {
+            "label": "< 34 umol/L (< 2 mg/dL)",
+            "value": 1
+          },
+          {
+            "label": "34-50 umol/L (2-3 mg/dL)",
+            "value": 2
+          },
+          {
+            "label": "> 50 umol/L (> 3 mg/dL)",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "name": "Serum albumin",
+        "key": "albumin",
+        "options": [
+          {
+            "label": "> 35 g/L",
+            "value": 1
+          },
+          {
+            "label": "28-35 g/L",
+            "value": 2
+          },
+          {
+            "label": "< 28 g/L",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "name": "Prothrombin time / INR",
+        "key": "inr",
+        "options": [
+          {
+            "label": "INR < 1.7",
+            "value": 1
+          },
+          {
+            "label": "INR 1.7-2.3",
+            "value": 2
+          },
+          {
+            "label": "INR > 2.3",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "name": "Ascites",
+        "key": "ascites",
+        "options": [
+          {
+            "label": "None",
+            "value": 1
+          },
+          {
+            "label": "Mild / medically controlled",
+            "value": 2
+          },
+          {
+            "label": "Severe / refractory",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "name": "Hepatic encephalopathy",
+        "key": "encephalopathy",
+        "options": [
+          {
+            "label": "None",
+            "value": 1
+          },
+          {
+            "label": "Grade 1-2 (or controlled with medication)",
+            "value": 2
+          },
+          {
+            "label": "Grade 3-4 (or refractory)",
+            "value": 3
+          }
+        ]
+      }
+    ],
+    "interpretation": [
+      {
+        "min": 5,
+        "max": 6,
+        "label": "Class A",
+        "action": "Good hepatic function."
+      },
+      {
+        "min": 7,
+        "max": 9,
+        "label": "Class B",
+        "action": "Moderately impaired functional reserve."
+      },
+      {
+        "min": 10,
+        "max": 15,
+        "label": "Class C",
+        "action": "Advanced liver disease."
+      }
+    ]
+  }
+}

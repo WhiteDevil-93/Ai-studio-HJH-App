@@ -1,0 +1,87 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "abcd2",
+  "slug": "abcd2",
+  "order": 31,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "ABCD2 Score",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "ABCD2 Score",
+    "category": "neurology",
+    "components": [
+      {
+        "name": "Age >= 60 years",
+        "key": "age",
+        "points": 1
+      },
+      {
+        "name": "Blood pressure elevation (SBP >= 140 or DBP >= 90 mmHg)",
+        "key": "bp",
+        "points": 1
+      },
+      {
+        "name": "Clinical: unilateral weakness (do not also select speech disturbance)",
+        "key": "clinical_weakness",
+        "points": 2
+      },
+      {
+        "name": "Clinical: speech disturbance without weakness (do not also select unilateral weakness)",
+        "key": "clinical_speech",
+        "points": 1
+      },
+      {
+        "name": "Duration >= 60 minutes (do not also select 10-59 minutes)",
+        "key": "duration_60",
+        "points": 2
+      },
+      {
+        "name": "Duration 10-59 minutes (do not also select >= 60 minutes)",
+        "key": "duration_10_59",
+        "points": 1
+      },
+      {
+        "name": "Diabetes mellitus",
+        "key": "diabetes",
+        "points": 1
+      }
+    ],
+    "interpretation": [
+      {
+        "min": 0,
+        "max": 3,
+        "label": "Low risk",
+        "action": "1.0% 2-day stroke risk."
+      },
+      {
+        "min": 4,
+        "max": 5,
+        "label": "Moderate risk",
+        "action": "4.1% 2-day stroke risk."
+      },
+      {
+        "min": 6,
+        "max": 7,
+        "label": "High risk",
+        "action": "8.1% 2-day stroke risk."
+      }
+    ],
+    "mutually_exclusive_groups": [
+      [
+        "clinical_weakness",
+        "clinical_speech"
+      ],
+      [
+        "duration_60",
+        "duration_10_59"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "centor",
+  "slug": "centor",
+  "order": 23,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Modified Centor Score",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "Modified Centor Score",
+    "category": "infectious-disease",
+    "components": [
+      {
+        "name": "Age 3-14 years",
+        "key": "age_3_14",
+        "points": 1
+      },
+      {
+        "name": "Age >= 45 years",
+        "key": "age_45_plus",
+        "points": -1
+      },
+      {
+        "name": "Tonsillar exudate or swelling",
+        "key": "exudate",
+        "points": 1
+      },
+      {
+        "name": "Tender anterior cervical lymphadenopathy",
+        "key": "lymphadenopathy",
+        "points": 1
+      },
+      {
+        "name": "Fever by history (> 38C)",
+        "key": "fever",
+        "points": 1
+      },
+      {
+        "name": "Absence of cough",
+        "key": "no_cough",
+        "points": 1
+      }
+    ],
+    "interpretation": [
+      {
+        "min": -1,
+        "max": 0,
+        "label": "Very low risk",
+        "action": "1-2.5% risk of strep - no antibiotics or testing needed."
+      },
+      {
+        "min": 1,
+        "max": 1,
+        "label": "Low risk",
+        "action": "5-10% risk - consider rapid strep test."
+      },
+      {
+        "min": 2,
+        "max": 2,
+        "label": "Moderate risk",
+        "action": "11-17% risk - rapid strep test or empirical treatment."
+      },
+      {
+        "min": 3,
+        "max": 3,
+        "label": "High risk",
+        "action": "28-35% risk - test or treat empirically."
+      },
+      {
+        "min": 4,
+        "max": 5,
+        "label": "Very high risk",
+        "action": "51-53% risk - empirical antibiotics or rapid testing recommended."
+      }
+    ]
+  }
+}

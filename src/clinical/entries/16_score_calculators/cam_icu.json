@@ -1,0 +1,43 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "cam_icu",
+  "slug": "cam_icu",
+  "order": 52,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "CAM-ICU (Confusion Assessment Method for the ICU)",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "CAM-ICU (Confusion Assessment Method for the ICU)",
+    "category": "neurology",
+    "review_note": "Screening tool for delirium in ICU patients, typically performed after a sedation-level check (e.g. RASS) confirms the patient is arousable. Requires Features 1 and 2, plus either Feature 3 or Feature 4, to be CAM-ICU positive.",
+    "features": [
+      {
+        "key": "feature1",
+        "name": "Feature 1: Acute onset or fluctuating course",
+        "description": "Acute change from baseline mental status, or the mental status has fluctuated over the past 24 hours."
+      },
+      {
+        "key": "feature2",
+        "name": "Feature 2: Inattention",
+        "description": "Difficulty focusing attention, e.g. errors on a letter-vigilance or picture-recognition test."
+      },
+      {
+        "key": "feature3",
+        "name": "Feature 3: Altered level of consciousness",
+        "description": "Current RASS is any value other than 0 (alert and calm)."
+      },
+      {
+        "key": "feature4",
+        "name": "Feature 4: Disorganized thinking",
+        "description": "Rambling or irrelevant conversation, unclear or illogical flow of ideas, or unpredictable switching between subjects; or failure of simple command/reasoning questions."
+      }
+    ]
+  }
+}

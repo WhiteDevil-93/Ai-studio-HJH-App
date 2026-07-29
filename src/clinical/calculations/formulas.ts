@@ -5,7 +5,9 @@ export type FormulaKey =
   | 'corrected_na_hjh_page97'
   | 'free_water_deficit'
   | 'sodium_deficit_chbah'
-  | 'pf_ratio';
+  | 'pf_ratio'
+  | 'meld'
+  | 'pesi';
 
 export type NumericInputs = Record<string, number>;
 
@@ -108,6 +110,49 @@ export function calculateFormula(
         value: pao2 / fio2,
         unit: 'mmHg',
         working: `${pao2} ÷ ${fio2}`,
+      };
+    }
+    case 'pesi': {
+      const age = finitePositive(inputs.age, 'Age');
+      const flag = (v: number | undefined) => (v === 1 ? 1 : 0);
+      const points =
+        flag(inputs.male_sex) * 10 +
+        flag(inputs.cancer) * 30 +
+        flag(inputs.chf) * 10 +
+        flag(inputs.copd) * 10 +
+        flag(inputs.pulse_110) * 20 +
+        flag(inputs.sbp_100) * 30 +
+        flag(inputs.rr_30) * 20 +
+        flag(inputs.temp_36) * 20 +
+        flag(inputs.altered_mental_status) * 60 +
+        flag(inputs.spo2_90) * 20;
+      const value = Math.round(age) + points;
+      return {
+        value,
+        unit: 'PESI points',
+        working: `${Math.round(age)} (age) + ${points} (risk factor points)`,
+      };
+    }
+    case 'meld': {
+      const bilirubin = finitePositive(inputs.bilirubin, 'Bilirubin');
+      const inr = finitePositive(inputs.inr, 'INR');
+      const dialysis = inputs.on_dialysis === 1;
+      // Standard MELD rules: lab values below 1.0 are floored to 1.0 to avoid
+      // negative logarithms, and creatinine is floored at 1.0 and capped at
+      // 4.0 (or set to 4.0 outright) if the patient had dialysis twice in the
+      // past week, since dialysis clears creatinine independent of native
+      // renal function. The raw formula result is rounded and clamped to the
+      // standard UNOS/OPTN reporting range of 6-40.
+      const bilirubinAdj = Math.max(bilirubin, 1.0);
+      const inrAdj = Math.max(inr, 1.0);
+      const creatinineRaw = dialysis ? 4.0 : Math.max(finitePositive(inputs.creatinine, 'Creatinine'), 1.0);
+      const creatinineAdj = Math.min(creatinineRaw, 4.0);
+      const rawScore = 3.78 * Math.log(bilirubinAdj) + 11.2 * Math.log(inrAdj) + 9.57 * Math.log(creatinineAdj) + 6.43;
+      const value = Math.min(40, Math.max(6, Math.round(rawScore)));
+      return {
+        value,
+        unit: 'MELD points',
+        working: `3.78×ln(${bilirubinAdj}) + 11.2×ln(${inrAdj}) + 9.57×ln(${creatinineAdj}) + 6.43 = ${rawScore.toFixed(1)}, clamped to 6-40`,
       };
     }
   }

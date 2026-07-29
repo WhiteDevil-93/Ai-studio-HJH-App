@@ -1,0 +1,61 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "sf_syncope",
+  "slug": "sf_syncope",
+  "order": 20,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "San Francisco Syncope Rule",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "San Francisco Syncope Rule",
+    "category": "syncope",
+    "components": [
+      {
+        "name": "CHF history",
+        "key": "chf",
+        "points": 1
+      },
+      {
+        "name": "Hematocrit < 30%",
+        "key": "hct_low",
+        "points": 1
+      },
+      {
+        "name": "Abnormal ECG",
+        "key": "abnormal_ecg",
+        "points": 1
+      },
+      {
+        "name": "Shortness of breath",
+        "key": "sob",
+        "points": 1
+      },
+      {
+        "name": "Systolic blood pressure < 90 mmHg",
+        "key": "sbp_low",
+        "points": 1
+      }
+    ],
+    "interpretation": [
+      {
+        "min": 0,
+        "max": 0,
+        "label": "Low risk",
+        "action": "No high-risk criteria present."
+      },
+      {
+        "min": 1,
+        "max": 5,
+        "label": "Not low risk",
+        "action": "At least one high-risk criterion present - risk of serious adverse event."
+      }
+    ]
+  }
+}
