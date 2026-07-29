@@ -1,0 +1,85 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "cha2ds2_vasc",
+  "slug": "cha2ds2_vasc",
+  "order": 18,
+  "source": {
+    "sourceId": "cmjah-ed-protocols-2020-v2",
+    "pdfPages": [38],
+    "sectionTitle": "CHA2DS2-VASc Score",
+    "transformation": "exact",
+    "verification": "page-index"
+  },
+  "sourceGroup": "cmjah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "CHA2DS2-VASc Score",
+    "category": "cardiovascular",
+    "source_pages": [38],
+    "source_label": "CMJAH PDF page 38 · clinical review pending",
+    "mutually_exclusive_groups": [["age_75_plus", "age_65_74"]],
+    "components": [
+      {
+        "name": "Congestive heart failure history",
+        "points": 1,
+        "key": "chf"
+      },
+      {
+        "name": "Hypertension history",
+        "points": 1,
+        "key": "hypertension"
+      },
+      {
+        "name": "Age >= 75",
+        "points": 2,
+        "key": "age_75_plus"
+      },
+      {
+        "name": "Diabetes mellitus history",
+        "points": 1,
+        "key": "diabetes"
+      },
+      {
+        "name": "Stroke / TIA / thromboembolism history",
+        "points": 2,
+        "key": "stroke"
+      },
+      {
+        "name": "Vascular disease (prior MI, peripheral artery disease, aortic plaque)",
+        "points": 1,
+        "key": "vascular_disease"
+      },
+      {
+        "name": "Age 65-74 (do not also select Age >= 75)",
+        "points": 1,
+        "key": "age_65_74"
+      },
+      {
+        "name": "Sex: female",
+        "points": 1,
+        "key": "sex_female"
+      }
+    ],
+    "interpretation": [
+      {
+        "min": 0,
+        "max": 0,
+        "label": "Low risk",
+        "action": "May not require anti-coagulation."
+      },
+      {
+        "min": 1,
+        "max": 1,
+        "label": "Low-moderate risk",
+        "action": "Consider anti-platelet or anti-coagulation."
+      },
+      {
+        "min": 2,
+        "max": 9,
+        "label": "Moderate-high risk",
+        "action": "Anti-coagulation indicated."
+      }
+    ]
+  }
+}
