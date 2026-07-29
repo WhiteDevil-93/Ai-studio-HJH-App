@@ -1,0 +1,53 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "qsofa",
+  "slug": "qsofa",
+  "order": 16,
+  "source": {
+    "sourceId": "rmmch-paediatric-protocols",
+    "pdfPages": [46, 47],
+    "sectionTitle": "Sepsis + Septic Shock (RMMCH)",
+    "transformation": "derived",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "rmmch",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "qSOFA Score",
+    "category": "sepsis",
+    "source_pages": [46, 47],
+    "source_label": "RMMCH PDF pages 46-47 · fingerprint unconfirmed, clinical review pending",
+    "components": [
+      {
+        "name": "Altered mental status (GCS < 15)",
+        "points": 1,
+        "key": "altered_mental_status"
+      },
+      {
+        "name": "Respiratory rate >= 22/min",
+        "points": 1,
+        "key": "tachypnoea"
+      },
+      {
+        "name": "Systolic blood pressure <= 100 mmHg",
+        "points": 1,
+        "key": "hypotension"
+      }
+    ],
+    "interpretation": [
+      {
+        "min": 0,
+        "max": 1,
+        "label": "Low risk",
+        "action": "qSOFA does not rule out sepsis - use clinical judgement and SIRS criteria alongside it."
+      },
+      {
+        "min": 2,
+        "max": 3,
+        "label": "High risk",
+        "action": "Associated with poor outcomes in suspected infection - escalate workup and treat per sepsis pathway."
+      }
+    ]
+  }
+}

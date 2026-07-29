@@ -1,0 +1,89 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "has_bled",
+  "slug": "has_bled",
+  "order": 17,
+  "source": {
+    "sourceId": "cmjah-ed-protocols-2020-v2",
+    "pdfPages": [38],
+    "sectionTitle": "HAS-BLED Score",
+    "transformation": "exact",
+    "verification": "page-index"
+  },
+  "sourceGroup": "cmjah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "HAS-BLED Score",
+    "category": "cardiovascular",
+    "source_pages": [38],
+    "source_label": "CMJAH PDF page 38 · clinical review pending",
+    "components": [
+      {
+        "name": "Hypertension uncontrolled (SBP > 160)",
+        "points": 1,
+        "key": "hypertension"
+      },
+      {
+        "name": "Abnormal renal function (dialysis, transplant, Cr > 200)",
+        "points": 1,
+        "key": "renal"
+      },
+      {
+        "name": "Abnormal liver function (cirrhosis, bilirubin 2x, AST/ALT/AP 3x)",
+        "points": 1,
+        "key": "liver"
+      },
+      {
+        "name": "Stroke history",
+        "points": 1,
+        "key": "stroke"
+      },
+      {
+        "name": "Prior major bleed or predisposition to bleeding",
+        "points": 1,
+        "key": "bleeding_history"
+      },
+      {
+        "name": "Labile INR (unstable/high, <60% time in therapeutic range)",
+        "points": 1,
+        "key": "labile_inr"
+      },
+      {
+        "name": "Age > 65",
+        "points": 1,
+        "key": "age"
+      },
+      {
+        "name": "Medication predisposing to bleeding (aspirin, clopidogrel, NSAIDs)",
+        "points": 1,
+        "key": "medication"
+      },
+      {
+        "name": "Alcohol use (> 8 drinks/week)",
+        "points": 1,
+        "key": "alcohol"
+      }
+    ],
+    "interpretation": [
+      {
+        "min": 0,
+        "max": 1,
+        "label": "Low risk",
+        "action": "Anti-coagulation should be considered."
+      },
+      {
+        "min": 2,
+        "max": 2,
+        "label": "Moderate risk",
+        "action": "Anti-coagulation can be considered."
+      },
+      {
+        "min": 3,
+        "max": 9,
+        "label": "High risk",
+        "action": "Alternatives to anti-coagulation should be considered."
+      }
+    ]
+  }
+}

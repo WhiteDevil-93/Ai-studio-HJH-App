@@ -272,11 +272,12 @@ export default function App() {
   // Score Calculator states
   const [gcsState, setGcsState] = useState<Record<string, number>>({});
   const [nexusState, setNexusState] = useState<Record<string, boolean>>({});
-  const [alvaradoState, setAlvaradoState] = useState<Record<string, CriterionAnswer>>({});
-  const [wellsDvtState, setWellsDvtState] = useState<Record<string, CriterionAnswer>>({});
-  const [wellsPeState, setWellsPeState] = useState<Record<string, CriterionAnswer>>({});
-  const [percState, setPercState] = useState<Record<string, CriterionAnswer>>({});
-  const [curb65State, setCurb65State] = useState<Record<string, CriterionAnswer>>({});
+  // Generic per-score checklist answers, keyed by the score's key (e.g.
+  // 'alvarado', 'curb65', 'qsofa') - a new checklist-style score calculator
+  // (components with points + interpretation bands) needs no new state or
+  // wiring here, unlike the bespoke ones below (gcs, canadian_cspine,
+  // burch_wartofsky) which have their own scoring model.
+  const [checklistAnswers, setChecklistAnswers] = useState<Record<string, Record<string, CriterionAnswer>>>({});
   const [burchWartofskyState, setBurchWartofskyState] = useState<Record<string, number>>({});
   const [ccsState, setCcsState] = useState<Record<string, boolean>>({});
   const [ccsApplicable, setCcsApplicable] = useState<CriterionAnswer>('unanswered');
@@ -1100,20 +1101,12 @@ export default function App() {
       );
     }
 
-    // Default checklist/point-based scorers
-    const currentScoresState =
-      key === 'alvarado' ? alvaradoState :
-        key === 'wells_dvt' ? wellsDvtState :
-          key === 'wells_pe' ? wellsPeState :
-            key === 'perc' ? percState :
-              key === 'curb65' ? curb65State : {};
-
-    const setCurrentScoresState =
-      key === 'alvarado' ? setAlvaradoState :
-        key === 'wells_dvt' ? setWellsDvtState :
-          key === 'wells_pe' ? setWellsPeState :
-            key === 'perc' ? setPercState :
-              key === 'curb65' ? setCurb65State : () => { };
+    // Default checklist/point-based scorers - any score whose data is shaped
+    // as components: [{key, points}] lands here automatically.
+    const currentScoresState = checklistAnswers[key] ?? {};
+    const setCurrentScoresState = (
+      updater: (prev: Record<string, CriterionAnswer>) => Record<string, CriterionAnswer>,
+    ) => setChecklistAnswers(prevAll => ({ ...prevAll, [key]: updater(prevAll[key] ?? {}) }));
 
     const checklistResult = calculateChecklistScore(
       sc.components.map((comp: any) => ({
@@ -1122,9 +1115,23 @@ export default function App() {
       })),
       currentScoresState,
     );
-    const pointsSum = checklistResult.score;
     const answeredCount = checklistResult.answeredCount;
     const isComplete = checklistResult.complete;
+
+    // Some scores have criteria that are mutually exclusive (e.g. CHA2DS2-VASc's
+    // two age brackets) but are still rendered as independent yes/no toggles for
+    // traceability against the printed source table. If more than one member of
+    // a group is marked 'yes', only the highest-value one should actually count.
+    const exclusiveGroupOverlap: string[][] = (sc.mutually_exclusive_groups ?? []).filter(
+      (group: string[]) => group.filter(k => currentScoresState[k] === 'yes').length > 1,
+    );
+    const overCountedPoints = exclusiveGroupOverlap.reduce((total, group) => {
+      const selectedPoints = group
+        .filter(k => currentScoresState[k] === 'yes')
+        .map(k => sc.components.find((c: any) => (c.key || c.name) === k)?.points ?? 0);
+      return total + (selectedPoints.reduce((a: number, b: number) => a + b, 0) - Math.max(...selectedPoints));
+    }, 0);
+    const pointsSum = checklistResult.score - overCountedPoints;
 
     const getScorerBadgeAndInterp = () => {
       if (!isComplete) {
@@ -1188,6 +1195,12 @@ export default function App() {
             {renderScoreFavouriteButton(key)}
           </div>
         </div>
+
+        {exclusiveGroupOverlap.length > 0 && (
+          <div className="mb-3 rounded-lg border border-amber-500/40 bg-amber-950/20 p-2 text-[11px] text-amber-200" role="alert">
+            Only one of these criteria applies at a time - the higher-value option has been counted, the other ignored.
+          </div>
+        )}
 
         <div className="space-y-1.5">
           {sc.components.map((comp: any) => {
