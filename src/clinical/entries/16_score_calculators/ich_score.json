@@ -1,0 +1,71 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "ich_score",
+  "slug": "ich_score",
+  "order": 50,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "ICH Score",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "ICH Score",
+    "category": "neurology",
+    "components": [
+      {
+        "name": "Glasgow Coma Scale",
+        "key": "gcs",
+        "options": [
+          {"label": "13-15", "value": 0},
+          {"label": "5-12", "value": 1},
+          {"label": "3-4", "value": 2}
+        ]
+      },
+      {
+        "name": "Age",
+        "key": "age",
+        "options": [
+          {"label": "< 80 years", "value": 0},
+          {"label": ">= 80 years", "value": 1}
+        ]
+      },
+      {
+        "name": "ICH volume",
+        "key": "volume",
+        "options": [
+          {"label": "< 30 mL", "value": 0},
+          {"label": ">= 30 mL", "value": 1}
+        ]
+      },
+      {
+        "name": "Intraventricular haemorrhage",
+        "key": "ivh",
+        "options": [
+          {"label": "Absent", "value": 0},
+          {"label": "Present", "value": 1}
+        ]
+      },
+      {
+        "name": "Origin",
+        "key": "origin",
+        "options": [
+          {"label": "Supratentorial", "value": 0},
+          {"label": "Infratentorial", "value": 1}
+        ]
+      }
+    ],
+    "interpretation": [
+      {"min": 0, "max": 0, "label": "ICH Score 0", "action": "Approximate 30-day mortality 0%."},
+      {"min": 1, "max": 1, "label": "ICH Score 1", "action": "Approximate 30-day mortality 13%."},
+      {"min": 2, "max": 2, "label": "ICH Score 2", "action": "Approximate 30-day mortality 26%."},
+      {"min": 3, "max": 3, "label": "ICH Score 3", "action": "Approximate 30-day mortality 72%."},
+      {"min": 4, "max": 4, "label": "ICH Score 4", "action": "Approximate 30-day mortality 97%."},
+      {"min": 5, "max": 6, "label": "ICH Score 5-6", "action": "Approximate 30-day mortality 100%."}
+    ]
+  }
+}

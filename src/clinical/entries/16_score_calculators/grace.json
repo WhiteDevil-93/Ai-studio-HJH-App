@@ -1,0 +1,29 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "grace",
+  "slug": "grace",
+  "order": 51,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "GRACE ACS Risk Score",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "GRACE ACS Risk Score",
+    "category": "cardiovascular",
+    "calculator_type": "formula",
+    "disabled_reason": "GRACE uses a validated nomogram with continuous, non-linear point contributions per variable (age, heart rate, systolic BP, creatinine) rather than simple fixed-point criteria. A live calculator needs the official nomogram/coefficient table, which is not yet available in this app - use the published MDCalc or original GRACE nomogram directly. Listed here for reference so it isn't missing from this section.",
+    "review_note": "Factors considered: age, heart rate, systolic blood pressure, serum creatinine, Killip class, cardiac arrest at admission, ST-segment deviation on ECG, and elevated cardiac enzymes. Calculates in-hospital and 6-month mortality/infarction risk for ACS.",
+    "inputs": [
+      {"name": "Age", "key": "age", "unit": "years"},
+      {"name": "Heart rate", "key": "heart_rate", "unit": "bpm"},
+      {"name": "Systolic BP", "key": "sbp", "unit": "mmHg"},
+      {"name": "Serum creatinine", "key": "creatinine", "unit": "mg/dL"}
+    ]
+  }
+}

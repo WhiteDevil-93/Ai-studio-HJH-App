@@ -1,0 +1,91 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "hestia",
+  "slug": "hestia",
+  "order": 26,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Hestia Criteria",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "Hestia Criteria",
+    "category": "pulmonary",
+    "components": [
+      {
+        "name": "Hemodynamically unstable",
+        "key": "unstable",
+        "points": 1
+      },
+      {
+        "name": "Thrombolysis or embolectomy needed",
+        "key": "thrombolysis",
+        "points": 1
+      },
+      {
+        "name": "Active bleeding or high bleeding risk",
+        "key": "bleeding_risk",
+        "points": 1
+      },
+      {
+        "name": "Anticoagulation contraindication / heparin allergy",
+        "key": "anticoag_contraindication",
+        "points": 1
+      },
+      {
+        "name": "Ventilation support required",
+        "key": "ventilation",
+        "points": 1
+      },
+      {
+        "name": "Pain requiring IV narcotics > 24h",
+        "key": "iv_narcotics",
+        "points": 1
+      },
+      {
+        "name": "Medical or social reason for inpatient stay",
+        "key": "social_reason",
+        "points": 1
+      },
+      {
+        "name": "CrCl < 30 mL/min",
+        "key": "renal",
+        "points": 1
+      },
+      {
+        "name": "Severe liver impairment",
+        "key": "liver",
+        "points": 1
+      },
+      {
+        "name": "Pregnant",
+        "key": "pregnant",
+        "points": 1
+      },
+      {
+        "name": "History of heparin-induced thrombocytopenia",
+        "key": "hit_history",
+        "points": 1
+      }
+    ],
+    "interpretation": [
+      {
+        "min": 0,
+        "max": 0,
+        "label": "Eligible for outpatient treatment",
+        "action": "No Hestia criteria present."
+      },
+      {
+        "min": 1,
+        "max": 11,
+        "label": "Not eligible for outpatient treatment",
+        "action": "At least one Hestia criterion present."
+      }
+    ]
+  }
+}

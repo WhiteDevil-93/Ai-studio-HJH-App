@@ -1,0 +1,132 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "apgar",
+  "slug": "apgar",
+  "order": 40,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "APGAR Score",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "APGAR Score",
+    "category": "pediatrics",
+    "components": [
+      {
+        "name": "Appearance (skin colour)",
+        "key": "appearance",
+        "options": [
+          {
+            "label": "Blue/pale all over",
+            "value": 0
+          },
+          {
+            "label": "Body pink, extremities blue (acrocyanosis)",
+            "value": 1
+          },
+          {
+            "label": "Normal pink all over",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "name": "Pulse (heart rate)",
+        "key": "pulse",
+        "options": [
+          {
+            "label": "Absent",
+            "value": 0
+          },
+          {
+            "label": "< 100 bpm",
+            "value": 1
+          },
+          {
+            "label": ">= 100 bpm",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "name": "Grimace (reflex irritability)",
+        "key": "grimace",
+        "options": [
+          {
+            "label": "No response",
+            "value": 0
+          },
+          {
+            "label": "Grimace / feeble cry",
+            "value": 1
+          },
+          {
+            "label": "Sneezes, coughs, pulls away",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "name": "Activity (muscle tone)",
+        "key": "activity",
+        "options": [
+          {
+            "label": "Limp / none",
+            "value": 0
+          },
+          {
+            "label": "Some flexion of extremities",
+            "value": 1
+          },
+          {
+            "label": "Active motion / well flexed",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "name": "Respiration (respiratory effort)",
+        "key": "respiration",
+        "options": [
+          {
+            "label": "Absent",
+            "value": 0
+          },
+          {
+            "label": "Slow, irregular, hypoventilation",
+            "value": 1
+          },
+          {
+            "label": "Good, crying vigorously",
+            "value": 2
+          }
+        ]
+      }
+    ],
+    "interpretation": [
+      {
+        "min": 0,
+        "max": 3,
+        "label": "Severely depressed",
+        "action": "Requires immediate resuscitation."
+      },
+      {
+        "min": 4,
+        "max": 6,
+        "label": "Moderately depressed",
+        "action": "Requires monitoring/support."
+      },
+      {
+        "min": 7,
+        "max": 10,
+        "label": "Normal / reassuring",
+        "action": ""
+      }
+    ]
+  }
+}

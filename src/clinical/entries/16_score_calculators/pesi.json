@@ -1,0 +1,37 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "pesi",
+  "slug": "pesi",
+  "order": 49,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "PESI Score",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "PESI (Pulmonary Embolism Severity Index)",
+    "category": "pulmonary",
+    "calculator_type": "formula",
+    "formula_id": "pesi",
+    "formula": "age + sum of applicable risk-factor points",
+    "review_note": "Enter 1 for each risk factor present, 0 if absent. Age is entered in years and added directly to the score.",
+    "inputs": [
+      {"name": "Age", "key": "age", "unit": "years"},
+      {"name": "Male sex", "key": "male_sex", "unit": "1 = yes, 0 = no (+10)"},
+      {"name": "History of cancer", "key": "cancer", "unit": "1 = yes, 0 = no (+30)"},
+      {"name": "History of chronic heart failure", "key": "chf", "unit": "1 = yes, 0 = no (+10)"},
+      {"name": "History of chronic pulmonary disease", "key": "copd", "unit": "1 = yes, 0 = no (+10)"},
+      {"name": "Pulse >= 110 bpm", "key": "pulse_110", "unit": "1 = yes, 0 = no (+20)"},
+      {"name": "Systolic BP < 100 mmHg", "key": "sbp_100", "unit": "1 = yes, 0 = no (+30)"},
+      {"name": "Respiratory rate >= 30/min", "key": "rr_30", "unit": "1 = yes, 0 = no (+20)"},
+      {"name": "Temperature < 36.0 C", "key": "temp_36", "unit": "1 = yes, 0 = no (+20)"},
+      {"name": "Altered mental status", "key": "altered_mental_status", "unit": "1 = yes, 0 = no (+60)"},
+      {"name": "SpO2 < 90%", "key": "spo2_90", "unit": "1 = yes, 0 = no (+20)"}
+    ]
+  }
+}

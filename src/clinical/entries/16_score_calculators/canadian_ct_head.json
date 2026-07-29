@@ -1,0 +1,32 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "canadian_ct_head",
+  "slug": "canadian_ct_head",
+  "order": 48,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Canadian CT Head Rule",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "Canadian CT Head Rule",
+    "category": "trauma",
+    "high_risk": [
+      {"name": "GCS score < 15 at 2 hours after injury"},
+      {"name": "Suspected open or depressed skull fracture"},
+      {"name": "Any sign of basal skull fracture (hemotympanum, raccoon eyes, otorrhea/rhinorrhea, Battle's sign)"},
+      {"name": "Vomiting >= 2 episodes"},
+      {"name": "Age >= 65 years"}
+    ],
+    "medium_risk": [
+      {"name": "Retrograde amnesia to the event >= 30 minutes"},
+      {"name": "Dangerous mechanism (pedestrian struck, occupant ejected, fall from height > 3 feet or 5 stairs)"}
+    ],
+    "interpretation": "High-risk factors indicate CT head is required to identify a neurological intervention risk. Medium-risk factors indicate CT head is required to identify a brain lesion risk."
+  }
+}

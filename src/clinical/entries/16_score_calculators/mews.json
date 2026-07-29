@@ -1,0 +1,96 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "mews",
+  "slug": "mews",
+  "order": 54,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Modified Early Warning Score (MEWS)",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "Modified Early Warning Score (MEWS)",
+    "category": "early-warning",
+    "review_note": "MEWS has several published variants with differing cutoffs across institutions. This uses a commonly cited version (Subbe et al.); confirm against local hospital policy before adopting a cutoff for escalation. Where a formal NEWS2 chart is in use, prefer NEWS2.",
+    "components": [
+      {
+        "name": "Respiratory rate (/min)",
+        "key": "resp_rate",
+        "options": [
+          { "label": "< 9", "value": 2 },
+          { "label": "9 - 14", "value": 0 },
+          { "label": "15 - 20", "value": 1 },
+          { "label": "21 - 29", "value": 2 },
+          { "label": ">= 30", "value": 3 }
+        ]
+      },
+      {
+        "name": "Heart rate (bpm)",
+        "key": "heart_rate",
+        "options": [
+          { "label": "< 40", "value": 2 },
+          { "label": "40 - 50", "value": 1 },
+          { "label": "51 - 100", "value": 0 },
+          { "label": "101 - 110", "value": 1 },
+          { "label": "111 - 129", "value": 2 },
+          { "label": ">= 130", "value": 3 }
+        ]
+      },
+      {
+        "name": "Systolic blood pressure (mmHg)",
+        "key": "sbp",
+        "options": [
+          { "label": "<= 70", "value": 3 },
+          { "label": "71 - 80", "value": 2 },
+          { "label": "81 - 100", "value": 1 },
+          { "label": "101 - 199", "value": 0 },
+          { "label": ">= 200", "value": 2 }
+        ]
+      },
+      {
+        "name": "Temperature (C)",
+        "key": "temperature",
+        "options": [
+          { "label": "< 35.0", "value": 2 },
+          { "label": "35.0 - 38.4", "value": 0 },
+          { "label": ">= 38.5", "value": 2 }
+        ]
+      },
+      {
+        "name": "Consciousness (AVPU)",
+        "key": "avpu",
+        "options": [
+          { "label": "Alert", "value": 0 },
+          { "label": "Reacting to Voice", "value": 1 },
+          { "label": "Reacting to Pain", "value": 2 },
+          { "label": "Unresponsive", "value": 3 }
+        ]
+      }
+    ],
+    "interpretation": [
+      {
+        "min": 0,
+        "max": 2,
+        "label": "Low risk",
+        "action": "Routine observation frequency."
+      },
+      {
+        "min": 3,
+        "max": 4,
+        "label": "Increased risk",
+        "action": "Increase observation frequency and inform senior nursing/medical staff."
+      },
+      {
+        "min": 5,
+        "max": 14,
+        "label": "High risk",
+        "action": "Urgent review by a senior clinician; consider critical care referral."
+      }
+    ]
+  }
+}

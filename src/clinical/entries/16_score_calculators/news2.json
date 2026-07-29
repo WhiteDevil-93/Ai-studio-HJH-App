@@ -1,0 +1,200 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "news2",
+  "slug": "news2",
+  "order": 36,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "National Early Warning Score 2 (NEWS2)",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "National Early Warning Score 2 (NEWS2)",
+    "category": "early-warning",
+    "components": [
+      {
+        "name": "Respiration rate (/min)",
+        "key": "resp_rate",
+        "options": [
+          {
+            "label": "<= 8",
+            "value": 3
+          },
+          {
+            "label": "9-11",
+            "value": 1
+          },
+          {
+            "label": "12-20",
+            "value": 0
+          },
+          {
+            "label": "21-24",
+            "value": 2
+          },
+          {
+            "label": ">= 25",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "name": "SpO2 Scale 1 (%)",
+        "key": "spo2",
+        "options": [
+          {
+            "label": "<= 91",
+            "value": 3
+          },
+          {
+            "label": "92-93",
+            "value": 2
+          },
+          {
+            "label": "94-95",
+            "value": 1
+          },
+          {
+            "label": ">= 96",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "name": "Supplemental oxygen",
+        "key": "supplemental_o2",
+        "options": [
+          {
+            "label": "Air",
+            "value": 0
+          },
+          {
+            "label": "Any supplemental oxygen",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "name": "Systolic blood pressure (mmHg)",
+        "key": "sbp",
+        "options": [
+          {
+            "label": "<= 90",
+            "value": 3
+          },
+          {
+            "label": "91-100",
+            "value": 2
+          },
+          {
+            "label": "101-110",
+            "value": 1
+          },
+          {
+            "label": "111-219",
+            "value": 0
+          },
+          {
+            "label": ">= 220",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "name": "Heart rate (bpm)",
+        "key": "heart_rate",
+        "options": [
+          {
+            "label": "<= 40",
+            "value": 3
+          },
+          {
+            "label": "41-50",
+            "value": 1
+          },
+          {
+            "label": "51-90",
+            "value": 0
+          },
+          {
+            "label": "91-110",
+            "value": 1
+          },
+          {
+            "label": "111-130",
+            "value": 2
+          },
+          {
+            "label": ">= 131",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "name": "Consciousness (ACVPU)",
+        "key": "consciousness",
+        "options": [
+          {
+            "label": "Alert",
+            "value": 0
+          },
+          {
+            "label": "Confusion / Voice / Pain / Unresponsive",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "name": "Temperature (C)",
+        "key": "temperature",
+        "options": [
+          {
+            "label": "<= 35.0",
+            "value": 3
+          },
+          {
+            "label": "35.1-36.0",
+            "value": 1
+          },
+          {
+            "label": "36.1-38.0",
+            "value": 0
+          },
+          {
+            "label": "38.1-39.0",
+            "value": 1
+          },
+          {
+            "label": ">= 39.1",
+            "value": 2
+          }
+        ]
+      }
+    ],
+    "interpretation": [
+      {
+        "min": 0,
+        "max": 4,
+        "label": "Low clinical risk",
+        "action": "Routine monitoring. Note: any single parameter scoring 3 warrants urgent review regardless of total."
+      },
+      {
+        "min": 5,
+        "max": 6,
+        "label": "Medium clinical risk",
+        "action": "Urgent review by a clinician with core competencies in acute illness."
+      },
+      {
+        "min": 7,
+        "max": 20,
+        "label": "High clinical risk",
+        "action": "Emergency assessment by a critical care team."
+      }
+    ]
+  }
+}

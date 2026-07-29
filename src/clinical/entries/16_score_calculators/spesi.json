@@ -1,0 +1,66 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "spesi",
+  "slug": "spesi",
+  "order": 32,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "sPESI Score",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "sPESI Score",
+    "category": "pulmonary",
+    "components": [
+      {
+        "name": "Age > 80 years",
+        "key": "age",
+        "points": 1
+      },
+      {
+        "name": "History of cancer",
+        "key": "cancer",
+        "points": 1
+      },
+      {
+        "name": "History of chronic cardiopulmonary disease",
+        "key": "cardiopulmonary",
+        "points": 1
+      },
+      {
+        "name": "Heart rate >= 110 bpm",
+        "key": "hr",
+        "points": 1
+      },
+      {
+        "name": "Systolic blood pressure < 100 mmHg",
+        "key": "sbp",
+        "points": 1
+      },
+      {
+        "name": "Oxygen saturation < 90% on room air",
+        "key": "spo2",
+        "points": 1
+      }
+    ],
+    "interpretation": [
+      {
+        "min": 0,
+        "max": 0,
+        "label": "Low risk",
+        "action": "1.0% 30-day mortality."
+      },
+      {
+        "min": 1,
+        "max": 6,
+        "label": "High risk",
+        "action": "10.9% 30-day mortality."
+      }
+    ]
+  }
+}

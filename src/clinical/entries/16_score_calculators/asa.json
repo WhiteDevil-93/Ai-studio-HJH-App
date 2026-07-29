@@ -1,0 +1,60 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "asa",
+  "slug": "asa",
+  "order": 42,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "ASA Physical Status Classification",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "ASA Physical Status Classification",
+    "category": "perioperative",
+    "components": [
+      {
+        "name": "Class",
+        "key": "class",
+        "options": [
+          {
+            "label": "ASA I: A normal healthy patient",
+            "value": 1
+          },
+          {
+            "label": "ASA II: A patient with mild systemic disease",
+            "value": 2
+          },
+          {
+            "label": "ASA III: A patient with severe systemic disease",
+            "value": 3
+          },
+          {
+            "label": "ASA IV: Severe systemic disease that is a constant threat to life",
+            "value": 4
+          },
+          {
+            "label": "ASA V: Moribund, not expected to survive without the operation",
+            "value": 5
+          },
+          {
+            "label": "ASA VI: Declared brain-dead, organs being removed for donation",
+            "value": 6
+          }
+        ]
+      }
+    ],
+    "interpretation": [
+      {
+        "min": 1,
+        "max": 6,
+        "label": "Perioperative risk classification",
+        "action": "Higher class indicates greater perioperative risk. Add 'E' suffix for emergency procedures (not modelled here)."
+      }
+    ]
+  }
+}

@@ -278,6 +278,12 @@ export default function App() {
   // wiring here, unlike the bespoke ones below (gcs, canadian_cspine,
   // burch_wartofsky) which have their own scoring model.
   const [checklistAnswers, setChecklistAnswers] = useState<Record<string, Record<string, CriterionAnswer>>>({});
+  // Generic per-score graded-option answers (selected point value per
+  // component), keyed by score key - any score whose components are
+  // multi-option (components: [{key, options: [{value, label}]}]) renders
+  // via this generic mechanism automatically, same idea as checklistAnswers
+  // above but for graded (not binary) criteria.
+  const [gradedScoreAnswers, setGradedScoreAnswers] = useState<Record<string, Record<string, number>>>({});
   const [burchWartofskyState, setBurchWartofskyState] = useState<Record<string, number>>({});
   const [ccsState, setCcsState] = useState<Record<string, boolean>>({});
   const [ccsApplicable, setCcsApplicable] = useState<CriterionAnswer>('unanswered');
@@ -617,6 +623,62 @@ export default function App() {
         <div className={`mt-3 p-3 rounded-lg text-sm border ${severityClass}`}>
           <div className="font-bold">{title}</div>
           <div className="text-xs mt-1 text-slate-300">{desc}</div>
+        </div>
+      );
+    }
+
+    if (calcKey === 'pesi') {
+      let severityClass = 'bg-teal-950/20 border-teal-500/20 text-teal-200';
+      let title = 'Class I - Very low risk';
+      let desc = '0-1.6% 30-day mortality.';
+
+      if (result > 125) {
+        severityClass = 'bg-rose-950/40 border-rose-500/40 text-rose-200 animate-pulse';
+        title = 'Class V - Very high risk';
+        desc = '10.0-24.5% 30-day mortality.';
+      } else if (result > 105) {
+        severityClass = 'bg-rose-950/20 border-rose-500/20 text-rose-200';
+        title = 'Class IV - High risk';
+        desc = '4.0-11.4% 30-day mortality.';
+      } else if (result > 85) {
+        severityClass = 'bg-orange-950/30 border-orange-500/30 text-orange-200';
+        title = 'Class III - Moderate risk';
+        desc = '3.2-7.1% 30-day mortality.';
+      } else if (result > 65) {
+        severityClass = 'bg-yellow-950/20 border-yellow-500/20 text-yellow-100';
+        title = 'Class II - Low risk';
+        desc = '1.7-3.5% 30-day mortality.';
+      }
+
+      return (
+        <div className={`mt-3 p-3 rounded-lg text-sm border ${severityClass}`}>
+          <div className="font-bold">{title}</div>
+          <div className="text-xs mt-1 text-slate-300">{desc}</div>
+        </div>
+      );
+    }
+
+    if (calcKey === 'meld') {
+      let severityClass = 'bg-teal-950/20 border-teal-500/20 text-teal-200';
+      let desc = 'Approximate 3-month mortality < 2%.';
+
+      if (result >= 40) {
+        severityClass = 'bg-rose-950/40 border-rose-500/40 text-rose-200 animate-pulse';
+        desc = 'Approximate 3-month mortality ~71%.';
+      } else if (result >= 30) {
+        severityClass = 'bg-rose-950/20 border-rose-500/20 text-rose-200';
+        desc = 'Approximate 3-month mortality ~53%.';
+      } else if (result >= 20) {
+        severityClass = 'bg-orange-950/30 border-orange-500/30 text-orange-200';
+        desc = 'Approximate 3-month mortality ~20%.';
+      } else if (result >= 10) {
+        severityClass = 'bg-yellow-950/20 border-yellow-500/20 text-yellow-100';
+        desc = 'Approximate 3-month mortality ~6%.';
+      }
+
+      return (
+        <div className={`mt-3 p-3 rounded-lg text-sm border ${severityClass}`}>
+          <div className="text-xs text-slate-300">{desc}</div>
         </div>
       );
     }
@@ -1010,6 +1072,130 @@ export default function App() {
       );
     }
 
+    if (key === 'cam_icu') {
+      const answers = checklistAnswers[key] ?? {};
+      const setAnswer = (critKey: string, value: CriterionAnswer) =>
+        setChecklistAnswers(prevAll => ({ ...prevAll, [key]: { ...(prevAll[key] ?? {}), [critKey]: value } }));
+      const features: any[] = sc.features ?? [];
+      const allAnswered = features.every((f: any) => answers[f.key] !== undefined && answers[f.key] !== 'unanswered');
+      const isYes = (k: string) => answers[k] === 'yes';
+      const positive = isYes('feature1') && isYes('feature2') && (isYes('feature3') || isYes('feature4'));
+
+      return (
+        <div key={key} className={`p-4 rounded-xl border mb-4 ${theme === 'dark' ? 'bg-[#0f1d1d] border-teal-900/40' : 'bg-white border-slate-200 shadow-sm'}`}>
+          <div className="flex items-center justify-between gap-2 mb-3">
+            <div className="flex items-center gap-2">
+              <Calculator className="h-5 w-5 text-teal-400" />
+              {renderScoreTitle()}
+            </div>
+            {renderScoreFavouriteButton(key)}
+          </div>
+
+          <p className="mb-3 text-[10px] text-slate-400">
+            CAM-ICU is positive when Feature 1 AND Feature 2 are both present, AND either Feature 3 OR Feature 4 is present.
+          </p>
+
+          <div className="space-y-2">
+            {features.map((f: any) => {
+              const currentVal = answers[f.key];
+              return (
+                <div key={f.key} className="p-2 rounded-lg bg-black/10 border border-teal-950/20">
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="text-sm font-medium text-slate-200">{f.name}</span>
+                    <div className="flex gap-1 flex-shrink-0">
+                      <button type="button" onClick={() => setAnswer(f.key, 'no')} aria-pressed={currentVal === 'no'} className={`px-3 py-1 text-xs font-bold rounded border transition ${currentVal === 'no' ? 'bg-teal-500/20 border-teal-400 text-teal-300' : 'bg-slate-900/50 border-slate-800 text-slate-400'}`}>No</button>
+                      <button type="button" onClick={() => setAnswer(f.key, 'yes')} aria-pressed={currentVal === 'yes'} className={`px-3 py-1 text-xs font-bold rounded border transition ${currentVal === 'yes' ? 'bg-rose-500/20 border-rose-500 text-rose-300' : 'bg-slate-900/50 border-slate-800 text-slate-400'}`}>Yes</button>
+                    </div>
+                  </div>
+                  {f.description && <div className="mt-1 text-[10px] text-slate-500 leading-snug">{f.description}</div>}
+                </div>
+              );
+            })}
+          </div>
+
+          {allAnswered && (
+            <div className={`mt-4 p-3 rounded-lg border text-sm ${positive ? 'bg-rose-950/20 border-rose-500/20 text-rose-200' : 'bg-teal-950/20 border-teal-500/20 text-teal-200'}`}>
+              <div className="font-bold">{positive ? '🔴 CAM-ICU Positive: Delirium present' : '🟢 CAM-ICU Negative: No delirium'}</div>
+              <div className="text-xs mt-1 text-slate-300">
+                {positive
+                  ? 'Identify and treat underlying causes; review sedation; consider non-pharmacological delirium bundle measures.'
+                  : 'Reassess at next scheduled sedation/delirium screen.'}
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    // Generic tiered risk-factor rule - any score shaped as high_risk: [...]
+    // (optionally with medium_risk/low_risk) renders here: any "yes" in the
+    // highest tier present wins, no point total involved. Covers rules like
+    // the Canadian CT Head Rule.
+    if (Array.isArray(sc.high_risk)) {
+      const tiers: Array<{ tierKey: string; label: string; items: any[] }> = [
+        { tierKey: 'high', label: 'High-risk factors', items: sc.high_risk },
+        ...(Array.isArray(sc.medium_risk) ? [{ tierKey: 'medium', label: 'Medium-risk factors', items: sc.medium_risk }] : []),
+        ...(Array.isArray(sc.low_risk) ? [{ tierKey: 'low', label: 'Low-risk factors', items: sc.low_risk }] : []),
+      ];
+      const answers = checklistAnswers[key] ?? {};
+      const setAnswer = (critKey: string, value: CriterionAnswer) =>
+        setChecklistAnswers(prevAll => ({ ...prevAll, [key]: { ...(prevAll[key] ?? {}), [critKey]: value } }));
+
+      const allCriteria = tiers.flatMap(t => t.items.map((item, i) => `${t.tierKey}_${i}`));
+      const allAnswered = allCriteria.every(k => answers[k] !== undefined);
+      const triggeredTier = tiers.find(t => t.items.some((_, i) => answers[`${t.tierKey}_${i}`] === 'yes'));
+
+      return (
+        <div key={key} className={`p-4 rounded-xl border mb-4 ${theme === 'dark' ? 'bg-[#0f1d1d] border-teal-900/40' : 'bg-white border-slate-200 shadow-sm'}`}>
+          <div className="flex items-center justify-between gap-2 mb-3">
+            <div className="flex items-center gap-2">
+              <Calculator className="h-5 w-5 text-teal-400" />
+              {renderScoreTitle()}
+            </div>
+            {renderScoreFavouriteButton(key)}
+          </div>
+
+          <div className="space-y-3">
+            {tiers.map(tier => (
+              <div key={tier.tierKey} className="space-y-1.5">
+                <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">{tier.label}</div>
+                {tier.items.map((item: any, i: number) => {
+                  const critKey = `${tier.tierKey}_${i}`;
+                  const answer = answers[critKey];
+                  return (
+                    <div key={critKey} className="flex items-center justify-between gap-3 p-2 rounded-lg bg-black/10 border border-teal-950/10">
+                      <span className="text-xs text-slate-300 pr-4">{item.name}</span>
+                      <div className="flex gap-1.5 flex-shrink-0">
+                        <button type="button" onClick={() => setAnswer(critKey, 'no')} aria-pressed={answer === 'no'} className={`rounded border px-2 py-1 text-[10px] font-bold ${answer === 'no' ? 'border-teal-400 bg-teal-500/20 text-teal-200' : 'border-slate-700 text-slate-400'}`}>No</button>
+                        <button type="button" onClick={() => setAnswer(critKey, 'yes')} aria-pressed={answer === 'yes'} className={`rounded border px-2 py-1 text-[10px] font-bold ${answer === 'yes' ? 'border-rose-400 bg-rose-500/20 text-rose-200' : 'border-slate-700 text-slate-400'}`}>Yes</button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            ))}
+          </div>
+
+          {triggeredTier ? (
+            <div className={`mt-4 p-3 rounded-lg border text-sm ${triggeredTier.tierKey === 'high' ? 'bg-rose-950/20 border-rose-500/20 text-rose-200' : 'bg-orange-950/20 border-orange-500/20 text-orange-200'}`}>
+              <div className="font-bold">{triggeredTier.label.replace(' factors', '')} present</div>
+              <div className="text-xs mt-1 text-slate-300">{typeof sc.interpretation === 'string' ? sc.interpretation : ''}</div>
+            </div>
+          ) : allAnswered ? (
+            <div className="mt-4 p-3 rounded-lg border bg-teal-950/20 border-teal-500/20 text-teal-200 text-sm">
+              <div className="font-bold">No risk factors present</div>
+              <div className="text-xs mt-1 text-slate-300">Rule does not mandate imaging based on the criteria entered.</div>
+            </div>
+          ) : (
+            <div className="mt-4 rounded-lg border border-slate-700 bg-slate-900/40 p-3 text-sm text-slate-300" aria-live="polite">
+              <div className="font-bold">Assessment incomplete</div>
+              <div className="mt-1 text-xs">Answer every criterion to see the result.</div>
+            </div>
+          )}
+        </div>
+      );
+    }
+
     if (key === 'burch_wartofsky') {
       const componentKeys = sc.components.map((component: any) => component.key);
       const isAllSelected = componentKeys.every(
@@ -1097,6 +1283,111 @@ export default function App() {
           <div className="mt-2 text-[10px] text-amber-300">
             Clinical review pending for source-table errata on HJH PDF page 190.
           </div>
+        </div>
+      );
+    }
+
+    // Generic graded/option-based scorer - any score whose components carry
+    // an `options` array (e.g. HEART, NIHSS, CIWA, Child-Pugh, Killip, APGAR)
+    // renders here automatically, same idea as the checklist scorer below but
+    // for criteria with more than two levels.
+    if (Array.isArray(sc.components) && sc.components[0]?.options) {
+      const gradedAnswers = gradedScoreAnswers[key] ?? {};
+      const setGradedAnswer = (compKey: string, value: number) =>
+        setGradedScoreAnswers(prevAll => ({
+          ...prevAll,
+          [key]: { ...(prevAll[key] ?? {}), [compKey]: value },
+        }));
+
+      const componentKeys = sc.components.map((c: any) => c.key || c.name);
+      const isGradedComplete = componentKeys.every((k: string) => gradedAnswers[k] !== undefined);
+      const gradedTotal = componentKeys.reduce(
+        (sum: number, k: string) => sum + (gradedAnswers[k] ?? 0),
+        0,
+      );
+
+      let gradedInterp: { label: string; action: string } | null = null;
+      if (isGradedComplete && Array.isArray(sc.interpretation)) {
+        const match = sc.interpretation.find((band: any) => gradedTotal >= band.min && gradedTotal <= band.max);
+        if (match) gradedInterp = match;
+      }
+      let gradedClass = 'bg-teal-950/20 border-teal-500/20 text-teal-300';
+      if (gradedInterp) {
+        const lower = gradedInterp.label.toLowerCase();
+        if (lower.includes('high') || lower.includes('severe') || lower.includes('class c') || lower.includes('class iv') || lower.includes('class v')) {
+          gradedClass = 'bg-rose-950/20 border-rose-500/20 text-rose-300';
+        } else if (lower.includes('moderate') || lower.includes('intermediate') || lower.includes('class b') || lower.includes('class iii')) {
+          gradedClass = 'bg-orange-950/20 border-orange-500/20 text-orange-300';
+        }
+      }
+
+      return (
+        <div
+          key={key}
+          onClick={() => recordRecentlyViewed(key, sc.name, '16_score_calculators', 'calculator')}
+          className={`p-4 rounded-xl border mb-4 cursor-pointer ${theme === 'dark' ? 'bg-[#0f1d1d] border-teal-900/40' : 'bg-white border-slate-200 shadow-sm'}`}
+        >
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2">
+              <Calculator className="h-5 w-5 text-teal-400" />
+              {renderScoreTitle()}
+            </div>
+            <div className="flex items-center gap-2">
+              {isGradedComplete && (
+                <div className="px-2 py-0.5 rounded bg-teal-950 text-teal-300 border border-teal-800 text-xs font-bold">
+                  Score: {gradedTotal}
+                </div>
+              )}
+              {renderScoreFavouriteButton(key)}
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            {sc.components.map((comp: any) => {
+              const compKey = comp.key || comp.name;
+              return (
+                <div key={compKey} className="space-y-1.5">
+                  <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">{comp.name}</span>
+                  <div className="flex flex-col gap-1.5">
+                    {comp.options.map((opt: any) => {
+                      const optValue = opt.value ?? opt.points;
+                      const isSelected = gradedAnswers[compKey] === optValue;
+                      return (
+                        <button
+                          key={opt.label}
+                          type="button"
+                          onClick={() => setGradedAnswer(compKey, optValue)}
+                          className={`px-3 py-2 rounded-lg border text-left flex justify-between items-center transition ${isSelected
+                              ? 'bg-teal-500/20 border-teal-400 text-teal-300'
+                              : 'bg-black/10 border-teal-950/20 hover:border-teal-700/40 text-slate-300'
+                            }`}
+                        >
+                          <span className="text-xs font-medium">{opt.label}</span>
+                          <span className={`text-[10px] font-black px-1.5 py-0.5 rounded ${isSelected ? 'bg-teal-400 text-black' : 'bg-slate-800 text-slate-400'}`}>
+                            {optValue} pt{optValue === 1 || optValue === -1 ? '' : 's'}
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {isGradedComplete ? (
+            gradedInterp && (
+              <div className={`mt-4 p-3 rounded-lg border text-sm ${gradedClass}`}>
+                <div className="font-bold">{gradedInterp.label}</div>
+                <div className="text-xs mt-1 text-slate-300">{gradedInterp.action}</div>
+              </div>
+            )
+          ) : (
+            <div className="mt-4 rounded-lg border border-slate-700 bg-slate-900/40 p-3 text-sm text-slate-300" aria-live="polite">
+              <div className="font-bold">Assessment incomplete</div>
+              <div className="mt-1 text-xs">Select a value for every component to see the interpretation.</div>
+            </div>
+          )}
         </div>
       );
     }

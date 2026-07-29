@@ -1,0 +1,108 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "glasgow_blatchford",
+  "slug": "glasgow_blatchford",
+  "order": 53,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Glasgow-Blatchford Score",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "Glasgow-Blatchford Score (Upper GI Bleed)",
+    "category": "gastrointestinal",
+    "review_note": "Hemoglobin thresholds differ by sex; the Hemoglobin component below lists the matching value for each sex against every option so a single selection is correct regardless of patient sex.",
+    "components": [
+      {
+        "name": "Blood urea nitrogen (mmol/L)",
+        "key": "bun",
+        "options": [
+          { "label": "< 4.0", "value": 0 },
+          { "label": "4.0 - 5.9", "value": 2 },
+          { "label": "6.0 - 7.9", "value": 3 },
+          { "label": "8.0 - 9.9", "value": 4 },
+          { "label": ">= 10.0", "value": 6 }
+        ]
+      },
+      {
+        "name": "Hemoglobin (g/dL)",
+        "key": "hemoglobin",
+        "options": [
+          { "label": "Male >= 13.0, or Female >= 12.0", "value": 0 },
+          { "label": "Male 12.0 - 12.9, or Female 10.0 - 11.9", "value": 1 },
+          { "label": "Male 10.0 - 11.9", "value": 3 },
+          { "label": "Male or Female < 10.0", "value": 6 }
+        ]
+      },
+      {
+        "name": "Systolic blood pressure (mmHg)",
+        "key": "sbp",
+        "options": [
+          { "label": ">= 110", "value": 0 },
+          { "label": "100 - 109", "value": 1 },
+          { "label": "90 - 99", "value": 2 },
+          { "label": "< 90", "value": 3 }
+        ]
+      },
+      {
+        "name": "Pulse >= 100 bpm",
+        "key": "pulse_100",
+        "options": [
+          { "label": "No", "value": 0 },
+          { "label": "Yes", "value": 1 }
+        ]
+      },
+      {
+        "name": "Melena present",
+        "key": "melena",
+        "options": [
+          { "label": "No", "value": 0 },
+          { "label": "Yes", "value": 1 }
+        ]
+      },
+      {
+        "name": "Syncope",
+        "key": "syncope",
+        "options": [
+          { "label": "No", "value": 0 },
+          { "label": "Yes", "value": 2 }
+        ]
+      },
+      {
+        "name": "Known hepatic disease",
+        "key": "hepatic_disease",
+        "options": [
+          { "label": "No", "value": 0 },
+          { "label": "Yes", "value": 2 }
+        ]
+      },
+      {
+        "name": "Known cardiac failure",
+        "key": "cardiac_failure",
+        "options": [
+          { "label": "No", "value": 0 },
+          { "label": "Yes", "value": 2 }
+        ]
+      }
+    ],
+    "interpretation": [
+      {
+        "min": 0,
+        "max": 0,
+        "label": "Score 0: Very low risk",
+        "action": "May be suitable for outpatient management/early discharge, per local protocol and clinical judgement."
+      },
+      {
+        "min": 1,
+        "max": 23,
+        "label": "Score >= 1: Clinically significant risk",
+        "action": "Risk of needing an intervention (transfusion, endoscopy, or surgery). Admit and arrange endoscopy."
+      }
+    ]
+  }
+}

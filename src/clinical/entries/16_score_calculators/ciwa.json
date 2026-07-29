@@ -1,0 +1,416 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "ciwa",
+  "slug": "ciwa",
+  "order": 35,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "CIWA-Ar for Alcohol Withdrawal",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "CIWA-Ar for Alcohol Withdrawal",
+    "category": "toxicology",
+    "components": [
+      {
+        "name": "Nausea and vomiting",
+        "key": "nausea",
+        "options": [
+          {
+            "label": "0 - None",
+            "value": 0
+          },
+          {
+            "label": "1 - Mild nausea, no vomiting",
+            "value": 1
+          },
+          {
+            "label": "2",
+            "value": 2
+          },
+          {
+            "label": "3",
+            "value": 3
+          },
+          {
+            "label": "4 - Intermittent nausea with dry heaves",
+            "value": 4
+          },
+          {
+            "label": "5",
+            "value": 5
+          },
+          {
+            "label": "6",
+            "value": 6
+          },
+          {
+            "label": "7 - Constant nausea, frequent dry heaves and vomiting",
+            "value": 7
+          }
+        ]
+      },
+      {
+        "name": "Tremor",
+        "key": "tremor",
+        "options": [
+          {
+            "label": "0 - None",
+            "value": 0
+          },
+          {
+            "label": "1 - Not visible, felt fingertip to fingertip",
+            "value": 1
+          },
+          {
+            "label": "2",
+            "value": 2
+          },
+          {
+            "label": "3",
+            "value": 3
+          },
+          {
+            "label": "4 - Moderate, with arms extended",
+            "value": 4
+          },
+          {
+            "label": "5",
+            "value": 5
+          },
+          {
+            "label": "6",
+            "value": 6
+          },
+          {
+            "label": "7 - Severe, even with arms not extended",
+            "value": 7
+          }
+        ]
+      },
+      {
+        "name": "Paroxysmal sweats",
+        "key": "sweats",
+        "options": [
+          {
+            "label": "0 - No sweat visible",
+            "value": 0
+          },
+          {
+            "label": "1 - Barely perceptible, palms moist",
+            "value": 1
+          },
+          {
+            "label": "2",
+            "value": 2
+          },
+          {
+            "label": "3",
+            "value": 3
+          },
+          {
+            "label": "4 - Beads of sweat obvious on forehead",
+            "value": 4
+          },
+          {
+            "label": "5",
+            "value": 5
+          },
+          {
+            "label": "6",
+            "value": 6
+          },
+          {
+            "label": "7 - Drenching sweats",
+            "value": 7
+          }
+        ]
+      },
+      {
+        "name": "Anxiety",
+        "key": "anxiety",
+        "options": [
+          {
+            "label": "0 - No anxiety, at ease",
+            "value": 0
+          },
+          {
+            "label": "1 - Mildly anxious",
+            "value": 1
+          },
+          {
+            "label": "2",
+            "value": 2
+          },
+          {
+            "label": "3",
+            "value": 3
+          },
+          {
+            "label": "4 - Moderately anxious, or guarded",
+            "value": 4
+          },
+          {
+            "label": "5",
+            "value": 5
+          },
+          {
+            "label": "6",
+            "value": 6
+          },
+          {
+            "label": "7 - Equivalent to acute panic states",
+            "value": 7
+          }
+        ]
+      },
+      {
+        "name": "Agitation",
+        "key": "agitation",
+        "options": [
+          {
+            "label": "0 - Normal activity",
+            "value": 0
+          },
+          {
+            "label": "1 - Somewhat more than normal activity",
+            "value": 1
+          },
+          {
+            "label": "2",
+            "value": 2
+          },
+          {
+            "label": "3",
+            "value": 3
+          },
+          {
+            "label": "4 - Moderately fidgety and restless",
+            "value": 4
+          },
+          {
+            "label": "5",
+            "value": 5
+          },
+          {
+            "label": "6",
+            "value": 6
+          },
+          {
+            "label": "7 - Paces back and forth, thrashes about",
+            "value": 7
+          }
+        ]
+      },
+      {
+        "name": "Tactile disturbances",
+        "key": "tactile",
+        "options": [
+          {
+            "label": "0 - None",
+            "value": 0
+          },
+          {
+            "label": "1 - Very mild itching/pins-needles/burning/numbness",
+            "value": 1
+          },
+          {
+            "label": "2 - Mild",
+            "value": 2
+          },
+          {
+            "label": "3 - Moderate",
+            "value": 3
+          },
+          {
+            "label": "4 - Moderately severe hallucinations",
+            "value": 4
+          },
+          {
+            "label": "5 - Severe hallucinations",
+            "value": 5
+          },
+          {
+            "label": "6 - Extremely severe hallucinations",
+            "value": 6
+          },
+          {
+            "label": "7 - Continuous hallucinations",
+            "value": 7
+          }
+        ]
+      },
+      {
+        "name": "Auditory disturbances",
+        "key": "auditory",
+        "options": [
+          {
+            "label": "0 - Not present",
+            "value": 0
+          },
+          {
+            "label": "1 - Very mild harshness / ability to frighten",
+            "value": 1
+          },
+          {
+            "label": "2 - Mild",
+            "value": 2
+          },
+          {
+            "label": "3 - Moderate",
+            "value": 3
+          },
+          {
+            "label": "4 - Moderately severe hallucinations",
+            "value": 4
+          },
+          {
+            "label": "5 - Severe hallucinations",
+            "value": 5
+          },
+          {
+            "label": "6 - Extremely severe hallucinations",
+            "value": 6
+          },
+          {
+            "label": "7 - Continuous hallucinations",
+            "value": 7
+          }
+        ]
+      },
+      {
+        "name": "Visual disturbances",
+        "key": "visual",
+        "options": [
+          {
+            "label": "0 - Not present",
+            "value": 0
+          },
+          {
+            "label": "1 - Very mild sensitivity",
+            "value": 1
+          },
+          {
+            "label": "2 - Mild sensitivity",
+            "value": 2
+          },
+          {
+            "label": "3 - Moderate sensitivity",
+            "value": 3
+          },
+          {
+            "label": "4 - Moderately severe hallucinations",
+            "value": 4
+          },
+          {
+            "label": "5 - Severe hallucinations",
+            "value": 5
+          },
+          {
+            "label": "6 - Extremely severe hallucinations",
+            "value": 6
+          },
+          {
+            "label": "7 - Continuous hallucinations",
+            "value": 7
+          }
+        ]
+      },
+      {
+        "name": "Headache, fullness in head",
+        "key": "headache",
+        "options": [
+          {
+            "label": "0 - Not present",
+            "value": 0
+          },
+          {
+            "label": "1 - Very mild",
+            "value": 1
+          },
+          {
+            "label": "2 - Mild",
+            "value": 2
+          },
+          {
+            "label": "3 - Moderate",
+            "value": 3
+          },
+          {
+            "label": "4 - Moderately severe",
+            "value": 4
+          },
+          {
+            "label": "5 - Severe",
+            "value": 5
+          },
+          {
+            "label": "6 - Very severe",
+            "value": 6
+          },
+          {
+            "label": "7 - Extremely severe",
+            "value": 7
+          }
+        ]
+      },
+      {
+        "name": "Orientation and clouding of sensorium",
+        "key": "orientation",
+        "options": [
+          {
+            "label": "0 - Oriented, can do serial additions",
+            "value": 0
+          },
+          {
+            "label": "1 - Cannot do serial additions or uncertain about date",
+            "value": 1
+          },
+          {
+            "label": "2 - Disoriented for date by no more than 2 calendar days",
+            "value": 2
+          },
+          {
+            "label": "3 - Disoriented for date by more than 2 calendar days",
+            "value": 3
+          },
+          {
+            "label": "4 - Disoriented for place and/or person",
+            "value": 4
+          }
+        ]
+      }
+    ],
+    "interpretation": [
+      {
+        "min": 0,
+        "max": 9,
+        "label": "Absent or minimal withdrawal",
+        "action": ""
+      },
+      {
+        "min": 10,
+        "max": 15,
+        "label": "Mild withdrawal",
+        "action": ""
+      },
+      {
+        "min": 16,
+        "max": 20,
+        "label": "Moderate withdrawal",
+        "action": ""
+      },
+      {
+        "min": 21,
+        "max": 67,
+        "label": "Severe withdrawal",
+        "action": "Risk of complications / delirium tremens."
+      }
+    ]
+  }
+}

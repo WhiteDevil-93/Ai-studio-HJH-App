@@ -1,0 +1,392 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "nihss",
+  "slug": "nihss",
+  "order": 34,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "NIH Stroke Scale (NIHSS)",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "NIH Stroke Scale (NIHSS)",
+    "category": "neurology",
+    "components": [
+      {
+        "name": "1a. Level of consciousness",
+        "key": "loc",
+        "options": [
+          {
+            "label": "Alert",
+            "value": 0
+          },
+          {
+            "label": "Drowsy",
+            "value": 1
+          },
+          {
+            "label": "Stuporous",
+            "value": 2
+          },
+          {
+            "label": "Comatose",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "name": "1b. LOC questions",
+        "key": "loc_questions",
+        "options": [
+          {
+            "label": "Both correct",
+            "value": 0
+          },
+          {
+            "label": "One correct",
+            "value": 1
+          },
+          {
+            "label": "Neither correct",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "name": "1c. LOC commands",
+        "key": "loc_commands",
+        "options": [
+          {
+            "label": "Both correct",
+            "value": 0
+          },
+          {
+            "label": "One correct",
+            "value": 1
+          },
+          {
+            "label": "Neither correct",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "name": "2. Best gaze",
+        "key": "gaze",
+        "options": [
+          {
+            "label": "Normal",
+            "value": 0
+          },
+          {
+            "label": "Partial gaze palsy",
+            "value": 1
+          },
+          {
+            "label": "Forced deviation",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "name": "3. Visual fields",
+        "key": "visual_fields",
+        "options": [
+          {
+            "label": "No visual loss",
+            "value": 0
+          },
+          {
+            "label": "Partial hemianopia",
+            "value": 1
+          },
+          {
+            "label": "Complete hemianopia",
+            "value": 2
+          },
+          {
+            "label": "Bilateral hemianopia",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "name": "4. Facial palsy",
+        "key": "facial_palsy",
+        "options": [
+          {
+            "label": "Normal",
+            "value": 0
+          },
+          {
+            "label": "Minor paralysis",
+            "value": 1
+          },
+          {
+            "label": "Partial paralysis",
+            "value": 2
+          },
+          {
+            "label": "Complete paralysis",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "name": "5a. Motor arm - left",
+        "key": "motor_arm_l",
+        "options": [
+          {
+            "label": "No drift",
+            "value": 0
+          },
+          {
+            "label": "Drift",
+            "value": 1
+          },
+          {
+            "label": "Falls against bed",
+            "value": 2
+          },
+          {
+            "label": "No effort against gravity",
+            "value": 3
+          },
+          {
+            "label": "No movement",
+            "value": 4
+          },
+          {
+            "label": "Amputated/joint fused",
+            "value": 9
+          }
+        ]
+      },
+      {
+        "name": "5b. Motor arm - right",
+        "key": "motor_arm_r",
+        "options": [
+          {
+            "label": "No drift",
+            "value": 0
+          },
+          {
+            "label": "Drift",
+            "value": 1
+          },
+          {
+            "label": "Falls against bed",
+            "value": 2
+          },
+          {
+            "label": "No effort against gravity",
+            "value": 3
+          },
+          {
+            "label": "No movement",
+            "value": 4
+          },
+          {
+            "label": "Amputated/joint fused",
+            "value": 9
+          }
+        ]
+      },
+      {
+        "name": "6a. Motor leg - left",
+        "key": "motor_leg_l",
+        "options": [
+          {
+            "label": "No drift",
+            "value": 0
+          },
+          {
+            "label": "Drift",
+            "value": 1
+          },
+          {
+            "label": "Falls against bed",
+            "value": 2
+          },
+          {
+            "label": "No effort against gravity",
+            "value": 3
+          },
+          {
+            "label": "No movement",
+            "value": 4
+          },
+          {
+            "label": "Amputated/joint fused",
+            "value": 9
+          }
+        ]
+      },
+      {
+        "name": "6b. Motor leg - right",
+        "key": "motor_leg_r",
+        "options": [
+          {
+            "label": "No drift",
+            "value": 0
+          },
+          {
+            "label": "Drift",
+            "value": 1
+          },
+          {
+            "label": "Falls against bed",
+            "value": 2
+          },
+          {
+            "label": "No effort against gravity",
+            "value": 3
+          },
+          {
+            "label": "No movement",
+            "value": 4
+          },
+          {
+            "label": "Amputated/joint fused",
+            "value": 9
+          }
+        ]
+      },
+      {
+        "name": "7. Limb ataxia",
+        "key": "ataxia",
+        "options": [
+          {
+            "label": "Absent",
+            "value": 0
+          },
+          {
+            "label": "Present in one limb",
+            "value": 1
+          },
+          {
+            "label": "Present in two limbs",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "name": "8. Sensory",
+        "key": "sensory",
+        "options": [
+          {
+            "label": "Normal",
+            "value": 0
+          },
+          {
+            "label": "Mild-to-moderate sensory loss",
+            "value": 1
+          },
+          {
+            "label": "Severe to total sensory loss",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "name": "9. Best language",
+        "key": "language",
+        "options": [
+          {
+            "label": "No aphasia",
+            "value": 0
+          },
+          {
+            "label": "Mild-to-moderate aphasia",
+            "value": 1
+          },
+          {
+            "label": "Severe aphasia",
+            "value": 2
+          },
+          {
+            "label": "Mute / global aphasia",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "name": "10. Dysarthria",
+        "key": "dysarthria",
+        "options": [
+          {
+            "label": "Normal",
+            "value": 0
+          },
+          {
+            "label": "Mild-to-moderate dysarthria",
+            "value": 1
+          },
+          {
+            "label": "Severe dysarthria / mute",
+            "value": 2
+          },
+          {
+            "label": "Amputated/intubated",
+            "value": 9
+          }
+        ]
+      },
+      {
+        "name": "11. Extinction and inattention",
+        "key": "extinction",
+        "options": [
+          {
+            "label": "No neglect",
+            "value": 0
+          },
+          {
+            "label": "Partial neglect",
+            "value": 1
+          },
+          {
+            "label": "Complete neglect",
+            "value": 2
+          }
+        ]
+      }
+    ],
+    "interpretation": [
+      {
+        "min": 0,
+        "max": 0,
+        "label": "No stroke symptoms",
+        "action": ""
+      },
+      {
+        "min": 1,
+        "max": 4,
+        "label": "Minor stroke",
+        "action": ""
+      },
+      {
+        "min": 5,
+        "max": 15,
+        "label": "Moderate stroke",
+        "action": ""
+      },
+      {
+        "min": 16,
+        "max": 20,
+        "label": "Moderate-severe stroke",
+        "action": ""
+      },
+      {
+        "min": 21,
+        "max": 42,
+        "label": "Severe stroke",
+        "action": ""
+      }
+    ]
+  }
+}

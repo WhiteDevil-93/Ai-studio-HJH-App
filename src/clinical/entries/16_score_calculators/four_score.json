@@ -1,0 +1,134 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "four_score",
+  "slug": "four_score",
+  "order": 44,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "FOUR Score (Full Outline of UnResponsiveness)",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "FOUR Score (Full Outline of UnResponsiveness)",
+    "category": "neurology",
+    "components": [
+      {
+        "name": "Eye response",
+        "key": "eye",
+        "options": [
+          {
+            "label": "Eyelids closed, remain closed with pain",
+            "value": 0
+          },
+          {
+            "label": "Eyelids closed, open to loud voice",
+            "value": 1
+          },
+          {
+            "label": "Eyelids closed, open to pain",
+            "value": 2
+          },
+          {
+            "label": "Eyelids open, not tracking",
+            "value": 3
+          },
+          {
+            "label": "Eyelids open, tracking or blinking to command",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "name": "Motor response",
+        "key": "motor",
+        "options": [
+          {
+            "label": "No response to pain or generalized myoclonus status",
+            "value": 0
+          },
+          {
+            "label": "Extension response to pain",
+            "value": 1
+          },
+          {
+            "label": "Flexion response to pain",
+            "value": 2
+          },
+          {
+            "label": "Localizing to pain",
+            "value": 3
+          },
+          {
+            "label": "Thumbs-up, fist, or peace sign to command",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "name": "Brainstem reflexes",
+        "key": "brainstem",
+        "options": [
+          {
+            "label": "Absent pupil, corneal, and cough reflex",
+            "value": 0
+          },
+          {
+            "label": "Pupil and corneal reflexes absent",
+            "value": 1
+          },
+          {
+            "label": "Pupil or corneal reflex absent",
+            "value": 2
+          },
+          {
+            "label": "One pupil wide and fixed",
+            "value": 3
+          },
+          {
+            "label": "Pupil and corneal reflexes present",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "name": "Respiration",
+        "key": "respiration",
+        "options": [
+          {
+            "label": "Breathes at ventilator rate or apnoea",
+            "value": 0
+          },
+          {
+            "label": "Breathes above ventilator rate",
+            "value": 1
+          },
+          {
+            "label": "Not intubated, irregular breathing",
+            "value": 2
+          },
+          {
+            "label": "Not intubated, Cheyne-Stokes breathing pattern",
+            "value": 3
+          },
+          {
+            "label": "Not intubated, regular breathing pattern",
+            "value": 4
+          }
+        ]
+      }
+    ],
+    "interpretation": [
+      {
+        "min": 0,
+        "max": 16,
+        "label": "Impaired consciousness evaluation",
+        "action": "Assesses consciousness without requiring verbal testing - useful in intubated patients where GCS verbal cannot be scored."
+      }
+    ]
+  }
+}

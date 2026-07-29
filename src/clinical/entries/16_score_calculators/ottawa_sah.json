@@ -1,0 +1,66 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "ottawa_sah",
+  "slug": "ottawa_sah",
+  "order": 27,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Ottawa SAH Rule",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "Ottawa SAH Rule",
+    "category": "neurology",
+    "components": [
+      {
+        "name": "Age >= 40 years",
+        "key": "age",
+        "points": 1
+      },
+      {
+        "name": "Neck pain or stiffness",
+        "key": "neck",
+        "points": 1
+      },
+      {
+        "name": "Witnessed loss of consciousness",
+        "key": "loc",
+        "points": 1
+      },
+      {
+        "name": "Onset during exertion",
+        "key": "exertion",
+        "points": 1
+      },
+      {
+        "name": "Thunderclap headache (instant peak within 1 second)",
+        "key": "thunderclap",
+        "points": 1
+      },
+      {
+        "name": "Limited neck flexion on examination",
+        "key": "limited_flexion",
+        "points": 1
+      }
+    ],
+    "interpretation": [
+      {
+        "min": 0,
+        "max": 0,
+        "label": "Rule negative",
+        "action": "Investigation for SAH not indicated by this rule."
+      },
+      {
+        "min": 1,
+        "max": 6,
+        "label": "Rule positive",
+        "action": "Neuroimaging/investigation for subarachnoid hemorrhage required."
+      }
+    ]
+  }
+}

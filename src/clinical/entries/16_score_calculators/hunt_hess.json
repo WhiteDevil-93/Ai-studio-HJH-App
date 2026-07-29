@@ -1,0 +1,56 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "hunt_hess",
+  "slug": "hunt_hess",
+  "order": 43,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Hunt and Hess Scale",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "Hunt and Hess Scale",
+    "category": "neurology",
+    "components": [
+      {
+        "name": "Grade",
+        "key": "grade",
+        "options": [
+          {
+            "label": "Grade 1: Asymptomatic or mild headache, slight nuchal rigidity",
+            "value": 1
+          },
+          {
+            "label": "Grade 2: Moderate-severe headache, nuchal rigidity, no deficit except cranial nerve palsy",
+            "value": 2
+          },
+          {
+            "label": "Grade 3: Drowsiness, confusion, or mild focal deficit",
+            "value": 3
+          },
+          {
+            "label": "Grade 4: Stupor, moderate-severe hemiparesis, early decerebrate rigidity",
+            "value": 4
+          },
+          {
+            "label": "Grade 5: Deep coma, decerebrate rigidity, moribund appearance",
+            "value": 5
+          }
+        ]
+      }
+    ],
+    "interpretation": [
+      {
+        "min": 1,
+        "max": 5,
+        "label": "Subarachnoid haemorrhage grading",
+        "action": "Higher grade is associated with worse prognosis and guides timing of aneurysm intervention."
+      }
+    ]
+  }
+}

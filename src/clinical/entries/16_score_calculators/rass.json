@@ -1,0 +1,69 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "rass",
+  "slug": "rass",
+  "order": 45,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Richmond Agitation-Sedation Scale (RASS)",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "Richmond Agitation-Sedation Scale (RASS)",
+    "category": "critical-care",
+    "components": [
+      {
+        "name": "State",
+        "key": "state",
+        "options": [
+          {
+            "label": "+4 Combative",
+            "value": 4
+          },
+          {
+            "label": "+3 Very agitated",
+            "value": 3
+          },
+          {
+            "label": "+2 Agitated",
+            "value": 2
+          },
+          {
+            "label": "+1 Restless",
+            "value": 1
+          },
+          {
+            "label": "0 Alert and calm",
+            "value": 0
+          },
+          {
+            "label": "-1 Drowsy",
+            "value": -1
+          },
+          {
+            "label": "-2 Light sedation",
+            "value": -2
+          },
+          {
+            "label": "-3 Moderate sedation",
+            "value": -3
+          },
+          {
+            "label": "-4 Deep sedation",
+            "value": -4
+          },
+          {
+            "label": "-5 Unarousable",
+            "value": -5
+          }
+        ]
+      }
+    ],
+    "interpretation": []
+  }
+}

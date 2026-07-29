@@ -1,0 +1,78 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "rcri",
+  "slug": "rcri",
+  "order": 24,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Revised Cardiac Risk Index",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "Revised Cardiac Risk Index",
+    "category": "perioperative",
+    "components": [
+      {
+        "name": "High-risk surgery (intraperitoneal, intrathoracic, suprainguinal vascular)",
+        "key": "high_risk_surgery",
+        "points": 1
+      },
+      {
+        "name": "Ischemic heart disease history",
+        "key": "ihd",
+        "points": 1
+      },
+      {
+        "name": "Congestive heart failure history",
+        "key": "chf",
+        "points": 1
+      },
+      {
+        "name": "Cerebrovascular disease history (stroke or TIA)",
+        "key": "cva",
+        "points": 1
+      },
+      {
+        "name": "Preoperative insulin therapy for diabetes",
+        "key": "insulin",
+        "points": 1
+      },
+      {
+        "name": "Preoperative creatinine > 177 umol/L (> 2.0 mg/dL)",
+        "key": "creatinine",
+        "points": 1
+      }
+    ],
+    "interpretation": [
+      {
+        "min": 0,
+        "max": 0,
+        "label": "Class I",
+        "action": "0.4% major cardiac risk."
+      },
+      {
+        "min": 1,
+        "max": 1,
+        "label": "Class II",
+        "action": "1.0% major cardiac risk."
+      },
+      {
+        "min": 2,
+        "max": 2,
+        "label": "Class III",
+        "action": "2.4% major cardiac risk."
+      },
+      {
+        "min": 3,
+        "max": 6,
+        "label": "Class IV",
+        "action": ">=5.4% major cardiac risk."
+      }
+    ]
+  }
+}

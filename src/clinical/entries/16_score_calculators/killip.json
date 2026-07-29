@@ -1,0 +1,70 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "killip",
+  "slug": "killip",
+  "order": 39,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Killip Class",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "Killip Class",
+    "category": "cardiovascular",
+    "components": [
+      {
+        "name": "Class",
+        "key": "class",
+        "options": [
+          {
+            "label": "Class I: No clinical signs of heart failure",
+            "value": 1
+          },
+          {
+            "label": "Class II: Rales <=50% of lung fields, S3 gallop, or elevated JVP",
+            "value": 2
+          },
+          {
+            "label": "Class III: Acute pulmonary edema, rales >50% of lung fields",
+            "value": 3
+          },
+          {
+            "label": "Class IV: Cardiogenic shock (hypotension and hypoperfusion)",
+            "value": 4
+          }
+        ]
+      }
+    ],
+    "interpretation": [
+      {
+        "min": 1,
+        "max": 1,
+        "label": "Class I",
+        "action": "Historically associated with the lowest short-term mortality of the four classes."
+      },
+      {
+        "min": 2,
+        "max": 2,
+        "label": "Class II",
+        "action": "Intermediate mortality risk."
+      },
+      {
+        "min": 3,
+        "max": 3,
+        "label": "Class III",
+        "action": "Higher mortality risk - acute pulmonary edema."
+      },
+      {
+        "min": 4,
+        "max": 4,
+        "label": "Class IV",
+        "action": "Highest mortality risk - cardiogenic shock."
+      }
+    ]
+  }
+}

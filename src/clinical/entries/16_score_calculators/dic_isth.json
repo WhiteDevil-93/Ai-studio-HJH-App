@@ -1,0 +1,104 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "dic_isth",
+  "slug": "dic_isth",
+  "order": 37,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "ISTH Overt DIC Score",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "ISTH Overt DIC Score",
+    "category": "hematology",
+    "components": [
+      {
+        "name": "Platelet count",
+        "key": "platelets",
+        "options": [
+          {
+            "label": "> 100 x10^9/L",
+            "value": 0
+          },
+          {
+            "label": "50-100 x10^9/L",
+            "value": 1
+          },
+          {
+            "label": "< 50 x10^9/L",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "name": "Elevated fibrin-related marker (e.g. D-dimer)",
+        "key": "fibrin_marker",
+        "options": [
+          {
+            "label": "No increase",
+            "value": 0
+          },
+          {
+            "label": "Moderate increase",
+            "value": 2
+          },
+          {
+            "label": "Strong increase",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "name": "Prolonged prothrombin time (PT)",
+        "key": "pt",
+        "options": [
+          {
+            "label": "< 3 sec over control",
+            "value": 0
+          },
+          {
+            "label": "3-6 sec over control",
+            "value": 1
+          },
+          {
+            "label": "> 6 sec over control",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "name": "Fibrinogen level",
+        "key": "fibrinogen",
+        "options": [
+          {
+            "label": "> 1.0 g/L",
+            "value": 0
+          },
+          {
+            "label": "<= 1.0 g/L",
+            "value": 1
+          }
+        ]
+      }
+    ],
+    "interpretation": [
+      {
+        "min": 0,
+        "max": 4,
+        "label": "Not overt DIC",
+        "action": "Suggestive of non-overt DIC - repeat in 1-2 days if clinical suspicion persists."
+      },
+      {
+        "min": 5,
+        "max": 8,
+        "label": "Compatible with overt DIC",
+        "action": "Repeat scoring daily."
+      }
+    ]
+  }
+}
