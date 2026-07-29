@@ -1,0 +1,51 @@
+{
+  "categoryId": "17_phc_primary_care",
+  "subcategoryId": "dermatology",
+  "slug": "permethrin-edl",
+  "order": 1006,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      90
+    ],
+    "sectionTitle": "Permethrin (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Permethrin (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Head lice",
+        "Scabies"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Topical lotion, 5%."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Head lice: apply to towel-dried or dry hair, leave on up to 1 hour, repeat every 5 days for 3 weeks. Scabies (children < 6 years or adults when benzoyl benzoate unsuccessful): apply lotion undiluted to whole body from neck to feet, leave on overnight (8 to 12 hours) and wash off following morning."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Avoid contact with eyes and broken skin or sores. Toxic if swallowed."
+      }
+    ],
+    "warnings": [
+      "Toxic if swallowed. Avoid contact with eyes and broken skin or sores."
+    ],
+    "standard_dilutions": "Topical lotion, 5%.",
+    "notes_updates": "Avoid contact with eyes and broken skin or sores. Toxic if swallowed.",
+    "adult_dose": "Dose / Rate Range: Head lice: apply to towel-dried or dry hair, leave on up to 1 hour, repeat every 5 days for 3 weeks. Scabies (children < 6 years or adults when benzoyl benzoate unsuccessful): apply lotion undiluted to whole body from neck to feet, leave on overnight (8 to 12 hours) and wash off following morning."
+  }
+}

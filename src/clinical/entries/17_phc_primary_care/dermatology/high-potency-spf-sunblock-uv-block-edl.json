@@ -1,0 +1,49 @@
+{
+  "categoryId": "17_phc_primary_care",
+  "subcategoryId": "dermatology",
+  "slug": "high-potency-spf-sunblock-uv-block-edl",
+  "order": 1004,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      109
+    ],
+    "sectionTitle": "High potency (SPF) sunblock (UV block) (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "High potency (SPF) sunblock (UV block) (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Albinism",
+        "Vitiligo"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Topical sunblock / UV block."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Apply evenly to all sun exposed areas at least 15 minutes before going out into the sun."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Protects against UV radiation in hypopigmentary disorders."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "Topical sunblock / UV block.",
+    "notes_updates": "Protects against UV radiation in hypopigmentary disorders.",
+    "adult_dose": "Dose / Rate Range: Apply evenly to all sun exposed areas at least 15 minutes before going out into the sun."
+  }
+}

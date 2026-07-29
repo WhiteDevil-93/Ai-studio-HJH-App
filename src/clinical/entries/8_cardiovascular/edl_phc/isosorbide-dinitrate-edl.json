@@ -1,0 +1,50 @@
+{
+  "categoryId": "8_cardiovascular",
+  "subcategoryId": "edl_phc",
+  "slug": "isosorbide-dinitrate-edl",
+  "order": 1008,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      51
+    ],
+    "sectionTitle": "Isosorbide dinitrate (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Isosorbide dinitrate (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Stable angina",
+        "Unstable angina / NSTEMI",
+        "Acute myocardial infarction (AMI) / STEMI"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Sublingual tablets (5 mg) or oral tablets (20-30 mg)."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Sublingual: 5 mg, may be repeated if required at 5-minute intervals for 3 or 4 doses. Oral: 20-30 mg twice daily (taken at 8:00 and 14:00 to provide a nitrate-free period)."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Keep tablets in airtight and lightproof container. Not addictive. Use prophylactically before activities that may provoke angina."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "Sublingual tablets (5 mg) or oral tablets (20-30 mg).",
+    "notes_updates": "Keep tablets in airtight and lightproof container. Not addictive. Use prophylactically before activities that may provoke angina.",
+    "adult_dose": "Dose / Rate Range: Sublingual: 5 mg, may be repeated if required at 5-minute intervals for 3 or 4 doses. Oral: 20-30 mg twice daily (taken at 8:00 and 14:00 to provide a nitrate-free period)."
+  }
+}

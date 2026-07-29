@@ -1,0 +1,48 @@
+{
+  "categoryId": "5_metabolic_electrolytes_and_nutrition",
+  "subcategoryId": "edl_phc",
+  "slug": "ferrous-fumarate-edl",
+  "order": 1001,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      34
+    ],
+    "sectionTitle": "Ferrous fumarate (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Ferrous fumarate (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Iron deficiency anaemia in adults"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Tablets, 200 mg (approx. 65 mg elemental iron)."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Oral, 200 mg 12 hourly. Intermittent iron alternative: 400 mg per week (approx. 130 mg elemental iron)."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Continue treatment for 3-6 months once Hb has normalised."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "Tablets, 200 mg (approx. 65 mg elemental iron).",
+    "notes_updates": "Continue treatment for 3-6 months once Hb has normalised.",
+    "adult_dose": "Dose / Rate Range: Oral, 200 mg 12 hourly. Intermittent iron alternative: 400 mg per week (approx. 130 mg elemental iron)."
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "categoryId": "12_ed_toxicology",
+  "subcategoryId": "protocols",
+  "slug": "paracetamol-overdose-cmjah",
+  "order": 1003,
+  "source": {
+    "sourceId": "cmjah-ed-protocols-2020-v2",
+    "pdfPages": [
+      107,
+      108
+    ],
+    "sectionTitle": "Paracetamol Overdose (CMJAH)",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "cmjah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Paracetamol Overdose (CMJAH)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "Toxic dose: >= 150 mg/kg or > 10g ingested",
+        "Nausea, vomiting, RUQ pain, jaundice, encephalopathy, coagulopathy"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Decontamination & Level Assessment",
+        "details": "Activated Charcoal 50g PO if < 1 hour from ingestion. Measure 4-hour post-ingestion serum paracetamol level and plot on nomogram."
+      },
+      {
+        "step_number": "2",
+        "action": "N-Acetylcysteine (NAC) Infusion Protocol",
+        "details": "1. 1st Dose: 150 mg/kg in 200ml D5W over 1 hour.\n2. 2nd Dose: 50 mg/kg in 500ml D5W over 4 hours.\n3. 3rd Dose: 100 mg/kg in 1L D5W over 16 hours."
+      }
+    ],
+    "warnings": []
+  }
+}

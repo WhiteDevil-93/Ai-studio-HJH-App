@@ -1,0 +1,35 @@
+{
+  "categoryId": "3_sedation_analgesia_and_neurology",
+  "subcategoryId": "icu_dosing",
+  "slug": "propofol-infusion-chbah-icu",
+  "order": 1010,
+  "source": {
+    "sourceId": "chbah-icu-dosing-card-2024",
+    "pdfPages": [],
+    "sectionTitle": "Propofol infusion (CHBAH ICU)",
+    "transformation": "externally-sourced",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "chbah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Propofol infusion (CHBAH ICU)",
+    "protocol_type": "icu_dosing",
+    "clinical_features": {
+      "symptoms": [
+        "Sedation"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Infusion range",
+        "details": "Adult 25 – 50 mcg/kg/min (Max 100); Paediatric 25 – 60 mcg/kg/min"
+      }
+    ],
+    "warnings": [],
+    "adult_dose": "25 – 50 mcg/kg/min (Max 100)",
+    "paediatric_dose": "25 – 60 mcg/kg/min"
+  }
+}

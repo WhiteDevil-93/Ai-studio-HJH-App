@@ -1,0 +1,51 @@
+{
+  "categoryId": "4_antimicrobials_and_infectious_diseases",
+  "subcategoryId": "edl_phc",
+  "slug": "benzathine-benzylpenicillin-edl",
+  "order": 1006,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      71
+    ],
+    "sectionTitle": "Benzathine benzylpenicillin (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Benzathine benzylpenicillin (EDL)",
+    "protocol_type": "weight_based_dose",
+    "clinical_features": {
+      "symptoms": [
+        "Acute rheumatic fever",
+        "Rheumatic fever prophylaxis"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "IM injection. Dissolve benzathine benzylpenicillin 1.2 MU in 3.2 mL lidocaine 1% without adrenaline (epinephrine) or 3 mL water for injection."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Acute treatment / Prophylaxis: Children < 30 kg: 600,000 IU. Children >= 30 kg and adults: 1.2 MU. Prophylaxis frequency: every 21 to 28 days (i.e. 3 to 4 weeks)."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Avoid IM injections if patients are on warfarin."
+      }
+    ],
+    "warnings": [
+      "Avoid IM injections if patients are on warfarin."
+    ],
+    "standard_dilutions": "IM injection. Dissolve benzathine benzylpenicillin 1.2 MU in 3.2 mL lidocaine 1% without adrenaline (epinephrine) or 3 mL water for injection.",
+    "notes_updates": "Avoid IM injections if patients are on warfarin.",
+    "adult_dose": "Dose / Rate Range: Acute treatment / Prophylaxis: Children < 30 kg: 600,000 IU. Children >= 30 kg and adults: 1.2 MU. Prophylaxis frequency: every 21 to 28 days (i.e. 3 to 4 weeks)."
+  }
+}

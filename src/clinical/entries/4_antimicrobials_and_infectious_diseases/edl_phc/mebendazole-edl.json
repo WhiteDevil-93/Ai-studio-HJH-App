@@ -1,0 +1,56 @@
+{
+  "categoryId": "4_antimicrobials_and_infectious_diseases",
+  "subcategoryId": "edl_phc",
+  "slug": "mebendazole-edl",
+  "order": 1015,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      27,
+      28,
+      33,
+      39,
+      41,
+      43
+    ],
+    "sectionTitle": "Mebendazole (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Mebendazole (EDL)",
+    "protocol_type": "weight_based_dose",
+    "clinical_features": {
+      "symptoms": [
+        "Pinworm infestation",
+        "Other helminthic infestations",
+        "Iron deficiency anaemia",
+        "Malnutrition"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Oral tablets, 100 mg / 500 mg."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Pinworm (Children > 1 year and adults): 100 mg as a single dose and repeated after 2 weeks. Other helminths excluding pinworm and tapeworm: Children 1-2 years: 100 mg 12 hourly for 3 days. Children >= 2 years and adults: 500 mg as a single dose."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Used for worm infestations."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "Oral tablets, 100 mg / 500 mg.",
+    "notes_updates": "Used for worm infestations.",
+    "adult_dose": "Dose / Rate Range: Pinworm (Children > 1 year and adults): 100 mg as a single dose and repeated after 2 weeks. Other helminths excluding pinworm and tapeworm: Children 1-2 years: 100 mg 12 hourly for 3 days. Children >= 2 years and adults: 500 mg as a single dose."
+  }
+}

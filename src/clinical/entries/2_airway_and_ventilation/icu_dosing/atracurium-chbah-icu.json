@@ -1,0 +1,34 @@
+{
+  "categoryId": "2_airway_and_ventilation",
+  "subcategoryId": "icu_dosing",
+  "slug": "atracurium-chbah-icu",
+  "order": 1000,
+  "source": {
+    "sourceId": "chbah-icu-dosing-card-2024",
+    "pdfPages": [],
+    "sectionTitle": "Atracurium (CHBAH ICU)",
+    "transformation": "externally-sourced",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "chbah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Atracurium (CHBAH ICU)",
+    "protocol_type": "icu_dosing",
+    "clinical_features": {
+      "symptoms": [
+        "Muscle relaxant"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Dose",
+        "details": "0.5 mg/kg/dose IV then 0.1 mg/kg/dose"
+      }
+    ],
+    "warnings": [],
+    "adult_dose": "Dose: 0.5 mg/kg/dose IV then 0.1 mg/kg/dose"
+  }
+}

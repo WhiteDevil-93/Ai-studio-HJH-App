@@ -1,0 +1,37 @@
+{
+  "categoryId": "4_antimicrobials_and_infectious_diseases",
+  "subcategoryId": "icu_dosing",
+  "slug": "caspofungin-chbah-icu",
+  "order": 1008,
+  "source": {
+    "sourceId": "chbah-icu-dosing-card-2024",
+    "pdfPages": [],
+    "sectionTitle": "Caspofungin (CHBAH ICU)",
+    "transformation": "externally-sourced",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "chbah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Caspofungin (CHBAH ICU)",
+    "protocol_type": "icu_dosing",
+    "clinical_features": {
+      "symptoms": []
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Loading dose",
+        "details": "70 mg over 1 hr (paeds 70 mg/m², max 70 mg)"
+      },
+      {
+        "step_number": "2",
+        "action": "Maintenance",
+        "details": "50 mg over 1 hr OD (paeds 50 mg/m², max 50 mg)"
+      }
+    ],
+    "warnings": [],
+    "adult_dose": "Loading dose: 70 mg over 1 hr (paeds 70 mg/m², max 70 mg) Maintenance: 50 mg over 1 hr OD (paeds 50 mg/m², max 50 mg)"
+  }
+}

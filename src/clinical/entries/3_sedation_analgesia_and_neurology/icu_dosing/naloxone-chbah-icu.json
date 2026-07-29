@@ -1,0 +1,35 @@
+{
+  "categoryId": "3_sedation_analgesia_and_neurology",
+  "subcategoryId": "icu_dosing",
+  "slug": "naloxone-chbah-icu",
+  "order": 1009,
+  "source": {
+    "sourceId": "chbah-icu-dosing-card-2024",
+    "pdfPages": [],
+    "sectionTitle": "Naloxone (CHBAH ICU)",
+    "transformation": "externally-sourced",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "chbah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Naloxone (CHBAH ICU)",
+    "protocol_type": "icu_dosing",
+    "clinical_features": {
+      "symptoms": [
+        "Opioid reversal"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Dose",
+        "details": "Adult 0.4–2 mg IV STAT (max 2 mg/dose); Paediatric 0.01 mg/kg IV STAT"
+      }
+    ],
+    "warnings": [],
+    "adult_dose": "0.4–2 mg IV STAT (max 2 mg/dose)",
+    "paediatric_dose": "0.01 mg/kg IV STAT"
+  }
+}

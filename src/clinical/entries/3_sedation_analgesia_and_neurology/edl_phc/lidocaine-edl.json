@@ -1,0 +1,48 @@
+{
+  "categoryId": "3_sedation_analgesia_and_neurology",
+  "subcategoryId": "edl_phc",
+  "slug": "lidocaine-edl",
+  "order": 1001,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      3
+    ],
+    "sectionTitle": "Lidocaine (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Lidocaine (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Local anaesthesia for dental procedures"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Local anaesthetic for dental procedures."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "To be managed by a dentist or dental therapist."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Restricted to Dentist and dental therapist."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "Local anaesthetic for dental procedures.",
+    "notes_updates": "Restricted to Dentist and dental therapist.",
+    "adult_dose": "Dose / Rate Range: To be managed by a dentist or dental therapist."
+  }
+}

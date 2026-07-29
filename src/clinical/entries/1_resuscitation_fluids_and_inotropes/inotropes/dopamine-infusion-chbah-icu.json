@@ -1,0 +1,34 @@
+{
+  "categoryId": "1_resuscitation_fluids_and_inotropes",
+  "subcategoryId": "inotropes",
+  "slug": "dopamine-infusion-chbah-icu",
+  "order": 1002,
+  "source": {
+    "sourceId": "chbah-icu-dosing-card-2024",
+    "pdfPages": [],
+    "sectionTitle": "Dopamine infusion (CHBAH ICU)",
+    "transformation": "externally-sourced",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "chbah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Dopamine infusion (CHBAH ICU)",
+    "protocol_type": "icu_dosing",
+    "clinical_features": {
+      "symptoms": [
+        "Inotrope / vasopressor"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation",
+        "details": "200 mg in 200 mL NS. Rate (mL/hr) = mcg/kg/min × weight × 60"
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "200 mg in 200 mL NS. Rate (mL/hr) = mcg/kg/min × weight × 60"
+  }
+}

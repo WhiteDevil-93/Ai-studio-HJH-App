@@ -60,6 +60,7 @@ const CATEGORIES: Record<string, string> = {
   bara_icu_card: '🏥 Bara ICU Dosing Card',
   helen_guidelines: '🩺 Helen (HJTH) Guidelines',
   cmjah_guidelines: '🏨 CMJAH Guidelines',
+  rmmch_guidelines: '👶 RMMCH Guidelines',
   edl_phc_guidelines: '🇿🇦 SA EDL / PHC Guidelines',
   trials_guidelines: '🔬 Trials & Int\'l Guidelines',
   mindmaps: '⚡ Resuscitation Mind Maps',
@@ -80,7 +81,8 @@ const CATEGORIES: Record<string, string> = {
   '13_ed_trauma_surgical': 'ED Trauma & Surgical',
   '14_ed_metabolic': 'ED Metabolic',
   '15_ed_procedures': 'ED Procedures',
-  '16_score_calculators': 'Score Calculators'
+  '16_score_calculators': 'Score Calculators',
+  '17_phc_primary_care': 'Primary Health Care'
 };
 
 const CATEGORY_ICONS: Record<string, string> = {
@@ -90,6 +92,7 @@ const CATEGORY_ICONS: Record<string, string> = {
   bara_icu_card: '🏥',
   helen_guidelines: '🩺',
   cmjah_guidelines: '🏨',
+  rmmch_guidelines: '👶',
   edl_phc_guidelines: '🇿🇦',
   trials_guidelines: '🔬',
   mindmaps: '⚡',
@@ -110,7 +113,8 @@ const CATEGORY_ICONS: Record<string, string> = {
   '13_ed_trauma_surgical': '🚑',
   '14_ed_metabolic': '🧬',
   '15_ed_procedures': '🛠️',
-  '16_score_calculators': '📊'
+  '16_score_calculators': '📊',
+  '17_phc_primary_care': '💊'
 };
 
 const ORDER = [
@@ -120,6 +124,7 @@ const ORDER = [
   'bara_icu_card',
   'helen_guidelines',
   'cmjah_guidelines',
+  'rmmch_guidelines',
   'edl_phc_guidelines',
   'trials_guidelines',
   'mindmaps',
@@ -140,22 +145,15 @@ const ORDER = [
   '13_ed_trauma_surgical',
   '14_ed_metabolic',
   '15_ed_procedures',
-  '16_score_calculators'
+  '16_score_calculators',
+  '17_phc_primary_care'
 ];
 
-// Categories 11-15 are the EDL/PHC pillar; everything else in 1-10/16 is Bara ICU.
-// Used to badge each card by which tab it belongs to, independent of any
-// per-item HJH source-map match (that's a separate, additive fact — see the
-// dedicated Helen tab — not something that should override which pillar a
-// card appears to belong to when browsing Bara or EDL specifically).
-const EDL_CATEGORIES = [
-  '11_ed_medical_emergencies',
-  '12_ed_toxicology',
-  '13_ed_trauma_surgical',
-  '14_ed_metabolic',
-  '15_ed_procedures',
-];
-const isEdlCategory = (catKey: string) => EDL_CATEGORIES.includes(catKey);
+// Passed to renderCategorySect to select which entries render, by their
+// per-item _meta.sourceGroup: a single value (the Helen/CMJAH pillars, which
+// need an exact source match) or a list of values (Bara/EDL, whose pillars
+// each cover more than one sourceGroup - see renderBaraIcuCardView).
+type SourceGroupFilter = 'hjth' | 'cmjah' | 'rmmch' | ReadonlyArray<'bara_icu' | 'chbah' | 'edl_phc'> | undefined;
 
 // Explicit protocol-title -> mind map id links, for the protocols that have a
 // genuine matching interactive flowchart. Most protocols don't have one yet —
@@ -1544,7 +1542,9 @@ export default function App() {
                 <span className="text-[10px] bg-indigo-950/80 text-indigo-300 border border-indigo-800/40 font-bold px-1.5 py-0.5 rounded">🩺 Helen (HJTH)</span>
               ) : selectedCategory === 'cmjah_guidelines' ? (
                 <span className="text-[10px] bg-violet-950/80 text-violet-300 border border-violet-800/40 font-bold px-1.5 py-0.5 rounded">🏨 CMJAH</span>
-              ) : isEdlCategory(cat) ? (
+              ) : selectedCategory === 'rmmch_guidelines' ? (
+                <span className="text-[10px] bg-orange-950/80 text-orange-300 border border-orange-800/40 font-bold px-1.5 py-0.5 rounded">👶 RMMCH</span>
+              ) : it._meta?.sourceGroup === 'edl_phc' ? (
                 <span className="text-[10px] bg-blue-950/80 text-blue-300 border border-blue-800/40 font-bold px-1.5 py-0.5 rounded">🇿🇦 SA EDL / PHC</span>
               ) : (
                 <span className="text-[10px] bg-cyan-950/80 text-cyan-300 border border-cyan-800/40 font-bold px-1.5 py-0.5 rounded">🏥 Bara ICU Card</span>
@@ -1701,11 +1701,16 @@ export default function App() {
             <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded border ${
               selectedCategory === 'helen_guidelines'
                 ? 'bg-indigo-950/80 text-indigo-300 border-indigo-800/40'
-                : selectedCategory === 'cmjah_guidelines'
+                : selectedCategory === 'cmjah_guidelines' || p._meta?.sourceGroup === 'cmjah'
                 ? 'bg-violet-950/80 text-violet-300 border-violet-800/40'
+                : selectedCategory === 'rmmch_guidelines' || p._meta?.sourceGroup === 'rmmch'
+                ? 'bg-orange-950/80 text-orange-300 border-orange-800/40'
                 : 'bg-blue-950/80 text-blue-300 border-blue-800/40'
             }`}>
-              {selectedCategory === 'helen_guidelines' ? '🩺 Helen (HJTH)' : selectedCategory === 'cmjah_guidelines' ? '🏨 CMJAH' : '🇿🇦 SA EDL / PHC'}
+              {selectedCategory === 'helen_guidelines' ? '🩺 Helen (HJTH)'
+                : selectedCategory === 'cmjah_guidelines' || p._meta?.sourceGroup === 'cmjah' ? '🏨 CMJAH'
+                : selectedCategory === 'rmmch_guidelines' || p._meta?.sourceGroup === 'rmmch' ? '👶 RMMCH'
+                : '🇿🇦 SA EDL / PHC'}
             </span>
           </div>
           <div className="flex items-center gap-2">
@@ -1888,40 +1893,27 @@ export default function App() {
   };
 
   // Re-usable component to render sub-headers of categories
-  const renderCategorySect = (catKey: string, sourceGroupFilter?: 'hjth' | 'cmjah') => {
+  const renderCategorySect = (
+    catKey: string,
+    sourceGroupFilter?: SourceGroupFilter,
+  ) => {
     const catData = D[catKey as keyof typeof D] as any;
     if (!catData) return null;
 
-    // Category-level source filter (the secondary "Source Filter" toggle used
-    // while browsing generic categories). Skipped when a per-item
-    // sourceGroupFilter is supplied — that filter is applied per-entry below
-    // instead, since it can match entries from any category.
-    if (!sourceGroupFilter) {
-      if (sourceFilter === 'bara_icu') {
-        const isBaraCategory = [
-          '1_resuscitation_fluids_and_inotropes',
-          '2_airway_and_ventilation',
-          '3_sedation_analgesia_and_neurology',
-          '4_antimicrobials_and_infectious_diseases',
-          '5_metabolic_electrolytes_and_nutrition',
-          '6_poisoning_and_toxicology',
-          '7_useful_formulae',
-          '8_cardiovascular',
-          '9_blood_products',
-          '10_endocrine_and_other',
-          '16_score_calculators',
-        ].includes(catKey);
-        if (!isBaraCategory) return null;
-      } else if (sourceFilter === 'edl_phc') {
-        const isEdlCategory = [
-          '11_ed_medical_emergencies',
-          '12_ed_toxicology',
-          '13_ed_trauma_surgical',
-          '14_ed_metabolic',
-          '15_ed_procedures',
-        ].includes(catKey);
-        if (!isEdlCategory) return null;
-      }
+    // Effective per-item source-group filter for this render: an explicit
+    // sourceGroupFilter param (used by the dedicated Helen/CMJAH/Bara/EDL
+    // pillar views) takes priority; otherwise fall back to the generic
+    // "Source Filter" toggle used while browsing categories directly. Score
+    // calculators carry no _meta.sourceGroup, so they're matched by the Bara
+    // pillar (their historical home) whenever that pillar is active.
+    const activeSourceFilter: SourceGroupFilter =
+      sourceGroupFilter ?? (sourceFilter === 'bara_icu' ? ['bara_icu', 'chbah'] : sourceFilter === 'edl_phc' ? ['edl_phc'] : undefined);
+    if (
+      activeSourceFilter &&
+      catKey === '16_score_calculators' &&
+      !(Array.isArray(activeSourceFilter) && activeSourceFilter.includes('bara_icu'))
+    ) {
+      return null;
     }
 
     const isExpanded = expandedCategories[catKey] === true;
@@ -1972,10 +1964,15 @@ export default function App() {
       });
     }
 
-    // Filter favorites, plus the per-item sourceGroup filter (used by the Helen tab)
+    // Filter favorites, plus the per-item sourceGroup filter (used by the
+    // Helen/CMJAH/Bara/EDL pillar views and the generic "Source Filter" toggle)
     const finalItems = matchedItems.filter(entry => {
-      if (sourceGroupFilter && entry.item?._meta?.sourceGroup !== sourceGroupFilter) {
-        return false;
+      if (entry.sc) {
+        // Score calculators have no _meta.sourceGroup - already gated above.
+      } else if (activeSourceFilter) {
+        const group = entry.item?._meta?.sourceGroup;
+        const matches = Array.isArray(activeSourceFilter) ? activeSourceFilter.includes(group) : group === activeSourceFilter;
+        if (!matches) return false;
       }
       if (selectedCategory === 'favourites') {
         const entryKey = entry.sc ? scoreFavouriteKey(entry.key) : getEntryKey(entry.item, catKey);
@@ -2084,20 +2081,18 @@ export default function App() {
   };
 
   // Dedicated view for Bara ICU Dosing Card
+  // Categories to scan for the item-level pillar views below. Which items
+  // actually appear is decided per-entry by _meta.sourceGroup (see
+  // renderCategorySect), not by category membership - a category can (and
+  // does) hold a mix of Bara/CHBAH/EDL/HJH-sourced entries side by side.
+  const allContentCategoryIds = () => ORDER.filter(k =>
+    !['home', 'favourites', 'recently_viewed', 'bara_icu_card', 'helen_guidelines', 'cmjah_guidelines', 'rmmch_guidelines', 'edl_phc_guidelines', 'trials_guidelines', 'mindmaps', 'policies', 'all'].includes(k)
+  );
+
   const renderBaraIcuCardView = () => {
-    const baraCategories = [
-      '1_resuscitation_fluids_and_inotropes',
-      '2_airway_and_ventilation',
-      '3_sedation_analgesia_and_neurology',
-      '4_antimicrobials_and_infectious_diseases',
-      '5_metabolic_electrolytes_and_nutrition',
-      '6_poisoning_and_toxicology',
-      '7_useful_formulae',
-      '8_cardiovascular',
-      '9_blood_products',
-      '10_endocrine_and_other',
-      '16_score_calculators',
-    ];
+    const matched = allContentCategoryIds()
+      .map(k => renderCategorySect(k, ['bara_icu', 'chbah']))
+      .filter(Boolean);
 
     return (
       <div className="space-y-4">
@@ -2112,20 +2107,18 @@ export default function App() {
             </p>
           </div>
         </div>
-        {baraCategories.map(k => renderCategorySect(k))}
+        {matched.length === 0 ? (
+          <div className="text-center py-16 text-sm text-slate-500">No Bara ICU entries match your search.</div>
+        ) : matched}
       </div>
     );
   };
 
   // Dedicated view for Helen Joseph Tertiary Hospital (HJTH) ED Guidelines
   const renderEdlPhcView = () => {
-    const edlCategories = [
-      '11_ed_medical_emergencies',
-      '12_ed_toxicology',
-      '13_ed_trauma_surgical',
-      '14_ed_metabolic',
-      '15_ed_procedures',
-    ];
+    const matched = allContentCategoryIds()
+      .map(k => renderCategorySect(k, ['edl_phc']))
+      .filter(Boolean);
 
     return (
       <div className="space-y-4">
@@ -2140,7 +2133,9 @@ export default function App() {
             </p>
           </div>
         </div>
-        {edlCategories.map(k => renderCategorySect(k))}
+        {matched.length === 0 ? (
+          <div className="text-center py-16 text-sm text-slate-500">No EDL/PHC entries match your search.</div>
+        ) : matched}
       </div>
     );
   };
@@ -2151,10 +2146,7 @@ export default function App() {
   // by category, not by per-item match) — an entry can legitimately appear in
   // both if it's a categories-11-15 item that also happens to be source-mapped.
   const renderHelenGuidelinesView = () => {
-    const allContentCategories = ORDER.filter(k =>
-      !['home', 'favourites', 'recently_viewed', 'bara_icu_card', 'helen_guidelines', 'cmjah_guidelines', 'edl_phc_guidelines', 'trials_guidelines', 'mindmaps', 'policies', 'all'].includes(k)
-    );
-    const matched = allContentCategories
+    const matched = allContentCategoryIds()
       .map(k => renderCategorySect(k, 'hjth'))
       .filter(Boolean);
 
@@ -2182,10 +2174,7 @@ export default function App() {
   // (clinical-sources/source-manifest.json id cmjah-ed-protocols-2020-v2),
   // wherever they live in the category tree. Same item-level model as Helen.
   const renderCmjahGuidelinesView = () => {
-    const allContentCategories = ORDER.filter(k =>
-      !['home', 'favourites', 'recently_viewed', 'bara_icu_card', 'helen_guidelines', 'cmjah_guidelines', 'edl_phc_guidelines', 'trials_guidelines', 'mindmaps', 'policies', 'all'].includes(k)
-    );
-    const matched = allContentCategories
+    const matched = allContentCategoryIds()
       .map(k => renderCategorySect(k, 'cmjah'))
       .filter(Boolean);
 
@@ -2198,12 +2187,40 @@ export default function App() {
               <span>🏨 Charlotte Maxeke Johannesburg Academic Hospital — ED Protocols</span>
             </h2>
             <p className="text-xs text-slate-400 mt-1">
-              Every entry here has a resolved page citation against the CMJAH ED Protocols document (Version 2, December 2020). This is an initial batch — most of the 74-protocol source hasn't been digitized yet.
+              Every entry here has a resolved page citation against the CMJAH ED Protocols document (Version 2, December 2020). 36 of the 74-protocol source have been digitized so far.
             </p>
           </div>
         </div>
         {matched.length === 0 ? (
           <div className="text-center py-16 text-sm text-slate-500">No CMJAH entries match your search.</div>
+        ) : matched}
+      </div>
+    );
+  };
+
+  // Dedicated view for entries transcribed from the RMMCH EM Clinical Protocols
+  // source (clinical-sources/source-manifest.json id rmmch-paediatric-protocols),
+  // wherever they live in the category tree. Same item-level model as CMJAH.
+  const renderRmmchGuidelinesView = () => {
+    const matched = allContentCategoryIds()
+      .map(k => renderCategorySect(k, 'rmmch'))
+      .filter(Boolean);
+
+    return (
+      <div className="space-y-4">
+        <div className="p-4 rounded-xl bg-[#3a1a0d] border border-orange-900/50 flex items-center justify-between">
+          <div>
+            <div className="text-xs font-bold uppercase tracking-wider text-orange-400">Paediatric Referral Pillar</div>
+            <h2 className="text-xl font-black text-white flex items-center gap-2 mt-0.5">
+              <span>👶 Rahima Moosa Mother &amp; Child Hospital — EM Clinical Protocols</span>
+            </h2>
+            <p className="text-xs text-slate-400 mt-1">
+              Paediatric-focused emergency protocols transcribed from the RMMCH EM Clinical Protocols source (V5, January 2024). The source PDF's fingerprint hasn't been independently confirmed yet (see clinical-sources/source-manifest.json).
+            </p>
+          </div>
+        </div>
+        {matched.length === 0 ? (
+          <div className="text-center py-16 text-sm text-slate-500">No RMMCH entries match your search.</div>
         ) : matched}
       </div>
     );
@@ -2560,7 +2577,7 @@ export default function App() {
 
     return (
       <div className="space-y-4">
-        {ORDER.filter(k => k !== 'home' && k !== 'favourites' && k !== 'recently_viewed' && k !== 'bara_icu_card' && k !== 'helen_guidelines' && k !== 'cmjah_guidelines' && k !== 'edl_phc_guidelines' && k !== 'trials_guidelines' && k !== 'mindmaps' && k !== 'policies' && k !== 'all').map(k => renderCategorySect(k))}
+        {allContentCategoryIds().map(k => renderCategorySect(k))}
       </div>
     );
   };
@@ -2597,8 +2614,9 @@ export default function App() {
               setSelectedCategory('bara_icu_card');
             } else if (facId === 'cmjah') {
               setSelectedCategory('cmjah_guidelines');
+            } else if (facId === 'rmmch') {
+              setSelectedCategory('rmmch_guidelines');
             }
-            // rmmch: no confirmed source content yet (see clinical-sources/source-manifest.json) — HomePage marks it "Coming Soon" and does not navigate.
           }}
           onSelectCategory={(catId) => setSelectedCategory(catId)}
           onSelectMindMap={(mapId) => setActiveMindMap(mapId)}
@@ -2633,6 +2651,10 @@ export default function App() {
       return renderCmjahGuidelinesView();
     }
 
+    if (selectedCategory === 'rmmch_guidelines') {
+      return renderRmmchGuidelinesView();
+    }
+
     if (selectedCategory === 'edl_phc_guidelines') {
       return renderEdlPhcView();
     }
@@ -2650,7 +2672,7 @@ export default function App() {
     }
 
     if (selectedCategory === 'all') {
-      return ORDER.filter(k => k !== 'home' && k !== 'favourites' && k !== 'recently_viewed' && k !== 'bara_icu_card' && k !== 'helen_guidelines' && k !== 'cmjah_guidelines' && k !== 'edl_phc_guidelines' && k !== 'trials_guidelines' && k !== 'mindmaps' && k !== 'policies' && k !== 'all').map(k => renderCategorySect(k));
+      return allContentCategoryIds().map(k => renderCategorySect(k));
     }
 
     // Single-category view: let users jump straight to another specialty
@@ -2829,6 +2851,7 @@ export default function App() {
                       { id: 'bara_icu_card', label: '🏥 Bara ICU Dosing Reference' },
                       { id: 'helen_guidelines', label: '🩺 Helen Joseph ED Guidelines' },
                       { id: 'cmjah_guidelines', label: '🏨 CMJAH ED Protocols' },
+                      { id: 'rmmch_guidelines', label: '👶 RMMCH Paediatric Protocols' },
                       { id: 'edl_phc_guidelines', label: '🇿🇦 SA EDL / PHC Protocols' },
                       { id: 'trials_guidelines', label: '🔬 Landmark Trials & Rules' },
                       { id: 'favourites', label: `⭐ Favourites (${favourites.length})` },

@@ -1,0 +1,49 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "atrial-fibrillation-cmjah",
+  "order": 1003,
+  "source": {
+    "sourceId": "cmjah-ed-protocols-2020-v2",
+    "pdfPages": [
+      37,
+      38
+    ],
+    "sectionTitle": "Atrial Fibrillation (CMJAH)",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "cmjah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Atrial Fibrillation (CMJAH)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "Irregularly irregular pulse, palpitations, lightheadedness, dyspnoea",
+        "ECG: Absence of P waves, irregular QRS complexes"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Unstable AF",
+        "details": "Immediate Synchronised Cardioversion: 150-200J."
+      },
+      {
+        "step_number": "2",
+        "action": "Stable AF - Rate Control (Goal HR < 110 bpm)",
+        "details": "Amiodarone: 150mg IVI in D5W over 30min, then 900mg in 200ml D5W at 8.3mls/hr. Beta-blockers (Carvedilol 3.125mg PO, Atenolol 50mg PO, Propranolol). Calcium Channel Blockers. Digoxin."
+      },
+      {
+        "step_number": "3",
+        "action": "Risk Stratification",
+        "details": "Calculate CHA2DS2-VASc and HAS-BLED scores for anticoagulation decisions."
+      }
+    ],
+    "warnings": [
+      "AF with Wolff-Parkinson-White (WPW) syndrome: AVOID rate controlling agents (Beta-blockers, CCBs, Amiodarone, Digoxin) — perform electrical cardioversion only."
+    ]
+  }
+}

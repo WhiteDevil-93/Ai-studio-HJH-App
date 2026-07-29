@@ -1,0 +1,40 @@
+{
+  "categoryId": "5_metabolic_electrolytes_and_nutrition",
+  "subcategoryId": "icu_dosing",
+  "slug": "furosemide-chbah-icu",
+  "order": 1000,
+  "source": {
+    "sourceId": "chbah-icu-dosing-card-2024",
+    "pdfPages": [],
+    "sectionTitle": "Furosemide (CHBAH ICU)",
+    "transformation": "externally-sourced",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "chbah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Furosemide (CHBAH ICU)",
+    "protocol_type": "icu_dosing",
+    "clinical_features": {
+      "symptoms": [
+        "Diuretic"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Bolus",
+        "details": "Adult 5–40 mg/dose IV (higher if needed); Paediatric 0.5–1 mg/kg 6–24 hrly IV"
+      },
+      {
+        "step_number": "2",
+        "action": "Infusion",
+        "details": "Adult 1–10 mg/hr; Paediatric 0.1–0.4 mg/kg/hr"
+      }
+    ],
+    "warnings": [],
+    "adult_dose": "5–40 mg/dose IV (higher if needed)",
+    "paediatric_dose": "0.5–1 mg/kg 6–24 hrly IV Infusion: Adult 1–10 mg/hr; Paediatric 0.1–0.4 mg/kg/hr"
+  }
+}

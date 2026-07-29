@@ -389,9 +389,24 @@ function walkCorpus(dir: string): string[] {
   return out;
 }
 
+// Index every already-written entry file by slug -> categoryId, so a corpus
+// file that maps to a different category than an existing (legacy-derived or
+// already-imported) entry with the same slug can be detected as a duplicate
+// of the same clinical topic rather than silently creating a second card.
+function indexExistingSlugs(): Map<string, string> {
+  const bySlug = new Map<string, string>();
+  if (!fs.existsSync(ENTRIES_DIR)) return bySlug;
+  for (const filePath of walkCorpus(ENTRIES_DIR)) {
+    const existing: CanonicalEntryFile = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    bySlug.set(existing.slug, existing.categoryId);
+  }
+  return bySlug;
+}
+
 function runImportCorpus() {
   const pageIndex = loadCmjahPageIndex();
   const orderCounters = new Map<string, number>();
+  const existingSlugs = indexExistingSlugs();
   let written = 0;
   let skipped = 0;
   const unmapped: string[] = [];
@@ -417,6 +432,14 @@ function runImportCorpus() {
     }
     const [categoryId, subcategoryId] = mapped;
     const slug = slugify(raw.item);
+
+    const existingCategoryId = existingSlugs.get(slug);
+    if (existingCategoryId !== undefined && existingCategoryId !== categoryId) {
+      skipped++;
+      log(`- Skipped cross-category duplicate: "${raw.item}" already exists under ${existingCategoryId}, corpus mapped it to ${categoryId} - kept the existing entry, no new one written`);
+      continue;
+    }
+
     const bucketKey = `${categoryId}.${subcategoryId}`;
     const order = 1000 + (orderCounters.get(bucketKey) ?? 0);
     orderCounters.set(bucketKey, (orderCounters.get(bucketKey) ?? 0) + 1);

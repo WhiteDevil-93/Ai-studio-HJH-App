@@ -1,0 +1,36 @@
+{
+  "categoryId": "2_airway_and_ventilation",
+  "subcategoryId": "icu_dosing",
+  "slug": "neostigmine-chbah-icu",
+  "order": 1002,
+  "source": {
+    "sourceId": "chbah-icu-dosing-card-2024",
+    "pdfPages": [],
+    "sectionTitle": "Neostigmine (CHBAH ICU)",
+    "transformation": "externally-sourced",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "chbah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Neostigmine (CHBAH ICU)",
+    "protocol_type": "icu_dosing",
+    "clinical_features": {
+      "symptoms": [
+        "Reversal of neuromuscular blockade"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Dose",
+        "details": "0.05 mg/kg/dose IV. Always add Glycopyrrolate 0.2 mg per 1 mg Neostigmine (max 5 mg/dose)"
+      }
+    ],
+    "warnings": [
+      "Always add Glycopyrrolate"
+    ],
+    "adult_dose": "Dose: 0.05 mg/kg/dose IV. Always add Glycopyrrolate 0.2 mg per 1 mg Neostigmine (max 5 mg/dose)"
+  }
+}

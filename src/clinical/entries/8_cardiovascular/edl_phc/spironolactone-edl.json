@@ -1,0 +1,52 @@
+{
+  "categoryId": "8_cardiovascular",
+  "subcategoryId": "edl_phc",
+  "slug": "spironolactone-edl",
+  "order": 1012,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      59,
+      62
+    ],
+    "sectionTitle": "Spironolactone (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Spironolactone (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Congestive cardiac failure (CCF)",
+        "Resistant hypertension (Step 7)"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Oral tablets, 25 mg."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Oral, 25 mg daily."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Doctor initiated. Check potassium levels within one month of starting therapy and thereafter as per clinical need."
+      }
+    ],
+    "warnings": [
+      "Can cause severe hyperkalaemia and should only be used when serum potassium and renal function can be monitored. Avoid concomitant potassium supplements and NSAIDs. Do not use in kidney failure (eGFR < 30 mL/min)."
+    ],
+    "standard_dilutions": "Oral tablets, 25 mg.",
+    "notes_updates": "Doctor initiated. Check potassium levels within one month of starting therapy and thereafter as per clinical need.",
+    "adult_dose": "Dose / Rate Range: Oral, 25 mg daily."
+  }
+}

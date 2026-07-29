@@ -1,0 +1,53 @@
+{
+  "categoryId": "17_phc_primary_care",
+  "subcategoryId": "dermatology",
+  "slug": "betamethasone-edl",
+  "order": 1002,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      88,
+      94,
+      97
+    ],
+    "sectionTitle": "Betamethasone (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Betamethasone (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Chronic paronychia",
+        "Severe atopic eczema",
+        "Severe seborrhoeic dermatitis",
+        "Psoriasis flares"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Potent topical corticosteroid ointment/cream, 0.1%."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Chronic paronychia: apply at night until lesions clear. Atopic eczema (Step 3): apply ointment once daily for 7 days. Seborrhoeic dermatitis: apply ointment once daily for 5-7 days. Psoriasis: apply 12 hourly."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Doctor prescribed. Do not apply to face, neck and flexures for eczema and seborrhoeic dermatitis."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "Potent topical corticosteroid ointment/cream, 0.1%.",
+    "notes_updates": "Doctor prescribed. Do not apply to face, neck and flexures for eczema and seborrhoeic dermatitis.",
+    "adult_dose": "Dose / Rate Range: Chronic paronychia: apply at night until lesions clear. Atopic eczema (Step 3): apply ointment once daily for 7 days. Seborrhoeic dermatitis: apply ointment once daily for 5-7 days. Psoriasis: apply 12 hourly."
+  }
+}

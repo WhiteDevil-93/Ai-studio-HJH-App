@@ -1,0 +1,60 @@
+{
+  "categoryId": "4_antimicrobials_and_infectious_diseases",
+  "subcategoryId": "edl_phc",
+  "slug": "flucloxacillin-edl",
+  "order": 1013,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      80,
+      81,
+      82,
+      83,
+      84,
+      88,
+      92,
+      95,
+      96
+    ],
+    "sectionTitle": "Flucloxacillin (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Flucloxacillin (EDL)",
+    "protocol_type": "weight_based_dose",
+    "clinical_features": {
+      "symptoms": [
+        "Boils, abscesses",
+        "Impetigo",
+        "Cellulitis",
+        "Acute paronychia",
+        "Secondary infection in scabies and eczema"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Oral administration (suspension/capsules)."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Children <= 7 years of age: 12-25 mg/kg/dose 6 hourly for 5 days. Children > 7 years of age and adults: 500 mg 6 hourly for 5 days. Acute paronychia (adults): 500 mg 6 hourly for 5 days."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "First-line option for Staphylococcal skin infections."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "Oral administration (suspension/capsules).",
+    "notes_updates": "First-line option for Staphylococcal skin infections.",
+    "adult_dose": "Dose / Rate Range: Children <= 7 years of age: 12-25 mg/kg/dose 6 hourly for 5 days. Children > 7 years of age and adults: 500 mg 6 hourly for 5 days. Acute paronychia (adults): 500 mg 6 hourly for 5 days."
+  }
+}

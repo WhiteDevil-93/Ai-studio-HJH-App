@@ -1,0 +1,49 @@
+{
+  "categoryId": "1_resuscitation_fluids_and_inotropes",
+  "subcategoryId": "edl_phc",
+  "slug": "adrenaline-epinephrine-edl",
+  "order": 1001,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      99,
+      100
+    ],
+    "sectionTitle": "Adrenaline (epinephrine) (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Adrenaline (epinephrine) (EDL)",
+    "protocol_type": "weight_based_dose",
+    "clinical_features": {
+      "symptoms": [
+        "Angioedema with severe airway obstruction / anaphylaxis"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "1:1000 solution."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Adults: 0.5 mL into the lateral thigh, administered immediately and repeated every 5 to 15 minutes as needed. Children: 0.01 mL/kg of 1:1000 solution, administered immediately (maximum dose of 0.3 mL)."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Indicated in severe cases where airway obstruction is present."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "1:1000 solution.",
+    "notes_updates": "Indicated in severe cases where airway obstruction is present.",
+    "adult_dose": "Dose / Rate Range: Adults: 0.5 mL into the lateral thigh, administered immediately and repeated every 5 to 15 minutes as needed. Children: 0.01 mL/kg of 1:1000 solution, administered immediately (maximum dose of 0.3 mL)."
+  }
+}

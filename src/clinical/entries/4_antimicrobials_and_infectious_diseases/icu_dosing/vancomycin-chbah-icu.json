@@ -1,0 +1,40 @@
+{
+  "categoryId": "4_antimicrobials_and_infectious_diseases",
+  "subcategoryId": "icu_dosing",
+  "slug": "vancomycin-chbah-icu",
+  "order": 1032,
+  "source": {
+    "sourceId": "chbah-icu-dosing-card-2024",
+    "pdfPages": [],
+    "sectionTitle": "Vancomycin (CHBAH ICU)",
+    "transformation": "externally-sourced",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "chbah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Vancomycin (CHBAH ICU)",
+    "protocol_type": "icu_dosing",
+    "clinical_features": {
+      "symptoms": []
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Loading dose",
+        "details": "RA. Adult 15–20 mg/kg over 1 hr; Paediatric 10–20 mg/kg over 1 hr"
+      },
+      {
+        "step_number": "2",
+        "action": "Maintenance",
+        "details": "Adult 2 g over 24 hrs; Paediatric 40 mg/kg/day over 24 hrs"
+      }
+    ],
+    "warnings": [
+      "Renal Adjusted Dose (RA)"
+    ],
+    "adult_dose": "15–20 mg/kg over 1 hr",
+    "paediatric_dose": "10–20 mg/kg over 1 hr Maintenance: Adult 2 g over 24 hrs; Paediatric 40 mg/kg/day over 24 hrs"
+  }
+}

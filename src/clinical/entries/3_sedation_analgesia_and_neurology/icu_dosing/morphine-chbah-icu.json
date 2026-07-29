@@ -1,0 +1,34 @@
+{
+  "categoryId": "3_sedation_analgesia_and_neurology",
+  "subcategoryId": "icu_dosing",
+  "slug": "morphine-chbah-icu",
+  "order": 1008,
+  "source": {
+    "sourceId": "chbah-icu-dosing-card-2024",
+    "pdfPages": [],
+    "sectionTitle": "Morphine (CHBAH ICU)",
+    "transformation": "externally-sourced",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "chbah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Morphine (CHBAH ICU)",
+    "protocol_type": "icu_dosing",
+    "clinical_features": {
+      "symptoms": [
+        "Analgesia / sedation"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Bolus",
+        "details": "0.1 mg/kg/dose, titrate to effect"
+      }
+    ],
+    "warnings": [],
+    "adult_dose": "Bolus: 0.1 mg/kg/dose, titrate to effect"
+  }
+}

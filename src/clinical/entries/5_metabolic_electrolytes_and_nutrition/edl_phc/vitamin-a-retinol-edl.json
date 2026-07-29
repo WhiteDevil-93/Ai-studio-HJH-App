@@ -1,0 +1,52 @@
+{
+  "categoryId": "5_metabolic_electrolytes_and_nutrition",
+  "subcategoryId": "edl_phc",
+  "slug": "vitamin-a-retinol-edl",
+  "order": 1017,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      21
+    ],
+    "sectionTitle": "Vitamin A (retinol) (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Vitamin A (retinol) (EDL)",
+    "protocol_type": "weight_based_dose",
+    "clinical_features": {
+      "symptoms": [
+        "Persistent diarrhoea in children",
+        "Childhood malnutrition",
+        "Vitamin A deficiency",
+        "Measles",
+        "Severe acute malnutrition"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Oral capsules (100,000 IU and 200,000 IU)."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Infants < 6 months (treatment/pre-referral): 50,000 IU (1/2 capsule of 100,000 IU). Infants 6-11 months: 100,000 IU (1 capsule of 100,000 IU). Children 12 months to 5 years: 200,000 IU (2 capsules of 100,000 IU or 1 capsule of 200,000 IU)."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Cut narrow end of capsule with scissors, squeeze drops directly into back of child's mouth. Do NOT give capsule to mother or caregiver to take home. Wait at least one month between doses."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "Oral capsules (100,000 IU and 200,000 IU).",
+    "notes_updates": "Cut narrow end of capsule with scissors, squeeze drops directly into back of child's mouth. Do NOT give capsule to mother or caregiver to take home. Wait at least one month between doses.",
+    "adult_dose": "Dose / Rate Range: Infants < 6 months (treatment/pre-referral): 50,000 IU (1/2 capsule of 100,000 IU). Infants 6-11 months: 100,000 IU (1 capsule of 100,000 IU). Children 12 months to 5 years: 200,000 IU (2 capsules of 100,000 IU or 1 capsule of 200,000 IU)."
+  }
+}

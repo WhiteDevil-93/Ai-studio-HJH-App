@@ -1,0 +1,50 @@
+{
+  "categoryId": "17_phc_primary_care",
+  "subcategoryId": "dermatology",
+  "slug": "tretinoin-edl",
+  "order": 1011,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      79
+    ],
+    "sectionTitle": "Tretinoin (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Tretinoin (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Non-inflammatory acne"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Topical retinoid preparation."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Apply at night to affected areas for at least 6 weeks. Introduce gradually as night-time application (e.g. start twice a week and titrate up). Apply about a pea-sized amount to entire face."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Review patient after 6 weeks. Minimise exposure to sunlight; discontinue if sunburn occurs. Acne may worsen during first few weeks. Avoid eyes and area around mouth and nose."
+      }
+    ],
+    "warnings": [
+      "Do not use if pregnant or planning pregnancy."
+    ],
+    "standard_dilutions": "Topical retinoid preparation.",
+    "notes_updates": "Review patient after 6 weeks. Minimise exposure to sunlight; discontinue if sunburn occurs. Acne may worsen during first few weeks. Avoid eyes and area around mouth and nose.",
+    "adult_dose": "Dose / Rate Range: Apply at night to affected areas for at least 6 weeks. Introduce gradually as night-time application (e.g. start twice a week and titrate up). Apply about a pea-sized amount to entire face."
+  }
+}

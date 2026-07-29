@@ -1,0 +1,50 @@
+{
+  "categoryId": "9_blood_products",
+  "subcategoryId": "edl_phc",
+  "slug": "anti-d-immunoglobulin-edl",
+  "order": 1000,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      65
+    ],
+    "sectionTitle": "Anti-D immunoglobulin (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Anti-D immunoglobulin (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Rh-negative non-sensitised women following surgical management of miscarriage"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "IM injection, 50 mcg."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "IM, 50 mcg preferably within 72 hours but may be given up to 7 days following management of miscarriage."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Indicated for Rh-negative non-sensitised women who had a surgical procedure to manage a miscarriage."
+      }
+    ],
+    "warnings": [
+      "Do not offer Anti-D prophylaxis to women who only received medical management for a miscarriage, had a threatened miscarriage, or had a complete miscarriage."
+    ],
+    "standard_dilutions": "IM injection, 50 mcg.",
+    "notes_updates": "Indicated for Rh-negative non-sensitised women who had a surgical procedure to manage a miscarriage.",
+    "adult_dose": "Dose / Rate Range: IM, 50 mcg preferably within 72 hours but may be given up to 7 days following management of miscarriage."
+  }
+}

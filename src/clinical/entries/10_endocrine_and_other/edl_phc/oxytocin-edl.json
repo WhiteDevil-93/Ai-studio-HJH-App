@@ -1,0 +1,48 @@
+{
+  "categoryId": "10_endocrine_and_other",
+  "subcategoryId": "edl_phc",
+  "slug": "oxytocin-edl",
+  "order": 1000,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      65
+    ],
+    "sectionTitle": "Oxytocin (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Oxytocin (EDL)",
+    "protocol_type": "continuous_infusion",
+    "clinical_features": {
+      "symptoms": [
+        "Inevitable or incomplete miscarriage"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "20 units diluted in 1000 mL sodium chloride 0.9%."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Infused at 125 mL/hour."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Avoid where threatened miscarriage is suspected."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "20 units diluted in 1000 mL sodium chloride 0.9%.",
+    "notes_updates": "Avoid where threatened miscarriage is suspected.",
+    "adult_dose": "Dose / Rate Range: Infused at 125 mL/hour."
+  }
+}

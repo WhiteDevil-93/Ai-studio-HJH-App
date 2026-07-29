@@ -1,0 +1,39 @@
+{
+  "categoryId": "3_sedation_analgesia_and_neurology",
+  "subcategoryId": "seizures",
+  "slug": "levetiracetam-keppra-chbah-icu",
+  "order": 1000,
+  "source": {
+    "sourceId": "chbah-icu-dosing-card-2024",
+    "pdfPages": [],
+    "sectionTitle": "Levetiracetam (Keppra) (CHBAH ICU)",
+    "transformation": "externally-sourced",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "chbah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Levetiracetam (Keppra) (CHBAH ICU)",
+    "protocol_type": "icu_dosing",
+    "clinical_features": {
+      "symptoms": [
+        "Anti-epileptic"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Loading dose",
+        "details": "Paediatric 50 mg/kg over 10 min"
+      },
+      {
+        "step_number": "2",
+        "action": "Maintenance",
+        "details": "Paediatric 15–60 mg/kg/day 8 or 12 hrly"
+      }
+    ],
+    "warnings": [],
+    "adult_dose": "Loading dose: Paediatric 50 mg/kg over 10 min Maintenance: Paediatric 15–60 mg/kg/day 8 or 12 hrly"
+  }
+}

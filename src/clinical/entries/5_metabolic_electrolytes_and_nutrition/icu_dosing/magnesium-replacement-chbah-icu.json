@@ -1,0 +1,35 @@
+{
+  "categoryId": "5_metabolic_electrolytes_and_nutrition",
+  "subcategoryId": "icu_dosing",
+  "slug": "magnesium-replacement-chbah-icu",
+  "order": 1002,
+  "source": {
+    "sourceId": "chbah-icu-dosing-card-2024",
+    "pdfPages": [],
+    "sectionTitle": "Magnesium replacement (CHBAH ICU)",
+    "transformation": "externally-sourced",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "chbah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Magnesium replacement (CHBAH ICU)",
+    "protocol_type": "icu_dosing",
+    "clinical_features": {
+      "symptoms": [
+        "Electrolyte replacement"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "IV magnesium",
+        "details": "Adult 1–2 g IV into maintenance; Paediatric 25–50 mg/kg/dose IV slow infusion"
+      }
+    ],
+    "warnings": [],
+    "adult_dose": "1–2 g IV into maintenance",
+    "paediatric_dose": "25–50 mg/kg/dose IV slow infusion"
+  }
+}

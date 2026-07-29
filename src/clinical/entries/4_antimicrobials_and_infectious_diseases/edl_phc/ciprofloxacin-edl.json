@@ -1,0 +1,49 @@
+{
+  "categoryId": "4_antimicrobials_and_infectious_diseases",
+  "subcategoryId": "edl_phc",
+  "slug": "ciprofloxacin-edl",
+  "order": 1010,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      17
+    ],
+    "sectionTitle": "Ciprofloxacin (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Ciprofloxacin (EDL)",
+    "protocol_type": "weight_based_dose",
+    "clinical_features": {
+      "symptoms": [
+        "Cholera",
+        "Bacillary dysentery"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Oral administration."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Cholera - Children: 20 mg/kg as a single dose (maximum dose: 750 mg). Cholera - Adults: 1 g as a single dose. Bacillary dysentery (Children >= 12 months): 15 mg/kg/dose 12 hourly for 3 days. Bacillary dysentery (Adults): 500 mg 12 hourly for 3 days."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Adjust antibiotic choice according to local epidemic sensitivities."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "Oral administration.",
+    "notes_updates": "Adjust antibiotic choice according to local epidemic sensitivities.",
+    "adult_dose": "Dose / Rate Range: Cholera - Children: 20 mg/kg as a single dose (maximum dose: 750 mg). Cholera - Adults: 1 g as a single dose. Bacillary dysentery (Children >= 12 months): 15 mg/kg/dose 12 hourly for 3 days. Bacillary dysentery (Adults): 500 mg 12 hourly for 3 days."
+  }
+}

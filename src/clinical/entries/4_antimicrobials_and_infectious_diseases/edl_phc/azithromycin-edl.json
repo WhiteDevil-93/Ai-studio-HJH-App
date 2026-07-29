@@ -1,0 +1,48 @@
+{
+  "categoryId": "4_antimicrobials_and_infectious_diseases",
+  "subcategoryId": "edl_phc",
+  "slug": "azithromycin-edl",
+  "order": 1004,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      2
+    ],
+    "sectionTitle": "Azithromycin (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Azithromycin (EDL)",
+    "protocol_type": "weight_based_dose",
+    "clinical_features": {
+      "symptoms": [
+        "Dental abscess in patients with severe penicillin allergy"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Oral administration."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Children < 18 kg: Azithromycin, oral, 10 mg/kg/dose, daily for 3 days. Children > 35 kg and adults: Azithromycin, oral, 500 mg daily for 3 days."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Used for severe penicillin allergy (Z88.0)."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "Oral administration.",
+    "notes_updates": "Used for severe penicillin allergy (Z88.0).",
+    "adult_dose": "Dose / Rate Range: Children < 18 kg: Azithromycin, oral, 10 mg/kg/dose, daily for 3 days. Children > 35 kg and adults: Azithromycin, oral, 500 mg daily for 3 days."
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "categoryId": "8_cardiovascular",
+  "subcategoryId": "edl_phc",
+  "slug": "streptokinase-edl",
+  "order": 1013,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      55
+    ],
+    "sectionTitle": "Streptokinase (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Streptokinase (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Acute myocardial infarction (AMI) / STEMI"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "IV infusion: 1.5 million units diluted in 100 mL sodium chloride 0.9%."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Infused over 30 to 60 minutes."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Doctor initiated. Maximal chest pain <= 6 hours. Hypotension may occur; if so, reduce rate of infusion but strive to complete in < 60 minutes."
+      }
+    ],
+    "warnings": [
+      "Do not use heparin if streptokinase is given.",
+      "Streptokinase is antigenic and should not be re-administered in the period of 5 days to 2 years after 1st administration."
+    ],
+    "standard_dilutions": "IV infusion: 1.5 million units diluted in 100 mL sodium chloride 0.9%.",
+    "notes_updates": "Doctor initiated. Maximal chest pain <= 6 hours. Hypotension may occur; if so, reduce rate of infusion but strive to complete in < 60 minutes.",
+    "adult_dose": "Dose / Rate Range: Infused over 30 to 60 minutes."
+  }
+}

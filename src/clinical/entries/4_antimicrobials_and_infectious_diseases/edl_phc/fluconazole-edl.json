@@ -1,0 +1,50 @@
+{
+  "categoryId": "4_antimicrobials_and_infectious_diseases",
+  "subcategoryId": "edl_phc",
+  "slug": "fluconazole-edl",
+  "order": 1014,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      87
+    ],
+    "sectionTitle": "Fluconazole (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Fluconazole (EDL)",
+    "protocol_type": "weight_based_dose",
+    "clinical_features": {
+      "symptoms": [
+        "Tinea capitis (scalp infections)"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Oral formulation."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Children: 6 mg/kg once daily for 28 days. Adults: 200 mg weekly for 6 weeks."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Do not give to women of child-bearing age unless they are on effective contraception."
+      }
+    ],
+    "warnings": [
+      "Do not give to women of child-bearing age unless they are on effective contraceptive."
+    ],
+    "standard_dilutions": "Oral formulation.",
+    "notes_updates": "Do not give to women of child-bearing age unless they are on effective contraception.",
+    "adult_dose": "Dose / Rate Range: Children: 6 mg/kg once daily for 28 days. Adults: 200 mg weekly for 6 weeks."
+  }
+}

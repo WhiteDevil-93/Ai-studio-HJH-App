@@ -1,0 +1,43 @@
+{
+  "categoryId": "14_ed_metabolic",
+  "subcategoryId": "protocols",
+  "slug": "hypernatraemia-cmjah",
+  "order": 1002,
+  "source": {
+    "sourceId": "cmjah-ed-protocols-2020-v2",
+    "pdfPages": [
+      72
+    ],
+    "sectionTitle": "Hypernatraemia (CMJAH)",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "cmjah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Hypernatraemia (CMJAH)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "Serum Na+ > 145 mmol/l",
+        "Altered consciousness, lethargy, irritability, seizures, signs of dehydration"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Free Water Deficit Calculation & Correction",
+        "details": "Free water deficit = 0.6 x Weight(kg) x [(sNa - 140)/140]. Infuse 5% Dextrose Water or 0.45% Saline. Correct serum Na+ by max 10-12 mmol/l in 24 hours (<= 0.5 mmol/l/hr)."
+      },
+      {
+        "step_number": "2",
+        "action": "Central Diabetes Insipidus",
+        "details": "Administer DDAVP 1-2 ug IM/SC/IV."
+      }
+    ],
+    "warnings": [
+      "Do NOT correct serum Sodium faster than 0.5 mmol/l/hr to prevent cerebral oedema."
+    ]
+  }
+}

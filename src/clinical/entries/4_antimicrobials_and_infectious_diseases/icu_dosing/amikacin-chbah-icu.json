@@ -1,0 +1,34 @@
+{
+  "categoryId": "4_antimicrobials_and_infectious_diseases",
+  "subcategoryId": "icu_dosing",
+  "slug": "amikacin-chbah-icu",
+  "order": 1001,
+  "source": {
+    "sourceId": "chbah-icu-dosing-card-2024",
+    "pdfPages": [],
+    "sectionTitle": "Amikacin (CHBAH ICU)",
+    "transformation": "externally-sourced",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "chbah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Amikacin (CHBAH ICU)",
+    "protocol_type": "icu_dosing",
+    "clinical_features": {
+      "symptoms": []
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Dose",
+        "details": "RA. Adult 20 mg/kg IVI daily"
+      }
+    ],
+    "warnings": [
+      "Renal Adjusted Dose (RA)"
+    ],
+    "adult_dose": "Dose: RA. Adult 20 mg/kg IVI daily"
+  }
+}

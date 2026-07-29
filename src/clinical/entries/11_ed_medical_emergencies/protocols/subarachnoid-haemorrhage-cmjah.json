@@ -1,0 +1,35 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "subarachnoid-haemorrhage-cmjah",
+  "order": 1014,
+  "source": {
+    "sourceId": "cmjah-ed-protocols-2020-v2",
+    "pdfPages": [
+      121
+    ],
+    "sectionTitle": "Subarachnoid Haemorrhage (CMJAH)",
+    "transformation": "condensed",
+    "verification": "manual"
+  },
+  "sourceGroup": "cmjah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Subarachnoid Haemorrhage (CMJAH)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "Thunderclap headache ('worst headache of life'), sudden onset, meningism, vomiting, altered consciousness"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Hemodynamic & Medical Management",
+        "details": "Target MAP > 80-90 mmHg, but < 130 mmHg. If MAP > 130 mmHg: Labetalol titration. Nimodipine 60mg PO q4h. Analgesia."
+      }
+    ],
+    "warnings": []
+  }
+}

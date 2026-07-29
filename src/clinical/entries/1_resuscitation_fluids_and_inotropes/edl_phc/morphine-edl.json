@@ -1,0 +1,48 @@
+{
+  "categoryId": "1_resuscitation_fluids_and_inotropes",
+  "subcategoryId": "edl_phc",
+  "slug": "morphine-edl",
+  "order": 1003,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      10
+    ],
+    "sectionTitle": "Morphine (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Morphine (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Renal and biliary colic or acute surgical abdomen"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "IM: 5-10 mg. IV: Dilute 10 mg up to 10 mL with sodium chloride, 0.9%."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "IM: 5-10 mg (Doctor prescribed), may be repeated after 4-6 hours if needed or until patient is referred. IV: Administer 3-5 mg as a single dose, then further boluses of 1-2 mg/minute. Total maximum as a single dose: 10 mg. Repeat after 4 hours if needed or until patient is referred."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Monitor response to pain and effects on respiration and BP. Doctor prescribed."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "IM: 5-10 mg. IV: Dilute 10 mg up to 10 mL with sodium chloride, 0.9%.",
+    "notes_updates": "Monitor response to pain and effects on respiration and BP. Doctor prescribed.",
+    "adult_dose": "Dose / Rate Range: IM: 5-10 mg (Doctor prescribed), may be repeated after 4-6 hours if needed or until patient is referred. IV: Administer 3-5 mg as a single dose, then further boluses of 1-2 mg/minute. Total maximum as a single dose: 10 mg. Repeat after 4 hours if needed or until patient is referred."
+  }
+}

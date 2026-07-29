@@ -1,0 +1,40 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "epistaxis-in-the-ed-cmjah",
+  "order": 1007,
+  "source": {
+    "sourceId": "cmjah-ed-protocols-2020-v2",
+    "pdfPages": [
+      55
+    ],
+    "sectionTitle": "Epistaxis in the ED (CMJAH)",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "cmjah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Epistaxis in the ED (CMJAH)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "Active anterior or posterior nasal bleeding"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Anterior Epistaxis Management",
+        "details": "Direct nasal pressure for 10-15 minutes. Apply Bactroban ointment. Nasal packing with Merocel OR Cyclokapron (Tranexamic Acid) 500mg/5ml soaked gauze."
+      },
+      {
+        "step_number": "2",
+        "action": "Posterior Epistaxis Management",
+        "details": "Insert Foley catheter (10-14F), inflate bulb with 10-20ml water, pull anteriorly. Cyclokapron (Tranexamic Acid) 15 mg/kg (max 1g) IV over 15 min. Augmentin oral x 3 days."
+      }
+    ],
+    "warnings": []
+  }
+}

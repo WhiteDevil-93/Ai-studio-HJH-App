@@ -1,0 +1,35 @@
+{
+  "categoryId": "8_cardiovascular",
+  "subcategoryId": "icu_dosing",
+  "slug": "nitroglycerin-infusion-chbah-icu",
+  "order": 1004,
+  "source": {
+    "sourceId": "chbah-icu-dosing-card-2024",
+    "pdfPages": [],
+    "sectionTitle": "Nitroglycerin infusion (CHBAH ICU)",
+    "transformation": "externally-sourced",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "chbah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Nitroglycerin infusion (CHBAH ICU)",
+    "protocol_type": "icu_dosing",
+    "clinical_features": {
+      "symptoms": [
+        "Vasodilator"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Dose range",
+        "details": "Adult 10–50 mcg/min; Paediatric 0.5–5 mcg/kg/min"
+      }
+    ],
+    "warnings": [],
+    "adult_dose": "10–50 mcg/min",
+    "paediatric_dose": "0.5–5 mcg/kg/min"
+  }
+}

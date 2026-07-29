@@ -1,0 +1,49 @@
+{
+  "categoryId": "17_phc_primary_care",
+  "subcategoryId": "dermatology",
+  "slug": "zinc-and-castor-oil-edl",
+  "order": 1013,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      98
+    ],
+    "sectionTitle": "Zinc and castor oil (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Zinc and castor oil (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Nappy rash",
+        "Pressure ulcers / sores"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Topical zinc emollient ointment."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Apply ointment after each nappy change (or for pressure ulcers after cleansing skin)."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Protective barrier ointment for nappy area and pressure sores."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "Topical zinc emollient ointment.",
+    "notes_updates": "Protective barrier ointment for nappy area and pressure sores.",
+    "adult_dose": "Dose / Rate Range: Apply ointment after each nappy change (or for pressure ulcers after cleansing skin)."
+  }
+}

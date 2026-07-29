@@ -1,0 +1,48 @@
+{
+  "categoryId": "5_metabolic_electrolytes_and_nutrition",
+  "subcategoryId": "edl_phc",
+  "slug": "ferrous-sulphate-compound-bpc-dried-edl",
+  "order": 1004,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      33
+    ],
+    "sectionTitle": "Ferrous sulphate compound BPC (dried) (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Ferrous sulphate compound BPC (dried) (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Iron deficiency anaemia in adults"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Tablets, 170 mg (approx. 55 mg elemental iron)."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Oral, 170 mg 12 hourly with meals. Intermittent iron alternative: 340 mg per week (approx. 110 mg elemental iron) with meals."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Do not ingest with tea, antacids or calcium supplements/milk. Take on empty stomach, but take with meals if GI side effects occur."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "Tablets, 170 mg (approx. 55 mg elemental iron).",
+    "notes_updates": "Do not ingest with tea, antacids or calcium supplements/milk. Take on empty stomach, but take with meals if GI side effects occur.",
+    "adult_dose": "Dose / Rate Range: Oral, 170 mg 12 hourly with meals. Intermittent iron alternative: 340 mg per week (approx. 110 mg elemental iron) with meals."
+  }
+}

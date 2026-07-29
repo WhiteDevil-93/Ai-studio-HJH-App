@@ -1,0 +1,49 @@
+{
+  "categoryId": "17_phc_primary_care",
+  "subcategoryId": "dental_and_oral",
+  "slug": "necrotising-periodontitis-edl",
+  "order": 1006,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      5,
+      6
+    ],
+    "sectionTitle": "Necrotising periodontitis (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Necrotising periodontitis (EDL)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "An acute, very painful infection of the gingival margin",
+        "Foul smelling breath",
+        "Necrosis and sloughing of the gum margin, especially of the interdental papillae",
+        "Loss of gingiva and supporting bone around teeth",
+        "May be associated with underlying disease, e.g. HIV",
+        "May lead to disease of surrounding lips and cheeks if not adequately treated"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "General measures",
+        "details": "Relieve pain. Improve oral hygiene. Exclude underlying disease e.g. HIV."
+      },
+      {
+        "step_number": "2",
+        "action": "Medicine treatment before transferral",
+        "details": "Brush, floss, rinse mouth with water and then rinse with: Chlorhexidine 0.2%, 15 mL as a mouthwash, twice daily, for 5 days. Do not swallow. Note: Do not eat or drink immediately after this. Initiate treatment before transferral: Children: Metronidazole, oral, 7.5 mg/kg/dose 8 hourly for 5 days. See dosing table, Chapter 23. Adults: Metronidazole, oral, 400 mg, 8 hourly for 5 days. Pain: Children: Paracetamol, oral, 10-15 mg/kg/dose 6 hourly when required. See dosing table: Chapter 23. Adults: Paracetamol, oral, 500 mg to 1 g, 4 to 6 hourly as required (to a maximum of 4 g in 24 hours). Maximum dose: 15 mg/kg/dose."
+      }
+    ],
+    "warnings": [
+      "Note: Dental rinses are not recommended for prevention of COVID-19 transmission during dental procedures.",
+      "REFERRAL: All cases for dental treatment."
+    ]
+  }
+}

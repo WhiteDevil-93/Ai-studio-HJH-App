@@ -1,0 +1,51 @@
+{
+  "categoryId": "8_cardiovascular",
+  "subcategoryId": "edl_phc",
+  "slug": "furosemide-edl",
+  "order": 1006,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      58
+    ],
+    "sectionTitle": "Furosemide (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Furosemide (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Significant volume overload / abnormal renal function in CCF",
+        "Congestive cardiac failure in children",
+        "Hypertensive emergency with pulmonary oedema"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Oral tablets or IV injection."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Adult oral (doctor initiated): initial dose 40 mg daily (if > 80 mg/day required, change dose interval to 12 hourly). Paediatric IV (ccf): 1 mg/kg over 5 minutes. Hypertensive emergency IV: 40 mg as a single dose."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Monitor electrolytes and creatinine."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "Oral tablets or IV injection.",
+    "notes_updates": "Monitor electrolytes and creatinine.",
+    "adult_dose": "oral (doctor initiated): initial dose 40 mg daily (if > 80 mg/day required, change dose interval to 12 hourly)",
+    "paediatric_dose": "IV (ccf): 1 mg/kg over 5 minutes. Hypertensive emergency IV: 40 mg as a single dose."
+  }
+}

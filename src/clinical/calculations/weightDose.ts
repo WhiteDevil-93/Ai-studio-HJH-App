@@ -11,7 +11,7 @@ export interface WeightDoseResult {
 }
 
 const NUMBER = String.raw`\d+(?:\.\d+)?`;
-const AMOUNT_UNIT = String.raw`mcg|µg|ug|mg|g|m[lℓ]|units?|iu|u|meq|j`;
+const AMOUNT_UNIT = String.raw`mcg|µg|ug|mg|mmol|g|m[lℓ]|units?|iu|u|meq|j`;
 const weightDosePattern = new RegExp(
   String.raw`(${NUMBER})\s*(?:[-–]\s*(${NUMBER}))?\s*(${AMOUNT_UNIT})\s*\/\s*kg(?:\s*\/\s*(min|hr|hour))?`,
   'gi',

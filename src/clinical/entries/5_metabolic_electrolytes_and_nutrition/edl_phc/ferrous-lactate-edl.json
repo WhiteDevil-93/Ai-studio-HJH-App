@@ -1,0 +1,48 @@
+{
+  "categoryId": "5_metabolic_electrolytes_and_nutrition",
+  "subcategoryId": "edl_phc",
+  "slug": "ferrous-lactate-edl",
+  "order": 1003,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      34
+    ],
+    "sectionTitle": "Ferrous lactate (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Ferrous lactate (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Iron prophylaxis in preterm infants"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Oral drops, 25 mg/mL (provides approx. 1 mg elemental iron per 0.04 mL, or 25 mg elemental iron per mL)."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Oral, 0.6 mL daily (provides approx. 15 mg elemental iron) until 6 months of age."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Prophylaxis for infants from 6 weeks if < 2.5 kg at birth."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "Oral drops, 25 mg/mL (provides approx. 1 mg elemental iron per 0.04 mL, or 25 mg elemental iron per mL).",
+    "notes_updates": "Prophylaxis for infants from 6 weeks if < 2.5 kg at birth.",
+    "adult_dose": "Dose / Rate Range: Oral, 0.6 mL daily (provides approx. 15 mg elemental iron) until 6 months of age."
+  }
+}

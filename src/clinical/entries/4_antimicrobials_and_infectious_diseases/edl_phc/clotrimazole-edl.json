@@ -1,0 +1,52 @@
+{
+  "categoryId": "4_antimicrobials_and_infectious_diseases",
+  "subcategoryId": "edl_phc",
+  "slug": "clotrimazole-edl",
+  "order": 1011,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      85,
+      86
+    ],
+    "sectionTitle": "Clotrimazole (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Clotrimazole (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Skin candidiasis",
+        "Tinea corporis",
+        "Tinea pedis (athlete's foot)",
+        "Nappy rash with candida"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Topical cream, 1%."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Skin candidiasis: apply 3 times daily for 14 days. Tinea corporis: apply 3 times daily (continue for at least 2 weeks after lesions clear). Tinea pedis: apply twice daily for 4 weeks. Nappy rash with candida: apply beneath zinc and castor oil ointment after each nappy change until resolved."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Topical antifungal treatment."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "Topical cream, 1%.",
+    "notes_updates": "Topical antifungal treatment.",
+    "adult_dose": "Dose / Rate Range: Skin candidiasis: apply 3 times daily for 14 days. Tinea corporis: apply 3 times daily (continue for at least 2 weeks after lesions clear). Tinea pedis: apply twice daily for 4 weeks. Nappy rash with candida: apply beneath zinc and castor oil ointment after each nappy change until resolved."
+  }
+}

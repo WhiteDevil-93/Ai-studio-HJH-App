@@ -1,0 +1,48 @@
+{
+  "categoryId": "4_antimicrobials_and_infectious_diseases",
+  "subcategoryId": "edl_phc",
+  "slug": "metronidazole-edl",
+  "order": 1016,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      2
+    ],
+    "sectionTitle": "Metronidazole (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Metronidazole (EDL)",
+    "protocol_type": "weight_based_dose",
+    "clinical_features": {
+      "symptoms": [
+        "Dental abscess"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Oral administration."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Children: Metronidazole, oral, 7.5 mg/kg/dose 8 hourly for 5 days. Adults: Metronidazole, oral, 400 mg, 8 hourly for 5 days."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Initiate treatment before referral."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "Oral administration.",
+    "notes_updates": "Initiate treatment before referral.",
+    "adult_dose": "Dose / Rate Range: Children: Metronidazole, oral, 7.5 mg/kg/dose 8 hourly for 5 days. Adults: Metronidazole, oral, 400 mg, 8 hourly for 5 days."
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "categoryId": "8_cardiovascular",
+  "subcategoryId": "edl_phc",
+  "slug": "simvastatin-edl",
+  "order": 1011,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      50,
+      51,
+      52,
+      55,
+      56
+    ],
+    "sectionTitle": "Simvastatin (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Simvastatin (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Prevention of ischaemic heart disease and atherosclerosis",
+        "Stable angina",
+        "NSTEMI",
+        "STEMI"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Oral tablets (10 mg, 20 mg)."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Primary prevention: 10 mg at night. Secondary prevention with amlodipine (not on protease inhibitor): 10 to 20 mg at night."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "If patient complains of muscle pain, reduce dose (e.g. if 20 mg not tolerated, reduce to 10 mg, or consult specialist)."
+      }
+    ],
+    "warnings": [
+      "Cannot be used with protease inhibitors as protease inhibitors inhibit metabolism resulting in extremely high blood levels."
+    ],
+    "standard_dilutions": "Oral tablets (10 mg, 20 mg).",
+    "notes_updates": "If patient complains of muscle pain, reduce dose (e.g. if 20 mg not tolerated, reduce to 10 mg, or consult specialist).",
+    "adult_dose": "Dose / Rate Range: Primary prevention: 10 mg at night. Secondary prevention with amlodipine (not on protease inhibitor): 10 to 20 mg at night."
+  }
+}

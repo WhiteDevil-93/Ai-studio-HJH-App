@@ -1,0 +1,50 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "asthma-in-the-ed-cmjah",
+  "order": 1002,
+  "source": {
+    "sourceId": "cmjah-ed-protocols-2020-v2",
+    "pdfPages": [
+      34,
+      35
+    ],
+    "sectionTitle": "Asthma in the ED (CMJAH)",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "cmjah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Asthma in the ED (CMJAH)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "Severe: Pulse > 120 bpm, SpO2 < 90%, PCO2 > 42, PO2 < 60, PEFR < 50%.",
+        "Moderate: Pulse 100-120 bpm, SpO2 90-95%, PEFR 50-70%.",
+        "Mild: Pulse < 100 bpm, SpO2 > 95%, PEFR > 75%."
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Severe Asthma Management",
+        "details": "Hydrocortisone 200mg IV STAT. MgSO4 25-50mg/kg IV over 20 min. Continuous nebulization: Salbutamol/Fenoterol + Ipratropium Bromide. Consider NIV. RSI if failing (Ketamine 1mg/kg load, then infusion 0.15mg/kg/hr). In extremis: Adrenaline 0.3mg subcutaneously."
+      },
+      {
+        "step_number": "2",
+        "action": "Moderate Asthma Management",
+        "details": "Hydrocortisone 200mg IV STAT + nebulized B2 agonist and Ipratropium Bromide."
+      },
+      {
+        "step_number": "3",
+        "action": "Mild Asthma Management",
+        "details": "Prednisone 0.5mg/kg STAT PO + MDI B2 agonist."
+      }
+    ],
+    "warnings": [
+      "Monitor for hypercapnia (PCO2 > 42 mmHg) indicating tiring/impending respiratory failure."
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "categoryId": "4_antimicrobials_and_infectious_diseases",
+  "subcategoryId": "icu_dosing",
+  "slug": "colistin-chbah-icu",
+  "order": 1019,
+  "source": {
+    "sourceId": "chbah-icu-dosing-card-2024",
+    "pdfPages": [],
+    "sectionTitle": "Colistin (CHBAH ICU)",
+    "transformation": "externally-sourced",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "chbah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Colistin (CHBAH ICU)",
+    "protocol_type": "icu_dosing",
+    "clinical_features": {
+      "symptoms": []
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Loading dose",
+        "details": "RA. Adult 9 MU IVI daily; Paediatric 150 000 IU/kg"
+      },
+      {
+        "step_number": "2",
+        "action": "Maintenance",
+        "details": "Adult 4.5 MU IVI 12 hrly; Paediatric 150 000 IU/day (8–12 hrly)"
+      }
+    ],
+    "warnings": [
+      "Renal Adjusted Dose (RA)"
+    ],
+    "adult_dose": "9 MU IVI daily",
+    "paediatric_dose": "150 000 IU/kg Maintenance: Adult 4.5 MU IVI 12 hrly; Paediatric 150 000 IU/day (8–12 hrly)"
+  }
+}
