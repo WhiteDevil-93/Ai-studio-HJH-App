@@ -8,6 +8,7 @@ import {
   type CanonicalEntryFile,
 } from '../src/clinical/entryNormalize.ts';
 import manifest from '../clinical-sources/source-manifest.json' with {type: 'json'};
+import errataRegisters from '../clinical-sources/errata.json' with {type: 'json'};
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -26,6 +27,9 @@ const KNOWN_SOURCE_IDS = new Set([
   'source-unresolved',
 ]);
 const MANIFEST_BY_ID = new Map(manifest.sources.map(s => [s.id, s]));
+const KNOWN_ERRATA_IDS = new Set(
+  errataRegisters.registers.flatMap(register => register.items.map(item => item.id)),
+);
 
 function walk(dir: string): string[] {
   const out: string[] = [];
@@ -101,8 +105,9 @@ for (const {path: relPath, file} of files) {
   }
 
   for (const errataId of file.errata ?? []) {
-    // Resolved against clinical-sources/errata.json below, after it's loaded.
-    void errataId;
+    if (!KNOWN_ERRATA_IDS.has(errataId)) {
+      errors.push(`${relPath}: errata id "${errataId}" not found in clinical-sources/errata.json`);
+    }
   }
 }
 

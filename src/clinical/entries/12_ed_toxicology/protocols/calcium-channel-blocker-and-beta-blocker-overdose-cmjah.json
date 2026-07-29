@@ -14,7 +14,7 @@
   },
   "sourceGroup": "cmjah",
   "reviewState": "unreviewed",
-  "errata": [],
+  "errata": ["ERR-CMJAH-002"],
   "record": {
     "item": "Calcium Channel Blocker and Beta-Blocker Overdose (CMJAH)",
     "protocol_type": "ed_protocol",

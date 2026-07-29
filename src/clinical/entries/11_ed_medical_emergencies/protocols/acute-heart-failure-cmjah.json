@@ -14,7 +14,7 @@
   },
   "sourceGroup": "cmjah",
   "reviewState": "unreviewed",
-  "errata": [],
+  "errata": ["ERR-CMJAH-001"],
   "record": {
     "item": "Acute Heart Failure (CMJAH)",
     "protocol_type": "ed_protocol",

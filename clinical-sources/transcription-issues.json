@@ -1,0 +1,54 @@
+{
+  "description": "Defects introduced by our own LLM-assisted transcription pass (not defects in the published source documents - those belong in errata.json instead, so fault isn't misattributed to the source). Each entry records a page citation the transcription got wrong, verified against the source's own full-text page index and corrected before the content was committed.",
+  "items": [
+    {
+      "id": "TXN-001",
+      "entryId": "12_ed_toxicology.protocols.snakebite-pathway-cmjah",
+      "citedPages": [115, 116],
+      "verifiedPages": [117, 118],
+      "method": "cmjah_page_index.txt keyword match; also matches the pre-existing cmjahPageRefs citation for this entry"
+    },
+    {
+      "id": "TXN-002",
+      "entryId": "11_ed_medical_emergencies.protocols.status-epilepticus-cmjah",
+      "citedPages": [117, 118],
+      "verifiedPages": [119, 120],
+      "method": "cmjah_page_index.txt keyword match; also matches the pre-existing cmjahPageRefs citation for this entry"
+    },
+    {
+      "id": "TXN-003",
+      "entryId": "11_ed_medical_emergencies.protocols.subarachnoid-haemorrhage-cmjah",
+      "citedPages": [119],
+      "verifiedPages": [121],
+      "method": "cmjah_page_index.txt keyword match (no pre-existing citation for this entry - verified by hand)"
+    },
+    {
+      "id": "TXN-004",
+      "entryId": "11_ed_medical_emergencies.protocols.the-agitated-patient-cmjah",
+      "citedPages": [124],
+      "verifiedPages": [131],
+      "method": "cmjah_page_index.txt keyword match (no pre-existing citation for this entry - verified by hand)"
+    },
+    {
+      "id": "TXN-005",
+      "entryId": "14_ed_metabolic.protocols.thyroid-emergencies-cmjah",
+      "citedPages": [125],
+      "verifiedPages": [133, 134],
+      "method": "cmjah_page_index.txt keyword match (no pre-existing citation for this entry - verified by hand)"
+    },
+    {
+      "id": "TXN-006",
+      "entryId": "12_ed_toxicology.protocols.toxic-alcohol-ingestion-cmjah",
+      "citedPages": [126],
+      "verifiedPages": [135],
+      "method": "cmjah_page_index.txt keyword match (no pre-existing citation for this entry - verified by hand)"
+    },
+    {
+      "id": "TXN-007",
+      "entryId": "12_ed_toxicology.protocols.tricyclic-antidepressant-tca-overdose-cmjah",
+      "citedPages": [133],
+      "verifiedPages": [143],
+      "method": "cmjah_page_index.txt keyword match (no pre-existing citation for this entry - verified by hand)"
+    }
+  ]
+}
