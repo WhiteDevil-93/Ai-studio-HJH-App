@@ -1,0 +1,57 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "nexus",
+  "slug": "nexus",
+  "order": 1,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "nexus",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "NEXUS Criteria",
+    "category": "trauma",
+    "source_pages": [
+      54
+    ],
+    "components": [
+      {
+        "name": "Midline cervical tenderness",
+        "key": "midline_tender"
+      },
+      {
+        "name": "Focal neurological deficit",
+        "key": "focal_deficit"
+      },
+      {
+        "name": "Altered level of alertness",
+        "key": "altered_alertness"
+      },
+      {
+        "name": "Intoxication (alcohol/drugs)",
+        "key": "intoxication"
+      },
+      {
+        "name": "Distracting painful injury",
+        "key": "distracting_injury"
+      }
+    ],
+    "interpretation": [
+      {
+        "condition": "all_no",
+        "label": "Low Risk",
+        "action": "C-spine imaging NOT indicated. Clinically clear."
+      },
+      {
+        "condition": "any_yes",
+        "label": "High Risk",
+        "action": "C-spine imaging (CT) IS indicated."
+      }
+    ]
+  }
+}

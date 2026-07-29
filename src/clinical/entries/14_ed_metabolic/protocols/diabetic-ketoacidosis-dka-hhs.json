@@ -1,0 +1,44 @@
+{
+  "categoryId": "14_ed_metabolic",
+  "subcategoryId": "protocols",
+  "slug": "diabetic-ketoacidosis-dka-hhs",
+  "order": 0,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      92
+    ],
+    "sectionTitle": "Diabetic Ketoacidosis",
+    "transformation": "condensed",
+    "verification": "preview"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Diabetic Ketoacidosis (DKA) & HHS",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Diagnose & Differentiate",
+        "details": "DKA: HGT > 11 (or known DM), younger, ketones positive, blood gas metabolic acidosis, anion gap > 16. HHS: HGT > 30, elderly, ketones absent/weak, minimal acidosis, serum osmolarity > 350, altered mental status."
+      },
+      {
+        "step_number": "2",
+        "action": "Resuscitation & Dehydration",
+        "details": "ABCD. Large bore IV. Fluid resuscitation with Ringer's/Balsol: DKA (150-200ml/hr for 1st 4 hours), HHS (cautious, slower rate 100-200ml/hr). If shocked, give 20ml/kg bolus. When HGT < 15: change fluid to 5% Dextrose in Ringer's/Balsol."
+      },
+      {
+        "step_number": "3",
+        "action": "Electrolyte Correction",
+        "details": "Delay insulin if Potassium < 3.5! Add 20-40 mmol/L KCl to IV fluids to maintain K of 4-5. Add MgSO4 2g to maintenance fluids if low."
+      },
+      {
+        "step_number": "4",
+        "action": "Insulin Administration",
+        "details": "Give Actrapid 0.1 u/kg IV stat (max 10 u) followed by Actrapid infusion at 0.1 u/kg/hr. Perform hourly HGT monitoring."
+      }
+    ]
+  }
+}

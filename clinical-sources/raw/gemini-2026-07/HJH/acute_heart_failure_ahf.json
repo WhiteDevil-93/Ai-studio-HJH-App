@@ -1,0 +1,89 @@
+{
+  "_meta": {
+    "id": "acute_heart_failure_ahf",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Acute Heart Failure (AHF)",
+    "source_doc": "HJH ED 2026 / CMJAH / Bara ICU",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Acute Heart Failure (AHF)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "Severe dyspnoea, orthopnoea, paroxysmal nocturnal dyspnoea (PND), effort intolerance."
+      ],
+      "signs": [
+        "Tachycardia, tachypnoea, elevated JVP, bilateral lung crackles, third heart sound (gallop rhythm), hepatomegaly, peripheral pitting edema."
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Resuscitation & Airway",
+        "details": "Sit patient upright (>45 degrees). Apply high-flow oxygen. Triage to RESUS if in acute distress."
+      },
+      {
+        "step_number": "2",
+        "action": "Non-Invasive Ventilation (NIV)",
+        "details": "Initiate CPAP or BiPAP early (PEEP of 4-10 cmH2O) to decrease work of breathing and improve preload/afterload."
+      },
+      {
+        "step_number": "3",
+        "action": "Vasodilator & Diuretics",
+        "details": "If SBP > 90: Nitrocine (vasodilator) 1-2 mg IV bolus or infusion 30 ug/min (titrate up to 150-200 ug/min). Furosemide (Lasix) 20-40 mg IV (or patient's daily PO dose as IV bolus)."
+      },
+      {
+        "step_number": "4",
+        "action": "Inotropic Support (if cardiogenic shock)",
+        "details": "If SBP < 90 with signs of hypoperfusion: start Dobutamine infusion 2.5-10 ug/kg/min (avoid in pure diastolic dysfunction or severe aortic stenosis)."
+      }
+    ]
+  },
+  "embedded_drugs": [
+    {
+      "item": "Furosemide",
+      "adult_dose": "Bolus: 20-40mg IV; Infusion: 5-40mg/hr",
+      "paediatric_dose": "0.5-1mg/kg IV 8-12hrly",
+      "notes": "Monitor electrolytes. Ototoxicity at high doses"
+    },
+    {
+      "category": "HJH ED Protocol \u2014 Infusions",
+      "item": "Nitroglycerin",
+      "formula": "Dose x 60 / prepared concentration",
+      "standard_dilutions": "10mg in 200ml N/S (50mcg/ml)"
+    },
+    {
+      "category": "HJH ED Protocol \u2014 Infusions",
+      "item": "Isosorbide Dinitrate",
+      "formula": "Dose / prepared concentration",
+      "standard_dilutions": "20mg in 200ml (0.1mg/ml); protocol also lists 100mg in 200ml (0.5mg/ml)"
+    },
+    {
+      "drug": "Morphine",
+      "adult_dose": "0.1mg/kg IV; 0.1-0.4mg/kg/hr",
+      "paediatric_dose": "0.1mg/kg IV; 0.01-0.05mg/kg/hr",
+      "notes_updates": "First-line opioid for severe pain"
+    },
+    {
+      "category": "Bara ICU \u2014 Inotropes",
+      "item": "Dobutamine",
+      "formula": "ml/hr = (ug/kg/min x kg x 60) / 1250",
+      "standard_dilutions": "250mg in 200ml N/S"
+    },
+    {
+      "category": "Bara ICU \u2014 Inotropes",
+      "item": "Noradrenaline",
+      "formula": "ml/hr = (ug/kg/min x kg x 60) / 50",
+      "standard_dilutions": "Double Strength: 10mg in 200ml N/S"
+    },
+    {
+      "drug": "Digoxin",
+      "adult_dose": "Loading: 0.5-1mg IV/PO; Maint: 125-250mcg daily",
+      "paediatric_dose": "10-15mcg/kg IV/PO",
+      "notes_updates": "Check levels. Toxicity: nausea, visual changes, arrhythmias"
+    }
+  ]
+}

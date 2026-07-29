@@ -1,0 +1,36 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "pf_ratio",
+  "slug": "pf_ratio",
+  "order": 15,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "pf_ratio",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "P/F Ratio",
+    "category": "respiratory",
+    "calculator_type": "formula",
+    "formula_id": "pf_ratio",
+    "source_pages": [],
+    "formula": "pao2 / fio2",
+    "inputs": [
+      {
+        "name": "PaO2",
+        "key": "pao2",
+        "unit": "mmHg"
+      },
+      {
+        "name": "FiO2 (decimal)",
+        "key": "fio2",
+        "unit": "0.21 - 1.0"
+      }
+    ]
+  }
+}

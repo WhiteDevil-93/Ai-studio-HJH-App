@@ -1,0 +1,33 @@
+{
+  "categoryId": "4_antimicrobials_and_infectious_diseases",
+  "subcategoryId": "icu_dosing",
+  "slug": "aztreonam-chbah-icu",
+  "order": 1007,
+  "source": {
+    "sourceId": "chbah-icu-dosing-card-2024",
+    "pdfPages": [],
+    "sectionTitle": "Aztreonam (CHBAH ICU)",
+    "transformation": "externally-sourced",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "chbah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Aztreonam (CHBAH ICU)",
+    "protocol_type": "icu_dosing",
+    "clinical_features": {
+      "symptoms": []
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Dose",
+        "details": "Adult 1–2 g IVI 8 hrly; Paediatric 30–50 mg/kg IVI 8 hrly"
+      }
+    ],
+    "warnings": [],
+    "adult_dose": "1–2 g IVI 8 hrly",
+    "paediatric_dose": "30–50 mg/kg IVI 8 hrly"
+  }
+}

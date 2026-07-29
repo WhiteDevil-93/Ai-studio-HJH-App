@@ -1,0 +1,40 @@
+{
+  "categoryId": "13_ed_trauma_surgical",
+  "subcategoryId": "protocols",
+  "slug": "renal-colic-kidney-stones",
+  "order": 7,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Renal Colic / Kidney Stones",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Assess Clinical Presentation",
+        "details": "Sudden onset severe, sharp, unilateral 'loin to groin' pain. Nausea/vomiting, haematuria, or LUTS. Ipsilateral renal angle tenderness."
+      },
+      {
+        "step_number": "2",
+        "action": "Diagnostic Investigations",
+        "details": "Urine dipstix (haematuria), U&E, bedside ultrasound (check for hydronephrosis/hydroureter), or non-contrast CT KUB (gold standard)."
+      },
+      {
+        "step_number": "3",
+        "action": "ED Pain Management",
+        "details": "First line: NSAIDs (Diclofenac 75mg IM or IV infusion over 30 mins) if no renal impairment. Opioids: Fentanyl 1 ug/kg IV or Morphine 0.1mg/kg. Antiemetic: Metoclopramide 10mg IV."
+      }
+    ],
+    "warnings": [
+      "Urgent Urology Referral Indications: signs of infection/urosepsis, acute kidney injury (AKI), bilateral obstruction, obstruction in pregnancy, anuria, or obstruction of a solitary/transplant kidney."
+    ]
+  }
+}

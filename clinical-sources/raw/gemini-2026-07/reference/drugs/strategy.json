@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "strategy",
+    "type": "drug",
+    "category": "3_sedation_analgesia_and_neurology",
+    "subcategory": "sedation",
+    "title": "Strategy",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "drug": "Strategy",
+    "adult_dose": "'Analgesia First'",
+    "paediatric_dose": "N/A",
+    "notes_updates": "Avoid routine deep sedation; prioritize pain control and neuro-psychological support."
+  }
+}

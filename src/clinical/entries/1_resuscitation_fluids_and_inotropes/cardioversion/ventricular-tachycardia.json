@@ -1,0 +1,21 @@
+{
+  "categoryId": "1_resuscitation_fluids_and_inotropes",
+  "subcategoryId": "cardioversion",
+  "slug": "ventricular-tachycardia",
+  "order": 1,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Ventricular Tachycardia",
+    "adult_dose": "100J: 200J: 300J: 360J synch mono",
+    "paediatric_dose": "0.5J/kg: 1J/kg: 2J/kg Synchronised"
+  }
+}

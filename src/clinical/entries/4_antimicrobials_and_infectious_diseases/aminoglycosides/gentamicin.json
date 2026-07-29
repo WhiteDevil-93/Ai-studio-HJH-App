@@ -1,0 +1,22 @@
+{
+  "categoryId": "4_antimicrobials_and_infectious_diseases",
+  "subcategoryId": "aminoglycosides",
+  "slug": "gentamicin",
+  "order": 0,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "condition_or_drug": "Gentamicin",
+    "adult_dose": "3-5mg/kg IV daily",
+    "paediatric_dose": "2.5mg/kg IV 8hrly",
+    "notes_updates": "Check levels. Extended interval preferred"
+  }
+}

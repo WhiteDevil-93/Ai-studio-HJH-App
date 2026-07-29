@@ -1,0 +1,41 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "renal-colic-kidney-stones-cmjah",
+  "order": 1011,
+  "source": {
+    "sourceId": "cmjah-ed-protocols-2020-v2",
+    "pdfPages": [
+      111
+    ],
+    "sectionTitle": "Renal Colic / Kidney Stones (CMJAH)",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "cmjah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Renal Colic / Kidney Stones (CMJAH)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "Sudden onset severe loin-to-groin flank pain, haematuria, nausea, vomiting",
+        "STONE Score evaluation"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Acute Analgesia & Rehydration",
+        "details": "IV Rehydration. Diclofenac 75mg IM/IV STAT. Fentanyl 1 ug/kg IV or Morphine 0.1mg/kg IV. Metoclopramide 10mg IV."
+      },
+      {
+        "step_number": "2",
+        "action": "Discharge TTO Script",
+        "details": "Paracetamol 1g PO QID. Diclofenac 25-50mg PO TDS. Tramadol 50-100mg PO TDS x 5 days."
+      }
+    ],
+    "warnings": []
+  }
+}

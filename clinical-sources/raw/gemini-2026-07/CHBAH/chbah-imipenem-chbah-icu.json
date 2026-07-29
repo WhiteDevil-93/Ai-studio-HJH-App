@@ -1,0 +1,22 @@
+{
+  "sourceDoc": "CHBAH_ICU",
+  "pdfPages": [
+    1
+  ],
+  "item": "Imipenem (CHBAH ICU)",
+  "categoryHint": "antimicrobials",
+  "protocol_type": "icu_dosing",
+  "clinical_features": {
+    "symptoms": []
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Dose",
+      "details": "RA. Adult 500\u20131000 mg IVI 6 hrly; Paediatric 15\u201325 mg/kg IVI 6 hrly"
+    }
+  ],
+  "warnings": [
+    "Renal Adjusted Dose (RA)"
+  ]
+}

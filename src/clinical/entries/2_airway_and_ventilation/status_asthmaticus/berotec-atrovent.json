@@ -1,0 +1,21 @@
+{
+  "categoryId": "2_airway_and_ventilation",
+  "subcategoryId": "status_asthmaticus",
+  "slug": "berotec-atrovent",
+  "order": 2,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Berotec/Atrovent",
+    "adult_dose": "0.5mg/2.5mg nebulised (repeat 20min x 3)",
+    "paediatric_dose": "0.25-0.5mg/1.25-2.5mg nebulised"
+  }
+}

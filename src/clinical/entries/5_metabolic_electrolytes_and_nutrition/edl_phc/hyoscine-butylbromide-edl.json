@@ -1,0 +1,48 @@
+{
+  "categoryId": "5_metabolic_electrolytes_and_nutrition",
+  "subcategoryId": "edl_phc",
+  "slug": "hyoscine-butylbromide-edl",
+  "order": 1006,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      11
+    ],
+    "sectionTitle": "Hyoscine butylbromide (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Hyoscine butylbromide (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Abdominal cramp-like pains in adults"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Oral formulation, 10 mg."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "10 mg 6 hourly for a maximum of 3 days."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Symptomatic treatment for adults if no specific cause or indication for referral is found."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "Oral formulation, 10 mg.",
+    "notes_updates": "Symptomatic treatment for adults if no specific cause or indication for referral is found.",
+    "adult_dose": "Dose / Rate Range: 10 mg 6 hourly for a maximum of 3 days."
+  }
+}

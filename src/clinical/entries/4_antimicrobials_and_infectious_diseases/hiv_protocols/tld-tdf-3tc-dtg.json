@@ -1,0 +1,22 @@
+{
+  "categoryId": "4_antimicrobials_and_infectious_diseases",
+  "subcategoryId": "hiv_protocols",
+  "slug": "tld-tdf-3tc-dtg",
+  "order": 0,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "condition_or_drug": "TLD (TDF+3TC+DTG)",
+    "adult_dose": "1 tablet PO daily",
+    "paediatric_dose": "Weight-band dosing",
+    "notes_updates": "First-line adult ART"
+  }
+}

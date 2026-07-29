@@ -34,22 +34,22 @@ export const FACILITIES = [
   {
     id: 'rmmch',
     name: 'Rahima Moosa Mother & Child (RMMCH)',
-    subtitle: 'Paediatric & Obstetrics/Gynaecology Guidelines',
-    description: 'Source protocols not yet supplied — see clinical-sources/source-manifest.json. Use HJTH adult guidelines with clinical judgement until RMMCH content is confirmed.',
+    subtitle: 'EM Clinical Protocols, V5 (January 2024)',
+    description: 'Paediatric-focused emergency protocols transcribed from the RMMCH EM Clinical Protocols source. The source PDF\'s fingerprint hasn\'t been independently confirmed yet (see clinical-sources/source-manifest.json).',
     color: 'from-pink-600 to-rose-700',
-    badge: 'Coming Soon',
-    protocolCount: 0,
+    badge: 'Paediatric Referral',
+    protocolCount: 18,
     icon: Heart,
-    available: false
+    available: true
   },
   {
     id: 'cmjah',
     name: 'Charlotte Maxeke Academic Hospital (CMJAH)',
     subtitle: 'ED Protocols, Version 2 (December 2020)',
-    description: 'An initial batch of protocols transcribed from the CMJAH ED Protocols source (Sepsis, Status Epilepticus, Anaphylaxis, Scorpion & Snakebite envenomation, DKA/HHS). Most of the 74-protocol document is still to be digitized.',
+    description: '36 of the 74 protocols in the CMJAH ED Protocols source have been digitized so far, including Sepsis, Status Epilepticus, Anaphylaxis, Scorpion & Snakebite envenomation, and DKA/HHS.',
     color: 'from-purple-600 to-indigo-800',
     badge: 'Tertiary Referral',
-    protocolCount: 6,
+    protocolCount: 36,
     icon: Award,
     available: true
   },
@@ -57,10 +57,10 @@ export const FACILITIES = [
     id: 'chbah',
     name: 'Chris Hani Baragwanath Hospital (CHBAH)',
     subtitle: 'ICU Dosing Card (2024 updates)',
-    description: 'Complete adult ICU dosing, infusions, and antimicrobial reference. Burns unit and psychiatric referral protocols are pending confirmed source material.',
+    description: 'Adult ICU dosing, infusions, and antimicrobial reference, combining 68 entries formally cited to the CHBAH ICU Dosing Card with the existing Bara ICU dosing content.',
     color: 'from-amber-600 to-orange-700',
     badge: 'Regional Referral',
-    protocolCount: 121,
+    protocolCount: 166,
     icon: Flame,
     available: true
   }

@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "berotec_atrovent",
+    "type": "drug",
+    "category": "2_airway_and_ventilation",
+    "subcategory": "status_asthmaticus",
+    "title": "Berotec/Atrovent",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "item": "Berotec/Atrovent",
+    "adult_dose": "0.5mg/2.5mg nebulised (repeat 20min x 3)",
+    "paediatric_dose": "0.25-0.5mg/1.25-2.5mg nebulised"
+  }
+}

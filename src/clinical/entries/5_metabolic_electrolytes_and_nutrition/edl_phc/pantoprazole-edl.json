@@ -1,0 +1,48 @@
+{
+  "categoryId": "5_metabolic_electrolytes_and_nutrition",
+  "subcategoryId": "edl_phc",
+  "slug": "pantoprazole-edl",
+  "order": 1013,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      12
+    ],
+    "sectionTitle": "Pantoprazole (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Pantoprazole (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Dyspepsia, heartburn and indigestion in adults"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Oral formulation, 40 mg."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "40 mg daily for a maximum of 14 days."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Also indicated for short-term use in pregnancy. Refer if symptoms recur after 14-day course of therapy."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "Oral formulation, 40 mg.",
+    "notes_updates": "Also indicated for short-term use in pregnancy. Refer if symptoms recur after 14-day course of therapy.",
+    "adult_dose": "Dose / Rate Range: 40 mg daily for a maximum of 14 days."
+  }
+}

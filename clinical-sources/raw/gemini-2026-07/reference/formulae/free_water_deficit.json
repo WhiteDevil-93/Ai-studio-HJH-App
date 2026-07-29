@@ -1,0 +1,31 @@
+{
+  "_meta": {
+    "id": "free_water_deficit",
+    "type": "calculator",
+    "category": "16_score_calculators",
+    "title": "Free Water Deficit",
+    "review_state": "unreviewed"
+  },
+  "calculator": {
+    "name": "Free Water Deficit",
+    "category": "metabolic",
+    "calculator_type": "formula",
+    "formula_id": "free_water_deficit",
+    "source_pages": [
+      96
+    ],
+    "formula": "0.6 * weight * ((na / 140) - 1)",
+    "inputs": [
+      {
+        "name": "Weight",
+        "key": "weight",
+        "unit": "kg"
+      },
+      {
+        "name": "Sodium (Na)",
+        "key": "na",
+        "unit": "mmol/L"
+      }
+    ]
+  }
+}

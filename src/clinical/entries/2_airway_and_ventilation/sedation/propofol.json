@@ -1,0 +1,23 @@
+{
+  "categoryId": "2_airway_and_ventilation",
+  "subcategoryId": "sedation",
+  "slug": "propofol",
+  "order": 2,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      117
+    ],
+    "sectionTitle": "Propofol",
+    "transformation": "condensed",
+    "verification": "preview"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Propofol",
+    "adult_dose": "1.5-2.5mg/kg IV",
+    "paediatric_dose": "1-2mg/kg IV"
+  }
+}

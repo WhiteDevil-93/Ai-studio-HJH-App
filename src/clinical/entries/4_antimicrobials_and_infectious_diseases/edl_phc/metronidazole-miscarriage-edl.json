@@ -1,0 +1,48 @@
+{
+  "categoryId": "4_antimicrobials_and_infectious_diseases",
+  "subcategoryId": "edl_phc",
+  "slug": "metronidazole-miscarriage-edl",
+  "order": 1017,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      65
+    ],
+    "sectionTitle": "Metronidazole (Miscarriage) (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Metronidazole (Miscarriage) (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Unsafe (septic) miscarriage"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Oral administration, 400 mg."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Oral, 400 mg as a single dose."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Given before referral when unsafe (septic) miscarriage is suspected."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "Oral administration, 400 mg.",
+    "notes_updates": "Given before referral when unsafe (septic) miscarriage is suspected.",
+    "adult_dose": "Dose / Rate Range: Oral, 400 mg as a single dose."
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    13
+  ],
+  "item": "Metoclopramide (EDL)",
+  "categoryHint": "dosing",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Non-specific nausea and vomiting in adults"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "IM/IV or oral formulations, 10 mg."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "10 mg 8 hourly (IM/IV or oral)."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Adults only; do not use anti-emetics in children."
+    }
+  ],
+  "warnings": []
+}

@@ -1,0 +1,34 @@
+{
+  "categoryId": "13_ed_trauma_surgical",
+  "subcategoryId": "protocols",
+  "slug": "acute-appendicitis-alvarado-pas",
+  "order": 2,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      7
+    ],
+    "sectionTitle": "Acute Appendicitis",
+    "transformation": "condensed",
+    "verification": "preview"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Acute Appendicitis (Alvarado & PAS)",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Calculate Diagnostic Scores",
+        "details": "Adult: Alvarado Score (RIF migratory pain [1], anorexia [1], nausea [1], RIF tenderness [2], rebound [1], fever [1], leukocytosis [2], left shift [1]). Paediatric (3-18 yrs): PAS score (cough/hopping tenderness [2], RLQ tenderness [2], anorexia [1], fever [1], nausea [1], WBC > 10 [1], neutrophilia [1], migratory pain [1])."
+      },
+      {
+        "step_number": "2",
+        "action": "Specific ED Management",
+        "details": "ABCD. Bolus fluids 20 ml/kg if hypovolaemic. If septic shock present: give Augmentin 30mg/kg IV, and arrange urgent surgical consult. Give Morphine 0.1mg/kg IV for pain."
+      }
+    ]
+  }
+}

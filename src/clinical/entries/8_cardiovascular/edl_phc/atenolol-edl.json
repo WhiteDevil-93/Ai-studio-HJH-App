@@ -1,0 +1,50 @@
+{
+  "categoryId": "8_cardiovascular",
+  "subcategoryId": "edl_phc",
+  "slug": "atenolol-edl",
+  "order": 1002,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      51
+    ],
+    "sectionTitle": "Atenolol (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Atenolol (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Stable angina",
+        "Unstable angina / NSTEMI",
+        "Acute myocardial infarction (AMI) / STEMI"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Oral tablets (50 mg, 100 mg)."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Stable angina: 50 to 100 mg daily. NSTEMI / STEMI: 50 mg daily."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Titrate to resting heart rate of approximately 60 beats/minute. Doctor initiated."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "Oral tablets (50 mg, 100 mg).",
+    "notes_updates": "Titrate to resting heart rate of approximately 60 beats/minute. Doctor initiated.",
+    "adult_dose": "Dose / Rate Range: Stable angina: 50 to 100 mg daily. NSTEMI / STEMI: 50 mg daily."
+  }
+}

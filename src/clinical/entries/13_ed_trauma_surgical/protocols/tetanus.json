@@ -1,0 +1,37 @@
+{
+  "categoryId": "13_ed_trauma_surgical",
+  "subcategoryId": "protocols",
+  "slug": "tetanus",
+  "order": 8,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Tetanus",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Identify Clinical Features",
+        "details": "Clostridium tetani infection. Triad: rigidity (trismus/lockjaw, dysphagia), severe painful muscle spasms (laryngospasm, risus sardonicus, opisthotonos), and autonomic dysfunction (alternating tachycardia/bradycardia, hypertension/hypotension)."
+      },
+      {
+        "step_number": "2",
+        "action": "Resuscitation & Specific Therapy",
+        "details": "A (Intubate early to control airway spasm). B (Frequent suctioning for bronchial secretions). C (Autonomic stability: Magnesium Sulphate bolus and infusion). D (Benzodiazepines in large doses: up to 100mg/hr Diazepam)."
+      },
+      {
+        "step_number": "3",
+        "action": "Antidote & Source Control",
+        "details": "Metronidazole IV (1st choice antibiotic). Anti-tetanus immunoglobulin (HTIG) 100-300 IU/kg IM. Clean and debride wounds thoroughly. Immunize (q10 yearly)."
+      }
+    ]
+  }
+}

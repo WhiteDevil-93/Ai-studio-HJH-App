@@ -1,0 +1,22 @@
+{
+  "categoryId": "10_endocrine_and_other",
+  "subcategoryId": "steroids",
+  "slug": "dexamethasone",
+  "order": 1,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "drug": "Dexamethasone",
+    "adult_dose": "4-8mg IV/PO 6hrly",
+    "paediatric_dose": "0.15-0.3mg/kg IV/PO 6hrly",
+    "notes_updates": "Raised ICP, airway oedema, croup"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "categoryId": "2_airway_and_ventilation",
+  "subcategoryId": "intubation",
+  "slug": "cricothyroidotomy",
+  "order": 1,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Cricothyroidotomy",
+    "adult_settings": "12G cannula through cricothyroid membrane",
+    "paediatric_settings": "14G cannula through cricothyroid membrane"
+  }
+}

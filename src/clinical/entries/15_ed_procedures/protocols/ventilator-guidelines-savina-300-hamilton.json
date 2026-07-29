@@ -1,0 +1,35 @@
+{
+  "categoryId": "15_ed_procedures",
+  "subcategoryId": "protocols",
+  "slug": "ventilator-guidelines-savina-300-hamilton",
+  "order": 4,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      202,
+      203
+    ],
+    "sectionTitle": "Ventilator",
+    "transformation": "condensed",
+    "verification": "preview"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Ventilator Guidelines (Savina 300 & Hamilton)",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Savina 300 Ventilator Setup",
+        "details": "Plug into power (3 green LEDs). Plug O2 hose. Attach HME filter. Attach test lung to circuit. Switch ON (button on back-left). Machine defaults to VC-SIMV. Connect limbs to patient. Settings: FiO2 100% (titrate down), VT 6-8 ml/kg IBW, Ti 1.2-1.8s, RR 10-15, PEEP 6 mbar, dPSUPP 8-18 mbar. Swap expiratory valve after use."
+      },
+      {
+        "step_number": "2",
+        "action": "Hamilton T1 & C3 Setup",
+        "details": "Plug into power (lightning bolt charging icon). Connect O2. Attach specific circuit with flow sensor. Attach HME. Switch ON. Set patient sex and height to calculate IBW. Machine defaults to ASV mode. Set to 100% MinVol. Press START. Settings: O2 100%, MinVol 100%, flow trigger 4-5 L/min, P limit 30-35, PEEP 6."
+      }
+    ]
+  }
+}

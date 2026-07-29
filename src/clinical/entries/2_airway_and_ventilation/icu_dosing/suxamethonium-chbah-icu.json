@@ -1,0 +1,34 @@
+{
+  "categoryId": "2_airway_and_ventilation",
+  "subcategoryId": "icu_dosing",
+  "slug": "suxamethonium-chbah-icu",
+  "order": 1004,
+  "source": {
+    "sourceId": "chbah-icu-dosing-card-2024",
+    "pdfPages": [],
+    "sectionTitle": "Suxamethonium (CHBAH ICU)",
+    "transformation": "externally-sourced",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "chbah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Suxamethonium (CHBAH ICU)",
+    "protocol_type": "icu_dosing",
+    "clinical_features": {
+      "symptoms": [
+        "Muscle relaxant"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Dose",
+        "details": "Adult 1 mg/kg/dose IV; Neonates 1.5 mg/kg/dose IV; Children 1–2 mg/kg/dose IV"
+      }
+    ],
+    "warnings": [],
+    "adult_dose": "Dose: Adult 1 mg/kg/dose IV; Neonates 1.5 mg/kg/dose IV; Children 1–2 mg/kg/dose IV"
+  }
+}

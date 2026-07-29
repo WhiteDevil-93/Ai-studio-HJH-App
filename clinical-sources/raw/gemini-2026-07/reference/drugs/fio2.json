@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "fio2",
+    "type": "drug",
+    "category": "2_airway_and_ventilation",
+    "subcategory": "vent_settings",
+    "title": "FiO2",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "item": "FiO2",
+    "adult_settings": "Start 100%",
+    "paediatric_settings": "Start 100%"
+  }
+}

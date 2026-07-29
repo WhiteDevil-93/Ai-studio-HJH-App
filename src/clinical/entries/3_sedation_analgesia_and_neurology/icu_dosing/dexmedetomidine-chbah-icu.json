@@ -1,0 +1,39 @@
+{
+  "categoryId": "3_sedation_analgesia_and_neurology",
+  "subcategoryId": "icu_dosing",
+  "slug": "dexmedetomidine-chbah-icu",
+  "order": 1001,
+  "source": {
+    "sourceId": "chbah-icu-dosing-card-2024",
+    "pdfPages": [],
+    "sectionTitle": "Dexmedetomidine (CHBAH ICU)",
+    "transformation": "externally-sourced",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "chbah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Dexmedetomidine (CHBAH ICU)",
+    "protocol_type": "icu_dosing",
+    "clinical_features": {
+      "symptoms": [
+        "Sedation"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Loading dose",
+        "details": "1 mcg/kg over 10 min"
+      },
+      {
+        "step_number": "2",
+        "action": "Maintenance",
+        "details": "0.2 – 0.7 mcg/kg/hr"
+      }
+    ],
+    "warnings": [],
+    "adult_dose": "Loading dose: 1 mcg/kg over 10 min Maintenance: 0.2 – 0.7 mcg/kg/hr"
+  }
+}

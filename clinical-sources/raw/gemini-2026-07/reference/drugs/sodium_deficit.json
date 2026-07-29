@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "sodium_deficit",
+    "type": "drug",
+    "category": "7_useful_formulae",
+    "subcategory": "formulae",
+    "title": "Sodium Deficit",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "category": "Bara ICU \u2014 Electrolytes",
+    "item": "Sodium Deficit",
+    "formula": "Na deficit = 0.6 x Wt(kg) x (Desired Na - Actual Na)",
+    "standard_dilutions": "Correct max 8-10mmol/L per day"
+  }
+}

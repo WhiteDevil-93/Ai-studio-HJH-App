@@ -1,0 +1,47 @@
+{
+  "categoryId": "17_phc_primary_care",
+  "subcategoryId": "dental_and_oral",
+  "slug": "gingivitis-and-periodontitis-edl",
+  "order": 1004,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      4,
+      5
+    ],
+    "sectionTitle": "Gingivitis and periodontitis (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Gingivitis and periodontitis (EDL)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "Inflammation of the gum margin causing the gums to separate from the teeth",
+        "Pockets (recesses) form between the gums and the teeth where pus and bacteria can collect",
+        "May be painful",
+        "Bleeding",
+        "Redness",
+        "Swollen gums",
+        "Gum recession may occur"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Prophylaxis and general measures",
+        "details": "Oral hygiene after each meal to remove plaque and food debris. Brush teeth twice daily. Floss teeth at least once daily. Rinse mouth with homemade salt mouthwash for one minute twice daily (i.e., 1/2 medicine measure of table salt in a glass of lukewarm water)."
+      },
+      {
+        "step_number": "2",
+        "action": "Medicine treatment and pain relief",
+        "details": "Brush, floss, rinse mouth with water and then rinse with: Chlorhexidine 0.2%, 15 mL as a mouthwash, twice daily, after brushing teeth, for 5 days. Do not swallow. Note: Do not eat or drink immediately after this. Pain: Children: Paracetamol, oral, 10-15 mg/kg/dose 6 hourly when required. See dosing table: Chapter 23. Adults: Paracetamol, oral, 500 mg to 1 g, 4 to 6 hourly as required (to a maximum of 4 g in 24 hours). Maximum dose: 15 mg/kg/dose."
+      }
+    ],
+    "warnings": []
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "tidal_volume",
+    "type": "drug",
+    "category": "2_airway_and_ventilation",
+    "subcategory": "lung_protection",
+    "title": "Tidal Volume",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "item": "Tidal Volume",
+    "adult_settings": "6 - 8ml/kg Ideal Body Weight",
+    "paediatric_settings": "6 - 8ml/kg Ideal Body Weight"
+  }
+}

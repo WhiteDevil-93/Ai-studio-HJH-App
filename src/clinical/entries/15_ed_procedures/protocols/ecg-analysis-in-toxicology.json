@@ -1,0 +1,37 @@
+{
+  "categoryId": "15_ed_procedures",
+  "subcategoryId": "protocols",
+  "slug": "ecg-analysis-in-toxicology",
+  "order": 7,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "ECG Analysis in Toxicology",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Analyse Rate & Rhythm",
+        "details": "Bradycardia: indicates CCB, BB, Digoxin, Clonidine, or lithium. Tachycardia: indicates anticholinergics, antihistamines, sympathomimetics (cocaine, amphetamines). AF: alcohol binge (holiday heart) or withdrawal. Ventricular Fibrillation: verapamil in AF+WPW."
+      },
+      {
+        "step_number": "2",
+        "action": "Analyse Intervals & Waves",
+        "details": "PR Prolongation (>200ms): BB, CCB, Digoxin, TCA. QRS Prolongation (>100ms): Sodium channel blockade (TCA, carbamazepine, local anaesthetics, cocaine). QTc Prolongation: Potassium channel blockade (TCA, sotalol, antihistamines). J Wave: hypothermia. Scooped ST segment (Salvador Dali moustache): Digoxin."
+      },
+      {
+        "step_number": "3",
+        "action": "Identify Axis Shifts",
+        "details": "Right Axis Deviation (terminal R wave > 3mm in aVR, or R/S ratio > 0.7 in aVR) indicates fast sodium channel blockade (highly predictive of TCA seizures/arrhythmias)."
+      }
+    ]
+  }
+}

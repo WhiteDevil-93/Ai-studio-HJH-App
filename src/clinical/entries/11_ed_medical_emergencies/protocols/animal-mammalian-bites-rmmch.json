@@ -1,0 +1,48 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "animal-mammalian-bites-rmmch",
+  "order": 1020,
+  "source": {
+    "sourceId": "rmmch-paediatric-protocols",
+    "pdfPages": [
+      12
+    ],
+    "sectionTitle": "Animal / Mammalian Bites (RMMCH)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "rmmch",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Animal / Mammalian Bites (RMMCH)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "High risk wound factors: extensive contamination, crush with devitalized tissue, puncture, bites to hands/wrist/feet/face/genitalia, wounds penetrating bone/joints/tendons/neurovascular structures, delayed presentation > 8 hrs.",
+        "High risk patient factors: immunocompromised, malnourished, diabetes mellitus, haem-oncology, post-splenectomy, autoimmune disease."
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Wound Care & Rabies/Tetanus Risk Assessment",
+        "details": "Wash thoroughly with large volume water + soap. Extensive high pressure irrigation. Debridement of devitalized tissue (especially jagged wounds). Assess wound + rabies risk (refer to Rabies PEP protocol). Check vaccination status: ATT booster if required."
+      },
+      {
+        "step_number": "2",
+        "action": "Suturing Decisions",
+        "details": "Suturing for haemostasis is required (local anaesthetic given from inside wound). Suturing for cosmesis (eg face) is acceptable (may require referral to Plastics). If wound < 8 hours + thoroughly cleaned, may be sutured (ideally loose sutures, just opposing edges to allow for swelling). If wound > 8 hours: avoid suturing + L/A."
+      },
+      {
+        "step_number": "3",
+        "action": "Antibiotic Prophylaxis & Discharge",
+        "details": "Antibiotic prophylaxis based on risk (polymicrobial infections). Discharge advice: health education about appropriate wound care, signs of infection/cellulitis/sepsis, strict instructions to return if any concerns."
+      }
+    ],
+    "warnings": [
+      "If wound > 8 hours: avoid suturing + local anaesthetic."
+    ]
+  }
+}

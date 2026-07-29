@@ -1,0 +1,22 @@
+{
+  "categoryId": "3_sedation_analgesia_and_neurology",
+  "subcategoryId": "neuroprotective",
+  "slug": "mannitol",
+  "order": 0,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "drug": "Mannitol",
+    "adult_dose": "0.25-1g/kg IV bolus",
+    "paediatric_dose": "0.25-1g/kg IV bolus",
+    "notes_updates": "Monitor osmolar gap; avoid if hypotensive"
+  }
+}

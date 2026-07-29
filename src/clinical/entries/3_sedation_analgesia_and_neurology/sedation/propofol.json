@@ -1,0 +1,24 @@
+{
+  "categoryId": "3_sedation_analgesia_and_neurology",
+  "subcategoryId": "sedation",
+  "slug": "propofol",
+  "order": 1,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      117
+    ],
+    "sectionTitle": "Propofol",
+    "transformation": "condensed",
+    "verification": "preview"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "drug": "Propofol",
+    "adult_dose": "25 - 50 ug/kg/min (Max 100)",
+    "paediatric_dose": "25 - 60 ug/kg/min",
+    "notes_updates": "Adjust dose in obesity. Caution: Propofol Infusion Syndrome (PRIS)."
+  }
+}

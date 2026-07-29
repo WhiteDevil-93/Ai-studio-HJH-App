@@ -1,0 +1,36 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    77,
+    94
+  ],
+  "item": "Aqueous cream (UEA) (EDL)",
+  "categoryHint": "dosing",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Dry skin",
+      "Atopic eczema soap substitute"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Topical soap substitute."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Rub on skin, before rinsing off completely."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Aqueous cream should not be used as an emollient."
+    }
+  ],
+  "warnings": [
+    "Aqueous cream should not be used as an emollient."
+  ]
+}

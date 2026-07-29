@@ -1,0 +1,22 @@
+{
+  "sourceDoc": "CHBAH_ICU",
+  "pdfPages": [
+    1
+  ],
+  "item": "Flumazenil (Anexate) (CHBAH ICU)",
+  "categoryHint": "sedation",
+  "protocol_type": "icu_dosing",
+  "clinical_features": {
+    "symptoms": [
+      "Benzodiazepine reversal"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Dose",
+      "details": "Adult 0.2 mg IV then 0.1 mg every 60 min (max 0.04 mg/kg or 1 mg); Paediatric 0.01 mg/kg IV"
+    }
+  ],
+  "warnings": []
+}

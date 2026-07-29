@@ -1,0 +1,22 @@
+{
+  "categoryId": "3_sedation_analgesia_and_neurology",
+  "subcategoryId": "seizures",
+  "slug": "haloperidol",
+  "order": 2,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "drug": "Haloperidol",
+    "adult_dose": "2.5-10mg IM",
+    "paediatric_dose": "0.15mg/kg",
+    "notes_updates": "Antipsychotic for severe agitation or delirium"
+  }
+}

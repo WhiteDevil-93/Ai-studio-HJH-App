@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "propofol",
+    "type": "drug",
+    "category": "3_sedation_analgesia_and_neurology",
+    "subcategory": "sedation",
+    "title": "Propofol",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "drug": "Propofol",
+    "adult_dose": "25 - 50 ug/kg/min (Max 100)",
+    "paediatric_dose": "25 - 60 ug/kg/min",
+    "notes_updates": "Adjust dose in obesity. Caution: Propofol Infusion Syndrome (PRIS)."
+  }
+}

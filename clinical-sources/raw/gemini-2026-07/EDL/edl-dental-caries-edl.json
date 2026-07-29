@@ -1,0 +1,24 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    3
+  ],
+  "item": "Dental caries (EDL)",
+  "categoryHint": "dental",
+  "protocol_type": "ed_protocol",
+  "clinical_features": {
+    "symptoms": [
+      "To be managed by a dentist or dental therapist"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Local anaesthesia for dental procedures",
+      "details": "Lidocaine (Dentist and dental therapist). Lidocaine with adrenaline (epinephrine) (Dentist and dental therapist)."
+    }
+  ],
+  "warnings": [
+    "Note: Dental rinses are not recommended for prevention of COVID-19 transmission during dental procedures."
+  ]
+}

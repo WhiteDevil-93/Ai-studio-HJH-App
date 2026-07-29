@@ -1,0 +1,40 @@
+{
+  "categoryId": "13_ed_trauma_surgical",
+  "subcategoryId": "protocols",
+  "slug": "head-injury-radiography-guidelines",
+  "order": 0,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Head Injury & Radiography Guidelines",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Screen for Head CT Indications (Adults)",
+        "details": "CT brain indicated if: GCS < 13 on initial, GCS < 15 at 2 hours, suspected skull fracture (raccoon eyes, Battle's sign, CSF leak, haemotympanum), post-traumatic seizure, >1 episode of vomiting, focal neuro deficit, or on anticoagulants."
+      },
+      {
+        "step_number": "2",
+        "action": "Apply PECARN rules (Paediatric < 16 yrs)",
+        "details": "Under 2 years: CT if GCS < 15, altered mental status, or palpable skull fracture. Observe vs CT if LOC > 5s, severe mechanism, or non-frontal hematoma. Over 2 years: CT if GCS < 15, altered mental status, or signs of basilar fracture."
+      },
+      {
+        "step_number": "3",
+        "action": "Implement Neuroprotective Measures",
+        "details": "Elevate head 30-45 degrees. Maintain MAP > 90 (unless ICH: MAP > 75-80). Keep normocarbia (PaCO2 35-40), normothermia (< 37.5), and euglycemia (5-10 mmol/L). If traumatic ICH: load with Phenytoin 20mg/kg IV (max rate 50mg/min) for seizure prophylaxis."
+      }
+    ],
+    "warnings": [
+      "There is NO role for corticosteroids/steroids in traumatic head injury (increases mortality)."
+    ]
+  }
+}

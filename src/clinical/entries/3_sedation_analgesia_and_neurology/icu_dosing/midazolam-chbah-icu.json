@@ -1,0 +1,39 @@
+{
+  "categoryId": "3_sedation_analgesia_and_neurology",
+  "subcategoryId": "icu_dosing",
+  "slug": "midazolam-chbah-icu",
+  "order": 1007,
+  "source": {
+    "sourceId": "chbah-icu-dosing-card-2024",
+    "pdfPages": [],
+    "sectionTitle": "Midazolam (CHBAH ICU)",
+    "transformation": "externally-sourced",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "chbah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Midazolam (CHBAH ICU)",
+    "protocol_type": "icu_dosing",
+    "clinical_features": {
+      "symptoms": [
+        "Sedation"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Bolus",
+        "details": "0.1 mg/kg/dose, titrate to effect"
+      },
+      {
+        "step_number": "2",
+        "action": "Paediatric infusion",
+        "details": "Load 0.1 – 0.2 mg/kg then maintenance 2 – 36 mcg/kg/min"
+      }
+    ],
+    "warnings": [],
+    "adult_dose": "Bolus: 0.1 mg/kg/dose, titrate to effect Paediatric infusion: Load 0.1 – 0.2 mg/kg then maintenance 2 – 36 mcg/kg/min"
+  }
+}

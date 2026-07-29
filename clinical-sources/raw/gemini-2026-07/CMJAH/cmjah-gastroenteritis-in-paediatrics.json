@@ -1,0 +1,33 @@
+{
+  "sourceDoc": "CMJAH",
+  "pdfPages": [
+    57
+  ],
+  "item": "Gastroenteritis in Paediatrics (CMJAH)",
+  "categoryHint": "medical_emergencies",
+  "protocol_type": "ed_protocol",
+  "review_state": "unreviewed",
+  "clinical_features": {
+    "symptoms": [
+      "Diarrhoea, vomiting, dehydration features (sunken eyes, dry mucous membranes, delayed cap refill, tachycardia)"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Mild to Moderate Dehydration",
+      "details": "ORS 12.5 ml/kg/hr for 4 hours."
+    },
+    {
+      "step_number": "2",
+      "action": "Severe Dehydration / Shocked Patient",
+      "details": "Fluid bolus 20 ml/kg crystalloid (Ringers Lactate or 0.9% Normal Saline). Repeat 10 ml/kg boluses up to max 60 ml/kg."
+    },
+    {
+      "step_number": "3",
+      "action": "Electrolyte Correction",
+      "details": "Hypokalaemia formula: 15% KCl mls = [(0.3) x (weight kg) x (4)] / 2 given over 4 hours. Hypoglycaemia: 1 g/kg of 12.5% Dextrose IV."
+    }
+  ],
+  "warnings": []
+}

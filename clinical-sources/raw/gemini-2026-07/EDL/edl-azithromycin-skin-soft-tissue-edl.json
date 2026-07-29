@@ -1,0 +1,36 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    81,
+    83,
+    84,
+    92,
+    96
+  ],
+  "item": "Azithromycin (Skin/Soft Tissue) (EDL)",
+  "categoryHint": "antimicrobials",
+  "protocol_type": "weight_based_dose",
+  "clinical_features": {
+    "symptoms": [
+      "Boils, abscesses, impetigo, cellulitis, and eczema with severe penicillin allergy"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Oral administration."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Children: 10 mg/kg/dose daily for 3 days. Adults: 500 mg daily for 3 days."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Used for patients with severe penicillin allergy (Z88.0)."
+    }
+  ],
+  "warnings": []
+}

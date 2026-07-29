@@ -1,55 +1,83 @@
 {
-  "sourceId": "hjh-ed-2026-v1",
-  "releaseBlocking": true,
-  "items": [
+  "registers": [
     {
-      "id": "ERR-HJH-001",
-      "pdfPages": [92, 97],
-      "topic": "Corrected sodium",
-      "issue": "Page 92 describes a piecewise 1.6/2.4 correction while page 97 uses 2.4 with a 5.4 mmol/L baseline.",
-      "status": "awaiting-clinical-decision",
-      "applicationAction": "Both equations are shown as separate page-labelled calculators"
+      "sourceId": "hjh-ed-2026-v1",
+      "releaseBlocking": true,
+      "items": [
+        {
+          "id": "ERR-HJH-001",
+          "pdfPages": [92, 97],
+          "topic": "Corrected sodium",
+          "issue": "Page 92 describes a piecewise 1.6/2.4 correction while page 97 uses 2.4 with a 5.4 mmol/L baseline.",
+          "status": "awaiting-clinical-decision",
+          "applicationAction": "Both equations are shown as separate page-labelled calculators"
+        },
+        {
+          "id": "ERR-HJH-002",
+          "pdfPages": [106],
+          "topic": "Ketamine infusion table",
+          "issue": "Several 60 kg cells are inconsistent with the stated 1 mg/mL concentration and surrounding arithmetic.",
+          "status": "awaiting-clinical-decision",
+          "applicationAction": "No ketamine infusion calculator is exposed pending clinical resolution"
+        },
+        {
+          "id": "ERR-HJH-003",
+          "pdfPages": [111],
+          "topic": "Phenylephrine infusion table",
+          "issue": "Several cells are inconsistent with the stated 100 mcg/mL concentration.",
+          "status": "awaiting-clinical-decision",
+          "applicationAction": "Definition derives rates from the stated concentration; calculator is not currently exposed in the UI"
+        },
+        {
+          "id": "ERR-HJH-004",
+          "pdfPages": [117],
+          "topic": "Propofol concentration",
+          "issue": "The label says 20 mg/mL, while 400 mg in 40 mL and the rate table imply 10 mg/mL.",
+          "status": "awaiting-clinical-decision",
+          "applicationAction": "Protocol text is shown as printed; the calculator requires entry and confirmation of the actual prepared concentration"
+        },
+        {
+          "id": "ERR-HJH-005",
+          "pdfPages": [190],
+          "topic": "Burch-Wartofsky table",
+          "issue": "The heart-rate band appears as 13-139 and threshold wording is inconsistent with surrounding text.",
+          "status": "awaiting-clinical-decision",
+          "applicationAction": "Uses the intended 130-139 band but remains marked unreviewed"
+        },
+        {
+          "id": "ERR-HJH-006",
+          "pdfPages": [92],
+          "topic": "Anion gap variant",
+          "issue": "The HJH source includes potassium; the previous app used the no-potassium variant.",
+          "status": "resolved-from-source",
+          "decision": "Label and implement the HJH potassium-inclusive variant.",
+          "applicationAction": "Use (Na + K) - (Cl + HCO3)"
+        }
+      ]
     },
     {
-      "id": "ERR-HJH-002",
-      "pdfPages": [106],
-      "topic": "Ketamine infusion table",
-      "issue": "Several 60 kg cells are inconsistent with the stated 1 mg/mL concentration and surrounding arithmetic.",
-      "status": "awaiting-clinical-decision",
-      "applicationAction": "No ketamine infusion calculator is exposed pending clinical resolution"
-    },
-    {
-      "id": "ERR-HJH-003",
-      "pdfPages": [111],
-      "topic": "Phenylephrine infusion table",
-      "issue": "Several cells are inconsistent with the stated 100 mcg/mL concentration.",
-      "status": "awaiting-clinical-decision",
-      "applicationAction": "Definition derives rates from the stated concentration; calculator is not currently exposed in the UI"
-    },
-    {
-      "id": "ERR-HJH-004",
-      "pdfPages": [117],
-      "topic": "Propofol concentration",
-      "issue": "The label says 20 mg/mL, while 400 mg in 40 mL and the rate table imply 10 mg/mL.",
-      "status": "awaiting-clinical-decision",
-      "applicationAction": "Protocol text is shown as printed; the calculator requires entry and confirmation of the actual prepared concentration"
-    },
-    {
-      "id": "ERR-HJH-005",
-      "pdfPages": [190],
-      "topic": "Burch-Wartofsky table",
-      "issue": "The heart-rate band appears as 13-139 and threshold wording is inconsistent with surrounding text.",
-      "status": "awaiting-clinical-decision",
-      "applicationAction": "Uses the intended 130-139 band but remains marked unreviewed"
-    },
-    {
-      "id": "ERR-HJH-006",
-      "pdfPages": [92],
-      "topic": "Anion gap variant",
-      "issue": "The HJH source includes potassium; the previous app used the no-potassium variant.",
-      "status": "resolved-from-source",
-      "decision": "Label and implement the HJH potassium-inclusive variant.",
-      "applicationAction": "Use (Na + K) - (Cl + HCO3)"
+      "sourceId": "cmjah-ed-protocols-2020-v2",
+      "releaseBlocking": true,
+      "items": [
+        {
+          "id": "ERR-CMJAH-001",
+          "pdfPages": [15],
+          "topic": "Acute heart failure fluid bolus units",
+          "issue": "Source prints the fluid bolus as '10-20mg/kg'; ml/kg is clearly intended (mg/kg of crystalloid is not a coherent dose).",
+          "status": "awaiting-clinical-decision",
+          "entryIds": ["11_ed_medical_emergencies.protocols.acute-heart-failure-cmjah"],
+          "applicationAction": "Text shown as printed; a warning is surfaced on the card"
+        },
+        {
+          "id": "ERR-CMJAH-002",
+          "pdfPages": [43],
+          "topic": "CCB/beta-blocker overdose crystalloid bolus units",
+          "issue": "Source prints the crystalloid bolus as '20mg/kg'; ml/kg is clearly intended.",
+          "status": "awaiting-clinical-decision",
+          "entryIds": ["12_ed_toxicology.protocols.calcium-channel-blocker-and-beta-blocker-overdose-cmjah"],
+          "applicationAction": "Text shown as printed; a warning is surfaced on the card"
+        }
+      ]
     }
   ]
 }

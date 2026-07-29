@@ -1,0 +1,22 @@
+{
+  "categoryId": "7_useful_formulae",
+  "subcategoryId": "formulae",
+  "slug": "noradrenaline",
+  "order": 1,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "category": "Bara ICU — Inotropes",
+    "item": "Noradrenaline",
+    "formula": "ml/hr = (ug/kg/min x kg x 60) / 50",
+    "standard_dilutions": "Double Strength: 10mg in 200ml N/S"
+  }
+}

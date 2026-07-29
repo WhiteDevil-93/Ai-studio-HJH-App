@@ -1,0 +1,48 @@
+{
+  "categoryId": "17_phc_primary_care",
+  "subcategoryId": "phc_general",
+  "slug": "promethazine-edl",
+  "order": 1005,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      99
+    ],
+    "sectionTitle": "Promethazine (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Promethazine (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Angioedema without imminent airway compromise"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "IM injection, 25 to 50 mg."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "IM, 25 to 50 mg immediately."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Used for angioedema when urticaria and/or itch present without airway compromise."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "IM injection, 25 to 50 mg.",
+    "notes_updates": "Used for angioedema when urticaria and/or itch present without airway compromise.",
+    "adult_dose": "Dose / Rate Range: IM, 25 to 50 mg immediately."
+  }
+}

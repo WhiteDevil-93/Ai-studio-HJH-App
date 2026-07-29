@@ -1,0 +1,32 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    65
+  ],
+  "item": "Metronidazole (Miscarriage) (EDL)",
+  "categoryHint": "antimicrobials",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Unsafe (septic) miscarriage"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Oral administration, 400 mg."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Oral, 400 mg as a single dose."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Given before referral when unsafe (septic) miscarriage is suspected."
+    }
+  ],
+  "warnings": []
+}

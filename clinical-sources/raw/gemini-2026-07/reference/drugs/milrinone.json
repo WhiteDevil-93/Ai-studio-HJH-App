@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "milrinone",
+    "type": "drug",
+    "category": "1_resuscitation_fluids_and_inotropes",
+    "subcategory": "inotropes",
+    "title": "Milrinone",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "item": "Milrinone",
+    "adult_dose": "Loading: 50ug/kg IV over 10min; Maintenance: 0.37-0.75ug/kg/min IV",
+    "paediatric_dose": "Loading: 50ug/kg/min IV; Maintenance: 0.25-0.75ug/kg/min IV",
+    "notes_updates": "Section 21 - requires consent"
+  }
+}

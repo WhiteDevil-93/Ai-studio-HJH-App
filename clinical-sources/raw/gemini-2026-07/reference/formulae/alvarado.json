@@ -1,0 +1,78 @@
+{
+  "_meta": {
+    "id": "alvarado",
+    "type": "calculator",
+    "category": "16_score_calculators",
+    "title": "Alvarado Score",
+    "review_state": "unreviewed"
+  },
+  "calculator": {
+    "name": "Alvarado Score",
+    "category": "surgical",
+    "source_pages": [
+      7
+    ],
+    "components": [
+      {
+        "name": "Migratory RIF pain",
+        "points": 1,
+        "key": "migratory"
+      },
+      {
+        "name": "Anorexia",
+        "points": 1,
+        "key": "anorexia"
+      },
+      {
+        "name": "Nausea/Vomiting",
+        "points": 1,
+        "key": "vomiting"
+      },
+      {
+        "name": "Tenderness in RIF",
+        "points": 2,
+        "key": "tenderness"
+      },
+      {
+        "name": "Rebound tenderness",
+        "points": 1,
+        "key": "rebound"
+      },
+      {
+        "name": "Elevated temperature (>= 37.3\u00b0C)",
+        "points": 1,
+        "key": "fever"
+      },
+      {
+        "name": "Leukocytosis (WCC > 10)",
+        "points": 2,
+        "key": "leukocytosis"
+      },
+      {
+        "name": "Left shift (neutrophils > 75%)",
+        "points": 1,
+        "key": "left_shift"
+      }
+    ],
+    "interpretation": [
+      {
+        "min": 0,
+        "max": 4,
+        "label": "Appendicitis Unlikely",
+        "action": "Consider other causes. Observe if pain persists."
+      },
+      {
+        "min": 5,
+        "max": 6,
+        "label": "Appendicitis Possible",
+        "action": "Keep NPO, active observation, consider ultrasound."
+      },
+      {
+        "min": 7,
+        "max": 10,
+        "label": "Appendicitis Probable/Highly Probable",
+        "action": "Urgent surgical consultation. Prepare for appendectomy."
+      }
+    ]
+  }
+}

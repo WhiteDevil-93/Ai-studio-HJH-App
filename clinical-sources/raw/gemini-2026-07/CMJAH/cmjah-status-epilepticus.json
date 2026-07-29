@@ -1,0 +1,34 @@
+{
+  "sourceDoc": "CMJAH",
+  "pdfPages": [
+    117,
+    118
+  ],
+  "item": "Status Epilepticus (CMJAH)",
+  "categoryHint": "resuscitation",
+  "protocol_type": "ed_protocol",
+  "review_state": "unreviewed",
+  "clinical_features": {
+    "symptoms": [
+      "Continuous seizure activity >= 5 minutes OR recurrent seizures without interval recovery"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "1st Line Benzodiazepines",
+      "details": "Lorazepam 0.1 mg/kg IV (max 2mg/min), Diazepam 0.2-0.3 mg/kg IV (max 5mg/min), Clonazepam 0.02 mg/kg IV, OR Midazolam 0.2 mg/kg IV / 0.3 mg/kg buccal/IN. Repeat 2nd dose if needed."
+    },
+    {
+      "step_number": "2",
+      "action": "2nd Line Anticonvulsants",
+      "details": "Phenytoin 20 mg/kg IV (max 50 mg/min), Sodium Valproate 20-30 mg/kg IV (3-6 mg/kg/min), OR Phenobarbitone 20 mg/kg IV. Repeat half dose after 20 min if seizing."
+    },
+    {
+      "step_number": "3",
+      "action": "3rd Line Refractory Anesthetic Infusions",
+      "details": "Midazolam: 0.2 mg/kg IV load, then 0.1 mg/kg/hr infusion.\nPropofol: 3-5 mg/kg IV load, then 1-15 mg/kg/hr infusion.\nKetamine: 1.5 mg/kg IV load, then 0.01-0.05 mg/kg/hr infusion."
+    }
+  ],
+  "warnings": []
+}

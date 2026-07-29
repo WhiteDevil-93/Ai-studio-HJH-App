@@ -1,10 +1,17 @@
 # Clinical traceability status
 
-The build-time validator currently inventories 150 normalized clinical entries:
+The build-time validator currently inventories 368 normalized clinical
+entries (one JSON file per entry, under `src/clinical/entries/`; see
+`clinical-sources/entry-census.json` for the committed baseline the
+validator diffs against):
 
-- 45 protocols or procedures
-- 32 entries with an initial HJH page mapping
-- 118 entries still marked unreviewed with unresolved or incomplete provenance
+- 108 protocols or procedures
+- 250 entries with a resolved source-page mapping, across HJH, CMJAH,
+  RMMCH, and EDL/PHC (see `bySourceGroup` in `entry-census.json` for
+  the per-source breakdown)
+- 118 entries still marked unreviewed with unresolved or incomplete
+  provenance (mostly pre-existing Bara ICU dosing content with no
+  formal per-entry citation yet)
 
 An entry with unresolved provenance may remain visible in this validation
 prototype, but it cannot be promoted to `approved`.
@@ -26,6 +33,22 @@ prototype, but it cannot be promoted to `approved`.
 | Propofol infusion | HJH ED 2026 v1 | 117 | Printed preparation/label shown; actual concentration must be entered |
 | Wells PE / PERC | HJH ED 2026 v1 | 159, 160 | Local thresholds and completion gate implemented |
 | Burch-Wartofsky | HJH ED 2026 v1 | 189, 190 | Missing components restored; errata disclosed |
+
+## Errata and transcription issues
+
+`clinical-sources/errata.json` now holds one register per source
+(`registers: [...]`) rather than a single HJH-only list, so newly
+transcribed sources can carry their own disclosed discrepancies without
+conflating them with HJH's. It currently covers the 6 HJH items above
+plus 2 CMJAH items (both printed-unit mismatches - a fluid bolus given
+as "mg/kg" where "ml/kg" is clearly intended).
+
+`clinical-sources/transcription-issues.json` is a separate register for
+defects introduced by *our own* transcription (not the source document) -
+currently 7 CMJAH page citations that were corrected against
+`cmjah_page_index.txt` before being committed. Keeping these separate
+from `errata.json` matters: misfiling a transcription mistake there
+would misattribute it to the source document.
 
 ## Approval rule
 

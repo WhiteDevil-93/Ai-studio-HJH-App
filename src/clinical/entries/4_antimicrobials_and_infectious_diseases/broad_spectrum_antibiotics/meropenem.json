@@ -1,0 +1,22 @@
+{
+  "categoryId": "4_antimicrobials_and_infectious_diseases",
+  "subcategoryId": "broad_spectrum_antibiotics",
+  "slug": "meropenem",
+  "order": 0,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "condition_or_drug": "Meropenem",
+    "adult_dose": "1-2g IV 8hrly",
+    "paediatric_dose": "20-40mg/kg IV 8hrly",
+    "notes_updates": "Extended infusion: 3-4hr. High dose for meningitis"
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "_meta": {
+    "id": "asthma_exacerbation",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Asthma Exacerbation",
+    "source_doc": "HJH ED 2026 / CMJAH / Bara ICU",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Asthma Exacerbation",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Classify Severity",
+        "details": "Mild: Pulse < 100, Sats > 95, PEFR > 75%. Moderate: Pulse 100-120, Sats 90-95, PEFR 50-70%. Severe: Pulse > 120, Sats < 90, PEFR < 50%, or silent chest."
+      },
+      {
+        "step_number": "2",
+        "action": "Continuous Nebulisation",
+        "details": "All patients: Salbutamol/Fenoterol + Ipratropium Bromide (Atrovent) nebulisations continuously or every 20 minutes."
+      },
+      {
+        "step_number": "3",
+        "action": "Steroids & Adjunctive IV Therapy",
+        "details": "Give Hydrocortisone 200mg IV stat (or oral Prednisone 0.5mg/kg). If severe/refractory: give Magnesium Sulphate 2g (25-50mg/kg in children) IV over 20 minutes."
+      },
+      {
+        "step_number": "4",
+        "action": "Intubation & Ventilation",
+        "details": "Avoid intubation if possible! If required, perform RSI with Ketamine 1mg/kg. Set ventilator to Volume Assist Control, TV 6ml/kg, RR 10-12, I:E ratio 1:3 to 1:5 to allow long expiration. Pre-load with fluids."
+      }
+    ]
+  },
+  "embedded_drugs": [
+    {
+      "item": "Salbutamol",
+      "adult_dose": "2.5-5mg nebulised (Nebulise with O2); 0.25-0.5mg IV",
+      "paediatric_dose": "2.5-5mg nebulised; 5-10ug/kg/min IV"
+    },
+    {
+      "item": "Berotec/Atrovent",
+      "adult_dose": "0.5mg/2.5mg nebulised (repeat 20min x 3)",
+      "paediatric_dose": "0.25-0.5mg/1.25-2.5mg nebulised"
+    },
+    {
+      "drug": "Hydrocortisone",
+      "adult_dose": "Stress: 50-100mg IV 6-8hrly; Physiological: 20mg AM + 10mg PM",
+      "paediatric_dose": "Stress: 1-2mg/kg IV 6hrly",
+      "notes_updates": "Stress dose for adrenal insufficiency, septic shock"
+    },
+    {
+      "item": "Magnesium Sulphate",
+      "adult_dose": "1 - 2 g IV over 10-20mins",
+      "paediatric_dose": "25 - 50 mg/kg IV",
+      "notes_updates": ""
+    },
+    {
+      "item": "Aminophylline",
+      "adult_dose": "5mg/kg IV over 30min",
+      "paediatric_dose": "5mg/kg IV over 30min",
+      "notes": "Check levels 12 hourly"
+    },
+    {
+      "drug": "Ketamine",
+      "adult_dose": "15 - 30 ug/kg/min IV",
+      "paediatric_dose": "5 - 40 ug/kg/min",
+      "notes_updates": "Preferred for asthma/bronchospasm or trauma intubation."
+    },
+    {
+      "item": "Adrenalin",
+      "adult_dose": "0.1-1ug/kg/min IV",
+      "paediatric_dose": "0.1-1ug/kg/min IV"
+    }
+  ]
+}

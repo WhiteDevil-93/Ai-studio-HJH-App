@@ -1,0 +1,41 @@
+{
+  "categoryId": "13_ed_trauma_surgical",
+  "subcategoryId": "protocols",
+  "slug": "crush-injury-syndrome-rhabdomyolysis",
+  "order": 6,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Crush Injury & Syndrome (Rhabdomyolysis)",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Differentiate Definitions",
+        "details": "Crush Injury: physical injury from prolonged compression. Crush Syndrome: systemic manifestation of rhabdomyolysis leading to acute kidney injury (AKI) and hyperkalaemia."
+      },
+      {
+        "step_number": "2",
+        "action": "Aggressive Fluid Therapy",
+        "details": "Give isotonic crystalloids (Ringer's/Balsol) at 15-30 ml/kg/hr. Aim for high urine output of 200-300 ml/hr. If potassium is raised, avoid potassium-containing fluids."
+      },
+      {
+        "step_number": "3",
+        "action": "Correct Acidosis & Electrolytes",
+        "details": "Under expert consultation: give NaHCO3 8.5% (1ml/kg IV) to treat severe metabolic acidosis and correct hyperkalaemia. Consider Mannitol if urine output > 20ml/hr (contraindicated in anuria)."
+      }
+    ],
+    "warnings": [
+      "AVOID loop diuretics, synthetic colloids (Voluven/Gelofusin), and nephrotoxic drugs.",
+      "Indications for Dialysis: refractory acidosis, refractory hyperkalaemia, volume overload, or severe uraemia."
+    ]
+  }
+}

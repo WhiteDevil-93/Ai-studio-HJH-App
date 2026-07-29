@@ -1,0 +1,70 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "curb65",
+  "slug": "curb65",
+  "order": 7,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "curb65",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "CURB-65 Score",
+    "category": "respiratory",
+    "source_pages": [
+      58
+    ],
+    "components": [
+      {
+        "name": "Confusion (new onset)",
+        "points": 1,
+        "key": "confusion"
+      },
+      {
+        "name": "Urea >= 7 mmol/L",
+        "points": 1,
+        "key": "urea"
+      },
+      {
+        "name": "Respiratory rate >= 30/min",
+        "points": 1,
+        "key": "rr"
+      },
+      {
+        "name": "Blood pressure (SBP <90 or DBP <=60)",
+        "points": 1,
+        "key": "bp"
+      },
+      {
+        "name": "Age >= 65 years",
+        "points": 1,
+        "key": "age"
+      }
+    ],
+    "interpretation": [
+      {
+        "min": 0,
+        "max": 1,
+        "label": "Low Risk (Mortality <3%)",
+        "action": "Outpatient treatment with oral antibiotics (Amoxicillin)."
+      },
+      {
+        "min": 2,
+        "max": 2,
+        "label": "Intermediate Risk (Mortality <9%)",
+        "action": "Inpatient admission. Intravenous antibiotics (Augmentin)."
+      },
+      {
+        "min": 3,
+        "max": 5,
+        "label": "High Risk (Mortality 15-40%)",
+        "action": "Urgent inpatient or ICU admission. Broad-spectrum IV antibiotics + steroid."
+      }
+    ]
+  }
+}

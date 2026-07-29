@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "ceftriaxone",
+    "type": "drug",
+    "category": "4_antimicrobials_and_infectious_diseases",
+    "subcategory": "broad_spectrum_antibiotics",
+    "title": "Ceftriaxone",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "condition_or_drug": "Ceftriaxone",
+    "adult_dose": "1-2g IV 12-24hrly",
+    "paediatric_dose": "50-100mg/kg IV 12-24hrly (max 4g/day)"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "categoryId": "17_phc_primary_care",
+  "subcategoryId": "dermatology",
+  "slug": "selenium-sulphide-edl",
+  "order": 1009,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      87,
+      97
+    ],
+    "sectionTitle": "Selenium sulphide (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Selenium sulphide (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Pityriasis versicolor",
+        "Itching scalp, scaling, and dandruff"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Topical suspension, 2.5%."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Pityriasis versicolor: lather shampoo on affected parts, leave on overnight, wash off following day, once weekly for 3 weeks. Scalp/dandruff: lather on scalp, rinse off after 10 minutes, apply weekly until improved, then every second week to maintain control."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Topical treatment for fungal/scaling scalp and skin conditions."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "Topical suspension, 2.5%.",
+    "notes_updates": "Topical treatment for fungal/scaling scalp and skin conditions.",
+    "adult_dose": "Dose / Rate Range: Pityriasis versicolor: lather shampoo on affected parts, leave on overnight, wash off following day, once weekly for 3 weeks. Scalp/dandruff: lather on scalp, rinse off after 10 minutes, apply weekly until improved, then every second week to maintain control."
+  }
+}

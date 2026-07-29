@@ -1,0 +1,53 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "acute-gastroenteritis-age-rmmch",
+  "order": 1017,
+  "source": {
+    "sourceId": "rmmch-paediatric-protocols",
+    "pdfPages": [
+      57
+    ],
+    "sectionTitle": "Acute Gastroenteritis (AGE) (RMMCH)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "rmmch",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Acute Gastroenteritis (AGE) (RMMCH)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "Paediatric acute gastroenteritis with vomiting +/- diarrhoea.",
+        "Dehydration status: None, Some 5%, Severe 10%, Shocked."
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "No Dehydration",
+        "details": "Tolerating oral fluids + feeds. Reassure, ORS @ home, health education, D/C home."
+      },
+      {
+        "step_number": "2",
+        "action": "Some (5%) or Severe (10%) Dehydration",
+        "details": "Oral challenge / ORS / dilute apple juice / breast milk trial. ORS Initiation: <10kg = 5ml PO / 5 min; >10kg = 10ml PO / 10 min. Continuation: <10kg = 10ml PO / 5 min; >10kg = 20ml PO / 5 min. Re-assess hydration every 30 mins. If not tolerating orally, consider NGT or place IV/IO short line."
+      },
+      {
+        "step_number": "3",
+        "action": "Shocked Patient",
+        "details": "Call for help, resus bay, monitors. Crystalloid (R/L or Balsol) 20mL/kg IVI/IO STAT. Repeat 10-20ml/kg boluses to max 40mL/kg. Consider septic shock VBG, FBC, U+E."
+      },
+      {
+        "step_number": "4",
+        "action": "Antiemetic Option",
+        "details": "Kids > 6mo with vomiting + not tolerating orally: consider Ondansetron 0.15mg/kg (maximum 8mg)."
+      }
+    ],
+    "warnings": [
+      "Caution for respiratory compromise with further fluid boluses in shocked patients."
+    ]
+  }
+}

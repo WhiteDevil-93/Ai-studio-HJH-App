@@ -1,0 +1,48 @@
+{
+  "categoryId": "17_phc_primary_care",
+  "subcategoryId": "dermatology",
+  "slug": "benzoyl-peroxide-edl",
+  "order": 1000,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      78
+    ],
+    "sectionTitle": "Benzoyl peroxide (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Benzoyl peroxide (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Mild and moderate inflammatory acne"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Topical gel, 5%."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Apply in the morning to affected areas as tolerated. Wash off in the evening. If ineffective and tolerated, increase application to 12 hourly."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Avoid contact with eyes, mouth, angles of the nose and mucous membranes."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "Topical gel, 5%.",
+    "notes_updates": "Avoid contact with eyes, mouth, angles of the nose and mucous membranes.",
+    "adult_dose": "Dose / Rate Range: Apply in the morning to affected areas as tolerated. Wash off in the evening. If ineffective and tolerated, increase application to 12 hourly."
+  }
+}

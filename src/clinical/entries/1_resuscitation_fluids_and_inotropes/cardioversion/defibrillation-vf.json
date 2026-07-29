@@ -1,0 +1,21 @@
+{
+  "categoryId": "1_resuscitation_fluids_and_inotropes",
+  "subcategoryId": "cardioversion",
+  "slug": "defibrillation-vf",
+  "order": 2,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Defibrillation - VF",
+    "adult_dose": "360J defib monophasic; 120-200J defib biphasic",
+    "paediatric_dose": "4J/kg defib (mono and biphasic)"
+  }
+}

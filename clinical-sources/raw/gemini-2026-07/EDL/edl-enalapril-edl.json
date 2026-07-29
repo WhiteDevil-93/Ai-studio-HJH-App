@@ -1,0 +1,38 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    53,
+    55,
+    56
+  ],
+  "item": "Enalapril (EDL)",
+  "categoryHint": "cardiovascular",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "NSTEMI / STEMI with cardiac failure or LV dysfunction",
+      "Congestive cardiac failure (CCF)",
+      "Hypertension"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Oral tablets (2.5 mg, 10 mg, 20 mg)."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "NSTEMI / STEMI / CCF: target dose 10 mg 12 hourly (usually titrated from 2.5 mg 12 hourly up to maximum 10 mg twice daily). Hypertension (Step 3): 10 mg once daily. Hypertension (Step 4 / 6): 20 mg once daily."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Titrate dosages gradually upwards. Monitor renal function and potassium."
+    }
+  ],
+  "warnings": [
+    "Angioedema is a potentially serious complication of ACE-inhibitor treatment and if it occurs it is a contraindication to continue therapy or to re-challenge."
+  ]
+}

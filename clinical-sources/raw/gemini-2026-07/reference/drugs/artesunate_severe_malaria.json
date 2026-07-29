@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "artesunate_severe_malaria",
+    "type": "drug",
+    "category": "4_antimicrobials_and_infectious_diseases",
+    "subcategory": "antiparasitic",
+    "title": "Artesunate (severe malaria)",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "condition_or_drug": "Artesunate (severe malaria)",
+    "adult_dose": "2.4mg/kg IV at 0, 12, 24h, then daily",
+    "paediatric_dose": "2.4mg/kg IV at 0, 12, 24h, then daily",
+    "notes_updates": "Superior to Quinine. Min 3 doses."
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "categoryId": "17_phc_primary_care",
+  "subcategoryId": "dermatology",
+  "slug": "coal-tar-liquor-picis-carbonis-lpc-edl",
+  "order": 1003,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      107
+    ],
+    "sectionTitle": "Coal tar (Liquor picis carbonis - LPC) (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Coal tar (Liquor picis carbonis - LPC) (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Psoriasis flares"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Topical preparation, 5%."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Apply 1 to 4 times daily."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Used for flares if delay experienced in obtaining dermatological consultation."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "Topical preparation, 5%.",
+    "notes_updates": "Used for flares if delay experienced in obtaining dermatological consultation.",
+    "adult_dose": "Dose / Rate Range: Apply 1 to 4 times daily."
+  }
+}

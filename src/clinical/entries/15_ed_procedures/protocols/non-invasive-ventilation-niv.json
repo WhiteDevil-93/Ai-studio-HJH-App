@@ -1,0 +1,32 @@
+{
+  "categoryId": "15_ed_procedures",
+  "subcategoryId": "protocols",
+  "slug": "non-invasive-ventilation-niv",
+  "order": 2,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Non-Invasive Ventilation (NIV)",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Check Indications & Contraindications",
+        "details": "Indications: cardiogenic pulmonary edema, acute COPD exacerbation, pre-oxygenation for RSI. Contraindications: cardiac/respiratory arrest, GCS depression, uncooperative, high aspiration risk, facial trauma."
+      },
+      {
+        "step_number": "2",
+        "action": "Perform NIV Setup",
+        "details": "Sit patient upright (>45 degrees). Select appropriate mask size. Strap firmly with complete seal. Start CPAP/NIV mode. Set PEEP of 4 cmH2O (increase in increments of 2 cmH2O). Set PSV initially on 0. Start with FiO2 1.0, titrate down rapidly."
+      }
+    ]
+  }
+}

@@ -113,8 +113,11 @@ clinical values.
 
 - The application is a curated subset, not a complete digital edition of the
   247-page source.
-- The CHBAH ICU dosing source and RMMCH paediatric source still need to be
-  supplied and fingerprinted.
+- The CHBAH ICU dosing card and RMMCH paediatric protocols have been
+  transcribed and imported, but neither source PDF has an independently
+  confirmed SHA-256 fingerprint yet (see `clinical-sources/source-manifest.json`).
+  CHBAH ICU entries also have no real per-entry page citation (the source
+  document isn't held in the repo), so they carry `pdfPages: []`.
 - Some legacy entries still await exact page-level provenance.
 - Corrected sodium is shown as separate page 92 and page 97 variants pending
   review.
@@ -126,11 +129,15 @@ clinical values.
 ## Repository structure
 
 ```text
-clinical-sources/     Source manifest, page mapping, and errata
-scripts/              Clinical-data validation
-src/clinical/         Types, source registry, normalization, calculations
-src/data.json         Legacy clinical content pending full migration
-src/App.tsx           Current interface pending further component extraction
+clinical-sources/         Source manifest, page mapping, errata, and the
+                          vendored transcription corpus (raw/)
+scripts/                  Clinical-data validation and the one-time
+                          data.json -> entries/ migration script
+src/clinical/             Types, source registry, normalization, calculations
+src/clinical/entries/     One JSON file per clinical entry (protocol/drug/
+                          procedure/score), the source of truth for all
+                          clinical content
+src/App.tsx               Current interface pending further component extraction
 ```
 
 ## Release requirements

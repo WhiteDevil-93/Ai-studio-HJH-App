@@ -1,0 +1,51 @@
+{
+  "categoryId": "4_antimicrobials_and_infectious_diseases",
+  "subcategoryId": "edl_phc",
+  "slug": "nystatin-edl",
+  "order": 1018,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      3,
+      4
+    ],
+    "sectionTitle": "Nystatin (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Nystatin (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Oral candidiasis (thrush)"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Suspension, oral, 100 000 IU/mL."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "1 mL 6 hourly after each meal/feed for 7 days."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Keep in contact with the affected area for as long as possible prior to swallowing. In older children, ask the child to swirl in the mouth, prior to swallowing. In infants, advise mothers to apply to front of the mouth and spread over the oral mucosa with a clean finger. Continue for 48 hours after cure."
+      }
+    ],
+    "warnings": [
+      "In PLHIV candidiasis may involve the oesophagus as well as the mouth. Pain and difficulty in swallowing in an HIV-infected patient with oral candidiasis suggest oesophageal involvement, which requires systemic treatment with fluconazole."
+    ],
+    "standard_dilutions": "Suspension, oral, 100 000 IU/mL.",
+    "notes_updates": "Keep in contact with the affected area for as long as possible prior to swallowing. In older children, ask the child to swirl in the mouth, prior to swallowing. In infants, advise mothers to apply to front of the mouth and spread over the oral mucosa with a clean finger. Continue for 48 hours after cure.",
+    "adult_dose": "Dose / Rate Range: 1 mL 6 hourly after each meal/feed for 7 days."
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "fresh_frozen_plasma_ffp",
+    "type": "drug",
+    "category": "9_blood_products",
+    "subcategory": "products",
+    "title": "Fresh Frozen Plasma (FFP)",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "item": "Fresh Frozen Plasma (FFP)",
+    "adult_dose": "15-20ml/kg IV",
+    "paediatric_dose": "15-20ml/kg IV",
+    "notes": "For coagulopathy with active bleeding"
+  }
+}

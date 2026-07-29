@@ -1,0 +1,37 @@
+{
+  "categoryId": "13_ed_trauma_surgical",
+  "subcategoryId": "protocols",
+  "slug": "compartment-syndrome",
+  "order": 5,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Compartment Syndrome",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Identify Clinical Features",
+        "details": "Pain out of proportion to injury, pain on passive stretch, tense swollen compartment, decreased cap refill. Pulses are usually PRESENT (absent pulse is a late, catastrophic sign)."
+      },
+      {
+        "step_number": "2",
+        "action": "Measure Compartment Pressures",
+        "details": "Normal: < 10 mmHg. Perform emergent Fasciotomy if: absolute compartment pressure > 30 mmHg OR perfusion pressure < 30 mmHg (DBP - compartment pressure)."
+      },
+      {
+        "step_number": "3",
+        "action": "Immediate Actions",
+        "details": "Urgently consult ortho/general surgery. Remove all constrictive dressings/casts. Place limb AT THE LEVEL OF THE HEART (do not elevate). Avoid nerve blocks."
+      }
+    ]
+  }
+}

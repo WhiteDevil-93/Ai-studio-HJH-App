@@ -1,0 +1,22 @@
+{
+  "categoryId": "2_airway_and_ventilation",
+  "subcategoryId": "status_asthmaticus",
+  "slug": "aminophylline",
+  "order": 3,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Aminophylline",
+    "adult_dose": "5mg/kg IV over 30min",
+    "paediatric_dose": "5mg/kg IV over 30min",
+    "notes": "Check levels 12 hourly"
+  }
+}

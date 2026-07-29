@@ -1,0 +1,20 @@
+{
+  "sourceDoc": "CHBAH_ICU",
+  "pdfPages": [
+    1
+  ],
+  "item": "Ceftriaxone (CHBAH ICU)",
+  "categoryHint": "antimicrobials",
+  "protocol_type": "icu_dosing",
+  "clinical_features": {
+    "symptoms": []
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Dose",
+      "details": "Adult 1\u20132 g IVI 12\u201324 hrly; Paediatric 25\u201350 mg/kg IVI 12\u201324 hrly"
+    }
+  ],
+  "warnings": []
+}

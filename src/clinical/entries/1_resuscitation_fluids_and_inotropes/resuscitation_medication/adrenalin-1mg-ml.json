@@ -1,0 +1,21 @@
+{
+  "categoryId": "1_resuscitation_fluids_and_inotropes",
+  "subcategoryId": "resuscitation_medication",
+  "slug": "adrenalin-1mg-ml",
+  "order": 0,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Adrenalin (1mg/ml)",
+    "adult_dose": "1mg IV repeat every 3-5min",
+    "paediatric_dose": "10ug/kg IV OR 0.1ml/kg of 1:10 000 (1mg adrenaline/10ml normal saline)"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "sourceDoc": "CMJAH",
+  "pdfPages": [
+    5
+  ],
+  "item": "Acetylcholinesterase Inhibitor Overdose (Organophosphate/Carbamate) (CMJAH)",
+  "categoryHint": "toxicology",
+  "protocol_type": "ed_protocol",
+  "review_state": "unreviewed",
+  "clinical_features": {
+    "symptoms": [
+      "Muscarinic (DUMBELS): Diaphoresis/Diarrhoea, Urination, Miosis, Bradycardia/Bronchorrhoea/Bronchospasm, Emesis, Lacrimation, Salivation",
+      "Nicotinic: Fasciculations, Weakness, Hypertension, Tachycardia, Mydriasis",
+      "CNS: Anxiety, Ataxia, Restlessness, Confusion, Convulsions, Coma"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Immediate Management & Decontamination",
+      "details": "Universal precautions (PPE). Decontamination: remove clothing, wash patient thoroughly with soap and water. Supportive care of ABCs."
+    },
+    {
+      "step_number": "2",
+      "action": "Atropinisation",
+      "details": "STAT DOSE: Atropine 0.02-0.05mg/kg IV (can be given IM if no immediate IV access). Double every 5 minutes until atropinised ('escalating atropinisation'). INFUSION (start once atropinised): 0.02-0.08 mg/kg/hr (20mg Atropine in 200ml 0.9% NaCl [0.1mg/ml]) using Dial-a-flow or infusion pump, OR 10-20% of total dose already given per hour. END POINT = CLEARING OF RESPIRATORY SECRETIONS."
+    },
+    {
+      "step_number": "3",
+      "action": "Seizure Management",
+      "details": "Check blood glucose. Use a benzodiazepine only (Clonazepam, Diazepam, Lorazepam). NO anticonvulsant agents."
+    },
+    {
+      "step_number": "4",
+      "action": "Weakness & Respiratory Support",
+      "details": "Assess nicotinic weakness (head lift for 10 seconds, hand squeeze). Intubation and supportive management is required if weakness causes respiratory failure."
+    }
+  ],
+  "warnings": [
+    "If intubation is required, avoid succinylcholine if possible as it causes prolonged paralysis."
+  ]
+}

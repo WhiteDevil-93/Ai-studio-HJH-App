@@ -1,0 +1,31 @@
+{
+  "sourceDoc": "CMJAH",
+  "pdfPages": [
+    71
+  ],
+  "item": "Hypokalaemia (CMJAH)",
+  "categoryHint": "metabolic",
+  "protocol_type": "ed_protocol",
+  "review_state": "unreviewed",
+  "clinical_features": {
+    "symptoms": [
+      "Serum K+ < 3.5 mmol/l",
+      "ECG: T wave flattening, ST depression, prominent U waves, ventricular arrhythmias"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Standard Replacement Protocol",
+      "details": "40 mmol KCl + 2g MgSO4 in 200 ml 0.9% Normal Saline over 4 hours (infusion rate 50 ml/hr)."
+    },
+    {
+      "step_number": "2",
+      "action": "Life-Threatening Emergency Protocol",
+      "details": "20 mEq/mmol KCl (10ml) at 1 ml/min."
+    }
+  ],
+  "warnings": [
+    "Always correct Magnesium concurrently during Potassium replacement."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "sourceDoc": "CMJAH",
+  "pdfPages": [
+    51,
+    52,
+    53
+  ],
+  "item": "Difficult Airway Approach (CMJAH)",
+  "categoryHint": "airway",
+  "protocol_type": "ed_protocol",
+  "review_state": "unreviewed",
+  "clinical_features": {
+    "symptoms": [
+      "LEMON criteria: Look externally, Evaluate 3-3-2, Mallampati, Obstruction, Neck mobility"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Plan A -> Plan B -> Exit Strategy Execution",
+      "details": "Plan A: Direct/Video Laryngoscopy. Plan B: Supraglottic Airway Device (SGA/LMA). Exit Strategy: Surgical Airway."
+    },
+    {
+      "step_number": "2",
+      "action": "Surgical Airway / Cricothyrotomy Technique",
+      "details": "1. 4cm vertical midline skin incision.\n2. Stab incision through cricothyroid membrane.\n3. Insert little finger/bougie.\n4. Railroad size 6.0 ETT or tracheostomy tube."
+    }
+  ],
+  "warnings": [
+    "Failed airway: Call for senior help immediately upon Plan A failure."
+  ]
+}

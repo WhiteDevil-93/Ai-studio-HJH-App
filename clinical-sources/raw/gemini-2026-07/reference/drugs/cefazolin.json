@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "cefazolin",
+    "type": "drug",
+    "category": "4_antimicrobials_and_infectious_diseases",
+    "subcategory": "surgical_prophylaxis",
+    "title": "Cefazolin",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "condition_or_drug": "Cefazolin",
+    "adult_dose": "2g IV within 60min of skin incision",
+    "paediatric_dose": "50mg/kg IV",
+    "notes_updates": "Dose increased from 1g to 2g (2024 update)"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "categoryId": "14_ed_metabolic",
+  "subcategoryId": "protocols",
+  "slug": "thyroid-emergencies-thyroid-storm-myxoedema",
+  "order": 3,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Thyroid Emergencies (Thyroid Storm & Myxoedema)",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Thyroid Storm (Severe Thyrotoxicosis)",
+        "details": "Hyperthermia, tachycardia, altered mental GCS, heart failure. Diagnosis is CLINICAL (Burch-Wartofsky score >=45), do not wait for TSH! Give Propranolol 60-80mg PO q4h. Give PTU 600-1000mg PO loading dose, then 300mg q6h. Give Hydrocortisone 100mg IV q8h. Give Lugol's iodine 4-8 drops PO q6h (start 60 mins AFTER anti-thyroid drug to prevent thyroid hormone release)."
+      },
+      {
+        "step_number": "2",
+        "action": "Myxoedema Coma (Severe Hypothyroidism)",
+        "details": "Bradycardia, hypothermia, GCS stupor, hypotension, hyponatraemia, sepsis trigger. Urgent treatment: give Levothyroxine (Eltroxin) 300-500 mcg IV loading dose, then 50 mcg daily. Give Hydrocortisone 100mg IV q8h (covers concomitant adrenal insufficiency). Perform gentle active rewarming."
+      }
+    ]
+  }
+}

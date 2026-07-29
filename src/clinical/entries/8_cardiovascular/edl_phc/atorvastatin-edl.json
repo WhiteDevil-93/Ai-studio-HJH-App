@@ -1,0 +1,56 @@
+{
+  "categoryId": "8_cardiovascular",
+  "subcategoryId": "edl_phc",
+  "slug": "atorvastatin-edl",
+  "order": 1003,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      50,
+      51,
+      52,
+      55,
+      56
+    ],
+    "sectionTitle": "Atorvastatin (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Atorvastatin (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Prevention of ischaemic heart disease and atherosclerosis",
+        "Protease inhibitor-induced dyslipidaemia",
+        "Stable angina",
+        "NSTEMI",
+        "STEMI"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Oral tablets, 10 mg."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Oral, 10 mg at night (or 10 mg daily for stable angina)."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Indicated for patients on protease inhibitors or high-risk patients failing to respond to lifestyle modification with dyslipidaemia on atazanavir/ritonavir."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "Oral tablets, 10 mg.",
+    "notes_updates": "Indicated for patients on protease inhibitors or high-risk patients failing to respond to lifestyle modification with dyslipidaemia on atazanavir/ritonavir.",
+    "adult_dose": "Dose / Rate Range: Oral, 10 mg at night (or 10 mg daily for stable angina)."
+  }
+}

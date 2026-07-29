@@ -1,0 +1,35 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    3,
+    4
+  ],
+  "item": "Nystatin (EDL)",
+  "categoryHint": "antimicrobials",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Oral candidiasis (thrush)"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Suspension, oral, 100 000 IU/mL."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "1 mL 6 hourly after each meal/feed for 7 days."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Keep in contact with the affected area for as long as possible prior to swallowing. In older children, ask the child to swirl in the mouth, prior to swallowing. In infants, advise mothers to apply to front of the mouth and spread over the oral mucosa with a clean finger. Continue for 48 hours after cure."
+    }
+  ],
+  "warnings": [
+    "In PLHIV candidiasis may involve the oesophagus as well as the mouth. Pain and difficulty in swallowing in an HIV-infected patient with oral candidiasis suggest oesophageal involvement, which requires systemic treatment with fluconazole."
+  ]
+}

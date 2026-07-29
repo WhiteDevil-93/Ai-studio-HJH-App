@@ -1,0 +1,22 @@
+{
+  "categoryId": "3_sedation_analgesia_and_neurology",
+  "subcategoryId": "analgesia",
+  "slug": "fentanyl",
+  "order": 1,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "drug": "Fentanyl",
+    "adult_dose": "1-2ug/kg IV; 1-2ug/kg/hr",
+    "paediatric_dose": "1-2ug/kg IV; 0.5-2ug/kg/hr",
+    "notes_updates": "Good for renal failure or unstable BP"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "categoryId": "4_antimicrobials_and_infectious_diseases",
+  "subcategoryId": "edl_phc",
+  "slug": "doxycycline-edl",
+  "order": 1012,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      79
+    ],
+    "sectionTitle": "Doxycycline (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Doxycycline (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Moderate inflammatory acne"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Oral capsules/tablets, 100 mg."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "100 mg daily for 3 months."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Review patient after 3 months. Take with meals. Do not take together with iron preparations and antacids. Always use with a topical agent and not as monotherapy."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "Oral capsules/tablets, 100 mg.",
+    "notes_updates": "Review patient after 3 months. Take with meals. Do not take together with iron preparations and antacids. Always use with a topical agent and not as monotherapy.",
+    "adult_dose": "Dose / Rate Range: 100 mg daily for 3 months."
+  }
+}

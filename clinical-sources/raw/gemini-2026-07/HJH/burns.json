@@ -1,0 +1,32 @@
+{
+  "_meta": {
+    "id": "burns",
+    "type": "protocol",
+    "category": "13_ed_trauma_surgical",
+    "subcategory": "protocols",
+    "title": "Burns",
+    "source_doc": "HJH ED 2026 / CMJAH / Bara ICU",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Burns",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Primary survey & Airway management",
+        "details": "Look for inhalation injury indicators: stridor, facial/neck burns, carbonaceous sputum"
+      },
+      {
+        "step_number": "2",
+        "action": "Fluid Resuscitation via Modified Brooke Formula",
+        "details": "Formula: 2ml x %burn x Weight (kg) of Ringer's Lactate/Balsol. Give half over first 8 hours, half over next 16 hours. Indicated for adults >20% TBSA, children >15%."
+      },
+      {
+        "step_number": "3",
+        "action": "Clean, assess and dress wounds",
+        "details": "Clean with sterile saline, debride blisters. Apply Jelonet and gauze. Face: Chloromex ointment (no dressing)."
+      }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    10
+  ],
+  "item": "Morphine (EDL)",
+  "categoryHint": "resuscitation",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Renal and biliary colic or acute surgical abdomen"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "IM: 5-10 mg. IV: Dilute 10 mg up to 10 mL with sodium chloride, 0.9%."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "IM: 5-10 mg (Doctor prescribed), may be repeated after 4-6 hours if needed or until patient is referred. IV: Administer 3-5 mg as a single dose, then further boluses of 1-2 mg/minute. Total maximum as a single dose: 10 mg. Repeat after 4 hours if needed or until patient is referred."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Monitor response to pain and effects on respiration and BP. Doctor prescribed."
+    }
+  ],
+  "warnings": []
+}

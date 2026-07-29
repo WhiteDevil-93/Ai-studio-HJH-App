@@ -1,0 +1,50 @@
+{
+  "categoryId": "17_phc_primary_care",
+  "subcategoryId": "phc_general",
+  "slug": "calamine-lotion-edl",
+  "order": 1001,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      77,
+      99
+    ],
+    "sectionTitle": "Calamine lotion (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Calamine lotion (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Itching (pruritus)",
+        "Urticaria"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Topical lotion."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Apply when needed / applied on the skin."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Symptomatic relief for itching."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "Topical lotion.",
+    "notes_updates": "Symptomatic relief for itching.",
+    "adult_dose": "Dose / Rate Range: Apply when needed / applied on the skin."
+  }
+}

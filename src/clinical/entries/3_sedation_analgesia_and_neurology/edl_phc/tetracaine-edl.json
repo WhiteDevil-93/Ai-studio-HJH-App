@@ -1,0 +1,51 @@
+{
+  "categoryId": "3_sedation_analgesia_and_neurology",
+  "subcategoryId": "edl_phc",
+  "slug": "tetracaine-edl",
+  "order": 1004,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      7
+    ],
+    "sectionTitle": "Tetracaine (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Tetracaine (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Extensive oral herpes",
+        "Minor aphthous ulcers"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Topical, 0.5%."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Applied every 6 hours. Apply a thin layer on the affected areas only (may be used inside mouth)."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "For children > 6 years of age and adults."
+      }
+    ],
+    "warnings": [
+      "Safety in children < 6 years of age has not been established."
+    ],
+    "standard_dilutions": "Topical, 0.5%.",
+    "notes_updates": "For children > 6 years of age and adults.",
+    "adult_dose": "Dose / Rate Range: Applied every 6 hours. Apply a thin layer on the affected areas only (may be used inside mouth)."
+  }
+}

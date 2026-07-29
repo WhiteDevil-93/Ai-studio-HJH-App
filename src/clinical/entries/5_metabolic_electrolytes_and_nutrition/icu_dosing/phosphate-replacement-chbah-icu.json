@@ -1,0 +1,34 @@
+{
+  "categoryId": "5_metabolic_electrolytes_and_nutrition",
+  "subcategoryId": "icu_dosing",
+  "slug": "phosphate-replacement-chbah-icu",
+  "order": 1004,
+  "source": {
+    "sourceId": "chbah-icu-dosing-card-2024",
+    "pdfPages": [],
+    "sectionTitle": "Phosphate replacement (CHBAH ICU)",
+    "transformation": "externally-sourced",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "chbah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Phosphate replacement (CHBAH ICU)",
+    "protocol_type": "icu_dosing",
+    "clinical_features": {
+      "symptoms": [
+        "Electrolyte replacement"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "IV phosphate",
+        "details": "KPO4 20–40 mmol IV into maintenance; Paediatric 0.16–0.24 mmol/kg/day"
+      }
+    ],
+    "warnings": [],
+    "adult_dose": "IV phosphate: KPO4 20–40 mmol IV into maintenance; Paediatric 0.16–0.24 mmol/kg/day"
+  }
+}

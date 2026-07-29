@@ -1,0 +1,48 @@
+{
+  "categoryId": "8_cardiovascular",
+  "subcategoryId": "edl_phc",
+  "slug": "isosorbide-mononitrate-edl",
+  "order": 1009,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      51
+    ],
+    "sectionTitle": "Isosorbide mononitrate (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Isosorbide mononitrate (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Stable angina"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Oral tablets (10 mg, 20 mg)."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "10-20 mg twice daily."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Take at 8:00 and 14:00 in order to provide a nitrate-free period to prevent tolerance. Modify for night shift workers."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "Oral tablets (10 mg, 20 mg).",
+    "notes_updates": "Take at 8:00 and 14:00 in order to provide a nitrate-free period to prevent tolerance. Modify for night shift workers.",
+    "adult_dose": "Dose / Rate Range: 10-20 mg twice daily."
+  }
+}

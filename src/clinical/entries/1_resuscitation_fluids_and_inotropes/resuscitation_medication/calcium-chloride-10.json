@@ -1,0 +1,21 @@
+{
+  "categoryId": "1_resuscitation_fluids_and_inotropes",
+  "subcategoryId": "resuscitation_medication",
+  "slug": "calcium-chloride-10",
+  "order": 3,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Calcium Chloride (10%)",
+    "adult_dose": "1g IV (10ml) slowly",
+    "paediatric_dose": "0.2ml/kg IV slowly (max 10ml)"
+  }
+}

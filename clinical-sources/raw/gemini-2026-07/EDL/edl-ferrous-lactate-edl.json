@@ -1,0 +1,32 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    34
+  ],
+  "item": "Ferrous lactate (EDL)",
+  "categoryHint": "metabolic",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Iron prophylaxis in preterm infants"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Oral drops, 25 mg/mL (provides approx. 1 mg elemental iron per 0.04 mL, or 25 mg elemental iron per mL)."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Oral, 0.6 mL daily (provides approx. 15 mg elemental iron) until 6 months of age."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Prophylaxis for infants from 6 weeks if < 2.5 kg at birth."
+    }
+  ],
+  "warnings": []
+}

@@ -1,0 +1,32 @@
+{
+  "categoryId": "12_ed_toxicology",
+  "subcategoryId": "protocols",
+  "slug": "warfarin-toxicity",
+  "order": 7,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Warfarin Toxicity",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Uncontrolled/Life-Threatening Bleed",
+        "details": "Triage to RESUS. Send INR. Administer 4-Factor PCC (Haemosolvex) 25-50 IU/kg IV. If PCC unavailable, FFP 10-15 ml/kg IV. Give Vitamin K 5-10mg IV slow infusion. Recheck INR in 30 mins."
+      },
+      {
+        "step_number": "2",
+        "action": "High INR without Bleeding",
+        "details": "INR 3-4.5: omit/lower next dose. INR 4.5-10: stop, give oral Vit K 1-2.5mg if high bleeding risk. INR > 10: stop, give oral Vit K 2.5-5mg. Resume at lower dose once therapeutic."
+      }
+    ]
+  }
+}

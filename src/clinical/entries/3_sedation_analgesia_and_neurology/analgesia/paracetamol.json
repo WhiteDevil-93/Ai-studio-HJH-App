@@ -1,0 +1,22 @@
+{
+  "categoryId": "3_sedation_analgesia_and_neurology",
+  "subcategoryId": "analgesia",
+  "slug": "paracetamol",
+  "order": 2,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "drug": "Paracetamol",
+    "adult_dose": "1g IV 6-hourly",
+    "paediatric_dose": "15mg/kg IV 6-hourly",
+    "notes_updates": "Multimodal analgesia component"
+  }
+}

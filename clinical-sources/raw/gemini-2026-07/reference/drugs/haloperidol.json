@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "haloperidol",
+    "type": "drug",
+    "category": "3_sedation_analgesia_and_neurology",
+    "subcategory": "seizures",
+    "title": "Haloperidol",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "drug": "Haloperidol",
+    "adult_dose": "2.5-10mg IM",
+    "paediatric_dose": "0.15mg/kg",
+    "notes_updates": "Antipsychotic for severe agitation or delirium"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "categoryId": "7_useful_formulae",
+  "subcategoryId": "formulae",
+  "slug": "corrected-na",
+  "order": 10,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "category": "HJH ED Protocol — Metabolic",
+    "item": "Corrected Na",
+    "formula": "Page 92: Na + [1.6 x (Glucose - 5.5) / 5.5] for glucose 11-22; use 2.4 if glucose >22",
+    "standard_dilutions": "Page 97: Na + [2.4 x (Glucose - 5.4) / 5.4]"
+  }
+}

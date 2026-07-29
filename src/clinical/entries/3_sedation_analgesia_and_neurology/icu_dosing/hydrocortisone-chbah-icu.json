@@ -1,0 +1,35 @@
+{
+  "categoryId": "3_sedation_analgesia_and_neurology",
+  "subcategoryId": "icu_dosing",
+  "slug": "hydrocortisone-chbah-icu",
+  "order": 1004,
+  "source": {
+    "sourceId": "chbah-icu-dosing-card-2024",
+    "pdfPages": [],
+    "sectionTitle": "Hydrocortisone (CHBAH ICU)",
+    "transformation": "externally-sourced",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "chbah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Hydrocortisone (CHBAH ICU)",
+    "protocol_type": "icu_dosing",
+    "clinical_features": {
+      "symptoms": [
+        "Steroid"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Dose",
+        "details": "Adult 100–500 mg 6 hrly; Paediatric 2–4 mg/kg 6 hrly. Alternative: 0.5–1 mg/kg/dose IVI 6 hrly (adult) / 1–2 mg/kg/dose IVI 6 hrly (paeds)"
+      }
+    ],
+    "warnings": [],
+    "adult_dose": "100–500 mg 6 hrly",
+    "paediatric_dose": "2–4 mg/kg 6 hrly. Alternative: 0.5–1 mg/kg/dose IVI 6 hrly (adult) / 1–2 mg/kg/dose IVI 6 hrly (paeds)"
+  }
+}

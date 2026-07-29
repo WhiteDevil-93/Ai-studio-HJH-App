@@ -1,0 +1,34 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    87
+  ],
+  "item": "Fluconazole (EDL)",
+  "categoryHint": "antimicrobials",
+  "protocol_type": "weight_based_dose",
+  "clinical_features": {
+    "symptoms": [
+      "Tinea capitis (scalp infections)"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Oral formulation."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Children: 6 mg/kg once daily for 28 days. Adults: 200 mg weekly for 6 weeks."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Do not give to women of child-bearing age unless they are on effective contraception."
+    }
+  ],
+  "warnings": [
+    "Do not give to women of child-bearing age unless they are on effective contraceptive."
+  ]
+}

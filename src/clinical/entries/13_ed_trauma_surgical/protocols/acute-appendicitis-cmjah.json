@@ -1,0 +1,49 @@
+{
+  "categoryId": "13_ed_trauma_surgical",
+  "subcategoryId": "protocols",
+  "slug": "acute-appendicitis-cmjah",
+  "order": 1000,
+  "source": {
+    "sourceId": "cmjah-ed-protocols-2020-v2",
+    "pdfPages": [
+      6
+    ],
+    "sectionTitle": "Acute Appendicitis (CMJAH)",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "cmjah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Acute Appendicitis (CMJAH)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "Alvarado Score criteria: Migratory RIF pain (1), Anorexia (1), Nausea/Vomiting (1), RIF tenderness (2), Rebound tenderness (1), Fever (1), Leucocytosis (2), Neutrophilic left shift (1). Total 10.",
+        "Paediatric Appendicitis Score (PAS): Cough/Percussion/Hopping tenderness (2), RLQ tenderness (2), Anorexia (1), Fever (1), Nausea/Vomiting (1), WBC > 10 (1), Neutrophilia (1), Migration to RLQ (1). Total 10."
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Resuscitation & Fluids",
+        "details": "Hypovolaemia: 20 ml/kg Balsol/Ringers Lactate. Septic shock: 20 ml/kg Balsol/Ringers Lactate + Augmentin 30mg/kg IV."
+      },
+      {
+        "step_number": "2",
+        "action": "Analgesia & Antiemetic",
+        "details": "Analgesia: Morphine 0.1mg/kg IV. Antiemetic: Maxolon 0.1mg/kg (not in children < 1 years old)."
+      },
+      {
+        "step_number": "3",
+        "action": "Investigations & Referral",
+        "details": "Bedside: U-dipstix on all patients, U-BHCG on all female patients. Laboratory: FBC/CRP/U&E. Radiological: Graded compression ultrasound/CT; CXR erect if perforation is suspected. Urgent Surgical consultation."
+      }
+    ],
+    "warnings": [
+      "Maxolon is contraindicated in children < 1 years old.",
+      "Patients in the low risk group do not have a zero risk. Treat according to clinical judgment."
+    ]
+  }
+}

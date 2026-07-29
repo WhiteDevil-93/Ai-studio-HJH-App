@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "enoxaparin_clexane",
+    "type": "drug",
+    "category": "8_cardiovascular",
+    "subcategory": "anticoagulation",
+    "title": "Enoxaparin (Clexane)",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "drug": "Enoxaparin (Clexane)",
+    "adult_dose": "1mg/kg SC 12hrly",
+    "paediatric_dose": "1mg/kg SC 12hrly",
+    "notes_updates": "Anti-Xa monitoring in renal impairment, pregnancy"
+  }
+}

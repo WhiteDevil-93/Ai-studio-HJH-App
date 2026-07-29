@@ -1,0 +1,53 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "croup-laryngotracheobronchitis-rmmch",
+  "order": 1023,
+  "source": {
+    "sourceId": "rmmch-paediatric-protocols",
+    "pdfPages": [
+      100
+    ],
+    "sectionTitle": "Croup (Laryngotracheobronchitis) (RMMCH)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "rmmch",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Croup (Laryngotracheobronchitis) (RMMCH)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "Inspiratory stridor, barking cough, hoarseness, chest retractions.",
+        "Severity: Mild, Moderate, Severe, Imminent Respiratory Failure."
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Mild Croup",
+        "details": "Oral steroids (Dexamethasone). No need for observation in EC. Discharge home with advice."
+      },
+      {
+        "step_number": "2",
+        "action": "Moderate Croup",
+        "details": "Oral steroids. Adrenaline neb 0.5ml/kg 1:1000 (max 5ml). Can repeat after 10-15 mins if still symptomatic. Observe in EC for 2-4 hours."
+      },
+      {
+        "step_number": "3",
+        "action": "Severe Croup",
+        "details": "Oral/IM/IV steroids. Adrenaline neb 0.5ml/kg 1:1000 (max 5ml) repeat as required. Refer to Paeds for admission to PICU or Paeds High Care."
+      },
+      {
+        "step_number": "4",
+        "action": "Imminent Respiratory Failure",
+        "details": "Manage ABC, Give Ox, Adrenaline neb 5ml 1:1000, IV/IM steroids. Call for help. Prepare to intubate with RSI. Repeat adrenaline neb as required."
+      }
+    ],
+    "warnings": [
+      "Sit child on parent's lap — minimal handling approach to avoid precipitating complete airway obstruction."
+    ]
+  }
+}

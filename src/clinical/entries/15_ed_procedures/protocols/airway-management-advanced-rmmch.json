@@ -1,0 +1,57 @@
+{
+  "categoryId": "15_ed_procedures",
+  "subcategoryId": "protocols",
+  "slug": "airway-management-advanced-rmmch",
+  "order": 1001,
+  "source": {
+    "sourceId": "rmmch-paediatric-protocols",
+    "pdfPages": [
+      5
+    ],
+    "sectionTitle": "Airway management - advanced (RMMCH)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "rmmch",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Airway management - advanced (RMMCH)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "Indications for Advanced Airway: Oxygenation concern, Ventilation failure, Airway protection required (NOT GCS BASED), Predicted clinical course or need, Not able to maintain with basic manoeuvres"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Resuscitate the patient FIRST (EMOVA)",
+        "details": "1. Hypoxia is a concern: Pre-oxygenation steps done. Not able to do pre-ox? DSI. 2. Hypotension is a concern: Stop the bleed. Fluid bolus / consider blood products + TXA if bleeding. Push-dose pressor / dirty adrenalin or infusion. 3. CHF/COPD/Asthma: TRY NOT TO INTUBATE. NIV First. 4. Increased ICP: Consider RSI as primary approach. Be careful with high PEEP (<10cmH2O) BUT AVOID causing SBP < 110, SpO2 < 94%, CO2 < 35 or > 45mmHg. 5. Metabolic Acidosis: Don't let the patient become apneic. Consider Awake intubation/KOBI (try to avoid paralytic if possible). If paralyzed, continue ventilation post paralytic. Post intubation ventilation to match physiology (faster than usual)."
+      },
+      {
+        "step_number": "2",
+        "action": "Optimise the patient",
+        "details": "Position: Head and torso raised, Sniffing position, Ramp (high BMI / pregnant), Dentures (in for BVM, out for ETT). Predict: Will this airway be anatomically difficult? Prepare rescue and surgical options early. Will this airway be physiologically difficult? Go to resuscitate block first."
+      },
+      {
+        "step_number": "3",
+        "action": "Preoxygenate",
+        "details": "Nasal Cannula 15 l/min (AP-Ox), BVM or NRB 15 l/min, PEEP 15cmH2O if relevant."
+      },
+      {
+        "step_number": "4",
+        "action": "Optimise environment, team + equipment",
+        "details": "Practitioner: Block breathing (breath in for 3 seconds, hold for 3 seconds and out for 3 seconds to calm yourself) and visualise success. Correct bed height, cockpit ready, equipment in reach. Equipment Checklist MIDSOLES (challenge/response). Team: clear roles and responsibilities. Brief the team include all plan options (Plan A, B, C and D). Prepare equipment for each plan. Oxygenation champion appointed. Criteria: When will the attempt be aborted? What are the criteria to move to plan B, C or D?"
+      },
+      {
+        "step_number": "5",
+        "action": "Medications & Placement",
+        "details": "Administer the medications: Induction Agent, Paralytic (prepare even if not in Plan A), Pressor push dose/infusion, Post Intubation analgesia and sedation. Place the airway and confirm placement. Start assessment again ABCDE. Aim: ALVEOLAR VENTILATION through whichever means possible (ETT, BVM, LMA, Surgical Cric / FONA)."
+      }
+    ],
+    "warnings": [
+      "For increased ICP, AVOID causing: SBP less than 110, SPO2 < 94%, CO2 < 35 or > 45mmHg."
+    ]
+  }
+}

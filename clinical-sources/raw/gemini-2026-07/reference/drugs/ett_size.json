@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "ett_size",
+    "type": "drug",
+    "category": "2_airway_and_ventilation",
+    "subcategory": "intubation",
+    "title": "ETT Size",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "item": "ETT Size",
+    "adult_settings": "Male: 7.5 - 8.5, Female: 6.5 - 7.5",
+    "paediatric_settings": ">1 year: 4 + (Age in years)/4, <1 year: 3.0 - 4.0"
+  }
+}

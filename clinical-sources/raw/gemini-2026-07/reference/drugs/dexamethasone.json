@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "dexamethasone",
+    "type": "drug",
+    "category": "10_endocrine_and_other",
+    "subcategory": "steroids",
+    "title": "Dexamethasone",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "drug": "Dexamethasone",
+    "adult_dose": "4-8mg IV/PO 6hrly",
+    "paediatric_dose": "0.15-0.3mg/kg IV/PO 6hrly",
+    "notes_updates": "Raised ICP, airway oedema, croup"
+  }
+}

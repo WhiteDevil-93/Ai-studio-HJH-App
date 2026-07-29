@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "dexmedetomidine",
+    "type": "drug",
+    "category": "3_sedation_analgesia_and_neurology",
+    "subcategory": "sedation",
+    "title": "Dexmedetomidine",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "drug": "Dexmedetomidine",
+    "adult_dose": "Load: 1ug/kg (10min), Maint: 0.2-0.7 ug/kg/hr",
+    "paediatric_dose": "Same as Adult",
+    "notes_updates": ""
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "categoryId": "12_ed_toxicology",
+  "subcategoryId": "protocols",
+  "slug": "organophosphate-carbamate-overdose",
+  "order": 2,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Organophosphate / Carbamate Overdose",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Identify Symptoms & Signs",
+        "details": "Muscarinic (DUMBELS): Diaphoresis, Urination, Miosis, Bradycardia/bronchorrhoea, Emesis, Lacrimation, Salivation. Nicotinic: Fasciculations, weakness, HT, tachycardia, mydriasis. CNS: seizures, coma."
+      },
+      {
+        "step_number": "2",
+        "action": "Decontamination & Airway",
+        "details": "Universal precautions. Remove clothing, wash skin with soap and water. If intubation required, avoid succinylcholine (causes prolonged paralysis)."
+      },
+      {
+        "step_number": "3",
+        "action": "Atropine Dosing (Stat & Infusion)",
+        "details": "Atropine 0.04-0.05 mg/kg IV stat (3-5mg adult). Double every 5 mins until atropinised. Infusion: 200mg Atropine in 200ml saline (1mg/ml), run at 10-20% of total dose already given/hr."
+      },
+      {
+        "step_number": "4",
+        "action": "Manage Seizures & Weakness",
+        "details": "Benzodiazepines only for seizures (No phenytoin). Monitor and correct electrolytes. Weakness (nicotinic symptom) may require prolonged intubation."
+      }
+    ],
+    "warnings": [
+      "Thrombolytic / Antidote Endpoint: CLEARING OF RESPIRATORY SECRETIONS (Atropinisation), NOT tachycardia or pupil size."
+    ]
+  }
+}

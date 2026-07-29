@@ -1,0 +1,46 @@
+{
+  "categoryId": "17_phc_primary_care",
+  "subcategoryId": "dental_and_oral",
+  "slug": "herpes-simplex-infections-of-the-mouth-and-lips-edl",
+  "order": 1005,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      7
+    ],
+    "sectionTitle": "Herpes simplex infections of the mouth and lips (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Herpes simplex infections of the mouth and lips (EDL)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "Acute, painful vesicular eruptions of the lips or ulcerations of the lips and mouth caused by Herpes simplex virus",
+        "Shallow, painful ulcers on the lips, gingiva, tongue and pharynx",
+        "Pain exacerbated by eating",
+        "Self-limiting infection with symptoms subsiding within 10 days"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "General measures",
+        "details": "Rinse mouth with homemade salt mouthwash for one minute twice daily (i.e. 1 1/2 medicine measure of table salt in a glass of lukewarm water). Ensure adequate hydration. Fluid diet for children. Avoid acidic drinks, e.g. orange juice or soft drinks, as they may cause pain."
+      },
+      {
+        "step_number": "2",
+        "action": "Medicine treatment",
+        "details": "Cover lesions on the lips with petroleum jelly. Pain: Children: Paracetamol, oral, 10-15 mg/kg/dose 6 hourly when required. See dosing table: Chapter 23. Adults: Paracetamol, oral, 500 mg to 1 g, 4 to 6 hourly as required (to a maximum of 4 g in 24 hours). Maximum dose: 15 mg/kg/dose. Extensive oral herpes (Children > 6 years and adults): Tetracaine 0.5%, topical, applied every 6 hours (apply thin layer on affected areas only, may be used inside mouth; note: safety in children < 6 years has not been established). Antiviral indication criteria: children with extensive oral herpes provided treatment started within 72 hours of symptom onset; PLHIV with herpes infections of lips or mouth. Children < 15 years: Aciclovir, oral, 250 mg/m2/dose, 8 hourly for 7 days. See dosing table, Chapter 23. Children >= 15 years and adults: Antiviral (active against herpes simplex) e.g., Aciclovir, oral, 400 mg, 8 hourly for 7 days."
+      }
+    ],
+    "warnings": [
+      "Note: Safety of tetracaine in children < 6 years of age has not been established.",
+      "REFERRAL: Severe condition, dehydrated patients, no improvement after 1 week of treatment."
+    ]
+  }
+}

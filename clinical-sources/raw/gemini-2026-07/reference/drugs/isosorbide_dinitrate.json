@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "isosorbide_dinitrate",
+    "type": "drug",
+    "category": "7_useful_formulae",
+    "subcategory": "formulae",
+    "title": "Isosorbide Dinitrate",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "category": "HJH ED Protocol \u2014 Infusions",
+    "item": "Isosorbide Dinitrate",
+    "formula": "Dose / prepared concentration",
+    "standard_dilutions": "20mg in 200ml (0.1mg/ml); protocol also lists 100mg in 200ml (0.5mg/ml)"
+  }
+}

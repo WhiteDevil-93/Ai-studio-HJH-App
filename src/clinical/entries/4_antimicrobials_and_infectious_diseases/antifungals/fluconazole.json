@@ -1,0 +1,22 @@
+{
+  "categoryId": "4_antimicrobials_and_infectious_diseases",
+  "subcategoryId": "antifungals",
+  "slug": "fluconazole",
+  "order": 0,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "condition_or_drug": "Fluconazole",
+    "adult_dose": "Loading: 800mg IV/PO; Maint: 400mg IV/PO daily",
+    "paediatric_dose": "Loading: 12mg/kg; Maint: 6-12mg/kg daily",
+    "notes_updates": "Not for Aspergillus"
+  }
+}

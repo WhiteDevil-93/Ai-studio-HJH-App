@@ -1,0 +1,138 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "gcs",
+  "slug": "gcs",
+  "order": 0,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "gcs",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "Glasgow Coma Scale",
+    "category": "neurological",
+    "source_pages": [
+      89
+    ],
+    "components": [
+      {
+        "name": "Eye Opening",
+        "key": "eye",
+        "options": [
+          {
+            "value": 4,
+            "label": "Spontaneous",
+            "desc": "Eyes open spontaneously"
+          },
+          {
+            "value": 3,
+            "label": "To speech",
+            "desc": "Eyes open to verbal command"
+          },
+          {
+            "value": 2,
+            "label": "To pain",
+            "desc": "Eyes open to pressure/pain"
+          },
+          {
+            "value": 1,
+            "label": "None",
+            "desc": "No eye opening"
+          }
+        ]
+      },
+      {
+        "name": "Verbal Response",
+        "key": "verbal",
+        "options": [
+          {
+            "value": 5,
+            "label": "Oriented",
+            "desc": "Oriented to time, place, person"
+          },
+          {
+            "value": 4,
+            "label": "Confused",
+            "desc": "Confused, disorientated speech"
+          },
+          {
+            "value": 3,
+            "label": "Inappropriate",
+            "desc": "Inappropriate words only"
+          },
+          {
+            "value": 2,
+            "label": "Incomprehensible",
+            "desc": "Incomprehensible sounds/moans"
+          },
+          {
+            "value": 1,
+            "label": "None",
+            "desc": "No verbal response"
+          }
+        ]
+      },
+      {
+        "name": "Motor Response",
+        "key": "motor",
+        "options": [
+          {
+            "value": 6,
+            "label": "Obeys commands",
+            "desc": "Follows simple verbal instructions"
+          },
+          {
+            "value": 5,
+            "label": "Localises pain",
+            "desc": "Localises to painful stimulus (e.g. supraorbital pressure)"
+          },
+          {
+            "value": 4,
+            "label": "Withdraws",
+            "desc": "Normal withdrawal from painful stimulus"
+          },
+          {
+            "value": 3,
+            "label": "Flexion abnormal",
+            "desc": "Abnormal flexion (decorticate posturing)"
+          },
+          {
+            "value": 2,
+            "label": "Extension",
+            "desc": "Abnormal extension (decerebrate posturing)"
+          },
+          {
+            "value": 1,
+            "label": "None",
+            "desc": "No motor response"
+          }
+        ]
+      }
+    ],
+    "interpretation": [
+      {
+        "min": 13,
+        "max": 15,
+        "label": "Mild head injury",
+        "action": "Observe closely. Perform CT head if risk factors present."
+      },
+      {
+        "min": 9,
+        "max": 12,
+        "label": "Moderate head injury",
+        "action": "Urgent CT Head and Neurosurgical consultation required."
+      },
+      {
+        "min": 3,
+        "max": 8,
+        "label": "Severe head injury",
+        "action": "Intubate for airway protection. Urgent CT head and neurosurgical intervention."
+      }
+    ]
+  }
+}

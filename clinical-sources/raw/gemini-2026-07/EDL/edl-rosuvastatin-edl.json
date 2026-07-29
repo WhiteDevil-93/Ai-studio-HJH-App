@@ -1,0 +1,39 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    50,
+    51,
+    52,
+    55,
+    56
+  ],
+  "item": "Rosuvastatin (EDL)",
+  "categoryHint": "cardiovascular",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Secondary prevention of cardiovascular disease / ischaemic heart disease",
+      "Stable angina",
+      "NSTEMI",
+      "STEMI"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Oral tablets, 10 mg."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Oral, 10 mg at night."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Indicated for secondary prevention (existing CVD, ischaemic heart disease, atherothrombotic stroke, peripheral vascular disease)."
+    }
+  ],
+  "warnings": []
+}

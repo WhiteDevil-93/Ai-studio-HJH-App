@@ -1,0 +1,24 @@
+{
+  "categoryId": "1_resuscitation_fluids_and_inotropes",
+  "subcategoryId": "inotropes",
+  "slug": "adrenaline",
+  "order": 1,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      109
+    ],
+    "sectionTitle": "Adrenaline",
+    "transformation": "condensed",
+    "verification": "preview"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Adrenaline",
+    "adult_dose": "1 mg IV (Resus) every 3-5 min; 0.05-1 ug/kg/min (Infusion)",
+    "paediatric_dose": "10ug/kg IV OR 0.1ml/kg of 1:10 000",
+    "notes_updates": "Second-line for septic shock if MAP targets not met with Noradrenaline."
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "categoryId": "4_antimicrobials_and_infectious_diseases",
+  "subcategoryId": "gram_positive",
+  "slug": "linezolid",
+  "order": 1,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "condition_or_drug": "Linezolid",
+    "adult_dose": "600mg IV/PO 12hrly",
+    "paediatric_dose": "10mg/kg IV/PO 8hrly (<12yr)",
+    "notes_updates": "Monitor FBC (myelosuppression)"
+  }
+}

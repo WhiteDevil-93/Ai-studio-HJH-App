@@ -1,0 +1,22 @@
+{
+  "categoryId": "5_metabolic_electrolytes_and_nutrition",
+  "subcategoryId": "vitamins",
+  "slug": "vitamin-b1-thiamine",
+  "order": 0,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Vitamin B1 (Thiamine)",
+    "adult_dose": "100mg IV/IM daily",
+    "paediatric_dose": "10-25mg IV/IM daily",
+    "notes": "Give BEFORE glucose in malnourished/alcoholic patients"
+  }
+}

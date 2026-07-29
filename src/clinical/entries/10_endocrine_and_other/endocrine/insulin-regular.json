@@ -1,0 +1,22 @@
+{
+  "categoryId": "10_endocrine_and_other",
+  "subcategoryId": "endocrine",
+  "slug": "insulin-regular",
+  "order": 0,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "drug": "Insulin (Regular)",
+    "adult_dose": "0.1units/kg/hr IV infusion",
+    "paediatric_dose": "0.05-0.1units/kg/hr IV",
+    "notes_updates": "Check glucose hourly. Hold if K+ <3.3"
+  }
+}

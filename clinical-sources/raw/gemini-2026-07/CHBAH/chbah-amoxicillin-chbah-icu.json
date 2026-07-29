@@ -1,0 +1,20 @@
+{
+  "sourceDoc": "CHBAH_ICU",
+  "pdfPages": [
+    1
+  ],
+  "item": "Amoxicillin (CHBAH ICU)",
+  "categoryHint": "antimicrobials",
+  "protocol_type": "icu_dosing",
+  "clinical_features": {
+    "symptoms": []
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Dose",
+      "details": "Adult 1\u20132 g IVI 6 hrly; Paediatric 50 mg/kg IVI 6 hrly"
+    }
+  ],
+  "warnings": []
+}

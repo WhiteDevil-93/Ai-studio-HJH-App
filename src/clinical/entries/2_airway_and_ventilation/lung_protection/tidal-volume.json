@@ -1,0 +1,21 @@
+{
+  "categoryId": "2_airway_and_ventilation",
+  "subcategoryId": "lung_protection",
+  "slug": "tidal-volume",
+  "order": 1,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Tidal Volume",
+    "adult_settings": "6 - 8ml/kg Ideal Body Weight",
+    "paediatric_settings": "6 - 8ml/kg Ideal Body Weight"
+  }
+}

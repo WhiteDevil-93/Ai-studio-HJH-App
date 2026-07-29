@@ -1,0 +1,70 @@
+{
+  "_meta": {
+    "id": "vascular_emergencies_aaa_dissection_limb_ischaemia",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Vascular Emergencies (AAA, Dissection, Limb Ischaemia)",
+    "source_doc": "HJH ED 2026 / CMJAH / Bara ICU",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Vascular Emergencies (AAA, Dissection, Limb Ischaemia)",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Ruptured Abdominal Aortic Aneurysm (AAA)",
+        "details": "Sudden onset severe back/flank/abdominal pain with syncope/shock. On palpation: pulsatile mass. On POCUS: aorta > 3cm (aneurysmal), > 6cm (high risk rupture). Unstable patients need immediate THEATRE, NOT CT! Aim for permissive hypotension (SBP 80-90 mmHg), give TXA 1g IV, and notify vascular surgery."
+      },
+      {
+        "step_number": "2",
+        "action": "Thoracic Aortic Dissection",
+        "details": "Sudden tearing central chest pain radiating to back. Signs: BP/pulse discrepancy in arms, new aortic regurgitation murmur. Urgent CTA. Control BP & HR: start Labetalol infusion (target pulse < 60, SBP < 110). If BP still high, add Nitroglycerin infusion."
+      },
+      {
+        "step_number": "3",
+        "action": "Critical/Acute Limb Ischaemia",
+        "details": "The 6 P's: Pain, Pallor, Pulselessness, Paresthesia, Paralysis, Poikilothermia (cold limb). Embolus vs Thrombosis. Perform handheld Doppler, check ABI (< 0.5 is severe). Give IV Heparin bolus (80 U/kg) and refer to vascular surgery urgently."
+      }
+    ]
+  },
+  "embedded_drugs": [
+    {
+      "drug": "Labetalol",
+      "adult_dose": "10-20mg IV over 2min (may double every 10min)",
+      "paediatric_dose": "0.2-1mg/kg IV",
+      "notes_updates": "Mixed alpha/beta blocker. Good for hypertensive emergencies"
+    },
+    {
+      "category": "HJH ED Protocol \u2014 Infusions",
+      "item": "Esmolol",
+      "formula": "Dose x weight x 60 / prepared concentration",
+      "standard_dilutions": "500mg undiluted in a 50ml syringe (10mg/ml)"
+    },
+    {
+      "drug": "Fentanyl",
+      "adult_dose": "1-2ug/kg IV; 1-2ug/kg/hr",
+      "paediatric_dose": "1-2ug/kg IV; 0.5-2ug/kg/hr",
+      "notes_updates": "Good for renal failure or unstable BP"
+    },
+    {
+      "drug": "Morphine",
+      "adult_dose": "0.1mg/kg IV; 0.1-0.4mg/kg/hr",
+      "paediatric_dose": "0.1mg/kg IV; 0.01-0.05mg/kg/hr",
+      "notes_updates": "First-line opioid for severe pain"
+    },
+    {
+      "drug": "Heparin (UFH)",
+      "adult_dose": "Loading: 80units/kg IV; Maint: 18units/kg/hr",
+      "paediatric_dose": "Loading: 75units/kg IV; Maint: 20-28units/kg/hr",
+      "notes_updates": "Target aPTT: 50-70sec. Protamine 1mg per 100units heparin"
+    },
+    {
+      "drug": "Enoxaparin (Clexane)",
+      "adult_dose": "1mg/kg SC 12hrly",
+      "paediatric_dose": "1mg/kg SC 12hrly",
+      "notes_updates": "Anti-Xa monitoring in renal impairment, pregnancy"
+    }
+  ]
+}

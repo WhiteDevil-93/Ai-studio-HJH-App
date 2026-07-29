@@ -1,0 +1,51 @@
+{
+  "categoryId": "5_metabolic_electrolytes_and_nutrition",
+  "subcategoryId": "edl_phc",
+  "slug": "oral-rehydration-solution-ors-edl",
+  "order": 1012,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      16,
+      17
+    ],
+    "sectionTitle": "Oral rehydration solution (ORS) (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Oral rehydration solution (ORS) (EDL)",
+    "protocol_type": "continuous_infusion",
+    "clinical_features": {
+      "symptoms": [
+        "Cholera",
+        "Acute diarrhoea",
+        "Bacillary dysentery"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Oral rehydration solution."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Volume depends on severity of dehydration. Plan B: 80 mL/kg over 4 hours (e.g. 5 mL/kg every 15 minutes). Plan A: 10 mL/kg after each diarrhoeal stool."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Preferred oral rehydration method."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "Oral rehydration solution.",
+    "notes_updates": "Preferred oral rehydration method.",
+    "adult_dose": "Dose / Rate Range: Volume depends on severity of dehydration. Plan B: 80 mL/kg over 4 hours (e.g. 5 mL/kg every 15 minutes). Plan A: 10 mL/kg after each diarrhoeal stool."
+  }
+}

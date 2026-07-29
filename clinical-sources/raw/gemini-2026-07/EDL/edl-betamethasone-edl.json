@@ -1,0 +1,37 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    88,
+    94,
+    97
+  ],
+  "item": "Betamethasone (EDL)",
+  "categoryHint": "dermatology",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Chronic paronychia",
+      "Severe atopic eczema",
+      "Severe seborrhoeic dermatitis",
+      "Psoriasis flares"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Potent topical corticosteroid ointment/cream, 0.1%."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Chronic paronychia: apply at night until lesions clear. Atopic eczema (Step 3): apply ointment once daily for 7 days. Seborrhoeic dermatitis: apply ointment once daily for 5-7 days. Psoriasis: apply 12 hourly."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Doctor prescribed. Do not apply to face, neck and flexures for eczema and seborrhoeic dermatitis."
+    }
+  ],
+  "warnings": []
+}

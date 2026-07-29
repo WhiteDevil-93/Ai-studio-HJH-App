@@ -1,0 +1,68 @@
+{
+  "_meta": {
+    "id": "canadian_cspine",
+    "type": "calculator",
+    "category": "16_score_calculators",
+    "title": "Canadian C-Spine Rule",
+    "review_state": "unreviewed"
+  },
+  "calculator": {
+    "name": "Canadian C-Spine Rule",
+    "category": "trauma",
+    "source_pages": [
+      54
+    ],
+    "applicability": [
+      "Traumatic neck injury",
+      "GCS 15",
+      "Stable vital signs",
+      "Age 16 years or older",
+      "No acute paralysis",
+      "No known vertebral disease or previous C-spine surgery",
+      "Not pregnant"
+    ],
+    "components": [
+      {
+        "name": "Age > 65 years",
+        "key": "age_65",
+        "dangerous": true
+      },
+      {
+        "name": "Dangerous mechanism (e.g. fall > 1m, high-speed MVA)",
+        "key": "dangerous_mechanism",
+        "dangerous": true
+      },
+      {
+        "name": "Focal peripheral neurological deficit or paraesthesias",
+        "key": "paresthesias",
+        "dangerous": true
+      },
+      {
+        "name": "Simple rear-end motor vehicle collision",
+        "key": "simple_rear_end",
+        "simple": true
+      },
+      {
+        "name": "Sitting position in ED",
+        "key": "sitting",
+        "simple": true
+      },
+      {
+        "name": "Ambulatory at any time",
+        "key": "ambulatory",
+        "simple": true
+      },
+      {
+        "name": "Delayed onset of neck pain",
+        "key": "delayed_pain",
+        "simple": true
+      },
+      {
+        "name": "Absence of midline cervical tenderness",
+        "key": "midline_tender",
+        "simple": true
+      }
+    ],
+    "requires_rotation_assessment": true
+  }
+}

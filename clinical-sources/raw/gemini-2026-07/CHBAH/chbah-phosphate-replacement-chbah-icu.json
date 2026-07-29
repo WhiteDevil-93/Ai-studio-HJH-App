@@ -1,0 +1,22 @@
+{
+  "sourceDoc": "CHBAH_ICU",
+  "pdfPages": [
+    1
+  ],
+  "item": "Phosphate replacement (CHBAH ICU)",
+  "categoryHint": "metabolic",
+  "protocol_type": "icu_dosing",
+  "clinical_features": {
+    "symptoms": [
+      "Electrolyte replacement"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "IV phosphate",
+      "details": "KPO4 20\u201340 mmol IV into maintenance; Paediatric 0.16\u20130.24 mmol/kg/day"
+    }
+  ],
+  "warnings": []
+}

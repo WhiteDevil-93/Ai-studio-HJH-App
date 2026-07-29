@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "warfarin_reversal",
+    "type": "drug",
+    "category": "6_poisoning_and_toxicology",
+    "subcategory": "reversal_agents",
+    "title": "Warfarin Reversal",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "item": "Warfarin Reversal",
+    "adult_dose": "4-Factor PCC: 25-50 IU/kg IV; Vitamin K: 5-10mg IV slowly (life-threatening bleed)",
+    "paediatric_dose": "PCC: 25-50 IU/kg; FFP: 10-15ml/kg",
+    "notes_updates": "Do NOT wait for INR result in catastrophic bleeding. PCC (Haemosolvex) is 4-factor."
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "categoryId": "3_sedation_analgesia_and_neurology",
+  "subcategoryId": "neuroprotective",
+  "slug": "hypertonic-saline-3",
+  "order": 1,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "drug": "Hypertonic Saline (3%)",
+    "adult_dose": "250ml IV over 30min",
+    "paediatric_dose": "3-5ml/kg IV over 30min",
+    "notes_updates": "Alternative to mannitol for raised ICP"
+  }
+}

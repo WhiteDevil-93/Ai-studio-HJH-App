@@ -1,0 +1,40 @@
+{
+  "categoryId": "1_resuscitation_fluids_and_inotropes",
+  "subcategoryId": "inotropes",
+  "slug": "dobutamine-infusion-chbah-icu",
+  "order": 1001,
+  "source": {
+    "sourceId": "chbah-icu-dosing-card-2024",
+    "pdfPages": [],
+    "sectionTitle": "Dobutamine infusion (CHBAH ICU)",
+    "transformation": "externally-sourced",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "chbah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Dobutamine infusion (CHBAH ICU)",
+    "protocol_type": "icu_dosing",
+    "clinical_features": {
+      "symptoms": [
+        "Inotrope"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation",
+        "details": "250 mg in 200 mL NS. Rate (mL/hr) = mcg/kg/min × weight × 60"
+      },
+      {
+        "step_number": "2",
+        "action": "Dose range",
+        "details": "5 – 30 mcg/kg/min"
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "250 mg in 200 mL NS. Rate (mL/hr) = mcg/kg/min × weight × 60",
+    "adult_dose": "Dose range: 5 – 30 mcg/kg/min"
+  }
+}

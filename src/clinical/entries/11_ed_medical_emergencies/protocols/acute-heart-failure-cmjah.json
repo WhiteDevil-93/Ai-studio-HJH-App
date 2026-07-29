@@ -1,0 +1,48 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "acute-heart-failure-cmjah",
+  "order": 1000,
+  "source": {
+    "sourceId": "cmjah-ed-protocols-2020-v2",
+    "pdfPages": [
+      15
+    ],
+    "sectionTitle": "Acute Heart Failure (CMJAH)",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "cmjah",
+  "reviewState": "unreviewed",
+  "errata": ["ERR-CMJAH-001"],
+  "record": {
+    "item": "Acute Heart Failure (CMJAH)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "Dyspnoea, orthopnoea, paroxysmal nocturnal dyspnoea, peripheral oedema",
+        "POCUS findings: >3 B-lines per zone, pleural/pericardial effusions, dilated non-collapsible IVC"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Vasodilator & Respiratory Support",
+        "details": "Nitrocine (Nitroglycerin): 1-2 mg IV boluses OR Infusion at 30 ug/min (titrate up to max 150-200 ug/min). Non-Invasive Ventilation (NIV - CPAP or BiPAP)."
+      },
+      {
+        "step_number": "2",
+        "action": "Diuresis",
+        "details": "Furosemide (Lasix): Give patient's total daily oral dose as IV bolus, or start at 20-40mg IV STAT."
+      },
+      {
+        "step_number": "3",
+        "action": "Inotropic & Hemodynamic Support",
+        "details": "Cardiogenic shock: Dobutamine infusion. Hypotension: Crystalloid fluid bolus 10-20mg/kg [printed as mg/kg in source document]."
+      }
+    ],
+    "warnings": [
+      "Source prints fluid bolus units as '10-20mg/kg' instead of ml/kg (flagged in errata)."
+    ]
+  }
+}

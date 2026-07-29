@@ -1,0 +1,22 @@
+{
+  "categoryId": "4_antimicrobials_and_infectious_diseases",
+  "subcategoryId": "antivirals",
+  "slug": "acyclovir",
+  "order": 0,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "condition_or_drug": "Acyclovir",
+    "adult_dose": "10mg/kg IV 8hrly (HSV); 10-15mg/kg IV 8hrly (VZV)",
+    "paediatric_dose": "10-20mg/kg IV 8hrly",
+    "notes_updates": "Adequate hydration mandatory"
+  }
+}

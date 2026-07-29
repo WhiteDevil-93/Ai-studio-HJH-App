@@ -1,0 +1,36 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    48
+  ],
+  "item": "Thiamine (EDL)",
+  "categoryHint": "metabolic",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Vitamin B1/thiamine deficiency (Wernicke encephalopathy and beriberi)",
+      "Peripheral neuropathy",
+      "Cardiac failure in alcoholics"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Oral tablets, 100 mg."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Oral, 100 mg daily."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Must be administered before intravenous glucose in susceptible patients at risk of thiamine deficiency to prevent precipitation of Wernicke encephalopathy."
+    }
+  ],
+  "warnings": [
+    "Administration of intravenous glucose precipitates Wernicke encephalopathy if administered before thiamine supplementation in susceptible patients."
+  ]
+}

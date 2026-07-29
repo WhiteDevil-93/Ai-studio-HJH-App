@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "insulin_regular",
+    "type": "drug",
+    "category": "10_endocrine_and_other",
+    "subcategory": "endocrine",
+    "title": "Insulin (Regular)",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "drug": "Insulin (Regular)",
+    "adult_dose": "0.1units/kg/hr IV infusion",
+    "paediatric_dose": "0.05-0.1units/kg/hr IV",
+    "notes_updates": "Check glucose hourly. Hold if K+ <3.3"
+  }
+}

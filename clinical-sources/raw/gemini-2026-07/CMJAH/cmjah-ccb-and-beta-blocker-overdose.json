@@ -1,0 +1,35 @@
+{
+  "sourceDoc": "CMJAH",
+  "pdfPages": [
+    43
+  ],
+  "item": "Calcium Channel Blocker and Beta-Blocker Overdose (CMJAH)",
+  "categoryHint": "toxicology",
+  "protocol_type": "ed_protocol",
+  "review_state": "unreviewed",
+  "clinical_features": {
+    "symptoms": [
+      "Hypotension, bradycardia, conduction heart blocks, hyperglycaemia, metabolic acidosis"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Decontamination & Volume Resuscitation",
+      "details": "Activated Charcoal: 50g via NGT if presentation < 1 hour. Crystalloid fluid bolus 20mg/kg [printed as mg/kg in source document]."
+    },
+    {
+      "step_number": "2",
+      "action": "High Dose Insulin Euglycaemic Therapy (HIET)",
+      "details": "1. Dextrose pre-load: 50ml 50% Dextrose IV bolus.\n2. Actrapid loading dose: 1 IU/kg IV STAT bolus.\n3. Actrapid infusion: 0.5 IU/kg/hr, titrate up to max 10 IU/kg/hr.\n4. Dextrose maintenance: 25g/hr (50ml 50% Dextrose OR 100ml 25% Dextrose per hour)."
+    },
+    {
+      "step_number": "3",
+      "action": "Calcium Inotropic Support",
+      "details": "Calcium Chloride 10%: 10 ml IV over 10 minutes."
+    }
+  ],
+  "warnings": [
+    "Source prints crystalloid bolus as '20mg/kg' instead of ml/kg (flagged in errata)."
+  ]
+}

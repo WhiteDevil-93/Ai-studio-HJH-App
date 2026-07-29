@@ -1,0 +1,22 @@
+{
+  "categoryId": "8_cardiovascular",
+  "subcategoryId": "anticoagulation",
+  "slug": "heparin-ufh",
+  "order": 0,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "drug": "Heparin (UFH)",
+    "adult_dose": "Loading: 80units/kg IV; Maint: 18units/kg/hr",
+    "paediatric_dose": "Loading: 75units/kg IV; Maint: 20-28units/kg/hr",
+    "notes_updates": "Target aPTT: 50-70sec. Protamine 1mg per 100units heparin"
+  }
+}

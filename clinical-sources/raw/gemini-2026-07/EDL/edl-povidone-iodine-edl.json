@@ -1,0 +1,34 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    81,
+    84
+  ],
+  "item": "Povidone-iodine (EDL)",
+  "categoryHint": "dermatology",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Impetigo",
+      "Exudative, infected chronic lower leg ulcers"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Topical 5% cream or 10% ointment."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Impetigo: apply 8 hourly. Lower leg ulcers: apply daily."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Used for local antiseptic and wound care."
+    }
+  ],
+  "warnings": []
+}

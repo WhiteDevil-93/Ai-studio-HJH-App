@@ -1,0 +1,49 @@
+{
+  "categoryId": "4_antimicrobials_and_infectious_diseases",
+  "subcategoryId": "edl_phc",
+  "slug": "chlorhexidine-edl",
+  "order": 1009,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      4,
+      5
+    ],
+    "sectionTitle": "Chlorhexidine (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Chlorhexidine (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Gingivitis and periodontitis"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Mouthwash, 0.2%."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "15 mL as a mouthwash, twice daily, after brushing teeth, for 5 days."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Do not swallow. Do not eat or drink immediately after this."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "Mouthwash, 0.2%.",
+    "notes_updates": "Do not swallow. Do not eat or drink immediately after this.",
+    "adult_dose": "Dose / Rate Range: 15 mL as a mouthwash, twice daily, after brushing teeth, for 5 days."
+  }
+}

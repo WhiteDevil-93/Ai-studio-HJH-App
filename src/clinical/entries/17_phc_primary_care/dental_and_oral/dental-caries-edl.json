@@ -1,0 +1,37 @@
+{
+  "categoryId": "17_phc_primary_care",
+  "subcategoryId": "dental_and_oral",
+  "slug": "dental-caries-edl",
+  "order": 1003,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      3
+    ],
+    "sectionTitle": "Dental caries (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Dental caries (EDL)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "To be managed by a dentist or dental therapist"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Local anaesthesia for dental procedures",
+        "details": "Lidocaine (Dentist and dental therapist). Lidocaine with adrenaline (epinephrine) (Dentist and dental therapist)."
+      }
+    ],
+    "warnings": [
+      "Note: Dental rinses are not recommended for prevention of COVID-19 transmission during dental procedures."
+    ]
+  }
+}

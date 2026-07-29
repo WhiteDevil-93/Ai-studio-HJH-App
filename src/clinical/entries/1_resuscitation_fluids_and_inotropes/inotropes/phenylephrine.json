@@ -1,0 +1,24 @@
+{
+  "categoryId": "1_resuscitation_fluids_and_inotropes",
+  "subcategoryId": "inotropes",
+  "slug": "phenylephrine",
+  "order": 4,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      111
+    ],
+    "sectionTitle": "Phenylephrine",
+    "transformation": "condensed",
+    "verification": "preview"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Phenylephrine",
+    "adult_dose": "0.5-5ug/kg/min IV",
+    "paediatric_dose": "0.5-5ug/kg/min IV",
+    "notes_updates": ""
+  }
+}

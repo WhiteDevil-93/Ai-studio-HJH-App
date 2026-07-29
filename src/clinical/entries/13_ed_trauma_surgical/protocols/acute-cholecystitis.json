@@ -1,0 +1,39 @@
+{
+  "categoryId": "13_ed_trauma_surgical",
+  "subcategoryId": "protocols",
+  "slug": "acute-cholecystitis",
+  "order": 3,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      8
+    ],
+    "sectionTitle": "Acute Cholecystitis",
+    "transformation": "condensed",
+    "verification": "preview"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Acute Cholecystitis",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Check Clinical Features",
+        "details": "RUQ / epigastric pain, nausea, vomiting, low-grade fever. Guarding, positive Murphy's sign (inspiratory pause on RUQ palpation)."
+      },
+      {
+        "step_number": "2",
+        "action": " Bedside POCUS",
+        "details": "Aesthetic criteria: gallstones/sludge AND 1+ of: GB wall thickening > 4mm, GB distension (diameter > 4cm, length > 10cm), pericholecystic fluid, ultrasonographic Murphy sign."
+      },
+      {
+        "step_number": "3",
+        "action": "Specific ED Treatment",
+        "details": "Augmentin 1.2g IV stat, antiemetics, and appropriate analgesia. Refer urgently to surgery."
+      }
+    ]
+  }
+}

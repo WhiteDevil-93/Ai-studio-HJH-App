@@ -1,0 +1,46 @@
+{
+  "categoryId": "13_ed_trauma_surgical",
+  "subcategoryId": "protocols",
+  "slug": "acute-cholecystitis-cmjah",
+  "order": 1001,
+  "source": {
+    "sourceId": "cmjah-ed-protocols-2020-v2",
+    "pdfPages": [
+      7
+    ],
+    "sectionTitle": "Acute Cholecystitis (CMJAH)",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "cmjah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Acute Cholecystitis (CMJAH)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "RUQ or epigastric pain, nausea, vomiting, anorexia, low grade fever, jaundice",
+        "Abdominal tenderness, guarding, positive Murphy's sign"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Resuscitation & Antimicrobials",
+        "details": "ABCs, IV line. Fluid resuscitation: 20 mls/kg Balsol or Ringer's Lactate if shocked. Augmentin 1.2g IV STAT."
+      },
+      {
+        "step_number": "2",
+        "action": "Symptom Management & Imaging",
+        "details": "Antiemetics, analgesia. POCUS / Ultrasound features: Gallstones/sludge, gallbladder wall thickening (>3mm), gallbladder distention (>4cm x >10cm), pericholecystic fluid, dilated bile ducts, air in GB wall, Sonographic Murphy sign."
+      },
+      {
+        "step_number": "3",
+        "action": "Disposition",
+        "details": "Urgent surgical referral."
+      }
+    ],
+    "warnings": []
+  }
+}

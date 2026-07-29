@@ -1,0 +1,42 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "chronic-obstructive-pulmonary-disease-copd-cmjah",
+  "order": 1005,
+  "source": {
+    "sourceId": "cmjah-ed-protocols-2020-v2",
+    "pdfPages": [
+      44,
+      45
+    ],
+    "sectionTitle": "Chronic Obstructive Pulmonary Disease (COPD) (CMJAH)",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "cmjah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Chronic Obstructive Pulmonary Disease (COPD) (CMJAH)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "Severe Exacerbation: Pulse > 120, SpO2 < 90%, pH < 7.20, PO2 < 60, PEFR < 50%.",
+        "Mild Exacerbation: Dyspnoea, increased sputum volume/purulence."
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Severe Exacerbation Management",
+        "details": "Hydrocortisone 200mg IV STAT. MgSO4 25-50mg/kg IV over 20 min. Continuous nebulized bronchodilators. NIV (BiPAP/CPAP). RSI if failing (Ketamine 1mg/kg load, then 0.15mg/kg/hr infusion)."
+      },
+      {
+        "step_number": "2",
+        "action": "Mild Exacerbation TTO Discharge Script",
+        "details": "Prednisone 0.5mg/kg daily x 7 days. Salbutamol MDI 2 puffs PRN. Beclomethasone (Beclate) MDI 2 puffs BD. Augmentin 1g BD x 7 days + Azithromycin 500mg OD x 3 days."
+      }
+    ],
+    "warnings": []
+  }
+}

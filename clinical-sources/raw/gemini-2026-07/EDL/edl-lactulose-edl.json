@@ -1,0 +1,33 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    14
+  ],
+  "item": "Lactulose (EDL)",
+  "categoryHint": "dosing",
+  "protocol_type": "weight_based_dose",
+  "clinical_features": {
+    "symptoms": [
+      "Anal fissures",
+      "Constipation"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Oral syrup/solution."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Children (>12 months): 0.5 mL/kg/dose once daily (if poor response, increase frequency to 12 hourly). Adults: 10-20 mL once or twice daily (for anal fissures: 10-20 mL once daily, increase frequency to 12 hourly if poor response)."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Assess response and adjust frequency."
+    }
+  ],
+  "warnings": []
+}

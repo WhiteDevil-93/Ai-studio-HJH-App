@@ -1,0 +1,32 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    18
+  ],
+  "item": "Sennosides A and B (EDL)",
+  "categoryHint": "dosing",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Constipation in adults"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Oral tablets, 13.5 mg."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "1 tablet at night. Total daily dose may be increased up to 4 tablets if initial response is inadequate."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "For children > 15 years of age and adults."
+    }
+  ],
+  "warnings": []
+}

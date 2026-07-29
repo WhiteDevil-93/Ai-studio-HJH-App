@@ -1,0 +1,32 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    22
+  ],
+  "item": "Loperamide (EDL)",
+  "categoryHint": "dosing",
+  "protocol_type": "weight_based_dose",
+  "clinical_features": {
+    "symptoms": [
+      "Acute diarrhoea without blood in adults"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Oral tablets, 2 mg."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "4 mg immediately and 2 mg as required after each loose stool. Maximum daily dose based on weight band: 34-39 kg: 10 mg (5 tablets); 40-46 kg: 12 mg (6 tablets); 47-53 kg: 14 mg (7 tablets); >= 54 kg: 16 mg (8 tablets)."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Do not use in children or acute dysentery."
+    }
+  ],
+  "warnings": []
+}

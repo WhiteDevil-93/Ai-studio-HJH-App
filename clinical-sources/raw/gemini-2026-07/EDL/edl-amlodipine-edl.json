@@ -1,0 +1,33 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    51
+  ],
+  "item": "Amlodipine (EDL)",
+  "categoryHint": "cardiovascular",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Stable angina",
+      "Hypertension"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Oral tablets (5 mg, 10 mg)."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Stable angina: 5 mg daily. Hypertension (Step 3 / Step 4): 5 mg once daily, increase to 10 mg once daily if needed. Hypertensive emergency: 10 mg immediately as a single dose."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Used as long-acting calcium channel blocker in angina and hypertension steps."
+    }
+  ],
+  "warnings": []
+}

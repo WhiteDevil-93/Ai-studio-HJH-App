@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "rr",
+    "type": "drug",
+    "category": "2_airway_and_ventilation",
+    "subcategory": "vent_settings",
+    "title": "RR",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "item": "RR",
+    "adult_settings": "12 - 20 breaths/min",
+    "paediatric_settings": "Age appropriate"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "categoryId": "2_airway_and_ventilation",
+  "subcategoryId": "lung_protection",
+  "slug": "pressure-control",
+  "order": 0,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Pressure Control",
+    "adult_settings": "Peak Pressure <= 30cmH2O",
+    "paediatric_settings": "Peak Pressure <= 30cmH2O"
+  }
+}

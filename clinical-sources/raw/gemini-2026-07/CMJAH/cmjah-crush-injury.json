@@ -1,0 +1,30 @@
+{
+  "sourceDoc": "CMJAH",
+  "pdfPages": [
+    49
+  ],
+  "item": "Crush Injury (CMJAH)",
+  "categoryHint": "trauma",
+  "protocol_type": "ed_protocol",
+  "review_state": "unreviewed",
+  "clinical_features": {
+    "symptoms": [
+      "Extremity compression/trauma, swelling, muscle weakness, dark urine (myoglobinuria), hyperkalaemia, metabolic acidosis"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Aggressive Volume Resuscitation",
+      "details": "Crystalloid fluids (Balsol or Ringer's Lactate): 15-30 ml/kg/hr IV. Target urine output: 200-300 mls/hr."
+    },
+    {
+      "step_number": "2",
+      "action": "Forced Diuresis & Alkalinisation",
+      "details": "Mannitol if urine output < 20 mls/hr despite fluid resuscitation. Sodium Bicarbonate 8.5%: 1 ml/kg IV for severe acidosis or hyperkalaemia."
+    }
+  ],
+  "warnings": [
+    "Monitor continuously for severe hyperkalaemia upon release of compression."
+  ]
+}

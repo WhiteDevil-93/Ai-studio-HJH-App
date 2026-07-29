@@ -1,0 +1,22 @@
+{
+  "categoryId": "9_blood_products",
+  "subcategoryId": "products",
+  "slug": "packed-red-cells",
+  "order": 0,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Packed Red Cells",
+    "adult_dose": "1 unit raises Hb by ~1g/dL",
+    "paediatric_dose": "10-15ml/kg (raises Hb by ~2g/dL)",
+    "notes": "Transfuse over 2-4hrs"
+  }
+}

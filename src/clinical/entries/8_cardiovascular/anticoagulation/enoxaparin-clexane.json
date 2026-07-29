@@ -1,0 +1,22 @@
+{
+  "categoryId": "8_cardiovascular",
+  "subcategoryId": "anticoagulation",
+  "slug": "enoxaparin-clexane",
+  "order": 1,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "drug": "Enoxaparin (Clexane)",
+    "adult_dose": "1mg/kg SC 12hrly",
+    "paediatric_dose": "1mg/kg SC 12hrly",
+    "notes_updates": "Anti-Xa monitoring in renal impairment, pregnancy"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    8,
+    9
+  ],
+  "item": "Teething, infant (EDL)",
+  "categoryHint": "pediatrics",
+  "protocol_type": "ed_protocol",
+  "clinical_features": {
+    "symptoms": [
+      "Appearance of teeth through the gums in the mouth of infants and young children",
+      "Fretfulness",
+      "Biting or chewing on hard objects",
+      "Drooling, which may often begin before teething starts",
+      "Gum swelling and tenderness",
+      "Refusing food",
+      "Sleeping problems",
+      "Teething is not a cause of severe or systemic symptoms, such as high fever or diarrhoea"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "General measures",
+      "details": "Teething is a normal physiological process; simple self-care measures are recommended. Gentle massage to the gum or biting on objects (such as teething rings) may produce relief by producing counter-pressure against the gums (beware of choking risks). Cold objects may help to ease symptoms."
+    }
+  ],
+  "warnings": [
+    "Do not use local oral anaesthetic preparations in infants, as these have been associated with severe adverse events.",
+    "Exclude conditions other than teething in infants who are systemically unwell or in distress. Advise caregivers to seek medical advice if the infant becomes systemically unwell.",
+    "REFERRAL: All children with systemic symptoms (e.g., high fever or diarrhoea) that cannot be managed at primary healthcare level."
+  ]
+}

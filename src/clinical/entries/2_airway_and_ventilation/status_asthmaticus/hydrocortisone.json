@@ -1,0 +1,22 @@
+{
+  "categoryId": "2_airway_and_ventilation",
+  "subcategoryId": "status_asthmaticus",
+  "slug": "hydrocortisone",
+  "order": 0,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Hydrocortisone",
+    "adult_dose": "100mg IV 6hrly",
+    "paediatric_dose": "4mg/kg IV 6hrly",
+    "notes": "Early steroids improve outcomes"
+  }
+}

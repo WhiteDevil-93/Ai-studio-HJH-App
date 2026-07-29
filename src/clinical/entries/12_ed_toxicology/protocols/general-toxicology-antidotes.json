@@ -1,0 +1,37 @@
+{
+  "categoryId": "12_ed_toxicology",
+  "subcategoryId": "protocols",
+  "slug": "general-toxicology-antidotes",
+  "order": 4,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "Source mapping required",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "General Toxicology & Antidotes",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Resuscitation - Resus-RSI-DEAD",
+        "details": "Airway, breathing, circulation. Seizure control (benzodiazepines). Correct hypoglycaemia and hyperthermia. Resuscitation antidotes."
+      },
+      {
+        "step_number": "2",
+        "action": "Risk Assessment & Decontamination",
+        "details": "Inquire: Agent, dose, time of ingestion, co-ingestants. Give activated charcoal 1g/kg if within 1 hour."
+      },
+      {
+        "step_number": "3",
+        "action": "Review Antidotes Table",
+        "details": "Atropine (organophosphates), Calcium/HIET (CCB/BB), Desferrioxamine (Iron), Ethanol (Methanol), N-acetylcysteine (Paracetamol), Pyridoxine (Isoniazid), Sodium Bicarbonate (TCA/salicylates), Vitamin K/FFP (Warfarin)."
+      }
+    ]
+  }
+}

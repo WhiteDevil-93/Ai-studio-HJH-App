@@ -1,0 +1,24 @@
+{
+  "categoryId": "2_airway_and_ventilation",
+  "subcategoryId": "sedation",
+  "slug": "midazolam",
+  "order": 3,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      115,
+      116
+    ],
+    "sectionTitle": "Midazolam",
+    "transformation": "condensed",
+    "verification": "preview"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Midazolam",
+    "adult_dose": "0.1-0.3mg/kg IV",
+    "paediatric_dose": "0.1-0.3mg/kg IV"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    109
+  ],
+  "item": "Zinc oxide (EDL)",
+  "categoryHint": "dermatology",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Albinism sun protection"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Topical ointment."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Apply evenly to all sun exposed areas at least 15 minutes before going out into the sun."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Used to avoid sunburn and skin damage in albinism."
+    }
+  ],
+  "warnings": []
+}

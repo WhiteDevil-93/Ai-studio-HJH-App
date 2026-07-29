@@ -1,0 +1,42 @@
+{
+  "categoryId": "17_phc_primary_care",
+  "subcategoryId": "dental_and_oral",
+  "slug": "dental-abscess-edl",
+  "order": 1002,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      2
+    ],
+    "sectionTitle": "Dental abscess (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Dental abscess (EDL)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "acute, severe, throbbing pain",
+        "swelling adjacent to the tooth, or on the face",
+        "pain worsened by tapping on affected teeth",
+        "restricted mouth opening or difficulty chewing",
+        "pus collection located around the tooth or at the apex of the root"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Initiate treatment before referral",
+        "details": "Children: Amoxicillin, oral, 10-20 mg/kg 8 hourly for 5 days. Weight kg | Dose mg | Use one of the following: Susp 125mg/5mL, 250mg/5mL | Capsule 250 mg, 500 mg | >11-25 kg: 250 mg, 10 mL (125mg/5mL) or 5 mL (250mg/5mL), 1 cap (250 mg), >18 months-7 years. >25 kg: 500 mg, 2 caps (250 mg) or 1 cap (500 mg), >7 years. AND Metronidazole, oral, 7.5 mg/kg/dose 8 hourly for 5 days. Adults: Amoxicillin, oral, 500 mg 8 hourly for 5 days. AND Metronidazole, oral, 400 mg, 8 hourly for 5 days. Severe penicillin allergy: Z88.0. Children < 18 kg: Macrolide, e.g.: Azithromycin, oral, 10 mg/kg/dose, daily for 3 days. See dosing table: Chapter 23. Children > 35 kg and adults: Macrolide, e.g.: Azithromycin, oral, 500 mg daily for 3 days. Pain: Children: Paracetamol, oral, 10-15 mg/kg/dose 6 hourly when required. See dosing table: Chapter 23. Adults: Paracetamol, oral, 500 mg to 1 g, 4 to 6 hourly as required (to a maximum of 4 g in 24 hours). Maximum dose: 15 mg/kg/dose."
+      }
+    ],
+    "warnings": [
+      "Note: Dental rinses are not recommended for prevention of COVID-19 transmission during dental procedures.",
+      "REFERRAL: All cases for dental treatment."
+    ]
+  }
+}

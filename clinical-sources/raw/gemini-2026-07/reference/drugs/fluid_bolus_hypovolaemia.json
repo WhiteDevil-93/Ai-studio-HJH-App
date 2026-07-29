@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "fluid_bolus_hypovolaemia",
+    "type": "drug",
+    "category": "1_resuscitation_fluids_and_inotropes",
+    "subcategory": "shock",
+    "title": "Fluid Bolus (Hypovolaemia)",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "item": "Fluid Bolus (Hypovolaemia)",
+    "adult_dose": "Sodium Chloride 0.9%: 500ml IV bolus",
+    "paediatric_dose": "10-20ml/kg IV bolus",
+    "notes_updates": "0.9% Saline remains primary for hypovolaemia due to blood loss/dehydration."
+  }
+}

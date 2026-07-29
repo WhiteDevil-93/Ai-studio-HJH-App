@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "adrenaline",
+    "type": "drug",
+    "category": "7_useful_formulae",
+    "subcategory": "formulae",
+    "title": "Adrenaline",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "category": "Bara ICU \u2014 Inotropes",
+    "item": "Adrenaline",
+    "formula": "ml/hr = (ug/kg/min x kg x 60) / 60",
+    "standard_dilutions": "Standard: 12 mg (12 amps) in 200 mL N/S (60 mcg/mL)"
+  }
+}

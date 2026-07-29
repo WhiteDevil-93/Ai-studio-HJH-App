@@ -1,0 +1,32 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    73
+  ],
+  "item": "Amoxicillin (Valvular Prophylaxis) (EDL)",
+  "categoryHint": "antimicrobials",
+  "protocol_type": "weight_based_dose",
+  "clinical_features": {
+    "symptoms": [
+      "Infective endocarditis prophylaxis for dental extraction without anaesthetic"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Oral administration."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "50 mg/kg (maximum dose: 2 g), 1 hour before the procedure. Repeat dose 6 hours later. Age bands: < 5 years: 750 mg; 5 to 10 years: 1500 mg; >= 10 years: 2 g."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Essential for all children with congenital or rheumatic heart lesions needing dental extraction without anaesthetic."
+    }
+  ],
+  "warnings": []
+}

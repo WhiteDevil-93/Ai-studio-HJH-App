@@ -1,0 +1,32 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    34
+  ],
+  "item": "Ferrous gluconate (EDL)",
+  "categoryHint": "metabolic",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Iron prophylaxis in preterm infants"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Oral syrup (250 mg/5 mL, providing 30 mg elemental iron per 5 mL / 6 mg per mL) or elixir (350 mg/5 mL, providing 40 mg elemental iron per 5 mL / 8 mg per mL)."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Ferrous gluconate syrup, oral, 2.5 mL daily (provides approx. 15 mg elemental iron) until 6 months of age."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Prophylaxis for infants from 6 weeks if < 2.5 kg at birth."
+    }
+  ],
+  "warnings": []
+}

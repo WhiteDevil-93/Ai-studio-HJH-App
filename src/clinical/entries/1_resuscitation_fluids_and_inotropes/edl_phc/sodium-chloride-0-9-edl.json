@@ -1,0 +1,51 @@
+{
+  "categoryId": "1_resuscitation_fluids_and_inotropes",
+  "subcategoryId": "edl_phc",
+  "slug": "sodium-chloride-0-9-edl",
+  "order": 1005,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      16
+    ],
+    "sectionTitle": "Sodium chloride, 0.9% (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Sodium chloride, 0.9% (EDL)",
+    "protocol_type": "continuous_infusion",
+    "clinical_features": {
+      "symptoms": [
+        "Appendicitis",
+        "Cholera",
+        "Severe dehydration",
+        "Dysentery"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Intravenous fluid, 0.9%."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Used for hydration in appendicitis, severe dehydration boluses (20 mL/kg rapidly, or 10 mL/kg over 10 minutes in SAM), and severe dehydration/shock in malnutrition (10 mL/kg/hour)."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Monitor for volume overload, especially in malnutrition."
+      }
+    ],
+    "warnings": [],
+    "standard_dilutions": "Intravenous fluid, 0.9%.",
+    "notes_updates": "Monitor for volume overload, especially in malnutrition.",
+    "adult_dose": "Dose / Rate Range: Used for hydration in appendicitis, severe dehydration boluses (20 mL/kg rapidly, or 10 mL/kg over 10 minutes in SAM), and severe dehydration/shock in malnutrition (10 mL/kg/hour)."
+  }
+}

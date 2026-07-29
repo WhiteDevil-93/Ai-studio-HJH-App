@@ -1,0 +1,52 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "st-elevation-myocardial-infarction-stemi-management-cmjah",
+  "order": 1013,
+  "source": {
+    "sourceId": "cmjah-ed-protocols-2020-v2",
+    "pdfPages": [
+      8,
+      9,
+      10,
+      14
+    ],
+    "sectionTitle": "ST Elevation Myocardial Infarction (STEMI) Management (CMJAH)",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "cmjah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "ST Elevation Myocardial Infarction (STEMI) Management (CMJAH)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "Ischaemic chest pain",
+        "ECG: ST elevation >= 1mm in contiguous leads (V2-V3 >= 2mm men >= 40, >= 2.5mm men < 40, >= 1.5mm women), or new/presumably new LBBB (Sgarbossa criteria >= 3 points)"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Immediate First-Line Medical Therapy",
+        "details": "Oxygen if SpO2 < 94% (2L/min). Aspirin 300 mg chewed STAT (if allergic: Clopidogrel 300mg PO STAT). Nitroglycerin 1 spray or SL tablet q5min (max 3 doses). Morphine 1-2mg IV aliquots."
+      },
+      {
+        "step_number": "2",
+        "action": "Thrombolytic Therapy (Time of onset <= 12 hours)",
+        "details": "Door to needle time <= 30 mins. Options:\n1. TPA / Alteplase (Actilyse): 15mg IV bolus, then 0.75mg/kg over 30min (max 50mg), then 0.5mg/kg over 60min (max 35mg). Max total dose 100mg.\n2. Streptokinase (Streptase): 1.5MU in 200ml N/S over 1hr.\n3. Tenecteplase (Metalyse): Weight < 100kg 8 000 IU IV over 10s; Weight > 100kg 10 000 IU IV over 10s."
+      },
+      {
+        "step_number": "3",
+        "action": "Adjunctive Medical Therapy",
+        "details": "Anticoagulation: Clexane 30mg IV STAT, then 1mg/kg SC starting 15 minutes after bolus; OR Unfractionated Heparin 60IU/kg (max 4000IU) IV STAT, then 12IU/kg/hr (max 1000IU/hr). Clopidogrel 300mg PO STAT. Simvastatin 40mg PO STAT. Atenolol 50mg PO STAT (if no contraindications)."
+      }
+    ],
+    "warnings": [
+      "Nitroglycerin C/I: SBP < 90, HR < 50 or > 100, RV infarction, PDE5 inhibitor use within 24-48h.",
+      "Absolute Thrombolysis C/I: Prior intracranial hemorrhage, known structural cerebrovascular lesion, malignant intracranial neoplasm, ischemic stroke within 3 months (except acute within 3h), suspected aortic dissection, active bleeding/bleeding diathesis, significant closed head/facial trauma within 3 months."
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "nitroglycerin",
+    "type": "drug",
+    "category": "7_useful_formulae",
+    "subcategory": "formulae",
+    "title": "Nitroglycerin",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "category": "HJH ED Protocol \u2014 Infusions",
+    "item": "Nitroglycerin",
+    "formula": "Dose x 60 / prepared concentration",
+    "standard_dilutions": "10mg in 200ml N/S (50mcg/ml)"
+  }
+}

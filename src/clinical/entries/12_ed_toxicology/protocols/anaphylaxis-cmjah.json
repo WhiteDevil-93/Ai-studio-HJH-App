@@ -1,0 +1,57 @@
+{
+  "categoryId": "12_ed_toxicology",
+  "subcategoryId": "protocols",
+  "slug": "anaphylaxis-cmjah",
+  "order": 10,
+  "source": {
+    "sourceId": "cmjah-ed-protocols-2020-v2",
+    "pdfPages": [
+      31
+    ],
+    "sectionTitle": "Anaphylaxis (CMJAH)",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "cmjah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Anaphylaxis (CMJAH)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "Diagnostic criteria (any one of): acute illness with skin/mucosal involvement AND respiratory compromise, hypotension, or end-organ dysfunction; OR >=2 features after exposure to a likely allergen (skin/mucosal involvement, respiratory compromise, hypotension/end-organ dysfunction, persistent GI symptoms); OR hypotension after exposure to a known allergen (SBP fall >=30%)."
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Immediate Management",
+        "details": "Stop/remove the suspected allergen. Place supine and elevate legs. High-flow oxygen, monitors, IV access."
+      },
+      {
+        "step_number": "2",
+        "action": "Adrenaline IM Stat",
+        "details": "Adrenaline 1mg/ml (1:1000), 0.01mg/kg up to 0.5mg, IM into the anterolateral thigh (0.5ml adult dose)."
+      },
+      {
+        "step_number": "3",
+        "action": "Airway / Breathing / Circulation",
+        "details": "Airway obstruction (partial): nebulised adrenaline 5mg, prepare for a difficult airway. Airway obstruction (complete): bag-mask ventilation with high-flow oxygen, prepare for a difficult airway. Wheeze/dyspnoea: continuous nebulisation with beta-2 agonists. Hypotension: crystalloid (Ringer's Lactate/Balsol) 20ml/kg, repeat as necessary — large volumes may be required."
+      },
+      {
+        "step_number": "4",
+        "action": "Antihistamine & Steroid",
+        "details": "Promethazine (Phenergan) 12.5mg slow IV (max 25mg), weight-dependent in children. Hydrocortisone (Solu-Cortef) 200mg slow IV, weight-dependent in children."
+      },
+      {
+        "step_number": "5",
+        "action": "Immediate Life Threat / Poor Response / Deterioration",
+        "details": "Repeat IM adrenaline every 3-5 minutes if no improvement, or start an adrenaline infusion per protocol. Cardiac arrest secondary to anaphylaxis: follow ACLS, give immediate adrenaline, consider rapid escalation to high-dose adrenaline (3-5mg every 2-3 minutes), high-volume IV fluids."
+      }
+    ],
+    "warnings": [
+      "Biphasic reaction occurs in 5-20% and can recur after the initial episode. Risk factors: delayed adrenaline administration, slow response to adrenaline, need for repeated adrenaline doses, requiring IV fluids, lack of steroid use."
+    ]
+  }
+}

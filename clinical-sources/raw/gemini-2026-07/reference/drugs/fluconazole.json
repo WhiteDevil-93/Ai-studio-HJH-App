@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "fluconazole",
+    "type": "drug",
+    "category": "4_antimicrobials_and_infectious_diseases",
+    "subcategory": "antifungals",
+    "title": "Fluconazole",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "condition_or_drug": "Fluconazole",
+    "adult_dose": "Loading: 800mg IV/PO; Maint: 400mg IV/PO daily",
+    "paediatric_dose": "Loading: 12mg/kg; Maint: 6-12mg/kg daily",
+    "notes_updates": "Not for Aspergillus"
+  }
+}

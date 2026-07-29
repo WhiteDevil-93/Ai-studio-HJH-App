@@ -1,0 +1,52 @@
+{
+  "categoryId": "1_resuscitation_fluids_and_inotropes",
+  "subcategoryId": "edl_phc",
+  "slug": "ringers-lactate-edl",
+  "order": 1004,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      17
+    ],
+    "sectionTitle": "Ringers lactate (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Ringers lactate (EDL)",
+    "protocol_type": "continuous_infusion",
+    "clinical_features": {
+      "symptoms": [
+        "Cholera",
+        "Severe dehydration",
+        "Bacillary dysentery"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Intravenous fluid."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "Used for fluid resuscitation in cholera, severe dehydration (Plan C: 20 mL/kg rapidly, then 20 mL/kg every hour for 5 hours), and severe dysentery dehydration."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Preferred IV fluid for cholera. Avoid giving calcium-containing IV fluids together with ceftriaxone."
+      }
+    ],
+    "warnings": [
+      "Avoid giving calcium-containing IV fluids (e.g. Ringers Lactate) together with ceftriaxone in neonates <= 28 days for 48 hours after ceftriaxone administration."
+    ],
+    "standard_dilutions": "Intravenous fluid.",
+    "notes_updates": "Preferred IV fluid for cholera. Avoid giving calcium-containing IV fluids together with ceftriaxone.",
+    "adult_dose": "Dose / Rate Range: Used for fluid resuscitation in cholera, severe dehydration (Plan C: 20 mL/kg rapidly, then 20 mL/kg every hour for 5 hours), and severe dysentery dehydration."
+  }
+}

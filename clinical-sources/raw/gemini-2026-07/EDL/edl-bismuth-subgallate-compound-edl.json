@@ -1,0 +1,34 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    14,
+    15
+  ],
+  "item": "Bismuth subgallate compound (EDL)",
+  "categoryHint": "dosing",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Anal fissures",
+      "Painful haemorrhoids"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Ointment, topical, or suppositories."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Ointment: applied 2-4 times daily. Suppositories: insert one into the rectum 3 times daily."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Used for symptomatic relief of anal fissures and painful haemorrhoids."
+    }
+  ],
+  "warnings": []
+}

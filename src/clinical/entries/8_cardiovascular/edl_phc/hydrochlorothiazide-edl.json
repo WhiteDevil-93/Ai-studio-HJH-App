@@ -1,0 +1,51 @@
+{
+  "categoryId": "8_cardiovascular",
+  "subcategoryId": "edl_phc",
+  "slug": "hydrochlorothiazide-edl",
+  "order": 1007,
+  "source": {
+    "sourceId": "sa-edl-phc-2020",
+    "pdfPages": [
+      58
+    ],
+    "sectionTitle": "Hydrochlorothiazide (EDL)",
+    "transformation": "condensed",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "edl_phc",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Hydrochlorothiazide (EDL)",
+    "protocol_type": "drug_entry",
+    "clinical_features": {
+      "symptoms": [
+        "Mild congestive cardiac failure (CCF)",
+        "Hypertension"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Preparation / Standard Dilution",
+        "details": "Oral tablets (12.5 mg, 25 mg, 50 mg)."
+      },
+      {
+        "step_number": "2",
+        "action": "Dose / Rate Range",
+        "details": "CCF: 25 to 50 mg daily. Hypertension (Step 2 / 3 / 5 / 6): 12.5 mg daily. Hypertension (Step 7): 25 mg daily."
+      },
+      {
+        "step_number": "3",
+        "action": "Monitoring / Notes",
+        "details": "Caution in patients with gout. Less effective in impaired renal function. Higher doses can cause hyponatraemia."
+      }
+    ],
+    "warnings": [
+      "Caution in patients with a history or family history of skin cancer; counsel all patients on sun avoidance and sun protection."
+    ],
+    "standard_dilutions": "Oral tablets (12.5 mg, 25 mg, 50 mg).",
+    "notes_updates": "Caution in patients with gout. Less effective in impaired renal function. Higher doses can cause hyponatraemia.",
+    "adult_dose": "Dose / Rate Range: CCF: 25 to 50 mg daily. Hypertension (Step 2 / 3 / 5 / 6): 12.5 mg daily. Hypertension (Step 7): 25 mg daily."
+  }
+}

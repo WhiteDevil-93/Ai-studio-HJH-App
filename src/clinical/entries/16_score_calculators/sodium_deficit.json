@@ -1,0 +1,41 @@
+{
+  "categoryId": "16_score_calculators",
+  "subcategoryId": "sodium_deficit",
+  "slug": "sodium_deficit",
+  "order": 14,
+  "source": {
+    "sourceId": "source-unresolved",
+    "pdfPages": [],
+    "sectionTitle": "sodium_deficit",
+    "transformation": "combined",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "bara_icu",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "name": "Sodium Deficit — Bara ICU dosing",
+    "category": "metabolic",
+    "calculator_type": "formula",
+    "formula_id": "sodium_deficit_chbah",
+    "formula": "0.6 × weight × (desired sodium - actual sodium)",
+    "source_label": "Chris Hani Baragwanath ICU dosing material · review pending",
+    "inputs": [
+      {
+        "name": "Weight",
+        "key": "weight",
+        "unit": "kg"
+      },
+      {
+        "name": "Actual Sodium (Na)",
+        "key": "na",
+        "unit": "mmol/L"
+      },
+      {
+        "name": "Desired Sodium (Na)",
+        "key": "desired_na",
+        "unit": "mmol/L"
+      }
+    ]
+  }
+}

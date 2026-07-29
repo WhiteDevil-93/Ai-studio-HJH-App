@@ -1,0 +1,40 @@
+{
+  "categoryId": "3_sedation_analgesia_and_neurology",
+  "subcategoryId": "icu_dosing",
+  "slug": "fentanyl-chbah-icu",
+  "order": 1002,
+  "source": {
+    "sourceId": "chbah-icu-dosing-card-2024",
+    "pdfPages": [],
+    "sectionTitle": "Fentanyl (CHBAH ICU)",
+    "transformation": "externally-sourced",
+    "verification": "unverifiable"
+  },
+  "sourceGroup": "chbah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Fentanyl (CHBAH ICU)",
+    "protocol_type": "icu_dosing",
+    "clinical_features": {
+      "symptoms": [
+        "Analgesia"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Bolus",
+        "details": "1 – 2 mcg/kg"
+      },
+      {
+        "step_number": "2",
+        "action": "Infusion",
+        "details": "Adult 1 – 2 mcg/kg/hr; Paediatric 0.5 – 2 mcg/kg/hr"
+      }
+    ],
+    "warnings": [],
+    "adult_dose": "1 – 2 mcg/kg/hr",
+    "paediatric_dose": "0.5 – 2 mcg/kg/hr"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "hydrocortisone",
+    "type": "drug",
+    "category": "10_endocrine_and_other",
+    "subcategory": "steroids",
+    "title": "Hydrocortisone",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "drug": "Hydrocortisone",
+    "adult_dose": "Stress: 50-100mg IV 6-8hrly; Physiological: 20mg AM + 10mg PM",
+    "paediatric_dose": "Stress: 1-2mg/kg IV 6hrly",
+    "notes_updates": "Stress dose for adrenal insufficiency, septic shock"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "acyclovir",
+    "type": "drug",
+    "category": "4_antimicrobials_and_infectious_diseases",
+    "subcategory": "antivirals",
+    "title": "Acyclovir",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "condition_or_drug": "Acyclovir",
+    "adult_dose": "10mg/kg IV 8hrly (HSV); 10-15mg/kg IV 8hrly (VZV)",
+    "paediatric_dose": "10-20mg/kg IV 8hrly",
+    "notes_updates": "Adequate hydration mandatory"
+  }
+}

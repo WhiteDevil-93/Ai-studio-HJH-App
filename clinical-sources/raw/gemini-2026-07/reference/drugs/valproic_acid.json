@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "valproic_acid",
+    "type": "drug",
+    "category": "3_sedation_analgesia_and_neurology",
+    "subcategory": "seizures",
+    "title": "Valproic Acid",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "drug": "Valproic Acid",
+    "adult_dose": "15-45mg/kg IV load then 1-3mg/kg/hr",
+    "paediatric_dose": "15-45mg/kg IV load",
+    "notes_updates": "Avoid in hepatic failure"
+  }
+}

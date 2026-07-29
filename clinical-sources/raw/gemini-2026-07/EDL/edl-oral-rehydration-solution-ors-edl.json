@@ -1,0 +1,35 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    16,
+    17
+  ],
+  "item": "Oral rehydration solution (ORS) (EDL)",
+  "categoryHint": "metabolic",
+  "protocol_type": "continuous_infusion",
+  "clinical_features": {
+    "symptoms": [
+      "Cholera",
+      "Acute diarrhoea",
+      "Bacillary dysentery"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Oral rehydration solution."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Volume depends on severity of dehydration. Plan B: 80 mL/kg over 4 hours (e.g. 5 mL/kg every 15 minutes). Plan A: 10 mL/kg after each diarrhoeal stool."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Preferred oral rehydration method."
+    }
+  ],
+  "warnings": []
+}
