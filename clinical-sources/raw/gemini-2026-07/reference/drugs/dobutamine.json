@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "dobutamine",
+    "type": "drug",
+    "category": "7_useful_formulae",
+    "subcategory": "formulae",
+    "title": "Dobutamine",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "category": "Bara ICU \u2014 Inotropes",
+    "item": "Dobutamine",
+    "formula": "ml/hr = (ug/kg/min x kg x 60) / 1250",
+    "standard_dilutions": "250mg in 200ml N/S"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    46,
+    47
+  ],
+  "item": "Pyridoxine (EDL)",
+  "categoryHint": "metabolic",
+  "protocol_type": "weight_based_dose",
+  "clinical_features": {
+    "symptoms": [
+      "Vitamin B6/pyridoxine deficiency",
+      "Medicine-induced peripheral neuropathy"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Oral tablets."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Deficiency - Children: 12.5 mg daily for 3 weeks. Deficiency - Adults: 25 mg daily for 3 weeks. Medicine-induced neuropathy - Children < 5 years: 12.5 mg daily for 6 months. Children >= 5 years: 25 mg daily for 6 months. Adults (medicine-induced neuropathy): 200 mg daily for 3 weeks, then follow with 25 mg daily maintenance."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Indicated for deficiency and patients on TB therapy/isoniazid."
+    }
+  ],
+  "warnings": []
+}

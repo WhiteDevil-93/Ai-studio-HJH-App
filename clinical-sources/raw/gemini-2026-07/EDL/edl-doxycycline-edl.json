@@ -1,0 +1,32 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    79
+  ],
+  "item": "Doxycycline (EDL)",
+  "categoryHint": "antimicrobials",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Moderate inflammatory acne"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Oral capsules/tablets, 100 mg."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "100 mg daily for 3 months."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Review patient after 3 months. Take with meals. Do not take together with iron preparations and antacids. Always use with a topical agent and not as monotherapy."
+    }
+  ],
+  "warnings": []
+}

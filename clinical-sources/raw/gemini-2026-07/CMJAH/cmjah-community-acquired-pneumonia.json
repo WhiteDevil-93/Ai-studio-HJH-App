@@ -1,0 +1,34 @@
+{
+  "sourceDoc": "CMJAH",
+  "pdfPages": [
+    46
+  ],
+  "item": "Community Acquired Pneumonia (CMJAH)",
+  "categoryHint": "medical_emergencies",
+  "protocol_type": "ed_protocol",
+  "review_state": "unreviewed",
+  "clinical_features": {
+    "symptoms": [
+      "Fever, cough, purulent sputum, pleuritic chest pain, dyspnoea, focal consolidation on chest x-ray",
+      "CURB-65 Score: Confusion (1), Urea > 7 (1), RR >= 30 (1), SBP < 90 or DBP <= 60 (1), Age >= 65 (1)."
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Score 0-1 Management",
+      "details": "Outpatient treatment: Augmentin 375mg PO + Amoxil 500mg PO x 5 days + Erythromycin 500mg PO QID x 5 days."
+    },
+    {
+      "step_number": "2",
+      "action": "Score 2 Management",
+      "details": "Inpatient treatment: Augmentin 1.2g IV STAT +/- Azithromycin 500mg PO/IV."
+    },
+    {
+      "step_number": "3",
+      "action": "Score 3-5 Management",
+      "details": "Severe pneumonia treatment: Augmentin 1.2g IV STAT OR Zinacef 1.5g IV STAT + Azithromycin 500mg PO/IV + Hydrocortisone 100mg IVI STAT."
+    }
+  ],
+  "warnings": []
+}

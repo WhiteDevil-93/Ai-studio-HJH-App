@@ -1,0 +1,25 @@
+{
+  "sourceDoc": "CHBAH_ICU",
+  "pdfPages": [
+    1
+  ],
+  "item": "Cefazolin (CHBAH ICU)",
+  "categoryHint": "antimicrobials",
+  "protocol_type": "icu_dosing",
+  "clinical_features": {
+    "symptoms": [
+      "Prophylaxis only"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Dose",
+      "details": "RA. Adult 1 g IVI 8 hrly \u00d7 3 doses; Paediatric 15\u201350 mg/kg IVI 8 hrly (max 1 g)"
+    }
+  ],
+  "warnings": [
+    "Renal Adjusted Dose (RA)",
+    "Prophylaxis only"
+  ]
+}

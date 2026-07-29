@@ -1,0 +1,32 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    51
+  ],
+  "item": "Isosorbide mononitrate (EDL)",
+  "categoryHint": "cardiovascular",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Stable angina"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Oral tablets (10 mg, 20 mg)."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "10-20 mg twice daily."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Take at 8:00 and 14:00 in order to provide a nitrate-free period to prevent tolerance. Modify for night shift workers."
+    }
+  ],
+  "warnings": []
+}

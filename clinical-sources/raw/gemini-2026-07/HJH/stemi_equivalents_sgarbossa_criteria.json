@@ -1,0 +1,56 @@
+{
+  "_meta": {
+    "id": "stemi_equivalents_sgarbossa_criteria",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "STEMI Equivalents & Sgarbossa Criteria",
+    "source_doc": "HJH ED 2026 / CMJAH / Bara ICU",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "STEMI Equivalents & Sgarbossa Criteria",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Identify STEMI Equivalents",
+        "details": "These indicate critical coronary occlusion without classic STE: (1) De Winter syndrome (V1-6 J-point depression with tall symmetric T waves), (2) Posterior STEMI (horizontal STD in V1-3, tall R in V1-2), (3) Wellens Sign A (biphasic T waves in V2-3) or Sign B (deeply inverted anterior T waves), (4) Shark fin pattern, (5) Hyperacute T waves."
+      },
+      {
+        "step_number": "2",
+        "action": "Evaluate Sgarbossa Criteria (LBBB or Paced)",
+        "details": "Score >= 3 has 90% specificity for MI: (1) Criteria A (5 pts): concordant STE >= 1mm in any lead, (2) Criteria B (3 pts): concordant STD >= 1mm in V1, V2, or V3, (3) Criteria C (2 pts): discordant STE >= 5mm in any lead (Modified: STE >= 25% of preceding S-wave)."
+      }
+    ],
+    "warnings": [
+      "Failure to recognize STEMI equivalents leads to catastrophic treatment delays. Actively look for them in chest pain patients with normal or non-diagnostic ECGs."
+    ]
+  },
+  "embedded_drugs": [
+    {
+      "category": "HJH ED Protocol \u2014 Infusions",
+      "item": "Nitroglycerin",
+      "formula": "Dose x 60 / prepared concentration",
+      "standard_dilutions": "10mg in 200ml N/S (50mcg/ml)"
+    },
+    {
+      "drug": "Enoxaparin (Clexane)",
+      "adult_dose": "1mg/kg SC 12hrly",
+      "paediatric_dose": "1mg/kg SC 12hrly",
+      "notes_updates": "Anti-Xa monitoring in renal impairment, pregnancy"
+    },
+    {
+      "drug": "Heparin (UFH)",
+      "adult_dose": "Loading: 80units/kg IV; Maint: 18units/kg/hr",
+      "paediatric_dose": "Loading: 75units/kg IV; Maint: 20-28units/kg/hr",
+      "notes_updates": "Target aPTT: 50-70sec. Protamine 1mg per 100units heparin"
+    },
+    {
+      "drug": "Alteplase (tPA)",
+      "adult_dose": "PE: 100mg IV over 2hrs. STEMI: 15mg bolus, 50mg/30min, 35mg/60min",
+      "paediatric_dose": "0.1-0.5mg/kg/hr IV",
+      "notes_updates": "Monitor for bleeding"
+    }
+  ]
+}

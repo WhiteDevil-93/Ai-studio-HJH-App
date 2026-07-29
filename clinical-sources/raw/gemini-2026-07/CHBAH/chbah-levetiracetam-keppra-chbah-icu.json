@@ -1,0 +1,27 @@
+{
+  "sourceDoc": "CHBAH_ICU",
+  "pdfPages": [
+    1
+  ],
+  "item": "Levetiracetam (Keppra) (CHBAH ICU)",
+  "categoryHint": "neurology",
+  "protocol_type": "icu_dosing",
+  "clinical_features": {
+    "symptoms": [
+      "Anti-epileptic"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Loading dose",
+      "details": "Paediatric 50 mg/kg over 10 min"
+    },
+    {
+      "step_number": "2",
+      "action": "Maintenance",
+      "details": "Paediatric 15\u201360 mg/kg/day 8 or 12 hrly"
+    }
+  ],
+  "warnings": []
+}

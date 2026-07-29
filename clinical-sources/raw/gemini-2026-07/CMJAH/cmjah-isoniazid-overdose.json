@@ -1,0 +1,23 @@
+{
+  "sourceDoc": "CMJAH",
+  "pdfPages": [
+    89
+  ],
+  "item": "Isoniazid (INH) Overdose (CMJAH)",
+  "categoryHint": "toxicology",
+  "protocol_type": "ed_protocol",
+  "review_state": "unreviewed",
+  "clinical_features": {
+    "symptoms": [
+      "Refractory seizures, severe metabolic acidosis with anion gap, coma"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Decontamination & Specific Antidote (Pyridoxine)",
+      "details": "Activated Charcoal 50g NGT if presentation < 1 hour. Pyridoxine (Vitamin B6):\n- Known ingested amount: 1g Pyridoxine per gram INH ingested (max 5g total, or 70mg/kg in children) IV/PO.\n- Unknown ingested amount: 5g Pyridoxine total PO/NGT. Repeat after 10-20 min if seizures persist."
+    }
+  ],
+  "warnings": []
+}

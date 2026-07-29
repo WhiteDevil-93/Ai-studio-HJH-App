@@ -1,0 +1,22 @@
+{
+  "sourceDoc": "CHBAH_ICU",
+  "pdfPages": [
+    1
+  ],
+  "item": "Ciprofloxacin (CHBAH ICU)",
+  "categoryHint": "antimicrobials",
+  "protocol_type": "icu_dosing",
+  "clinical_features": {
+    "symptoms": []
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Dose",
+      "details": "RA. Adult 400 mg IVI 8 hrly; Paediatric 10\u201315 mg/kg IVI 8 hrly"
+    }
+  ],
+  "warnings": [
+    "Renal Adjusted Dose (RA)"
+  ]
+}

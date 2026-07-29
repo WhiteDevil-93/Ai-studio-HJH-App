@@ -1,0 +1,36 @@
+{
+  "sourceDoc": "CMJAH",
+  "pdfPages": [
+    16,
+    17
+  ],
+  "item": "Acute Ischaemic Stroke (CMJAH)",
+  "categoryHint": "medical_emergencies",
+  "protocol_type": "ed_protocol",
+  "review_state": "unreviewed",
+  "clinical_features": {
+    "symptoms": [
+      "Focal neurological deficit of sudden onset (hemiparesis, facial droop, speech impairment, ataxia)"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Emergency Evaluation (< 3 Hours from Onset)",
+      "details": "Urgent non-contrast CT Brain, ECG, Blood gas, NIHSS score evaluation."
+    },
+    {
+      "step_number": "2",
+      "action": "Thrombolysis Criteria & Dosing",
+      "details": "Indications: Onset < 3 hours, NIHSS > 6, BP < 185/110 mmHg. Administer IV Alteplase per stroke thrombolysis protocol."
+    },
+    {
+      "step_number": "3",
+      "action": "Management of Symptomatic Intracranial Bleeding Post-Thrombolysis",
+      "details": "Stop Alteplase infusion immediately. Urgent STAT non-contrast CT Brain. Transfuse Cryoprecipitate 10 U/kg over 10-30 min. Administer Tranexamic Acid 1g IV over 10 min."
+    }
+  ],
+  "warnings": [
+    "Strict blood pressure threshold required: SBP < 185 mmHg and DBP < 110 mmHg prior to thrombolysis."
+  ]
+}

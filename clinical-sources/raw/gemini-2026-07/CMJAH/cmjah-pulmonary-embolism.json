@@ -1,0 +1,30 @@
+{
+  "sourceDoc": "CMJAH",
+  "pdfPages": [
+    109,
+    110
+  ],
+  "item": "Pulmonary Embolism (CMJAH)",
+  "categoryHint": "resuscitation",
+  "protocol_type": "ed_protocol",
+  "review_state": "unreviewed",
+  "clinical_features": {
+    "symptoms": [
+      "Massive PE: Hypotension (SBP < 90 mmHg), syncope, obstructive shock, acute RV strain",
+      "Non-massive PE: Dyspnoea, pleuritic chest pain, haemoptysis, tachycardia"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Massive PE Thrombolysis (Alteplase Protocol)",
+      "details": "Weight >= 65kg: 10mg IV bolus, then 90mg IV infusion over 2 hours.\nWeight < 65kg: Total dose 1.5mg/kg (10mg IV bolus, remainder over 2 hours).\nCardiac Arrest: 50mg IVI STAT."
+    },
+    {
+      "step_number": "2",
+      "action": "Anticoagulation",
+      "details": "Clexane (Enoxaparin) 1mg/kg SC BD."
+    }
+  ],
+  "warnings": []
+}

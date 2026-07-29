@@ -1,0 +1,34 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    3,
+    4
+  ],
+  "item": "Candidiasis, oral (thrush) (EDL)",
+  "categoryHint": "infectious",
+  "protocol_type": "ed_protocol",
+  "clinical_features": {
+    "symptoms": [
+      "A candida infection of the mouth and sometimes of the pharynx",
+      "Commonly presents as painful creamy white patches that can be scraped off the tongue and buccal mucosa",
+      "Often occurs in healthy babies up to one month of age",
+      "Risk factors include poor oral hygiene, immunosuppression, prolonged use of broad-spectrum antibiotics or corticosteroids (including inhaled), certain chronic diseases e.g. diabetes mellitus, trauma e.g. from poorly fitting dentures or dentures worn whilst sleeping"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "General measures",
+      "details": "Identify underlying causes, based on risk factors. Improve oral hygiene. Feed infants using a cup instead of a bottle. Ensure proper fitting dentures."
+    },
+    {
+      "step_number": "2",
+      "action": "Medicine treatment",
+      "details": "Nystatin suspension, oral, 100 000 IU/mL, 1 mL 6 hourly after each meal/feed for 7 days. Keep in contact with the affected area for as long as possible prior to swallowing. In older children, ask the child to swirl in the mouth, prior to swallowing. In infants, advise mothers to apply to front of the mouth and spread over the oral mucosa with a clean finger. Continue for 48 hours after cure."
+    }
+  ],
+  "warnings": [
+    "Note: In PLHIV candidiasis may involve the oesophagus as well as the mouth. Pain and difficulty in swallowing in an HIV-infected patient with oral candidiasis suggest oesophageal involvement, which requires systemic treatment with fluconazole. See Section 11.3.3: Candidiasis, oesophageal.",
+    "REFERRAL: No improvement."
+  ]
+}

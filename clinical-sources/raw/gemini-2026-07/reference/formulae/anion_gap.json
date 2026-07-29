@@ -1,0 +1,41 @@
+{
+  "_meta": {
+    "id": "anion_gap",
+    "type": "calculator",
+    "category": "16_score_calculators",
+    "title": "Anion Gap (HJH, potassium-inclusive)",
+    "review_state": "unreviewed"
+  },
+  "calculator": {
+    "name": "Anion Gap (HJH, potassium-inclusive)",
+    "category": "metabolic",
+    "calculator_type": "formula",
+    "formula_id": "anion_gap_hjh",
+    "formula": "(na + k) - (cl + hco3)",
+    "source_pages": [
+      92
+    ],
+    "inputs": [
+      {
+        "name": "Sodium (Na)",
+        "key": "na",
+        "unit": "mmol/L"
+      },
+      {
+        "name": "Potassium (K)",
+        "key": "k",
+        "unit": "mmol/L"
+      },
+      {
+        "name": "Chloride (Cl)",
+        "key": "cl",
+        "unit": "mmol/L"
+      },
+      {
+        "name": "Bicarbonate (HCO3)",
+        "key": "hco3",
+        "unit": "mmol/L"
+      }
+    ]
+  }
+}

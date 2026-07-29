@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "hydralazine",
+    "type": "drug",
+    "category": "8_cardiovascular",
+    "subcategory": "antihypertensives",
+    "title": "Hydralazine",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "drug": "Hydralazine",
+    "adult_dose": "5-20mg IV 4-6hrly",
+    "paediatric_dose": "0.1-0.2mg/kg IV 4-6hrly",
+    "notes_updates": "Avoid in aortic dissection"
+  }
+}

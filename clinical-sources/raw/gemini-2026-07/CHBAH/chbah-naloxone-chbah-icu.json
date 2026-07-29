@@ -1,0 +1,22 @@
+{
+  "sourceDoc": "CHBAH_ICU",
+  "pdfPages": [
+    1
+  ],
+  "item": "Naloxone (CHBAH ICU)",
+  "categoryHint": "sedation",
+  "protocol_type": "icu_dosing",
+  "clinical_features": {
+    "symptoms": [
+      "Opioid reversal"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Dose",
+      "details": "Adult 0.4\u20132 mg IV STAT (max 2 mg/dose); Paediatric 0.01 mg/kg IV STAT"
+    }
+  ],
+  "warnings": []
+}

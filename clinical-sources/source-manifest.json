@@ -22,8 +22,10 @@
     {
       "id": "rmmch-paediatric-protocols",
       "title": "RMMCH Emergency Department Protocols",
+      "version": "V5",
+      "documentDate": "2024-01",
       "scope": "Paediatric emergency guidance referenced by the HJH source",
-      "status": "source-required",
+      "status": "content-transcribed-fingerprint-pending",
       "distributionPermission": "unconfirmed"
     },
     {
@@ -35,6 +37,13 @@
       "sha256": "70187c9d418f08dc36faf6637c85a50a4aed4229371f5b73004c14fa152502b9",
       "scope": "Adult & paediatric ED protocols: resuscitation (AHA 2020 algorithms), toxicology, infusions, triage, and administrative policy. Editor: Dr Radha Gihwala.",
       "status": "source-received",
+      "distributionPermission": "confirmed-public"
+    },
+    {
+      "id": "sa-edl-phc-2020",
+      "title": "South African Essential Drugs List, Primary Health Care Level",
+      "scope": "Primary health care drug formulary, published by the National Department of Health",
+      "status": "content-transcribed-fingerprint-pending",
       "distributionPermission": "confirmed-public"
     }
   ]

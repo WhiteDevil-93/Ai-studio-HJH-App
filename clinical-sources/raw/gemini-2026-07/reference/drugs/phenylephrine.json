@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "phenylephrine",
+    "type": "drug",
+    "category": "1_resuscitation_fluids_and_inotropes",
+    "subcategory": "inotropes",
+    "title": "Phenylephrine",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "item": "Phenylephrine",
+    "adult_dose": "0.5-5ug/kg/min IV",
+    "paediatric_dose": "0.5-5ug/kg/min IV",
+    "notes_updates": ""
+  }
+}

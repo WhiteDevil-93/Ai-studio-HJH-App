@@ -1,0 +1,20 @@
+{
+  "sourceDoc": "CHBAH_ICU",
+  "pdfPages": [
+    1
+  ],
+  "item": "Metronidazole (CHBAH ICU)",
+  "categoryHint": "antimicrobials",
+  "protocol_type": "icu_dosing",
+  "clinical_features": {
+    "symptoms": []
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Dose",
+      "details": "Adult 500 mg IVI 8 hrly (or 1 g PR 12 hrly); Paediatric 7.5 mg/kg IVI 8 hrly"
+    }
+  ],
+  "warnings": []
+}

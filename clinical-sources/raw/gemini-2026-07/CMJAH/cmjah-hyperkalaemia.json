@@ -1,0 +1,34 @@
+{
+  "sourceDoc": "CMJAH",
+  "pdfPages": [
+    70
+  ],
+  "item": "Hyperkalaemia (CMJAH)",
+  "categoryHint": "metabolic",
+  "protocol_type": "ed_protocol",
+  "review_state": "unreviewed",
+  "clinical_features": {
+    "symptoms": [
+      "Serum K+ > 5.5 mmol/l",
+      "ECG: Peaked T waves, P wave flattening, PR prolongation, QRS widening, sine wave pattern"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Membrane Stabilisation",
+      "details": "Calcium Chloride 10%: 10ml (20mg/kg) IV over 10 min OR Calcium Gluconate 10%: 30ml (60mg/kg) IV over 10 min."
+    },
+    {
+      "step_number": "2",
+      "action": "Intracellular Potassium Shift",
+      "details": "Inhaled B2 agonist nebs (Salbutamol 10-20mg). Actrapid Insulin 10u (0.1u/kg) IV + 1ml/kg 50% Dextrose IV. NaHCO3 8.5% 1 ml/kg (if NAGMA present)."
+    },
+    {
+      "step_number": "3",
+      "action": "Potassium Elimination",
+      "details": "Furosemide 0.5-1 mg/kg IV."
+    }
+  ],
+  "warnings": []
+}

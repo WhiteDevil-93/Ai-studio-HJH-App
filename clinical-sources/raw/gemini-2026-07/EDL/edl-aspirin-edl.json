@@ -1,0 +1,38 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    51,
+    52,
+    54,
+    55,
+    56
+  ],
+  "item": "Aspirin (EDL)",
+  "categoryHint": "cardiovascular",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Stable angina",
+      "Unstable angina / NSTEMI",
+      "Acute myocardial infarction (AMI) / STEMI"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Oral tablets, 150 mg."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Stable angina / NSTEMI / STEMI long-term prophylaxis: 150 mg daily. Acute NSTEMI / STEMI loading dose: 150 mg as a single dose (chewed or dissolved) ASAP."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Continued indefinitely in absence of contraindications."
+    }
+  ],
+  "warnings": []
+}

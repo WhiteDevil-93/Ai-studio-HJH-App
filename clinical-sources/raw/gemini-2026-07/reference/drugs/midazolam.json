@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "midazolam",
+    "type": "drug",
+    "category": "3_sedation_analgesia_and_neurology",
+    "subcategory": "seizures",
+    "title": "Midazolam",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "drug": "Midazolam",
+    "adult_dose": "10mg IM or buccal (if no IV access)",
+    "paediatric_dose": "0.2 - 0.5 mg/kg buccal",
+    "notes_updates": "Alternative if Lorazepam unavailable."
+  }
+}

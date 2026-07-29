@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "anion_gap",
+    "type": "drug",
+    "category": "7_useful_formulae",
+    "subcategory": "formulae",
+    "title": "Anion Gap",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "category": "Metabolic",
+    "item": "Anion Gap",
+    "formula": "Na - (Cl + HCO3)",
+    "standard_dilutions": "Normal approx 12 mEq/L"
+  }
+}

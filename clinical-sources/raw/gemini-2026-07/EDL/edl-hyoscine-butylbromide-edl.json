@@ -1,0 +1,32 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    11
+  ],
+  "item": "Hyoscine butylbromide (EDL)",
+  "categoryHint": "dosing",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Abdominal cramp-like pains in adults"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Oral formulation, 10 mg."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "10 mg 6 hourly for a maximum of 3 days."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Symptomatic treatment for adults if no specific cause or indication for referral is found."
+    }
+  ],
+  "warnings": []
+}

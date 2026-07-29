@@ -1,0 +1,27 @@
+{
+  "sourceDoc": "CHBAH_ICU",
+  "pdfPages": [
+    1
+  ],
+  "item": "Valproate (CHBAH ICU)",
+  "categoryHint": "neurology",
+  "protocol_type": "icu_dosing",
+  "clinical_features": {
+    "symptoms": [
+      "Anti-epileptic"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Loading dose",
+      "details": "Adult 25 mg/kg over 1 hr; Paediatric 20\u201340 mg/kg over 1 hr"
+    },
+    {
+      "step_number": "2",
+      "action": "Maintenance",
+      "details": "Adult 3\u20136 mg/kg/min; Paediatric 1\u20135 mg/kg/hr"
+    }
+  ],
+  "warnings": []
+}

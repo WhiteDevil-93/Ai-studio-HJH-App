@@ -1,0 +1,32 @@
+{
+  "_meta": {
+    "id": "corrected_na_hjh_page92",
+    "type": "calculator",
+    "category": "16_score_calculators",
+    "title": "Corrected Sodium \u2014 DKA/HHS protocol",
+    "review_state": "unreviewed"
+  },
+  "calculator": {
+    "name": "Corrected Sodium \u2014 DKA/HHS protocol",
+    "category": "metabolic",
+    "calculator_type": "formula",
+    "formula_id": "corrected_na_hjh_page92",
+    "formula": "Na + [factor \u00d7 (glucose - 5.5) / 5.5], factor 1.6 at glucose 11\u201322 and 2.4 above 22",
+    "source_pages": [
+      92
+    ],
+    "review_note": "Transcribed from the DKA/HHS page. Compare with the separate page 97 equation during clinical review.",
+    "inputs": [
+      {
+        "name": "Measured Sodium (Na)",
+        "key": "na",
+        "unit": "mmol/L"
+      },
+      {
+        "name": "Glucose",
+        "key": "glucose",
+        "unit": "mmol/L"
+      }
+    ]
+  }
+}

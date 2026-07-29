@@ -1,0 +1,38 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    91,
+    92,
+    93
+  ],
+  "item": "Benzyl benzoate (EDL)",
+  "categoryHint": "dermatology",
+  "protocol_type": "weight_based_dose",
+  "clinical_features": {
+    "symptoms": [
+      "Body lice",
+      "Pubic lice",
+      "Scabies"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Topical lotion, 25%. For children < 1 year: dilute 1 part to 3 parts water to form 6% emulsion. For children 1 to 6 years: dilute 1 part with equal amount of water to form 12.5% emulsion."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Body lice: apply undiluted once weekly for 3 weeks. Pubic lice: apply once weekly for 2 weeks, repeat in 7 days. Scabies (children < 6 years): apply diluted emulsion neck to feet overnight. Scabies (children >= 6 years and adults): apply undiluted to whole body from neck to feet for 24 hours."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Toxic if swallowed. Avoid eyes and broken skin or sores. Do not continue if rash or swelling develops."
+    }
+  ],
+  "warnings": [
+    "Toxic if swallowed. Avoid contact with eyes and broken skin or sores."
+  ]
+}

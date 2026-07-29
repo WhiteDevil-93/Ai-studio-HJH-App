@@ -1,0 +1,44 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    26,
+    27,
+    28,
+    33,
+    34,
+    40,
+    41,
+    43
+  ],
+  "item": "Albendazole (EDL)",
+  "categoryHint": "antimicrobials",
+  "protocol_type": "weight_based_dose",
+  "clinical_features": {
+    "symptoms": [
+      "Tapeworm infestation",
+      "Pinworm infestation",
+      "Other helminthic infestations",
+      "Iron deficiency anaemia",
+      "Malnutrition",
+      "Sandworm (cutaneous larva migrans)"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Oral formulation."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Tapeworm / Sandworm / Helminths: Children 1-2 years: 200 mg (daily for 3 days in tapeworm/sandworm; single dose in helminths). Children >= 2 years and adults: 400 mg (daily for 3 days in tapeworm/sandworm; single dose in helminths). Pinworm: Children 1-2 years 200 mg single dose; children >= 2 years and adults 400 mg single dose."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Used for empirical de-worming and helminthic infestations."
+    }
+  ],
+  "warnings": []
+}

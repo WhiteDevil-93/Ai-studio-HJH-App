@@ -1,0 +1,33 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    109
+  ],
+  "item": "High potency (SPF) sunblock (UV block) (EDL)",
+  "categoryHint": "dermatology",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Albinism",
+      "Vitiligo"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Topical sunblock / UV block."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Apply evenly to all sun exposed areas at least 15 minutes before going out into the sun."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Protects against UV radiation in hypopigmentary disorders."
+    }
+  ],
+  "warnings": []
+}

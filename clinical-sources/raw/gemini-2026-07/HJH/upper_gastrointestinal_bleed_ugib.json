@@ -1,0 +1,66 @@
+{
+  "_meta": {
+    "id": "upper_gastrointestinal_bleed_ugib",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Upper Gastrointestinal Bleed (UGIB)",
+    "source_doc": "HJH ED 2026 / CMJAH / Bara ICU",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Upper Gastrointestinal Bleed (UGIB)",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Resuscitation & Access",
+        "details": "ABCD. Keep NPO. Insert 2x large-bore IVs. Administer warm Balsol/Ringer's Lactate (10ml/kg)."
+      },
+      {
+        "step_number": "2",
+        "action": "Transfusion Triggers",
+        "details": "Transfuse PRCs if haemodynamically unstable despite crystalloid bolus, Hb < 7 in low-risk, or Hb < 9 in high-risk/elderly/coronary disease. If coagulopathic (INR > 1.5) or on Warfarin: give FFP 10-20ml/kg or PCC."
+      },
+      {
+        "step_number": "3",
+        "action": "Acid Suppression & Variceal therapy",
+        "details": "Give Pantoprazole (Pantoloc) 80mg IV loading dose, then start infusion (200mg in 200ml N/S at 8 ml/hr). If variceal/cirrhosis: give Ceftriaxone 1g IV + Octreotide 50mcg bolus followed by 50mcg/hr infusion."
+      },
+      {
+        "step_number": "4",
+        "action": "Surgical/Endoscopy consult",
+        "details": "Notify surgical/gastroenterology registrar on call urgently. Consider Sengstaken-Blakemore tube if catastrophic variceal bleeding."
+      }
+    ],
+    "warnings": [
+      "Avoid over-transfusion in suspected variceal bleeds (increases portal pressure and worsens haemorrhage).",
+      "There is NO role for Tranexamic Acid (TXA) in upper GI bleeding."
+    ]
+  },
+  "embedded_drugs": [
+    {
+      "condition_or_drug": "Ceftriaxone",
+      "adult_dose": "1-2g IV 12-24hrly",
+      "paediatric_dose": "50-100mg/kg IV 12-24hrly (max 4g/day)"
+    },
+    {
+      "drug": "Tranexamic Acid",
+      "adult_dose": "1g IV over 10min (repeat 8hrly); Trauma: 1g/10min then 1g/8hrs",
+      "paediatric_dose": "15mg/kg IV 8hrly",
+      "notes_updates": "Contraindicated: significant haematuria, DIC"
+    },
+    {
+      "item": "Fresh Frozen Plasma (FFP)",
+      "adult_dose": "15-20ml/kg IV",
+      "paediatric_dose": "15-20ml/kg IV",
+      "notes": "For coagulopathy with active bleeding"
+    },
+    {
+      "item": "Platelets",
+      "adult_dose": "1 pool raises count by 20-40x10^9/L",
+      "paediatric_dose": "10-15ml/kg IV",
+      "notes": "Indicated: count <10 or <50 with bleeding/procedure"
+    }
+  ]
+}

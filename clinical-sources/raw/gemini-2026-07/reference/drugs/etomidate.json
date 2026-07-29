@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "etomidate",
+    "type": "drug",
+    "category": "2_airway_and_ventilation",
+    "subcategory": "sedation",
+    "title": "Etomidate",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "item": "Etomidate",
+    "adult_dose": "0.3mg/kg IV (max 40mg)",
+    "paediatric_dose": "0.2-0.3mg/kg IV",
+    "notes": "Haemodynamically stable induction agent"
+  }
+}

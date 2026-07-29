@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "omeprazole",
+    "type": "drug",
+    "category": "5_metabolic_electrolytes_and_nutrition",
+    "subcategory": "gi_nutrition",
+    "title": "Omeprazole",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "item": "Omeprazole",
+    "adult_dose": "40mg IV/PO daily",
+    "paediatric_dose": "0.6-1mg/kg IV/PO daily",
+    "notes": "Stress ulcer prophylaxis"
+  }
+}

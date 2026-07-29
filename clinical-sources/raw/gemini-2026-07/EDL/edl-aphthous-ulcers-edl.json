@@ -1,0 +1,26 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    8
+  ],
+  "item": "Aphthous ulcers (EDL)",
+  "categoryHint": "dental",
+  "protocol_type": "ed_protocol",
+  "clinical_features": {
+    "symptoms": [
+      "Painful ulcers in the mouth, except the gums, hard palate and dorsum of the tongue",
+      "Minor ulcers (< 1 cm diameter) usually heal within 10 days",
+      "Major ulcers (> 1 cm diameter) are very painful, often very deep and persist, usually indicating advanced HIV infection"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Medicine treatment",
+      "details": "Minor aphthous ulcers: Children < 6 years of age: Paracetamol, oral, 10-15 mg/kg/dose 6 hourly when required. See dosing table: Chapter 23. Children > 6 years of age and adults: Tetracaine 0.5%, topical, applied every 6 hours (apply a thin layer on affected areas only, may be used inside mouth; safety in children < 6 years of age has not been established)."
+    }
+  ],
+  "warnings": [
+    "REFERRAL: Major ulcers for further diagnostic evaluation, ulcers that are not healing within 10 days."
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "sourceDoc": "CHBAH_ICU",
+  "pdfPages": [
+    1
+  ],
+  "item": "Hydrocortisone (CHBAH ICU)",
+  "categoryHint": "sedation",
+  "protocol_type": "icu_dosing",
+  "clinical_features": {
+    "symptoms": [
+      "Steroid"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Dose",
+      "details": "Adult 100\u2013500 mg 6 hrly; Paediatric 2\u20134 mg/kg 6 hrly. Alternative: 0.5\u20131 mg/kg/dose IVI 6 hrly (adult) / 1\u20132 mg/kg/dose IVI 6 hrly (paeds)"
+    }
+  ],
+  "warnings": []
+}

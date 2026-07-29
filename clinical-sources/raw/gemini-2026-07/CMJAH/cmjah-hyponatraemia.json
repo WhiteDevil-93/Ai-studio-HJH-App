@@ -1,0 +1,26 @@
+{
+  "sourceDoc": "CMJAH",
+  "pdfPages": [
+    73
+  ],
+  "item": "Hyponatraemia (CMJAH)",
+  "categoryHint": "metabolic",
+  "protocol_type": "ed_protocol",
+  "review_state": "unreviewed",
+  "clinical_features": {
+    "symptoms": [
+      "Serum Na+ < 135 mmol/l",
+      "Severe CNS symptoms (Na < 110 mmol/l): Seizures, coma, confusion, raised ICP"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Severe Symptomatic Hyponatraemia Management",
+      "details": "3% Hypertonic Saline: 2 mls/kg IV over 60 minutes to target serum Na = 120 mmol/l. Max increase 0.5 mmol/l/hr (max 12 mmol/l per 24 hours)."
+    }
+  ],
+  "warnings": [
+    "Do NOT exceed 0.5 mmol/l/hr or 12 mmol/l per 24h increase to avoid Central Pontine Myelinolysis (Osmotic Demyelination Syndrome)."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "sourceDoc": "CHBAH_ICU",
+  "pdfPages": [
+    1
+  ],
+  "item": "Amiodarone (CHBAH ICU)",
+  "categoryHint": "cardiovascular",
+  "protocol_type": "icu_dosing",
+  "clinical_features": {
+    "symptoms": [
+      "Anti-arrhythmic"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Stable",
+      "details": "Adult 150 mg over 3 min; Paediatric 5 mg/kg over 3 min"
+    },
+    {
+      "step_number": "2",
+      "action": "Unstable",
+      "details": "Adult 300 mg over 3 min"
+    },
+    {
+      "step_number": "3",
+      "action": "Load + maintenance",
+      "details": "Adult load 300 mg over 30 min then 900 mg over 24 hrs; Paediatric 5 mg/kg over 30 min then 5 \u2013 15 mcg/kg/min"
+    }
+  ],
+  "warnings": []
+}

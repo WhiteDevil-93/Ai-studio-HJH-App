@@ -1,0 +1,29 @@
+{
+  "sourceDoc": "CMJAH",
+  "pdfPages": [
+    126
+  ],
+  "item": "Toxic Alcohol Ingestion (CMJAH)",
+  "categoryHint": "toxicology",
+  "protocol_type": "ed_protocol",
+  "review_state": "unreviewed",
+  "clinical_features": {
+    "symptoms": [
+      "High osmolar gap, severe high anion gap metabolic acidosis",
+      "Visual disturbances/blindness (Methanol), acute renal failure/oxalate crystals (Ethylene glycol)"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Alcohol Dehydrogenase Inhibition",
+      "details": "Fomepizole 15mg/kg loading, then 10mg/kg q12h OR 40% Ethanol (Vodka) 1.5-2 ml/kg loading dose, then 0.3 ml/kg/hr via NGT."
+    },
+    {
+      "step_number": "2",
+      "action": "Acidosis Correction & Cofactors",
+      "details": "NaHCO3 8.5%: 1ml/kg IV for pH < 7.2.\nEthylene glycol cofactors: Pyridoxine 100mg QID + Thiamine 100mg QID.\nMethanol cofactors: Folic acid 50mg q4-6h."
+    }
+  ],
+  "warnings": []
+}

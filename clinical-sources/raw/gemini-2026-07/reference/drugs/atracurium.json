@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "atracurium",
+    "type": "drug",
+    "category": "2_airway_and_ventilation",
+    "subcategory": "sedation",
+    "title": "Atracurium",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "item": "Atracurium",
+    "adult_dose": "0.4-0.5mg/kg IV",
+    "paediatric_dose": "0.3-0.5mg/kg IV"
+  }
+}

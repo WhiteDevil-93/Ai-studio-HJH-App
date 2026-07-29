@@ -1,0 +1,42 @@
+{
+  "sourceDoc": "CMJAH",
+  "pdfPages": [
+    31
+  ],
+  "item": "Anaphylaxis (CMJAH)",
+  "categoryHint": "resuscitation",
+  "protocol_type": "ed_protocol",
+  "review_state": "unreviewed",
+  "clinical_features": {
+    "symptoms": [
+      "Acute onset illness involving skin/mucosa AND respiratory compromise, hypotension, or end-organ dysfunction",
+      "2 or more features after likely allergen exposure (skin/mucosa, respiratory, hypotension, GI symptoms)",
+      "Hypotension after exposure to known allergen (decline in SBP >= 30%)"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "First-Line Treatment",
+      "details": "Stop/remove allergen. Position supine with legs elevated. High-flow O2, monitors, IV access. Administer ADRENALINE (1:1 000, 1mg/ml) 0.5 mls IM STAT anterolateral thigh (0.01mg/kg up to 0.5mg)."
+    },
+    {
+      "step_number": "2",
+      "action": "Airway & Fluid Resuscitation",
+      "details": "Nebulized Adrenaline (5mg) for partial airway obstruction. BVM for complete obstruction. Crystalloid (Ringers Lactate/Balsol) 20ml/kg IV bolus."
+    },
+    {
+      "step_number": "3",
+      "action": "Adjunctive Medications",
+      "details": "Promethazine (Phenergan) 12.5 mg slow IV (max 25mg; weight dependent in paeds). Hydrocortisone (Solucortef) 200 mg slow IV (weight dependent in paeds)."
+    },
+    {
+      "step_number": "4",
+      "action": "Refractory / Cardiac Arrest Escalation",
+      "details": "Repeat IM Adrenaline every 3-5 minutes or start Adrenaline infusion. In cardiac arrest: ACLS, adrenaline 3-5mg q2-3min + aggressive fluid volume."
+    }
+  ],
+  "warnings": [
+    "Biphasic reaction occurs in 5-20% of cases. Observe patient closely."
+  ]
+}

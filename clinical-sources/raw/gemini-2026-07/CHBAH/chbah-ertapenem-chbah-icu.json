@@ -1,0 +1,22 @@
+{
+  "sourceDoc": "CHBAH_ICU",
+  "pdfPages": [
+    1
+  ],
+  "item": "Ertapenem (CHBAH ICU)",
+  "categoryHint": "antimicrobials",
+  "protocol_type": "icu_dosing",
+  "clinical_features": {
+    "symptoms": []
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Dose",
+      "details": "RA. Adult 1 g IVI daily; Paediatric 15 mg/kg IVI 12 hrly"
+    }
+  ],
+  "warnings": [
+    "Renal Adjusted Dose (RA)"
+  ]
+}

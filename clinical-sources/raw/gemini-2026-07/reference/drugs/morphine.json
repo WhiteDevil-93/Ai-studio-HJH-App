@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "morphine",
+    "type": "drug",
+    "category": "3_sedation_analgesia_and_neurology",
+    "subcategory": "analgesia",
+    "title": "Morphine",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "drug": "Morphine",
+    "adult_dose": "0.1mg/kg IV; 0.1-0.4mg/kg/hr",
+    "paediatric_dose": "0.1mg/kg IV; 0.01-0.05mg/kg/hr",
+    "notes_updates": "First-line opioid for severe pain"
+  }
+}

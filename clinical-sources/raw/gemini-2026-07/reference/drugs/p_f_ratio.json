@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "p_f_ratio",
+    "type": "drug",
+    "category": "7_useful_formulae",
+    "subcategory": "formulae",
+    "title": "P/F Ratio",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "category": "Respiratory",
+    "item": "P/F Ratio",
+    "formula": "PaO2 / FiO2",
+    "standard_dilutions": "Normal > 400"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "_meta": {
+    "id": "wells_dvt",
+    "type": "calculator",
+    "category": "16_score_calculators",
+    "title": "Wells Score for DVT",
+    "review_state": "unreviewed"
+  },
+  "calculator": {
+    "name": "Wells Score for DVT",
+    "category": "vascular",
+    "source_pages": [
+      63
+    ],
+    "components": [
+      {
+        "name": "Active cancer (treatment within 6 months or palliative)",
+        "points": 1,
+        "key": "cancer"
+      },
+      {
+        "name": "Paralysis, paresis, or recent plaster immobilisation of lower extremity",
+        "points": 1,
+        "key": "paralysis"
+      },
+      {
+        "name": "Recently bedridden >=3 days or major surgery within 12 weeks",
+        "points": 1,
+        "key": "bedridden"
+      },
+      {
+        "name": "Localised tenderness along deep venous system",
+        "points": 1,
+        "key": "tenderness"
+      },
+      {
+        "name": "Entire leg swollen",
+        "points": 1,
+        "key": "entire_swollen"
+      },
+      {
+        "name": "Calf swelling >3cm compared to asymptomatic leg",
+        "points": 1,
+        "key": "calf_swelling"
+      },
+      {
+        "name": "Pitting oedema confined to symptomatic leg",
+        "points": 1,
+        "key": "pitting"
+      },
+      {
+        "name": "Collateral superficial veins (non-varicose)",
+        "points": 1,
+        "key": "collateral"
+      },
+      {
+        "name": "Alternative diagnosis as likely or more likely than DVT",
+        "points": -2,
+        "key": "alt_dx"
+      }
+    ],
+    "interpretation": [
+      {
+        "min": -2,
+        "max": 0,
+        "label": "DVT Unlikely",
+        "action": "Perform D-dimer. If negative, exclude DVT. If positive, perform ultrasound."
+      },
+      {
+        "min": 1,
+        "max": 10,
+        "label": "DVT Likely",
+        "action": "Perform formal compressive ultrasound of lower limb. Cautiously bridge with Clexane."
+      }
+    ]
+  }
+}

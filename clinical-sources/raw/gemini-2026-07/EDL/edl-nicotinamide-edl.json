@@ -1,0 +1,32 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    46
+  ],
+  "item": "Nicotinamide (EDL)",
+  "categoryHint": "metabolic",
+  "protocol_type": "weight_based_dose",
+  "clinical_features": {
+    "symptoms": [
+      "Vitamin B3/nicotinic acid deficiency (Pellagra)"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Oral tablets/suspension."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Severe deficiency - Children: 50 mg 8 hourly until resolution. Severe deficiency - Adults: 100 mg 8 hourly until skin lesions heal. Mild deficiency - Children: 50 mg daily for 1 week. Mild deficiency - Adults: 100 mg daily for 1 week."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Continue until resolution of major signs and symptoms / skin lesions heal."
+    }
+  ],
+  "warnings": []
+}

@@ -1,0 +1,35 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    106,
+    107
+  ],
+  "item": "Salicylic acid (EDL)",
+  "categoryHint": "dermatology",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Common warts",
+      "Plane warts",
+      "Plantar warts"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Topical liquid application (15 to 30%) or topical cream/liquid (2% for plane warts)."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Common / Plantar warts (15-30%): protect surrounding skin with petroleum jelly, apply daily to wart and allow to dry, occlude for 24 hours, soak in warm water and remove loosened keratin by light abrasion, wash and reapply daily until wart disappears. Plane warts (2%): topical application."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Plane warts are notoriously difficult to treat with a poor response."
+    }
+  ],
+  "warnings": []
+}

@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "esmolol",
+    "type": "drug",
+    "category": "7_useful_formulae",
+    "subcategory": "formulae",
+    "title": "Esmolol",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "category": "HJH ED Protocol \u2014 Infusions",
+    "item": "Esmolol",
+    "formula": "Dose x weight x 60 / prepared concentration",
+    "standard_dilutions": "500mg undiluted in a 50ml syringe (10mg/ml)"
+  }
+}

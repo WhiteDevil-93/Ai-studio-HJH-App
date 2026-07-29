@@ -1,0 +1,44 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    78,
+    93,
+    94,
+    95,
+    96,
+    99,
+    101,
+    103
+  ],
+  "item": "Chlorphenamine (EDL)",
+  "categoryHint": "dosing",
+  "protocol_type": "weight_based_dose",
+  "clinical_features": {
+    "symptoms": [
+      "Severe pruritus",
+      "Sandworm",
+      "Atopic eczema",
+      "Urticaria",
+      "Papular urticaria",
+      "Pityriasis rosea"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Oral tablets / syrup."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Children: 0.1 mg/kg/dose 6 to 8 hourly (or at night for eczema/pityriasis rosea). Adults: 4 mg, 6 to 8 hourly (or at night)."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Chlorphenamine is sedating and may only be required in the evening for mild cases."
+    }
+  ],
+  "warnings": []
+}

@@ -1,0 +1,31 @@
+{
+  "sourceDoc": "CMJAH",
+  "pdfPages": [
+    125
+  ],
+  "item": "Thyroid Emergencies (CMJAH)",
+  "categoryHint": "metabolic",
+  "protocol_type": "ed_protocol",
+  "review_state": "unreviewed",
+  "clinical_features": {
+    "symptoms": [
+      "Thyroid Storm: High fever, severe tachycardia, delirium, agitation, high-output cardiac failure",
+      "Myxoedema Coma: Hypothermia, severe bradycardia, altered mental status, hypoventilation, hyponatraemia"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Thyroid Storm Management",
+      "details": "1. Beta-blocker: Propranolol 60-80mg PO q4h OR Esmolol 250-500ug/kg load then 50-100 ug/kg/min.\n2. Thionamide: Propylthiouracil (PTU) 600-1000mg load then 300mg PO q6h OR Methimazole 20-30mg PO q6h.\n3. Steroid: Hydrocortisone 100mg IV STAT then q8h.\n4. Iodine: Lugol's iodine 4-8 drops PO q6h (given at least 60 min AFTER thionamide)."
+    },
+    {
+      "step_number": "2",
+      "action": "Myxoedema Coma Management",
+      "details": "Levothyroxine 300-500 ug (6ug/kg IBW) IV load, then 50ug daily + Hydrocortisone 100mg IV q8h."
+    }
+  ],
+  "warnings": [
+    "In Thyroid Storm, administer Lugol's iodine AT LEAST 60 minutes AFTER PTU/Methimazole to prevent organification of iodine into new thyroid hormone."
+  ]
+}

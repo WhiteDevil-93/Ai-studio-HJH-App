@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "corrected_na",
+    "type": "drug",
+    "category": "7_useful_formulae",
+    "subcategory": "formulae",
+    "title": "Corrected Na",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "category": "HJH ED Protocol \u2014 Metabolic",
+    "item": "Corrected Na",
+    "formula": "Page 92: Na + [1.6 x (Glucose - 5.5) / 5.5] for glucose 11-22; use 2.4 if glucose >22",
+    "standard_dilutions": "Page 97: Na + [2.4 x (Glucose - 5.4) / 5.4]"
+  }
+}

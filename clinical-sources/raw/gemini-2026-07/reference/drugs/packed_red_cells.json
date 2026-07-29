@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "packed_red_cells",
+    "type": "drug",
+    "category": "9_blood_products",
+    "subcategory": "products",
+    "title": "Packed Red Cells",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "item": "Packed Red Cells",
+    "adult_dose": "1 unit raises Hb by ~1g/dL",
+    "paediatric_dose": "10-15ml/kg (raises Hb by ~2g/dL)",
+    "notes": "Transfuse over 2-4hrs"
+  }
+}

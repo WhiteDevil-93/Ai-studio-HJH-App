@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "salbutamol",
+    "type": "drug",
+    "category": "2_airway_and_ventilation",
+    "subcategory": "status_asthmaticus",
+    "title": "Salbutamol",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "item": "Salbutamol",
+    "adult_dose": "2.5-5mg nebulised (Nebulise with O2); 0.25-0.5mg IV",
+    "paediatric_dose": "2.5-5mg nebulised; 5-10ug/kg/min IV"
+  }
+}

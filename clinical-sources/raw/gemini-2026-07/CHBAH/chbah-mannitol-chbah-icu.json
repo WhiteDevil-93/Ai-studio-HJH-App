@@ -1,0 +1,22 @@
+{
+  "sourceDoc": "CHBAH_ICU",
+  "pdfPages": [
+    1
+  ],
+  "item": "Mannitol (CHBAH ICU)",
+  "categoryHint": "metabolic",
+  "protocol_type": "icu_dosing",
+  "clinical_features": {
+    "symptoms": [
+      "Osmotic diuretic / raised ICP"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Dose",
+      "details": "Adult 0.25\u20132 g/kg over 60 min; Paediatric 0.5\u20131 g/kg over 60 min (or 0.5\u20131 g/kg IV over 30 min)"
+    }
+  ],
+  "warnings": []
+}

@@ -1,0 +1,22 @@
+{
+  "sourceDoc": "CHBAH_ICU",
+  "pdfPages": [
+    1
+  ],
+  "item": "Doxycycline (CHBAH ICU)",
+  "categoryHint": "antimicrobials",
+  "protocol_type": "icu_dosing",
+  "clinical_features": {
+    "symptoms": []
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Dose",
+      "details": "RA. Adult 100 mg 12 hrly PO; Paediatric 2 mg/kg PO 12\u201324 hrly"
+    }
+  ],
+  "warnings": [
+    "Renal Adjusted Dose (RA)"
+  ]
+}

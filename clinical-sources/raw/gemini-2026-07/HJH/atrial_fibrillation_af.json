@@ -1,0 +1,66 @@
+{
+  "_meta": {
+    "id": "atrial_fibrillation_af",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Atrial Fibrillation (AF)",
+    "source_doc": "HJH ED 2026 / CMJAH / Bara ICU",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Atrial Fibrillation (AF)",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Assess Haemodynamic Stability",
+        "details": "Unstable AF (causing chest pain, hypotension, acute heart failure, dyspnoea, or altered GCS): Perform urgent synchronized cardioversion (150-200 J) under sedation. Give Clexane 1 mg/kg SC stat unless contraindicated."
+      },
+      {
+        "step_number": "2",
+        "action": "Stable AF - Determine Duration",
+        "details": "If < 48 hours and no structural heart disease: consider rhythm control (electrical or chemical with Amiodarone 150mg over 30 mins). If > 48 hours: prioritize rate control (goal < 110 bpm)."
+      },
+      {
+        "step_number": "3",
+        "action": "Implement Rate Control",
+        "details": "Beta-blocker (Atenolol 50mg PO or Carvedilol 3.125mg PO) OR Calcium Channel Blocker (Diltiazem/Verapamil) OR Digoxin (if heart failure present). Alternatively, Amiodarone infusion."
+      },
+      {
+        "step_number": "4",
+        "action": "Assess Thromboembolic Risk",
+        "details": "Calculate CHA2DS2-VASc and HAS-BLED scores to guide long-term anticoagulation. Start SC Clexane 1mg/kg 12h if thromboembolism risk is high."
+      }
+    ],
+    "warnings": [
+      "WPW + Atrial Fibrillation (Wide QRS, rate > 200, irregular): DO NOT give nodal blocking agents (Beta-blockers, CCBs, Digoxin, Amiodarone) as it will precipitate VF! Perform immediate synchronized electrical cardioversion."
+    ]
+  },
+  "embedded_drugs": [
+    {
+      "item": "Amiodarone",
+      "adult_dose": "300mg IV bolus (unstable); 150mg IV (stable)",
+      "paediatric_dose": "5mg/kg IV bolus",
+      "notes_updates": "300mg in 5% Dextrose over 30 min (Loading)."
+    },
+    {
+      "category": "HJH ED Protocol \u2014 Infusions",
+      "item": "Esmolol",
+      "formula": "Dose x weight x 60 / prepared concentration",
+      "standard_dilutions": "500mg undiluted in a 50ml syringe (10mg/ml)"
+    },
+    {
+      "drug": "Labetalol",
+      "adult_dose": "10-20mg IV over 2min (may double every 10min)",
+      "paediatric_dose": "0.2-1mg/kg IV",
+      "notes_updates": "Mixed alpha/beta blocker. Good for hypertensive emergencies"
+    },
+    {
+      "drug": "Digoxin",
+      "adult_dose": "Loading: 0.5-1mg IV/PO; Maint: 125-250mcg daily",
+      "paediatric_dose": "10-15mcg/kg IV/PO",
+      "notes_updates": "Check levels. Toxicity: nausea, visual changes, arrhythmias"
+    }
+  ]
+}

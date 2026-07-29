@@ -1,0 +1,22 @@
+{
+  "sourceDoc": "CHBAH_ICU",
+  "pdfPages": [
+    1
+  ],
+  "item": "Methylprednisolone (CHBAH ICU)",
+  "categoryHint": "sedation",
+  "protocol_type": "icu_dosing",
+  "clinical_features": {
+    "symptoms": [
+      "Steroid"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Dose",
+      "details": "Adult 10\u201340 mg IV 12 hrly; Paediatric 0.5\u20131 mg/kg IV 12 hrly. Pulse 30 mg/kg IV STAT"
+    }
+  ],
+  "warnings": []
+}

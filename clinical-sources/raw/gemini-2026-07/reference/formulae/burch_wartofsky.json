@@ -1,0 +1,194 @@
+{
+  "_meta": {
+    "id": "burch_wartofsky",
+    "type": "calculator",
+    "category": "16_score_calculators",
+    "title": "Burch-Wartofsky Score",
+    "review_state": "unreviewed"
+  },
+  "calculator": {
+    "name": "Burch-Wartofsky Score",
+    "category": "endocrine",
+    "source_pages": [
+      189,
+      190
+    ],
+    "review_status": "clinical-review",
+    "components": [
+      {
+        "name": "Temperature Component",
+        "key": "temp",
+        "options": [
+          {
+            "value": 0,
+            "label": "<37.2\u00b0C"
+          },
+          {
+            "value": 5,
+            "label": "37.2 - 37.7\u00b0C"
+          },
+          {
+            "value": 10,
+            "label": "37.8 - 38.3\u00b0C"
+          },
+          {
+            "value": 15,
+            "label": "38.4 - 38.8\u00b0C"
+          },
+          {
+            "value": 20,
+            "label": "38.9 - 39.4\u00b0C"
+          },
+          {
+            "value": 25,
+            "label": "39.5 - 39.9\u00b0C"
+          },
+          {
+            "value": 30,
+            "label": ">=40.0\u00b0C"
+          }
+        ]
+      },
+      {
+        "name": "Cardiovascular Component (Heart Rate)",
+        "key": "cvs",
+        "options": [
+          {
+            "value": 0,
+            "label": "<90 bpm"
+          },
+          {
+            "value": 5,
+            "label": "90 - 109 bpm"
+          },
+          {
+            "value": 10,
+            "label": "110 - 119 bpm"
+          },
+          {
+            "value": 15,
+            "label": "120 - 129 bpm"
+          },
+          {
+            "value": 20,
+            "label": "130 - 139 bpm"
+          },
+          {
+            "value": 25,
+            "label": ">=140 bpm"
+          }
+        ]
+      },
+      {
+        "name": "Atrial Fibrillation",
+        "key": "af",
+        "options": [
+          {
+            "value": 0,
+            "label": "Absent"
+          },
+          {
+            "value": 10,
+            "label": "Present"
+          }
+        ]
+      },
+      {
+        "name": "Congestive Heart Failure",
+        "key": "chf",
+        "options": [
+          {
+            "value": 0,
+            "label": "Absent"
+          },
+          {
+            "value": 5,
+            "label": "Mild"
+          },
+          {
+            "value": 10,
+            "label": "Moderate"
+          },
+          {
+            "value": 20,
+            "label": "Severe"
+          }
+        ]
+      },
+      {
+        "name": "CNS Component",
+        "key": "cns",
+        "options": [
+          {
+            "value": 0,
+            "label": "Normal"
+          },
+          {
+            "value": 10,
+            "label": "Mild Agitation"
+          },
+          {
+            "value": 20,
+            "label": "Delirium / Psychosis / Severe lethargy"
+          },
+          {
+            "value": 30,
+            "label": "Seizures / Coma"
+          }
+        ]
+      },
+      {
+        "name": "Gastrointestinal Component",
+        "key": "gi",
+        "options": [
+          {
+            "value": 0,
+            "label": "Normal"
+          },
+          {
+            "value": 10,
+            "label": "Diarrhoea, nausea, vomiting, abdominal pain"
+          },
+          {
+            "value": 15,
+            "label": "Unexplained Jaundice"
+          }
+        ]
+      },
+      {
+        "name": "Precipitating Event",
+        "key": "precipitant",
+        "options": [
+          {
+            "value": 0,
+            "label": "Absent"
+          },
+          {
+            "value": 10,
+            "label": "Present"
+          }
+        ]
+      }
+    ],
+    "interpretation": [
+      {
+        "min": 0,
+        "max": 24,
+        "label": "Thyroid Storm Unlikely",
+        "action": "Perform thyroid function tests, manage supportively."
+      },
+      {
+        "min": 25,
+        "max": 44,
+        "label": "Impending Thyroid Storm",
+        "action": "Highly suggestive of developing storm. Initiate therapy, consult endocrine."
+      },
+      {
+        "min": 45,
+        "max": 140,
+        "label": "Thyroid Storm Highly Probable",
+        "action": "Clinical emergency. Admit ICU. Initiate PTU, Lugol's iodine, beta-blocker, steroids."
+      }
+    ]
+  }
+}

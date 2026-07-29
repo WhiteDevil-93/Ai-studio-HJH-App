@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "tld_tdf_3tc_dtg",
+    "type": "drug",
+    "category": "4_antimicrobials_and_infectious_diseases",
+    "subcategory": "hiv_protocols",
+    "title": "TLD (TDF+3TC+DTG)",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "condition_or_drug": "TLD (TDF+3TC+DTG)",
+    "adult_dose": "1 tablet PO daily",
+    "paediatric_dose": "Weight-band dosing",
+    "notes_updates": "First-line adult ART"
+  }
+}

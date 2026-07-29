@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "labetalol",
+    "type": "drug",
+    "category": "8_cardiovascular",
+    "subcategory": "antihypertensives",
+    "title": "Labetalol",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "drug": "Labetalol",
+    "adult_dose": "10-20mg IV over 2min (may double every 10min)",
+    "paediatric_dose": "0.2-1mg/kg IV",
+    "notes_updates": "Mixed alpha/beta blocker. Good for hypertensive emergencies"
+  }
+}

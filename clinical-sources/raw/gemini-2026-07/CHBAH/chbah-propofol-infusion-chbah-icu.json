@@ -1,0 +1,22 @@
+{
+  "sourceDoc": "CHBAH_ICU",
+  "pdfPages": [
+    1
+  ],
+  "item": "Propofol infusion (CHBAH ICU)",
+  "categoryHint": "sedation",
+  "protocol_type": "icu_dosing",
+  "clinical_features": {
+    "symptoms": [
+      "Sedation"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Infusion range",
+      "details": "Adult 25 \u2013 50 mcg/kg/min (Max 100); Paediatric 25 \u2013 60 mcg/kg/min"
+    }
+  ],
+  "warnings": []
+}

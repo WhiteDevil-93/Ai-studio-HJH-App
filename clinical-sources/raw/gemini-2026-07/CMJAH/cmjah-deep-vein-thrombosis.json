@@ -1,0 +1,24 @@
+{
+  "sourceDoc": "CMJAH",
+  "pdfPages": [
+    50
+  ],
+  "item": "Deep Vein Thrombosis (DVT) (CMJAH)",
+  "categoryHint": "medical_emergencies",
+  "protocol_type": "ed_protocol",
+  "review_state": "unreviewed",
+  "clinical_features": {
+    "symptoms": [
+      "Unilateral leg swelling, calf tenderness, warmth, erythema",
+      "Wells Score for DVT evaluation"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Diagnosis & Anticoagulation",
+      "details": "Perform POCUS / Doppler ultrasound. If DVT positive: Clexane (Enoxaparin) 1mg/kg SC STAT and admit patient."
+    }
+  ],
+  "warnings": []
+}

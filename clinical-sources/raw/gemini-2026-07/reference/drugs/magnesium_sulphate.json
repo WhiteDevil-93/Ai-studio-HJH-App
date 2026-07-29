@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "magnesium_sulphate",
+    "type": "drug",
+    "category": "2_airway_and_ventilation",
+    "subcategory": "status_asthmaticus",
+    "title": "Magnesium sulphate",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "item": "Magnesium sulphate",
+    "adult_dose": "1-2g IV over 15-20min",
+    "paediatric_dose": "25-75mg/kg IV over 20min (max 2g)"
+  }
+}

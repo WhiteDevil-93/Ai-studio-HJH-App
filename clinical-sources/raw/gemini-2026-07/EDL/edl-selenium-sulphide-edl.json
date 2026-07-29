@@ -1,0 +1,34 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    87,
+    97
+  ],
+  "item": "Selenium sulphide (EDL)",
+  "categoryHint": "dermatology",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Pityriasis versicolor",
+      "Itching scalp, scaling, and dandruff"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Topical suspension, 2.5%."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Pityriasis versicolor: lather shampoo on affected parts, leave on overnight, wash off following day, once weekly for 3 weeks. Scalp/dandruff: lather on scalp, rinse off after 10 minutes, apply weekly until improved, then every second week to maintain control."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Topical treatment for fungal/scaling scalp and skin conditions."
+    }
+  ],
+  "warnings": []
+}

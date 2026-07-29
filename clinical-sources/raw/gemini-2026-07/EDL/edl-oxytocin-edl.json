@@ -1,0 +1,32 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    65
+  ],
+  "item": "Oxytocin (EDL)",
+  "categoryHint": "dosing",
+  "protocol_type": "continuous_infusion",
+  "clinical_features": {
+    "symptoms": [
+      "Inevitable or incomplete miscarriage"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "20 units diluted in 1000 mL sodium chloride 0.9%."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Infused at 125 mL/hour."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Avoid where threatened miscarriage is suspected."
+    }
+  ],
+  "warnings": []
+}
