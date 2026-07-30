@@ -2,59 +2,90 @@
   "_meta": {
     "id": "mental_health_psychosis",
     "type": "protocol",
-    "category": "07_ed_ent",
+    "category": "14_ed_psychiatry",
     "subcategory": "protocols",
     "title": "Mental Healthcare Users: General Approach",
     "source_doc": "HJH ED 2026",
-    "review_state": "unreviewed"
+    "review_state": "reviewed"
   },
   "protocol": {
     "item": "Mental Healthcare Users: General Approach",
     "protocol_type": "ed_protocol",
     "clinical_features": {
-      "symptoms": "signs including HGT, monitor O2 saturation if heavily sedated \n\u2022 \nComprehensive history and exam to exclude underlying medical conditions \n\u2022 \nInvestigations as per protocol \u2013 see below \n\u2022 \nHand over to Psychiatry on call if bloods/vitals/exam is normal \n\u2022 \nPsychiatry to arrange rapid transfer to ward as soon as bed is available \n\u2022 \nPts will NOT wait in ED for additional investigations/management unless medically indicated \n\u2022 \nEnsure that patient comfort is attended to \u2013 toilet needs, regular meals, smoke breaks etc. \n \n \n \n\u2022 \nINDEX MHCU baseline investigations \nINVESTIGATIONS \n \n\u2022 \nVBG, FBC, UE, CRP, TPHA/RPR (CRP < 60; WCC < 20) \n\u2022 \nCSF ONLY if acute meningitis fx OR advanced RVD \u2013 Chemistry, cell count, MCS, India Ink, \nCLAT, TB GXP. Add VDRL if TPHA/RPR positive \n\u2022 \nCTB if clinically indicated \u2013 low threshold for immune compromised pts. With contrast \npreferred \n\u2192 if all normal and no red flags, refer to Psychiatry \n \n\u2022 \nKNOWN MHCU baseline investigations: \n\u2022 \nVBG, HGT \n\u2022 \nFurther investigations only as clinically indicated \n\u2022 \nConsider drug levels as indicated \u2013 anti-epileptics, mood stabilisers \n\u2022 \nEXCLUSIONS: Advanced RVD, Thyroid dysfx, SLE, new neurology \n \nALL FEMALE PATIENTS MUST HAVE A PREGNANCY TEST DOCUMENTED IN THE FILE \nCOMPLICATIONS ASSOCIATED WITH ANTIPSYCHOTIC DRUGS \n \n*EXTRAPYRAMIDAL SIDE EFFECTS/ACUTE DYSTONIC REACTION: fixed abnormal posture, oculogyric crisis, laryngospasm \nBiperiden (Akineton) 2.5 mg IV slowly, repeat every 2 minutes prn, max 4 doses \n*NEUROLEPTIC MALIGNANT SYNDROME: develops over 24 \u2013 72 hrs, hyperthermia, muscle rigidity, rhabdomyolysis \nResuscitate, withdraw precipitating agent, supportive care \n \nRED FLAGS \n* Age > 60 \n* Trauma \n* Meningitis features \n* Recent Travel hx \n* Auto-immune/endocrine fx \n* Potentially toxic drug levels \u2013 Epilim, Lithium \n* Advanced RVD features \n* Post-ictal features \n* Acute drug intoxication/withdrawal \u2013 Medical admission \n* Pregnancy/Recent postpartum \n* New onset visual/tactile hallucination"
+      "general_approach": [
+        "Rapid assessment and sedation/restraint if patient is violent or severely agitated (see AGITATION PROTOCOL).",
+        "Check vital signs including HGT; monitor O2 saturation if heavily sedated.",
+        "Comprehensive medical history and clinical examination to exclude underlying organic/medical conditions.",
+        "Perform baseline investigations as per protocol (Index vs Known MHCU).",
+        "Hand over to Psychiatry on call if bloods, vitals, and physical exam are normal.",
+        "Psychiatry to arrange rapid transfer to ward as soon as bed is available.",
+        "Patients will NOT wait in ED for additional investigations or management unless medically indicated.",
+        "Ensure patient comfort is attended to (toilet needs, regular meals, smoke breaks, etc.)."
+      ],
+      "index_mhcu_investigations": [
+        "VBG, FBC, U&E, CRP, TPHA/RPR (Criteria: CRP < 60; WCC < 20)",
+        "CSF ONLY if acute meningitis features OR advanced RVD (Chemistry, cell count, MCS, India Ink, CLAT, TB GXP; add VDRL if TPHA/RPR positive)",
+        "CT Brain if clinically indicated – low threshold for immunocompromised patients (contrast preferred)",
+        "→ If all normal and no red flags, refer to Psychiatry"
+      ],
+      "known_mhcu_investigations": [
+        "VBG, HGT baseline",
+        "Further investigations only as clinically indicated",
+        "Consider drug levels as indicated (anti-epileptics, mood stabilisers)",
+        "Exclusions: Advanced RVD, Thyroid dysfunction, SLE, new neurology"
+      ]
     },
     "management_steps": [
       {
         "step_number": "1",
-        "action": "APPROACH",
-        "details": "APPROACH"
+        "action": "Immediate Assessment & Agitation Control",
+        "details": "Perform rapid assessment. If patient is violent or severely agitated, initiate sedation/restraint per Agitation Protocol."
       },
       {
         "step_number": "2",
-        "action": "GENERAL MANAGEMENT",
-        "details": "GENERAL MANAGEMENT"
+        "action": "Medical Exclusion & Vital Signs",
+        "details": "Check vitals (HGT, SpO2). Conduct thorough physical examination to rule out medical/organic etiologies."
       },
       {
         "step_number": "3",
-        "action": "Rapid assessment and sedation/restraint if violent or severely agitated \u2013 see AGITATION PROTOCOL",
-        "details": "Rapid assessment and sedation/restraint if violent or severely agitated \u2013 see AGITATION PROTOCOL"
+        "action": "Targeted Investigations",
+        "details": "Index MHCU: VBG, FBC, U&E, CRP, TPHA/RPR (CSF/CTB if indicated). Known MHCU: VBG, HGT ± targeted drug levels."
       },
       {
         "step_number": "4",
-        "action": "Check vital signs including HGT, monitor O2 saturation if heavily sedated",
-        "details": "Check vital signs including HGT, monitor O2 saturation if heavily sedated"
-      },
-      {
-        "step_number": "5",
-        "action": "Comprehensive history and exam to exclude underlying medical conditions",
-        "details": "Comprehensive history and exam to exclude underlying medical conditions"
-      },
-      {
-        "step_number": "6",
-        "action": "Investigations as per protocol \u2013 see below",
-        "details": "Investigations as per protocol \u2013 see below"
+        "action": "Psychiatry Referral & Ward Transfer",
+        "details": "If workup is normal and no red flags exist, hand over to Psychiatry on-call for rapid ward placement."
       }
     ],
     "drugs": [
       {
-        "item": "See protocol",
-        "notes": "Drug details in source PDF"
+        "condition": "Extrapyramidal Side Effects / Acute Dystonic Reaction",
+        "presentation": "Fixed abnormal posture, oculogyric crisis, laryngospasm",
+        "treatment": "Biperiden (Akineton) 2.5 mg IV slowly, repeat every 2 minutes prn (max 4 doses)"
+      },
+      {
+        "condition": "Neuroleptic Malignant Syndrome (NMS)",
+        "presentation": "Develops over 24–72 hrs, hyperthermia, muscle rigidity, rhabdomyolysis",
+        "treatment": "Resuscitate, withdraw precipitating antipsychotic agent, provide supportive ICU care"
       }
     ],
     "warnings": [
-      "CAUTIONS FOR THE \nPATIENT MUST BE IMPLEMENTED WHILST IN THE ED. \nAcknowledgement \nCompiled by Dr R Kularatne (Clinical Microbiology & \nInfectious Diseases, WITS/NHLS) \nUpdated by Dr LN Goldstein, Mar 2015"
+      "ALL FEMALE PATIENTS MUST HAVE A PREGNANCY TEST DOCUMENTED IN THE FILE."
     ],
-    "disposition": "admission \n* Pregnancy/Recent postpartum \n* New onset visual/tactile hallucinations \n* Focal Neurology"
+    "red_flags": [
+      "Age > 60 years",
+      "Head trauma",
+      "Meningitis features (fever, neck stiffness, photophobia)",
+      "Recent travel history",
+      "Autoimmune / endocrine dysfunction",
+      "Potentially toxic drug levels (e.g. Epilim, Lithium)",
+      "Advanced RVD features",
+      "Post-ictal state",
+      "Acute drug intoxication or withdrawal (requires medical admission)",
+      "Pregnancy or recent postpartum state",
+      "New onset visual or tactile hallucinations",
+      "Focal neurological deficit"
+    ],
+    "disposition": "Transfer to Psychiatry ward if medically cleared and bloods/exam normal. Admit to Medical ward if red flags, acute intoxication/withdrawal, pregnancy complications, or focal neurology are present."
   }
 }

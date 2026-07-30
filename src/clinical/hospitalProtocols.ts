@@ -108,12 +108,49 @@ const titleFromFilename = (filename: string): string =>
     .replace(/[-_]+/g, ' ')
     .replace(/\b\w/g, character => character.toUpperCase());
 
-export const categoryLabel = (categoryId: string): string =>
-  categoryId
+const CATEGORY_LABEL_OVERRIDES: Record<string, string> = {
+  '07_ed_ent': 'ENT (Ear, Nose & Throat)',
+  '06_ed_airway': 'Airway & Ventilation',
+  '14_ed_psychiatry': 'Psychiatry & Mental Health',
+  '05_ed_pulmonary': 'Pulmonology & Respiratory',
+  '04_ed_neurology': 'Neurology',
+  '03_ed_cardiovascular': 'Cardiovascular',
+  '02_ed_trauma_ortho': 'Trauma & Orthopaedics',
+  '12_ed_toxicology': 'Toxicology & Poisoning',
+  '13_ed_trauma_surgical': 'Trauma & Surgery',
+  '11_ed_medical_emergencies': 'Medical Emergencies',
+  '15_ed_procedures': 'Procedures & Skills',
+  '10_ed_procedure': 'Procedures & Pain',
+  '17_ed_critical_care': 'Critical Care & Resuscitation',
+  '16_ed_administration': 'Triage & Administration',
+  '08_ed_obstetrics_gynaecology': 'Obstetrics & Gynaecology',
+  '14_ed_metabolic': 'Metabolic & Endocrine',
+  '15_ed_general_surgery': 'General Surgery',
+  '13_ed_infectious_diseases': 'Infectious Diseases',
+  'psychiatry': 'Psychiatry & Mental Health',
+  'resuscitation': 'Resuscitation & Critical Care',
+  'airway': 'Airway & Ventilation',
+  'medical_emergencies': 'Medical Emergencies',
+  'trauma': 'Trauma',
+};
+
+const PROTOCOL_CATEGORY_OVERRIDES: Record<string, string> = {
+  'hjh:mental_health_psychosis': '14_ed_psychiatry',
+  'hjh:non_invasive_ventilation': '06_ed_airway',
+  'hjh:ventilator_guidelines': '06_ed_airway',
+  'hjh:ent_emergencies': '07_ed_ent',
+};
+
+export const categoryLabel = (categoryId: string): string => {
+  if (CATEGORY_LABEL_OVERRIDES[categoryId]) {
+    return CATEGORY_LABEL_OVERRIDES[categoryId];
+  }
+  return categoryId
     .replace(/^\d+_/, '')
     .replace(/^ed_/, '')
     .replace(/_/g, ' ')
     .replace(/\b\w/g, character => character.toUpperCase());
+};
 
 const collectStrings = (value: unknown, collected: string[] = []): string[] => {
   if (typeof value === 'string') {
@@ -126,24 +163,51 @@ const collectStrings = (value: unknown, collected: string[] = []): string[] => {
   return collected;
 };
 
+const SUMMARY_MAX_LENGTH = 180;
+
+const conciseSummary = (value: string): string => {
+  const firstSegment = value
+    .replace(/\r/g, '')
+    .split(/\n+|\s+[•▪]\s+/)
+    .map(segment => segment.trim())
+    .find(Boolean) ?? '';
+  const normalized = firstSegment
+    .replace(/^[•▪→*–—-]+\s*/, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  if (normalized.length <= SUMMARY_MAX_LENGTH) return normalized;
+
+  const candidate = normalized.slice(0, SUMMARY_MAX_LENGTH);
+  const lastWordBoundary = candidate.lastIndexOf(' ');
+  const clipped = lastWordBoundary >= SUMMARY_MAX_LENGTH * 0.7
+    ? candidate.slice(0, lastWordBoundary)
+    : candidate;
+  return `${clipped.trimEnd()}…`;
+};
+
 const summaryFor = (body: Record<string, unknown>): string => {
   const clinicalFeatures = body.clinical_features;
   const featureText = collectStrings(clinicalFeatures).find(Boolean);
-  if (featureText) return featureText;
+  if (featureText) return conciseSummary(featureText);
 
   const managementSteps = Array.isArray(body.management_steps) ? body.management_steps : [];
   const firstStep = managementSteps.find(isRecord);
   if (firstStep) {
     const action = asString(firstStep.action);
     const details = asString(firstStep.details);
-    if (action || details) return [action, details].filter(Boolean).join(' — ');
+    if (action || details) {
+      return conciseSummary([action, details].filter(Boolean).join(' — '));
+    }
   }
 
-  const sourceText = asString(body.source_text).replace(/\s+/g, ' ');
-  if (sourceText) return sourceText.slice(0, 240);
+  const sourceText = asString(body.source_text);
+  if (sourceText) return conciseSummary(sourceText);
 
   const note = asString(body.note);
-  return note || 'Open the protocol page for the complete source transcription.';
+  return note
+    ? conciseSummary(note)
+    : 'Open the protocol page for the complete source transcription.';
 };
 
 const normalizeProtocol = (
@@ -164,7 +228,9 @@ const normalizeProtocol = (
     asString(body.item) ||
     asString(body.drug) ||
     titleFromFilename(filename);
+  const protocolId = `${facilityId}:${slug}`;
   const categoryId =
+    PROTOCOL_CATEGORY_OVERRIDES[protocolId] ||
     asString(meta.category) ||
     asString(body.categoryHint) ||
     asString(body.protocol_type) ||

@@ -67,4 +67,26 @@ describe('supplied hospital protocol corpus', () => {
       }
     }
   });
+
+  it('correctly categorizes mental healthcare users, NIV, ventilator guidelines and ENT emergencies', () => {
+    const mhcu = findHospitalProtocol('hjh', 'mental_health_psychosis');
+    const niv = findHospitalProtocol('hjh', 'non_invasive_ventilation');
+    const vent = findHospitalProtocol('hjh', 'ventilator_guidelines');
+    const ent = findHospitalProtocol('hjh', 'ent_emergencies');
+
+    expect(mhcu?.categoryLabel).toBe('Psychiatry & Mental Health');
+    expect(niv?.categoryLabel).toBe('Airway & Ventilation');
+    expect(vent?.categoryLabel).toBe('Airway & Ventilation');
+    expect(ent?.categoryLabel).toBe('ENT (Ear, Nose & Throat)');
+  });
+
+  it('keeps every protocol summary concise and free of transcription line breaks', () => {
+    for (const protocol of HOSPITAL_PROTOCOLS) {
+      expect(protocol.summary.length).toBeLessThanOrEqual(181);
+      expect(protocol.summary).not.toMatch(/[\r\n]/);
+    }
+
+    const mhcu = findHospitalProtocol('hjh', 'mental_health_psychosis');
+    expect(mhcu?.summary).not.toContain('INDEX MHCU');
+  });
 });

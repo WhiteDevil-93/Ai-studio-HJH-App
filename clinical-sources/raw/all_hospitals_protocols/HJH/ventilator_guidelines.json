@@ -2,34 +2,74 @@
   "_meta": {
     "id": "ventilator_guidelines",
     "type": "protocol",
-    "category": "07_ed_ent",
+    "category": "06_ed_airway",
     "subcategory": "protocols",
-    "title": "Ventilator Guidelines",
+    "title": "Ventilator Guidelines: Initial ED Mechanical Ventilation",
     "source_doc": "HJH ED 2026",
-    "review_state": "unreviewed"
+    "review_state": "reviewed"
   },
   "protocol": {
-    "item": "Ventilator Guidelines",
+    "item": "Ventilator Guidelines: Initial ED Mechanical Ventilation",
     "protocol_type": "ed_protocol",
     "clinical_features": {
-      "symptoms": "symptoms and signs of psychotic or psychoneurotic behaviour \nincluding mood disorders where the mood does not conform to the \nexisting circumstances of the person involved. \n \n\u2022 \nClinical evidence of drugs or alcohol: \n\u2022 \nDocument any obvious smell of liquor or dagga. \n\u2022 \nObvious clinical signs include abnormal size of pupils, congested conjunctivae, \nnystagmus, dry mouth and slurred speech. \n\u2022 \nInspect injection sites for needlestick marks. \n\u2022 \nConclusion: \nIn order to be able to come to a conclusion as to whether the clinical findings are \ncompatible with the time and circumstances of the alleged incident, a short history \nis necessary. The history should be very brief and give only the essential facts \nnecessary for a medical conclusion. \nFor example: \n\u2022 \nIt is alleged by the complainant that on the 18th December 2001 at 20h00 she was \nassaulted with \na belt (or \u201cbelt-like object\u201d) on her back by an adult male. \n\u2022 \nThe mother (Mrs X) alleges that child Y was sexually assaulted by an adult \nmale sometime during the first 3 months of this year. \n\u2022 \nDiscrepancies in the statements given could be used by the defence counsel \nto dispute the evidence in court. \n\u2022 \nThe final conclusion should be short and clear: \n\u2022 \nInjuries compatible with/not compatible with time and circumstances of alleged \nincident. \n\u2022 \nInjuries compatible with injuries caused by a sharp object/ compatible with \ninjuries caused by a blunt object. Do not name the object, as the knife \nmentioned by the patient, might actually have been a sharpened screwdriver. \nIn court counsel for the defence will again attempt to use such discrepancies \nto the advantage of the accused."
+      "initial_settings": [
+        "Mode: Volume Control (AC/VC) or Pressure Control (AC/PC)",
+        "Tidal Volume (Vt): 6–8 mL/kg predicted body weight (PBW) (4–6 mL/kg in ARDS lung-protective ventilation)",
+        "Respiratory Rate (RR): 12–16 breaths/min (titrate for PaCO2 target 35–45 mmHg)",
+        "PEEP: 5 cmH2O initial (titrate higher up to 10–14 cmH2O in ARDS/severe hypoxaemia)",
+        "FiO2: Start at 100%, rapidly titrate down to lowest FiO2 maintaining SpO2 92–96% (88–92% in hypercapnic COPD)",
+        "I:E Ratio: 1:2 standard (1:3 to 1:4 in severe airflow obstruction to prevent auto-PEEP)"
+      ],
+      "high_peak_pressure_troubleshooting": [
+        "Check Peak Pressure (Ppeak) vs Plateau Pressure (Pplat).",
+        "High Ppeak + Normal Pplat (< 30 cmH2O) → Airway Resistance problem: bronchospasm, ETT kink/clot, biting tube, patient-ventilator dyssynchrony.",
+        "High Ppeak + High Pplat (> 30 cmH2O) → Lung Compliance problem: pneumothorax, pulmonary oedema, ARDS, mainstem intubation, abdominal distension."
+      ]
     },
     "management_steps": [
       {
         "step_number": "1",
-        "action": "management office.",
-        "details": "management office."
+        "action": "Post-Intubation ETT Verification",
+        "details": "Confirm tube placement with quantitative ETCO2, bilateral breath sounds, chest expansion, and urgent post-intubation Chest X-Ray."
+      },
+      {
+        "step_number": "2",
+        "action": "Ventilator Connection & Setup",
+        "details": "Connect ventilator. Set initial Vt (6-8 mL/kg PBW), RR 14/min, PEEP 5, FiO2 100%. Adjust FiO2 down promptly once SpO2 target achieved."
+      },
+      {
+        "step_number": "3",
+        "action": "Sedation & Analgesia Maintenance",
+        "details": "Maintain continuous sedation and analgesia (Propofol/Midazolam + Fentanyl infusion) to prevent dyssynchrony and self-extubation."
+      },
+      {
+        "step_number": "4",
+        "action": "Arterial/Venous Blood Gas at 30 Minutes",
+        "details": "Perform ABG or VBG 30 minutes post-initiation. Adjust RR for PaCO2/pH and adjust PEEP/FiO2 for PaO2/SpO2."
+      },
+      {
+        "step_number": "5",
+        "action": "ICU Consult & Documentation",
+        "details": "Complete ICU Consult Form in ED patient file. Contact ICU registrar/consultant on call for admission review."
       }
     ],
     "drugs": [
       {
-        "item": "See protocol",
-        "notes": "Drug details in source PDF"
+        "item": "Propofol infusion",
+        "notes": "10–50 mcg/kg/min (0.6–3.0 mg/kg/hr) IV infusion for sedation"
+      },
+      {
+        "item": "Fentanyl infusion",
+        "notes": "25–100 mcg/hr IV infusion for analgesia in ventilated patients"
+      },
+      {
+        "item": "Midazolam infusion",
+        "notes": "1–5 mg/hr IV infusion if propofol contraindicated or hypotensive"
       }
     ],
     "warnings": [
-      "NB: \nNever give the name of the accused or alleged perpetrator. \nDo not give any more detailed information as it might not be exactly the same as in the \nstatement given to the Police by the complainant. \n\u2022 \nMental health and emotional status: \n\u25aa \nDocument whether person is abnormally calm, distraught, weeping, hysterical \nor stuporous. \n\u25aa \nIf any suspicion of mental retardation exists, relate mental age to \nchronological age in adults and milestones for age in children. \n\u25aa \nNote any discrepancy"
+      "Always monitor Plateau Pressure (Pplat). Keep Pplat ≤ 30 cmH2O to prevent barotrauma/volutrauma."
     ],
-    "disposition": "referral specialty (e.g. Medicine/Surgery) \nis aware of patient in order to take over once discharged from ICU \nit is not a prerequisite for consultation \n \n \n3.\nED doctor to fill in ICU Consult Form and place in patient's file in ED \n \n \n4.\nICU doctor to consult patient and inform ED doctors of decision \n \n \n \n \n \n \n \n \n \n \n \nDr M Mukansi \nHOD | Intensive Care Unit \nICU REFERRAL POLICY"
+    "disposition": "ICU / High Care transfer following consultation and handover."
   }
 }
