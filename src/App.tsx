@@ -3055,9 +3055,7 @@ export default function App() {
     if (selectedCategory === 'home') {
       return (
         <HomePage
-          onSelectFacility={(facId) => {
-            if (isHospitalId(facId)) navigateToFacility(facId);
-          }}
+          onSelectFacility={navigateToFacility}
           onSelectCategory={navigateToCategory}
           onSelectMindMap={(mapId) => setActiveMindMap(mapId)}
           onSelectPolicy={(polId) => setActivePolicy(polId)}

@@ -5,10 +5,13 @@ import {
   Award, AlertTriangle, Users, MapPin, Layers, Baby, Brain, FlaskConical,
   Star, Clock, BookOpen, Globe2
 } from 'lucide-react';
-import {hospitalProtocolCount} from '../clinical/hospitalProtocols';
+import {
+  hospitalProtocolCount,
+  type HospitalId,
+} from '../clinical/hospitalProtocols';
 
 interface HomePageProps {
-  onSelectFacility: (facilityId: string) => void;
+  onSelectFacility: (facilityId: HospitalId) => void;
   onSelectCategory: (catId: string) => void;
   onSelectMindMap: (mindMapId: string) => void;
   onSelectPolicy: (policyId: string) => void;
@@ -20,9 +23,21 @@ interface HomePageProps {
   setSearchQuery: (q: string) => void;
 }
 
-export const FACILITIES = [
+interface FacilityCard {
+  id: HospitalId;
+  name: string;
+  subtitle: string;
+  description: string;
+  color: string;
+  badge: string;
+  protocolCount: number;
+  icon: React.ComponentType<{className?: string}>;
+  available: boolean;
+}
+
+export const FACILITIES: FacilityCard[] = [
   {
-    id: 'hjth',
+    id: 'hjh',
     name: 'Helen Joseph Hospital (HJH)',
     subtitle: 'Primary ED Guidelines 2026 (Editor: Dr Jana du Plessis)',
     description: 'ED protocol algorithms straight from the HJH document: ACS, stroke, sepsis, trauma, toxicology, and ED procedures.',
@@ -200,7 +215,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           <BookOpen className="w-3.5 h-3.5" /> Trials & Int'l Guidelines
         </button>
         <button
-          onClick={() => onSelectCategory('helen_guidelines')}
+          onClick={() => onSelectFacility('hjh')}
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-indigo-100 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800/40 hover:bg-indigo-200 dark:hover:bg-indigo-900/40 transition-colors"
         >
           <Stethoscope className="w-3.5 h-3.5" /> Helen (HJH) Guidelines
