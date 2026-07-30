@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "post_cardiac_arrest_care",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Cardiac Arrest + ROSC",
+    "source_doc": "RMMCH EM V5 Jan 2024",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Cardiac Arrest + ROSC",
+    "protocol_type": "ed_protocol",
+    "source_text": "www.resus.co.za\n2021\n2021\n\u2022 \nOpen and maintain\n\u2022 \nIntubate if required\n\u2022 \nUse capnography when available\nAIRWAY MANAGEMENT\nPost Cardiac Arrest Care\n(Return of Spontaneous Circulation)\n\u2022 \nIf required ventilate every 6 seconds\n\u2022 \nTarget oxygen saturation of 92-98%\n\u2022 \nTarget normocarbia (CO2\n 35-45 mmHg)\n\u2022 \nApply protective lung ventilation when appropriate\nMaintain and monitor perfusion\n\u2022 \nInitially target SBP > 90 mmHg (MAP > 65 mmHg)\n\u2022 \nUrine output\n\u2022 \nLactate levels\nAdvanced monitoring\n\u2022 \nMonitor HR, BP, capillary refill\n\u2022 \nConsider appropriate fluid administration\n\u2022 \nConsider inotrope infusion\nSearch for contributory causes\nBREATHING SUPPORT\nCIRCULATORY CONTROL\nDIFFERENTIAL DIAGNOSIS\nEVALUATION\nGLUCOSE CONTROL\nSuggested Initial Ventilation\nInotrope Administration\nHEAD/NEURO EVALUATION\nA\nB\nC\nD\nE \nG \nH\n \nHypoxia \n\u2022 \nTension pneumothorax\n \nHypovolaemia \n\u2022 \nTamponade\n \nHypo/hyperkalaemia \n\u2022 \nThrombosis (coronary)\n \nHydrogen ion imbalance (Acidosis) \n\u2022 \nThrombosis (pulmonary)\n \nHypoglycaemia \n\u2022 \nToxins and drugs\n \nHypothermia \n\u2022 \nTrauma \n\u2022 \n12 lead ECG (including right-sided ECG)\n\u2022 \nCoronary angiography if arrest of suspected cardiac origin\n\u2022 \nEarly reperfusion if indicated (especially STEMI or LBBB)\n\u2022 \nContinuous ECG monitoring\n\u2022 \nHaemodynamic monitoring\n\u2022 \nAppropriate laboratory investigations\n\u2022 \nMaintain blood glucose at 8-10 mmol/l\n\u2022 \nAvoid hypoglycaemia\n\u2022 \nTidal Vol of 6 ml/kg (ideal weight)\n\u2022 \nPEEP of \u2265 5 cmH2O\n\u2022 \nTarget pH of > 7.20\nStart Adrenaline at 0.05 \u00b5g/kg/min  \nand titrate to effect\n\u2022 \nTreat seizures aggressively\n\u2022 \nConsider EEG monitoring\n\u2022 \nConsider brain imaging\n\u2022 \nDelay prognostication for at least  \n72 hours post normothermia\nFollow commands?  (Pt unresponsive)\nRESPONSIVE\nUse established cooling strategies and protocols;  \nor in the absence of a cooling protocol, aggressively target\nnormothermia (Avoid temp > 36.5\u00b0 C for > 24 hours)\nMonitor glucose, electrolytes (especially K, Ca, Mg, Po4),  \nand Haemodynamic status\n\u2018FREEZING\u2019 (Targeted Temperature Management)\nF\nCardiac Arrest + ROSC\nRMMCH EM Clinical Protocols V5 03/01/2024\n"
+  }
+}

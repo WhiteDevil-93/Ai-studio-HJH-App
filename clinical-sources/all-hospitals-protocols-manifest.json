@@ -1,0 +1,23 @@
+{
+  "archive": "all_hospitals_protocols.zip",
+  "archiveSha256": "4452adac68cabf306ff724e274864010e88b9bc2e879f1963864596b6ea2ce8b",
+  "extractedTreeSha256": "25a4a89ad18901c6b07a1e46561a919996a0d086e8ee49e50f3fa250a853feb8",
+  "files": 500,
+  "groups": {
+    "HJH": 97,
+    "CMJAH": 79,
+    "CHBAH": 68,
+    "RMMCH": 51,
+    "EDL": 96,
+    "reference": 109
+  },
+  "runtimeHospitalEntries": 295,
+  "globalCollections": {
+    "EDL": 96,
+    "reference": 109
+  },
+  "notes": [
+    "Hospital entries are intentionally not deduplicated across facilities.",
+    "Scoring systems and trials/guidelines remain global application collections."
+  ]
+}

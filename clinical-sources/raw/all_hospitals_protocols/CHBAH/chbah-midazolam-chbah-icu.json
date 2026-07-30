@@ -1,0 +1,27 @@
+{
+  "sourceDoc": "CHBAH_ICU",
+  "pdfPages": [
+    1
+  ],
+  "item": "Midazolam (CHBAH ICU)",
+  "categoryHint": "sedation",
+  "protocol_type": "icu_dosing",
+  "clinical_features": {
+    "symptoms": [
+      "Sedation"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Bolus",
+      "details": "0.1 mg/kg/dose, titrate to effect"
+    },
+    {
+      "step_number": "2",
+      "action": "Paediatric infusion",
+      "details": "Load 0.1 \u2013 0.2 mg/kg then maintenance 2 \u2013 36 mcg/kg/min"
+    }
+  ],
+  "warnings": []
+}

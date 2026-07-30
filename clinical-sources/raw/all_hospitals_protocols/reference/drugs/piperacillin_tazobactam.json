@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "piperacillin_tazobactam",
+    "type": "drug",
+    "category": "4_antimicrobials_and_infectious_diseases",
+    "subcategory": "broad_spectrum_antibiotics",
+    "title": "Piperacillin/Tazobactam",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "condition_or_drug": "Piperacillin/Tazobactam",
+    "adult_dose": "4.5g IV 6-8hrly",
+    "paediatric_dose": "80-100mg/kg IV 6-8hrly"
+  }
+}

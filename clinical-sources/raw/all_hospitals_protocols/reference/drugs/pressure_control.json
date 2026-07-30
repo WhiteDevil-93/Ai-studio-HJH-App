@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "pressure_control",
+    "type": "drug",
+    "category": "2_airway_and_ventilation",
+    "subcategory": "lung_protection",
+    "title": "Pressure Control",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "item": "Pressure Control",
+    "adult_settings": "Peak Pressure <= 30cmH2O",
+    "paediatric_settings": "Peak Pressure <= 30cmH2O"
+  }
+}

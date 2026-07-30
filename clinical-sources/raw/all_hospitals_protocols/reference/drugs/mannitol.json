@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "mannitol",
+    "type": "drug",
+    "category": "3_sedation_analgesia_and_neurology",
+    "subcategory": "neuroprotective",
+    "title": "Mannitol",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "drug": "Mannitol",
+    "adult_dose": "0.25-1g/kg IV bolus",
+    "paediatric_dose": "0.25-1g/kg IV bolus",
+    "notes_updates": "Monitor osmolar gap; avoid if hypotensive"
+  }
+}

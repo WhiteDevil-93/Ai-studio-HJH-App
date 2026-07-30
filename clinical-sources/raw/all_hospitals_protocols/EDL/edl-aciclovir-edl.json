@@ -1,0 +1,33 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    7
+  ],
+  "item": "Aciclovir (EDL)",
+  "categoryHint": "antimicrobials",
+  "protocol_type": "weight_based_dose",
+  "clinical_features": {
+    "symptoms": [
+      "Extensive oral herpes",
+      "Herpes infections of the lips or mouth in PLHIV"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Oral formulation."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Children < 15 years of age: 250 mg/m2/dose, 8 hourly for 7 days. Children >= 15 years of age and adults: 400 mg, 8 hourly for 7 days."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Indicated for children with extensive oral herpes provided treatment can be started within 72 hours of onset of symptoms, and PLHIV with herpes infections of the lips or mouth."
+    }
+  ],
+  "warnings": []
+}

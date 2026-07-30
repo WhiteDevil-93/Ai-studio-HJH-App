@@ -1,0 +1,24 @@
+{
+  "sourceDoc": "CHBAH_ICU",
+  "pdfPages": [
+    1
+  ],
+  "item": "Potassium replacement (CHBAH ICU)",
+  "categoryHint": "metabolic",
+  "protocol_type": "icu_dosing",
+  "clinical_features": {
+    "symptoms": [
+      "Electrolyte replacement"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "IV potassium",
+      "details": "KCl 20 mmol/10 mL (2:1). Adult 20\u201340 mmol IV in 200 mL N/Saline run at 55 mL/hr. Max 0.3 mmol/kg/hr. Paediatric 3\u20136 mmol/kg/day IV"
+    }
+  ],
+  "warnings": [
+    "Rate limit by potassium dose"
+  ]
+}

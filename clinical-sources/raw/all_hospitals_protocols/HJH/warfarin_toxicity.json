@@ -1,0 +1,43 @@
+{
+  "_meta": {
+    "id": "warfarin_toxicity",
+    "type": "protocol",
+    "category": "12_ed_toxicology",
+    "subcategory": "protocols",
+    "title": "Warfarin Toxicity",
+    "source_doc": "HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Warfarin Toxicity",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "presentation < 1 hour post ingestion \n* NB Do not discharge even if asymptomatic! Must be monitored for 72 hours. \nSuper-warfarins may require WEEKS of Vit K therapy \nRISK STRATIFICATION IF ANTI-COAGULATION IS REVERSED \nHigh: mechanical valve, especially mitral valve \nModerate: AF/cardiomyopathy with valvular disease/previous CVA/MI/embolism/CCF, multiple PE/DVT, \nbiological valve < 3/12, DVT < 2/12, lab-confirmed hypercoagulability + DVT/PE, prev arterial emboli \nLow: AF/Cardiomyopathy with no complications, biological valve > 3/12, vascular prosthetic grafts, post \nstent insertion, mural thrombus prophylaxis"
+    },
+    "drugs": [
+      {
+        "item": "dose, retest dly, resume at lower dose once",
+        "adult_dose": "dose, retest dly, resume at lower dose once",
+        "notes": "Extracted from HJH ED 2026"
+      },
+      {
+        "item": "* 4.5 \u2013 10: Stop warfarin, assess causes. Give 1 \u2013",
+        "adult_dose": "* 4.5 \u2013 10: Stop warfarin, assess causes. Give 1 \u2013 2.5mg oral Vit K if bleeding",
+        "notes": "Extracted from HJH ED 2026"
+      },
+      {
+        "item": "risk high. Resume warfarin at lower dose once INR ",
+        "adult_dose": "risk high. Resume warfarin at lower dose once INR therapeutic",
+        "notes": "Extracted from HJH ED 2026"
+      },
+      {
+        "item": "* >10: Stop warfarin, assess causes. 2.5 \u2013 5mg ora",
+        "adult_dose": "* >10: Stop warfarin, assess causes. 2.5 \u2013 5mg oral Vit K. Resume warfarin at",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "warnings": [
+      "NB: GOAL OF TREATMENT IS A RETURN TO THERAPEUTIC INR, NOT SUB-THERAPEUTIC/NORMAL INR \nFACTORS AFFECTING INR & BLEEDING RISK \n\u2022\nComorbidities e.g. CCF, Liver/Renal disease \n\u2022\nAntibiotics, NSAIDs, paracetamol, dietary Vit K \n\u2022\nAcute illness, dehydration, AGE, medication errors \n\u2022\nElderly/frail/fall risk \n\u2022\nPrevious labile INR \n\u2022\nRecent major bleed/surgery \n\u2022\nThrombocytopaenia/antiplatelet agents \n\u2022\nHigh HASBLED score \nACUTE NON-ACCIDENTAL OVERDOSE  \n \n* Warfarin or Super-warfarin (Coumadin) \u2013 rat "
+    ]
+  }
+}

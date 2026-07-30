@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "ventricular_tachycardia",
+    "type": "drug",
+    "category": "1_resuscitation_fluids_and_inotropes",
+    "subcategory": "cardioversion",
+    "title": "Ventricular Tachycardia",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "item": "Ventricular Tachycardia",
+    "adult_dose": "100J: 200J: 300J: 360J synch mono",
+    "paediatric_dose": "0.5J/kg: 1J/kg: 2J/kg Synchronised"
+  }
+}

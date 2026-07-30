@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "acute_appendicitis",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "ACUTE APPENDICITIS",
+    "source_doc": "CMJAH ED December 2020",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "ACUTE APPENDICITIS",
+    "protocol_type": "ed_protocol",
+    "source_text": "ACUTE APPENDICITIS \n \n \n \n \nAlvarado Score for the Diagnosis of            \nAcute Appendicitis in Adults  \n \n \nManifestation \nPoints \n \nSYMPTOMS \n* Migratory RIF pain \n* Anorexia \n* Nausea / Vomiting \n1 \n1 \n1 \n \nSIGNS \n* RIF tenderness \n* Rebound tenderness \n* Fever  \n2 \n1 \n1 \nLABORATORY \n* Leucocytosis \n* Neutrophilic left shift \n2 \n1 \nTOTAL \n \n10 \n     Score 1 \u2013 4          Unlikely Acute Appendicitis \n     Score 5 \u2013 6          Possible Acute Appendicitis \n     Score 7 \u2013 8          Probable Acute Appendicitis \n     Score 9 \u2013 10        Very Probable Acute Appendicitis \nPaediatric Appendicitis Score (PAS) \n(Use for patients 3 \u2013 18 years of age) \n \nVariable \nPoints \nCough/Percussion/Hopping tenderness \n2 \nRLQ tenderness \n2 \nAnorexia \n1 \nFever \n1 \nNausea / Vomiting \n1 \nWBC > 10  \n1 \nPolymorphonuclear neutrophilia \n1 \nMigration of tenderness from umbilical \narea to RLQ \n1 \nTOTAL \n10 \nScore < 4            Low Risk \nScore 4 \u2013 5          Equivocal \nScore \u00b3 6            High Risk \nManagement \n \n* ABCD approach to resuscitation \n \n* Hypovolaemia \n20 ml/kg Balsol/Ringers Lactate bolus \n \n* Septic shock  \n \nFluids:  \n20 ml/kg Balsol/Ringers Lactate bolus \nAntibiotics: \nAugmentin\u00d2 30mg/kg IV \nUrgent Surgical consult \n \n* Analgesia \n \nMorphine 0.1mg/kg \n \n* Antiemetic \n \nMaxolon\u00d2 0.1mg/kg (not in children < 1 years old) \n \n* Investigations \n \nU-dipstix on all patients \n \nU-bHCG on all female patients \n \nLaboratory:  \nFBC/CRP/U&E  \n \nRadiological: \nGraded compression ultrasound \n \n \n \nCXR erect if perforation is suspected \nTailor other investigations to clinical findings & to rule in/rule out other differential \ndiagnoses \n \n*  Disposition \n \nUrgent Surgical consultation \nPatients in the \nlow risk group   \ndo not have a \nzero risk.  \nTreat according \nto your clinical \njudgment. \nSpecial Population Groups \n \n* Paediatric: may present with more non-specific or atypical symptoms. \n* Pregnancy: due to displacement of the uterus, presentation may be atypical.                       \n                         A leukocytosis in pregnancy is normal. \n* Elderly: do not mount the usual inflammatory response. The usual signs & symptoms  \n                  of appendicitis may be reduced, atypical or even absent. Tend to present later. \n* Immunocompromised: do not mount the usual inflammatory response. \nDr R Gihwala CMJAH Emergency Department June 2020 \nContents\n"
+  }
+}

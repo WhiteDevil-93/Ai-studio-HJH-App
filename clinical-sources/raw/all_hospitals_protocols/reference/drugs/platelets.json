@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "platelets",
+    "type": "drug",
+    "category": "9_blood_products",
+    "subcategory": "products",
+    "title": "Platelets",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "item": "Platelets",
+    "adult_dose": "1 pool raises count by 20-40x10^9/L",
+    "paediatric_dose": "10-15ml/kg IV",
+    "notes": "Indicated: count <10 or <50 with bleeding/procedure"
+  }
+}

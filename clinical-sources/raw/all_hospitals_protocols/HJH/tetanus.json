@@ -1,0 +1,78 @@
+{
+  "_meta": {
+    "id": "tetanus",
+    "type": "protocol",
+    "category": "13_ed_infectious_diseases",
+    "subcategory": "protocols",
+    "title": "Tetanus",
+    "source_doc": "HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Tetanus",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "CLINICAL FEATURES \nTRIAD \u2013 rigidity, muscle spasms & autonomic dysfunction \n* Contaminated wound may be trivial \n* Incubation period \u2013 3-14 days \u2794 time to first symptom \n* Onset time \u2013 1-7 days \u2794 time from first symptom to first spasm \n* Rigidity (persists > 2 weeks) \n-trismus, dysphagia, increased tone in trunk muscles \n* Spasms (reduce after 2 weeks) \n-laryngospasm, risus sardonicus, opisthotonos \n-may be spontaneous or provoked by physical/emotional \nstimuli \n* Autonomic disturbances (onset after spasms \u2013 lasts 1-2 weeks) \n-tachycardia & hypertension may alternate with \nbradycardia & hypotension, dysrhythmia, cardiac arrest \n-salivation, bronchial secretions \n-gastric stasis, ileus, diarrhoea \n* Respiratory compromise \n-chest wall rigidity \n-laryngospasm \n-aspiration \n \nCOMPLICATIONS \n*Respiratory \u2013 aspiration, laryngospasm, apnoea, respiratory failure, ARDS, VAP \n*Cardiovascular \u2013 tachy/bradycardia, hyper/hypotension, ischaemia, cardiac failure \n*Renal \u2013 high output/oliguric renal failure, urinary stasis & infection \n*GIT \u2013 gastric stasis, ileus, diarrhoea, UGIB/LGIB \n*Musculoskeletal \u2013 rhabdomyolysis, fractures/tendon avulsions 2\u00b0 spasms \n*Other \u2013 dehydration, thromboembolism, sepsis, MOD \n \n \nCAUSE \n*Clostridium tetani \nanaerobic spore forming gram positive bacillus \n*When spores germinate, and bacteria multiply \u2794 \ntoxins released i.e. tetanospasmin and tetanolysin \nTYPES \n*Cephalic / Local / Generalised / Neonatal \n \nDIFFERENTIAL DIAGNOSIS \n*Trismus 2\uf0b0 orofacial infection \n*Acute dystonic reactions \n*Hypocalcaemic tetany \n*Seizure disorder \n*Meningism \n*Psychogenic \n*Strychnine poisoning \nED INVESTIGATIONS \n*U&E; CMP; CK; FBC \n*Blood cultures \n*ABG (respiratory failure) \n*U-dipstix \n*ECG"
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "MANAGEMENT",
+        "details": "MANAGEMENT"
+      },
+      {
+        "step_number": "2",
+        "action": "RESUSCITATION",
+        "details": "RESUSCITATION"
+      },
+      {
+        "step_number": "3",
+        "action": "*Resus according to ABCs",
+        "details": "*Resus according to ABCs"
+      },
+      {
+        "step_number": "4",
+        "action": "A \u2013 intubate as require high doses of sedatives to control",
+        "details": "A \u2013 intubate as require high doses of sedatives to control"
+      },
+      {
+        "step_number": "5",
+        "action": "muscle spasms and laryngospasm",
+        "details": "muscle spasms and laryngospasm"
+      },
+      {
+        "step_number": "6",
+        "action": "B \u2013 at risk of aspiration, copious bronchial secretions requiring",
+        "details": "B \u2013 at risk of aspiration, copious bronchial secretions requiring"
+      },
+      {
+        "step_number": "7",
+        "action": "frequent suctioning",
+        "details": "frequent suctioning"
+      },
+      {
+        "step_number": "8",
+        "action": "C \u2013 autonomic dysfunction \u2794 monitor continuously,",
+        "details": "C \u2013 autonomic dysfunction \u2794 monitor continuously,"
+      },
+      {
+        "step_number": "9",
+        "action": "fluctuant haemodynamics so use short acting agents,",
+        "details": "fluctuant haemodynamics so use short acting agents,"
+      },
+      {
+        "step_number": "10",
+        "action": "fluid bolus PRN",
+        "details": "fluid bolus PRN"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "doses of sedatives to control",
+        "adult_dose": "doses of sedatives to control",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "disposition": "DISPOSITION \n*Urgent ID/ICU referral \nCLINICAL FEATURES \nTRIAD \u2013 rigidity, muscle spasms & autonomic dysfunction \n* Contaminated wound may be trivial \n* Incubation period \u2013 3-14 days \u2794 time to first symptom \n* Onset time \u2013 1-7 days \u2794 time from first symptom to first spasm \n* Rigidity (persists > 2 weeks) \n-trismus, dysphagia, increased tone in trunk muscles \n* Spasms (reduce after 2 weeks) \n-laryngospasm, risus sardonicus, opisthotonos \n-may be spontaneous or provoked by physical/emotional \nstimuli \n* Autonomic disturbances (onset after spasms \u2013 lasts 1-2 weeks) \n-tachycardia & hypertension may alternate with \nbradycardia & hypotension, dysrhythmia, cardiac arrest \n-salivation, bronchial secretions \n-gastric stasis, ileus, diarrhoea \n* Respiratory compromise \n-chest wall rigidity \n-laryngospasm \n-aspiration \n \nCOMPLICATIONS \n*Respiratory \u2013 aspiration, laryngospasm, apnoea, respiratory failure, ARDS, VAP \n*Cardiovascular \u2013 tachy/bradycardia, hyper/hypotension, ischaemia, cardiac failure"
+  }
+}

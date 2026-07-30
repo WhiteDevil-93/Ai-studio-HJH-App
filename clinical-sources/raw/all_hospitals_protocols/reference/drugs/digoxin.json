@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "digoxin",
+    "type": "drug",
+    "category": "8_cardiovascular",
+    "subcategory": "heart_failure",
+    "title": "Digoxin",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "drug": "Digoxin",
+    "adult_dose": "Loading: 0.5-1mg IV/PO; Maint: 125-250mcg daily",
+    "paediatric_dose": "10-15mcg/kg IV/PO",
+    "notes_updates": "Check levels. Toxicity: nausea, visual changes, arrhythmias"
+  }
+}

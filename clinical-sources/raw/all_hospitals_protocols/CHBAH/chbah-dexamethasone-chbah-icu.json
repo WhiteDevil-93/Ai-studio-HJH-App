@@ -1,0 +1,22 @@
+{
+  "sourceDoc": "CHBAH_ICU",
+  "pdfPages": [
+    1
+  ],
+  "item": "Dexamethasone (CHBAH ICU)",
+  "categoryHint": "sedation",
+  "protocol_type": "icu_dosing",
+  "clinical_features": {
+    "symptoms": [
+      "Steroid"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Dose",
+      "details": "Adult 4\u201310 mg daily 6\u201312 hrly; Paediatric 0.5\u20131 mg/kg/day IV 6\u201324 hrly"
+    }
+  ],
+  "warnings": []
+}

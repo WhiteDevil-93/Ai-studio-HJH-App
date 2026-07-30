@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "hypertonic_saline_3",
+    "type": "drug",
+    "category": "3_sedation_analgesia_and_neurology",
+    "subcategory": "neuroprotective",
+    "title": "Hypertonic Saline (3%)",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "drug": "Hypertonic Saline (3%)",
+    "adult_dose": "250ml IV over 30min",
+    "paediatric_dose": "3-5ml/kg IV over 30min",
+    "notes_updates": "Alternative to mannitol for raised ICP"
+  }
+}

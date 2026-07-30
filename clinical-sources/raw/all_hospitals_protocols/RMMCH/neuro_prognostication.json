@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "neuro_prognostication",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Neuro-prognostication",
+    "source_doc": "RMMCH EM V5 Jan 2024",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Neuro-prognostication",
+    "protocol_type": "ed_protocol",
+    "source_text": "PCAC + \nNeuro-prognostication\nRMMCH EM Clinical Protocols V5 03/01/2024\n"
+  }
+}

@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import crypto from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import {
   buildTreeFromFiles,
@@ -9,10 +10,15 @@ import {
 } from '../src/clinical/entryNormalize.ts';
 import manifest from '../clinical-sources/source-manifest.json' with {type: 'json'};
 import errataRegisters from '../clinical-sources/errata.json' with {type: 'json'};
+import hospitalArchiveManifest from '../clinical-sources/all-hospitals-protocols-manifest.json' with {type: 'json'};
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const ENTRIES_DIR = path.join(ROOT, 'src/clinical/entries');
+const HOSPITAL_ARCHIVE_DIR = path.join(
+  ROOT,
+  'clinical-sources/raw/all_hospitals_protocols',
+);
 const KNOWN_CATEGORY_IDS = new Set([
   '1_resuscitation_fluids_and_inotropes', '2_airway_and_ventilation',
   '3_sedation_analgesia_and_neurology', '4_antimicrobials_and_infectious_diseases',
@@ -56,6 +62,61 @@ let entryCount = 0;
 let protocolCount = 0;
 let mappedCount = 0;
 let unresolvedCount = 0;
+
+// --- Exact supplied archive extraction ---
+// Hashes each path plus the SHA-256 of its bytes. This catches additions,
+// removals, renames, and content edits without committing the ZIP itself.
+if (!fs.existsSync(HOSPITAL_ARCHIVE_DIR)) {
+  errors.push('Missing clinical-sources/raw/all_hospitals_protocols extraction');
+} else {
+  const archiveFiles = walk(HOSPITAL_ARCHIVE_DIR);
+  const groupCounts = new Map<string, number>();
+  const treeHash = crypto.createHash('sha256');
+
+  for (const absolutePath of archiveFiles.sort()) {
+    const relativePath = path
+      .relative(HOSPITAL_ARCHIVE_DIR, absolutePath)
+      .split(path.sep)
+      .join('/');
+    const group = relativePath.split('/')[0];
+    groupCounts.set(group, (groupCounts.get(group) ?? 0) + 1);
+
+    try {
+      JSON.parse(fs.readFileSync(absolutePath, 'utf8'));
+    } catch (error) {
+      errors.push(`${relativePath}: invalid supplied archive JSON (${String(error)})`);
+    }
+
+    const fileHash = crypto
+      .createHash('sha256')
+      .update(fs.readFileSync(absolutePath))
+      .digest();
+    treeHash.update(relativePath);
+    treeHash.update('\0');
+    treeHash.update(fileHash);
+    treeHash.update('\n');
+  }
+
+  if (archiveFiles.length !== hospitalArchiveManifest.files) {
+    errors.push(
+      `Supplied archive file count changed: ${archiveFiles.length} != ${hospitalArchiveManifest.files}`,
+    );
+  }
+  for (const [group, expectedCount] of Object.entries(hospitalArchiveManifest.groups)) {
+    const actualCount = groupCounts.get(group) ?? 0;
+    if (actualCount !== expectedCount) {
+      errors.push(
+        `Supplied archive group ${group} changed: ${actualCount} != ${expectedCount}`,
+      );
+    }
+  }
+  const actualTreeHash = treeHash.digest('hex');
+  if (actualTreeHash !== hospitalArchiveManifest.extractedTreeSha256) {
+    errors.push(
+      `Supplied archive tree checksum changed: ${actualTreeHash} != ${hospitalArchiveManifest.extractedTreeSha256}`,
+    );
+  }
+}
 
 const files: {path: string; file: CanonicalEntryFile}[] = walk(ENTRIES_DIR).map(abs => {
   const relFromRoot = path.relative(ROOT, abs).split(path.sep).join('/');

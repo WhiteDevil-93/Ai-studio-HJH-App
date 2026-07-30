@@ -1,0 +1,78 @@
+{
+  "_meta": {
+    "id": "first_onset_seizures",
+    "type": "protocol",
+    "category": "04_ed_neurology",
+    "subcategory": "protocols",
+    "title": "First Onset Seizures",
+    "source_doc": "HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "First Onset Seizures",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "signs \n\u2022\nGeneral examination & any evidence of underlying \ndiseases, including trauma \n\u2022\nNeurological examination \nSigns of meningitis. NB Crypto can be subtle \nFocal neurological deficit \nInvestigations \n\u2022\nECG and blood glucose on ALL patients \n\u2022\nTailor further investigations to clinical findings \n\u2022\nUrgent CT brain with contrast if \nNo return to baseline \nFocal neurological deficit \nFeatures of raised ICP \nDischarge if: \n* Return to baseline \n* No significant concerns on clinical examination \nNote \n* DO NOT require anti-epileptic treatment \n* Follow up at Neuro OPD for workup"
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Immediate Management",
+        "details": "Immediate Management"
+      },
+      {
+        "step_number": "2",
+        "action": "\u2022 ABCD approach to initial resuscitation",
+        "details": "\u2022 ABCD approach to initial resuscitation"
+      },
+      {
+        "step_number": "3",
+        "action": "\u2022 Don\u2019t ever forget glucose",
+        "details": "\u2022 Don\u2019t ever forget glucose"
+      },
+      {
+        "step_number": "4",
+        "action": "\u2022 Hypoglycaemia: 1ml/kg of 50% Dextrose IV",
+        "details": "\u2022 Hypoglycaemia: 1ml/kg of 50% Dextrose IV"
+      },
+      {
+        "step_number": "5",
+        "action": "Airway and Breathing",
+        "details": "Airway and Breathing"
+      },
+      {
+        "step_number": "6",
+        "action": "\u2022 Patient position \u2013 lateral",
+        "details": "\u2022 Patient position \u2013 lateral"
+      },
+      {
+        "step_number": "7",
+        "action": "\u2022 Supplemental oxygen (nasal prongs/FMO2)",
+        "details": "\u2022 Supplemental oxygen (nasal prongs/FMO2)"
+      },
+      {
+        "step_number": "8",
+        "action": "\u2022 Rapid Sequence Intubation (RSI) if seizures continue for",
+        "details": "\u2022 Rapid Sequence Intubation (RSI) if seizures continue for"
+      },
+      {
+        "step_number": "9",
+        "action": "> 5 minutes (see RSI protocol)",
+        "details": "> 5 minutes (see RSI protocol)"
+      },
+      {
+        "step_number": "10",
+        "action": "\u2022 See Status Epilepticus protocol for further care",
+        "details": "\u2022 See Status Epilepticus protocol for further care"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "\u2022 Glucose if hypoglycaemia",
+        "adult_dose": "\u2022 Glucose if hypoglycaemia",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "disposition": "Admission Criteria \n\u2022 \nComorbidities e.g. renal failure, \nmalnutrition \n\u2022 \nAge > 60 years \n\u2022 \nImmunocompromise \n\u2022 \nKnown cardiovascular disease \n \n\u2022 \nPregnancy \n\u2022 \nFocal neurology/delirium \n\u2022 \nToxins \n\u2022 \nTrauma \n\u2022 \nMalignancy \n \nHistory \n\u2022\nDetailed history of seizure \n\u2022\nNB! Recent history of head trauma? \n\u2022\nDrug use/abuse/overdose? \nPhysical Examination \n\u2022\nVital signs \n\u2022\nGeneral examination & any evidence of underlying \ndiseases, including trauma \n\u2022\nNeurological examination \nSigns of meningitis. NB Crypto can be subtle \nFocal neurological deficit \nInvestigations \n\u2022\nECG and blood glucose on ALL patients \n\u2022\nTailor further investigations to clinical findings \n\u2022\nUrgent CT brain with contrast if \nNo return to baseline \nFocal neurological deficit \nFeatures of raised ICP \nDischarge if: \n* Return to baseline \n* No significant concerns on clinical examination \nNote \n* DO NOT require anti-epileptic treatment \n* Follow up at Neuro OPD for workup"
+  }
+}

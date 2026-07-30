@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "ketamine",
+    "type": "drug",
+    "category": "3_sedation_analgesia_and_neurology",
+    "subcategory": "sedation",
+    "title": "Ketamine",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "drug": "Ketamine",
+    "adult_dose": "15 - 30 ug/kg/min IV",
+    "paediatric_dose": "5 - 40 ug/kg/min",
+    "notes_updates": "Preferred for asthma/bronchospasm or trauma intubation."
+  }
+}

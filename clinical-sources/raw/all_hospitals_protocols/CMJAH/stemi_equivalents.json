@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "stemi_equivalents",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Stemi Equivalents",
+    "source_doc": "CMJAH ED December 2020",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Stemi Equivalents",
+    "protocol_type": "ed_protocol",
+    "source_text": "    ACUTE CORONARY SYNDROME ALGORITHM \n \n \nRisk Factors for ACS \n* Age \u2265 65 years \n* Smoker \n* Family history of CAD \n* Diabetes Mellitus \n* Hypercholestrolaemia \n* Hypertension \n* Drug Abuse: cocaine,  \n   metamphetamine \n* Previous MI \n* HIV \u00b1 HAART (PI) \nPatient presenting with chest pain or symptoms \nsuggestive of ischaemia or infarction \nTRIAGE - ORANGE \nImmediate Assessment \n* ABCs \n* General appearance \n* Focused physical examination \n* 12 & 15 lead ECG (V4R, V7-9) \n* Check vital signs, O2 sats \n* Establish IV access  \n* Finger prick glucose \n* Bloods : Troponin I/SOB panel; U+E; FBC; VBG \n* Detailed history \n* Portable CXR \nImmediate General Treatment \n* Support ABCs \n* If O2 Sats < 94% start nasal prong O2 @  \n   2L/min, titrate \n* Aspirin 300 mg chewed stat \n* Nitroglycerin (1st check ECG, see box for contraindications) \n   Nitrolingual Spray\u00ae: 1 spray at 5 minute     \n   intervals (max 3 sprays in 15min)  \n   Sublingual: 1 tablet repeated for total 3  \n   doses at 5 min intervals \n* Morphine IV if discomfort not relieved by  \n   nitroglycerin: 1-2mg alloquots  \nContraindications \nAspirin \n* Known hypersensitivity to  \n   aspirin - Give patient  \n   Clopidogrel 300mg stat po \n \nRelative Contraindications \n* Active peptic ulcer disease \n* Bleeding disorder \n* Allergy \nContraindications \nNitroglycerine \n* Hypotension SBP < 90mmHg  \n* Severe bradycardia < 50 bpm \n* Severe tachycardia > 100 bpm \n* RV infarction (associated with   \n   inferior MI) \n* Use of phosphodiesterase  \n   inhibitors eg Sildenafil (Viagra\u00ae) /      \n   Vardenafil (Levitra\u00ae) within 24hrs;  \n   Tadalafil (Cialis\u00ae) within 48hrs. \n12 , 15 lead & V4R \nECG interpretation \nSTEMI \n* ST Elevation in 2 or more contiguous leads  \n   (see box for criteria) \n* New LBBB or presumably  \n   new LBBB (Sgarbossa's criteria) \n* True posterior MI: tall R in V1 & STE \u2265 0.5mm   \n   in V7-9  \n* RV infarction: ST elevation V4R  \nNSTE - ACS \nHigh Risk Unstable Angina (UA) / NSTEMI \n* ST depression \u2265 0.5mm (see box for criteria) \n* ST elevation > 0.5mm but < 1mm \n* Dynamic inverted t-waves                                                   \n  i.e. T-waves previously been upright but are inverted  \n  when the patient has chest pain \nIntermediate/ Low Risk UA \nNormal or non-diagnostic \n  changes in ST segment or t-waves \n* ST deviation < 0.5mm  \n* T-wave inversion \u2264 2mm  \nContiguous Leads \n* Inferior:  II, III, aVF \n* Lateral: I, aVL, V5, V6 \n* Anterior: V3, V4 \n* Septal: V1, V2 \nDr R Gihwala CMJAH Emergency Department June 2020 \nRefer to respective protocol for \nfurther management \nContents\n\n"
+  }
+}

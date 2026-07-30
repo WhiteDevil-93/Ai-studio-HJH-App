@@ -1,0 +1,32 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    100
+  ],
+  "item": "Hydrocortisone (Systemic) (EDL)",
+  "categoryHint": "resuscitation",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Angioedema with severe airway obstruction"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "IV injection, 100 mg."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "IV, 100 mg as a single dose."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Used alongside adrenaline in severe angioedema with airway obstruction."
+    }
+  ],
+  "warnings": []
+}

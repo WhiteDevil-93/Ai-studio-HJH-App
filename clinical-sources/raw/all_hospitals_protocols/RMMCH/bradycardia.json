@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "bradycardia",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Bradycardia Management",
+    "source_doc": "RMMCH EM V5 Jan 2024",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Bradycardia Management",
+    "protocol_type": "ed_protocol",
+    "source_text": "www.resus.co.za\n2021\n2021\nOpen, maintain and protect as necessary\nEstablish IV access\nAdminister oxygen if required. Target saturation 94-98%\nVentilate if necessary\nAssess pulse, blood pressure and perfusion\nAttach ECG monitor, pulse oximeter and vital signs monitor if available\nRun rhythm strip to confirm dysrhythmia\n12 lead ECG if possible\nIdentify and treat underlying causes\n\u2022 \nHypotension\n\u2022 \nAcutely altered mental state\n\u2022 \nSigns of shock\n\u2022 \nIschaemic chest discomfort\n\u2022 \nAcute heart failure \nAIRWAY\nDRIP\nBREATHING\nCIRCULATION\nECG RHYTHM\nSIGNS OF INSTABILITY\n Bradycardia Management\nAlgorithm\nSTART CPR\nATROPINE\nBRADYCARDIA \nBRADYCARDIA\nIF UNSTABLE\nIF UNSTABLE\nLOOK FOR AND TREAT \nCONTRIBUTORY \nCAUSES OF \nBRADYCARDIA\nADRENALINE\nADRENALINE\nATROPINE\nCONSIDER PACING\n1 Rescuer = 30 compressions : 2 breaths\n2 Rescuers = 15 compressions : 2 breaths\n(Exclude Hypoxia/Hypothermia/Head Injury)\n1mg IV bolus\n       Can repeat every 3-5 minutes,\nup to 3mg\nHR < 60/min despite effective  \noxygenation and ventilation\nHR < 50/min\n\u2022 \nHypoxia\n\u2022 \nHypothermia\n\u2022 \nHead Injury\n\u2022 \nHyperkalaemia\n\u2022 \nHeart Block\n\u2022 \nHydrogen Ion (Acidosis)\n\u2022 \nHypotension\n\u2022 \nToxins \n(e.g. organophosphates)\n\u2022 \nTherapeutic Agents \n(e.g. Beta Blocker or  \nCa  Channel Blocker \noverdose)  \n0.1ml/kg IV of 1:10 000 dilution\n(Max dose - 1mg) every 3-5 minutes\n2-10\u00b5g/min infusion  \n(Start at 0.05ug/kg/min and titrate to effect)\nOR\nTRANSCUTANEOUS PACING\nConsider alternatives\n\u2022 Transvenous pacing\n\u2022  High dose insulin (1U/kg if Beta Blocker \nor Ca Channel Blocker overdose)\n\u2022  Glucagon (if Beta Blocker or Ca  \nChannel Blocker overdose)\n0.02mg/kg IV if vagal tone or 1\u00b0 AV block \n(Max dose - 0.5mg)\nSPECIALIST MEDICAL \nADVICE SHOULD BE \nSOUGHT WHENEVER \nPOSSIBLE\nPAEDIATRIC\nADULT \nBradycardia \nRMMCH EM Clinical Protocols V5 03/01/2024\n"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "_meta": {
+    "id": "pulmonary_embolism",
+    "type": "protocol",
+    "category": "05_ed_pulmonary",
+    "subcategory": "protocols",
+    "title": "Pulmonary Embolism",
+    "source_doc": "HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Pulmonary Embolism",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "SIGNS AND SYMPTOMS \n*Non-specific \n*Consider PESI score to risk stratify \n*High index of suspicion especially in patients with \n-unexplained dyspnoea \n-tachypnoea \n-unexplained tachycardia \n-unilateral leg swelling \n \nINDICATIONS FOR THROMBOLYSIS \nMassive PE \n*Sustained hypotension (SBP < 90mmHg) \nfor 15 minutes or requiring inotropic \nsupport \n*Persistent bradycardia with signs of shock \n*RV dysfunction on echo \n*Myocardial necrosis \n(Trop I > 0.4ng/ml or Trop T > 0.1ng/ml) \nCardiac Arrest in PE \nADJUNCT: 5mg nebulised nitrocine over \n15 mins, rpt PRN \nTHROMBOLYTIC OF CHOICE \nALTEPLASE (ACTILYSE\u00ae) \nMassive PE \n*\u226565kg \n10mg bolus followed by 90mg infusion \nover 2 hours \n*<65kg \nTotal dose of 1.5mg/kg \n10mg bolus and remainder of dose \ninfused over 2 hours \nCardiac Arrest: 50mg IVI as a stat dose \nStable on low-dose pressor: consider \n10mg bolus, then 40mg over 2 hrs \n(0.5mg/kg) \nAGE ADJUSTED D-DIMER > 50 years \nAGE x 5 (divide by 1000 = mg/L stat lab \nunits) \nUsual cutoff = 0.25 mg/L \nTRIMESTER ADJUSTED D-DIMER \nTHRESHOLD \n1st - < 750 ng/ml (0.75mg/l)  \n2nd - < 1000 ng/ml (1mg/l)  \n3rd - < 1250 ng/ml (1.25mg/l)"
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "ALGORITHM",
+        "details": "ALGORITHM"
+      },
+      {
+        "step_number": "2",
+        "action": "CLINICAL FEATURE",
+        "details": "CLINICAL FEATURE"
+      },
+      {
+        "step_number": "3",
+        "action": "POINTS",
+        "details": "POINTS"
+      },
+      {
+        "step_number": "4",
+        "action": "Clinical signs and symptoms of DVT",
+        "details": "Clinical signs and symptoms of DVT"
+      },
+      {
+        "step_number": "5",
+        "action": "PE is #1 diagnosis",
+        "details": "PE is #1 diagnosis"
+      },
+      {
+        "step_number": "6",
+        "action": "Heart rate > 100 bpm",
+        "details": "Heart rate > 100 bpm"
+      },
+      {
+        "step_number": "7",
+        "action": "Immobilisation > 3 days or surgery in last 4 weeks",
+        "details": "Immobilisation > 3 days or surgery in last 4 weeks"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "drugs (IVDU)",
+        "adult_dose": "drugs (IVDU)",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "warnings": [
+      "contraindication \n1mg/kg SC stat \n \nCTPA \n(if GFR >60ml/min) \nHigh index of suspicion!!! \n(refer to Pulmonary Embolism Protocol) \nCalculate Well\u2019s Score \nCalculate PERC Score \nFollow the Algorithm \u2794 \nPERC Score (Pulmonary Embolism Rule-Out Criteria) \nH \u2013 No Hormones (oestrogen) \nA \u2013 Age < 50 \nD \u2013 No DVT/PE history \nC \u2013 No Coughing blood \nL \u2013 No unilateral Lower limb oedema \nO \u2013 Oxygen saturations \u2265 95% \nT \u2013 No Tachycardia \u2265 100bpm \nS \u2013 No Surgery / trauma within 28 days \nALL need to be confirmed"
+    ]
+  }
+}

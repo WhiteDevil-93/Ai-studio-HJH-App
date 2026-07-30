@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "hypokalaemia",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "HYPOKALAEMIA",
+    "source_doc": "CMJAH ED December 2020",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "HYPOKALAEMIA",
+    "protocol_type": "ed_protocol",
+    "source_text": "                                       HYPOKALAEMIA  \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nBOTH Potassium & Magnesium need to be replaced simultaneouly in hypokalaemia \n(Mg2+ activates the Na+- K+ ATPase pump to promote cellular uptake of K+) \n \nK+ < 3.5mmol/l \n \nLIFE-THREATENING HYPOKALAEMIA  \n(cardiac arrest / impending arrest) \n \n20 mEq/mmol KCl (10ml) can be administered @ 1ml/min then \nre-check potassium level \n \n40 mmol KCl + 2g MgSO4 in 200 ml          \n0.9% Normal Saline over 4 hours  \n(via infusion pump / dial-a-flow @ 50 ml/hr) \nDr R Gihwala CMJAH Emergency Department June 2020 \nContents\n"
+  }
+}

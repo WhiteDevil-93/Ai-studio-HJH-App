@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "triage",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Triage in non-pregnant Adults",
+    "source_doc": "RMMCH EM V5 Jan 2024",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Triage in non-pregnant Adults",
+    "protocol_type": "ed_protocol",
+    "source_text": "Triage in non-pregnant Adults\nRMMCH EM Clinical Protocols V5 03/01/2024\n"
+  }
+}

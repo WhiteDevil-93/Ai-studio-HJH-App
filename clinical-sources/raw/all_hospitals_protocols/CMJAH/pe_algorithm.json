@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "pe_algorithm",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "PULMONARY EMBOLISM ALGORITHM",
+    "source_doc": "CMJAH ED December 2020",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "PULMONARY EMBOLISM ALGORITHM",
+    "protocol_type": "ed_protocol",
+    "source_text": "PULMONARY EMBOLISM ALGORITHM \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nCalculate  \nWell\u2019s score for PE \nLow Risk \n< 2 \nPERC score \nNegative \nPositive \nNo PE \nD-dimer \nD-dimer \nabove Age \nadjusted \nlevel \nD-dimer \nbelow \nAge \nadjusted \nlevel \nNo PE \nConsider \nCTPA \nModerate Risk \n2 - 4 \nHigh Risk \n> 4 \nClexane\u00ae if no \ncontraindication \n1mg/kg SC stat \nCTPA  \n(if GFR >60ml/min) \nHigh index of suspicion!!! \n(refer to Pulmonary Embolism Protocol) \nCalculate Well\u2019s Score \nCalculate PERC Score \nFollow the Algorithm \u00e0 \nPERC Score (Pulmonary Embolism Rule-Out Criteria) \n \nH \u2013 No Hormones (oestrogen) \nA \u2013 Age < 50 \nD \u2013 No DVT/PE history \nC \u2013 No Coughing blood \nL \u2013 No unilateral Lower limb oedema \nO \u2013 Oxygen saturations \u2265 95% \nT \u2013 No Tachycardia \u2265 100bpm \nS \u2013 No Surgery / trauma within 28 days \n \nALL need to be confirmed in order to be \u201cPERC Negative\u201d \nDr M Wu / Dr R Gihwala CMJAH Emergency Department June 2020 \nWELL\u2019S SCORE for PULMONARY EMBOLISM \n \nCLINICAL FEATURE \nPOINTS \nClinical signs and symptoms of DVT \n3 \nPE is #1 diagnosis \n3 \nHeart rate > 100 bpm \n1.5 \nImmobilisation > 3 days or surgery in last 4 weeks \n1.5 \nPrevious DVT/PE \n1.5 \nHaemoptysis \n1 \nMalignancy treated in last 6 months or palliative care \n1 \nContents\n"
+  }
+}

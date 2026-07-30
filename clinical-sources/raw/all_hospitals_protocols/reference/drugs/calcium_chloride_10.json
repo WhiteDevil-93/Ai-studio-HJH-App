@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "calcium_chloride_10",
+    "type": "drug",
+    "category": "5_metabolic_electrolytes_and_nutrition",
+    "subcategory": "hyperkalaemia_management",
+    "title": "Calcium Chloride 10%",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "item": "Calcium Chloride 10%",
+    "adult_dose": "1g IV (10ml) slowly over 5-10min",
+    "paediatric_dose": "0.2ml/kg IV slowly (max 10ml)",
+    "notes": "Cardiac membrane stabilisation. Onset: 1-3min"
+  }
+}

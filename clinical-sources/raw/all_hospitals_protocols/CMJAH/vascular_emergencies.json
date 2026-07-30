@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "vascular_emergencies",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "VASCULAR EMERGENCIES",
+    "source_doc": "CMJAH ED December 2020",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "VASCULAR EMERGENCIES",
+    "protocol_type": "ed_protocol",
+    "source_text": ""
+  }
+}

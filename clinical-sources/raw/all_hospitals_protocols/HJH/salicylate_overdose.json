@@ -1,0 +1,63 @@
+{
+  "_meta": {
+    "id": "salicylate_overdose",
+    "type": "protocol",
+    "category": "12_ed_toxicology",
+    "subcategory": "protocols",
+    "title": "Salicylate Overdose",
+    "source_doc": "HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Salicylate Overdose",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "CLINICAL FEATURES \nMay take up to 6 hours to appear \n* MINIMAL (<150 mg/kg): minimal symptoms \n* MODERATE (150-300mg/kg): Hyperpnoea; vomiting; nausea; tinnitus \n* SEVERE (>300mg/kg): Metabolic acidosis, seizures, coma, hypotension, \npulmonary oedema, hyperthermia \n* LETHAL (>500mg/kg) \n* CHRONIC: Common in elderly pts, non-specific delirium, confusion, \nfever, unexplained acidosis. \n \nGENERAL APPROACH \n\u2022\nTriage to RESUS AREA, even if patient initially appears well \n\u2022\nRapid ABC assessment, 2 IV lines, monitors, HGT, VBG, urine \uf0a2\uf033HCG, ECG \n\u2022\nCorrect electrolyte abnormalities \n\u2022\nCrystalloid fluid bolus 20mg/kg if hypotensive \n\u2022\nComprehensive history and examination, including: \nAmount and time of ingestion, co-ingestants \nComorbidities, chronic medications, symptoms prior to arrival \n\u2022\nDocument specific features of toxicity \n\u2022\nFurther investigations: FBC, U&E, LFT, Paracetamol/Salicylate level, urine tox screen \n \n***LEVELS CORRELATE POORLY WITH SEVERITY OF TOXICITY, BUT SERIAL LEVELS CAN BE USED TO \nMONITOR RESPONSE OF TREATMENT*** \n**NEUROGLYCOPENIA CAN OCCUR EVEN AT NORMAL HGT LEVELS** \nSPECIFIC MANAGEMENT \nDECONTAMINATION: \nIf > 150mg/kg ingested - 50g activated charcoal up to 8 hours post ingestion \nIf > 300mg/kg ingested - SECURE AIRWAY PRIOR TO ACTIVATED CHARCOAL \nConsider MDAC if salicylate levels continue to rise \nENHANCED ELIMINATION: \nUrinary and serum alkalinisation with sodium bicarbonate 1ml/kg IV of 8.5% Sodabic \nGoal serum pH 7.45 \u2013 7.55, urine pH >7.5 \nHaemodialysis \u2013 very effective but seldom required \nSEIZURES: \n \n \nIV benzodiazepines \nMonitor for arrhythmias / hypoglycaemia as cause \nINTUBATION CONSIDERATIONS: \n \n \n \n \nAvoid intubation if possible \u2794 associated with high peri-intubation mortality \nConsider Sodabic boluses prior to intubation to counteract metabolic acidosis. \nMinimise apnoeic period to avoid worsening acidosis \nMatch patient\u2019s respiratory rate to maintain respiratory alkalosis \nDISPOSITION \n\u2022\nRenal consult if dialysis required \n\u2022\nWi"
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "APPROACH",
+        "details": "APPROACH"
+      },
+      {
+        "step_number": "2",
+        "action": "Triage to RESUS AREA, even if patient initially appears well",
+        "details": "Triage to RESUS AREA, even if patient initially appears well"
+      },
+      {
+        "step_number": "3",
+        "action": "Rapid ABC assessment, 2 IV lines, monitors, HGT, VBG, urine \uf0a2\uf033HCG, ECG",
+        "details": "Rapid ABC assessment, 2 IV lines, monitors, HGT, VBG, urine \uf0a2\uf033HCG, ECG"
+      },
+      {
+        "step_number": "4",
+        "action": "Correct electrolyte abnormalities",
+        "details": "Correct electrolyte abnormalities"
+      },
+      {
+        "step_number": "5",
+        "action": "Crystalloid fluid bolus 20mg/kg if hypotensive",
+        "details": "Crystalloid fluid bolus 20mg/kg if hypotensive"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "DOSE",
+        "adult_dose": "DOSE",
+        "notes": "Extracted from HJH ED 2026"
+      },
+      {
+        "item": "* MINIMAL (<150 mg/kg): minimal symptoms",
+        "adult_dose": "* MINIMAL (<150 mg/kg): minimal symptoms",
+        "notes": "Extracted from HJH ED 2026"
+      },
+      {
+        "item": "* MODERATE (150-300mg/kg): Hyperpnoea; vomiting; n",
+        "adult_dose": "* MODERATE (150-300mg/kg): Hyperpnoea; vomiting; nausea; tinnitus",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "disposition": "DISPOSITION \n\u2022\nRenal consult if dialysis required \n\u2022\nWill likely require ICU/High care \n\u2022\nContinue serial ECG and VBG monitoring in ED \nBLOOD GAS FEATURES \n* Respiratory alkalosis \u2013 direct stimulation of respiratory centres \n* Metabolic acidosis (HAGMA) \u2013 lactic acidosis due to uncoupling of \noxidative phosphorylation \n* Hypokalaemia \n* Hyper/hypoglycaemia \nWinter\u2019s formula: 1.5 x HCO3 + 8 \uf0b1 2 = expected CO2 \n(if pure metabolic acidosis)"
+  }
+}

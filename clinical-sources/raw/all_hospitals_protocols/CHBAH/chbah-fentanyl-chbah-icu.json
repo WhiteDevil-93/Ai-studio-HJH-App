@@ -1,0 +1,27 @@
+{
+  "sourceDoc": "CHBAH_ICU",
+  "pdfPages": [
+    1
+  ],
+  "item": "Fentanyl (CHBAH ICU)",
+  "categoryHint": "sedation",
+  "protocol_type": "icu_dosing",
+  "clinical_features": {
+    "symptoms": [
+      "Analgesia"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Bolus",
+      "details": "1 \u2013 2 mcg/kg"
+    },
+    {
+      "step_number": "2",
+      "action": "Infusion",
+      "details": "Adult 1 \u2013 2 mcg/kg/hr; Paediatric 0.5 \u2013 2 mcg/kg/hr"
+    }
+  ],
+  "warnings": []
+}

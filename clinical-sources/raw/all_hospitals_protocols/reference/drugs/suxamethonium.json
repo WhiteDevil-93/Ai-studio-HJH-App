@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "suxamethonium",
+    "type": "drug",
+    "category": "2_airway_and_ventilation",
+    "subcategory": "sedation",
+    "title": "Suxamethonium",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "item": "Suxamethonium",
+    "adult_dose": "1-1.5mg/kg IV",
+    "paediatric_dose": "1-2mg/kg IV; Infants: 2-3mg/kg IV",
+    "notes": "Contraindicated: Hyperkalaemia, pseudocholinesterase deficiency"
+  }
+}

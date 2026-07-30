@@ -1,0 +1,46 @@
+{
+  "sourceDoc": "RMMCH",
+  "pdfPages": [
+    46,
+    47
+  ],
+  "item": "Sepsis + Septic Shock (RMMCH)",
+  "categoryHint": "resuscitation",
+  "protocol_type": "ed_protocol",
+  "clinical_features": {
+    "symptoms": [
+      "SIRS Criteria (Adults): Temp <36\u00b0C or >38\u00b0C, HR > 90, RR > 20 or PaCO2 < 32, WBC < 4 or > 12 or >10% immature band forms.",
+      "qSOFA Adults: Altered mental status GCS < 15, Tachypnoea RR >= 22, Hypotension SBP <= 100."
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Hour-1 Bundle Step 1",
+      "details": "Measure lactate level. Remeasure lactate if initial lactate elevated (> 2 mmol/L)."
+    },
+    {
+      "step_number": "2",
+      "action": "Hour-1 Bundle Step 2",
+      "details": "Obtain blood cultures before administering antibiotics."
+    },
+    {
+      "step_number": "3",
+      "action": "Hour-1 Bundle Step 3",
+      "details": "Administer broad-spectrum antibiotics."
+    },
+    {
+      "step_number": "4",
+      "action": "Hour-1 Bundle Step 4",
+      "details": "Begin rapid administration of 30 mL/kg crystalloid for hypotension or lactate >= 4 mmol/L."
+    },
+    {
+      "step_number": "5",
+      "action": "Hour-1 Bundle Step 5",
+      "details": "Apply vasopressors if hypotensive during or after fluid resuscitation to maintain a mean arterial pressure >= 65 mm Hg."
+    }
+  ],
+  "warnings": [
+    "SIRS is not specific to sepsis \u2014 can be found in trauma, post-surgery, burns, pancreatitis, acute inflammatory conditions."
+  ]
+}

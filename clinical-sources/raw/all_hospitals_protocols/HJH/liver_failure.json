@@ -1,0 +1,81 @@
+{
+  "_meta": {
+    "id": "liver_failure",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Acute Liver Failure",
+    "source_doc": "HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Acute Liver Failure",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "Clinical features of Acute Liver Failure \n \nHistory \nClinical signs on examination of ALF \n\u25ba Date of onset of symptoms \n\u25ba Travel history \n\u25ba Drug use \u2013 prescription and illicit \n\u25ba Alcohol use \n\u25ba Herbal or traditional medication use \n\u25ba Target symptoms consistent with the \npresenting complication \n\u25ba Exposure to a viral illness (sexual contacts, \nbody piercing) \n\u25ba Jaundice \n\u25ba RUQ tenderness \n\u25ba Hepatomegaly \n\u25ba Splenomegaly \n\u25ba Ascites \n\u25ba Evidence of bleeding \n\u25ba Evidence of infection \n\u25ba Asterixis (hepatic flap) \n\u25ba Evidence of encephalopathy \n \nGrading of Hepatic Encephalopathy (HE) \n \nGrade \nIntellectual Function \nNeuromuscular Function \nI \nImpaired attention, irritable, depressed, personality \nchanges \nTremor, apraxia, incoordination \nII \nDrowsy, poor memory, behavioural changes, sleep \ndisturbances \nAsterixis, ataxia, slow slurred \nspeech \nIII \nConfusion, somnolence, disorientation, amnesia \nHypoactive reflexes, clonus, \nnystagmus, muscle rigidity \nIV \nStupor, coma \nDilated pupils, decerebrate \nposture, oculocephalic reflex"
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Management Approach Goals",
+        "details": "Management Approach Goals"
+      },
+      {
+        "step_number": "2",
+        "action": "\u25ba Identification of the aetiology of the ALF whenever possible and initiation of specific treatment",
+        "details": "\u25ba Identification of the aetiology of the ALF whenever possible and initiation of specific treatment"
+      },
+      {
+        "step_number": "3",
+        "action": "\u25ba Supportive and symptomatic management of ALF with timely transfer to a critical care unit",
+        "details": "\u25ba Supportive and symptomatic management of ALF with timely transfer to a critical care unit"
+      },
+      {
+        "step_number": "4",
+        "action": "\u25ba Early consultation with Liver Transplant specialists",
+        "details": "\u25ba Early consultation with Liver Transplant specialists"
+      },
+      {
+        "step_number": "5",
+        "action": "Complications and Clinical Manifestations",
+        "details": "Complications and Clinical Manifestations"
+      },
+      {
+        "step_number": "6",
+        "action": "Patients in ALF tend to present to the ED with complications that may include any of the following l",
+        "details": "Patients in ALF tend to present to the ED with complications that may include any of the following listed in"
+      },
+      {
+        "step_number": "7",
+        "action": "the box.",
+        "details": "the box."
+      },
+      {
+        "step_number": "8",
+        "action": "Emergency Department Management",
+        "details": "Emergency Department Management"
+      },
+      {
+        "step_number": "9",
+        "action": "Immediate management",
+        "details": "Immediate management"
+      },
+      {
+        "step_number": "10",
+        "action": "\u2022 Resuscitate and stabilize ABCs, blood glucose, oxygen if hypoxic and establish IV access.",
+        "details": "\u2022 Resuscitate and stabilize ABCs, blood glucose, oxygen if hypoxic and establish IV access."
+      }
+    ],
+    "drugs": [
+      {
+        "item": "\u2022 Extras (acute fatty liver of pregnancy, HELLP, i",
+        "adult_dose": "\u2022 Extras (acute fatty liver of pregnancy, HELLP, ischaemic necrosis, vascular, metabolic, autoimmune,",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "warnings": [
+      "Note: \nObserve for vomiting for 1 hour in the ED. If no vomiting \u2794 discharge \nIf vomiting occurs within 1 hour, re-administer dose & observe. \nIf vomiting persists \u2794 Refer to Internal Medicine \nSIGNS & SYMPTOMS \n* Fever \n* Arthralgia \n* Fatigue \n* Myalgia \n* Malaise \n* Abdominal pain \n* Anorexia \n* Vomiting \n* Headache \n* Dizziness \n* Cough  \n        * Rigors \n* Travel history \n \nHIGH RISK GROUPS \n* Children \n* Pregnant & postpartum \n* Elderly > 65 years \n* HIV \n* Previous splenectomy \n* Travel "
+    ],
+    "disposition": "Disposition \n\u2022 ALL patients with ALF should be referred to a physician for further management. \n\u2022 If intubated \u2013 admit/transfer to ICU \n\u2022 Early consultation with Liver Transplant specialists"
+  }
+}

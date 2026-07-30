@@ -1,0 +1,27 @@
+{
+  "sourceDoc": "CHBAH_ICU",
+  "pdfPages": [
+    1
+  ],
+  "item": "Dobutamine infusion (CHBAH ICU)",
+  "categoryHint": "resuscitation",
+  "protocol_type": "icu_dosing",
+  "clinical_features": {
+    "symptoms": [
+      "Inotrope"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation",
+      "details": "250 mg in 200 mL NS. Rate (mL/hr) = mcg/kg/min \u00d7 weight \u00d7 60"
+    },
+    {
+      "step_number": "2",
+      "action": "Dose range",
+      "details": "5 \u2013 30 mcg/kg/min"
+    }
+  ],
+  "warnings": []
+}

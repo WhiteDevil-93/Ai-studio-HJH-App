@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "paracetamol_overdose",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "PARACETAMOL OVERDOSE",
+    "source_doc": "CMJAH ED December 2020",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "PARACETAMOL OVERDOSE",
+    "protocol_type": "ed_protocol",
+    "source_text": "PARACETAMOL OVERDOSE \n \n \n \n \n \n \n \n \n \n \n \n \nINITIAL ASSESSMENT & MANAGEMENT \n \n* Assess and support ABC\u2019s \n* Monitor glucose \n* Attempt to quantify the amount ingested & of any co-ingestants  \n* Establish a timeframe from the time of ingestion to presentation \n* Presentation < 1 hour from ingestion \n\u2022\nActivated charcoal 50g PO (not via NGT) \n* ECG \u2013 look for signs of co-ingestants e.g. prolonged QT  \n* Laboratory investigations \n\u2022\nBlood gas, U&E, salicylate level \n\u2022\nParacetamol levels (provided \u00b3 4 hours post ingestion) \n\u2022\nNo need for AST/ALT/INR unless > 12 hours post ingestion \n \n**Refer to Protocol: General management principles of a poisoned/overdose patient** \nTOXIC DOSE  \n150mg/kg or > 10g in adults \nNAC CAUTIONS/SIDE-EFFECTS \n*Anaphylaxis \n*Vomiting \n*Separate IV infusion as may be inactivated by other medications \n \nPREGNANCY \n*Paracetamol crosses the placenta \n*Administer NAC as above \n \nHIGH RISK PATIENTS \n*Hypotensive \n*Pre-existing liver dysfunction e.g. alcoholic \n*Elderly \nN-Acetylcysteine (NAC) Parvolex\u00d2 / Paradote\u00d2 \n \n* Use the Paracetamol Treatment Nomogram to establish need for antidote  \n* If a high dosage is suspected, rather give the antidote to the patient \n* DO NOT withhold even if the ingestion was 48-72hrs prior to presentation \n \n* Administer NAC as follows: \n\u2022\n150mg/kg in 200ml 5% Dextrose IV over 1 hour followed by \n\u2022\n50mg/kg in 500ml 5% Dextrose IV over 4 hours followed by \n\u2022\n100mg/kg in 1L 5% Dextrose IV over 16 hours \nDr R Gihwala CMJAH Emergency Department June 2020 \nDISPOSITION \n GIT Referral \nStart treatment as soon as possible \nif indicated,  \npreferably < 8hrs post-ingestion  \nIF IN DOUBT, GIVE NAC \nContents\n\n \nDr R Gihwala CMJAH Emergency Department June 2020 \nContents\n"
+  }
+}

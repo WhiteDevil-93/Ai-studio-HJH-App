@@ -1,0 +1,75 @@
+{
+  "_meta": {
+    "id": "crush_injury",
+    "type": "protocol",
+    "category": "02_ed_trauma_ortho",
+    "subcategory": "protocols",
+    "title": "Crush Injury & Syndrome",
+    "source_doc": "HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Crush Injury & Syndrome",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Management",
+        "details": "Management"
+      },
+      {
+        "step_number": "2",
+        "action": "* ABCD approach to resuscitation",
+        "details": "* ABCD approach to resuscitation"
+      },
+      {
+        "step_number": "3",
+        "action": "* Aggressive fluid administration",
+        "details": "* Aggressive fluid administration"
+      },
+      {
+        "step_number": "4",
+        "action": "- Crystalloids (Balsol / Ringers Lactate)",
+        "details": "- Crystalloids (Balsol / Ringers Lactate)"
+      },
+      {
+        "step_number": "5",
+        "action": "- Rate: 15 \u2013 30 ml/kg/hr",
+        "details": "- Rate: 15 \u2013 30 ml/kg/hr"
+      },
+      {
+        "step_number": "6",
+        "action": "- Consider Normal saline/5%dextrose-bicarb solution if",
+        "details": "- Consider Normal saline/5%dextrose-bicarb solution if"
+      },
+      {
+        "step_number": "7",
+        "action": "potassium is raised",
+        "details": "potassium is raised"
+      },
+      {
+        "step_number": "8",
+        "action": "* Monitor urinary output",
+        "details": "* Monitor urinary output"
+      },
+      {
+        "step_number": "9",
+        "action": "- Aim for urinary output of 2-4ml/kg/hr, 200 \u2013 300 mls/hr",
+        "details": "- Aim for urinary output of 2-4ml/kg/hr, 200 \u2013 300 mls/hr"
+      },
+      {
+        "step_number": "10",
+        "action": "* Correct Electrolyte Abnormalities",
+        "details": "* Correct Electrolyte Abnormalities"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "dose",
+        "adult_dose": "dose",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "disposition": "Disposition \n- Refer Surgery depending on cause \nDefinitions \n\u2022\nCrush Injury: physical injury from prolonged compression. May be \ndue to direct effect of trauma or ischaemia related to compression. \n\u2022\nCrush Syndrome: systemic manifestations resulting from crush \ninjury, i.e. rhabdomyolysis leading to acute kidney injury, \nmultisystem organ injury or death. \n \nCRUSH INJURY & SYNDROME \n(RHABDOMYOLYSIS) \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nIndications for dialysis \n* Refractory acidosis \n* Refractory hyperkalaemia \n*\n \n*\n \n*\n \n \nClinical Examination \n* Tramline bruising \n* Tense, oedematous, painful muscle groups \n* Dark / tea-coloured urine \n* Circulatory shock \nInvestigations \n* Blood gas \u2013 metabolic acidosis (bicarb < 20, \npH < 7.3, \uf044 lactate \n* U-dipstix \u2013 haemoglobin / protein \n* eFAST \n* Bloods: Creatinine kinase, U&E, CMP \n* No indication for repeat CK/trending of levels \n \nCauses \nExtensive soft tissue trauma \n- Community assault \n- Sjambok injury \nSnake bite (rare"
+  }
+}

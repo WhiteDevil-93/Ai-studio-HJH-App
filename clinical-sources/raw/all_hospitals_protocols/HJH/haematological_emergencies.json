@@ -1,0 +1,86 @@
+{
+  "_meta": {
+    "id": "haematological_emergencies",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Haematological Emergencies In The Ed",
+    "source_doc": "HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Haematological Emergencies In The Ed",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "presentation \n \n*Symptoms and signs of local and systemic infection \n*Respiratory signs and symptoms \n*Increasing spleen size \n*Shock and evidence of organ failure \n*Baseline and current Hb \n*CXR if fever, chest pain or hypoxia \n*CT Brain if stroke suspected \n*Consider FBC, reticulocytes, bilirubin, \nhaemolytic screen & crossmatch \n*Blood film- sickle cells & evidence of haemolysis \n \n \nTYPES OF SICKLE CELL CRISIS PRESENTATIONS \n*Fever \n-consider veno-occlusive disease, acute chest syndrome, \nosteomyelitis, local/systemic infection \n*Vaso-occlusive crisis \n-assume this is the cause for any painful presentations \n*Acute chest syndrome \n-life-threatening lung infarction \n-assume if hypoxia + chest pain \n*Acute splenic sequestration \n-typically occurs in infants \n-associated with increased spleen size and LUQ pain \n-fall in Hb>2g/dL, thrombocytopaenia but normal or \nincreased reticulocytes \n*Aplastic crisis \n-fall in Hb and reticulocytes <1% \n-triggered by Parvovirus B19 infection \n*Stroke \n*Priapism \n-stuttering (2-4 hour duration and may be recurrent) \n-severe (> 4 hours and may lead to permanent impotence) \nPRECIPITANTS \n*Infection \n*Dehydration \n*Hypoxia \n*Drugs (e.g. sedatives, local anaesthetics) \n*Changes in temperature \n*Trauma \nAt high risk of infection due to underlying immunosuppression from: \n*Functional asplenia \n*Prophylactic treatment with hydroxyurea \nneutropaenia & cardiomyopathy \nHAEMATOLOGICAL EMERGENCIES \nSICKLE CELL CRISIS"
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "MANAGEMENT",
+        "details": "MANAGEMENT"
+      },
+      {
+        "step_number": "2",
+        "action": "RESUSCITATION",
+        "details": "RESUSCITATION"
+      },
+      {
+        "step_number": "3",
+        "action": "*ABC approach",
+        "details": "*ABC approach"
+      },
+      {
+        "step_number": "4",
+        "action": "*Correct hypoxia",
+        "details": "*Correct hypoxia"
+      },
+      {
+        "step_number": "5",
+        "action": "*Ensure adequate hydration \u2013 fluid bolus 20ml/kg if hypovolaemic",
+        "details": "*Ensure adequate hydration \u2013 fluid bolus 20ml/kg if hypovolaemic"
+      },
+      {
+        "step_number": "6",
+        "action": "*Transfuse PRCs (leuco-depleted) if Hb < 5g/dL or Hb > 20% drop from",
+        "details": "*Transfuse PRCs (leuco-depleted) if Hb < 5g/dL or Hb > 20% drop from"
+      },
+      {
+        "step_number": "7",
+        "action": "baseline",
+        "details": "baseline"
+      },
+      {
+        "step_number": "8",
+        "action": "SPECIFIC TREATMENT",
+        "details": "SPECIFIC TREATMENT"
+      },
+      {
+        "step_number": "9",
+        "action": "*Fever",
+        "details": "*Fever"
+      },
+      {
+        "step_number": "10",
+        "action": "-empiric broad spectrum antibiotics - Augmentin\u00ae 1.2g IVI",
+        "details": "-empiric broad spectrum antibiotics - Augmentin\u00ae 1.2g IVI"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "Drugs (e.g. sedatives, local anaesthetics)",
+        "adult_dose": "Drugs (e.g. sedatives, local anaesthetics)",
+        "notes": "Extracted from HJH ED 2026"
+      },
+      {
+        "item": "At high risk of infection due to underlying immuno",
+        "adult_dose": "At high risk of infection due to underlying immunosuppression from:",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "warnings": [
+      "caution \n-Empiric broad spectrum antibiotics if infection suspected \n-Transfuse PRCs if Sats < 92%, Hb < 5 g/dL, Hb decrease by >20% from \nbaseline \n-Exchange transfusion if baseline high Hb, multi-lobar infiltrate, \npersistent worsening hypoxia, neurological abnormalities, MOD \nHAEMATOLOGICAL EMERGENCIES \nSICKLE CELL CRISIS \nMANAGEMENT \nSPECIFIC TREATMENT cont. \n*Acute splenic sequestration \n-Oxygen, hydration, PRC transfusion (avoid over transfusion due to \nrebound when sequestration resolves)"
+    ],
+    "disposition": "referral \nDISPOSITION \n*Urgent and early Haematology referral"
+  }
+}

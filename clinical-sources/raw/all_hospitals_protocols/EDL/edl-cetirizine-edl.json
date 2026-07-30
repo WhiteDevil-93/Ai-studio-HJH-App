@@ -1,0 +1,43 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    78,
+    94,
+    95,
+    96,
+    99,
+    101,
+    103
+  ],
+  "item": "Cetirizine (EDL)",
+  "categoryHint": "dosing",
+  "protocol_type": "weight_based_dose",
+  "clinical_features": {
+    "symptoms": [
+      "Chronic pruritus",
+      "Atopic eczema",
+      "Urticaria",
+      "Angioedema",
+      "Papular urticaria",
+      "Pityriasis rosea"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Oral tablets / syrup."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Children 2 to 6 years of age: 5 mg once daily. Children > 6 years of age and adults: 10 mg once daily (Angioedema single dose: 10 mg)."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Used for long term control of pruritus and allergic conditions."
+    }
+  ],
+  "warnings": []
+}

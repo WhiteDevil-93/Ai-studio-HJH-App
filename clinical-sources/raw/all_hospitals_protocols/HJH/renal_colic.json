@@ -1,0 +1,83 @@
+{
+  "_meta": {
+    "id": "renal_colic",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Renal Colic / Kidney Stones",
+    "source_doc": "HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Renal Colic / Kidney Stones",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "signs of dehydration \nAnalgesia \n* NSAIDs \n-  Diclofenac Sodium (only if no renal impairment) 75 mg IM stat or \nIV infusion over 30 min or \n- Indocid suppositories \n* Opioid  \n- Fentanyl 1\uf06d/kg IV or \n- Morphine 0.1mg/kg IV \nAnti-emetic \n- Metoclopramide 10 mg IV stat \nObserve in ED for intractable pain/vomiting after above Rx \n \n \n \n \n \n \n \n \n \n \nCriteria for Admission & Urgent Urology Referral \n* Urine infection \n* Urosepsis \n* Acute kidney injury \n* Hydronephrosis \n* Bilateral obstruction \n* Obstruction in pregnancy \n* Anuria \n* Intractable pain / vomiting \n* Obstruction of solitary / transplant kidney \nThe \u201cSTONE\u201d score for Clinical Prediction \nSTONE score \nPoints \nSEX \n- female \n0 \n- male \n2 \nTIME (duration of pain to presentation) \n- > 24 hours \n0 \n- 6 \u2013 24 hours \n1 \n- < 6 hours \n3 \nORIGIN (race) \n- Black \n0 \n- Non-Black \n3 \nNAUSEA and VOMITING \n- Absent \n0 \n- Nausea only \n1 \n- Vomiting \n2 \nERYTHROCYTES (urine dipstix) \n- Absent \n0 \n- Present \n3 \nTOTAL \n0-13 \nScore 0 \u2013 5 \u2794 Low probability \nScore 6 \u2013 9 \u2794 Moderate probability \nScore 10 \u2013 13 \u2794 High probability \nDischarge Criteria \n* No infection \n* No hydronephrosis \n* No renal dysfunction \n* No intractable pain/vomiting \nDischarge Management \n* Encourage oral fluid intake of 2.5l/day \n* Analgesia x 5/7 \n- Paracetamol 1g QID po \n- Diclofenac 25-50mg TDS po \n- Tramadol 50-100mg TDS po \n* Antiemetic \n- Metoclopramide 10 mg TDS/PRN po \n \nUrology OPD follow up"
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Management",
+        "details": "Management"
+      },
+      {
+        "step_number": "2",
+        "action": "Fluids",
+        "details": "Fluids"
+      },
+      {
+        "step_number": "3",
+        "action": "IV rehydration with Balsol/Ringers Lactate if signs of dehydration",
+        "details": "IV rehydration with Balsol/Ringers Lactate if signs of dehydration"
+      },
+      {
+        "step_number": "4",
+        "action": "Analgesia",
+        "details": "Analgesia"
+      },
+      {
+        "step_number": "5",
+        "action": "* NSAIDs",
+        "details": "* NSAIDs"
+      },
+      {
+        "step_number": "6",
+        "action": "-  Diclofenac Sodium (only if no renal impairment) 75 mg IM stat or",
+        "details": "-  Diclofenac Sodium (only if no renal impairment) 75 mg IM stat or"
+      },
+      {
+        "step_number": "7",
+        "action": "IV infusion over 30 min or",
+        "details": "IV infusion over 30 min or"
+      },
+      {
+        "step_number": "8",
+        "action": "- Indocid suppositories",
+        "details": "- Indocid suppositories"
+      },
+      {
+        "step_number": "9",
+        "action": "* Opioid",
+        "details": "* Opioid"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "- Indocid suppositories",
+        "adult_dose": "- Indocid suppositories",
+        "notes": "Extracted from HJH ED 2026"
+      },
+      {
+        "item": "- Fentanyl 1\uf06d/kg IV or",
+        "adult_dose": "- Fentanyl 1\uf06d/kg IV or",
+        "notes": "Extracted from HJH ED 2026"
+      },
+      {
+        "item": "- Morphine 0.1mg/kg IV",
+        "adult_dose": "- Morphine 0.1mg/kg IV",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "disposition": "Admission & Urgent Urology Referral \n* Urine infection \n* Urosepsis \n* Acute kidney injury \n* Hydronephrosis \n* Bilateral obstruction \n* Obstruction in pregnancy \n* Anuria \n* Intractable pain / vomiting \n* Obstruction of solitary / transplant kidney \nThe \u201cSTONE\u201d score for Clinical Prediction \nSTONE score \nPoints \nSEX \n- female \n0 \n- male \n2 \nTIME (duration of pain to presentation) \n- > 24 hours \n0 \n- 6 \u2013 24 hours \n1 \n- < 6 hours \n3 \nORIGIN (race) \n- Black \n0 \n- Non-Black \n3 \nNAUSEA and VOMITING \n- Absent \n0 \n- Nausea only \n1 \n- Vomiting \n2 \nERYTHROCYTES (urine dipstix) \n- Absent \n0 \n- Present \n3 \nTOTAL \n0-13 \nScore 0 \u2013 5 \u2794 Low probability \nScore 6 \u2013 9 \u2794 Moderate probability \nScore 10 \u2013 13 \u2794 High probability \nDischarge Criteria \n* No infection \n* No hydronephrosis \n* No renal dysfunction \n* No intractable pain/vomiting \nDischarge Management \n* Encourage oral fluid intake of 2.5l/day \n* Analgesia x 5/7 \n- Paracetamol 1g QID po \n- Diclofenac 25-50mg TDS po \n- Tramadol 50-100mg TDS po \n* A"
+  }
+}

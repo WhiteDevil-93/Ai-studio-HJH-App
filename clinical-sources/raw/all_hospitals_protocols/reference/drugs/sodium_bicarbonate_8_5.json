@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "sodium_bicarbonate_8_5",
+    "type": "drug",
+    "category": "1_resuscitation_fluids_and_inotropes",
+    "subcategory": "resuscitation_medication",
+    "title": "Sodium Bicarbonate (8.5%)",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "item": "Sodium Bicarbonate (8.5%)",
+    "adult_dose": "50mEq IV (50ml)",
+    "paediatric_dose": "1-2mEq/kg IV (dilute in sterile water)"
+  }
+}

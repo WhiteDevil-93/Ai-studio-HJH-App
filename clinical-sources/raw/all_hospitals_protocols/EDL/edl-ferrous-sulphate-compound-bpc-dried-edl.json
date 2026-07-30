@@ -1,0 +1,32 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    33
+  ],
+  "item": "Ferrous sulphate compound BPC (dried) (EDL)",
+  "categoryHint": "metabolic",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Iron deficiency anaemia in adults"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Tablets, 170 mg (approx. 55 mg elemental iron)."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Oral, 170 mg 12 hourly with meals. Intermittent iron alternative: 340 mg per week (approx. 110 mg elemental iron) with meals."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Do not ingest with tea, antacids or calcium supplements/milk. Take on empty stomach, but take with meals if GI side effects occur."
+    }
+  ],
+  "warnings": []
+}

@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "free_water_deficit",
+    "type": "drug",
+    "category": "7_useful_formulae",
+    "subcategory": "formulae",
+    "title": "Free Water Deficit",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "category": "Electrolytes",
+    "item": "Free Water Deficit",
+    "formula": "Deficit = 0.6 x Wt(kg) x ([Na]/140 - 1)",
+    "standard_dilutions": "Replace slowly over 48-72hrs"
+  }
+}

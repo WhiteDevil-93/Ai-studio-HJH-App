@@ -1,0 +1,26 @@
+{
+  "sourceDoc": "CMJAH",
+  "pdfPages": [
+    133
+  ],
+  "item": "Tricyclic Antidepressant (TCA) Overdose (CMJAH)",
+  "categoryHint": "toxicology",
+  "protocol_type": "ed_protocol",
+  "review_state": "unreviewed",
+  "clinical_features": {
+    "symptoms": [
+      "Anticholinergic toxidrome, sedation, hypotension",
+      "ECG: QRS > 100ms (seizure risk), QRS > 160ms (ventricular arrhythmia risk), terminal R wave in aVR > 3mm"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Alkalinisation Therapy",
+      "details": "Sodium Bicarbonate 1-2 mmol/kg (1-2 ml/kg 8.4% or 2-4 ml/kg 4.2%) IV bolus q5min until QRS narrows and BP improves. Target blood pH 7.50 - 7.55."
+    }
+  ],
+  "warnings": [
+    "AVOID Class 1a antiarrhythmics, Amiodarone, and antiepileptics that block sodium channels."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "_meta": {
+    "id": "corrected_na_hjh_page97",
+    "type": "calculator",
+    "category": "16_score_calculators",
+    "title": "Corrected Sodium \u2014 Hyponatraemia protocol",
+    "review_state": "unreviewed"
+  },
+  "calculator": {
+    "name": "Corrected Sodium \u2014 Hyponatraemia protocol",
+    "category": "metabolic",
+    "calculator_type": "formula",
+    "formula_id": "corrected_na_hjh_page97",
+    "formula": "Na + [2.4 \u00d7 (glucose - 5.4) / 5.4]",
+    "source_pages": [
+      97
+    ],
+    "review_note": "Transcribed from the Hyponatraemia page. Compare with the separate page 92 rule during clinical review.",
+    "inputs": [
+      {
+        "name": "Measured Sodium (Na)",
+        "key": "na",
+        "unit": "mmol/L"
+      },
+      {
+        "name": "Glucose",
+        "key": "glucose",
+        "unit": "mmol/L"
+      }
+    ]
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "_meta": {
+    "id": "wells_pe",
+    "type": "calculator",
+    "category": "16_score_calculators",
+    "title": "Wells Score for PE",
+    "review_state": "unreviewed"
+  },
+  "calculator": {
+    "name": "Wells Score for PE",
+    "category": "respiratory",
+    "components": [
+      {
+        "name": "Clinical signs and symptoms of DVT",
+        "points": 3,
+        "key": "dvt_signs"
+      },
+      {
+        "name": "Alternative diagnosis is less likely than PE",
+        "points": 3,
+        "key": "alt_dx"
+      },
+      {
+        "name": "Heart rate > 100 bpm",
+        "points": 1.5,
+        "key": "tachycardia"
+      },
+      {
+        "name": "Immobilisation >= 3 days or surgery in previous 4 weeks",
+        "points": 1.5,
+        "key": "immobilisation"
+      },
+      {
+        "name": "Previous documented DVT/PE",
+        "points": 1.5,
+        "key": "prior_pe"
+      },
+      {
+        "name": "Haemoptysis",
+        "points": 1,
+        "key": "haemoptysis"
+      },
+      {
+        "name": "Active cancer (treatment within 6 months or palliative)",
+        "points": 1,
+        "key": "cancer"
+      }
+    ],
+    "interpretation": [
+      {
+        "min": 0,
+        "max": 1.5,
+        "label": "Low Risk",
+        "action": "Apply PERC only after confirming the patient is otherwise appropriate for the low-risk pathway."
+      },
+      {
+        "min": 2,
+        "max": 4,
+        "label": "Moderate Risk",
+        "action": "Use the HJH pulmonary embolism algorithm, including age-adjusted D-dimer where applicable."
+      },
+      {
+        "min": 4.5,
+        "max": 15,
+        "label": "High Risk",
+        "action": "Follow the HJH high-risk pathway: assess contraindications, anticoagulation, and CTPA eligibility."
+      }
+    ]
+  }
+}

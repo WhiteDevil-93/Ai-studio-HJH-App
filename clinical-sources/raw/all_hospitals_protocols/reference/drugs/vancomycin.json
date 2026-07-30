@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "vancomycin",
+    "type": "drug",
+    "category": "4_antimicrobials_and_infectious_diseases",
+    "subcategory": "gram_positive",
+    "title": "Vancomycin",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "condition_or_drug": "Vancomycin",
+    "adult_dose": "Loading: 25mg/kg; Maint: 15-20mg/kg IV 8-12hrly",
+    "paediatric_dose": "15mg/kg IV 6hrly",
+    "notes_updates": "Trough: 15-20mg/L (severe infections)"
+  }
+}

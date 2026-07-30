@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "infusions",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Infusions",
+    "source_doc": "CMJAH ED December 2020",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Infusions",
+    "protocol_type": "ed_protocol",
+    "source_text": "41.\nInfusions\n41.1\nAdrenaline Infusion DS\n41.2\nAmiodarone Infusion\n41.3\nDobutamine Infusion\n41.4\nDormicum Infusion\n41.5\nKetamine Infusion\n41.6\nLabetalol Infusion\n41.7\nNitrocine Infusion\n41.8\nPropofol Infusion\n42.\nIsoniazid (INH) Overdose\n43.\nJaundice approach\n44.\nLiver Failure\n45.\nMalaria\n46.\nMental Healthcare Users Protocol\n47.\nNon-Invasive Ventilation\n48.\nOncological Emergencies\n49.\nPain Management in the ED\n50.\nParacetamol Overdose\n51.\nParacetamol Treatment Nomogram\n52.\nPulmonary Embolism\n53.\nPulmonary Embolism Algorithm\n54.\nRenal Colic / Kidney Stones\n55.\nSalicylate Overdose\n56.\nScorpion envenomation guideline\n57.\nSepsis and Septic Shock in the ED\n58.\nSnakebite Pathway\n59.\nStatus Epilepsy Anticonvulsant Therapy Algorithm\n60.\nStatus Epilepticus\n61.\nSubarachnoid Haemorrhage\n62.\nSyncope\n63.\nSyncope - ECG causes\n64.\nTetanus\n65.\nThe Agitated Patient\n66.\nThyroid Emergencies\n67.\nToxic Alcohol Ingestion\n68.\nToxidromes\n69.\nTriage\n69.1\nTriage Policy\n69.2\nTriage Algorithm\n69.3\nTriage Form\n69.4\nTriage Discriminators CMJAH\n69.5\nTriage TEWS Calculator\n70.\nTricyclic Antidepressant (TCA) Overdose\n71.\nUltrasound Guided Femoral Nerve Block\n72.\nUpper Gastrointestinal Bleed (UGIB) Approach\n73.\nVaginal Bleeding in the ED\n74.\nVascular Emergencies\n\n"
+  }
+}

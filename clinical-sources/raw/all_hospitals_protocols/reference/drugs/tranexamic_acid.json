@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "tranexamic_acid",
+    "type": "drug",
+    "category": "10_endocrine_and_other",
+    "subcategory": "other",
+    "title": "Tranexamic Acid",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "drug": "Tranexamic Acid",
+    "adult_dose": "1g IV over 10min (repeat 8hrly); Trauma: 1g/10min then 1g/8hrs",
+    "paediatric_dose": "15mg/kg IV 8hrly",
+    "notes_updates": "Contraindicated: significant haematuria, DIC"
+  }
+}

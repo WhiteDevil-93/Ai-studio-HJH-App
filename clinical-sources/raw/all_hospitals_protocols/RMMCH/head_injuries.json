@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "head_injuries",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Head Injuries",
+    "source_doc": "RMMCH EM V5 Jan 2024",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Head Injuries",
+    "protocol_type": "ed_protocol",
+    "source_text": "Head Injuries\nCANADIAN CTB RULE FOR MINOR TBI\nOTHER INJURIES \u2013 IMAGING TO CONSIDER\nIsolated Head Injury\nIf the patient has sustained an isolated injury to the head (eg hit on head), you can request an isolated CTB \n(if it is indicated)\nPolytrauma Head + Neck\nIf the patient has sustained a polytrauma mechanism, or the GCS is low + you cannot assess C-Spine, please \nALSO request a CT-C-spine along with CTB\nSkull fractures \nRequest a CTB with bony windows (to allow for better imaging of skull bones)\nFacial Fractures \nIf the patient has concomitant facial fractures and is getting a CTB, please request additional CT facial views \n(+/- reconstruction)\nIsolated Nasal bone fracture\nNo need for CT scan: request dedicated nasal bone X-rays\nIsolated mandible fracture\nRequest a dedicated mandible X-ray (panoramic view is best)\n"
+  }
+}

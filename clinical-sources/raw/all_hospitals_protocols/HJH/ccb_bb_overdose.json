@@ -1,0 +1,76 @@
+{
+  "_meta": {
+    "id": "ccb_bb_overdose",
+    "type": "protocol",
+    "category": "12_ed_toxicology",
+    "subcategory": "protocols",
+    "title": "-Blocker & Calcium-Channel Blocker Overdose",
+    "source_doc": "HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "-Blocker & Calcium-Channel Blocker Overdose",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "CLINICAL FEATURES \n* Hypotension, bradycardia, hyperglycaemia (CCB) hypoglycaemia (BB), acidosis, \nCNS depression \n \nECG FEATURES (see Tox ECG appendix) \n* Sinus bradycardia, AV blocks, junctional bradycardia, ventricular bradycardia \n \nNOTE: \n\u2022 \nPropranolol: Also acts as a Na channel blocker \u2013 TCA-like features of OD \n\u2022 \nSotalol: Blocks myocardial K channels \u2013 QT prolongation, Torsades \n \n \n \nSPECIFIC MANAGEMENT \n*Enhanced elimination: Consider activated charcoal 50g via NGT \n*Haemodynamic support: Fluid bolus, high dose inotropes may be required  \n*Airway support: Beta blocker OD may lead to profound CNS depression \n*Specific therapy: \n\u2022 \nHIET \u2013 see protocol \n\u2022 \nCalcium chloride 10 ml 10% over 10 minutes via large bore IV or central line (target Ca \n2mmol) \n\u2022 \nConsider Intralipid & glucagon \u2013 specialist consultation \n\u2022 \nConsider ECMO if no response to HIET \u2013 specialist consultation \nHIGH DOSE INSULIN EUGLYCAEMIC THERAPY \n(HIET) \n* Start with a 50ml 50% dextrose bolus \n* Insulin loading dose: \n\u25a0 \nActrapid 1 IU/kg (ie 60-80 units) IV stat \n* Infusion: \n\u25a0 \n Actrapid 0.5 IU/kg/hr, titrate up every 30 \nminutes to a max dose of 10 IU/kg/hr IV \n*Dextrose infusion: \n\u25a0 \nMaintenance @ 25g/hr \n(50ml 50% dextrose/hr or 100ml 25% dextrose) via central \nline to maintain euglycemia \n*  Monitor HGT every 20 minutes for 1st hour, then every 1 \nhour \n* Monitor Potassium \u2013 replace if < 2.5 mmol \nTHERAPEUTIC ENDPOINTS: \n\u25a0 \nEF > 50%; SBP > 90mmHg \n\u25a0 \nAdequate heart rate (> 60 bpm) \n\u25a0 \nResolution of acidaemia; euglycaemia \n\u25a0 \nUrine output 1-2ml/kg/hr \n\u25a0 \nReverse cardiac conduction Abns - QRS < 120ms \n\u25a0 \nImproved GCS \n\u25a0 \nAble to wean inotropic support \n \n \nDISPOSITION \n* Int med consult (consider renal consult \u2013 dialysis) \n* Will likely require ICU/High care \n* Continue serial ECG and VBG monitoring in ED \nGENERAL APPROACH (see also general toxicology approach) \n\u2022\nTriage to RESUS AREA, even if patient initially appears well \n\u2022\nRapid ABC assessment, 2 IV lines, monitors, HGT, VBG, urine "
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "SPECIFIC MANAGEMENT",
+        "details": "SPECIFIC MANAGEMENT"
+      },
+      {
+        "step_number": "2",
+        "action": "*Enhanced elimination: Consider activated charcoal 50g via NGT",
+        "details": "*Enhanced elimination: Consider activated charcoal 50g via NGT"
+      },
+      {
+        "step_number": "3",
+        "action": "*Haemodynamic support: Fluid bolus, high dose inotropes may be required",
+        "details": "*Haemodynamic support: Fluid bolus, high dose inotropes may be required"
+      },
+      {
+        "step_number": "4",
+        "action": "*Airway support: Beta blocker OD may lead to profound CNS depression",
+        "details": "*Airway support: Beta blocker OD may lead to profound CNS depression"
+      },
+      {
+        "step_number": "5",
+        "action": "*Specific therapy:",
+        "details": "*Specific therapy:"
+      },
+      {
+        "step_number": "6",
+        "action": "HIET \u2013 see protocol",
+        "details": "HIET \u2013 see protocol"
+      },
+      {
+        "step_number": "7",
+        "action": "Calcium chloride 10 ml 10% over 10 minutes via large bore IV or central line (target Ca",
+        "details": "Calcium chloride 10 ml 10% over 10 minutes via large bore IV or central line (target Ca"
+      },
+      {
+        "step_number": "8",
+        "action": "2mmol)",
+        "details": "2mmol)"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "DOSE",
+        "adult_dose": "DOSE",
+        "notes": "Extracted from HJH ED 2026"
+      },
+      {
+        "item": "* Hypotension, bradycardia, hyperglycaemia (CCB) h",
+        "adult_dose": "* Hypotension, bradycardia, hyperglycaemia (CCB) hypoglycaemia (BB), acidosis,",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "warnings": [
+      "NOTE: \n\u2022 \nPropranolol: Also acts as a Na channel blocker \u2013 TCA-like features of OD \n\u2022 \nSotalol: Blocks myocardial K channels \u2013 QT prolongation, Torsades \n \n \n \nSPECIFIC MANAGEMENT \n*Enhanced elimination: Consider activated charcoal 50g via NGT \n*Haemodynamic support: Fluid bolus, high dose inotropes may be required  \n*Airway support: Beta blocker OD may lead to profound CNS depression \n*Specific therapy: \n\u2022 \nHIET \u2013 see protocol \n\u2022 \nCalcium chloride 10 ml 10% over 10 minutes via large bore IV or "
+    ],
+    "disposition": "DISPOSITION \n* Int med consult (consider renal consult \u2013 dialysis) \n* Will likely require ICU/High care \n* Continue serial ECG and VBG monitoring in ED \nGENERAL APPROACH (see also general toxicology approach) \n\u2022\nTriage to RESUS AREA, even if patient initially appears well \n\u2022\nRapid ABC assessment, 2 IV lines, monitors, HGT, VBG, urine BHCG, ECG \n\u2022\nCorrect abnormal electrolytes \n\u2022\nCrystalloid fluid bolus 20mg/kg if hypotensive \n\u2022\nComprehensive history and exam, including: \no\nAmount and time of ingestion, co-ingestants \no\nComorbidities, chronic medications, symptoms prior to arrival \n\u2022\nDocument specific features of toxicity \n\u2022\nFurther investigations: FBC, UE, LFT, Paracetamol/Salicylate level, urine tox screen"
+  }
+}

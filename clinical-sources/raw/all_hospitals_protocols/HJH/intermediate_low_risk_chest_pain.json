@@ -1,0 +1,81 @@
+{
+  "_meta": {
+    "id": "intermediate_low_risk_chest_pain",
+    "type": "protocol",
+    "category": "10_ed_procedure",
+    "subcategory": "protocols",
+    "title": "Management Of Intermediate/Low Risk Chest Pain",
+    "source_doc": "HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Management Of Intermediate/Low Risk Chest Pain",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "symptoms of angina \n- \u2265 2 events in last 24hrs \nElevated cardiac markers \nST deviation \u2265 0.5mm \nPrior coronary artery stenosis \u2265 50% \nScore: 0-1 \nLow Risk (5% #) \nLow Risk (8% #) \nIntermediate Risk (13% #) \nIntermediate Risk (20% #) \nHigh Risk (26% #) \n# risk of death, recurrent or new MI, or need \nfor urgent revascularisation \n1 \n1 \n1 \n1 \n1 \n1 \n1 \nContraindications \n\u03b2 Blockers \nHaemodynamic instability \nHeart failure \nPulmonary oedema \nSBP < 100 mmHg \nBradycardia (HR \u2264 60 bpm) \nAV block 2\u00b0 or 3\u00b0 \nAsthma \nRepeat Trop  & ECG at 3 hours (HS) or 6 \nhrs (STATLAB)  \nRepeat ECG if pain / vital signs change \nThe HEART Score for Chest Pain in the ED \nHistory \n* Highly suspicious \n* 2 points \n* Moderately suspicious \n* 1 point \n* Slightly / non-suspicious \n* 0 points \nECG \n* Significant ST depression \n* 2 points \n* Nonspecific repolarisation \n* 1 point \n* Normal \n* 0 points \nAge \n* \u2265 65 years \n* 2 points \n* > 45 - < 65 years \n* 1 point \n* \u2264 45 years \n* 0 points \nRisk Factors \n* \u2265 3 risk factors \n* 2 points \n* 1 or 2 risk factors \n* 1 point \n* No risk factors \n* 0 points \nTroponin \n* \u2265 3 x normal limit \n* 2 points \n* > 1 - < 3 x normal limit \n* 1 point \n* \u2264 normal limit \n* 0 points \nRisk Factors: Diabetes Mellitus, current or recent (<1 month) smoker, \nHypertension, Hypercholestrolaemia, Family History, Obesity \nScore 0 - 3 (low risk) \n2.5% MACE over next 6 weeks \nScore 4 - 6 (intermediate risk) \n20.3% MACE over next 6 weeks \nScore 7 - 10 (high risk) \n72.7% MACE over next 6 weeks \nMACE = Major Adverse Cardiac Event \nRefer to Int med/Cardiology \nDelta Trop or ECG changes? \nYES \nSTAT > 23ng/L \n \nAcute ACS - Delta trop: \n>20 % OR >10ng/L change (rise & fall, at \nleast 1 above upper limit or normal) \n \nSTATLAB Trop I (not high sensitivity): \n23ng/L is UPPER LIMIT OF NORMAL \nCauses of positive troponin: \nACS, CCF, PE, Aortic aneurysm, renal \nfailure, hypoxia, hypoperfusion, trauma, \nsepsis, stroke and more"
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "MANAGEMENT OF INTERMEDIATE/LOW RISK CHEST PAIN",
+        "details": "MANAGEMENT OF INTERMEDIATE/LOW RISK CHEST PAIN"
+      },
+      {
+        "step_number": "2",
+        "action": "(if the chest pain is considered to be ACS related)",
+        "details": "(if the chest pain is considered to be ACS related)"
+      },
+      {
+        "step_number": "3",
+        "action": "Calculate &",
+        "details": "Calculate &"
+      },
+      {
+        "step_number": "4",
+        "action": "document TIMI /",
+        "details": "document TIMI /"
+      },
+      {
+        "step_number": "5",
+        "action": "HEART score",
+        "details": "HEART score"
+      },
+      {
+        "step_number": "6",
+        "action": "Low risk = STATLAB TROP I",
+        "details": "Low risk = STATLAB TROP I"
+      },
+      {
+        "step_number": "7",
+        "action": "Single  STAT trop I",
+        "details": "Single  STAT trop I"
+      },
+      {
+        "step_number": "8",
+        "action": "of <23ng/L > 6 hours",
+        "details": "of <23ng/L > 6 hours"
+      },
+      {
+        "step_number": "9",
+        "action": "after pain onset, OR",
+        "details": "after pain onset, OR"
+      },
+      {
+        "step_number": "10",
+        "action": "no rising and falling",
+        "details": "no rising and falling"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "Clopidogrel (Plavix\u00ae) 300mg stat po",
+        "adult_dose": "Clopidogrel (Plavix\u00ae) 300mg stat po",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "warnings": [
+      "contraindications - see box) \nAtenolol (Tenormin\u00ae) 50mg stat po \nIntermediate/ Low Risk UA \nNormal ECG or non-diagnostic \nchanges in ST segment or t-waves \n* ST deviation < 0.5mm \n* T-wave inversion \u2264 2mm \nNO \nMANAGEMENT OF INTERMEDIATE/LOW RISK CHEST PAIN \n(if the chest pain is considered to be ACS related) \n \n \n \n \n \n \nCalculate & \ndocument TIMI / \nHEART score \n \n \n \nLow risk = STATLAB TROP I \n \n \n \nSingle  STAT trop I \nof <23ng/L > 6 hours \nafter pain onset, OR \nno rising and falling \nlevel \n"
+    ],
+    "disposition": "DISPOSITION \n\u2022\nInternal med/Cardiology consult \n\u2022\nWill likely require High care bed \n\u2022\nContinue serial ECG and VBG monitoring in ED"
+  }
+}

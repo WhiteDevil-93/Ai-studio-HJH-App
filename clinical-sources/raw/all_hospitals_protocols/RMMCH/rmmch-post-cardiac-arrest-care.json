@@ -1,0 +1,36 @@
+{
+  "sourceDoc": "RMMCH",
+  "pdfPages": [
+    21,
+    22
+  ],
+  "item": "Post Cardiac Arrest Care - ROSC (RMMCH)",
+  "categoryHint": "resuscitation",
+  "protocol_type": "ed_protocol",
+  "clinical_features": {
+    "symptoms": [
+      "Return of Spontaneous Circulation (ROSC) following cardiac arrest."
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Airway & Breathing Support",
+      "details": "A - Airway: Open and maintain, intubate if required, use capnography. B - Breathing: Ventilate every 6 seconds (10 bpm), target SpO2 92-98%, target normocarbia (PaCO2 35-45 mmHg), protective lung ventilation (Tidal Vol 6 ml/kg IBW, PEEP >= 5 cmH2O, target pH > 7.20)."
+    },
+    {
+      "step_number": "2",
+      "action": "Circulatory Control",
+      "details": "C - Circulation: Target SBP > 90 mmHg (MAP > 65 mmHg). Monitor urine output and lactate. Inotrope: Start Adrenaline at 0.05 ug/kg/min and titrate to effect."
+    },
+    {
+      "step_number": "3",
+      "action": "Evaluation & Targeted Temperature Management",
+      "details": "D - Differential: Search for H's and T's. E - Evaluation: 12 lead ECG (incl right-sided), coronary angiography if cardiac origin. F - Freezing (TTM): Target normothermia aggressively (Avoid temp > 36.5\u00b0C for >24 hours). G - Glucose: Maintain blood glucose at 8-10 mmol/l. H - Head/Neuro: Treat seizures, delay prognostication for at least 72 hours post normothermia."
+    }
+  ],
+  "warnings": [
+    "Avoid temperature > 36.5\u00b0C for > 24 hours.",
+    "Delay neuro-prognostication for at least 72 hours post normothermia."
+  ]
+}

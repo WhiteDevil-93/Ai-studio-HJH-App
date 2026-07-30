@@ -5,6 +5,7 @@ import {
   Award, AlertTriangle, Users, MapPin, Layers, Baby, Brain, FlaskConical,
   Star, Clock, BookOpen, Globe2
 } from 'lucide-react';
+import {hospitalProtocolCount} from '../clinical/hospitalProtocols';
 
 interface HomePageProps {
   onSelectFacility: (facilityId: string) => void;
@@ -27,7 +28,7 @@ export const FACILITIES = [
     description: 'ED protocol algorithms straight from the HJH document: ACS, stroke, sepsis, trauma, toxicology, and ED procedures.',
     color: 'from-blue-600 to-indigo-700',
     badge: 'Main Facility',
-    protocolCount: 24,
+    protocolCount: hospitalProtocolCount('hjh'),
     icon: Building2,
     available: true
   },
@@ -35,10 +36,10 @@ export const FACILITIES = [
     id: 'rmmch',
     name: 'Rahima Moosa Mother & Child (RMMCH)',
     subtitle: 'EM Clinical Protocols, V5 (January 2024)',
-    description: 'Paediatric-focused emergency protocols transcribed from the RMMCH EM Clinical Protocols source. The source PDF\'s fingerprint hasn\'t been independently confirmed yet (see clinical-sources/source-manifest.json).',
+    description: 'Paediatric and maternal emergency protocols from the complete supplied RMMCH schema, including resuscitation, airway, medical, and trauma pathways.',
     color: 'from-pink-600 to-rose-700',
     badge: 'Paediatric Referral',
-    protocolCount: 18,
+    protocolCount: hospitalProtocolCount('rmmch'),
     icon: Heart,
     available: true
   },
@@ -46,10 +47,10 @@ export const FACILITIES = [
     id: 'cmjah',
     name: 'Charlotte Maxeke Academic Hospital (CMJAH)',
     subtitle: 'ED Protocols, Version 2 (December 2020)',
-    description: '36 of the 74 protocols in the CMJAH ED Protocols source have been digitized so far, including Sepsis, Status Epilepticus, Anaphylaxis, Scorpion & Snakebite envenomation, and DKA/HHS.',
+    description: 'The complete supplied CMJAH protocol schema, including resuscitation, toxicology, medical emergencies, procedures, triage, and critical-care guidance.',
     color: 'from-purple-600 to-indigo-800',
     badge: 'Tertiary Referral',
-    protocolCount: 36,
+    protocolCount: hospitalProtocolCount('cmjah'),
     icon: Award,
     available: true
   },
@@ -57,10 +58,10 @@ export const FACILITIES = [
     id: 'chbah',
     name: 'Chris Hani Baragwanath Hospital (CHBAH)',
     subtitle: 'ICU Dosing Card (2024 updates)',
-    description: 'Adult ICU dosing, infusions, and antimicrobial reference, combining 68 entries formally cited to the CHBAH ICU Dosing Card with the existing Bara ICU dosing content.',
+    description: 'The supplied CHBAH ICU schema: adult and paediatric dosing, infusions, antimicrobial regimens, electrolyte replacement, and critical-care reference.',
     color: 'from-amber-600 to-orange-700',
     badge: 'Regional Referral',
-    protocolCount: 166,
+    protocolCount: hospitalProtocolCount('chbah'),
     icon: Flame,
     available: true
   }
@@ -267,7 +268,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <div className="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
                   {facility.available ? (
                     <>
-                      <span className="font-semibold text-slate-700 dark:text-slate-300">{facility.protocolCount}+ Protocols & Guidelines</span>
+                      <span className="font-semibold text-slate-700 dark:text-slate-300">{facility.protocolCount} Protocols & Guidelines</span>
                       <span className="text-indigo-500 font-medium group-hover:underline">Explore Protocols →</span>
                     </>
                   ) : (

@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "efast",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "e-FAST",
+    "source_doc": "RMMCH EM V5 Jan 2024",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "e-FAST",
+    "protocol_type": "ed_protocol",
+    "source_text": "e-FAST\nRMMCH EM Clinical Protocols V5 03/01/2024\n\nFASTHUGS IN BED please\nF\nFluids + Feeding\nA\nAnalgesia\nS\nSedation Skin + eye care\nT\nThrombo-prophylaxis LMWH / flowtrons\nH\nHead up position 30-450 (if ventilated)\nU\nUlcer prophylaxis especially if not fed\nG\nGlucose control HGTs regularly\nS\nSpontaneous Breathing Trial wean ventilation\nI\nIndwelling catheters Remove ASAP\nN\nNaso/orogastric tube\nB\nBowel care \nE\nEnvironment Temperature, delirium\nD\nDe-escalation of therapy\nplease\nPsychological support : Patient, Family, staff\nRef: Vincent JL. Give your patient a fast hug (at least) once a day. Crit CareMed 2005 33(6): 1225-1230\nNickson C LITFL 2020  https://litfl.com/fast-hugs-in-bed-please/\nRMMCH EM Clinical Protocols V5 03/01/2024\n"
+  }
+}

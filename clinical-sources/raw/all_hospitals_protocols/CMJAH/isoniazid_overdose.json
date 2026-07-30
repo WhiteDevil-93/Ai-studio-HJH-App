@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "isoniazid_overdose",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "ISONIAZID (INH) OVERDOSE",
+    "source_doc": "CMJAH ED December 2020",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "ISONIAZID (INH) OVERDOSE",
+    "protocol_type": "ed_protocol",
+    "source_text": "ISONIAZID (INH) OVERDOSE \n \n \n \n \n \n \n \n \n \n \nGENERAL APPROACH \nConsider INH toxicity in all refractory seizures, especially if on TB Rx/prophylaxis \n \n\u2022\nClinical features: Depletes Vit B6, causing decreased GABA \u2013 seizures, lactic acidosis  \n\u2022\nECG Features: No specific features, sinus tachycardia \n\u2022\nBloodgas: HAGMA, severe lactic acidosis \n \n\u2022\nTriage to RESUS AREA, even if patient initially appears well  \n\u2022\nTerminate seizures with Benzodiazepines (high doses may be required).  \nSee Status Epilepticus protocol, but avoid anti-epileptic agents.  \n\u2022\nRapid ABC assessment, 2 IV lines, monitors, HGT, VBG, urine \u00dfHCG, ECG \n\u2022\nEarly airway management \u2013 will require intubation prior to Pyridoxine administration \n\u2022\nCorrect abnormal electrolytes, consider other causes of seizures \n\u2022\nCrystalloid fluid bolus 20mg/kg if hypotensive \n\u2022\nComprehensive history and exam, including: \n\u00a7\nAmount and time of ingestion, co-ingestants \n\u00a7\nComorbidities, chronic medications, symptoms prior to arrival \n\u2022\nDocument specific features of toxicity \n\u2022\nFurther investigations: FBC, U&E, LFT, Paracetamol/Salicylate level, urine tox screen, \nimaging as clinically indicated \nSPECIFIC MANAGEMENT \n \n*Enhanced elimination  \n  Consider activated charcoal 50g via NGT once airway is secured, IF INGESTION < 1 HOUR  AGO   \n  Dialysis too slow, not indicated. \n*Haemodynamic support \n  Fluid bolus/inotropes prn. Consider co-ingestants if persistent hypotension \n*Airway support \n  Profound CNS depression and prolonged seizures usually require intubation \n*Specific antidote therapy: Pyridoxine (see box) \nDISPOSITION \n \n\u2022\nGIT referral \n\u2022\nWill likely require ICU/High care \n\u2022\nContinue serial ECG and VBG monitoring in ED \nPYRIDOXINE THERAPY \n \n\u2022\nKNOWN AMOUNT INGESTED  \n\u00a7\n1g Pyridoxine for each gram of INH ingested, \nmax 5g total or 70mg/kg in children. \n\u2022\nUNKNOWN AMOUNT INGESTED \n\u00a7\nGive 5g total \n\u00a7\nRepeat after 10 - 20 minutes if no response \n\u2022\nPyridoxine is available in 25mg tablets \n\u2022\nCrush tablets and administer via NGT once airway is \nprotected \n\u2022\nCall pharmacy early to request enough stock, as it is \nunlikely to be available in ED \n\u2022\nTherapeutic endpoint: seizure termination, \nresolution of lactic acidosis \n \n5g = 200 tablets \nDr du Plessis / Dr R Gihwala CMJAH Emergency Department June 2020 \nContents\n"
+  }
+}

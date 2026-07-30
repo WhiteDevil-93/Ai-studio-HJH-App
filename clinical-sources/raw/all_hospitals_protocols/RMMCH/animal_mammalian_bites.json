@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "animal_mammalian_bites",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Animal / Mammalian Bites",
+    "source_doc": "RMMCH EM V5 Jan 2024",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Animal / Mammalian Bites",
+    "protocol_type": "ed_protocol",
+    "source_text": "Animal / Mammalian Bites\nGeneral wound care\nWash thoroughly with large volume water + soap\nSpecific bite management\nExtensive high pressure irrigation\nAssess wound + rabies risk \u2013 refer to Rabies PEP protocol\nVaccination status: ATT booster if required\nHigh risk wounds\nControversies of suturing\nSuturing for haemostasis is required\nLocal anaesthetic given from inside wound\nSuturing for cosmesis (eg. face) is acceptable \u2013 may require referral to Plastics\nIf wound < 8 hours + thoroughly cleaned, may be sutured \u2013 ideally loose sutures,\njust opposing edges that will allow for swelling\nIf wound > 8 hours: avoid suturing + L/A\n \nDebridement\nOf devitalized tissue (especially jagged wounds) \nAntibiotic prophylaxis\nRisk of infection related to risk factors, site  + type of bites > cat > dogs\nAntibiotic prophylaxis will depend on risk\nPolymicrobial infections\nDischarge advice\nHealth education about appropriate wound care \nSigns of infection, cellulitis, sepsis + danger signs\nStrict instructions to return if any concerns\nWound factors\nPatient factors\nExtensive contamination\nImmunocompromised\nCrush with devitalized tissue\nMalnourished\nPuncture\nDiabetes melliitis\nBites to hands, wrist, feet + face, genitalia\nHaem-oncology \nWounds that penetrate bone, joints, tendons + \nneurovascular structures\nPost-splenectomy\nDelayed presentation > 8 hrs\nAutoimmune disease\nRMMCH EM Clinical Protocols V5 03/01/2024\n"
+  }
+}

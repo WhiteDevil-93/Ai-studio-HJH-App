@@ -1,0 +1,32 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    38
+  ],
+  "item": "10% Glucose (EDL)",
+  "categoryHint": "resuscitation",
+  "protocol_type": "weight_based_dose",
+  "clinical_features": {
+    "symptoms": [
+      "Hypoglycaemia in severe acute malnutrition"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "10% Glucose solution."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Nasogastric tube: 10 mL/kg. Intravenous line: 2 mL/kg."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Indicated if blood sugar < 3 mmol/L in malnutrition."
+    }
+  ],
+  "warnings": []
+}

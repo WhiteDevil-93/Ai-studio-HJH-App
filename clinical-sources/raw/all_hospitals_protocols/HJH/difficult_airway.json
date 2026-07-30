@@ -1,0 +1,25 @@
+{
+  "_meta": {
+    "id": "difficult_airway",
+    "type": "protocol",
+    "category": "06_ed_airway",
+    "subcategory": "protocols",
+    "title": "Difficult Airway Approach",
+    "source_doc": "HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Difficult Airway Approach",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "presentations. \n\u2022\nThe goal of evaluation is always to rule out a central cause, \nwhich can have more serious consequences and specific \nmanagement strategies. \n\u2022\nAcute vestibular syndrome (AVS) is defined as the sudden onset of \nacute, \u2018continuous\u2019 vertigo (lasting longer than 24 hours), \nassociated with nausea, vomiting, ataxia, nystagmus, and head \nmotion intolerance.  \n\u2022\nVestibular neuritis (peripheral cause) and posterior circulation \nstroke (central cause) are the main causes for this syndrome. \n\u2022\nIf the patient presents with acute vestibular syndrome, APPLY THE \nHINTS bedside examination. \nHINTS EXAM \nHEAD IMPULSE TEST \u2013 rapid, passive rotation of \nhead while patient fixates on nose of examiner. \n\u2022\nCentral \u2013 no findings (no saccade) \nA normal (negative) exam is worrying \n\u2022\nPeripheral \u2013 catchup saccade present \nNYSTAGMUS \n\u2022\nCentral = bilateral, direction changing horizontal \nnystagmus or vertical nystagmus \n\u2022\nPeripheral = unilateral, horizontal nystagmus \nTEST OF SKEW = cover/uncover test of each eye \nwhile patient fixates on nose \n\u2022\nCentral \u2013 refixation present after uncover  \n\u2022\nPeripheral = no refixation \nCENTRAL CAUSES \nVertebrobasilar artery insufficiency  \nCerebellar haemorrhage or infarction  \nTumour \nMigrainous vertigo  \nMultiple sclerosis  \nPost-traumatic injury  \nInfection \nTemporal lobe epilepsy  \nSubclavian steal syndrome \n \nPERIPHERAL CAUSES \nBenign paroxysmal positional vertigo (BPPV) \nVestibular neuritis  \nLabyrinthitis \nForeign body in ear canal  \nAcute otitis media \nTrauma (labyrinth concussion)  \nMotion sickness \nAcoustic neuroma  \nMeniere\u2019s disease \n \nINVESTIGATIONS \n*HGT \n*ECG \n*Urine \u00df-HCG \n*Blood gas for electrolytes and Hb \n*Consider LP \n \nCONSIDER CTB \n*Neurological deficit \n*Cerebellar signs \n*Elderly \n*Post trauma"
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "APPROACH",
+        "details": "APPROACH"
+      }
+    ]
+  }
+}

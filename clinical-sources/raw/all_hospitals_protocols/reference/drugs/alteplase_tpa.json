@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "alteplase_tpa",
+    "type": "drug",
+    "category": "8_cardiovascular",
+    "subcategory": "thrombolytics",
+    "title": "Alteplase (tPA)",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "drug": "Alteplase (tPA)",
+    "adult_dose": "PE: 100mg IV over 2hrs. STEMI: 15mg bolus, 50mg/30min, 35mg/60min",
+    "paediatric_dose": "0.1-0.5mg/kg/hr IV",
+    "notes_updates": "Monitor for bleeding"
+  }
+}

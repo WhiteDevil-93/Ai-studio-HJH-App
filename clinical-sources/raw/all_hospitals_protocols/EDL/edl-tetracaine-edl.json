@@ -1,0 +1,35 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    7
+  ],
+  "item": "Tetracaine (EDL)",
+  "categoryHint": "dosing",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Extensive oral herpes",
+      "Minor aphthous ulcers"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Topical, 0.5%."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Applied every 6 hours. Apply a thin layer on the affected areas only (may be used inside mouth)."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "For children > 6 years of age and adults."
+    }
+  ],
+  "warnings": [
+    "Safety in children < 6 years of age has not been established."
+  ]
+}

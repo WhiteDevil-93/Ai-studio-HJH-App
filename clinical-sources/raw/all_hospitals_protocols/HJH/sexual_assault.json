@@ -1,0 +1,85 @@
+{
+  "_meta": {
+    "id": "sexual_assault",
+    "type": "protocol",
+    "category": "08_ed_obstetrics_gynaecology",
+    "subcategory": "protocols",
+    "title": "Sexual Assault Protocol (Adults)",
+    "source_doc": "HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Sexual Assault Protocol (Adults)",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "ALGORITHM",
+        "details": "ALGORITHM"
+      },
+      {
+        "step_number": "2",
+        "action": "\u2022 Lorazepam (Ativan\uf0d2)",
+        "details": "\u2022 Lorazepam (Ativan\uf0d2)"
+      },
+      {
+        "step_number": "3",
+        "action": "0.1 mg/kg IV",
+        "details": "0.1 mg/kg IV"
+      },
+      {
+        "step_number": "4",
+        "action": "(max rate 2mg/min)",
+        "details": "(max rate 2mg/min)"
+      },
+      {
+        "step_number": "5",
+        "action": "\u2022 Diazepam (Valium\uf0d2)",
+        "details": "\u2022 Diazepam (Valium\uf0d2)"
+      },
+      {
+        "step_number": "6",
+        "action": "0.2 \u2013 0.3 mg/kg IV",
+        "details": "0.2 \u2013 0.3 mg/kg IV"
+      },
+      {
+        "step_number": "7",
+        "action": "(max rate 5mg/min)",
+        "details": "(max rate 5mg/min)"
+      },
+      {
+        "step_number": "8",
+        "action": "\u2022 Clonazepam (Rivotril\uf0d2)",
+        "details": "\u2022 Clonazepam (Rivotril\uf0d2)"
+      },
+      {
+        "step_number": "9",
+        "action": "0.02 mg/kg IV",
+        "details": "0.02 mg/kg IV"
+      },
+      {
+        "step_number": "10",
+        "action": "\u2022 Midazolam (Dormicum\uf0d2)",
+        "details": "\u2022 Midazolam (Dormicum\uf0d2)"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "dose of the chosen benzodiazepine",
+        "adult_dose": "dose of the chosen benzodiazepine",
+        "notes": "Extracted from HJH ED 2026"
+      },
+      {
+        "item": "20 mg/kg IV",
+        "adult_dose": "20 mg/kg IV",
+        "notes": "Extracted from HJH ED 2026"
+      },
+      {
+        "item": "(max rate 50 mg/min)",
+        "adult_dose": "(max rate 50 mg/min)",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "disposition": "referrals on a case-by-case basis. \nSurvivor to be given a letter to Thembalethu clinic to collect rest of PEP. \n\u2022 \n\u2022 \n\u2022 \nSAECK kits that are not collected by the police within six (6) months of examination \nmay be discarded, as per the recommended protocols \n \nChain of Evidence \nSAECK to be handed over to the investigating officer. \nBoth the J88 and Evidence Collection Forms are to be signed by the Investigating Officer and the doctor \nwho completed the forensic examination. \n \nPost-Exposure Prophylaxis (PEP) \nMonday-Friday 08h00 to 16h00: \nPatient to collect from pharmacy \nAfter hours, Weekends and Public holidays: \nKept in the sexual assault room \n \n \n \nContinuing Care"
+  }
+}

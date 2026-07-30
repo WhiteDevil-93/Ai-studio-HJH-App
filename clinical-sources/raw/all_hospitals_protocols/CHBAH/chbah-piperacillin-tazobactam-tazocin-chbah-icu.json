@@ -1,0 +1,22 @@
+{
+  "sourceDoc": "CHBAH_ICU",
+  "pdfPages": [
+    1
+  ],
+  "item": "Piperacillin/Tazobactam (Tazocin) (CHBAH ICU)",
+  "categoryHint": "antimicrobials",
+  "protocol_type": "icu_dosing",
+  "clinical_features": {
+    "symptoms": []
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Dose",
+      "details": "RA. Adult 4.5 g IVI 6 hrly; Paediatric 50\u201375 mg/kg IVI 6 hrly"
+    }
+  ],
+  "warnings": [
+    "Renal Adjusted Dose (RA)"
+  ]
+}

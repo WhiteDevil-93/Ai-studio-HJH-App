@@ -1,0 +1,37 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    94,
+    96
+  ],
+  "item": "Hydrocortisone (EDL)",
+  "categoryHint": "dermatology",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Atopic eczema",
+      "Acute moist or weeping eczema",
+      "Seborrhoeic dermatitis",
+      "Fixed drug eruptions",
+      "Papular urticaria"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Topical cream/ointment, 1%."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Atopic eczema (Step 2): apply twice daily for 7 days (sparingly to face, not around eyes). Acute moist eczema: apply 12 hourly until improved. Seborrhoeic dermatitis: apply twice daily until improved, then once or twice weekly maintenance. Fixed drug eruptions / Papular urticaria: apply daily for 5 days."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Low potency topical corticosteroid."
+    }
+  ],
+  "warnings": []
+}

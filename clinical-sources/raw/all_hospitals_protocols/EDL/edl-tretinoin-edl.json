@@ -1,0 +1,34 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    79
+  ],
+  "item": "Tretinoin (EDL)",
+  "categoryHint": "dermatology",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Non-inflammatory acne"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Topical retinoid preparation."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Apply at night to affected areas for at least 6 weeks. Introduce gradually as night-time application (e.g. start twice a week and titrate up). Apply about a pea-sized amount to entire face."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Review patient after 6 weeks. Minimise exposure to sunlight; discontinue if sunburn occurs. Acne may worsen during first few weeks. Avoid eyes and area around mouth and nose."
+    }
+  ],
+  "warnings": [
+    "Do not use if pregnant or planning pregnancy."
+  ]
+}

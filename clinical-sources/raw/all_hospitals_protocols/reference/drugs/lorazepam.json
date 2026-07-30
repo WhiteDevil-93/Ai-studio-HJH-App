@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "lorazepam",
+    "type": "drug",
+    "category": "3_sedation_analgesia_and_neurology",
+    "subcategory": "seizures",
+    "title": "Lorazepam",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "drug": "Lorazepam",
+    "adult_dose": "4 mg IV (repeat once)",
+    "paediatric_dose": "0.05 - 0.2 mg/kg IV",
+    "notes_updates": "First-line for Status Epilepticus."
+  }
+}

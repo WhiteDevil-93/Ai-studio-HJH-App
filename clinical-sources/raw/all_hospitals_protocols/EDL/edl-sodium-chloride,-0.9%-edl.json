@@ -1,0 +1,35 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    16
+  ],
+  "item": "Sodium chloride, 0.9% (EDL)",
+  "categoryHint": "resuscitation",
+  "protocol_type": "continuous_infusion",
+  "clinical_features": {
+    "symptoms": [
+      "Appendicitis",
+      "Cholera",
+      "Severe dehydration",
+      "Dysentery"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Intravenous fluid, 0.9%."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Used for hydration in appendicitis, severe dehydration boluses (20 mL/kg rapidly, or 10 mL/kg over 10 minutes in SAM), and severe dehydration/shock in malnutrition (10 mL/kg/hour)."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Monitor for volume overload, especially in malnutrition."
+    }
+  ],
+  "warnings": []
+}

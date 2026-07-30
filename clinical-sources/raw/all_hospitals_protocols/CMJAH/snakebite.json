@@ -1,0 +1,39 @@
+{
+  "sourceDoc": "CMJAH",
+  "pdfPages": [
+    115,
+    116
+  ],
+  "item": "Snakebite Pathway (CMJAH)",
+  "categoryHint": "toxicology",
+  "protocol_type": "ed_protocol",
+  "review_state": "unreviewed",
+  "clinical_features": {
+    "symptoms": [
+      "PPS (Painful Progressive Swelling / Cytotoxic - Puff adder, Spitting cobra): Severe pain, swelling >15cm/h.",
+      "PW (Progressive Weakening / Neurotoxic - Black mamba, Cobras): Metallic taste, sweating, salivation, ptosis, dyspnoea, paralysis.",
+      "B (Bleeding / Haemotoxic - Boomslang, Vine snake): Uncontrolled bleeding, abnormal 20min clotting test."
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Supportive Care",
+      "details": "IV line in non-bitten limb. Analgesia: Paracetamol, Codeine, Morphine. Elevate limb (PPS). Protect airway (PW)."
+    },
+    {
+      "step_number": "2",
+      "action": "Antivenom Dosing (Polyvalent / Monovalent)",
+      "details": "Dilute antivenom 50/50 in isotonic fluid over 15-30 min OR IV push 1 amp/min:\n- Puff Adder: 50-100ml Polyvalent\n- Mozambique Spitting Cobra: 100ml+ Polyvalent\n- Gaboon Adder: 200ml Polyvalent\n- Black Mamba / Snouted Cobra: 80-200ml Polyvalent\n- Boomslang / Vine Snake: 20ml Monovalent antivenom IV."
+    },
+    {
+      "step_number": "3",
+      "action": "Neurotoxic Cobra Adjuncts",
+      "details": "Atropine + Neostigmine trial for cobras. If no improvement in 30 mins: give additional 4 vials antivenom."
+    }
+  ],
+  "warnings": [
+    "Do NOT give Aspirin or NSAIDs (increases bleeding risk).",
+    "Do NOT give heparin or anti-fibrinolytics."
+  ]
+}

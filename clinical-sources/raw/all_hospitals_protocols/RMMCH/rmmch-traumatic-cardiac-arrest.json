@@ -1,0 +1,35 @@
+{
+  "sourceDoc": "RMMCH",
+  "pdfPages": [
+    20
+  ],
+  "item": "Trauma Cardiac Arrest Algorithm (RMMCH)",
+  "categoryHint": "trauma",
+  "protocol_type": "ed_protocol",
+  "clinical_features": {
+    "symptoms": [
+      "Trauma patient: Unresponsive, not breathing or only gasping, no pulse.",
+      "If ultrasound available and no cardiac wall motion: consider not starting resuscitation."
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Initial Safety & Access",
+      "details": "Ensure scene safe, don PPE. Manual C-spine alignment throughout. Call for assistance and activate trauma team."
+    },
+    {
+      "step_number": "2",
+      "action": "Simultaneous H-O-T-T Priorities",
+      "details": "H - Haemorrhage Control: Apply tourniquets / direct pressure, bind pelvis, straighten/stabilise long bone fractures, IV/IO access above pelvis and provide 20ml/kg warmed crystalloids (or whole blood/massive transfusion protocol/PRCs & FFP). O - Oxygenation and Ventilation: Place advanced airway (ETT/SGA), ventilate with 100% O2 at min 15L/min flowrate. T - Tension Pneumothorax: Consider empiric bilateral chest decompression (5th IC space anterior axillary line; finger thoracostomy preferred). T - Tamponade: Diagnose with Ultrasound, consider thoracotomy or pericardial window."
+    },
+    {
+      "step_number": "3",
+      "action": "ROSC / Termination",
+      "details": "If ROSC: Follow post cardiac arrest algorithm, consider urgent surgical intervention and administration of TxA. If no ROSC: Consider termination of efforts."
+    }
+  ],
+  "warnings": [
+    "Prioritise H-O-T-T interventions simultaneously using a multi-member team."
+  ]
+}

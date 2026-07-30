@@ -1,0 +1,38 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    2,
+    3
+  ],
+  "item": "Paracetamol (EDL)",
+  "categoryHint": "dosing",
+  "protocol_type": "weight_based_dose",
+  "clinical_features": {
+    "symptoms": [
+      "Pain related to dental conditions"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Oral administration."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Children: Paracetamol, oral, 10-15 mg/kg/dose 6 hourly when required. Adults: Paracetamol, oral, 500 mg to 1 g, 4 to 6 hourly as required (to a maximum of 4 g in 24 hours). Maximum dose: 15 mg/kg/dose."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Refer to dosing table Chapter 23 for children."
+    },
+    {
+      "step_number": "4",
+      "action": "Maximum dose",
+      "details": "Maximum dose: 15 mg/kg/dose."
+    }
+  ],
+  "warnings": []
+}

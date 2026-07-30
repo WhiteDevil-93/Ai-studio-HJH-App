@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "rsi_checklist",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Rapid Sequence Intubation",
+    "source_doc": "RMMCH EM V5 Jan 2024",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Rapid Sequence Intubation",
+    "protocol_type": "ed_protocol",
+    "source_text": "Ref: Lachenicht K EMOVA\n1.\nPreparation\n2.\nPositioning\n3.\nPre-oxygenation\n4.\nPre-treatment / Pre-medication\n5.\nParalysis with induction\n6.\nPlacement with proof\n7.\nPost-intubation management\n\u2022 \nsecure ETT\n\u2022 \nrepeat BP + check all vitals\n\u2022 \n+/- OGT/NGT\n\u2022 \npost-intubation CXR\n\u2022 \nABG\n\u2022 \nPost-intubation analgesia +/- sedation\n\u2022 \nconnect to ventilator\nPRE-TREATMENT / PRE-MEDICATION\nFluid bolus\n10-20mL/kg in volume depleted patient\n5-10mL/kg in cardiac patients\nFentanyl\n50ug/1mL\n3-5ug/kg\nLignocaine\nINDUCTION AGENTS\nKetamine\n10/50/100mg/mL\n1-2mg/kg\n0.5mg-1mg/kg\nEtomidate\n2mg/mL\n0.2-0.3mg/kg\n0.1-0.15mg/kg\nPropofol\n10mg/mL\n1-2.5mg/kg\nUse a different \nagent\nNMB NEUROMUSCULAR BLOCKING AGENTS \nSuccinylcholine \n(scoline)\n50mg/mL\n1.5-2mg/kg\n1.5-2mg/kg\nRocuronium \n(Esmeron)\n10mg/mL\n1.2mg/kg\n1.6mg/kg\nRESCUE MEDICATIONS\nAdrenaline\n1mg/mL\nAdults 1:10 000 (100ug/mL) 50-100ug boluses (as needed)\nPaeds 1: 100 000 (10ug/mL) 5-20ug boluses (as needed)\nAtropine\n0.5/1mg/mL\n0.01-0.02mg/kg\nRapid Sequence Intubation\nRMMCH EM Clinical Protocols V5 03/01/2024\n"
+  }
+}

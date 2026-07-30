@@ -1,0 +1,40 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    20,
+    21,
+    22
+  ],
+  "item": "Ceftriaxone (EDL)",
+  "categoryHint": "antimicrobials",
+  "protocol_type": "weight_based_dose",
+  "clinical_features": {
+    "symptoms": [
+      "Severe acute diarrhoea in neonates",
+      "Severe acute malnutrition with severe dehydration or shock",
+      "Bacillary dysentery in children < 12 months",
+      "Complicated SAM with danger signs",
+      "Unsafe (septic) miscarriage"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "IM/IV administration. For IM: do not inject more than 1 g at one injection site. For IV: doses greater than 2 g must be given in two divided doses (i.e. 12 hourly), preferably by intravenous infusion over 30 minutes."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Neonates with severe dehydration / SAM with severe dehydration or shock / Bacillary dysentery in children < 12 months / Complicated SAM with danger signs: IM/IV, 100 mg/kg/dose immediately as a single dose (SAM with danger signs dose listed as 80 mg/kg/dose). Unsafe miscarriage: IV, 1 g as a single dose."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Always include dose and route in referral letter."
+    }
+  ],
+  "warnings": [
+    "Avoid giving calcium-containing IV fluids (e.g. Ringers Lactate) together with ceftriaxone: if <= 28 days old, avoid calcium-containing IV fluids for 48 hours after ceftriaxone administered; if > 28 days old, give sequentially provided giving set is flushed thoroughly with sodium chloride 0.9% before and after."
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "sourceDoc": "CHBAH_ICU",
+  "pdfPages": [
+    1
+  ],
+  "item": "Labetalol (CHBAH ICU)",
+  "categoryHint": "cardiovascular",
+  "protocol_type": "icu_dosing",
+  "clinical_features": {
+    "symptoms": [
+      "Blood pressure control"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Loading dose",
+      "details": "Adult 0.2\u20131 mg/kg titrated over 10 min; Paediatric 0.25\u20130.5 mg/kg/dose IV"
+    },
+    {
+      "step_number": "2",
+      "action": "Infusion",
+      "details": "Adult 0.25\u20132 mg/kg/hr; Paediatric 0.25\u20133 mg/kg/hr"
+    }
+  ],
+  "warnings": []
+}

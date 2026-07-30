@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "morphine_midazolam",
+    "type": "drug",
+    "category": "7_useful_formulae",
+    "subcategory": "formulae",
+    "title": "Morphine + Midazolam",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "category": "HJH ED Protocol \u2014 Infusions",
+    "item": "Morphine + Midazolam",
+    "formula": "Dose x weight / prepared concentration",
+    "standard_dilutions": "90mg morphine + 90mg midazolam in 180ml (0.5mg/ml of each)"
+  }
+}

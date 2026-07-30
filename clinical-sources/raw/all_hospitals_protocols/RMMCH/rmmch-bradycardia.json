@@ -1,0 +1,36 @@
+{
+  "sourceDoc": "RMMCH",
+  "pdfPages": [
+    16
+  ],
+  "item": "Bradycardia Management Algorithm (RMMCH)",
+  "categoryHint": "resuscitation",
+  "protocol_type": "ed_protocol",
+  "clinical_features": {
+    "symptoms": [
+      "Signs of Instability: Hypotension, Acutely altered mental state, Signs of shock, Ischaemic chest discomfort, Acute heart failure.",
+      "Adult Bradycardia: HR < 50/min.",
+      "Paediatric Bradycardia: HR < 60/min despite effective oxygenation and ventilation."
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Initial Resuscitation Steps",
+      "details": "Airway: open, maintain, protect. Breathing: oxygen if required (target sat 94-98%), ventilate if necessary. Circulation: assess pulse, BP, perfusion, attach ECG monitor. Drip: establish IV access. ECG Rhythm: 12 lead ECG, identify/treat underlying causes."
+    },
+    {
+      "step_number": "2",
+      "action": "Adult Unstable Bradycardia",
+      "details": "Atropine 1mg IV bolus (exclude hypoxia/hypothermia/head injury), repeat every 3-5 minutes up to 3mg. If Atropine ineffective: Adrenaline 2-10ug/min infusion (start at 0.05ug/kg/min and titrate) OR Transcutaneous Pacing. Consider alternatives: Transvenous pacing, High dose insulin (1U/kg if Beta Blocker or Ca Channel Blocker overdose), Glucagon."
+    },
+    {
+      "step_number": "3",
+      "action": "Paediatric Unstable Bradycardia",
+      "details": "Start CPR if HR < 60/min despite effective oxygenation and ventilation (1 Rescuer = 30:2, 2 Rescuers = 15:2). Adrenaline 0.1ml/kg IV of 1:10 000 dilution (Max dose 1mg) every 3-5 minutes. Atropine 0.02mg/kg IV if vagal tone or 1st deg AV block (Max dose 0.5mg). Consider pacing."
+    }
+  ],
+  "warnings": [
+    "Exclude Hypoxia, Hypothermia, and Head Injury before administering Atropine in adult bradycardia."
+  ]
+}

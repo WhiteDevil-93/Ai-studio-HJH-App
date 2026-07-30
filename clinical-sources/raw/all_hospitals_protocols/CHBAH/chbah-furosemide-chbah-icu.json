@@ -1,0 +1,27 @@
+{
+  "sourceDoc": "CHBAH_ICU",
+  "pdfPages": [
+    1
+  ],
+  "item": "Furosemide (CHBAH ICU)",
+  "categoryHint": "metabolic",
+  "protocol_type": "icu_dosing",
+  "clinical_features": {
+    "symptoms": [
+      "Diuretic"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Bolus",
+      "details": "Adult 5\u201340 mg/dose IV (higher if needed); Paediatric 0.5\u20131 mg/kg 6\u201324 hrly IV"
+    },
+    {
+      "step_number": "2",
+      "action": "Infusion",
+      "details": "Adult 1\u201310 mg/hr; Paediatric 0.1\u20130.4 mg/kg/hr"
+    }
+  ],
+  "warnings": []
+}

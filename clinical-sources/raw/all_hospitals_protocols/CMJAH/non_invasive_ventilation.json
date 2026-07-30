@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "non_invasive_ventilation",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "NON-INVASIVE VENTILATION (NIV)",
+    "source_doc": "CMJAH ED December 2020",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "NON-INVASIVE VENTILATION (NIV)",
+    "protocol_type": "ed_protocol",
+    "source_text": "NON-INVASIVE VENTILATION (NIV) \n \n \n \n \n \nHOW TO PERFORM NIV \n \n1. Manage patient in the Resuscitation Area \n2. Attach patient to monitors: cardiac monitors, NIBP, pulse oximetry \n3. Sit patient up > 45\u00b0 \n4. Explain the procedure to the patient and family \n5. Select the appropriate size mask for NIV \n\u00a7\nEnsure a well-fitted mask with straps in place to allow a complete, good \nseal with no air leak \n6. Ventilator \n\u00a7\nCPAP mode / NIV mode \n\u00a7\nSet a PEEP of 4cmH20 \n\u2022\nIncrease PEEP in increments of 2cmH20 \n\u2022\nMonitor O2 saturation and haemodynamic status closely \n\u00a7\nSet PSV initially on 0 cmH20 \n\u00a7\nStart with a Fi02 of 1 (100% Oxygen). Titrate according to O2 saturation \n7. Continuous monitoring, reassurance and check mask fit regularly  \n8. Consider anxiolysis Ketamine 0.25mg/kg or Midazolam 1mg stat IV \nINDICATIONS  \n\u2022\nCardiogenic pulmonary oedema \n\u2022\nAcute exacerbation of COPD poorly responsive to \ninitial treatment \n\u2022\nPre-oxygenation for Rapid Sequence Intubation \n\u2022\nSevere pneumonia (preoxygenation) \n\u2022\nNeuromuscular respiratory failure \n \nOXYGENATION \u2013 INCREASE PEEP \nVENTILATION \u2013 INCREASE PSV \n \nCONTRAINDICATIONS \n\u2022\nCardiac arrest \n\u2022\nRespiratory arrest \n\u2022\n\u00df LOC \n\u2022\nUncooperative patient (agitated/somnolent) \n\u2022\nHigh aspiration risk \n\u2022\nHaemodynamic instablility \n\u2022\nCraniofacial trauma / burns to face \n\u2022\nNon-fitting mask \n\u2022\nIndications for intubation \nDr R Gihwala CMJAH Emergency Department June 2020 \nContents\n"
+  }
+}

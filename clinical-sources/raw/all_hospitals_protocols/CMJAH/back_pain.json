@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "back_pain",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "NON-TRAUMATIC BACK PAIN",
+    "source_doc": "CMJAH ED December 2020",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "NON-TRAUMATIC BACK PAIN",
+    "protocol_type": "ed_protocol",
+    "source_text": "NON-TRAUMATIC BACK PAIN \n \n \n \nRED FLAGS  \n \n\u2022\nNew pain at extremes of age (< 20 or >50) \n\u2022\nHistory of malignancy \n\u2022\nConstant, non-mechanical pain, or worse lying down/at night \n\u2022\nANY neurology \u2013 weakness, numbness, paraesthesias etc. \n\u2022\nBilateral symptoms \n\u2022\nImmune suppression (HIV, DM, steroids, immune suppressants) \n\u2022\nIV drug use \n\u2022\nBowel/bladder function change, erectile dysfunction \n\u2022\nFever, night sweats, weight loss \n\u2022\nAnticoagulant use e.g. warfarin \nGENERAL APPROACH \nOne of the most common complaints in ED \nNB! History and examination more useful than special investigations. \n \n\u2022\nMajority of NON-TRAUMA cases are benign musculoskeletal lower back pain \n\u2022\nPhysical exam concerning features: \n\u00a7\nMotor: arm/leg weakness, especially bilateral \n\u00a7\nSensory: saddle anaesthesia, paraesthesia, sensory level \n\u00a7\nReflexes: any abnormal reflexes, including babinski \n\u00a7\nSphincter dysfunction: decreased rectal tone, urinary retention/incontinence \n\u00a7\nMidline spinal tenderness, deformity, swelling, fluctuance \n\u00a7\nSystemic: wasting, fever, lymphadenopathy, other pathologic fractures \n\u2022\nImaging: Spinal x-rays are neither sensitive nor specific \n\u2022\nBack pain with new neurology, or suspicion for epidural abscess requires urgent MRI \n\u2022\nLab workup for underlying condition as indicated \nSPINE RELATED CAUSES \n \n\u2022\nInfectious: Spinal epidural abscess, vertebral osteomyelitis, infectious discitis, TB spine \n\u2022\nOncological: Pathological fracture, bone or epidural metastases, spinal tumours \n\u2022\nHaematological: Spinal epidural haematoma \u2013 anticoagulants, recent lumbar \npuncture/epidural anaesthesia/spinal surgery \n\u2022\nNeurological: Cauda equina syndrome, disc herniation causing cord compression \n\u2022\nDegenerative: Spondylolysis/spondylolisthesis/OA with radiculopathy \n \nSPECIFIC MANAGEMENT \n\u2022\nEpidural abscess: Antibiotics \u2013 Consider Ceftriaxone, Cefazolin or Vancomycin \n\u2022\nSuspected metastases: Dexamethasone 10mg IV stat, urgent MRI \n \nDISPOSITION \n \n\u2022\nLow risk patients: Non-specific pain < 6 weeks with no \nred flags, monoradiculopathy/sciatica \u2013 DC with simple \nanalgesics and physio/spine OPD follow up \n\u2022\nHigh risk patients \u2013 manage underlying cause, admit to \nappropriate subspecialty once stable \nDr du Plessis / Dr R Gihwala CMJAH Emergency Department June 2020 \nNON-SPINE RELATED CAUSES \n\u2022\nVASCULAR: AAA, aortic dissection, renal artery \ndissection/thrombosis \n\u2022\nRENAL: renal colic, pyelonephritis, perinephric abscess, prostatitis \n\u2022\nGIT: pancreatitis, PUD, cholecystitis \n\u2022\nANTICOAGULANTS: retroperitoneal haemorrhage \n\u2022\nGYNAE: PID, rarely ectopic pregnancy. Lower back pain is common \nin PREGNANCY \nContents\n"
+  }
+}

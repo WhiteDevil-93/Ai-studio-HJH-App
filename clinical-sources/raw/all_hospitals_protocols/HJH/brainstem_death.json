@@ -1,0 +1,69 @@
+{
+  "_meta": {
+    "id": "brainstem_death",
+    "type": "protocol",
+    "category": "17_ed_critical_care",
+    "subcategory": "protocols",
+    "title": "Brainstem Death Testing",
+    "source_doc": "HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Brainstem Death Testing",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Management",
+        "details": "Management"
+      },
+      {
+        "step_number": "2",
+        "action": "Analgesia: Paracetamol/NSAIDS + Morphine 0.1mg/kg or Fentanyl 1mcg/kg IVI or Ketamine 1-",
+        "details": "Analgesia: Paracetamol/NSAIDS + Morphine 0.1mg/kg or Fentanyl 1mcg/kg IVI or Ketamine 1-"
+      },
+      {
+        "step_number": "3",
+        "action": "2mg/kg IVI or 2-4mg/kg IMI",
+        "details": "2mg/kg IVI or 2-4mg/kg IMI"
+      },
+      {
+        "step_number": "4",
+        "action": "IV line & maintenance fluids",
+        "details": "IV line & maintenance fluids"
+      },
+      {
+        "step_number": "5",
+        "action": "Venous blood gas",
+        "details": "Venous blood gas"
+      },
+      {
+        "step_number": "6",
+        "action": "Catheter only for perineal/genital burns",
+        "details": "Catheter only for perineal/genital burns"
+      },
+      {
+        "step_number": "7",
+        "action": "Dressings: Jelonet and gauze. Chloromex ointment for face, no dressing",
+        "details": "Dressings: Jelonet and gauze. Chloromex ointment for face, no dressing"
+      },
+      {
+        "step_number": "8",
+        "action": "Discuss with surgeon on call",
+        "details": "Discuss with surgeon on call"
+      },
+      {
+        "step_number": "9",
+        "action": "Modified Brooke Formula 2ml x % burn x weight (kg)",
+        "details": "Modified Brooke Formula 2ml x % burn x weight (kg)"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "See protocol",
+        "notes": "Drug details in source PDF"
+      }
+    ],
+    "disposition": "DISPOSITION \n\u2022\nCertify death at time of BRAIN DEATH \n\u2022\nCounsel family prior to cessation of mechanical \nventilation \n\u2022\nConsider for organ donation referral if appropriate \n \nINCOMPATIBLE WITH BRAIN DEATH \n\u2022\nDecerebrate or decorticate posturing \n\u2022\nTrue extensor or flexor motor response \n\u2022\nWitnessed seizures \n \nCOMPATIBLE WITH BRAIN DEATH \n\u2022\nSpinal reflexes \n\u2022\nSweating, blushing \n\u2022\nTachycardia, normal blood pressure"
+  }
+}

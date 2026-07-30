@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "adrenalin",
+    "type": "drug",
+    "category": "2_airway_and_ventilation",
+    "subcategory": "status_asthmaticus",
+    "title": "Adrenalin",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "item": "Adrenalin",
+    "adult_dose": "0.1-1ug/kg/min IV",
+    "paediatric_dose": "0.1-1ug/kg/min IV"
+  }
+}

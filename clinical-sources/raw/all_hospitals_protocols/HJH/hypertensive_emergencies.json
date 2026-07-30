@@ -1,0 +1,78 @@
+{
+  "_meta": {
+    "id": "hypertensive_emergencies",
+    "type": "protocol",
+    "category": "05_ed_pulmonary",
+    "subcategory": "protocols",
+    "title": "Hypertensive Emergencies",
+    "source_doc": "HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Hypertensive Emergencies",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "Clinical features: Decreased GCS, agitation, sweating (no sweating in heat stroke) \nDEFINITIONS \nMinor heat illness \nmuscle cramps, minor peripheral oedema, syncope, \nheat rash \nHeat exhaustion \nTemp < 40\u00b0C, sweating intact \nIntact neurological function, weakness, fatigue, \nheadache, nausea, vomiting, syncope \nABOVE CAN BE MANAGED WITH SUPPORTIVE CARE \nHeat stroke \nTemp > 40\u00b0C, \u00b1 sweating \nAgitation, confusion, seizures, coma, shock, AKI, \ncoagulopathy, electrolyte disturbances \nHEAT STROKE IS A LIFE-THREATENING EMERGENCY! \n\u2022 \nECG Features: Non-specific ST and T changes, tachycardia, features of electrolyte AbNs, VT \nand VF can occur \n\u2022 \nTriage to RESUS AREA, CENTRAL TEMPERATURE MONITORING \n\u2022 \nRapid ABC assessment, 2 IV lines, monitors, HGT, VBG, urine \u00dfHCG, ECG \n\u2022 \nConsider early airway management for altered GCS/seizures \n\u2022 \nBenzodiazepines for seizures/agitation \n\u2022 \nCorrect electrolyte abnormalities & HGT \n\u2022 \nCrystalloid fluid bolus 20mg/kg if hypotensive \n\u2022 \nComprehensive history and exam, including: \n\u25a0 \nCircumstances that patient was found in \u2013 precipitating event, outside/inside, \ndowntime if known \n\u25a0 \nCo-morbidities, chronic medications, symptoms prior to arrival \n\u25a0 \nHistory of trauma or intoxication \u2794 NB! TOXIDROME FEATURES \n\u2022 \nDocument specific features and severity of hyperthermia \n\u2022 \nFurther investigations: FBC, U&E, LFT, TFTs, INR, Paracetamol/Salicylate level, urine tox \nscreen, imaging as clinically indicated \nNB \u2013 THERE IS OFTEN AN UNDERLYING MEDICAL CONDITION CONTRIBUTING TO HYPERTHERMIA \n \n \n \nCAUSES and DIFFERENTIAL DIAGNOSIS \n\u25a0 \nEnvironmental exposure \u2013 outdoor sports, marathons \n\u25a0 \nToxins \u2013 anticholinergic, sympathomimetic \n\u25a0 \nSepsis \n\u25a0 \nExtremes of age \u2013 poor thermoregulation \n\u25a0 \nEndocrine \u2013 hyperthyroid, thyroid storm, phaeochromocytoma \n\u25a0 \nSerotonin syndrome \n\u25a0 \nMalignant hyperthermia \n\u25a0 \nNeuroleptic malignant syndrome \n\u25a0 \nHypothalamic dysfunction \u2013 trauma, stroke, CNS infection \nACTIVE COOLING \nTARGET Temp < 39\u00b0C WITHIN 30 MINUTES \n\u2022 Peripher"
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Management of Hypertensive Emergencies",
+        "details": "Management of Hypertensive Emergencies"
+      },
+      {
+        "step_number": "2",
+        "action": "\u2022 ABC approach to resuscitation",
+        "details": "\u2022 ABC approach to resuscitation"
+      },
+      {
+        "step_number": "3",
+        "action": "\u2022 A \u2013 definitive airway if a depressed level of consciousness",
+        "details": "\u2022 A \u2013 definitive airway if a depressed level of consciousness"
+      },
+      {
+        "step_number": "4",
+        "action": "\u2022 B \u2013 Acute pulmonary oedema, but intubation is not indicated, start non-invasive",
+        "details": "\u2022 B \u2013 Acute pulmonary oedema, but intubation is not indicated, start non-invasive"
+      },
+      {
+        "step_number": "5",
+        "action": "ventilation (see NIV protocol)",
+        "details": "ventilation (see NIV protocol)"
+      },
+      {
+        "step_number": "6",
+        "action": "\u2022 C \u2013 Fluid bolus with Balsol / Ringers Lactate @ 10ml/kg prior to commencing IV anti-",
+        "details": "\u2022 C \u2013 Fluid bolus with Balsol / Ringers Lactate @ 10ml/kg prior to commencing IV anti-"
+      },
+      {
+        "step_number": "7",
+        "action": "hypertensive agent",
+        "details": "hypertensive agent"
+      },
+      {
+        "step_number": "8",
+        "action": "TREATMENT GOAL",
+        "details": "TREATMENT GOAL"
+      },
+      {
+        "step_number": "9",
+        "action": "Within 1st hour: Reduce MAP by 20-25% only; DBP not less than 110mmHg except",
+        "details": "Within 1st hour: Reduce MAP by 20-25% only; DBP not less than 110mmHg except"
+      },
+      {
+        "step_number": "10",
+        "action": "Aortic Dissection: Goal systolic < 100-120 within 20 minutes if tolerated",
+        "details": "Aortic Dissection: Goal systolic < 100-120 within 20 minutes if tolerated"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "20 mg (4mls) then",
+        "adult_dose": "20 mg (4mls) then",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "disposition": "admission if severely \nelevated/poor follow-up/multiple \ncomorbidities \n\u2022\nNO INDICATION FOR IV ANTI-\nHYPERTENSIVE AGENTS! \n \n \nHypertensive Emergency \nElevated blood pressure (> 180/110) \nWITH LIFE THREATENING ACUTE END ORGAN DAMAGE \n\u2022\nHypertensive encephalopathy & \nretinopathy \n\u2022\nHaemorrhagic / acute Ischaemic CVA \n\u2022\nACS \u2013 STEMI/NSTE-ACS \n\u2022\nAcute LV dysfunction / Congestive heart \nfailure \n\u2022\nAcute pulmonary oedema (SCAPE) \n\u2022\nAortic dissection \n\u2022\nAcute renal failure \n\u2022\nEclampsia / Pre-eclampsia"
+  }
+}

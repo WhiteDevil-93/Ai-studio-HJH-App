@@ -39,3 +39,11 @@ body {
   color: #94a3b8;
 }
 
+.theme-dark .hospital-library-heading {
+  color: #f8fafc;
+}
+
+.theme-light .hospital-library-heading {
+  color: #0f172a;
+}
+

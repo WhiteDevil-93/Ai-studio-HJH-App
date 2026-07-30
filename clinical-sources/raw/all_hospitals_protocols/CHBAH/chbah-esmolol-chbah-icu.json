@@ -1,0 +1,27 @@
+{
+  "sourceDoc": "CHBAH_ICU",
+  "pdfPages": [
+    1
+  ],
+  "item": "Esmolol (CHBAH ICU)",
+  "categoryHint": "cardiovascular",
+  "protocol_type": "icu_dosing",
+  "clinical_features": {
+    "symptoms": [
+      "Rate / BP control"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Loading dose",
+      "details": "Adult 0.5 mg/kg IV STAT; Paediatric 0.5 mg/kg IV"
+    },
+    {
+      "step_number": "2",
+      "action": "Infusion",
+      "details": "Adult 50 \u2013 300 mcg/kg/min; Paediatric 25 \u2013 300 mcg/kg/min"
+    }
+  ],
+  "warnings": []
+}

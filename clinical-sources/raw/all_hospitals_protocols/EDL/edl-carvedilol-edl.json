@@ -1,0 +1,33 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    58,
+    59
+  ],
+  "item": "Carvedilol (EDL)",
+  "categoryHint": "cardiovascular",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Congestive cardiac failure (CCF)"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Oral formulation (alpha 1 and non-selective beta blocker)."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Starting dose: 3.125 mg twice daily. Increase dose at two-weekly intervals by doubling daily dose until maximum of 25 mg twice daily, if tolerated. If > 85 kg and target heart rate not achieved, titrate to maximum of 50 mg twice daily, if tolerated."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Doctor initiated. If not tolerated (worsening CCF), reduce to previously tolerated dose. Up-titration may take several months. If discontinued > 14 days, reinstate therapy from starting dose."
+    }
+  ],
+  "warnings": []
+}

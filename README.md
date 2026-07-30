@@ -1,8 +1,9 @@
 # Asclepius
 
 Asclepius is a clinical-reference prototype for high-acuity Emergency Department
-and ICU workflows. It combines a curated subset of the Helen Joseph Tertiary
-Hospital Emergency Department Clinical Guidelines with ICU dosing material.
+and ICU workflows. Its hospital library is sourced from the supplied
+`all_hospitals_protocols.zip` schema and keeps HJH, CMJAH, CHBAH, and RMMCH
+protocols as independent facility collections.
 
 ## Clinical status
 
@@ -10,14 +11,29 @@ Hospital Emergency Department Clinical Guidelines with ICU dosing material.
 independent clinical decision-making.**
 
 Protocol content is currently transcribed as it appears in the supplied
-material. Where two printed versions conflict, the application keeps them as
-separate, page-labelled entries pending clinical review.
+material. Repeated subjects are intentionally retained under every hospital
+that supplies them. Where two printed versions conflict, the application keeps
+them as separate, source-labelled entries pending clinical review.
 
 The HJH source states that it is largely aimed at adult emergency patients and
 should be used with RMMCH protocols for paediatric patients. Paediatric content
 in this repository must therefore have its own approved provenance.
 
 ## Controlled source
+
+The complete supplied JSON archive is extracted without content changes under
+`clinical-sources/raw/all_hospitals_protocols/`. Its archive checksum, extracted
+tree checksum, file census, and per-facility counts are recorded in
+[`clinical-sources/all-hospitals-protocols-manifest.json`](clinical-sources/all-hospitals-protocols-manifest.json).
+
+The hospital landing pages currently expose:
+
+- HJH: 97 entries
+- CMJAH: 79 entries
+- CHBAH: 68 entries
+- RMMCH: 51 entries
+
+Scoring systems and trials/international guidelines remain global collections.
 
 The current HJH source is:
 
@@ -111,8 +127,8 @@ clinical values.
 
 ## Current limitations
 
-- The application is a curated subset, not a complete digital edition of the
-  247-page source.
+- The supplied hospital JSON corpus is complete in the repository, but remains
+  an unvalidated transcription rather than an approved digital edition.
 - The CHBAH ICU dosing card and RMMCH paediatric protocols have been
   transcribed and imported, but neither source PDF has an independently
   confirmed SHA-256 fingerprint yet (see `clinical-sources/source-manifest.json`).
@@ -130,13 +146,15 @@ clinical values.
 
 ```text
 clinical-sources/         Source manifest, page mapping, errata, and the
-                          vendored transcription corpus (raw/)
+                          vendored transcription corpora (raw/), including the
+                          exact all-hospitals archive extraction
 scripts/                  Clinical-data validation and the one-time
                           data.json -> entries/ migration script
 src/clinical/             Types, source registry, normalization, calculations
+                          and the all-hospitals runtime loader
 src/clinical/entries/     One JSON file per clinical entry (protocol/drug/
                           procedure/score), the source of truth for all
-                          clinical content
+                          legacy category, score, and calculation views
 src/App.tsx               Current interface pending further component extraction
 ```
 

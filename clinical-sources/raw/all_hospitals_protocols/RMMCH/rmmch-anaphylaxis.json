@@ -1,0 +1,32 @@
+{
+  "sourceDoc": "RMMCH",
+  "pdfPages": [
+    11
+  ],
+  "item": "Anaphylaxis (RMMCH)",
+  "categoryHint": "resuscitation",
+  "protocol_type": "ed_protocol",
+  "clinical_features": {
+    "symptoms": [
+      "Recognize sudden onset after exposure to known or unknown allergen with skin/mucosal involvement (rash, swelling) AND any of: respiratory compromise (dyspnoea, wheeze), cardiovascular dysfunction, or severe gastrointestinal symptoms (abdominal pain, repetitive vomiting)",
+      "OR after exposure to known allergen: respiratory difficulty (stridor, voice change, wheeze, hypoxaemia, distress) and/or cardiovascular dysfunction (shock, hypotension, syncope, collapse)"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Immediate Treatment",
+      "details": "1. Remove exposure. 2. Call for help. 3. ADRENALINE 1mg/ml (1:1000) 0.01mg/kg IM (Max 0,5ml IM) anterolateral aspect of thigh. Repeat every 5-15 minutes if no improvement (<6yrs: 0,15ml IM, 6-12 yrs: 0,3ml IM, >12 yrs: 0,5ml IM). 4. Assess vital signs: high flow oxygen, maintain patent airway (Intubate/Cricothyrotomy if necessary), high flow IV line, BP, Sats, ECG monitoring. Lie patient supine with legs elevated if hypotensive."
+    },
+    {
+      "step_number": "2",
+      "action": "Adjunctive Treatment",
+      "details": "H1 Antihistamine: Promethazine (2-6 yrs: 6.25mg IM or slow IV; 6-12 yrs: 12,5mg IM or slow IV; >12 yrs: 25mg IM or slow IV; avoid if <2yrs old and low BP). Crystalloid (e.g. Ringers/Balsol): Rapid infusion of 20ml/kg (max 1-2 litres). Adrenaline infusion (0,1-1 ug/kg/m [printed as ug/kg/m in source]) ONLY if unresponsive to IM adrenaline & fluids. Nebulised Bronchodilators every 15-20 mins if severe bronchospasm: Salbutamol 5mg WITH Ipratropium 0.5mg. H2 Receptor Antagonist: Cimetidine IM or Slow IV 5mg/kg (Max 300mg) diluted in 20ml over 2 min. Corticosteroids: Hydrocortisone IM or Slow IV (<1 yr: 25mg, 1-6 yrs: 50mg, 6-12 yrs: 100mg, >12 yrs: 200mg). Glucagon: 20ug/kg (Max 1-2mg) IM or slow IV every 5 mins if unresponsive to adrenaline."
+    }
+  ],
+  "warnings": [
+    "Only discharge patient if clinically stable 4-6 hours after resuscitation (may need longer if at risk of biphasic reaction).",
+    "Avoid Promethazine if < 2 yrs old and low BP.",
+    "Antihistamines should not be used alone, or instead of adrenaline, for anaphylaxis."
+  ]
+}

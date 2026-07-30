@@ -1,0 +1,35 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    58
+  ],
+  "item": "Hydrochlorothiazide (EDL)",
+  "categoryHint": "cardiovascular",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Mild congestive cardiac failure (CCF)",
+      "Hypertension"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Oral tablets (12.5 mg, 25 mg, 50 mg)."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "CCF: 25 to 50 mg daily. Hypertension (Step 2 / 3 / 5 / 6): 12.5 mg daily. Hypertension (Step 7): 25 mg daily."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Caution in patients with gout. Less effective in impaired renal function. Higher doses can cause hyponatraemia."
+    }
+  ],
+  "warnings": [
+    "Caution in patients with a history or family history of skin cancer; counsel all patients on sun avoidance and sun protection."
+  ]
+}

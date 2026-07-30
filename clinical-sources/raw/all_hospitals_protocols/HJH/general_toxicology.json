@@ -1,0 +1,63 @@
+{
+  "_meta": {
+    "id": "general_toxicology",
+    "type": "protocol",
+    "category": "12_ed_toxicology",
+    "subcategory": "protocols",
+    "title": "General Toxicology Approach",
+    "source_doc": "HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "General Toxicology Approach",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "presentation \n\u2022 \nRationale for investigations \n\u2022 \nRefine risk assessment or prognosis \n \nDecontamination & Enhanced Elimination \n\u2022 \nActivated charcoal (1g/kg) may be considered if a patient has \ningested a potentially life-threatening quantity of substance/s and \npresents within 1 hour of ingestion \n\u2022 \nConsider transferring for dialysis (see box) \n \nAntidotes \nAntidote \nSubstance \nAtropine \nOrganophosphate & carbamates \nCalcium gluconate/chloride, HIET \nCalcium channel blockers \nDesferrioxamine \nIron \nEthanol, Folic acid \nMethanol \nHIET (high-dose insulin euglycaemic therapy) \n\uf042 blockers \nIntralipd \nLocal anaesthetic \nMethylene blue \nMethaemaglobinaemia \nN-acetylcysteine \nParacetamol \nPyridoxine \nIsoniazid \nSodium bicarbonate \nTricyclic antidepressants; salicylates \nVit K; FFPs \nWarfarin \n \nDisposition \n\u2022 \nUrgent Medicine/ICU referral \n \n \n \nFASTHUGS IN BED Please \n\u2022 \nExclude or confirm an important differential \n\u2022 \nExclude or confirm an important specific poisoning \n\u2022 \nExclude or confirm a complication requiring specific management \n\u2022 \nEstablish an indication for antidote administration \n\u2022 \nEstablish an indication for institution of enhanced elimination \n\u2022 \nMonitor response to therapy \n\u2022 \nDefine an endpoint for therapeutic interventions \nF \u2013 fluid therapy & feeding \nA \u2013 analgesia & antiemetics \nS \u2013 sedation \nT \u2013 thrombo-prophylaxis \nH \u2013 head up position (30\uf0b0) \nU \u2013 ulcer prophylaxis \nG \u2013 glucose control \nS \u2013 skin/eye care; suctioning \nI \u2013 indwelling catheter \nN \u2013 nasogastric tube \nB \u2013 bowel cares \nE \u2013 environment (temp control) \nD \u2013 de-escalation \nP \u2013 psychosocial support \nIngestions that may require dialysis \nBarbiturates \nSalicylates \nLithium \nToxic alcohols i.e. methanol, ethanol, ethylene glycol \nTheophylline/Caffeine \nINH (Seldom) \nMetformin \nDabigatran \nSodium valproate \nCarbamazepine"
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "APPROACH",
+        "details": "APPROACH"
+      },
+      {
+        "step_number": "2",
+        "action": "Remembered by the mnemonic \u201cResus \u2013 RSI \u2013 DEAD\u201d",
+        "details": "Remembered by the mnemonic \u201cResus \u2013 RSI \u2013 DEAD\u201d"
+      },
+      {
+        "step_number": "3",
+        "action": "Resuscitation",
+        "details": "Resuscitation"
+      },
+      {
+        "step_number": "4",
+        "action": "Airway",
+        "details": "Airway"
+      },
+      {
+        "step_number": "5",
+        "action": "Breathing",
+        "details": "Breathing"
+      },
+      {
+        "step_number": "6",
+        "action": "Circulation",
+        "details": "Circulation"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "Dose(s)",
+        "adult_dose": "Dose(s)",
+        "notes": "Extracted from HJH ED 2026"
+      },
+      {
+        "item": "Time since ingestion",
+        "adult_dose": "Time since ingestion",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "disposition": "Disposition \n\u2022 \nUrgent Medicine/ICU referral \n \n \n \nFASTHUGS IN BED Please \n\u2022 \nExclude or confirm an important differential \n\u2022 \nExclude or confirm an important specific poisoning \n\u2022 \nExclude or confirm a complication requiring specific management \n\u2022 \nEstablish an indication for antidote administration \n\u2022 \nEstablish an indication for institution of enhanced elimination \n\u2022 \nMonitor response to therapy \n\u2022 \nDefine an endpoint for therapeutic interventions \nF \u2013 fluid therapy & feeding \nA \u2013 analgesia & antiemetics \nS \u2013 sedation \nT \u2013 thrombo-prophylaxis \nH \u2013 head up position (30\uf0b0) \nU \u2013 ulcer prophylaxis \nG \u2013 glucose control \nS \u2013 skin/eye care; suctioning \nI \u2013 indwelling catheter \nN \u2013 nasogastric tube \nB \u2013 bowel cares \nE \u2013 environment (temp control) \nD \u2013 de-escalation \nP \u2013 psychosocial support \nIngestions that may require dialysis \nBarbiturates \nSalicylates \nLithium \nToxic alcohols i.e. methanol, ethanol, ethylene glycol \nTheophylline/Caffeine \nINH (Seldom) \nMetformin \nDabigatran \nSodium valpr"
+  }
+}

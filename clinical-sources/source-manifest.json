@@ -1,6 +1,15 @@
 {
   "sources": [
     {
+      "id": "all-hospitals-protocols-archive-2026-07",
+      "title": "Supplied all-hospitals protocol schema archive",
+      "version": "2026-07",
+      "sha256": "4452adac68cabf306ff724e274864010e88b9bc2e879f1963864596b6ea2ce8b",
+      "scope": "500 JSON entries: HJH, CMJAH, CHBAH, RMMCH, SA EDL, and shared reference data.",
+      "status": "source-received-exact-extraction",
+      "distributionPermission": "unconfirmed"
+    },
+    {
       "id": "hjh-ed-2026-v1",
       "title": "Helen Joseph Tertiary Hospital Emergency Department Clinical Guidelines",
       "version": "January 2026",

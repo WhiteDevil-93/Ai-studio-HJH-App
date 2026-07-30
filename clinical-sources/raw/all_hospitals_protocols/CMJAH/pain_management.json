@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "pain_management",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "PAIN MANAGEMENT IN THE ED",
+    "source_doc": "CMJAH ED December 2020",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "PAIN MANAGEMENT IN THE ED",
+    "protocol_type": "ed_protocol",
+    "source_text": "              PAIN MANAGEMENT IN THE ED  \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nPARACETAMOL \nAdults  \n\u2022\n1g PO \n\u2022\n1g IV over 30 minutes \n\u2022\nTTO: 1g PO q6-8hrly \n \nPaeds  \n\u2022\n15-20mg/kg PO q8hrly  \n\u2022\nWeight x 0.6 = ml of syrup [120mg/5ml] \n \n \nCaution: liver impairment \nNON-STEROIDAL ANTI-INFLAMMATORIES (NSAIDs) \n \n \nIBUPROFEN \nAdults  \n\u2022\n200 \u2013 600 mg PO \n\u2022\nTTO: 200 \u2013 400mg PO q6-8hrly cc (with meals) \n \nPaeds  \n\u2022\n5-10mg/kg/dose PO q6-8hrly cc   (NB! not to exceed 40mg/kg/day) \n \n \nCaution: renal failure, bleeding / PUD, elderly \nOPIOIDS \n \nFENTANYL   \n\u2022\n1\u00b5g/kg IV slowly     (Duration of action: 30-45min) \n\u2022\n1-2\u00b5g/kg/hr infusion \n\u2022\nCardio stable \n \nMORPHINE \n\u2022\n0.1mg/kg IV     (Duration of action: 4-6hrs) \n\u2022\n0.1mg/kg/hr infusion \n \nTRAMADOL \n\u2022\n1mg/kg IV/PO \n\u2022\nTTO: 50-100mg po q8hrly \nKETAMINE \nIV \n\u2022\n0.3-1mg/kg (slow IV over 5-10min) \n\u2022\n0.2-1mg/kg/hr infusion (see Ketamine infusion protocol) \nPaeds \n\u2022\n2-6mg/kg IM \n\u2022\n6-10mg/kg PO (mix with 0.2-0.3ml/kg of beverage, 30min prior to procedure) \nIntranasal \n\u2022\n1mg/kg IN (max 0.5ml/nostril) \nDr R Gihwala CMJAH Emergency Department June 2020 \nContents\n"
+  }
+}

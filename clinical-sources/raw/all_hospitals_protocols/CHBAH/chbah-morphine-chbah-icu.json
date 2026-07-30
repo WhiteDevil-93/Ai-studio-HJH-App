@@ -1,0 +1,22 @@
+{
+  "sourceDoc": "CHBAH_ICU",
+  "pdfPages": [
+    1
+  ],
+  "item": "Morphine (CHBAH ICU)",
+  "categoryHint": "sedation",
+  "protocol_type": "icu_dosing",
+  "clinical_features": {
+    "symptoms": [
+      "Analgesia / sedation"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Bolus",
+      "details": "0.1 mg/kg/dose, titrate to effect"
+    }
+  ],
+  "warnings": []
+}

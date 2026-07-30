@@ -1,0 +1,72 @@
+{
+  "_meta": {
+    "id": "acute_ischaemic_stroke",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Acute Ischaemic Stroke",
+    "source_doc": "HJH ED 2026 / CMJAH / Bara ICU",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Acute Ischaemic Stroke",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Exclude Mimics & Assess NIHSS",
+        "details": "Check glucose immediately (rule out hypoglycaemia). Assess GCS and clinical onset time. Exclude other mimics: Todd's paresis, migraine, tumour, encephalitis."
+      },
+      {
+        "step_number": "2",
+        "action": "Urgent Non-Contrast CT Brain",
+        "details": "Verify absence of intracranial hemorrhage. Consult neurology/stroke team immediately."
+      },
+      {
+        "step_number": "3",
+        "action": "Alteplase Thrombolysis (<3 to 4.5 hours)",
+        "details": "If within 3-4.5h and no contraindications: Alteplase 0.9 mg/kg IV (10% bolus over 1 min, remainder over 60 mins). Max dose 90mg. Keep SBP < 185 and DBP < 110."
+      },
+      {
+        "step_number": "4",
+        "action": "Management of Post-Thrombolysis Bleeding",
+        "details": "If bleeding is suspected: stop Alteplase, order urgent CT brain, send clotting studies, transfuse Cryoprecipitate 10 U/kg IV over 10-30 min, and give Tranexamic Acid 1g IV."
+      }
+    ],
+    "warnings": [
+      "Absolute Contraindications: Prior ICH, known vascular lesion (AVM), malignant neoplasm, active bleeding, stroke/trauma within 3 months, SBP > 185 / DBP > 110 despite treatment, INR > 1.7."
+    ]
+  },
+  "embedded_drugs": [
+    {
+      "drug": "Alteplase (tPA)",
+      "adult_dose": "PE: 100mg IV over 2hrs. STEMI: 15mg bolus, 50mg/30min, 35mg/60min",
+      "paediatric_dose": "0.1-0.5mg/kg/hr IV",
+      "notes_updates": "Monitor for bleeding"
+    },
+    {
+      "drug": "Labetalol",
+      "adult_dose": "10-20mg IV over 2min (may double every 10min)",
+      "paediatric_dose": "0.2-1mg/kg IV",
+      "notes_updates": "Mixed alpha/beta blocker. Good for hypertensive emergencies"
+    },
+    {
+      "category": "HJH ED Protocol \u2014 Infusions",
+      "item": "Esmolol",
+      "formula": "Dose x weight x 60 / prepared concentration",
+      "standard_dilutions": "500mg undiluted in a 50ml syringe (10mg/ml)"
+    },
+    {
+      "category": "HJH ED Protocol \u2014 Infusions",
+      "item": "Nitroglycerin",
+      "formula": "Dose x 60 / prepared concentration",
+      "standard_dilutions": "10mg in 200ml N/S (50mcg/ml)"
+    },
+    {
+      "drug": "Tranexamic Acid",
+      "adult_dose": "1g IV over 10min (repeat 8hrly); Trauma: 1g/10min then 1g/8hrs",
+      "paediatric_dose": "15mg/kg IV 8hrly",
+      "notes_updates": "Contraindicated: significant haematuria, DIC"
+    }
+  ]
+}

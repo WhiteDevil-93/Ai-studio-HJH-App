@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "brain_death_testing",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Brain Death Testing",
+    "source_doc": "RMMCH EM V5 Jan 2024",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Brain Death Testing",
+    "protocol_type": "ed_protocol",
+    "source_text": "Ref: criticalcare.org.za/wp-content/uploads/2021/02/Death-Determination-Checklists-\nSouth-African-Guidelines-Brain-Death-and-Circulatory-Death.pdf \nBrain Death Testing \nRMMCH EM Clinical Protocols V5 03/01/2024\n"
+  }
+}

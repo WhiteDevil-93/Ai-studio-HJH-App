@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "hyperkalaemia",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "HYPERKALAEMIA = K + > 5.5mmol/l",
+    "source_doc": "CMJAH ED December 2020",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "HYPERKALAEMIA = K + > 5.5mmol/l",
+    "protocol_type": "ed_protocol",
+    "source_text": "                            HYPERKALAEMIA = K+ > 5.5mmol/l \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nMANAGEMENT  \n \n* Stop exogenous K+ administration \n* Stabilise the cardiac membrane (see table) \n* Shift K+ intracellularly & increase K+excretion (see table) \n* Treat the underlying cause \n* Follow-up monitoring of potassium \n \nMEDICATION \n \nDOSE \n \nONSET \nOF \nACTION \n(minutes) \n \nDURATION \nOF EFFECT \n(hours) \n \nK+ \nREDUCTION \n(mmol/l) \n \nPEARLS \n \nCalcium \n(myocardial \nstabilisation) \n \n10% soln = \n100mg/ml \nCalcium Chloride  \n10ml 10% 10min \n(20mg/kg) \n \nCalcium Gluconate \n30ml 10% 10min \n(60mg/kg) \n \n \n \nImmediate \n \n \n \n0.5 \u2013 1 \n \n \n \nNil \nNo effect on K+ \nTo be given until \nQRS narrows (if \nQRS is wide \ninitially & is not \na bundle branch \nblock) \n\u03b22 agonist \nnebulisation \n \nUDV continuous \nWithin    \n30 mins \n \n2 - 6 \n \n0.5 \u2013 1.5 \nPatients taking \n\u03b22-blockers may \nbe resistant \n \nInsulin (rapid-\nacting) \n \n10u (0.1u/kg) \n \n**Administer IV \nseparate to \ndextrose** \n \n \n15 - 30 \n \n \n2 \u2013 6 \n \n \n0.6 \u2013 1.2 \n** Administer \n1ml/kg 50% \ndextrose prior to \ninsulin \nadministration ** \n \n \nFurosemide \n \n \n0.5 \u2013 1 mg/kg \n \n15 min \n \n1 \u2013 3 \n \nNot in renal \nfailure \n**Patient needs \nto be passing \nurine** \n \nDialysis \n \n \n \n \nIntractable \nhyperkalaemia \n Sodium Bicarbonate \n \n* Routine use no longer recommended \n* Minimal effect on K+ \n* May be of benefit in NORMAL ANION GAP METABOLIC ACIDOSIS \n* Dosage 8.5% solution 1mEq/kg = 1ml/kg \n* Administer in separate IV line to calcium \nDr R Gihwala CMJAH Emergency Department June 2020 \nCAUSES \n \n*Impaired excretion \n  e.g. renal failure, drugs (spironolactone),  \n          hypoaldosteronism (Addison\u2019s) \n*Transcellular shifts \n   e.g. haemolysis (2 rhabdomyolysis), acidosis,  \n          hyperglycaemia \n*Measurement error \n   e.g. haemolysis during phlebotomy \nSTABILISATION & K+ SHIFTING & EXCRETION \nECG CHANGES \n* Tall, peaked T-waves \n* Prolonged PR interval \n* Widened QRS \n* Flattening/broadening/loss of P waves \n* Sine wave (S & T waves merge) \n* Arrrythmias \n* Cardiac arrest \u00e0 PEA/VF/VT/asystole \nContents\n"
+  }
+}

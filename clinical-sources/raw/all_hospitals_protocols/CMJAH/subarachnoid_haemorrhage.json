@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "subarachnoid_haemorrhage",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "SUBARACHNOID HAEMORRHAGE",
+    "source_doc": "CMJAH ED December 2020",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "SUBARACHNOID HAEMORRHAGE",
+    "protocol_type": "ed_protocol",
+    "source_text": "SUBARACHNOID HAEMORRHAGE \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nED MANAGEMENT  \n \nResus, Fluids & Monitoring \n*ABC approach \n*A \u2013 patient with decreased LOC have increased risk of  \n         aspiration \u00e0 intubate \n*C \u2013 maintain intravascular volume with isotonic fluids \n        Monitor for hyponatraemia \n        Target BP \u00e0 MAP > 80-90 but < 130 mmHg \n        If MAP > 130 mmHg \u00e0 Start Labetalol (see protocol) \n        In patients who are hypertensive ensure adequate  \n        analgesia, nimodipine \u00b1 IV antihypertensive agent \n*D \u2013 if patient has seizures start anticonvulsant therapy (no  \n         role for prophylactic ACT); nurse head up (unless c/i) \n \nHistory and Examination \n \nInvestigations (see box) and monitoring \n*HR, BP, Sats, ECG \n \nSpecific Treatment & Identify & Treat Complications \n*Vasospasm \u2013 prevention is NB! Maintain euvolaemia,  \n                          avoid hypotension, Nimodipine, early surgery \n*Re-bleeding \u2013 avoid HPT, avoid increased/decreased ICP,   \n                            sedation if agitated \n*Hydrocephalus \n*Pain \u2013 analgesia (see Pain Management protocol) \n*Standard neuroprotective measures \n \nDisposition \n*Neurosurgery referral \nCLINICAL FEATURES  \n \n*Sudden onset of headache \n*Unusual headache for patient \n*Sentenal headache (40%) \n*Transient or persistent LOC \n*Vomiting \n*Seizures/posturing \n*Meningism \n*Neurological signs \u00e0 according to area involved \n*Fundoscopy \u2013 retinal haemorrhage, papilloedema \n*Risk factors (see box) \nRISK FACTORS \n \n*Female \n*Age > 50 years \n*Hypertension \n*Smoking \n*Oral contraceptives \n*Alcohol history \n*Connective tissue disease \n*Polycystic kidney disease \n*Family history \n*Coarctation of the Aorta \n*Previous aneurysm/SAH \nINVESTIGATIONS \n \nBedside \n*ECG \u2013 tall peaked t-waves, STD,   \n  prolonged QT, arrythmia \n*Echo \u2013 neurogenic CMO \n \nLaboratory \n*FBC, U&E, CRP, INR/PTT, trop \n*Lumbar puncture \n \nRadiological \n*CXR \u2013 neurogenic pulmonary oedema \n*CTB  \n*Digital subtraction angio (DSA) =   \n  Gold Standard \nOTTAWA CLINICAL DECISION RULE OUT \nCRITERIA \n\u201cANT LEaF\u201d \n \nA \u2013 Age > 40 \nN \u2013 Neck pain or stiffness \nT \u2013 Thunderclap headcahe \nL \u2013 Loss of consciousness (witnessed) \nE \u2013 Exertion (onset during) \nand \nF \u2013 Flexion (limited neck flexion on examination) \n \nPatients require investigation if  \none or more findings present \n \nDr R Gihwala CMJAH Emergency Department June 2020 \nContents\n"
+  }
+}

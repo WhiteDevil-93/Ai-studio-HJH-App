@@ -1,0 +1,75 @@
+{
+  "_meta": {
+    "id": "critical_care_principles",
+    "type": "protocol",
+    "category": "17_ed_critical_care",
+    "subcategory": "protocols",
+    "title": "Critical Care Management Principles",
+    "source_doc": "HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Critical Care Management Principles",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "MANAGEMENT PRINCIPLES",
+        "details": "MANAGEMENT PRINCIPLES"
+      },
+      {
+        "step_number": "2",
+        "action": "GENERAL FOR ALL PATIENTS IN THE ED",
+        "details": "GENERAL FOR ALL PATIENTS IN THE ED"
+      },
+      {
+        "step_number": "3",
+        "action": "\u201cFASTHUGS IN BED\u201d",
+        "details": "\u201cFASTHUGS IN BED\u201d"
+      },
+      {
+        "step_number": "4",
+        "action": "F \u2013 Fluid therapy and Feeding",
+        "details": "F \u2013 Fluid therapy and Feeding"
+      },
+      {
+        "step_number": "5",
+        "action": "A \u2013 Analgesia and Antibiotics (if indicated),",
+        "details": "A \u2013 Analgesia and Antibiotics (if indicated),"
+      },
+      {
+        "step_number": "6",
+        "action": "Antiemetics (if indicated)",
+        "details": "Antiemetics (if indicated)"
+      },
+      {
+        "step_number": "7",
+        "action": "S \u2013 Sedation and Spontaneous Breathing Trial",
+        "details": "S \u2013 Sedation and Spontaneous Breathing Trial"
+      },
+      {
+        "step_number": "8",
+        "action": "T \u2013 Thromboprophylaxis",
+        "details": "T \u2013 Thromboprophylaxis"
+      },
+      {
+        "step_number": "9",
+        "action": "Clexane\u00ae 0.5mg/kg OD SC;",
+        "details": "Clexane\u00ae 0.5mg/kg OD SC;"
+      },
+      {
+        "step_number": "10",
+        "action": "Clexane\u00ae 0.25mg/kg OC SC if renal dysfunction (GFR<30)",
+        "details": "Clexane\u00ae 0.25mg/kg OC SC if renal dysfunction (GFR<30)"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "dose",
+        "adult_dose": "dose",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "disposition": "Disposition \n- Refer Surgery depending on cause \nDefinitions \n\u2022\nCrush Injury: physical injury from prolonged compression. May be \ndue to direct effect of trauma or ischaemia related to compression. \n\u2022\nCrush Syndrome: systemic manifestations resulting from crush \ninjury, i.e. rhabdomyolysis leading to acute kidney injury, \nmultisystem organ injury or death. \n \nCRUSH INJURY & SYNDROME \n(RHABDOMYOLYSIS) \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nIndications for dialysis \n* Refractory acidosis \n* Refractory hyperkalaemia \n*\n \n*\n \n*\n \n \nClinical Examination \n* Tramline bruising \n* Tense, oedematous, painful muscle groups \n* Dark / tea-coloured urine \n* Circulatory shock \nInvestigations \n* Blood gas \u2013 metabolic acidosis (bicarb < 20, \npH < 7.3, \uf044 lactate \n* U-dipstix \u2013 haemoglobin / protein \n* eFAST \n* Bloods: Creatinine kinase, U&E, CMP \n* No indication for repeat CK/trending of levels \n \nCauses \nExtensive soft tissue trauma \n- Community assault \n- Sjambok injury \nSnake bite (rare"
+  }
+}

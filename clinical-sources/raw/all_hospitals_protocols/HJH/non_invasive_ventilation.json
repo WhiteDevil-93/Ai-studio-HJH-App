@@ -1,0 +1,18 @@
+{
+  "_meta": {
+    "id": "non_invasive_ventilation",
+    "type": "protocol",
+    "category": "07_ed_ent",
+    "subcategory": "protocols",
+    "title": "Non-Invasive Ventilation (Niv)",
+    "source_doc": "HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Non-Invasive Ventilation (Niv)",
+    "protocol_type": "ed_protocol",
+    "warnings": [
+      "CONTRAINDICATIONS \n\u2022 Cardiac arrest \n\u2022 Respiratory arrest \n\u2022 \uf0af LOC \n\u2022 Uncooperative patient (agitated/somnolent) \n\u2022 High aspiration risk \n\u2022 Haemodynamic instability \n\u2022 Craniofacial trauma / burns to face \n\u2022 Non-fitting mask \n\u2022 Indications for intubation \n \nHOW TO PERFORM NIV \n1. Manage patient in the Resuscitation Area \n2. Attach patient to monitors: cardiac monitors, NIBP, pulse oximetry \n3. Sit patient up > 45\uf0b0 \n4. Explain the procedure to the patient and family \n5. Select the appropriate size"
+    ]
+  }
+}

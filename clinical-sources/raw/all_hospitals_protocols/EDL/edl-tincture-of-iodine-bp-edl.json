@@ -1,0 +1,34 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    104
+  ],
+  "item": "Tincture of iodine BP (EDL)",
+  "categoryHint": "dermatology",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Molluscum contagiosum"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Tincture of iodine BP topical application."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Applied to core of individual lesions using an applicator."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Used for treatment of molluscum contagiosum."
+    }
+  ],
+  "warnings": [
+    "Beware of hypersensitivity to iodine."
+  ]
+}

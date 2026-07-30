@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "peep",
+    "type": "drug",
+    "category": "2_airway_and_ventilation",
+    "subcategory": "vent_settings",
+    "title": "PEEP",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "item": "PEEP",
+    "adult_settings": "10 - 12 cm H2O",
+    "paediatric_settings": "8 - 10 cm H2O"
+  }
+}

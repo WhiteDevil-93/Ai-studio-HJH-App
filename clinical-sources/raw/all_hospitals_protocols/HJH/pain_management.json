@@ -1,0 +1,56 @@
+{
+  "_meta": {
+    "id": "pain_management",
+    "type": "protocol",
+    "category": "10_ed_procedure",
+    "subcategory": "protocols",
+    "title": "Pain Management In The Ed",
+    "source_doc": "HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Pain Management In The Ed",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "presentation \n* Administer NAC as follows (old regimen): \n\u2022\n150mg/kg in 200ml 5% Dextrose IV over 1 hour followed by \n\u2022\n50mg/kg in 500ml 5% Dextrose IV over 4 hours followed by \n\u2022\n100mg/kg in 1L 5% Dextrose IV over 16 hours \n* Preferred dosing regimen (SNAP Protocol) \u2013 NB Inform admitting doctor to continue this regimen! \n\u2022\n100mg/kg in 200ml 5% Dextrose IV over 2 hours followed by \n\u2022\n200mg/kg in 1 L 5% Dextrose IV over 10 hours \n \nStart treatment as soon as possible \nif indicated, \npreferably < 8hrs post-ingestion \nIF IN DOUBT, GIVE NAC \nDISPOSITION \nInt Med Referral \nPARACETAMOL OVERDOSE \nTOXIC DOSE \n150mg/kg or > 10g in adults \n \nINITIAL ASSESSMENT & MANAGEMENT \n* Assess and support ABC\u2019s \n* Monitor glucose \n* Attempt to quantify the amount ingested & of any co-ingestants \n* Establish a timeframe from the time of ingestion to presentation \n* Presentation < 1 hour from ingestion \n\u2022 Activated charcoal 50g PO (not via NGT) \n* ECG \u2013 look for signs of co-ingestants e.g. prolonged QT \n* Laboratory investigations \n\u2022 Blood gas, U&E, salicylate level \n\u2022 Paracetamol levels (provided \uf03e 4 hours post ingestion) \n\u2022 No need for AST/ALT/INR unless > 12 hours post ingestion \n \n**Refer to Protocol: General management principles of a poisoned/overdose patient** \n \n \n \n \n \n \n \n \nNAC CAUTIONS/SIDE-EFFECTS \u2013 Less common with SNAP Protocol \n*Anaphylaxis \n*Vomiting \n*Separate IV infusion as may be inactivated by other medications \nPREGNANCY \n*Paracetamol crosses the placenta \n*Administer NAC as above \nHIGH RISK PATIENTS \n*Hypotensive \n*Pre-existing liver dysfunction e.g. alcoholic \n*Elderly"
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "MANAGEMENT IN THE ED",
+        "details": "MANAGEMENT IN THE ED"
+      },
+      {
+        "step_number": "2",
+        "action": "PARACETAMOL",
+        "details": "PARACETAMOL"
+      },
+      {
+        "step_number": "3",
+        "action": "Adults",
+        "details": "Adults"
+      },
+      {
+        "step_number": "4",
+        "action": "1g IV over 30 minutes",
+        "details": "1g IV over 30 minutes"
+      },
+      {
+        "step_number": "5",
+        "action": "TTO: 1g PO q6-8hrly",
+        "details": "TTO: 1g PO q6-8hrly"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "dose PO q6-8hrly cc (NB! not to exceed 40mg/kg/day",
+        "adult_dose": "dose PO q6-8hrly cc (NB! not to exceed 40mg/kg/day)",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "warnings": [
+      "Caution: liver impairment \n \nNON-STEROIDAL ANTI-INFLAMMATORIES (NSAIDs) \nIBUPROFEN \nAdults \n\u2022 \n200 \u2013 600 mg PO \n\u2022 \nTTO: 200 \u2013 400mg PO q6-8hrly cc (with meals) \nPaeds \n\u2022 \n5-10mg/kg/dose PO q6-8hrly cc (NB! not to exceed 40mg/kg/day) \n \nCaution: renal failure, bleeding / PUD, elderly \n \n \n \n \nFENTANYL \nOPIOIDS \n\u2022 \n1\u00b5g/kg IV slowly \n(Duration of action: 30-45min) \n\u2022 \n1-2\u00b5g/kg/hr infusion \n\u2022 \nCardio stable \n\u2022 \n1.5 mcg/kg Intranasal in paeds  \nMORPHINE \n\u2022 \n0.1mg/kg IV \n(Duration of action: 4-6hrs) \n"
+    ],
+    "disposition": "DISPOSITION \nInt Med Referral \nPARACETAMOL OVERDOSE \nTOXIC DOSE \n150mg/kg or > 10g in adults \n \nINITIAL ASSESSMENT & MANAGEMENT \n* Assess and support ABC\u2019s \n* Monitor glucose \n* Attempt to quantify the amount ingested & of any co-ingestants \n* Establish a timeframe from the time of ingestion to presentation \n* Presentation < 1 hour from ingestion \n\u2022 Activated charcoal 50g PO (not via NGT) \n* ECG \u2013 look for signs of co-ingestants e.g. prolonged QT \n* Laboratory investigations \n\u2022 Blood gas, U&E, salicylate level \n\u2022 Paracetamol levels (provided \uf03e 4 hours post ingestion) \n\u2022 No need for AST/ALT/INR unless > 12 hours post ingestion \n \n**Refer to Protocol: General management principles of a poisoned/overdose patient** \n \n \n \n \n \n \n \n \nNAC CAUTIONS/SIDE-EFFECTS \u2013 Less common with SNAP Protocol \n*Anaphylaxis \n*Vomiting \n*Separate IV infusion as may be inactivated by other medications \nPREGNANCY \n*Paracetamol crosses the placenta \n*Administer NAC as above \nHIGH RISK PATIENTS \n*Hypotensive \n*Pre-"
+  }
+}

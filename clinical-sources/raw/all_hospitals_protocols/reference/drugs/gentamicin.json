@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "id": "gentamicin",
+    "type": "drug",
+    "category": "4_antimicrobials_and_infectious_diseases",
+    "subcategory": "aminoglycosides",
+    "title": "Gentamicin",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "condition_or_drug": "Gentamicin",
+    "adult_dose": "3-5mg/kg IV daily",
+    "paediatric_dose": "2.5mg/kg IV 8hrly",
+    "notes_updates": "Check levels. Extended interval preferred"
+  }
+}

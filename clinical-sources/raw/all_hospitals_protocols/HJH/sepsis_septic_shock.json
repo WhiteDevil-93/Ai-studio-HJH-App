@@ -1,0 +1,72 @@
+{
+  "_meta": {
+    "id": "sepsis_septic_shock",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Sepsis & Septic Shock",
+    "source_doc": "HJH ED 2026 / CMJAH / Bara ICU",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Sepsis & Septic Shock",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Resuscitation & Fluids",
+        "details": "ABCD survey. Establish large-bore IVs. Administer 30ml/kg balanced crystalloid bolus (Ringer's Lactate/Balsol) for hypotension or Lactate > 4."
+      },
+      {
+        "step_number": "2",
+        "action": "Surviving Sepsis 3-Hour Bundle",
+        "details": "Measure Lactate. Obtain blood cultures PRIOR to antibiotics (aerobic bottle ONLY, minimum 10ml, preferably 20ml). Administer broad-spectrum antibiotics within 1 hour."
+      },
+      {
+        "step_number": "3",
+        "action": "Surviving Sepsis 6-Hour Bundle",
+        "details": "If persistent hypotension despite fluids: start Adrenaline/Noradrenaline infusion to maintain MAP >= 65 mmHg. Re-measure lactate if initial lactate was high."
+      }
+    ],
+    "warnings": [
+      "Blood cultures must always be taken BEFORE the first dose of antibiotics.",
+      "Be extremely cautious with aggressive fluids in patients with cardiac dysfunction or elderly (risk of acute pulmonary edema)."
+    ]
+  },
+  "embedded_drugs": [
+    {
+      "category": "Bara ICU \u2014 Inotropes",
+      "item": "Noradrenaline",
+      "formula": "ml/hr = (ug/kg/min x kg x 60) / 50",
+      "standard_dilutions": "Double Strength: 10mg in 200ml N/S"
+    },
+    {
+      "item": "Adrenalin",
+      "adult_dose": "0.1-1ug/kg/min IV",
+      "paediatric_dose": "0.1-1ug/kg/min IV"
+    },
+    {
+      "drug": "Hydrocortisone",
+      "adult_dose": "Stress: 50-100mg IV 6-8hrly; Physiological: 20mg AM + 10mg PM",
+      "paediatric_dose": "Stress: 1-2mg/kg IV 6hrly",
+      "notes_updates": "Stress dose for adrenal insufficiency, septic shock"
+    },
+    {
+      "condition_or_drug": "Ceftriaxone",
+      "adult_dose": "1-2g IV 12-24hrly",
+      "paediatric_dose": "50-100mg/kg IV 12-24hrly (max 4g/day)"
+    },
+    {
+      "condition_or_drug": "Meropenem",
+      "adult_dose": "1-2g IV 8hrly",
+      "paediatric_dose": "20-40mg/kg IV 8hrly",
+      "notes_updates": "Extended infusion: 3-4hr. High dose for meningitis"
+    },
+    {
+      "condition_or_drug": "Vancomycin",
+      "adult_dose": "Loading: 25mg/kg; Maint: 15-20mg/kg IV 8-12hrly",
+      "paediatric_dose": "15mg/kg IV 6hrly",
+      "notes_updates": "Trough: 15-20mg/L (severe infections)"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "sepsis_septic_shock",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Sepsis + Septic Shock",
+    "source_doc": "RMMCH EM V5 Jan 2024",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Sepsis + Septic Shock",
+    "protocol_type": "ed_protocol",
+    "source_text": "\u2022 SIRS = Systemic Inflammatory Response Syndrome\nSIRS is not specific to sepsis \u2013 can be found in trauma; post-surgery; burns; \npancreatitis; acute inflammatory conditions\n\u2022 Q-SOFA Adults\nScreening tool for undifferentiated patients\n\u2022 SOFA Score Adults (for ICU referrals)\nSepsis + Septic Shock\nADULTS\nTemp\n< 36O C\n> 38OC\nHeart Rate\n> 90\nResp rate\n> 20 or  PaCO2 < 32\nWCC\nWBC < 4\n> 12\n> 10% immature (band) \nforms\n\u2022\nSIRS Criteria\nAltered \nmental status\nGCS < 15\nTachypnoea\nRR  \u2265 22\nHypotension\nSBP \u2264 100\nRMMCH EM Clinical Protocols V5 03/01/2024\n\nSOFA score (Adults)\nSepsis + Septic Shock\nRMMCH EM Clinical Protocols V5 03/01/2024\n"
+  }
+}

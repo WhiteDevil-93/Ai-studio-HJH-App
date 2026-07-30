@@ -1,0 +1,32 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    2
+  ],
+  "item": "Amoxicillin (EDL)",
+  "categoryHint": "antimicrobials",
+  "protocol_type": "weight_based_dose",
+  "clinical_features": {
+    "symptoms": [
+      "Dental abscess"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Oral formulations: suspension 125 mg/5 mL, suspension 250 mg/5 mL, capsule 250 mg, capsule 500 mg."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Children: Amoxicillin, oral, 10-20 mg/kg 8 hourly for 5 days. Weight >11-25 kg: 250 mg (10 mL of 125mg/5mL, 5 mL of 250mg/5mL, or 1 capsule of 250 mg). Weight >25 kg: 500 mg (2 capsules of 250 mg or 1 capsule of 500 mg). Adults: Amoxicillin, oral, 500 mg 8 hourly for 5 days."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Initiate treatment before referral."
+    }
+  ],
+  "warnings": []
+}

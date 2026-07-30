@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "crush_injury",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "CRUSH INJURY",
+    "source_doc": "CMJAH ED December 2020",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "CRUSH INJURY",
+    "protocol_type": "ed_protocol",
+    "source_text": "CRUSH INJURY \n \n \nCauses \n* Extensive soft tissue trauma \n- Community assault \n- Sjambok injury \n* Snake bite \n* Compartment syndrome \n* Strenuous exercise \n* Hyperthermia \n* Electric injury  \n* Burns (3rd & 4th degree) \n* Severe sepsis  \n* Metabolic myopathies \n* Drug overdose \n- Isoniazid \n- Corticosteroids \n- Colchicine \n- Anti-malarial \n- Heroine \n- Zidovudine \n \nClinical Examination \n* Tramline bruising \n* Tense, oedematous, painful muscle groups \n* Dark / tea-coloured urine \n* Circulatory shock \nInvestigations \n* Blood gas \u2013 metabolic acidosis, \u00dd lactate \n* U-dipstix \u2013 haemoglobin / protein  \n* eFAST \n* Bloods: Creatinine kinase, myoglobin, U&E, CMP \nED Management \n \n* ABCD approach to resuscitation \n \n* Aggressive fluid administration \n \n- Crystalloids (Balsol / Ringers Lactate) \n \n- Rate: 15 \u2013 30 ml/kg/hr \n \n* Monitor urinary output \n  - Aim for urinary output of 200 \u2013 300 mls/hr \n \n* Correct Electrolyte Abnormalities \n \n* Indication for Mannitol   \n- urine output < 20mls/hr \n \n* Indications for NaHCO3 8.5% (1ml/kg) \n- severe metabolic acidosis  \n- hyperkalaemia correction \n \n* Indications for referral for dialysis \n \n- persistent acidosis \n \n- refractory hyperkalaemia \n \n- \u00df urine output \n \n* Disposition \n \n- Refer Trauma/Surgery depending on cause   \nDr R Gihwala CMJAH Emergency Department June 2020 \nContents\n"
+  }
+}

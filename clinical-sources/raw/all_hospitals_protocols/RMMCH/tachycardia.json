@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "tachycardia",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Tachycardia",
+    "source_doc": "RMMCH EM V5 Jan 2024",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Tachycardia",
+    "protocol_type": "ed_protocol",
+    "source_text": "Tachycardia\nwww.resus.co.za\n2021\n2021\nOpen, maintain and protect as necessary\nEstablish IV access\nAdminister oxygen if required. Target saturation 94-98%\nVentilate if necessary\nAssess pulse, blood pressure and perfusion\nAttach ECG monitor, pulse oximeter and vital signs monitor if available\nRun rhythm strip to confirm dysrhythmia (12 lead ECG) if possible\nIdentify and treat underlying causes\n\u2022 \nHypotension\n\u2022 \nAcutely altered mental state\n\u2022 \nSigns of shock\n\u2022 \nIschaemic chest discomfort\n\u2022 \nAcute heart failure \nAIRWAY\nDRIP\nBREATHING\nCIRCULATION\nECG RHYTHM\nSIGNS OF INSTABILITY\nTachycardia Management  \nAlgorithm\nNARROW COMPLEX TACHYCARDIA\nWIDE COMPLEX TACHYCARDIA\nSYNCHRONISED CARDIOVERSION\n*Paediatric Tachycardia Rates\nPaediatric Drug Doses\nPhysiological causes\nTACHYCARDIA\nVAGAL STIMULATION\nADENOSINE\nAMIODARONE\nAMIODARONE\n(Supraventricular Tachycardia)\nHR > 150/min with QRS < 0.12 sec\n(Ventricular Tachycardia)\nGenerally HR > 150/min with\nQRS > 0.12 sec\nConsider procedural sedation\nStart with 100J initially  \n(monophasic or biphasic)\nPaediatric start 0.5-1J/kg\nthen 2J/kg (Max 4J/kg)\nNarrow complex   > 180 child QRS < 0.08 sec \n> 220 infant\nWide complex  \n> 200 QRS > 0.08 sec\nAdenosine 0.1mg/kg rapidly (max 6mg) \nfollowed by 0.2mg/kg (max 12mg)\nAmiodarone 5mg/kg in 5% D/W over  \n20\u201360 min (max 300mg) in an ICU \nmonitored environment 5% D/W\nMagnesium 30-50 mg/kg slow IV\n\u2022 \nSepsis\n\u2022 \nPain / anxiety\n\u2022 \nHypovolaemia\n\u2022 \nAnaemia\n\u2022 \nStreet drugs\n\u2022 \nHyperthyroidism\nHR > 150/min *See Paediatric Rates\n(NOT if varying R-R intervals/Atrial fib)\nPreferable: Modified Valsalva\nAlternatives\nValsalva, Ice water applied to face, \nCoughing, Breath-holding\n(NOT if varying R-R intervals/Atrial fib)\n6 mg IV rapidly, then 12 mg IV after 1-2 min prn\nAlternatives\n(esp irregular rhythms)\nBeta Blockers or Ca Channel Blockers\n150 mg in 5% D/W over  \n10 minutesIV (15 mg/min)  \nthen 1 mg/min infusion\nConsider (if Torsades de Pointes):\n\u2022 Defibrillation (Asynchronous)\n\u2022  Magnesium 2g IV over 10 min \n\u2022 Correct electrolytes \n\u2022 Consider toxins/drugs\n150 mg in 5% D/W over 10 minutes\nIV (15 mg/min) then 1 mg/min infusion\nAlternatives\n(esp irregular rhythms)\nBeta Blockers or Ca Channel Blockers\nSPECIALIST MEDICAL \nADVICE SHOULD BE \nSOUGHT WHENEVER \nPOSSIBLE\nUnstable\nStable\nRMMCH EM Clinical Protocols V5 03/01/2024\n"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "reversible_causes_hs_ts",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Reversible causes",
+    "source_doc": "RMMCH EM V5 Jan 2024",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Reversible causes",
+    "protocol_type": "ed_protocol",
+    "source_text": "Cardiac Arrest \nReversible causes\nRMMCH EM Clinical Protocols V5 03/01/2024\n"
+  }
+}

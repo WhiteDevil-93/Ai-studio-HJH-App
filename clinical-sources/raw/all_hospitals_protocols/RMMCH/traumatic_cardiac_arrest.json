@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "traumatic_cardiac_arrest",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Trauma Cardiac Arrest Algorithm for",
+    "source_doc": "RMMCH EM V5 Jan 2024",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Trauma Cardiac Arrest Algorithm for",
+    "protocol_type": "ed_protocol",
+    "source_text": "Cardiac Arrest Traumatic\n \nwww.resus.co.za \n \n \n \nEnsure the scene is safe \nDon appropriate PPE \n\u2022\nUnresponsive? (Manual C-Spine alignment throughout) \n\u2022\nNot breathing or only gasping? \n\u2022\nPulse? (If available, use Ultrasound. If no cardiac wall motion: \nConsider not starting resuscitation) \nCall for assistance and activate trauma team (if \navailable) \nEmergency No: \u2026\u2026\u2026\u2026\u2026\u2026\u2026...\u2026\u2026\u2026\u2026\u2026 \nSimultaneously prioritise the following \nactions using a multi-member team \nHELP \nHELLO \nHAZARDS \nH- Haemorrhage Control \n\u2022 \nApply tourniquets / direct pressure as required \n\u2022 \nBind pelvis \n\u2022 \nStraighten / stabilise long bone fractures \n\u2022 \nIV/IO access above the pelvis and provide 20ml/kg \nwarmed crystalloids (Or whole blood / massive \ntransfusion protocol / packed cells & FFP, if available) \nO- Oxygenation and Ventilation \n\u2022 \nPlace an advanced airway (ETT / SGA) \n\u2022 \nVentilate using positive pressure ventilation with \n100% O2 at min 15L/minute flowrate  \nT- Tension Pneumothorax \n\u2022 \nConsider empiric bilateral chest decompression \n(Anterior axillary line at the 5th IC space; \nFinger thoracostomy preferred) \nT-Tamponade \n\u2022 \nDiagnose with Ultrasound (if available) \n\u2022 \nConsider thoracotomy or pericardial window \n(Consider time from arrest and available skills) \nBegin standard BLS and ACLS as per RCSA algorithm \nConsider other reversible causes, including possible \nmedical causes \n Trauma Cardiac Arrest Algorithm for \nHealthcare Providers \n \n \n \n(Oct 2023) \nROSC? \nConsider termination of efforts \nYes \nNo \nFollow post cardiac arrest algorithm \nConsider urgent surgical intervention \nand administration of TxA \nRMMCH EM Clinical Protocols V5 03/01/2024\n"
+  }
+}

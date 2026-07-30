@@ -1,0 +1,32 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    3
+  ],
+  "item": "Lidocaine (EDL)",
+  "categoryHint": "dosing",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Local anaesthesia for dental procedures"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Local anaesthetic for dental procedures."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "To be managed by a dentist or dental therapist."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Restricted to Dentist and dental therapist."
+    }
+  ],
+  "warnings": []
+}

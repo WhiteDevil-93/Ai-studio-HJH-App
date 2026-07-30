@@ -1,0 +1,39 @@
+{
+  "sourceDoc": "CHBAH_ICU",
+  "pdfPages": [
+    1
+  ],
+  "item": "Hyperkalaemia management (CHBAH ICU)",
+  "categoryHint": "metabolic",
+  "protocol_type": "icu_dosing",
+  "clinical_features": {
+    "symptoms": [
+      ">5.5 mmol/L (neonates >6.5 mmol/L). Always repeat if high. Stop potassium-containing drugs/solutions."
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Calcium",
+      "details": "10% Calcium Chloride 10 mL IV slowly (paeds 0.2 mL/kg); or 10% Calcium Gluconate 10 mL IV slowly (paeds 0.5 mL/kg)"
+    },
+    {
+      "step_number": "2",
+      "action": "Insulin + dextrose",
+      "details": "Adult Actrapid 10 IU STAT + 20\u201350 mL 50% D/W; Paediatric Actrapid 0.1 U/kg + 2 mL/kg 25% D/W"
+    },
+    {
+      "step_number": "3",
+      "action": "Salbutamol",
+      "details": "Paediatric 4 mcg/kg IV over 20 min"
+    },
+    {
+      "step_number": "4",
+      "action": "Kayexalate",
+      "details": "Adult 30 g PR 6 hrly; Paediatric 1\u20132 g/kg PR 6 hrly"
+    }
+  ],
+  "warnings": [
+    "ALWAYS repeat potassium if high"
+  ]
+}

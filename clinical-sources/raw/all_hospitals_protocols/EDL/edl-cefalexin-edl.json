@@ -1,0 +1,42 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    80,
+    81,
+    82,
+    83,
+    84,
+    92,
+    95,
+    96
+  ],
+  "item": "Cefalexin (EDL)",
+  "categoryHint": "antimicrobials",
+  "protocol_type": "weight_based_dose",
+  "clinical_features": {
+    "symptoms": [
+      "Boils, abscesses",
+      "Impetigo",
+      "Cellulitis",
+      "Secondary infection in scabies and eczema"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Oral administration (suspension/capsules)."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Children <= 7 years of age: 25 mg/kg/dose 12 hourly for 5 days. Children > 7 years of age and adults: 500 mg 6 hourly for 5 days."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Used for bacterial skin infections when systemic antibiotics are indicated."
+    }
+  ],
+  "warnings": []
+}

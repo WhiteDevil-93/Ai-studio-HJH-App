@@ -1,0 +1,34 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    51
+  ],
+  "item": "Isosorbide dinitrate (EDL)",
+  "categoryHint": "cardiovascular",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Stable angina",
+      "Unstable angina / NSTEMI",
+      "Acute myocardial infarction (AMI) / STEMI"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Sublingual tablets (5 mg) or oral tablets (20-30 mg)."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Sublingual: 5 mg, may be repeated if required at 5-minute intervals for 3 or 4 doses. Oral: 20-30 mg twice daily (taken at 8:00 and 14:00 to provide a nitrate-free period)."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Keep tablets in airtight and lightproof container. Not addictive. Use prophylactically before activities that may provoke angina."
+    }
+  ],
+  "warnings": []
+}

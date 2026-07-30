@@ -1,0 +1,18 @@
+{
+  "_meta": {
+    "id": "opioids",
+    "type": "drug",
+    "category": "6_poisoning_and_toxicology",
+    "subcategory": "protocols",
+    "title": "Opioids",
+    "source_doc": "Bara ICU Dosing Card 2024 / HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "drug": {
+    "item": "Opioids",
+    "adult_dose": "Naloxone 0.4-4mg IV q2-3min up to 10mg total | Infusion: 0.04-0.16mg/kg/hr IV",
+    "paediatric_dose": "Weight-based naloxone dosing",
+    "route": "IV/IM/Intranasal",
+    "notes": "Reversal agent has shorter half-life than most opioids (~1 hour). Monitor for recurrent sedation."
+  }
+}

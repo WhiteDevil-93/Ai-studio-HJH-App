@@ -1,0 +1,56 @@
+{
+  "_meta": {
+    "id": "compartment_syndrome",
+    "type": "protocol",
+    "category": "02_ed_trauma_ortho",
+    "subcategory": "protocols",
+    "title": "Compartment Syndrome",
+    "source_doc": "HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Compartment Syndrome",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "CLINICAL FEATURES \n\u2022\nPain out of proportion to the injury \n\u2022\nPain on passive stretch \n\u2022\nTense compartment  \n\u2022\nDecreased capillary refill time \n\u2022\nPulses are usually PRESENT. Absent pulses \nmay be due to systemic hypotension, \narterial occlusion or vascular injury \nLate signs \u2013 do not delay until these \nappear! \n\u2022\nPallor \n\u2022\nParalysis \n\u2022\nParaesthesia \n \nMANAGEMENT \nTIME SENSITIVE LIMB THREATENING DIAGNOSIS! DO NOT DELAY! \n \n\u2022\nUrgent surgical consult \n\u2022\nEmergency fasciotomy \n\u2022\nDo not delay surgery for imaging e.g. CT angio UNLESS truly necessary \n\u2022\nRemove constrictive dressings/casts \n\u2022\nReduce fractures but avoid traction/tight casts \n\u2022\nPlace limb at the level of the heart \n\u2022\nLiberal analgesia \u2013 avoid nerve blocks/regional anaesthesia! \n\u2022\nMeasure intracompartmental pressure if available (can use a-line set) \n\u2022\nConsider concomitant rhabdomyolysis and crush syndrome \n \n \nCAUSES \n\u2022\nBlunt soft tissue injury \n\u2022\nBurns, NB Electrical burns \n\u2022\nCasts  \n\u2022\nContrast extravasation/other high-speed fluid \ninjectors e.g. paint guns \n\u2022\nDVT \u2013 phlegmasia cerulea/alba dolens \n\u2022\nEMG \n\u2022\nExercise \u2013 rare \n\u2022\nFractures \u2013 common \n\u2022\nHaemorrhage (Haemophilia) \n\u2022\nInfections \n\u2022\nIV/IO infusions \n\u2022\nSkin/skeletal traction \n\u2022\nSnake bites (NB more likely PSEUDO-\ncompartment syndrome) \n \nPOCUS: may be used as an adjunct to investigate \ncause of compartment syndrome e.g. \nintramuscular haematoma, or pseudo-\ncompartment syndrome in cytotoxic snakebite \n \nASSESSMENT \n\u2022\nCaused by excessive pressure in a fascial compartment. Leading to decreased perfusion \n\u2022\nMost common in tibial/forearm fractures, high-energy wrist fractures, crush injury \n\u2022\nOther: restrictive dressings/casts, prolonged immobilization and reperfusion of ischaemic \nlimbs.  \n\u2022\nDocument time and mechanism of injury, time of evaluation, level of pain, level of \nconsciousness, response to analgesia, neurovascular status of affected limb \n\u2022\nAVOID REGIONAL ANAESTHESIA IN HIGH RISK CASES"
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "MANAGEMENT",
+        "details": "MANAGEMENT"
+      },
+      {
+        "step_number": "2",
+        "action": "TIME SENSITIVE LIMB THREATENING DIAGNOSIS! DO NOT DELAY!",
+        "details": "TIME SENSITIVE LIMB THREATENING DIAGNOSIS! DO NOT DELAY!"
+      },
+      {
+        "step_number": "3",
+        "action": "Urgent surgical consult",
+        "details": "Urgent surgical consult"
+      },
+      {
+        "step_number": "4",
+        "action": "Emergency fasciotomy",
+        "details": "Emergency fasciotomy"
+      },
+      {
+        "step_number": "5",
+        "action": "Do not delay surgery for imaging e.g. CT angio UNLESS truly necessary",
+        "details": "Do not delay surgery for imaging e.g. CT angio UNLESS truly necessary"
+      },
+      {
+        "step_number": "6",
+        "action": "Remove constrictive dressings/casts",
+        "details": "Remove constrictive dressings/casts"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "See protocol",
+        "notes": "Drug details in source PDF"
+      }
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "sourceDoc": "EDL_PHC",
+  "pdfPages": [
+    91
+  ],
+  "item": "Yellow petroleum jelly (EDL)",
+  "categoryHint": "dermatology",
+  "protocol_type": "drug_entry",
+  "clinical_features": {
+    "symptoms": [
+      "Pediculosis of the eyelashes or eyebrows"
+    ]
+  },
+  "management_steps": [
+    {
+      "step_number": "1",
+      "action": "Preparation / Standard Dilution",
+      "details": "Yellow petroleum jelly."
+    },
+    {
+      "step_number": "2",
+      "action": "Dose / Rate Range",
+      "details": "Apply to eyelid margins (cover eyelashes) daily for 10 days."
+    },
+    {
+      "step_number": "3",
+      "action": "Monitoring / Notes",
+      "details": "Do not use white petroleum jelly near eyes. Do not apply directly to eyes."
+    }
+  ],
+  "warnings": [
+    "Do not use white petroleum jelly near the eyes. Do not apply to eyes."
+  ]
+}

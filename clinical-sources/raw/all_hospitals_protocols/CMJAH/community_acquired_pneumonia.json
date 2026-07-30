@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "community_acquired_pneumonia",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "COMMUNITY ACQUIRED PNEUMONIA",
+    "source_doc": "CMJAH ED December 2020",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "COMMUNITY ACQUIRED PNEUMONIA",
+    "protocol_type": "ed_protocol",
+    "source_text": "COMMUNITY ACQUIRED PNEUMONIA  \n \n \n \nTreat according to clinical judgment &  \nCURB 65 Severity Score \nSUSPECTED PNEUMONIA \n* History \n* Clinical examination \n* Radiographic findings \nCURB65 Severity Score \n1 point for each feature present \n* Confusion \n* Urea \u2265 7mmol \n* Respiratory Rate \u2265 30/min \n* Blood Pressure \n   SBP \u2264 90mmHg / DBP \u2264 60mmHg \n* Age \u2265 65 years \nCURB 65 Severity Score 0 - 1 \n(risk of death < 3%) \n \nOther reasons for admission?                     \neg. unstable comorbidities, poor social \ncircumstances, no transport? \n \n   No                           Yes \n \n \n \n      Discharge Home \n \n \nAugmentin 375mg + \nAmoxil 500mg x 5/7 \n\u00b1 \nErythromycin 500mg \nqid po x 5/7 (if atypical \nfeatures on xrays) \nIf Augmentin out of \nstock: Amoxil 1g tds \npo x 5/7 \nIf Penicillin Allergy: \nErythromycin 500mg \nqid po x 5/7 \n \nAdmit \nManagement as for \nSeverity Score 2 \nRefer to Resp \n*If TB infection is \nsuspected-advise \nsputum AFB's & \nGXP \nIf Age > 65 years is the only criteria - Follow for \nSeverity Score 2 as renal dysfunction likely \nCURB 65 Severity Score 2 \n(risk of death < 9%) \n \nHospital Admission \u2013 refer to Resp \n \n \n* Supportive Care e.g. oxygen, IV fluids \n* Bloods: FBC/U+E/CRP \n* Initiate early IV antibiotic therapy \n \n \n Augmentin 1.2g IV stat \n\u00b1 \nAzithromycin 500mg po/IV \nif \n           \n  * Atypical features on xray \n  *  Elderly \n            \n  * COPD exacerbation 2\u00b0 bacterial infection \nCURB 65 Severity Score 3 - 5 \n(risk of death 15-40%) \n \nUrgent Hospital Admission \u2013 refer to Resp \n \n \n                                            \n* Supportive Care  e.g. oxygen, IV fluids \n* Intubate if required \n* Bloods: ABG/FBC/U+E/CRP/Blood cultures \n* Initiate early IV antibiotic therapy \n \nAugmentin 1.2g IV stat / Zinacef 1.5g IV stat \nAND \nAzithromycin 500mg po/IV \nAND \nHydrocortisone 100mg IVI stat \n \n \n CURB 65 4-5  \n  ICU/High Care Admission \u2013 refer to Resp \n \nDr R Gihwala CMJAH Emergency Department June 2020 \nContents\n"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "opioid_overdose",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Opioid Overdose / Toxicity",
+    "source_doc": "RMMCH EM V5 Jan 2024",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Opioid Overdose / Toxicity",
+    "protocol_type": "ed_protocol",
+    "source_text": "Ref Panchal AR et al. AHA. Part 3. Adult Basic + ALS. Circulation. 2020; \n142(suppl 2):S336-S468.\nOpioid Overdose / Toxicity\nRMMCH EM Clinical Protocols V5 03/01/2024\n"
+  }
+}

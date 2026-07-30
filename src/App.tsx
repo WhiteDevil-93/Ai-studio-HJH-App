@@ -35,6 +35,15 @@ import { HomePage } from './components/HomePage';
 import { MindMapViewer, MIND_MAPS_DATABASE } from './components/MindMapViewer';
 import { PolicyViewer, POLICIES_DATABASE } from './components/PolicyViewer';
 import { CodeRedDrawer } from './components/CodeRedDrawer';
+import { HospitalProtocolsPage } from './components/HospitalProtocolsPage';
+import { ProtocolLandingPage } from './components/ProtocolLandingPage';
+import {
+  HOSPITALS,
+  HOSPITAL_PROTOCOLS_BY_FACILITY,
+  isHospitalId,
+  type HospitalId,
+  type HospitalProtocol,
+} from './clinical/hospitalProtocols';
 
 const D = clinicalData as any;
 
@@ -183,9 +192,34 @@ interface DrugItem {
   notes?: string;
 }
 
+const FACILITY_CATEGORY: Record<HospitalId, string> = {
+  hjh: 'helen_guidelines',
+  cmjah: 'cmjah_guidelines',
+  chbah: 'bara_icu_card',
+  rmmch: 'rmmch_guidelines',
+};
+
+const CATEGORY_FACILITY: Record<string, HospitalId | undefined> = {
+  helen_guidelines: 'hjh',
+  cmjah_guidelines: 'cmjah',
+  bara_icu_card: 'chbah',
+  rmmch_guidelines: 'rmmch',
+};
+
+const parseHospitalHash = (): {facilityId: HospitalId; slug?: string} | null => {
+  if (typeof window === 'undefined') return null;
+  const match = window.location.hash.match(/^#\/hospital\/(hjh|cmjah|chbah|rmmch)(?:\/([^/?#]+))?$/);
+  if (!match || !isHospitalId(match[1])) return null;
+  return {
+    facilityId: match[1],
+    slug: match[2] ? decodeURIComponent(match[2]) : undefined,
+  };
+};
+
 
 export default function App() {
   const { canInstall, triggerInstall } = usePWAInstall();
+  const initialHospitalRoute = parseHospitalHash();
 
   // Theme state
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
@@ -196,8 +230,17 @@ export default function App() {
   // Core Inputs & Navigation
   const [weight, setWeight] = useState<string>(() => localStorage.getItem('tr_w') || '');
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [selectedCategory, setSelectedCategory] = useState<string>('home');
-  const [selectedFacility, setSelectedFacility] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string>(
+    initialHospitalRoute ? FACILITY_CATEGORY[initialHospitalRoute.facilityId] : 'home',
+  );
+  const [selectedFacility, setSelectedFacility] = useState<HospitalId | null>(
+    initialHospitalRoute?.facilityId ?? null,
+  );
+  const [selectedProtocolId, setSelectedProtocolId] = useState<string | null>(
+    initialHospitalRoute?.slug
+      ? `${initialHospitalRoute.facilityId}:${initialHospitalRoute.slug}`
+      : null,
+  );
   const [activeMindMap, setActiveMindMap] = useState<string | null>(null);
   const [activePolicy, setActivePolicy] = useState<string | null>(null);
   const [codeRedOpen, setCodeRedOpen] = useState<boolean>(false);
@@ -268,6 +311,71 @@ export default function App() {
   const [aboutOpen, setAboutOpen] = useState<boolean>(false);
   const aboutTriggerRef = useRef<HTMLButtonElement>(null);
   const aboutDialogRef = useRef<HTMLDivElement>(null);
+
+  const navigateToCategory = (categoryId: string) => {
+    setSelectedCategory(categoryId);
+    setSelectedFacility(null);
+    setSelectedProtocolId(null);
+    setActiveMindMap(null);
+    setActivePolicy(null);
+    if (typeof window !== 'undefined' && window.location.hash.startsWith('#/hospital/')) {
+      window.history.pushState(null, '', `${window.location.pathname}${window.location.search}`);
+    }
+  };
+
+  const navigateToFacility = (facilityId: HospitalId) => {
+    setSelectedFacility(facilityId);
+    setSelectedProtocolId(null);
+    setSelectedCategory(FACILITY_CATEGORY[facilityId]);
+    setActiveMindMap(null);
+    setActivePolicy(null);
+    if (typeof window !== 'undefined') {
+      window.history.pushState(null, '', `#/hospital/${facilityId}`);
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+  };
+
+  const navigateToProtocol = (protocol: HospitalProtocol) => {
+    setSelectedFacility(protocol.facilityId);
+    setSelectedProtocolId(protocol.id);
+    setSelectedCategory(FACILITY_CATEGORY[protocol.facilityId]);
+    setActiveMindMap(null);
+    setActivePolicy(null);
+    if (typeof window !== 'undefined') {
+      window.history.pushState(
+        null,
+        '',
+        `#/hospital/${protocol.facilityId}/${encodeURIComponent(protocol.slug)}`,
+      );
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+  };
+
+  useEffect(() => {
+    const syncFromLocation = () => {
+      const route = parseHospitalHash();
+      if (!route) {
+        setSelectedFacility(null);
+        setSelectedProtocolId(null);
+        setSelectedCategory('home');
+        setActiveMindMap(null);
+        setActivePolicy(null);
+        return;
+      }
+      setSelectedFacility(route.facilityId);
+      setSelectedProtocolId(route.slug ? `${route.facilityId}:${route.slug}` : null);
+      setSelectedCategory(FACILITY_CATEGORY[route.facilityId]);
+      setActiveMindMap(null);
+      setActivePolicy(null);
+    };
+
+    window.addEventListener('popstate', syncFromLocation);
+    window.addEventListener('hashchange', syncFromLocation);
+    return () => {
+      window.removeEventListener('popstate', syncFromLocation);
+      window.removeEventListener('hashchange', syncFromLocation);
+    };
+  }, []);
 
   // Score Calculator states
   const [gcsState, setGcsState] = useState<Record<string, number>>({});
@@ -2886,6 +2994,40 @@ export default function App() {
     );
   };
 
+  const renderHospitalProtocolsView = (facilityId: HospitalId) => {
+    const activeProtocol = selectedFacility === facilityId && selectedProtocolId
+      ? HOSPITAL_PROTOCOLS_BY_FACILITY[facilityId].find(
+          protocol => protocol.id === selectedProtocolId,
+        )
+      : undefined;
+
+    if (activeProtocol) {
+      return (
+        <ProtocolLandingPage
+          protocol={activeProtocol}
+          onBack={() => {
+            setSelectedFacility(facilityId);
+            setSelectedProtocolId(null);
+            window.history.pushState(null, '', `#/hospital/${facilityId}`);
+            window.scrollTo({top: 0, behavior: 'smooth'});
+          }}
+        />
+      );
+    }
+
+    return (
+      <HospitalProtocolsPage
+        facilityId={facilityId}
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        onBack={() => navigateToCategory('home')}
+        onOpenProtocol={navigateToProtocol}
+        onOpenScores={() => navigateToCategory('16_score_calculators')}
+        onOpenTrials={() => navigateToCategory('trials_guidelines')}
+      />
+    );
+  };
+
   // Switch rendering based on active categories
   const renderContent = () => {
     if (activeMindMap) {
@@ -2911,21 +3053,12 @@ export default function App() {
       return (
         <HomePage
           onSelectFacility={(facId) => {
-            setSelectedFacility(facId);
-            if (facId === 'hjth') {
-              setSelectedCategory('helen_guidelines');
-            } else if (facId === 'chbah') {
-              setSelectedCategory('bara_icu_card');
-            } else if (facId === 'cmjah') {
-              setSelectedCategory('cmjah_guidelines');
-            } else if (facId === 'rmmch') {
-              setSelectedCategory('rmmch_guidelines');
-            }
+            if (isHospitalId(facId)) navigateToFacility(facId);
           }}
-          onSelectCategory={(catId) => setSelectedCategory(catId)}
+          onSelectCategory={navigateToCategory}
           onSelectMindMap={(mapId) => setActiveMindMap(mapId)}
           onSelectPolicy={(polId) => setActivePolicy(polId)}
-          onSelectScore={() => setSelectedCategory('16_score_calculators')}
+          onSelectScore={() => navigateToCategory('16_score_calculators')}
           onOpenCodeRed={() => setCodeRedOpen(true)}
           weight={weight}
           setWeight={setWeight}
@@ -2944,19 +3077,19 @@ export default function App() {
     }
 
     if (selectedCategory === 'bara_icu_card') {
-      return renderBaraIcuCardView();
+      return renderHospitalProtocolsView('chbah');
     }
 
     if (selectedCategory === 'helen_guidelines') {
-      return renderHelenGuidelinesView();
+      return renderHospitalProtocolsView('hjh');
     }
 
     if (selectedCategory === 'cmjah_guidelines') {
-      return renderCmjahGuidelinesView();
+      return renderHospitalProtocolsView('cmjah');
     }
 
     if (selectedCategory === 'rmmch_guidelines') {
-      return renderRmmchGuidelinesView();
+      return renderHospitalProtocolsView('rmmch');
     }
 
     if (selectedCategory === 'edl_phc_guidelines') {
@@ -2988,7 +3121,7 @@ export default function App() {
           {contentCategoryKeys.map(k => (
             <button
               key={k}
-              onClick={() => setSelectedCategory(k)}
+              onClick={() => navigateToCategory(k)}
               className={`flex flex-col items-center justify-center p-2.5 rounded-xl border transition-all text-center ${k === selectedCategory
                   ? 'border-teal-400 bg-teal-500/10'
                   : theme === 'dark'
@@ -3007,6 +3140,11 @@ export default function App() {
       </>
     );
   };
+
+  const activeFacilityId = CATEGORY_FACILITY[selectedCategory];
+  const categoryBarOrder = activeFacilityId
+    ? ['home', selectedCategory, '16_score_calculators', 'trials_guidelines']
+    : ORDER;
 
   return (
     <div className={`min-h-screen transition-colors duration-300 ${theme === 'dark' ? 'theme-dark bg-[#0b1329] text-slate-100' : 'theme-light bg-slate-100 text-slate-900'}`}>
@@ -3108,7 +3246,7 @@ export default function App() {
                 </div>
 
                 {/* Source Filter Group */}
-                <div className="space-y-2">
+                {!activeFacilityId && <div className="space-y-2">
                   <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider">Clinical Source Filter</label>
                   <div className="flex flex-col gap-1.5">
                     <button
@@ -3142,7 +3280,7 @@ export default function App() {
                       {sourceFilter === 'edl_phc' && <Check className="w-3.5 h-3.5 text-blue-400" />}
                     </button>
                   </div>
-                </div>
+                </div>}
 
                 {/* Primary Pillars & Shortcuts */}
                 <div className="space-y-2 pt-2 border-t border-slate-800">
@@ -3166,9 +3304,12 @@ export default function App() {
                         key={item.id}
                         type="button"
                         onClick={() => {
-                          setSelectedCategory(item.id);
-                          setActiveMindMap(null);
-                          setActivePolicy(null);
+                          const facilityId = CATEGORY_FACILITY[item.id];
+                          if (facilityId) {
+                            navigateToFacility(facilityId);
+                          } else {
+                            navigateToCategory(item.id);
+                          }
                           setSidebarOpen(false);
                         }}
                         className={`w-full text-left px-3 py-2 rounded-lg text-xs font-bold transition-colors ${
@@ -3212,7 +3353,7 @@ export default function App() {
 
           <button
             type="button"
-            onClick={() => { setSelectedCategory('home'); setActiveMindMap(null); setActivePolicy(null); }}
+            onClick={() => navigateToCategory('home')}
             aria-label="Go to Home"
             className="flex items-center gap-2 cursor-pointer bg-transparent border-0 p-0"
           >
@@ -3283,7 +3424,15 @@ export default function App() {
               onClick={() => setSidebarOpen(true)}
               className="text-xs font-bold px-3 py-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-indigo-300 border border-slate-700/60 transition-colors shrink-0 flex items-center gap-1.5 cursor-pointer"
             >
-              <span>{sourceFilter === 'all' ? 'All Sources' : sourceFilter === 'bara_icu' ? 'Bara ICU' : 'SA EDL'}</span>
+              <span>
+                {activeFacilityId
+                  ? `${HOSPITALS[activeFacilityId].shortName} only`
+                  : sourceFilter === 'all'
+                    ? 'All Sources'
+                    : sourceFilter === 'bara_icu'
+                      ? 'Bara ICU'
+                      : 'SA EDL'}
+              </span>
               <ChevronDown className="w-3.5 h-3.5" />
             </button>
           </div>
@@ -3295,14 +3444,21 @@ export default function App() {
         <div className={`sticky top-[7rem] z-30 flex gap-2 p-3 overflow-x-auto whitespace-nowrap border-b transition-colors duration-300 no-scrollbar ${
           theme === 'dark' ? 'bg-slate-900/90 border-slate-800/80' : 'bg-slate-100 border-slate-200'
         }`}>
-          {ORDER.map(k => {
+          {categoryBarOrder.map(k => {
             const label = CATEGORIES[k] || k;
             const isSelected = selectedCategory === k;
             const favsCount = favourites.length;
             return (
               <button
                 key={k}
-                onClick={() => setSelectedCategory(k)}
+                onClick={() => {
+                  const facilityId = CATEGORY_FACILITY[k];
+                  if (facilityId) {
+                    navigateToFacility(facilityId);
+                  } else {
+                    navigateToCategory(k);
+                  }
+                }}
                 className={`flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-bold transition duration-200 cursor-pointer ${
                   isSelected
                     ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/20'
@@ -3327,7 +3483,7 @@ export default function App() {
       {/* MAIN CONTAINER */}
       <main className="max-w-7xl mx-auto p-4 pb-20">
         {/* Toggle Controls for All Containers (NOT shown on Home landing page) */}
-        {selectedCategory !== 'home' && selectedCategory !== 'favourites' && selectedCategory !== 'recently_viewed' && !activeMindMap && !activePolicy && (
+        {selectedCategory !== 'home' && selectedCategory !== 'favourites' && selectedCategory !== 'recently_viewed' && !CATEGORY_FACILITY[selectedCategory] && !activeMindMap && !activePolicy && (
           <div className="flex justify-end gap-2 mb-4">
             <button
               onClick={expandAllContainers}

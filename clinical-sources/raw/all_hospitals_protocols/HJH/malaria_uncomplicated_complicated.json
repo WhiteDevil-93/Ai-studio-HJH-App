@@ -1,0 +1,50 @@
+{
+  "_meta": {
+    "id": "malaria_uncomplicated_complicated",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Malaria (Uncomplicated & Complicated)",
+    "source_doc": "HJH ED 2026 / CMJAH / Bara ICU",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Malaria (Uncomplicated & Complicated)",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Assess & Triage",
+        "details": "Triage as ORANGE. Check FBC, malaria smear & antigen. Look for high-risk criteria: children, pregnant, elderly, splenectomy."
+      },
+      {
+        "step_number": "2",
+        "action": "Uncomplicated Malaria Treatment",
+        "details": "If smear/antigen positive with < 5% parasitaemia and no organ dysfunction: give Co-artem 4 tablets PO stat, 4 after 8 hours, then BD for 2 days. If unavailable: Quinine + Doxycycline (or Quinine + Clindamycin in pregnancy/children)."
+      },
+      {
+        "step_number": "3",
+        "action": "Complicated / Severe Malaria Treatment",
+        "details": "Smear > 5%, or any organ dysfunction (coma, convulsions, pulmonary edema, shock, jaundice, severe anaemia Hb < 5, hypoglycemia < 2.2, lactate > 5): Give Artesunate 2.4 mg/kg IV stat at 0, 12, 24 hours. (Alternative: Quinine infusion)."
+      }
+    ],
+    "warnings": [
+      "Observe for vomiting for 1 hour in the ED after oral antimalarial. If vomiting occurs within 1 hour, re-administer the dose. If vomiting persists, refer to Internal Medicine."
+    ]
+  },
+  "embedded_drugs": [
+    {
+      "condition_or_drug": "Artesunate (severe malaria)",
+      "adult_dose": "2.4mg/kg IV at 0, 12, 24h, then daily",
+      "paediatric_dose": "2.4mg/kg IV at 0, 12, 24h, then daily",
+      "notes_updates": "Superior to Quinine. Min 3 doses."
+    },
+    {
+      "item": "Paracetamol",
+      "adult_dose": "NAC Old Regimen: 150mg/kg in 200ml 5% Dextrose IV over 1hr, then 50mg/kg in 500ml 5% Dextrose IV over 4hrs, then 100mg/kg in 1L 5% Dextrose IV over 16hrs | NAC SNAP Protocol: 100mg/kg in 200ml 5% Dextrose IV over 2hrs, then 200mg/kg in 1L 5% Dextrose IV over 10hrs",
+      "paediatric_dose": "Same weight-based dosing as adults",
+      "route": "IV infusion",
+      "notes": "Toxic dose: 150mg/kg or >10g in adults. Use nomogram to establish need for antidote. Start <8hrs if possible. If in doubt, give NAC."
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "procedural_sedation_analgesia",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "PSA Procedural Sedation",
+    "source_doc": "RMMCH EM V5 Jan 2024",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "PSA Procedural Sedation",
+    "protocol_type": "ed_protocol",
+    "source_text": "PSA Procedural Sedation\n+ Analgesia Checklist\nRMMCH EM Clinical Protocols V5 03/01/2024\n"
+  }
+}
