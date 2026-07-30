@@ -1,0 +1,47 @@
+{
+  "ingestedOn": "2026-07-30",
+  "scope": "Global reference material only; never assigned to a hospital facility.",
+  "documents": [
+    {
+      "sourceFilename": "clinical-guidelines-reference-v3.json",
+      "sourcePathSupplied": "D:\\Downloads\\clinical-guidelines-reference-v3.json",
+      "sourceSha256": "e408e706cd1976d09c06bd48faba1d7c802e6926f2478131de2a05f05bd1995c",
+      "rawArchivePath": "clinical-sources/raw/clinical-guidelines-reference-v3.json",
+      "guidelineCount": 43,
+      "landmarkTrialCount": 5,
+      "auditStatus": "schema-valid and complete; source links are not equivalent to claim verification"
+    },
+    {
+      "sourceFilename": "clinical-guidelines-reference-v3.md",
+      "sourcePathSupplied": "D:\\Downloads\\clinical-guidelines-reference-v3.md",
+      "sourceSha256": "e8a00c677607cb8afa77b2277c1e75c819a0eb1ed87f7476490000c8e78114f2",
+      "rawArchivePath": "clinical-sources/raw/clinical-guidelines-reference-v3.md",
+      "entryCount": 43,
+      "auditStatus": "JSON-aligned; 11 duplicated URL groups affect 27 records; many links do not identify the named international guideline"
+    },
+    {
+      "sourceFilename": "pocket-reference-guide-v3.md",
+      "sourcePathSupplied": "D:\\Downloads\\pocket-reference-guide-v3.md",
+      "sourceSha256": "6d2dddee49e5b1af5a7dd98ab3b7bf0decf744b9a9742ec53d19b455a328a892",
+      "rawArchivePath": "clinical-sources/raw/pocket-reference-guide-v3.md",
+      "entryCount": 9,
+      "landmarkTrialCardCount": 5,
+      "adaptedProtocolCardCount": 4,
+      "auditStatus": "bibliography present; unsafe GASTROSAM, FEAST mechanism, and sepsis-summary claims are explicitly corrected in the UI"
+    }
+  ],
+  "qualityFindings": {
+    "jsonRequiredFieldsMissing": 0,
+    "jsonInvalidUrlCount": 0,
+    "jsonMarkdownMissingGuidelineCount": 0,
+    "duplicateDirectUrlGroupCount": 11,
+    "recordsUsingDuplicatedDirectUrls": 27,
+    "releaseStatus": "source-supplied and audit-gated; not independently validated bedside guidance"
+  },
+  "runtime": {
+    "component": "src/components/GlobalReferenceDocumentPage.tsx",
+    "parserAndAudit": "src/clinical/globalReferenceDocuments.ts",
+    "navigation": "Separate Pocket Guide and Guideline Directory landing pages inside the global Trials & International Guidelines area.",
+    "facilityIsolation": "These documents remain global and are not merged into any hospital protocol set."
+  }
+}

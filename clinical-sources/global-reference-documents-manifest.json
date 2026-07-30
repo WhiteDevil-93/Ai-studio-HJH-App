@@ -1,0 +1,31 @@
+{
+  "ingestedOn": "2026-07-30",
+  "scope": "Global reference material only; never assigned to a hospital facility.",
+  "documents": [
+    {
+      "sourceFilename": "pocket-reference-guide.md",
+      "sourcePathSupplied": "D:\\Downloads\\pocket-reference-guide.md",
+      "sourceSha256": "59d8e6c74f12d04dd90e58b105861dba7e45394817680623b54ba33c59073d23",
+      "rawArchivePath": "clinical-sources/raw/pocket-reference-guide.md",
+      "entryCount": 12,
+      "citationMarkerCount": 97,
+      "uniqueCitationMarkerCount": 53,
+      "auditStatus": "source-supplied; bibliography missing; high-risk claims require primary-source review"
+    },
+    {
+      "sourceFilename": "clinical-guidelines-reference.md",
+      "sourcePathSupplied": "D:\\Downloads\\clinical-guidelines-reference.md",
+      "sourceSha256": "aacb1881acd2df6260696d156be1a14a09e0f7ca2cbb289d61401136c68b5d60",
+      "rawArchivePath": "clinical-sources/raw/clinical-guidelines-reference.md",
+      "entryCount": 43,
+      "citationMarkerCount": 194,
+      "uniqueCitationMarkerCount": 126,
+      "auditStatus": "source-supplied; bibliography missing; organization summaries and local adaptations require claim-level review"
+    }
+  ],
+  "runtime": {
+    "component": "src/components/GlobalReferenceDocumentPage.tsx",
+    "parser": "src/clinical/globalReferenceDocuments.ts",
+    "navigation": "Separate Pocket Guide and Guideline Directory landing pages inside the global Trials & International Guidelines area."
+  }
+}

@@ -40,6 +40,7 @@ import { PolicyViewer, POLICIES_DATABASE } from './components/PolicyViewer';
 import { CodeRedDrawer } from './components/CodeRedDrawer';
 import { HospitalProtocolsPage } from './components/HospitalProtocolsPage';
 import { ProtocolLandingPage } from './components/ProtocolLandingPage';
+import { GlobalReferenceDocumentPage } from './components/GlobalReferenceDocumentPage';
 import {
   HOSPITALS,
   HOSPITAL_PROTOCOLS_BY_FACILITY,
@@ -262,6 +263,9 @@ export default function App() {
   );
   const [activeMindMap, setActiveMindMap] = useState<string | null>(null);
   const [activePolicy, setActivePolicy] = useState<string | null>(null);
+  const [globalReferenceView, setGlobalReferenceView] = useState<
+    'evidence' | 'pocket' | 'guidelines'
+  >('evidence');
   const [codeRedOpen, setCodeRedOpen] = useState<boolean>(false);
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
   const [sourceFilter, setSourceFilter] = useState<'all' | 'bara_icu' | 'edl_phc'>('all');
@@ -2718,6 +2722,45 @@ export default function App() {
       return acc;
     }, {} as Record<string, TrialReferenceEntry[]>);
 
+    const referenceNavigation = (
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
+        {[
+          {id: 'evidence' as const, label: 'Evidence Cards', count: TRIALS_REFERENCE.length},
+          {id: 'pocket' as const, label: 'Pocket Guide', count: 9},
+          {id: 'guidelines' as const, label: 'Guideline Directory', count: 43},
+        ].map(item => (
+          <button
+            key={item.id}
+            type="button"
+            onClick={() => {
+              setGlobalReferenceView(item.id);
+              window.scrollTo({top: 0, behavior: 'smooth'});
+            }}
+            className={`rounded-xl border px-3 py-2.5 text-left transition-colors ${
+              globalReferenceView === item.id
+                ? 'border-purple-500 bg-purple-950/60 text-purple-100'
+                : 'border-slate-800 bg-[#081212] text-slate-400 hover:border-purple-800 hover:text-purple-200'
+            }`}
+          >
+            <div className="text-xs font-black">{item.label}</div>
+            <div className="mt-0.5 text-[10px]">{item.count} entries</div>
+          </button>
+        ))}
+      </div>
+    );
+
+    if (globalReferenceView !== 'evidence') {
+      return (
+        <div className="space-y-4">
+          {referenceNavigation}
+          <GlobalReferenceDocumentPage
+            documentId={globalReferenceView}
+            searchQuery={searchQuery}
+          />
+        </div>
+      );
+    }
+
     return (
       <div className="space-y-4">
         <div className="p-4 rounded-xl bg-[#1a0f26] border border-purple-900/50 flex items-center justify-between">
@@ -2734,6 +2777,8 @@ export default function App() {
             {matched.length} Entries
           </span>
         </div>
+
+        {referenceNavigation}
 
         {matched.length === 0 && (
           <div className="text-center py-16 text-sm text-slate-500">No trials or guidelines match your search.</div>
