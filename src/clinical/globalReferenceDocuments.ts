@@ -49,7 +49,7 @@ export const GLOBAL_REFERENCE_DOCUMENTS: Record<
     uniqueCitationMarkerCount: 10,
     imperativeTermCount: 22,
     auditNotes: [
-      'V3 adds a bibliography and direct links, but links remain source-supplied and must not be treated as independent verification of every claim.',
+      'The pocket reference includes a bibliography and direct links; confirm clinical claims against the current primary publication.',
       'Its Surviving Sepsis summary still overstates the 2026 guideline: the adult fluid recommendation is conditional, uses the first 3 hours, and explicitly requires individualization and frequent reassessment.',
       'Its FEAST mechanism statement over-attributes mortality to fluid overload and pulmonary oedema; the primary trial observed few such events and did not establish that mechanism.',
       'Its GASTROSAM card cites the 2021 trial protocol as if it were completed evidence and incorrectly claims a significant survival improvement. The completed 2025 trial found no evidence of a mortality difference between oral and intravenous strategies.',
@@ -65,7 +65,7 @@ export const GLOBAL_REFERENCE_DOCUMENTS: Record<
     uniqueCitationMarkerCount: 19,
     imperativeTermCount: 43,
     auditNotes: [
-      'V3 supplies a bibliography and one URL per card, but many URLs are local studies or protocols that do not match the named international guideline organization.',
+      'The guideline directory includes a bibliography and one URL per card; some links are local studies or protocols rather than the named organization’s current publication.',
       'Eleven direct URLs are duplicated across unrelated organizations, affecting 27 of the 43 records. Those links cannot verify the named guideline cards.',
       'The file still blends international guidance, local practice, preprints, audits, and trial evidence without claim-level provenance.',
       'KDIGO 2026 AKI/AKD is currently a public-review draft, not a final published clinical-practice guideline.',
