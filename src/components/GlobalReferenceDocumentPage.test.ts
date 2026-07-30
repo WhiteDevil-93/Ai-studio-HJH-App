@@ -28,9 +28,10 @@ describe('GlobalReferenceDocumentPage', () => {
     expect(markup).toContain('Landmark trial summaries');
     expect(markup).toContain('Adapted clinical protocols');
     expect(markup).toContain('Clinical bibliography');
-    expect(markup).toContain('Clinical relevance:');
+    expect(markup).toContain('Clinical interpretation');
     expect(markup).not.toContain('Mobile-Optimised Clinical Cheatsheet');
     expect(markup).not.toContain('The Killer Stat');
     expect(markup).not.toContain('30-SECOND ROUNDING PITCHES');
+    expect(markup).not.toContain('30-Second Rounding Pitch');
   });
 });

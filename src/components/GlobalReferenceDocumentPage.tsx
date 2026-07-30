@@ -42,6 +42,7 @@ const cleanClinicalMarkdown = (value: string) => value
   .replace(/If the Consultant asks:/gi, 'Clinical relevance:')
   .replace(/The Killer Stat:/gi, 'Key result:')
   .replace(/On-Shift Action:/gi, 'Practice application:')
+  .replace(/30-Second Rounding Pitch/gi, 'Clinical interpretation')
   .replace(/Global Standard/gi, 'International guidance')
   .replace(/The African Reality\s*\/\s*Physiological Conflict/gi, 'Resource context')
   .replace(/The Local Adaptation\s*\("What to say on rounds"\)/gi, 'Local practice context')
