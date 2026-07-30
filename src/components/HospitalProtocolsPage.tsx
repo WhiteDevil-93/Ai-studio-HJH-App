@@ -7,6 +7,8 @@ import {
   Calculator,
   ChevronRight,
   FileText,
+  FlaskConical,
+  Globe2,
   Search,
 } from 'lucide-react';
 import {
@@ -16,7 +18,11 @@ import {
   type HospitalId,
   type HospitalProtocol,
 } from '../clinical/hospitalProtocols';
-import {SUPPLIED_GUIDELINE_LINK_AUDIT} from '../clinical/globalReferenceDocuments';
+import {
+  PARSED_GLOBAL_REFERENCE_DOCUMENTS,
+  SUPPLIED_GUIDELINE_LINK_AUDIT,
+} from '../clinical/globalReferenceDocuments';
+import {TRIALS_REFERENCE} from '../clinical/trialsReference';
 
 interface HospitalProtocolsPageProps {
   facilityId: HospitalId;
@@ -25,7 +31,9 @@ interface HospitalProtocolsPageProps {
   onBack: () => void;
   onOpenProtocol: (protocol: HospitalProtocol) => void;
   onOpenScores: () => void;
-  onOpenTrials: () => void;
+  onOpenLandmarkStudies: () => void;
+  onOpenInternationalGuidelines: () => void;
+  onOpenPocketGuides: () => void;
 }
 
 const accentClasses = {
@@ -62,7 +70,9 @@ export const HospitalProtocolsPage: React.FC<HospitalProtocolsPageProps> = ({
   onBack,
   onOpenProtocol,
   onOpenScores,
-  onOpenTrials,
+  onOpenLandmarkStudies,
+  onOpenInternationalGuidelines,
+  onOpenPocketGuides,
 }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const facility = HOSPITALS[facilityId];
@@ -117,8 +127,8 @@ export const HospitalProtocolsPage: React.FC<HospitalProtocolsPageProps> = ({
             <p className="mt-4 max-w-3xl text-sm leading-relaxed text-slate-400">{facility.description}</p>
           </div>
 
-          <div className="grid gap-3 sm:grid-cols-[1fr_auto_auto]">
-            <label className="relative block">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+            <label className="relative block sm:col-span-2 lg:col-span-1">
               <span className="sr-only">Search {facility.shortName} protocols</span>
               <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
               <input
@@ -139,11 +149,27 @@ export const HospitalProtocolsPage: React.FC<HospitalProtocolsPageProps> = ({
             </button>
             <button
               type="button"
-              onClick={onOpenTrials}
+              onClick={onOpenLandmarkStudies}
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-900/75 px-4 py-3 text-xs font-bold text-slate-200 hover:bg-slate-800"
+            >
+              <FlaskConical className="h-4 w-4" />
+              {TRIALS_REFERENCE.length} studies
+            </button>
+            <button
+              type="button"
+              onClick={onOpenInternationalGuidelines}
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-900/75 px-4 py-3 text-xs font-bold text-slate-200 hover:bg-slate-800"
+            >
+              <Globe2 className="h-4 w-4" />
+              {SUPPLIED_GUIDELINE_LINK_AUDIT.guidelineCount} guidelines
+            </button>
+            <button
+              type="button"
+              onClick={onOpenPocketGuides}
               className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-900/75 px-4 py-3 text-xs font-bold text-slate-200 hover:bg-slate-800"
             >
               <BookOpen className="h-4 w-4" />
-              {SUPPLIED_GUIDELINE_LINK_AUDIT.guidelineCount} global guidelines
+              {PARSED_GLOBAL_REFERENCE_DOCUMENTS.pocket.entries.length} pocket guides
             </button>
           </div>
         </div>

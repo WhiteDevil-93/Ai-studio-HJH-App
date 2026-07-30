@@ -43,6 +43,7 @@ import { ProtocolLandingPage } from './components/ProtocolLandingPage';
 import { GlobalReferenceDocumentPage } from './components/GlobalReferenceDocumentPage';
 import {
   GLOBAL_REFERENCE_DOCUMENTS,
+  PARSED_GLOBAL_REFERENCE_DOCUMENTS,
   SUPPLIED_GUIDELINE_LINK_AUDIT,
 } from './clinical/globalReferenceDocuments';
 import {
@@ -54,6 +55,12 @@ import {
 } from './clinical/hospitalProtocols';
 
 const D = clinicalData as any;
+const POCKET_GUIDE_COUNT = PARSED_GLOBAL_REFERENCE_DOCUMENTS.pocket.entries.length;
+const GLOBAL_REFERENCE_CATEGORY_IDS = [
+  'landmark_studies',
+  'international_guidelines',
+  'pocket_guides',
+] as const;
 
 const TRIAL_TYPE_PRESENTATION: Record<
   TrialReferenceEntry['type'],
@@ -95,7 +102,9 @@ const CATEGORIES: Record<string, string> = {
   cmjah_guidelines: '🏨 CMJAH Guidelines',
   rmmch_guidelines: '👶 RMMCH Guidelines',
   edl_phc_guidelines: '🇿🇦 SA EDL / PHC Guidelines',
-  trials_guidelines: `📚 ${SUPPLIED_GUIDELINE_LINK_AUDIT.guidelineCount} International Guidelines`,
+  landmark_studies: `${TRIALS_REFERENCE.length} Landmark Studies`,
+  international_guidelines: `${SUPPLIED_GUIDELINE_LINK_AUDIT.guidelineCount} International Guidelines`,
+  pocket_guides: `${POCKET_GUIDE_COUNT} Pocket Guides`,
   mindmaps: '⚡ Resuscitation Mind Maps',
   policies: '📑 Hospital SOPs & Policies',
   all: 'All Categories',
@@ -127,7 +136,9 @@ const CATEGORY_ICONS: Record<string, string> = {
   cmjah_guidelines: '🏨',
   rmmch_guidelines: '👶',
   edl_phc_guidelines: '🇿🇦',
-  trials_guidelines: '📚',
+  landmark_studies: '🔬',
+  international_guidelines: '🌐',
+  pocket_guides: '📘',
   mindmaps: '⚡',
   policies: '📑',
   all: '📋',
@@ -152,6 +163,9 @@ const CATEGORY_ICONS: Record<string, string> = {
 
 const ORDER = [
   'home',
+  'landmark_studies',
+  'international_guidelines',
+  'pocket_guides',
   'favourites',
   'recently_viewed',
   'bara_icu_card',
@@ -159,7 +173,6 @@ const ORDER = [
   'cmjah_guidelines',
   'rmmch_guidelines',
   'edl_phc_guidelines',
-  'trials_guidelines',
   'mindmaps',
   'policies',
   'all',
@@ -267,9 +280,6 @@ export default function App() {
   );
   const [activeMindMap, setActiveMindMap] = useState<string | null>(null);
   const [activePolicy, setActivePolicy] = useState<string | null>(null);
-  const [globalReferenceView, setGlobalReferenceView] = useState<
-    'evidence' | 'pocket' | 'guidelines'
-  >('guidelines');
   const [codeRedOpen, setCodeRedOpen] = useState<boolean>(false);
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
   const [sourceFilter, setSourceFilter] = useState<'all' | 'bara_icu' | 'edl_phc'>('all');
@@ -341,9 +351,6 @@ export default function App() {
   const aboutDialogRef = useRef<HTMLDivElement>(null);
 
   const navigateToCategory = (categoryId: string) => {
-    if (categoryId === 'trials_guidelines') {
-      setGlobalReferenceView('guidelines');
-    }
     setSelectedCategory(categoryId);
     setSelectedFacility(null);
     setSelectedProtocolId(null);
@@ -2567,7 +2574,20 @@ export default function App() {
   // renderCategorySect), not by category membership - a category can (and
   // does) hold a mix of Bara/CHBAH/EDL/HJH-sourced entries side by side.
   const allContentCategoryIds = () => ORDER.filter(k =>
-    !['home', 'favourites', 'recently_viewed', 'bara_icu_card', 'helen_guidelines', 'cmjah_guidelines', 'rmmch_guidelines', 'edl_phc_guidelines', 'trials_guidelines', 'mindmaps', 'policies', 'all'].includes(k)
+    ![
+      'home',
+      'favourites',
+      'recently_viewed',
+      'bara_icu_card',
+      'helen_guidelines',
+      'cmjah_guidelines',
+      'rmmch_guidelines',
+      'edl_phc_guidelines',
+      ...GLOBAL_REFERENCE_CATEGORY_IDS,
+      'mindmaps',
+      'policies',
+      'all',
+    ].includes(k)
   );
 
   const renderBaraIcuCardView = () => {
@@ -2707,8 +2727,8 @@ export default function App() {
     );
   };
 
-  // Dedicated view for Trials & International Guidelines reference cards
-  const renderTrialsView = () => {
+  // Dedicated view for global landmark studies and decision rules.
+  const renderLandmarkStudiesView = () => {
     const q = searchQuery.toLowerCase();
     const matched = TRIALS_REFERENCE.filter(t => {
       if (!q) return true;
@@ -2730,63 +2750,17 @@ export default function App() {
       return acc;
     }, {} as Record<string, TrialReferenceEntry[]>);
 
-    const referenceNavigation = (
-      <div
-        className="grid grid-cols-3 gap-2"
-        aria-label="Global clinical references"
-      >
-        {[
-          {
-            id: 'guidelines' as const,
-            label: 'Guidelines',
-            count: SUPPLIED_GUIDELINE_LINK_AUDIT.guidelineCount,
-          },
-          {id: 'evidence' as const, label: 'Evidence', count: TRIALS_REFERENCE.length},
-          {id: 'pocket' as const, label: 'Pocket Guide', count: 9},
-        ].map(item => (
-          <button
-            key={item.id}
-            type="button"
-            aria-pressed={globalReferenceView === item.id}
-            onClick={() => {
-              setGlobalReferenceView(item.id);
-              window.scrollTo({top: 0, behavior: 'smooth'});
-            }}
-            className={`min-w-0 rounded-xl border px-2 py-2.5 text-center transition-colors sm:px-3 sm:text-left ${
-              globalReferenceView === item.id
-                ? 'border-purple-500 bg-purple-950/60 text-purple-100'
-                : 'border-slate-800 bg-[#081212] text-slate-400 hover:border-purple-800 hover:text-purple-200'
-            }`}
-          >
-            <div className="text-xs font-black">{item.label}</div>
-            <div className="mt-0.5 text-[10px]">{item.count} entries</div>
-          </button>
-        ))}
-      </div>
-    );
-
-    if (globalReferenceView !== 'evidence') {
-      return (
-        <div className="space-y-4">
-          {referenceNavigation}
-          <GlobalReferenceDocumentPage
-            documentId={globalReferenceView}
-            searchQuery={searchQuery}
-          />
-        </div>
-      );
-    }
-
     return (
       <div className="space-y-4">
         <div className="p-4 rounded-xl bg-[#1a0f26] border border-purple-900/50 flex items-center justify-between">
           <div>
             <div className="text-xs font-bold uppercase tracking-wider text-purple-400">Global Evidence Reference</div>
             <h2 className="text-xl font-black text-white flex items-center gap-2 mt-0.5">
-              <span>🔬 Landmark Trials & International Guidelines</span>
+              <span>🔬 Landmark Studies</span>
             </h2>
             <p className="text-xs text-slate-400 mt-1">
-              Evidence summaries are global references, not facility-approved protocols. Open the primary source and follow the active local protocol before changing care.
+              Searchable summaries of landmark trials, observational studies, and clinical
+              decision rules, with direct links to available primary sources.
             </p>
           </div>
           <span className="text-[10px] bg-purple-950 text-purple-300 font-bold px-2 py-0.5 rounded border border-purple-800/30 flex-shrink-0">
@@ -2794,10 +2768,8 @@ export default function App() {
           </span>
         </div>
 
-        {referenceNavigation}
-
         {matched.length === 0 && (
-          <div className="text-center py-16 text-sm text-slate-500">No trials or guidelines match your search.</div>
+          <div className="text-center py-16 text-sm text-slate-500">No landmark studies match your search.</div>
         )}
 
         {Object.entries(byDomain).map(([domain, entries]) => (
@@ -3170,7 +3142,9 @@ export default function App() {
         onBack={() => navigateToCategory('home')}
         onOpenProtocol={navigateToProtocol}
         onOpenScores={() => navigateToCategory('16_score_calculators')}
-        onOpenTrials={() => navigateToCategory('trials_guidelines')}
+        onOpenLandmarkStudies={() => navigateToCategory('landmark_studies')}
+        onOpenInternationalGuidelines={() => navigateToCategory('international_guidelines')}
+        onOpenPocketGuides={() => navigateToCategory('pocket_guides')}
       />
     );
   };
@@ -3241,8 +3215,26 @@ export default function App() {
       return renderEdlPhcView();
     }
 
-    if (selectedCategory === 'trials_guidelines') {
-      return renderTrialsView();
+    if (selectedCategory === 'landmark_studies') {
+      return renderLandmarkStudiesView();
+    }
+
+    if (selectedCategory === 'international_guidelines') {
+      return (
+        <GlobalReferenceDocumentPage
+          documentId="guidelines"
+          searchQuery={searchQuery}
+        />
+      );
+    }
+
+    if (selectedCategory === 'pocket_guides') {
+      return (
+        <GlobalReferenceDocumentPage
+          documentId="pocket"
+          searchQuery={searchQuery}
+        />
+      );
     }
 
     if (selectedCategory === 'mindmaps') {
@@ -3288,7 +3280,12 @@ export default function App() {
 
   const activeFacilityId = CATEGORY_FACILITY[selectedCategory];
   const categoryBarOrder = activeFacilityId
-    ? ['home', selectedCategory, '16_score_calculators', 'trials_guidelines']
+    ? [
+        'home',
+        selectedCategory,
+        '16_score_calculators',
+        ...GLOBAL_REFERENCE_CATEGORY_IDS,
+      ]
     : ORDER;
 
   return (
@@ -3440,10 +3437,12 @@ export default function App() {
                       { id: 'cmjah_guidelines', label: '🏨 CMJAH ED Protocols' },
                       { id: 'rmmch_guidelines', label: '👶 RMMCH Paediatric Protocols' },
                       { id: 'edl_phc_guidelines', label: '🇿🇦 SA EDL / PHC Protocols' },
+                      { id: 'landmark_studies', label: `🔬 ${TRIALS_REFERENCE.length} Landmark Studies` },
                       {
-                        id: 'trials_guidelines',
-                        label: `📚 ${SUPPLIED_GUIDELINE_LINK_AUDIT.guidelineCount} International Guidelines`,
+                        id: 'international_guidelines',
+                        label: `🌐 ${SUPPLIED_GUIDELINE_LINK_AUDIT.guidelineCount} International Guidelines`,
                       },
+                      { id: 'pocket_guides', label: `📘 ${POCKET_GUIDE_COUNT} Pocket Guides` },
                       { id: 'favourites', label: `⭐ Favourites (${favourites.length})` },
                       { id: 'recently_viewed', label: `⏱️ Recently Viewed (${recentlyViewed.length})` },
                       { id: 'all', label: '📋 All Categories' }
@@ -3634,7 +3633,7 @@ export default function App() {
       {/* MAIN CONTAINER */}
       <main className="max-w-7xl mx-auto p-4 pb-20">
         {/* Toggle Controls for All Containers (NOT shown on Home landing page) */}
-        {selectedCategory !== 'home' && selectedCategory !== 'favourites' && selectedCategory !== 'recently_viewed' && !CATEGORY_FACILITY[selectedCategory] && !activeMindMap && !activePolicy && (
+        {selectedCategory !== 'home' && selectedCategory !== 'favourites' && selectedCategory !== 'recently_viewed' && !GLOBAL_REFERENCE_CATEGORY_IDS.includes(selectedCategory as typeof GLOBAL_REFERENCE_CATEGORY_IDS[number]) && !CATEGORY_FACILITY[selectedCategory] && !activeMindMap && !activePolicy && (
           <div className="flex justify-end gap-2 mb-4">
             <button
               onClick={expandAllContainers}

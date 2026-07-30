@@ -9,7 +9,11 @@ import {
   hospitalProtocolCount,
   type HospitalId,
 } from '../clinical/hospitalProtocols';
-import {SUPPLIED_GUIDELINE_LINK_AUDIT} from '../clinical/globalReferenceDocuments';
+import {
+  PARSED_GLOBAL_REFERENCE_DOCUMENTS,
+  SUPPLIED_GUIDELINE_LINK_AUDIT,
+} from '../clinical/globalReferenceDocuments';
+import {TRIALS_REFERENCE} from '../clinical/trialsReference';
 
 interface HomePageProps {
   onSelectFacility: (facilityId: HospitalId) => void;
@@ -210,11 +214,25 @@ export const HomePage: React.FC<HomePageProps> = ({
           <Clock className="w-3.5 h-3.5" /> Recently Viewed
         </button>
         <button
-          onClick={() => onSelectCategory('trials_guidelines')}
+          onClick={() => onSelectCategory('landmark_studies')}
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-black bg-purple-100 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 border border-purple-300 dark:border-purple-700 hover:bg-purple-200 dark:hover:bg-purple-900/40 transition-colors"
         >
-          <BookOpen className="w-3.5 h-3.5" />
+          <FlaskConical className="w-3.5 h-3.5" />
+          {TRIALS_REFERENCE.length} Landmark Studies
+        </button>
+        <button
+          onClick={() => onSelectCategory('international_guidelines')}
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-black bg-sky-100 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 border border-sky-300 dark:border-sky-700 hover:bg-sky-200 dark:hover:bg-sky-900/40 transition-colors"
+        >
+          <Globe2 className="w-3.5 h-3.5" />
           {SUPPLIED_GUIDELINE_LINK_AUDIT.guidelineCount} International Guidelines
+        </button>
+        <button
+          onClick={() => onSelectCategory('pocket_guides')}
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-black bg-indigo-100 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 border border-indigo-300 dark:border-indigo-700 hover:bg-indigo-200 dark:hover:bg-indigo-900/40 transition-colors"
+        >
+          <BookOpen className="w-3.5 h-3.5" />
+          {PARSED_GLOBAL_REFERENCE_DOCUMENTS.pocket.entries.length} Pocket Guides
         </button>
         <button
           onClick={() => onSelectFacility('hjh')}
