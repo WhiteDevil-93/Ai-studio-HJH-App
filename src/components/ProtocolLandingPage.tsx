@@ -59,7 +59,31 @@ const FormattedClinicalText: React.FC<{text: string}> = ({text}) => {
         const isAlert = /^(?:ALL FEMALE PATIENTS|NB:|WARNING|CONTRAINDICATIONS|DANGER|CAUTION)/i.test(segment);
         const isHeader = /^(?:RED FLAGS|EXCLUSIONS:|INDEX MHCU|KNOWN MHCU|COMPLICATIONS|PROCEDURE|MANAGEMENT|INVESTIGATIONS|APPROACH|GENERAL MANAGEMENT|MONITORING|HOW TO PERFORM)/i.test(segment) ||
           (/^[A-Z\s]{4,}:?$/.test(segment) && segment.length < 40);
+        const isYes = /^YES\b/i.test(segment);
+        const isNo = /^NO\b/i.test(segment);
         const isBullet = /^[\u2022\u25aa\u25b2\u2192*\-\u2013]\s*/.test(segment) || /^[0-9]+\.\s*/.test(segment);
+
+        if (isYes) {
+          const rest = segment.replace(/^YES[:\s-]*/i, '');
+          return (
+            <div key={index} className="my-2 inline-flex items-center gap-2 rounded-lg border border-rose-300 bg-rose-100 px-3 py-1.5 text-xs font-black text-rose-950 dark:border-rose-900/60 dark:bg-rose-950/60 dark:text-rose-200">
+              <span className="h-2 w-2 rounded-full bg-rose-600" />
+              <span>YES</span>
+              {rest && <span className="font-semibold opacity-90">— {rest}</span>}
+            </div>
+          );
+        }
+
+        if (isNo) {
+          const rest = segment.replace(/^NO[:\s-]*/i, '');
+          return (
+            <div key={index} className="my-2 inline-flex items-center gap-2 rounded-lg border border-emerald-300 bg-emerald-100 px-3 py-1.5 text-xs font-black text-emerald-950 dark:border-emerald-900/60 dark:bg-emerald-950/60 dark:text-emerald-200">
+              <span className="h-2 w-2 rounded-full bg-emerald-600" />
+              <span>NO</span>
+              {rest && <span className="font-semibold opacity-90">— {rest}</span>}
+            </div>
+          );
+        }
 
         if (isAlert) {
           return (

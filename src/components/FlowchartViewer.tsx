@@ -87,11 +87,16 @@ export const FlowchartViewer: React.FC<FlowchartViewerProps> = ({
   const getOptionButtonStyles = (variant?: string) => {
     switch (variant) {
       case 'danger':
+      case 'rose':
         return 'bg-rose-600 text-white hover:bg-rose-700 shadow-rose-900/20 border-rose-500';
       case 'warning':
+      case 'amber':
         return 'bg-amber-600 text-white hover:bg-amber-700 shadow-amber-900/20 border-amber-500';
       case 'success':
+      case 'emerald':
         return 'bg-emerald-600 text-white hover:bg-emerald-700 shadow-emerald-900/20 border-emerald-500';
+      case 'sky':
+        return 'bg-sky-600 text-white hover:bg-sky-700 shadow-sky-900/20 border-sky-500';
       case 'indigo':
       default:
         return 'bg-indigo-600 text-white hover:bg-indigo-700 shadow-indigo-900/20 border-indigo-500';
