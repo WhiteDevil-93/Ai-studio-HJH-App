@@ -205,19 +205,6 @@ const PILLAR_CATEGORY_IDS = [
   'edl_phc_guidelines',
 ] as const;
 
-// The 17 numbered clinical "chapters" - textbook-style reference content,
-// distinct from any single facility's protocols.
-const NUMBERED_CATEGORY_IDS = ORDER.filter(k => /^\d+_/.test(k));
-
-// Cross-cutting utility views (not tied to a facility or a clinical chapter).
-const UTILITY_CATEGORY_IDS = [
-  'favourites',
-  'recently_viewed',
-  'mindmaps',
-  'policies',
-  'all',
-] as const;
-
 // Passed to renderCategorySect to select which entries render, by their
 // per-item _meta.sourceGroup: a single value (the Helen/CMJAH pillars, which
 // need an exact source match) or a list of values (Bara/EDL, whose pillars
@@ -3303,20 +3290,13 @@ export default function App() {
 
   const activeFacilityId = CATEGORY_FACILITY[selectedCategory];
 
-  // Scope the quick-access pill bar to whichever "family" the active tab
-  // belongs to, so protocols from other facilities/chapters never mix in.
+  // Only hospital/facility tabs get their own dedicated pill bar (so one
+  // facility's protocols never mix with another's). Every other tab
+  // (chapters, reference sections, utility views) keeps the full bar.
   const categoryBarOrder: string[] = PILLAR_CATEGORY_IDS.includes(
     selectedCategory as typeof PILLAR_CATEGORY_IDS[number],
   )
     ? ['home', selectedCategory, '16_score_calculators', ...GLOBAL_REFERENCE_CATEGORY_IDS]
-    : GLOBAL_REFERENCE_CATEGORY_IDS.includes(
-        selectedCategory as typeof GLOBAL_REFERENCE_CATEGORY_IDS[number],
-      )
-    ? ['home', ...GLOBAL_REFERENCE_CATEGORY_IDS]
-    : NUMBERED_CATEGORY_IDS.includes(selectedCategory)
-    ? ['home', ...NUMBERED_CATEGORY_IDS]
-    : UTILITY_CATEGORY_IDS.includes(selectedCategory as typeof UTILITY_CATEGORY_IDS[number])
-    ? ['home', ...UTILITY_CATEGORY_IDS]
     : ORDER;
 
   return (
