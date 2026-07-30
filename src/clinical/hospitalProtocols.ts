@@ -305,6 +305,7 @@ const HJH_PROTOCOLS_BY_CATEGORY: Record<string, readonly string[]> = {
 const CMJAH_PROTOCOLS_BY_CATEGORY: Record<string, readonly string[]> = {
   '02_ed_trauma_ortho': [
     'back_pain',
+    'burns',
     'crush_injury',
   ],
   '03_ed_cardiovascular': [
@@ -346,8 +347,11 @@ const CMJAH_PROTOCOLS_BY_CATEGORY: Record<string, readonly string[]> = {
   ],
   '07_ed_ent': ['epistaxis'],
   '08_ed_obstetrics_gynaecology': ['vaginal_bleeding'],
-  '11_ed_medical_emergencies': [
+  '09_ed_paediatrics': [
+    'antibiotic_guidelines_paediatric',
     'gastroenteritis_paediatrics',
+  ],
+  '11_ed_medical_emergencies': [
     'haematological_emergencies',
     'hyperthermia',
     'hypothermia',
@@ -371,11 +375,9 @@ const CMJAH_PROTOCOLS_BY_CATEGORY: Record<string, readonly string[]> = {
     'toxidromes',
   ],
   '13_ed_infectious_diseases': [
-    'antibiotic_guidelines_paediatric',
     'malaria',
     'tetanus',
   ],
-  '13_ed_trauma_surgical': ['burns'],
   '14_ed_metabolic': [
     'dka_hhs',
     'hyperglycaemia_approach',
@@ -414,6 +416,9 @@ const RMMCH_PROTOCOLS_BY_CATEGORY: Record<string, readonly string[]> = {
   '02_ed_trauma_ortho': [
     'c_spine_injuries',
     'ct_c_spine_protocol',
+    'head_injuries',
+    'rmmch-traumatic-cardiac-arrest',
+    'traumatic_cardiac_arrest',
   ],
   '03_ed_cardiovascular': [
     'bradycardia',
@@ -437,12 +442,13 @@ const RMMCH_PROTOCOLS_BY_CATEGORY: Record<string, readonly string[]> = {
     'airway_management_advanced',
     'procedural_sedation_analgesia',
     'rmmch-advanced-airway-management',
-    'rmmch-croup',
     'rsi_checklist',
   ],
-  '11_ed_medical_emergencies': [
+  '09_ed_paediatrics': [
     'rmmch-acute-gastroenteritis-paediatric',
+    'rmmch-croup',
   ],
+  '11_ed_medical_emergencies': [],
   '12_ed_toxicology': [
     'anaphylaxis',
     'opioid_overdose',
@@ -456,11 +462,6 @@ const RMMCH_PROTOCOLS_BY_CATEGORY: Record<string, readonly string[]> = {
     'rmmch-animal-mammalian-bites',
     'rmmch-tetanus-prophylaxis',
     'tetanus_prophylaxis',
-  ],
-  '13_ed_trauma_surgical': [
-    'head_injuries',
-    'rmmch-traumatic-cardiac-arrest',
-    'traumatic_cardiac_arrest',
   ],
   '14_ed_metabolic': ['hyperthyroidism'],
   '15_ed_general_surgery': [
@@ -490,6 +491,88 @@ const RMMCH_PROTOCOLS_BY_CATEGORY: Record<string, readonly string[]> = {
   ],
 };
 
+const CHBAH_PROTOCOLS_BY_CATEGORY: Record<string, readonly string[]> = {
+  '03_ed_cardiovascular': [
+    'chbah-amiodarone-chbah-icu',
+    'chbah-dobutamine-infusion-chbah-icu',
+    'chbah-dopamine-infusion-chbah-icu',
+    'chbah-esmolol-chbah-icu',
+    'chbah-furosemide-chbah-icu',
+    'chbah-labetalol-chbah-icu',
+    'chbah-milrinone-chbah-icu',
+    'chbah-nitroglycerin-infusion-chbah-icu',
+    'chbah-noradrenaline-infusion-chbah-icu',
+    'chbah-phenylephrine-infusion-chbah-icu',
+  ],
+  '04_ed_neurology': [
+    'chbah-atracurium-chbah-icu',
+    'chbah-cisatracurium-chbah-icu',
+    'chbah-dexmedetomidine-chbah-icu',
+    'chbah-fentanyl-chbah-icu',
+    'chbah-ketamine-infusion-chbah-icu',
+    'chbah-levetiracetam-keppra-chbah-icu',
+    'chbah-mannitol-chbah-icu',
+    'chbah-midazolam-chbah-icu',
+    'chbah-morphine-chbah-icu',
+    'chbah-phenytoin-chbah-icu',
+    'chbah-propofol-infusion-chbah-icu',
+    'chbah-rocuronium-chbah-icu',
+    'chbah-suxamethonium-chbah-icu',
+    'chbah-valproate-chbah-icu',
+  ],
+  '11_ed_medical_emergencies': [
+    'chbah-dexamethasone-chbah-icu',
+    'chbah-hydrocortisone-chbah-icu',
+    'chbah-methylprednisolone-chbah-icu',
+  ],
+  '12_ed_toxicology': [
+    'chbah-flumazenil-anexate-chbah-icu',
+    'chbah-naloxone-chbah-icu',
+    'chbah-neostigmine-chbah-icu',
+  ],
+  '13_ed_infectious_diseases': [
+    'chbah-acyclovir-chbah-icu',
+    'chbah-amikacin-chbah-icu',
+    'chbah-amoxicillin-chbah-icu',
+    'chbah-amoxicillin-clavulanate-augmentin-chbah-icu',
+    'chbah-amphotericin-b-chbah-icu',
+    'chbah-ampicillin-chbah-icu',
+    'chbah-azithromycin-chbah-icu',
+    'chbah-aztreonam-chbah-icu',
+    'chbah-caspofungin-chbah-icu',
+    'chbah-cefazolin-chbah-icu',
+    'chbah-cefepime-chbah-icu',
+    'chbah-cefotaxime-chbah-icu',
+    'chbah-ceftazidime-chbah-icu',
+    'chbah-ceftriaxone-chbah-icu',
+    'chbah-cefuroxime-chbah-icu',
+    'chbah-ciprofloxacin-chbah-icu',
+    'chbah-clarithromycin-chbah-icu',
+    'chbah-clindamycin-chbah-icu',
+    'chbah-cloxacillin-chbah-icu',
+    'chbah-colistin-chbah-icu',
+    'chbah-cotrimoxazole-chbah-icu',
+    'chbah-doxycycline-chbah-icu',
+    'chbah-ertapenem-chbah-icu',
+    'chbah-erythromycin-chbah-icu',
+    'chbah-fluconazole-chbah-icu',
+    'chbah-gentamicin-chbah-icu',
+    'chbah-imipenem-chbah-icu',
+    'chbah-linezolid-chbah-icu',
+    'chbah-meropenem-chbah-icu',
+    'chbah-metronidazole-chbah-icu',
+    'chbah-moxifloxacin-chbah-icu',
+    'chbah-piperacillin-tazobactam-tazocin-chbah-icu',
+    'chbah-vancomycin-chbah-icu',
+  ],
+  '14_ed_metabolic': [
+    'chbah-hyperkalaemia-management-chbah-icu',
+    'chbah-magnesium-replacement-chbah-icu',
+    'chbah-phosphate-replacement-chbah-icu',
+    'chbah-potassium-replacement-chbah-icu',
+  ],
+};
+
 const assignmentsFor = (
   protocolsByCategory: Record<string, readonly string[]>,
 ): Record<string, string> =>
@@ -506,8 +589,6 @@ export const FACILITY_PROTOCOL_CATEGORY_ASSIGNMENTS: Record<
   hjh: assignmentsFor(HJH_PROTOCOLS_BY_CATEGORY),
   cmjah: assignmentsFor(CMJAH_PROTOCOLS_BY_CATEGORY),
   rmmch: assignmentsFor(RMMCH_PROTOCOLS_BY_CATEGORY),
-  // CHBAH is a medication/dosing corpus whose supplied medication categories
-  // are already more specific than the hospital protocol taxonomy.
   chbah: {},
 };
 
