@@ -128,7 +128,7 @@ describe('supplied global reference documents', () => {
     }));
     expect(pocketHtml).toContain('href="https://www.nejm.org/doi/full/10.1056/nejmoa1101549"');
     expect(pocketHtml).toContain('Completed GASTROSAM trial');
-    expect(pocketHtml).toContain('FULL EXHAUSTIVE CLINICAL BIBLIOGRAPHY');
+    expect(pocketHtml).toContain('Clinical bibliography');
 
     const guidelineHtml = renderToStaticMarkup(createElement(GlobalReferenceDocumentPage, {
       documentId: 'guidelines',

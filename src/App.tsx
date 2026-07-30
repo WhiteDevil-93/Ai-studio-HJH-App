@@ -9,7 +9,8 @@ import {
   Star, Search, Scale, ChevronDown, Check,
   AlertTriangle, Moon, Sun, BookOpen,
   Calculator, Stethoscope, Activity, Heart, ShieldAlert,
-  Info, Sparkles, CheckSquare, Plus, RefreshCw, Clock, Home, Menu, X, Smartphone, Download, Settings
+  Info, Sparkles, CheckSquare, Plus, RefreshCw, Clock, Home, Menu, X, Smartphone, Download, Settings,
+  FlaskConical, Globe2
 } from 'lucide-react';
 import { PWAInstallPrompt, usePWAInstall } from './components/PWAInstallPrompt';
 import {
@@ -61,6 +62,11 @@ const GLOBAL_REFERENCE_CATEGORY_IDS = [
   'international_guidelines',
   'pocket_guides',
 ] as const;
+const GLOBAL_REFERENCE_COUNTS: Partial<Record<string, number>> = {
+  landmark_studies: TRIALS_REFERENCE.length,
+  international_guidelines: SUPPLIED_GUIDELINE_LINK_AUDIT.guidelineCount,
+  pocket_guides: POCKET_GUIDE_COUNT,
+};
 
 const TRIAL_TYPE_PRESENTATION: Record<
   TrialReferenceEntry['type'],
@@ -94,19 +100,19 @@ const TRIAL_TYPE_PRESENTATION: Record<
 
 // Category mapping keys
 const CATEGORIES: Record<string, string> = {
-  home: '🏠 Home Page',
+  home: 'Home',
   favourites: 'Favourites',
   recently_viewed: 'Recently Viewed',
-  bara_icu_card: '🏥 Bara ICU Dosing Card',
-  helen_guidelines: '🩺 Helen (HJH) Guidelines',
-  cmjah_guidelines: '🏨 CMJAH Guidelines',
-  rmmch_guidelines: '👶 RMMCH Guidelines',
-  edl_phc_guidelines: '🇿🇦 SA EDL / PHC Guidelines',
-  landmark_studies: `${TRIALS_REFERENCE.length} Landmark Studies`,
-  international_guidelines: `${SUPPLIED_GUIDELINE_LINK_AUDIT.guidelineCount} International Guidelines`,
-  pocket_guides: `${POCKET_GUIDE_COUNT} Pocket Guides`,
-  mindmaps: '⚡ Resuscitation Mind Maps',
-  policies: '📑 Hospital SOPs & Policies',
+  bara_icu_card: 'Bara ICU Dosing Card',
+  helen_guidelines: 'Helen Joseph Guidelines',
+  cmjah_guidelines: 'CMJAH Guidelines',
+  rmmch_guidelines: 'RMMCH Guidelines',
+  edl_phc_guidelines: 'SA EDL / PHC Guidelines',
+  landmark_studies: 'Landmark Studies',
+  international_guidelines: 'International Guidelines',
+  pocket_guides: 'Pocket Guides',
+  mindmaps: 'Resuscitation Mind Maps',
+  policies: 'Hospital SOPs & Policies',
   all: 'All Categories',
   '1_resuscitation_fluids_and_inotropes': 'Resuscitation',
   '2_airway_and_ventilation': 'Airway & Ventilation',
@@ -203,6 +209,16 @@ const PILLAR_CATEGORY_IDS = [
   'bara_icu_card',
   'rmmch_guidelines',
   'edl_phc_guidelines',
+] as const;
+
+const NUMBERED_CATEGORY_IDS = ORDER.filter(categoryId => /^\d+_/.test(categoryId));
+
+const UTILITY_CATEGORY_IDS = [
+  'favourites',
+  'recently_viewed',
+  'mindmaps',
+  'policies',
+  'all',
 ] as const;
 
 // Passed to renderCategorySect to select which entries render, by their
@@ -2761,21 +2777,26 @@ export default function App() {
     }, {} as Record<string, TrialReferenceEntry[]>);
 
     return (
-      <div className="space-y-4">
-        <div className="p-4 rounded-xl bg-[#1a0f26] border border-purple-900/50 flex items-center justify-between">
+      <div className="space-y-5">
+        <div className="rounded-2xl border border-slate-700/70 bg-slate-900/75 p-5 shadow-sm sm:p-6">
+          <div className="flex items-start justify-between gap-4">
           <div>
-            <div className="text-xs font-bold uppercase tracking-wider text-purple-400">Global Evidence Reference</div>
-            <h2 className="text-xl font-black text-white flex items-center gap-2 mt-0.5">
-              <span>🔬 Landmark Studies</span>
+            <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.16em] text-indigo-300">
+              <FlaskConical className="h-4 w-4" />
+              Global evidence library
+            </div>
+            <h2 className="mt-2 text-2xl font-bold tracking-tight text-white">
+              Landmark Studies
             </h2>
-            <p className="text-xs text-slate-400 mt-1">
+            <p className="mt-2 max-w-3xl text-sm leading-relaxed text-slate-400">
               Searchable summaries of landmark trials, observational studies, and clinical
               decision rules, with direct links to available primary sources.
             </p>
           </div>
-          <span className="text-[10px] bg-purple-950 text-purple-300 font-bold px-2 py-0.5 rounded border border-purple-800/30 flex-shrink-0">
-            {matched.length} Entries
+          <span className="shrink-0 rounded-lg border border-slate-700 bg-slate-950/70 px-3 py-1.5 text-xs font-semibold text-slate-300">
+            {matched.length} studies
           </span>
+          </div>
         </div>
 
         {matched.length === 0 && (
@@ -2783,83 +2804,109 @@ export default function App() {
         )}
 
         {Object.entries(byDomain).map(([domain, entries]) => (
-          <div
+          <section
             key={domain}
-            className={`rounded-xl border overflow-hidden ${theme === 'dark' ? 'bg-[#081212] border-teal-950/60' : 'bg-white border-slate-200'
+            className={`overflow-hidden rounded-2xl border ${theme === 'dark' ? 'border-slate-800 bg-slate-900/40' : 'border-slate-200 bg-white'
               }`}
           >
-            <div className={`flex items-center gap-2.5 px-4 py-3 ${theme === 'dark' ? 'bg-[#0d2222]/80' : 'bg-slate-100'}`}>
-              <h3 className="font-extrabold text-sm uppercase tracking-wider text-purple-400">{domain}</h3>
-              <span className="text-[10px] bg-purple-950 text-purple-300 font-bold px-1.5 py-0.5 rounded">
+            <div className={`flex items-center justify-between gap-3 border-b px-4 py-3 ${theme === 'dark' ? 'border-slate-800 bg-slate-900/70' : 'border-slate-200 bg-slate-50'}`}>
+              <h3 className="text-sm font-bold text-slate-200">{domain}</h3>
+              <span className="rounded-md border border-slate-700 bg-slate-950/60 px-2 py-0.5 text-[10px] font-semibold text-slate-400">
                 {entries.length}
               </span>
             </div>
-            <div className="p-4 space-y-3">
+            <div className="space-y-2 p-3 sm:p-4">
               {entries.map(t => (
-                <div
+                <details
                   key={t.id}
-                  className={`rounded-lg border p-3.5 space-y-2 ${theme === 'dark' ? 'border-teal-950/40 bg-black/10' : 'border-slate-200 bg-slate-50'
+                  className={`group rounded-xl border transition-colors ${theme === 'dark' ? 'border-slate-800 bg-slate-950/35 open:border-indigo-700/60' : 'border-slate-200 bg-white open:border-indigo-300'
                     }`}
                 >
-                  <div className="flex items-start justify-between gap-2">
-                    <h4 className="font-bold text-sm text-slate-100">{t.title}</h4>
-                    <span
-                      className={`flex-shrink-0 text-[9px] font-black uppercase px-1.5 py-0.5 rounded border ${TRIAL_TYPE_PRESENTATION[t.type].className}`}
-                    >
-                      {TRIAL_TYPE_PRESENTATION[t.type].label}
-                    </span>
-                  </div>
-                  <div className="flex flex-wrap items-center gap-2 text-[11px]">
-                    {t.source_url ? (
-                      <a
-                        href={t.source_url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="italic text-purple-300 underline decoration-purple-800 underline-offset-2 hover:text-purple-200"
-                      >
-                        {t.reference} · open primary source
-                      </a>
-                    ) : (
-                      <span className="italic text-slate-500">{t.reference}</span>
-                    )}
-                    {t.evidence_status && (
-                      <span className={`rounded border px-1.5 py-0.5 text-[9px] font-black uppercase ${
-                        t.evidence_status === 'published'
-                          ? 'border-emerald-800/50 bg-emerald-950/30 text-emerald-300'
-                          : 'border-amber-800/50 bg-amber-950/30 text-amber-300'
-                      }`}>
-                        {t.evidence_status}
-                      </span>
-                    )}
-                  </div>
-                  <p className="text-xs text-slate-300 leading-relaxed">{t.the_hook}</p>
+                  <summary className="cursor-pointer list-none p-4">
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="min-w-0">
+                        <h4 className="text-sm font-semibold leading-snug text-slate-100">
+                          {t.title}
+                        </h4>
+                        <div className="mt-1.5 flex flex-wrap items-center gap-2 text-[11px]">
+                          {t.source_url ? (
+                            <a
+                              href={t.source_url}
+                              target="_blank"
+                              rel="noreferrer"
+                              onClick={event => event.stopPropagation()}
+                              className="font-medium text-indigo-300 underline decoration-indigo-700 underline-offset-2 hover:text-indigo-200"
+                            >
+                              {t.reference} · Primary source
+                            </a>
+                          ) : (
+                            <span className="text-slate-500">{t.reference}</span>
+                          )}
+                          {t.evidence_status && (
+                            <span className={`rounded border px-1.5 py-0.5 text-[9px] font-semibold uppercase ${
+                              t.evidence_status === 'published'
+                                ? 'border-emerald-800/50 bg-emerald-950/30 text-emerald-300'
+                                : 'border-amber-800/50 bg-amber-950/30 text-amber-300'
+                            }`}>
+                              {t.evidence_status}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                      <div className="flex shrink-0 items-center gap-2">
+                        <span
+                          className={`rounded border px-2 py-0.5 text-[9px] font-semibold uppercase ${TRIAL_TYPE_PRESENTATION[t.type].className}`}
+                        >
+                          {TRIAL_TYPE_PRESENTATION[t.type].label}
+                        </span>
+                        <ChevronDown className="h-4 w-4 text-slate-500 transition-transform group-open:rotate-180" />
+                      </div>
+                    </div>
+                    <p className="mt-3 text-xs leading-relaxed text-slate-400">{t.the_hook}</p>
+                  </summary>
 
-                  <div className="pt-1.5 border-t border-teal-950/20 space-y-1.5">
-                    <p className="text-xs text-slate-400 leading-relaxed">
-                      <span className="font-bold text-teal-400">If the consultant asks: </span>
-                      {t.if_consultant_asks}
-                    </p>
-                    <p className="text-xs text-slate-400 leading-relaxed">
-                      <span className="font-bold text-emerald-400">Killer stat: </span>
-                      {t.killer_stat}
-                    </p>
-                    {t.shift_action && (
-                      <p className="text-xs text-slate-400 leading-relaxed">
-                        <span className="font-bold text-amber-400">On shift: </span>
-                        {t.shift_action}
+                  <div className="space-y-3 border-t border-slate-800 px-4 py-4">
+                    <div>
+                      <div className="text-[10px] font-semibold uppercase tracking-wider text-slate-500">
+                        Clinical relevance
+                      </div>
+                      <p className="mt-1 text-xs leading-relaxed text-slate-300">
+                        {t.if_consultant_asks}
                       </p>
+                    </div>
+                    <div>
+                      <div className="text-[10px] font-semibold uppercase tracking-wider text-slate-500">
+                        Key result
+                      </div>
+                      <p className="mt-1 text-xs leading-relaxed text-slate-300">
+                        {t.killer_stat}
+                      </p>
+                    </div>
+                    {t.shift_action && (
+                      <div>
+                        <div className="text-[10px] font-semibold uppercase tracking-wider text-slate-500">
+                          Practice application
+                        </div>
+                        <p className="mt-1 text-xs leading-relaxed text-slate-300">
+                          {t.shift_action}
+                        </p>
+                      </div>
                     )}
                     {t.review_note && (
-                      <details className="rounded border border-amber-900/30 bg-amber-950/10 p-2 text-[10px] text-amber-100">
-                        <summary className="cursor-pointer font-bold">Source correction / review note</summary>
-                        <p className="mt-1 leading-relaxed">{t.review_note}</p>
-                      </details>
+                      <div className="rounded-lg border border-amber-900/40 bg-amber-950/15 p-3">
+                        <div className="text-[10px] font-semibold uppercase tracking-wider text-amber-300">
+                          Evidence note
+                        </div>
+                        <p className="mt-1 text-[11px] leading-relaxed text-amber-100">
+                          {t.review_note}
+                        </p>
+                      </div>
                     )}
                   </div>
-                </div>
+                </details>
               ))}
             </div>
-          </div>
+          </section>
         ))}
       </div>
     );
@@ -3289,15 +3336,25 @@ export default function App() {
   };
 
   const activeFacilityId = CATEGORY_FACILITY[selectedCategory];
+  const isGlobalReferenceCategory = GLOBAL_REFERENCE_CATEGORY_IDS.includes(
+    selectedCategory as typeof GLOBAL_REFERENCE_CATEGORY_IDS[number],
+  );
 
-  // Only hospital/facility tabs get their own dedicated pill bar (so one
-  // facility's protocols never mix with another's). Every other tab
-  // (chapters, reference sections, utility views) keeps the full bar.
+  // Keep each navigation family focused so hospital content never mixes and
+  // global reference pages do not inherit unrelated clinical-source controls.
   const categoryBarOrder: string[] = PILLAR_CATEGORY_IDS.includes(
     selectedCategory as typeof PILLAR_CATEGORY_IDS[number],
   )
     ? ['home', selectedCategory, '16_score_calculators', ...GLOBAL_REFERENCE_CATEGORY_IDS]
-    : ORDER;
+    : isGlobalReferenceCategory
+      ? ['home', ...GLOBAL_REFERENCE_CATEGORY_IDS]
+      : NUMBERED_CATEGORY_IDS.includes(selectedCategory)
+        ? ['home', ...NUMBERED_CATEGORY_IDS]
+        : UTILITY_CATEGORY_IDS.includes(
+          selectedCategory as typeof UTILITY_CATEGORY_IDS[number],
+        )
+          ? ['home', ...UTILITY_CATEGORY_IDS]
+          : ORDER;
 
   return (
     <div className={`min-h-screen transition-colors duration-300 ${theme === 'dark' ? 'theme-dark bg-[#0b1329] text-slate-100' : 'theme-light bg-slate-100 text-slate-900'}`}>
@@ -3552,7 +3609,9 @@ export default function App() {
             className="p-2 rounded-xl bg-slate-800/60 hover:bg-slate-700 transition"
             title="Toggle Theme"
           >
-            {theme === 'light' ? '🌙' : '☀️'}
+            {theme === 'light'
+              ? <Moon className="h-4 w-4 text-slate-300" />
+              : <Sun className="h-4 w-4 text-amber-300" />}
           </button>
         </div>
       </header>
@@ -3562,7 +3621,7 @@ export default function App() {
         <div className={`sticky top-[3.5rem] z-40 p-3 shadow-md border-b transition-colors duration-300 ${
           theme === 'dark' ? 'bg-[#0f172a] border-slate-800' : 'bg-slate-200/80 border-slate-300'
         }`}>
-          <div className="max-w-7xl mx-auto flex items-center gap-3">
+          <div className={`${isGlobalReferenceCategory ? 'max-w-5xl' : 'max-w-7xl'} mx-auto flex items-center gap-3`}>
             <div className="relative flex-1">
               <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-indigo-400 opacity-70" />
               <input
@@ -3570,7 +3629,11 @@ export default function App() {
                 id="s"
                 value={searchQuery}
                 onChange={e => setSearchQuery(e.target.value)}
-                placeholder="Search drug, protocol, emergency condition, score..."
+                placeholder={
+                  isGlobalReferenceCategory
+                    ? `Search ${CATEGORIES[selectedCategory].toLowerCase()}...`
+                    : 'Search drug, protocol, emergency condition, score...'
+                }
                 aria-label="Search clinical reference"
                 className={`w-full pl-10 pr-4 py-2 rounded-xl text-sm transition focus:outline-none ${
                   theme === 'dark'
@@ -3580,35 +3643,39 @@ export default function App() {
               />
             </div>
 
-            {/* Quick Source indicator */}
-            <button
-              onClick={() => setSidebarOpen(true)}
-              className="text-xs font-bold px-3 py-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-indigo-300 border border-slate-700/60 transition-colors shrink-0 flex items-center gap-1.5 cursor-pointer"
-            >
-              <span>
-                {activeFacilityId
-                  ? `${HOSPITALS[activeFacilityId].shortName} only`
-                  : sourceFilter === 'all'
-                    ? 'All Sources'
-                    : sourceFilter === 'bara_icu'
-                      ? 'Bara ICU'
-                      : 'SA EDL'}
-              </span>
-              <ChevronDown className="w-3.5 h-3.5" />
-            </button>
+            {!isGlobalReferenceCategory && (
+              <button
+                onClick={() => setSidebarOpen(true)}
+                className="text-xs font-bold px-3 py-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-indigo-300 border border-slate-700/60 transition-colors shrink-0 flex items-center gap-1.5 cursor-pointer"
+              >
+                <span>
+                  {activeFacilityId
+                    ? `${HOSPITALS[activeFacilityId].shortName} only`
+                    : sourceFilter === 'all'
+                      ? 'All Sources'
+                      : sourceFilter === 'bara_icu'
+                        ? 'Bara ICU'
+                        : 'SA EDL'}
+                </span>
+                <ChevronDown className="w-3.5 h-3.5" />
+              </button>
+            )}
           </div>
         </div>
       )}
 
       {/* CATEGORY BAR (PILLS) — hidden on Home landing page */}
       {!(selectedCategory === 'home' && !activeMindMap && !activePolicy) && (
-        <div className={`sticky top-[7rem] z-30 flex gap-2 p-3 overflow-x-auto whitespace-nowrap border-b transition-colors duration-300 no-scrollbar ${
+        <div className={`sticky top-[7rem] z-30 flex gap-2 overflow-x-auto whitespace-nowrap border-b transition-colors duration-300 no-scrollbar ${
+          isGlobalReferenceCategory ? 'justify-start px-4 py-2.5 sm:justify-center' : 'p-3'
+        } ${
           theme === 'dark' ? 'bg-slate-900/90 border-slate-800/80' : 'bg-slate-100 border-slate-200'
         }`}>
           {categoryBarOrder.map(k => {
             const label = CATEGORIES[k] || k;
             const isSelected = selectedCategory === k;
             const favsCount = favourites.length;
+            const globalCount = GLOBAL_REFERENCE_COUNTS[k];
             return (
               <button
                 key={k}
@@ -3620,16 +3687,36 @@ export default function App() {
                     navigateToCategory(k);
                   }
                 }}
-                className={`flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-bold transition duration-200 cursor-pointer ${
+                className={`flex-shrink-0 text-xs font-semibold transition duration-200 cursor-pointer ${
+                  isGlobalReferenceCategory ? 'rounded-lg border px-3 py-2' : 'rounded-full px-3.5 py-1.5'
+                } ${
                   isSelected
-                    ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/20'
+                    ? isGlobalReferenceCategory
+                      ? 'border-indigo-500/70 bg-indigo-500/15 text-indigo-200'
+                      : 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/20'
                     : theme === 'dark'
                       ? 'bg-slate-800/80 text-slate-300 border border-slate-700/60 hover:bg-slate-700'
                       : 'bg-slate-200 text-slate-700 hover:bg-slate-300'
                 }`}
               >
-                <span className="mr-1">{CATEGORY_ICONS[k] || '📋'}</span>
+                {isGlobalReferenceCategory ? (
+                  <>
+                    {k === 'home' && <Home className="mr-1.5 inline h-3.5 w-3.5" />}
+                    {k === 'landmark_studies' && <FlaskConical className="mr-1.5 inline h-3.5 w-3.5" />}
+                    {k === 'international_guidelines' && <Globe2 className="mr-1.5 inline h-3.5 w-3.5" />}
+                    {k === 'pocket_guides' && <BookOpen className="mr-1.5 inline h-3.5 w-3.5" />}
+                  </>
+                ) : (
+                  <span className="mr-1">{CATEGORY_ICONS[k] || '📋'}</span>
+                )}
                 <span>{label}</span>
+                {globalCount !== undefined && (
+                  <span className={`ml-2 rounded px-1.5 py-0.5 text-[9px] ${
+                    isSelected ? 'bg-indigo-400/20 text-indigo-100' : 'bg-black/20 text-slate-400'
+                  }`}>
+                    {globalCount}
+                  </span>
+                )}
                 {k === 'favourites' && favsCount > 0 && (
                   <span className="ml-1.5 bg-black/20 text-[10px] px-1.5 py-0.5 rounded-full font-black">
                     {favsCount}
@@ -3642,7 +3729,7 @@ export default function App() {
       )}
 
       {/* MAIN CONTAINER */}
-      <main className="max-w-7xl mx-auto p-4 pb-20">
+      <main className={`${isGlobalReferenceCategory ? 'max-w-5xl' : 'max-w-7xl'} mx-auto p-4 pb-20`}>
         {/* Toggle Controls for All Containers (NOT shown on Home landing page) */}
         {selectedCategory !== 'home' && selectedCategory !== 'favourites' && selectedCategory !== 'recently_viewed' && !GLOBAL_REFERENCE_CATEGORY_IDS.includes(selectedCategory as typeof GLOBAL_REFERENCE_CATEGORY_IDS[number]) && !CATEGORY_FACILITY[selectedCategory] && !activeMindMap && !activePolicy && (
           <div className="flex justify-end gap-2 mb-4">

@@ -10,7 +10,7 @@ describe('GlobalReferenceDocumentPage', () => {
       searchQuery: '',
     }));
 
-    expect(markup).toContain('International Clinical Guidelines Directory');
+    expect(markup).toContain('International Clinical Guidelines');
     expect(markup).toContain('43 of 43 entries');
     expect(markup).not.toContain('clinical-guidelines-reference-v3.md');
     expect(markup).not.toContain('Audit required');
