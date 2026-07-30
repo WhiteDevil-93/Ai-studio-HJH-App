@@ -113,7 +113,7 @@ describe('supplied hospital protocol corpus', () => {
       '03_ed_cardiovascular': 14,
       '04_ed_neurology': 8,
       '05_ed_pulmonary': 7,
-      '06_ed_airway': 5,
+      '06_ed_airway': 4,
       '07_ed_ent': 1,
       '08_ed_obstetrics_gynaecology': 2,
       '11_ed_medical_emergencies': 8,
@@ -123,7 +123,7 @@ describe('supplied hospital protocol corpus', () => {
       '14_ed_metabolic': 9,
       '14_ed_psychiatry': 2,
       '15_ed_general_surgery': 4,
-      '15_ed_procedures': 3,
+      '15_ed_procedures': 4,
       '16_ed_administration': 2,
       '17_ed_critical_care': 5,
     });

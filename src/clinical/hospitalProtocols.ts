@@ -221,7 +221,6 @@ const HJH_PROTOCOLS_BY_CATEGORY: Record<string, readonly string[]> = {
     'airway_management_checklist_rsi',
     'difficult_airway',
     'non_invasive_ventilation',
-    'procedural_sedation',
     'ventilator_guidelines',
   ],
   '07_ed_ent': ['ent_emergencies'],
@@ -288,6 +287,7 @@ const HJH_PROTOCOLS_BY_CATEGORY: Record<string, readonly string[]> = {
     'femoral_nerve_block',
     'infusions',
     'pain_management',
+    'procedural_sedation',
   ],
   '16_ed_administration': [
     'medicolegal_recordkeeping',
@@ -440,7 +440,6 @@ const RMMCH_PROTOCOLS_BY_CATEGORY: Record<string, readonly string[]> = {
   ],
   '06_ed_airway': [
     'airway_management_advanced',
-    'procedural_sedation_analgesia',
     'rmmch-advanced-airway-management',
     'rsi_checklist',
   ],
@@ -471,6 +470,7 @@ const RMMCH_PROTOCOLS_BY_CATEGORY: Record<string, readonly string[]> = {
   '15_ed_procedures': [
     'analgesia',
     'efast',
+    'procedural_sedation_analgesia',
     'rmmch-analgesia',
   ],
   '16_ed_administration': [
