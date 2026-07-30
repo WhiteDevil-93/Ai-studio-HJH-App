@@ -10,9 +10,12 @@ import {
 } from 'lucide-react';
 import {
   findReferencedHospitalProtocol,
+  findHospitalProtocol,
   HOSPITALS,
   type HospitalProtocol,
 } from '../clinical/hospitalProtocols';
+import {findFlowchartForProtocol} from '../clinical/flowcharts';
+import {FlowchartViewer} from './FlowchartViewer';
 import {extractWeightDoseResults} from '../clinical/calculations/weightDose';
 
 interface ProtocolLandingPageProps {
@@ -234,6 +237,15 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
     ? body.source_image_alt
     : `${contentProtocol.title} source image`;
 
+  const flowchartData = findFlowchartForProtocol(contentProtocol.slug, body) ?? findFlowchartForProtocol(protocol.slug, body);
+
+  const handleOpenByProtocolSlug = (targetSlug: string) => {
+    const found = findHospitalProtocol(protocol.facilityId, targetSlug);
+    if (found) {
+      onOpenProtocol(found);
+    }
+  };
+
   return (
     <article className="mx-auto max-w-5xl space-y-5 pb-12">
       <button
@@ -271,6 +283,13 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
           </div>
         </dl>
       </header>
+
+      {flowchartData && (
+        <FlowchartViewer
+          flowchart={flowchartData}
+          onOpenProtocol={handleOpenByProtocolSlug}
+        />
+      )}
 
       {referencedProtocol && (
         <div className="rounded-2xl border border-indigo-300 bg-indigo-50 p-4 text-sm text-indigo-950">

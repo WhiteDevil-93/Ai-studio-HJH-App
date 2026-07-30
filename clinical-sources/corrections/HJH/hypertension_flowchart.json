@@ -14,6 +14,34 @@
     "pdfPages": [
       98
     ],
-    "source_text": "Does the patient have ACUTE, LIFE- \nTHREATENING end-organ damage? \n• Hypertensive encephalopathy & retinopathy \n• Haemorrhagic / Ischaemic CVA \n• ACS – STEMI/NSTE-ACS \n• Acute LV dysfunction / Congestive heart failure \n• Acute pulmonary oedema (SCAPE) \n• Aortic dissection \n• Acute renal failure \n• Eclampsia / Pre-eclampsia \nBlood Pressure elevated? \nHYPERTENSION FLOWCHART \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n**Please note** \nNo role in the ED for stat oral antihypertensives \n• Treat the initial presenting \ncomplaint \n• Screen for TOD – likely true HT if \npresent \n• True HT: Discharge on oral \nantihypertensive agents – HCTZ + \nACE-inhibitor/Ca Channel blocker \n• Reactive HT: reassure, no TTO \n• Follow up at local Clinic for \nrepeat BP/Rx continuation \nYES \n NO \nUncontrolled Hypertension \nor \nPoorly controlled \nHypertension \n \nHypertensive Emergency \n \nImmediate IV antihypertensive \ntherapy in the ED \n(See hypertensive Emergencies \nprotocol below) \nExclude reversible \ncauses \n• Incorrect cuff/ \ntechnique \n• Pain \n• Anxiety \n• Full bladder \n• Medications"
+    "is_flowchart": true,
+    "flowchart_id": "hypertension_flowchart",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Triage & Target Organ Damage Assessment",
+        "details": "Assess for acute life-threatening target organ damage: Hypertensive encephalopathy, Stroke (CVA), ACS (STEMI/NSTE-ACS), SCAPE / Acute pulmonary oedema, Aortic dissection, Acute renal failure, Eclampsia/Pre-eclampsia."
+      },
+      {
+        "step_number": "2",
+        "action": "Decision Pathway: Acute TOD Present (Hypertensive Emergency)",
+        "details": "Initiate immediate IV antihypertensive therapy in ED (Labetalol or Isosorbide Dinitrate infusion). ABC resuscitation: Definitive airway if GCS depressed; NIV if acute pulmonary oedema; Fluid bolus @ 10ml/kg before IV antihypertensives. Goal: Reduce MAP by 20-25% in 1st hour (Aortic dissection: SBP <100-120 in 20 min)."
+      },
+      {
+        "step_number": "3",
+        "action": "Decision Pathway: No Acute TOD (Uncontrolled Hypertension)",
+        "details": "Exclude reversible causes (cuff size, technique, pain, anxiety, full bladder, skipped meds). WARNING: No role in ED for stat oral antihypertensives! Treat initial presenting complaint."
+      },
+      {
+        "step_number": "4",
+        "action": "Outpatient Discharge & Follow-up Plan",
+        "details": "True HT: Discharge on oral antihypertensive agents (HCTZ + ACE-inhibitor or Calcium Channel Blocker). Reactive HT: Reassure, no TTO. Follow up at local clinic for repeat BP check and Rx continuation."
+      }
+    ],
+    "warnings": [
+      "No role in the ED for stat oral antihypertensives in asymptomatic or non-emergent hypertension.",
+      "Reduce MAP by max 20-25% in 1st hour for Hypertensive Emergencies (except Aortic Dissection: SBP goal <100-120 in 20 min)."
+    ],
+    "disposition": "Hypertensive Emergency: Internal Medicine / ICU / High Care admission.\nUncontrolled HT: Discharge to local clinic for follow-up within 3-7 days with oral antihypertensives (HCTZ + ACEi/CCB)."
   }
 }
