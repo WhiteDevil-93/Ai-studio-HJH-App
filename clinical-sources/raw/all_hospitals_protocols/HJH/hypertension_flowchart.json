@@ -2,7 +2,7 @@
   "_meta": {
     "id": "hypertension_flowchart",
     "type": "protocol",
-    "category": "03_ed_cardiovascular",
+    "category": "05_ed_pulmonary",
     "subcategory": "protocols",
     "title": "Hypertension Flowchart",
     "source_doc": "HJH ED 2026",
@@ -19,18 +19,18 @@
       },
       {
         "step_number": "2",
-        "action": "• ABC approach to resuscitation",
-        "details": "• ABC approach to resuscitation"
+        "action": "\u2022 ABC approach to resuscitation",
+        "details": "\u2022 ABC approach to resuscitation"
       },
       {
         "step_number": "3",
-        "action": "• A – definitive airway if a depressed level of consciousness",
-        "details": "• A – definitive airway if a depressed level of consciousness"
+        "action": "\u2022 A \u2013 definitive airway if a depressed level of consciousness",
+        "details": "\u2022 A \u2013 definitive airway if a depressed level of consciousness"
       },
       {
         "step_number": "4",
-        "action": "• B – Acute pulmonary oedema, but intubation is not indicated, start non-invasive",
-        "details": "• B – Acute pulmonary oedema, but intubation is not indicated, start non-invasive"
+        "action": "\u2022 B \u2013 Acute pulmonary oedema, but intubation is not indicated, start non-invasive",
+        "details": "\u2022 B \u2013 Acute pulmonary oedema, but intubation is not indicated, start non-invasive"
       },
       {
         "step_number": "5",
@@ -39,8 +39,8 @@
       },
       {
         "step_number": "6",
-        "action": "• C – Fluid bolus with Balsol / Ringers Lactate @ 10ml/kg prior to commencing IV anti-",
-        "details": "• C – Fluid bolus with Balsol / Ringers Lactate @ 10ml/kg prior to commencing IV anti-"
+        "action": "\u2022 C \u2013 Fluid bolus with Balsol / Ringers Lactate @ 10ml/kg prior to commencing IV anti-",
+        "details": "\u2022 C \u2013 Fluid bolus with Balsol / Ringers Lactate @ 10ml/kg prior to commencing IV anti-"
       },
       {
         "step_number": "7",
@@ -69,6 +69,6 @@
         "notes": "Drug details in source PDF"
       }
     ],
-    "disposition": "admission if severely \nelevated/poor follow-up/multiple \ncomorbidities \n•\nNO INDICATION FOR IV ANTI-\nHYPERTENSIVE AGENTS! \n \n \nHypertensive Emergency \nElevated blood pressure (> 180/110) \nWITH LIFE THREATENING ACUTE END ORGAN DAMAGE \n•\nHypertensive encephalopathy & \nretinopathy \n•\nHaemorrhagic / acute Ischaemic CVA \n•\nACS – STEMI/NSTE-ACS \n•\nAcute LV dysfunction / Congestive heart \nfailure \n•\nAcute pulmonary oedema (SCAPE) \n•\nAortic dissection \n•\nAcute renal failure \n•\nEclampsia / Pre-eclampsia"
+    "disposition": "admission if severely \nelevated/poor follow-up/multiple \ncomorbidities \n\u2022\nNO INDICATION FOR IV ANTI-\nHYPERTENSIVE AGENTS! \n \n \nHypertensive Emergency \nElevated blood pressure (> 180/110) \nWITH LIFE THREATENING ACUTE END ORGAN DAMAGE \n\u2022\nHypertensive encephalopathy & \nretinopathy \n\u2022\nHaemorrhagic / acute Ischaemic CVA \n\u2022\nACS \u2013 STEMI/NSTE-ACS \n\u2022\nAcute LV dysfunction / Congestive heart \nfailure \n\u2022\nAcute pulmonary oedema (SCAPE) \n\u2022\nAortic dissection \n\u2022\nAcute renal failure \n\u2022\nEclampsia / Pre-eclampsia"
   }
 }

@@ -2,7 +2,7 @@
   "_meta": {
     "id": "atrial_fibrillation_af",
     "type": "protocol",
-    "category": "03_ed_cardiovascular",
+    "category": "11_ed_medical_emergencies",
     "subcategory": "protocols",
     "title": "Atrial Fibrillation (AF)",
     "source_doc": "HJH ED 2026 / CMJAH / Bara ICU",
@@ -45,7 +45,7 @@
       "notes_updates": "300mg in 5% Dextrose over 30 min (Loading)."
     },
     {
-      "category": "HJH ED Protocol — Infusions",
+      "category": "HJH ED Protocol \u2014 Infusions",
       "item": "Esmolol",
       "formula": "Dose x weight x 60 / prepared concentration",
       "standard_dilutions": "500mg undiluted in a 50ml syringe (10mg/ml)"

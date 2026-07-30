@@ -2,7 +2,7 @@
   "_meta": {
     "id": "acute_coronary_syndrome_acs_algorithm",
     "type": "protocol",
-    "category": "03_ed_cardiovascular",
+    "category": "11_ed_medical_emergencies",
     "subcategory": "protocols",
     "title": "Acute Coronary Syndrome (ACS) Algorithm",
     "source_doc": "HJH ED 2026 / CMJAH / Bara ICU",
@@ -64,13 +64,13 @@
       "notes_updates": "300mg in 5% Dextrose over 30 min (Loading)."
     },
     {
-      "category": "HJH ED Protocol — Infusions",
+      "category": "HJH ED Protocol \u2014 Infusions",
       "item": "Nitroglycerin",
       "formula": "Dose x 60 / prepared concentration",
       "standard_dilutions": "10mg in 200ml N/S (50mcg/ml)"
     },
     {
-      "category": "HJH ED Protocol — Infusions",
+      "category": "HJH ED Protocol \u2014 Infusions",
       "item": "Isosorbide Dinitrate",
       "formula": "Dose / prepared concentration",
       "standard_dilutions": "20mg in 200ml (0.1mg/ml); protocol also lists 100mg in 200ml (0.5mg/ml)"

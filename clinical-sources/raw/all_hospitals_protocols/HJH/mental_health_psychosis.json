@@ -2,7 +2,7 @@
   "_meta": {
     "id": "mental_health_psychosis",
     "type": "protocol",
-    "category": "14_ed_psychiatry",
+    "category": "07_ed_ent",
     "subcategory": "protocols",
     "title": "Mental Healthcare Users: General Approach",
     "source_doc": "HJH ED 2026",
@@ -12,7 +12,7 @@
     "item": "Mental Healthcare Users: General Approach",
     "protocol_type": "ed_protocol",
     "clinical_features": {
-      "symptoms": "signs including HGT, monitor O2 saturation if heavily sedated \n• \nComprehensive history and exam to exclude underlying medical conditions \n• \nInvestigations as per protocol – see below \n• \nHand over to Psychiatry on call if bloods/vitals/exam is normal \n• \nPsychiatry to arrange rapid transfer to ward as soon as bed is available \n• \nPts will NOT wait in ED for additional investigations/management unless medically indicated \n• \nEnsure that patient comfort is attended to – toilet needs, regular meals, smoke breaks etc. \n \n \n \n• \nINDEX MHCU baseline investigations \nINVESTIGATIONS \n \n• \nVBG, FBC, UE, CRP, TPHA/RPR (CRP < 60; WCC < 20) \n• \nCSF ONLY if acute meningitis fx OR advanced RVD – Chemistry, cell count, MCS, India Ink, \nCLAT, TB GXP. Add VDRL if TPHA/RPR positive \n• \nCTB if clinically indicated – low threshold for immune compromised pts. With contrast \npreferred \n→ if all normal and no red flags, refer to Psychiatry \n \n• \nKNOWN MHCU baseline investigations: \n• \nVBG, HGT \n• \nFurther investigations only as clinically indicated \n• \nConsider drug levels as indicated – anti-epileptics, mood stabilisers \n• \nEXCLUSIONS: Advanced RVD, Thyroid dysfx, SLE, new neurology \n \nALL FEMALE PATIENTS MUST HAVE A PREGNANCY TEST DOCUMENTED IN THE FILE \nCOMPLICATIONS ASSOCIATED WITH ANTIPSYCHOTIC DRUGS \n \n*EXTRAPYRAMIDAL SIDE EFFECTS/ACUTE DYSTONIC REACTION: fixed abnormal posture, oculogyric crisis, laryngospasm \nBiperiden (Akineton) 2.5 mg IV slowly, repeat every 2 minutes prn, max 4 doses \n*NEUROLEPTIC MALIGNANT SYNDROME: develops over 24 – 72 hrs, hyperthermia, muscle rigidity, rhabdomyolysis \nResuscitate, withdraw precipitating agent, supportive care \n \nRED FLAGS \n* Age > 60 \n* Trauma \n* Meningitis features \n* Recent Travel hx \n* Auto-immune/endocrine fx \n* Potentially toxic drug levels – Epilim, Lithium \n* Advanced RVD features \n* Post-ictal features \n* Acute drug intoxication/withdrawal – Medical admission \n* Pregnancy/Recent postpartum \n* New onset visual/tactile hallucination"
+      "symptoms": "signs including HGT, monitor O2 saturation if heavily sedated \n\u2022 \nComprehensive history and exam to exclude underlying medical conditions \n\u2022 \nInvestigations as per protocol \u2013 see below \n\u2022 \nHand over to Psychiatry on call if bloods/vitals/exam is normal \n\u2022 \nPsychiatry to arrange rapid transfer to ward as soon as bed is available \n\u2022 \nPts will NOT wait in ED for additional investigations/management unless medically indicated \n\u2022 \nEnsure that patient comfort is attended to \u2013 toilet needs, regular meals, smoke breaks etc. \n \n \n \n\u2022 \nINDEX MHCU baseline investigations \nINVESTIGATIONS \n \n\u2022 \nVBG, FBC, UE, CRP, TPHA/RPR (CRP < 60; WCC < 20) \n\u2022 \nCSF ONLY if acute meningitis fx OR advanced RVD \u2013 Chemistry, cell count, MCS, India Ink, \nCLAT, TB GXP. Add VDRL if TPHA/RPR positive \n\u2022 \nCTB if clinically indicated \u2013 low threshold for immune compromised pts. With contrast \npreferred \n\u2192 if all normal and no red flags, refer to Psychiatry \n \n\u2022 \nKNOWN MHCU baseline investigations: \n\u2022 \nVBG, HGT \n\u2022 \nFurther investigations only as clinically indicated \n\u2022 \nConsider drug levels as indicated \u2013 anti-epileptics, mood stabilisers \n\u2022 \nEXCLUSIONS: Advanced RVD, Thyroid dysfx, SLE, new neurology \n \nALL FEMALE PATIENTS MUST HAVE A PREGNANCY TEST DOCUMENTED IN THE FILE \nCOMPLICATIONS ASSOCIATED WITH ANTIPSYCHOTIC DRUGS \n \n*EXTRAPYRAMIDAL SIDE EFFECTS/ACUTE DYSTONIC REACTION: fixed abnormal posture, oculogyric crisis, laryngospasm \nBiperiden (Akineton) 2.5 mg IV slowly, repeat every 2 minutes prn, max 4 doses \n*NEUROLEPTIC MALIGNANT SYNDROME: develops over 24 \u2013 72 hrs, hyperthermia, muscle rigidity, rhabdomyolysis \nResuscitate, withdraw precipitating agent, supportive care \n \nRED FLAGS \n* Age > 60 \n* Trauma \n* Meningitis features \n* Recent Travel hx \n* Auto-immune/endocrine fx \n* Potentially toxic drug levels \u2013 Epilim, Lithium \n* Advanced RVD features \n* Post-ictal features \n* Acute drug intoxication/withdrawal \u2013 Medical admission \n* Pregnancy/Recent postpartum \n* New onset visual/tactile hallucination"
     },
     "management_steps": [
       {
@@ -27,8 +27,8 @@
       },
       {
         "step_number": "3",
-        "action": "Rapid assessment and sedation/restraint if violent or severely agitated – see AGITATION PROTOCOL",
-        "details": "Rapid assessment and sedation/restraint if violent or severely agitated – see AGITATION PROTOCOL"
+        "action": "Rapid assessment and sedation/restraint if violent or severely agitated \u2013 see AGITATION PROTOCOL",
+        "details": "Rapid assessment and sedation/restraint if violent or severely agitated \u2013 see AGITATION PROTOCOL"
       },
       {
         "step_number": "4",
@@ -42,8 +42,8 @@
       },
       {
         "step_number": "6",
-        "action": "Investigations as per protocol – see below",
-        "details": "Investigations as per protocol – see below"
+        "action": "Investigations as per protocol \u2013 see below",
+        "details": "Investigations as per protocol \u2013 see below"
       }
     ],
     "drugs": [

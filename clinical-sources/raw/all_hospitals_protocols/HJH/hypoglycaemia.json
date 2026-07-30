@@ -2,7 +2,7 @@
   "_meta": {
     "id": "hypoglycaemia",
     "type": "protocol",
-    "category": "14_ed_metabolic",
+    "category": "11_ed_medical_emergencies",
     "subcategory": "protocols",
     "title": "Severe Hypoglycaemia Is A Life-Threatening Emergency!",
     "source_doc": "HJH ED 2026",
@@ -12,7 +12,7 @@
     "item": "Severe Hypoglycaemia Is A Life-Threatening Emergency!",
     "protocol_type": "ed_protocol",
     "clinical_features": {
-      "symptoms": "presentation) \n•\nRegular small meals – can refer to Diabetic clinic/dietician for diabetic education \n•\nEarly symptoms of hypoglycaemia – sweating, dizziness, bad mood, trembling, palpitations, hunger.  \n•\nLate symptoms – confusion, visual changes, slurred speech, dizziness, seizures, lethargy, stupor, \ncoma \n•\nHome treatment – sugary snack, soft drink (early). Buccal honey/syrup/lollipop (late) \nSevere hypoglycaemia is a life-threatening emergency! \nProlonged hypoglycaemia can lead to permanent brain damage! \nCorrect any HGT < 4 mmol/l immediately! \nHYPOGLYCAEMIA \n \n \n \nCAUSES \n*Drugs: insulin, sulfonylureas (accidental, suicidal, iatrogenic) \n*Specific diseases: Sepsis, adrenal insufficiency, myxoedema \ncoma, hepatic failure, renal failure, insulinoma, malignancy, \ngastric bypass  \n*Intake/use mismatch: starvation, anorexia nervosa, extreme \nexercise, pregnancy/lactation, alcohol abuse, dysphagia from any \ncause \n \n \nED MANAGEMENT \nIf HGT is unavailable, treat empirically with dextrose \n1 – 2 ml/kg of 50% dextrose IV/IO if unable to take PO.  \nNB for paediatric cases: dilute to max 25% dextrose (2 – 4 ml/kg of 25% dextrose) \nThen 5 – 10% dextrose Ringers Lactate maintenance fluid – titrate to effect, hourly HGT checks \nOral 50% dextrose if awake AND able to swallow \nCarbohydrate rich meal once acute hypoglycaemia has been corrected if ale to swallow  \nIdentify and treat the UNDERLYING CAUSE or admit for HGT monitoring and further workup \nEnsure adequate PATIENT EDUCATION and safety netting for discharged patients \nAdd STEROID in refractory/recurrent hypoglycaemia \nAdd OCTREOTIDE in sulfonylurea overdose \nEnsure EARLY NGT FEEDS in intubated/critically ill patients \n \nCRITERIA FOR DISCHARGE \nCause for hypoglycaemia identified and resolved \nNo recurrent hypoglycaemia after carbohydrate rich meal \nFamily/escort at home to monitor HGT and administer home \ntreatment \nTransport to return if hypoglycaemia recurs \nAdequate patient education – see green block \nFunctional HG"
+      "symptoms": "presentation) \n\u2022\nRegular small meals \u2013 can refer to Diabetic clinic/dietician for diabetic education \n\u2022\nEarly symptoms of hypoglycaemia \u2013 sweating, dizziness, bad mood, trembling, palpitations, hunger.  \n\u2022\nLate symptoms \u2013 confusion, visual changes, slurred speech, dizziness, seizures, lethargy, stupor, \ncoma \n\u2022\nHome treatment \u2013 sugary snack, soft drink (early). Buccal honey/syrup/lollipop (late) \nSevere hypoglycaemia is a life-threatening emergency! \nProlonged hypoglycaemia can lead to permanent brain damage! \nCorrect any HGT < 4 mmol/l immediately! \nHYPOGLYCAEMIA \n \n \n \nCAUSES \n*Drugs: insulin, sulfonylureas (accidental, suicidal, iatrogenic) \n*Specific diseases: Sepsis, adrenal insufficiency, myxoedema \ncoma, hepatic failure, renal failure, insulinoma, malignancy, \ngastric bypass  \n*Intake/use mismatch: starvation, anorexia nervosa, extreme \nexercise, pregnancy/lactation, alcohol abuse, dysphagia from any \ncause \n \n \nED MANAGEMENT \nIf HGT is unavailable, treat empirically with dextrose \n1 \u2013 2 ml/kg of 50% dextrose IV/IO if unable to take PO.  \nNB for paediatric cases: dilute to max 25% dextrose (2 \u2013 4 ml/kg of 25% dextrose) \nThen 5 \u2013 10% dextrose Ringers Lactate maintenance fluid \u2013 titrate to effect, hourly HGT checks \nOral 50% dextrose if awake AND able to swallow \nCarbohydrate rich meal once acute hypoglycaemia has been corrected if ale to swallow  \nIdentify and treat the UNDERLYING CAUSE or admit for HGT monitoring and further workup \nEnsure adequate PATIENT EDUCATION and safety netting for discharged patients \nAdd STEROID in refractory/recurrent hypoglycaemia \nAdd OCTREOTIDE in sulfonylurea overdose \nEnsure EARLY NGT FEEDS in intubated/critically ill patients \n \nCRITERIA FOR DISCHARGE \nCause for hypoglycaemia identified and resolved \nNo recurrent hypoglycaemia after carbohydrate rich meal \nFamily/escort at home to monitor HGT and administer home \ntreatment \nTransport to return if hypoglycaemia recurs \nAdequate patient education \u2013 see green block \nFunctional HG"
     },
     "management_steps": [
       {
@@ -27,18 +27,18 @@
       },
       {
         "step_number": "3",
-        "action": "1 – 2 ml/kg of 50% dextrose IV/IO if unable to take PO.",
-        "details": "1 – 2 ml/kg of 50% dextrose IV/IO if unable to take PO."
+        "action": "1 \u2013 2 ml/kg of 50% dextrose IV/IO if unable to take PO.",
+        "details": "1 \u2013 2 ml/kg of 50% dextrose IV/IO if unable to take PO."
       },
       {
         "step_number": "4",
-        "action": "NB for paediatric cases: dilute to max 25% dextrose (2 – 4 ml/kg of 25% dextrose)",
-        "details": "NB for paediatric cases: dilute to max 25% dextrose (2 – 4 ml/kg of 25% dextrose)"
+        "action": "NB for paediatric cases: dilute to max 25% dextrose (2 \u2013 4 ml/kg of 25% dextrose)",
+        "details": "NB for paediatric cases: dilute to max 25% dextrose (2 \u2013 4 ml/kg of 25% dextrose)"
       },
       {
         "step_number": "5",
-        "action": "Then 5 – 10% dextrose Ringers Lactate maintenance fluid – titrate to effect, hourly HGT checks",
-        "details": "Then 5 – 10% dextrose Ringers Lactate maintenance fluid – titrate to effect, hourly HGT checks"
+        "action": "Then 5 \u2013 10% dextrose Ringers Lactate maintenance fluid \u2013 titrate to effect, hourly HGT checks",
+        "details": "Then 5 \u2013 10% dextrose Ringers Lactate maintenance fluid \u2013 titrate to effect, hourly HGT checks"
       },
       {
         "step_number": "6",
@@ -72,6 +72,6 @@
         "notes": "Drug details in source PDF"
       }
     ],
-    "disposition": "follow-up plan \n•\nNo insulin without meals! (Most common cause of presentation) \n•\nRegular small meals – can refer to Diabetic clinic/dietician for diabetic education \n•\nEarly symptoms of hypoglycaemia – sweating, dizziness, bad mood, trembling, palpitations, hunger.  \n•\nLate symptoms – confusion, visual changes, slurred speech, dizziness, seizures, lethargy, stupor, \ncoma \n•\nHome treatment – sugary snack, soft drink (early). Buccal honey/syrup/lollipop (late) \nSevere hypoglycaemia is a life-threatening emergency! \nProlonged hypoglycaemia can lead to permanent brain damage! \nCorrect any HGT < 4 mmol/l immediately! \nHYPOGLYCAEMIA \n \n \n \nCAUSES \n*Drugs: insulin, sulfonylureas (accidental, suicidal, iatrogenic) \n*Specific diseases: Sepsis, adrenal insufficiency, myxoedema \ncoma, hepatic failure, renal failure, insulinoma, malignancy, \ngastric bypass  \n*Intake/use mismatch: starvation, anorexia nervosa, extreme \nexercise, pregnancy/lactation, alcohol abuse, dysphagia from any \ncause \n \n \nE"
+    "disposition": "follow-up plan \n\u2022\nNo insulin without meals! (Most common cause of presentation) \n\u2022\nRegular small meals \u2013 can refer to Diabetic clinic/dietician for diabetic education \n\u2022\nEarly symptoms of hypoglycaemia \u2013 sweating, dizziness, bad mood, trembling, palpitations, hunger.  \n\u2022\nLate symptoms \u2013 confusion, visual changes, slurred speech, dizziness, seizures, lethargy, stupor, \ncoma \n\u2022\nHome treatment \u2013 sugary snack, soft drink (early). Buccal honey/syrup/lollipop (late) \nSevere hypoglycaemia is a life-threatening emergency! \nProlonged hypoglycaemia can lead to permanent brain damage! \nCorrect any HGT < 4 mmol/l immediately! \nHYPOGLYCAEMIA \n \n \n \nCAUSES \n*Drugs: insulin, sulfonylureas (accidental, suicidal, iatrogenic) \n*Specific diseases: Sepsis, adrenal insufficiency, myxoedema \ncoma, hepatic failure, renal failure, insulinoma, malignancy, \ngastric bypass  \n*Intake/use mismatch: starvation, anorexia nervosa, extreme \nexercise, pregnancy/lactation, alcohol abuse, dysphagia from any \ncause \n \n \nE"
   }
 }

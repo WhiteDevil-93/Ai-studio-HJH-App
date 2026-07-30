@@ -2,7 +2,7 @@
   "_meta": {
     "id": "acute_ischaemic_stroke",
     "type": "protocol",
-    "category": "04_ed_neurology",
+    "category": "11_ed_medical_emergencies",
     "subcategory": "protocols",
     "title": "Acute Ischaemic Stroke",
     "source_doc": "HJH ED 2026 / CMJAH / Bara ICU",
@@ -51,13 +51,13 @@
       "notes_updates": "Mixed alpha/beta blocker. Good for hypertensive emergencies"
     },
     {
-      "category": "HJH ED Protocol — Infusions",
+      "category": "HJH ED Protocol \u2014 Infusions",
       "item": "Esmolol",
       "formula": "Dose x weight x 60 / prepared concentration",
       "standard_dilutions": "500mg undiluted in a 50ml syringe (10mg/ml)"
     },
     {
-      "category": "HJH ED Protocol — Infusions",
+      "category": "HJH ED Protocol \u2014 Infusions",
       "item": "Nitroglycerin",
       "formula": "Dose x 60 / prepared concentration",
       "standard_dilutions": "10mg in 200ml N/S (50mcg/ml)"
