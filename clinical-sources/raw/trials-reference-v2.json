@@ -1,0 +1,112 @@
+[
+  {
+    "id": "adapt-2hr-adp",
+    "type": "clinical_decision_rule",
+    "title": "ADAPT 2-Hour Accelerated Diagnostic Protocol",
+    "reference": "Than M et al., 2014, JAMA Intern Med",
+    "domain": "Cardiology & Chest Pain",
+    "the_hook": "The first randomized trial validating a 2-hour accelerated diagnostic protocol (ADP) using high-sensitivity troponin as the sole biomarker to safely discharge low-risk chest pain patients [30].",
+    "if_consultant_asks": "The ADAPT trial demonstrated that utilizing a 2-hour diagnostic protocol\u2014incorporating a modified TIMI score of 0, a normal presenting ECG, and negative troponins at 0 and 2 hours\u2014safely identifies low-risk patients who can be discharged directly for outpatient stress testing, significantly increasing early discharge rates without compromising safety [30].",
+    "killer_stat": "The experimental group had a significantly higher early discharge rate (19.3% vs. 11.0%, p=0.008) with a 100% negative predictive value for Major Adverse Cardiac Events (MACE) at 30 days [30].",
+    "shift_action": "DO safely discharge patients with chest pain who have a modified TIMI score of 0, a normal baseline ECG, and negative high-sensitivity troponin results at 0 and 2 hours directly from the ED for outpatient stress testing [30]."
+  },
+  {
+    "id": "paramedic-3",
+    "type": "clinical_trial",
+    "title": "PARAMEDIC-3",
+    "reference": "Couper K et al., 2024, N Engl J Med",
+    "domain": "Resuscitation & Cardiac Arrest",
+    "the_hook": "A massive multicenter randomized trial comparing an intraosseous-first (IO) versus intravenous-first (IV) vascular access strategy during out-of-hospital cardiac arrest (OHCA) [45, 46].",
+    "if_consultant_asks": "PARAMEDIC-3 proved that an IO-first vascular access strategy does not result in superior 30-day survival compared to an IV-first strategy during adult OHCA resuscitation [46]. While IO access is often faster to establish, it does not translate into improved survival or favorable neurological outcomes at discharge [45, 46].",
+    "killer_stat": "There was no significant difference in the primary outcome of 30-day survival between the IO-first and IV-first strategies (adjusted risk difference or absolute rate showing equivalence) [46].",
+    "shift_action": "DON'T default to IO access in cardiac arrest assuming it provides a survival benefit; DO prioritize the IV route when easily attainable, reserving IO as a rapid alternative if IV access fails after two attempts [45, 46]."
+  },
+  {
+    "id": "rivers-egdt-targets",
+    "type": "clinical_trial",
+    "title": "Rivers Early Goal-Directed Therapy (EGDT)",
+    "reference": "Rivers E et al., 2001, N Engl J Med",
+    "domain": "Resuscitation & Sepsis",
+    "the_hook": "The foundational trial that introduced aggressive, protocol-based hemodynamic resuscitation within the critical 'golden hours' of septic shock [61, 668].",
+    "if_consultant_asks": "Rivers demonstrated that early, quantitative, volume-targeted resuscitation initiated in the emergency department reduces in-hospital mortality in patients presenting with severe sepsis or septic shock [666, 667]. The protocol mandated specific serial hemodynamic adjustments of preload, afterload, and contractility [666].",
+    "killer_stat": "EGDT achieved an absolute reduction of 16% in in-hospital mortality (30.5% in the EGDT group vs. 46.5% in the standard therapy group, p=0.009) [667].",
+    "shift_action": "DO prioritize rapid fluid volume expansion (20-30 mL/kg) and early broad-spectrum antibiotics, but DON'T routinely place central lines solely to target CVP of 8-12 mmHg or ScvO2 >= 70%, as subsequent trials proved usual care is equally effective [119, 674, 601]."
+  },
+  {
+    "id": "sepsis-3-equal",
+    "type": "guideline",
+    "title": "Sepsis-3 Definitions (E-QUAL Septic Shock)",
+    "reference": "Singer M et al., 2016, JAMA / ACEP E-QUAL",
+    "domain": "Resuscitation & Sepsis",
+    "the_hook": "The international consensus guideline replacing 'Severe Sepsis' and redefining Septic Shock using objective organ dysfunction parameters [436].",
+    "if_consultant_asks": "Sepsis-3 defined Septic Shock as a subset of sepsis in which underlying circulatory and cellular/metabolic abnormalities are profound enough to substantially increase mortality [436]. It mandates both persisting hypotension requiring vasopressors to maintain MAP >= 65 mmHg AND a serum lactate level > 2 mmol/L despite adequate volume resuscitation [436].",
+    "killer_stat": "Hospital mortality for patients meeting both Sepsis-3 criteria (MAP and lactate thresholds) is in excess of 40% [436].",
+    "shift_action": "DO initiate immediate vasopressor therapy (preferring norepinephrine) to maintain MAP >= 65 mmHg in patients with persistent hypotension AND aggressively clear lactate below 2 mmol/L [205, 436]."
+  },
+  {
+    "id": "bougie-trial",
+    "type": "clinical_trial",
+    "title": "The BOUGIE Trial",
+    "reference": "Driver BE et al., 2021, JAMA",
+    "domain": "Airway Management",
+    "the_hook": "A pragmatic multicenter randomized trial comparing a tracheal tube + bougie strategy versus a tracheal tube + stylet strategy for first-attempt intubation success in critically ill adults [385].",
+    "if_consultant_asks": "The BOUGIE trial demonstrated that among critically ill adults undergoing emergency endotracheal intubation, the use of a tracheal tube with a bougie did not significantly increase first-attempt intubation success compared to using a tube with a stylet. This trial challenged previous single-center data that heavily favored the bougie [385].",
+    "killer_stat": "First-attempt intubation success occurred in 80.5% of the bougie group compared to 83.0% of the stylet group (absolute difference -2.5%; 95% CI -7.4% to 2.4%) [385].",
+    "shift_action": "DO utilize whichever device (bougie or stylet) matches your personal expertise and the clinical presentation of the patient; DON'T assume one device is universally superior for securing a critical airway [385]."
+  },
+  {
+    "id": "reason-1",
+    "type": "clinical_trial",
+    "title": "REASON-1",
+    "reference": "NCT01446471, 2016",
+    "domain": "Resuscitation & Cardiac Arrest",
+    "the_hook": "A prospective multicenter trial evaluating the utility of point-of-care ultrasound (POCUS) during cardiopulmonary resuscitation (CPR) to predict survival and guide resuscitation [112].",
+    "if_consultant_asks": "The REASON trial proved that point-of-care cardiac ultrasound during arrest is a powerful prognostic tool. Specifically, the presence of cardiac standstill/immobility is highly predictive of non-survival, whereas the presence of organized cardiac activity is strongly associated with achieving ROSC and survival [112].",
+    "killer_stat": "The presence of cardiac standstill on initial POCUS carries a negative predictive value of nearly 99% for survival to hospital discharge [112].",
+    "shift_action": "DO perform rapid point-of-care ultrasound during rhythm checks (limiting pauses to <10 seconds) to assess for organized cardiac activity, but DON'T continue futile resuscitation efforts if persistent cardiac standstill is confirmed in a patient with an untreatable etiology [112]."
+  },
+  {
+    "id": "sparc-trial",
+    "type": "clinical_trial",
+    "title": "The SPARC Trial",
+    "reference": "NCT07002294, Ongoing",
+    "domain": "Post-Cardiac Arrest Care",
+    "the_hook": "A contemporary clinical trial evaluating whether the direct transfer of resuscitated out-of-hospital cardiac arrest patients to specialized Cardiac Arrest Centres improves 90-day recovery [115, 464].",
+    "if_consultant_asks": "The SPARC trial addresses the systems-of-care question of regionalization. It evaluates whether routing resuscitated cardiac arrest survivors directly to centers of excellence with standardized post-arrest protocols (early PCI, targeted temperature management, and expert neuro-prognostication) improves functional outcomes compared to standard local hospital transport [115, 464].",
+    "killer_stat": "Early pilot data and historical cohorts suggest that specialized post-arrest care centers can improve neurologically favorable survival by up to 10-15% compared to non-specialized centers [31, 455].",
+    "shift_action": "DO coordinate with regional emergency medical services to transfer post-arrest patients with achieved ROSC directly to specialized cardiac arrest centers capable of immediate 24/7 angiography and targeted temperature management [31, 464]."
+  },
+  {
+    "id": "act-global",
+    "type": "clinical_trial",
+    "title": "ACT-GLOBAL",
+    "reference": "NCT06352632, Adaptive Platform",
+    "domain": "Neurovascular & Stroke",
+    "the_hook": "An international adaptive platform trial designed to simultaneously evaluate multiple stroke reperfusion and neuroprotective strategies globally [114, 462].",
+    "if_consultant_asks": "ACT-GLOBAL utilizes an innovative Multi-Arm Multi-Stage (MAMS) design, allowing the protocol to adapt by dropping ineffective interventions at interim analyses and adding new promising neurovascular therapies without needing to launch separate trials [348, 462].",
+    "killer_stat": "By utilizing a shared control group and adaptive design, ACT-GLOBAL reduces the required sample size by up to 30-40% compared to running individual parallel RCTs [343, 346].",
+    "shift_action": "DO support enrolment in adaptive platform trials like ACT-GLOBAL, as they represent the future of rapid, evidence-driven protocol optimization in acute stroke and emergency medicine [462]."
+  },
+  {
+    "id": "snap-regimen",
+    "type": "clinical_trial",
+    "title": "The SNAP 12-Hour Acetylcysteine Regimen",
+    "reference": "Bateman DN et al., 2014, Lancet / PMC",
+    "domain": "Toxicology & Poisoning",
+    "the_hook": "The landmark trial establishing a shorter, 12-hour, two-bag acetylcysteine (NAC) regimen for paracetamol/acetaminophen overdose [58, 106].",
+    "if_consultant_asks": "The SNAP trial demonstrated that a simplified 12-hour, 2-bag NAC protocol is non-inferior in preventing hepatotoxicity compared to the traditional 21-hour, 3-bag regimen [58, 106]. Crucially, it dramatically reduces the incidence of vomiting and hypersensitivity/anaphylactoid reactions associated with rapid NAC loading [106].",
+    "killer_stat": "Anaphylactoid reactions occurred in only 5.0% of patients on the SNAP regimen compared to 25.0% on the standard 21-hour protocol [106].",
+    "shift_action": "DO transition to the 12-hour, two-bag SNAP NAC regimen (150 mg/kg over 2 hours, then 150 mg/kg over 10 hours) on shift to simplify administration, decrease medication errors, and improve patient tolerability [58, 106]."
+  },
+  {
+    "id": "mams-design",
+    "type": "guideline",
+    "title": "Multi-Arm Multi-Stage (MAMS) Platform Designs",
+    "reference": "UCL Discovery / Noor Thesis, 2023",
+    "domain": "Clinical Trial Methodology",
+    "the_hook": "The methodological framework defining modern platform trials that test multiple interventions in parallel against a shared control [348].",
+    "if_consultant_asks": "MAMS platform protocols evaluate multiple treatment arms simultaneously, utilizing interim analyses to stop recruitment to arms showing futility (lack of benefit) or overwhelming benefit, while allowing new treatment arms to be added seamlessly during the trial [348]. This design prevents 'research waste' and speeds up translation to bedside care [343, 363].",
+    "killer_stat": "MAMS platform trials can decrease overall trial duration by up to 2-3 years and reduce research spending by up to 50% compared to traditional standalone phase III trials [343, 346].",
+    "shift_action": "DO advocate for the implementation of platform-style protocols in emergency medicine networks to rapidly evaluate competing resuscitation, airway, and stroke therapies under a single master protocol [462]."
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "sourceFilename": "trials-reference-v2.json",
+  "sourcePathSupplied": "D:\\Downloads\\trials-reference-v2.json",
+  "sourceSha256": "1837c44bd040b6e966f8a0f8dc97466630cfa716135a1763fecd5ca7353d0c2a",
+  "recordCount": 10,
+  "ingestedOn": "2026-07-30",
+  "rawArchivePath": "clinical-sources/raw/trials-reference-v2.json",
+  "rawArchiveNote": "JSON values preserved exactly; repository formatting adds a final newline.",
+  "runtimePath": "src/trials-reference-v2.json",
+  "runtimeTransformation": "Primary-source review, citation normalization, evidence-status classification, and correction of unsafe or unsupported claims."
+}

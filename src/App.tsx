@@ -30,7 +30,10 @@ import {
 } from './clinical/calculations/weightDose';
 import { calculateChecklistScore } from './clinical/scores';
 import type { CriterionAnswer } from './clinical/types';
-import trialsReference from './trials-reference.json';
+import {
+  TRIALS_REFERENCE,
+  type TrialReferenceEntry,
+} from './clinical/trialsReference';
 import { HomePage } from './components/HomePage';
 import { MindMapViewer, MIND_MAPS_DATABASE } from './components/MindMapViewer';
 import { PolicyViewer, POLICIES_DATABASE } from './components/PolicyViewer';
@@ -47,19 +50,35 @@ import {
 
 const D = clinicalData as any;
 
-interface TrialReferenceEntry {
-  id: string;
-  type: 'clinical_trial' | 'clinical_decision_rule';
-  title: string;
-  reference: string;
-  domain: string;
-  the_hook: string;
-  if_consultant_asks: string;
-  killer_stat: string;
-  shift_action?: string;
-}
-
-const TRIALS_REFERENCE = trialsReference as TrialReferenceEntry[];
+const TRIAL_TYPE_PRESENTATION: Record<
+  TrialReferenceEntry['type'],
+  {label: string; className: string}
+> = {
+  clinical_trial: {
+    label: 'Trial',
+    className: 'bg-sky-950/60 text-sky-300 border-sky-800/40',
+  },
+  clinical_decision_rule: {
+    label: 'Decision Rule',
+    className: 'bg-amber-950/60 text-amber-300 border-amber-800/40',
+  },
+  guideline: {
+    label: 'Guideline',
+    className: 'bg-violet-950/60 text-violet-300 border-violet-800/40',
+  },
+  observational_study: {
+    label: 'Observational',
+    className: 'bg-cyan-950/60 text-cyan-300 border-cyan-800/40',
+  },
+  ongoing_trial: {
+    label: 'Ongoing Trial',
+    className: 'bg-orange-950/60 text-orange-300 border-orange-800/40',
+  },
+  methodology: {
+    label: 'Methodology',
+    className: 'bg-slate-800 text-slate-300 border-slate-700',
+  },
+};
 
 // Category mapping keys
 const CATEGORIES: Record<string, string> = {
@@ -2688,7 +2707,8 @@ export default function App() {
         t.the_hook.toLowerCase().includes(q) ||
         t.if_consultant_asks.toLowerCase().includes(q) ||
         t.killer_stat.toLowerCase().includes(q) ||
-        (t.shift_action || '').toLowerCase().includes(q)
+        (t.shift_action || '').toLowerCase().includes(q) ||
+        (t.review_note || '').toLowerCase().includes(q)
       );
     });
 
@@ -2702,12 +2722,12 @@ export default function App() {
       <div className="space-y-4">
         <div className="p-4 rounded-xl bg-[#1a0f26] border border-purple-900/50 flex items-center justify-between">
           <div>
-            <div className="text-xs font-bold uppercase tracking-wider text-purple-400">Evidence Base Pillar</div>
+            <div className="text-xs font-bold uppercase tracking-wider text-purple-400">Global Evidence Reference</div>
             <h2 className="text-xl font-black text-white flex items-center gap-2 mt-0.5">
               <span>🔬 Landmark Trials & International Guidelines</span>
             </h2>
             <p className="text-xs text-slate-400 mt-1">
-              Key clinical trials and validated clinical decision rules — the evidence behind the protocols, for when a consultant asks "why".
+              Evidence summaries are global references, not facility-approved protocols. Open the primary source and follow the active local protocol before changing care.
             </p>
           </div>
           <span className="text-[10px] bg-purple-950 text-purple-300 font-bold px-2 py-0.5 rounded border border-purple-800/30 flex-shrink-0">
@@ -2741,15 +2761,34 @@ export default function App() {
                   <div className="flex items-start justify-between gap-2">
                     <h4 className="font-bold text-sm text-slate-100">{t.title}</h4>
                     <span
-                      className={`flex-shrink-0 text-[9px] font-black uppercase px-1.5 py-0.5 rounded border ${t.type === 'clinical_trial'
-                          ? 'bg-sky-950/60 text-sky-300 border-sky-800/40'
-                          : 'bg-amber-950/60 text-amber-300 border-amber-800/40'
-                        }`}
+                      className={`flex-shrink-0 text-[9px] font-black uppercase px-1.5 py-0.5 rounded border ${TRIAL_TYPE_PRESENTATION[t.type].className}`}
                     >
-                      {t.type === 'clinical_trial' ? 'Trial' : 'Decision Rule'}
+                      {TRIAL_TYPE_PRESENTATION[t.type].label}
                     </span>
                   </div>
-                  <p className="text-[11px] text-slate-500 italic">{t.reference}</p>
+                  <div className="flex flex-wrap items-center gap-2 text-[11px]">
+                    {t.source_url ? (
+                      <a
+                        href={t.source_url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="italic text-purple-300 underline decoration-purple-800 underline-offset-2 hover:text-purple-200"
+                      >
+                        {t.reference} · open primary source
+                      </a>
+                    ) : (
+                      <span className="italic text-slate-500">{t.reference}</span>
+                    )}
+                    {t.evidence_status && (
+                      <span className={`rounded border px-1.5 py-0.5 text-[9px] font-black uppercase ${
+                        t.evidence_status === 'published'
+                          ? 'border-emerald-800/50 bg-emerald-950/30 text-emerald-300'
+                          : 'border-amber-800/50 bg-amber-950/30 text-amber-300'
+                      }`}>
+                        {t.evidence_status}
+                      </span>
+                    )}
+                  </div>
                   <p className="text-xs text-slate-300 leading-relaxed">{t.the_hook}</p>
 
                   <div className="pt-1.5 border-t border-teal-950/20 space-y-1.5">
@@ -2766,6 +2805,12 @@ export default function App() {
                         <span className="font-bold text-amber-400">On shift: </span>
                         {t.shift_action}
                       </p>
+                    )}
+                    {t.review_note && (
+                      <details className="rounded border border-amber-900/30 bg-amber-950/10 p-2 text-[10px] text-amber-100">
+                        <summary className="cursor-pointer font-bold">Source correction / review note</summary>
+                        <p className="mt-1 leading-relaxed">{t.review_note}</p>
+                      </details>
                     )}
                   </div>
                 </div>

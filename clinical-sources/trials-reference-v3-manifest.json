@@ -1,0 +1,12 @@
+{
+  "sourceFilename": "trials-reference-v3.json",
+  "sourcePathSupplied": "D:\\Downloads\\trials-reference-v3.json",
+  "sourceSha256": "2b9e24a8a2588050d7d709e205dade4e2d47f202ab812f8fcf364fd213fdb07a",
+  "recordCount": 23,
+  "ingestedOn": "2026-07-30",
+  "rawArchivePath": "clinical-sources/raw/trials-reference-v3.json",
+  "rawArchiveNote": "JSON values preserved exactly; repository formatting adds a final newline.",
+  "runtimePath": "src/trials-reference-v3.json",
+  "runtimeTransformation": "Primary-source review, citation normalization, evidence-status classification, correction of unsafe or unsupported claims, and canonical-ID overlay for duplicate trial records.",
+  "runtimeMergeNote": "The 23 reviewed cards overlay 13 existing canonical records and add 10 new trial topics. V2-only Sepsis-3, SNAP, and MAMS records remain available."
+}
