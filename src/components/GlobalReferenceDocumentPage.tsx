@@ -46,8 +46,13 @@ const cleanClinicalMarkdown = (value: string) => value
   .replace(/The African Reality\s*\/\s*Physiological Conflict/gi, 'Resource context')
   .replace(/The Local Adaptation\s*\("What to say on rounds"\)/gi, 'Local practice context')
   .replace(/Landmark Supporting Evidence/gi, 'Supporting evidence')
+  .replace(/Active Bibliography\s*&\s*URL/gi, 'Primary source')
   .replace(/Active Bibliography/gi, 'Bibliography')
   .replace(/Direct Source URL/gi, 'Primary source')
+  .replace(/Standard consensus/gi, 'International guidance')
+  .replace(/The African Reality/gi, 'Regional resource context')
+  .replace(/Local Adaptation/gi, 'Resource-adapted practice')
+  .replace(/Attending Pitch/gi, 'Clinical summary')
   .replace(/\s+/g, ' ')
   .trim();
 
