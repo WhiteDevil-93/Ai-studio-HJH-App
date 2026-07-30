@@ -37,7 +37,7 @@ export const HOSPITALS: Record<HospitalId, HospitalDefinition> = {
     id: 'hjh',
     archiveDirectory: 'HJH',
     shortName: 'HJH',
-    name: 'Helen Joseph Tertiary Hospital',
+    name: 'Helen Joseph Hospital',
     subtitle: 'Emergency Department Clinical Guidelines · January 2026',
     description: 'Adult emergency medicine protocols, algorithms, procedures, toxicology, trauma, and critical-care guidance.',
     sourceLabel: 'HJH ED 2026',
@@ -222,11 +222,73 @@ export const HOSPITAL_PROTOCOLS_BY_FACILITY: Record<HospitalId, HospitalProtocol
   rmmch: HOSPITAL_PROTOCOLS.filter(protocol => protocol.facilityId === 'rmmch'),
 };
 
+const SAME_FACILITY_PROTOCOL_REFERENCES: Partial<Record<HospitalProtocol['id'], string>> = {
+  'hjh:acs_workup_algorithm': 'acute_coronary_syndrome_acs_algorithm',
+  'hjh:hyperglycaemia_flowchart': 'diabetic_ketoacidosis_dka',
+  'hjh:jaundice_flowchart': 'liver_failure',
+  'hjh:status_epilepticus_algorithm': 'status_epilepticus',
+  'hjh:syncope_ecg': 'syncope',
+};
+
+const protocolReferenceSlug = (protocol: HospitalProtocol): string | undefined => {
+  const explicit = SAME_FACILITY_PROTOCOL_REFERENCES[protocol.id];
+  if (explicit) return explicit;
+
+  const note = asString(protocol.body.note);
+  const match = note.match(
+    /\b(?:see|refer to)\s+([a-z0-9]+(?:_[a-z0-9]+)+)\b/i,
+  );
+  return match?.[1];
+};
+
+export const findReferencedHospitalProtocol = (
+  protocol: HospitalProtocol,
+): HospitalProtocol | undefined => {
+  const referenceSlug = protocolReferenceSlug(protocol);
+  if (!referenceSlug) return undefined;
+  return HOSPITAL_PROTOCOLS_BY_FACILITY[protocol.facilityId].find(
+    candidate => candidate.slug === referenceSlug,
+  );
+};
+
+const hasValue = (value: unknown): boolean => {
+  if (typeof value === 'string') return value.trim().length > 0;
+  if (Array.isArray(value)) return value.some(hasValue);
+  if (isRecord(value)) return Object.values(value).some(hasValue);
+  return value !== null && value !== undefined;
+};
+
+export const hasProtocolContent = (protocol: HospitalProtocol): boolean => [
+  protocol.body.clinical_features,
+  protocol.body.management_steps,
+  protocol.body.drugs,
+  protocol.body.warnings,
+  protocol.body.disposition,
+  protocol.body.source_text,
+  protocol.body.equipment,
+  protocol.embeddedDrugs,
+].some(hasValue);
+
+export const HOSPITAL_VISIBLE_PROTOCOLS_BY_FACILITY: Record<HospitalId, HospitalProtocol[]> = {
+  hjh: HOSPITAL_PROTOCOLS_BY_FACILITY.hjh.filter(
+    protocol => hasProtocolContent(protocol) || Boolean(findReferencedHospitalProtocol(protocol)),
+  ),
+  cmjah: HOSPITAL_PROTOCOLS_BY_FACILITY.cmjah.filter(
+    protocol => hasProtocolContent(protocol) || Boolean(findReferencedHospitalProtocol(protocol)),
+  ),
+  chbah: HOSPITAL_PROTOCOLS_BY_FACILITY.chbah.filter(
+    protocol => hasProtocolContent(protocol) || Boolean(findReferencedHospitalProtocol(protocol)),
+  ),
+  rmmch: HOSPITAL_PROTOCOLS_BY_FACILITY.rmmch.filter(
+    protocol => hasProtocolContent(protocol) || Boolean(findReferencedHospitalProtocol(protocol)),
+  ),
+};
+
 export const isHospitalId = (value: string): value is HospitalId =>
   value === 'hjh' || value === 'cmjah' || value === 'chbah' || value === 'rmmch';
 
 export const hospitalProtocolCount = (facilityId: HospitalId): number =>
-  HOSPITAL_PROTOCOLS_BY_FACILITY[facilityId].length;
+  HOSPITAL_VISIBLE_PROTOCOLS_BY_FACILITY[facilityId].length;
 
 export const findHospitalProtocol = (
   facilityId: HospitalId,

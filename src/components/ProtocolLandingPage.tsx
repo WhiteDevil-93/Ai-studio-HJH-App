@@ -8,11 +8,19 @@ import {
   FileText,
   Pill,
 } from 'lucide-react';
-import {HOSPITALS, type HospitalProtocol} from '../clinical/hospitalProtocols';
+import {
+  findReferencedHospitalProtocol,
+  HOSPITALS,
+  type HospitalProtocol,
+} from '../clinical/hospitalProtocols';
+import {extractWeightDoseResults} from '../clinical/calculations/weightDose';
 
 interface ProtocolLandingPageProps {
   protocol: HospitalProtocol;
   onBack: () => void;
+  onOpenProtocol: (protocol: HospitalProtocol) => void;
+  weight: string;
+  setWeight: (weight: string) => void;
 }
 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
@@ -91,12 +99,40 @@ const ClinicalSection: React.FC<{
   </section>
 );
 
+const WeightDoseResults: React.FC<{text: unknown; weight: string}> = ({text, weight}) => {
+  if (typeof text !== 'string') return null;
+  const numericWeight = Number(weight);
+  if (!Number.isFinite(numericWeight) || numericWeight <= 0) return null;
+  const results = extractWeightDoseResults(text, numericWeight);
+  if (results.length === 0) return null;
+
+  return (
+    <div className="mt-2 space-y-1 rounded-lg border border-cyan-300 bg-cyan-50 p-2 text-xs text-cyan-950">
+      {results.map(result => (
+        <div key={result.sourceExpression}>
+          <span className="font-bold">{result.sourceExpression}</span>
+          {' → '}
+          {result.minimum === result.maximum
+            ? result.minimum.toLocaleString(undefined, {maximumFractionDigits: 2})
+            : `${result.minimum.toLocaleString(undefined, {maximumFractionDigits: 2})}–${result.maximum.toLocaleString(undefined, {maximumFractionDigits: 2})}`}
+          {' '}{result.resultUnit} for {numericWeight} kg
+        </div>
+      ))}
+    </div>
+  );
+};
+
 export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
   protocol,
   onBack,
+  onOpenProtocol,
+  weight,
+  setWeight,
 }) => {
   const facility = HOSPITALS[protocol.facilityId];
-  const body = protocol.body;
+  const referencedProtocol = findReferencedHospitalProtocol(protocol);
+  const contentProtocol = referencedProtocol ?? protocol;
+  const body = contentProtocol.body;
   const managementSteps = Array.isArray(body.management_steps) ? body.management_steps : [];
   const warnings = Array.isArray(body.warnings) ? body.warnings : [];
   const sourceText = typeof body.source_text === 'string' ? compactSourceText(body.source_text) : '';
@@ -119,6 +155,9 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
   const additionalFields = Object.entries(body).filter(
     ([key, value]) => !reserved.has(key) && value !== null && value !== undefined && value !== '',
   );
+  const hasWeightBasedDoses = /(?:mcg|µg|ug|mg|mmol|g|m[lℓ]|units?|iu|u|meq|j)\s*\/\s*kg/i.test(
+    JSON.stringify({body, embeddedDrugs: contentProtocol.embeddedDrugs}),
+  );
 
   return (
     <article className="mx-auto max-w-5xl space-y-5 pb-12">
@@ -140,13 +179,13 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
           <span className="rounded-full border border-slate-700 bg-slate-900/75 px-3 py-1 text-xs font-bold text-slate-300">
             {protocol.categoryLabel}
           </span>
-          <span className="rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 text-xs font-bold text-amber-300">
-            Review: {protocol.reviewState}
+          <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-bold text-emerald-300">
+            Published facility protocol
           </span>
         </div>
         <h1 className="mt-5 text-3xl font-black leading-tight tracking-tight sm:text-5xl">{protocol.title}</h1>
-        <p className="mt-4 text-sm leading-relaxed text-slate-400">{protocol.summary}</p>
-        <dl className="mt-6 grid gap-3 border-t border-slate-800 pt-5 text-xs sm:grid-cols-3">
+        <p className="mt-4 text-sm leading-relaxed text-slate-400">{contentProtocol.summary}</p>
+        <dl className="mt-6 grid gap-3 border-t border-slate-800 pt-5 text-xs sm:grid-cols-2">
           <div>
             <dt className="font-black uppercase tracking-wider text-slate-500">Hospital source</dt>
             <dd className="mt-1 font-semibold text-slate-300">{protocol.sourceDocument}</dd>
@@ -155,21 +194,41 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
             <dt className="font-black uppercase tracking-wider text-slate-500">Protocol type</dt>
             <dd className="mt-1 font-semibold text-slate-300">{labelFor(protocol.protocolType)}</dd>
           </div>
-          <div>
-            <dt className="font-black uppercase tracking-wider text-slate-500">Source file</dt>
-            <dd className="mt-1 font-mono text-slate-300">{protocol.filename}</dd>
-          </div>
         </dl>
       </header>
 
-      <div className="rounded-2xl border border-amber-400/30 bg-amber-50 p-4 text-xs leading-relaxed text-amber-900 dark:bg-amber-950/20 dark:text-amber-200">
-        <div className="flex items-start gap-2">
-          <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" />
-          <p>
-            This is an unvalidated source transcription. Confirm doses, contraindications, escalation criteria, and current local policy before clinical use.
-          </p>
+      {referencedProtocol && (
+        <div className="rounded-2xl border border-indigo-300 bg-indigo-50 p-4 text-sm text-indigo-950">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <p>
+              This flowchart belongs to <strong>{referencedProtocol.title}</strong>. Its complete clinical content is shown below.
+            </p>
+            <button
+              type="button"
+              onClick={() => onOpenProtocol(referencedProtocol)}
+              className="rounded-lg bg-indigo-600 px-3 py-2 text-xs font-bold text-white"
+            >
+              Open parent protocol
+            </button>
+          </div>
         </div>
-      </div>
+      )}
+
+      {hasWeightBasedDoses && (
+        <label className="flex flex-wrap items-center gap-3 rounded-2xl border border-cyan-300 bg-cyan-50 p-4 text-sm text-cyan-950">
+          <span className="font-black">Patient weight</span>
+          <input
+            type="number"
+            min="0"
+            step="0.1"
+            value={weight}
+            onChange={event => setWeight(event.target.value)}
+            placeholder="kg"
+            className="w-28 rounded-lg border border-cyan-400 bg-white px-3 py-2 font-bold outline-none"
+          />
+          <span className="text-xs">kg — weight-based doses calculate inline below.</span>
+        </label>
+      )}
 
       {body.clinical_features !== undefined && (
         <ClinicalSection title="Clinical features" icon={<FileText className="h-5 w-5 text-indigo-500" />}>
@@ -194,6 +253,7 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
                     <h3 className="font-black text-slate-900 dark:text-white">{action}</h3>
                     <div className="mt-1">
                       <ValueBlock value={details} />
+                      <WeightDoseResults text={details} weight={weight} />
                     </div>
                   </div>
                 </div>
@@ -209,15 +269,18 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
         </ClinicalSection>
       )}
 
-      {protocol.embeddedDrugs.length > 0 && (
+      {contentProtocol.embeddedDrugs.length > 0 && (
         <ClinicalSection title="Embedded medicine references" icon={<Pill className="h-5 w-5 text-cyan-500" />}>
           <div className="grid gap-3 md:grid-cols-2">
-            {protocol.embeddedDrugs.map((drug, index) => (
+            {contentProtocol.embeddedDrugs.map((drug, index) => (
               <div key={index} className="rounded-xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-950/40">
                 <h3 className="mb-3 font-black text-slate-900 dark:text-white">
                   {String(drug.item ?? drug.drug ?? drug.condition_or_drug ?? `Medicine ${index + 1}`)}
                 </h3>
                 <ValueBlock value={drug} />
+                {['adult_dose', 'paediatric_dose', 'protocol_dose'].map(field => (
+                  <WeightDoseResults key={field} text={drug[field]} weight={weight} />
+                ))}
               </div>
             ))}
           </div>
@@ -244,7 +307,7 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
         </ClinicalSection>
       )}
 
-      {body.note !== undefined && (
+      {body.note !== undefined && !referencedProtocol && (
         <ClinicalSection title="Notes" icon={<FileText className="h-5 w-5 text-amber-500" />}>
           <ValueBlock value={body.note} />
         </ClinicalSection>

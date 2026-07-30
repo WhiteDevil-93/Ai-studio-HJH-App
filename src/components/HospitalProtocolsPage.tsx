@@ -12,6 +12,7 @@ import {
 import {
   HOSPITALS,
   HOSPITAL_PROTOCOLS_BY_FACILITY,
+  HOSPITAL_VISIBLE_PROTOCOLS_BY_FACILITY,
   type HospitalId,
   type HospitalProtocol,
 } from '../clinical/hospitalProtocols';
@@ -64,7 +65,9 @@ export const HospitalProtocolsPage: React.FC<HospitalProtocolsPageProps> = ({
 }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const facility = HOSPITALS[facilityId];
-  const protocols = HOSPITAL_PROTOCOLS_BY_FACILITY[facilityId];
+  const sourceProtocols = HOSPITAL_PROTOCOLS_BY_FACILITY[facilityId];
+  const protocols = HOSPITAL_VISIBLE_PROTOCOLS_BY_FACILITY[facilityId];
+  const omittedPlaceholders = sourceProtocols.length - protocols.length;
   const accent = accentClasses[facility.accent];
 
   const categories = useMemo(() => {
@@ -104,7 +107,7 @@ export const HospitalProtocolsPage: React.FC<HospitalProtocolsPageProps> = ({
               {facility.shortName} protocol library
             </span>
             <span className="rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1 text-xs font-bold text-slate-300">
-              {protocols.length} source entries
+              {protocols.length} complete protocol pages
             </span>
           </div>
           <div>
@@ -150,13 +153,19 @@ export const HospitalProtocolsPage: React.FC<HospitalProtocolsPageProps> = ({
           <div>
             <h2 className="hospital-library-heading text-xl font-black">Browse protocols</h2>
             <p className="text-xs text-slate-500 dark:text-slate-400">
-              Duplicated subjects remain separate because each card belongs to this hospital’s source.
+              Every card contains clinical content from this facility’s published protocol collection.
             </p>
           </div>
           <span className="shrink-0 text-xs font-bold text-slate-500">
             {visibleProtocols.length} shown
           </span>
         </div>
+
+        {omittedPlaceholders > 0 && (
+          <p className="text-[11px] text-slate-500">
+            {omittedPlaceholders} empty source placeholder{omittedPlaceholders === 1 ? '' : 's'} omitted because no clinical content was supplied.
+          </p>
+        )}
 
         <div className="flex gap-2 overflow-x-auto pb-1 no-scrollbar">
           <button
@@ -213,7 +222,7 @@ export const HospitalProtocolsPage: React.FC<HospitalProtocolsPageProps> = ({
               <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4 text-[11px] text-slate-500 dark:border-slate-800">
                 <span className="truncate pr-3">{protocol.sourceDocument}</span>
                 <span className="inline-flex shrink-0 items-center gap-1 font-bold text-indigo-500">
-                  Open page <ChevronRight className="h-3.5 w-3.5" />
+                  Open protocol <ChevronRight className="h-3.5 w-3.5" />
                 </span>
               </div>
             </button>

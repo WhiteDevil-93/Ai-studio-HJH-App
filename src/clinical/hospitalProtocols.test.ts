@@ -1,9 +1,12 @@
 import {describe, expect, it} from 'vitest';
 import {
+  findReferencedHospitalProtocol,
   findHospitalProtocol,
+  hasProtocolContent,
   HOSPITALS,
   HOSPITAL_PROTOCOLS,
   HOSPITAL_PROTOCOLS_BY_FACILITY,
+  HOSPITAL_VISIBLE_PROTOCOLS_BY_FACILITY,
 } from './hospitalProtocols';
 
 describe('supplied hospital protocol corpus', () => {
@@ -42,5 +45,26 @@ describe('supplied hospital protocol corpus', () => {
     expect(hjhStroke?.title).toBe('Acute Ischaemic Stroke');
     expect(cmjahStroke?.title).toBe('ACUTE ISCHAEMIC STROKE');
     expect(hjhStroke?.id).not.toBe(cmjahStroke?.id);
+  });
+
+  it('resolves pointer-only pages to complete same-facility protocol content', () => {
+    const acsWorkup = findHospitalProtocol('hjh', 'acs_workup_algorithm');
+    expect(acsWorkup).toBeDefined();
+
+    const parent = findReferencedHospitalProtocol(acsWorkup!);
+    expect(parent?.facilityId).toBe('hjh');
+    expect(parent?.slug).toBe('acute_coronary_syndrome_acs_algorithm');
+    expect(hasProtocolContent(parent!)).toBe(true);
+  });
+
+  it('offers only pages that contain or resolve to clinical content', () => {
+    for (const protocols of Object.values(HOSPITAL_VISIBLE_PROTOCOLS_BY_FACILITY)) {
+      for (const protocol of protocols) {
+        expect(
+          hasProtocolContent(protocol) ||
+          Boolean(findReferencedHospitalProtocol(protocol)),
+        ).toBe(true);
+      }
+    }
   });
 });

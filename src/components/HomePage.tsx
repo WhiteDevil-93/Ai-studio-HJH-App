@@ -23,7 +23,7 @@ interface HomePageProps {
 export const FACILITIES = [
   {
     id: 'hjth',
-    name: 'Helen Joseph Tertiary Hospital (HJTH)',
+    name: 'Helen Joseph Hospital (HJH)',
     subtitle: 'Primary ED Guidelines 2026 (Editor: Dr Jana du Plessis)',
     description: 'ED protocol algorithms straight from the HJH document: ACS, stroke, sepsis, trauma, toxicology, and ED procedures.',
     color: 'from-blue-600 to-indigo-700',
@@ -203,7 +203,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           onClick={() => onSelectCategory('helen_guidelines')}
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-indigo-100 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800/40 hover:bg-indigo-200 dark:hover:bg-indigo-900/40 transition-colors"
         >
-          <Stethoscope className="w-3.5 h-3.5" /> Helen (HJTH) Guidelines
+          <Stethoscope className="w-3.5 h-3.5" /> Helen (HJH) Guidelines
         </button>
         <button
           onClick={() => onSelectCategory('edl_phc_guidelines')}

@@ -67,7 +67,7 @@ const CATEGORIES: Record<string, string> = {
   favourites: 'Favourites',
   recently_viewed: 'Recently Viewed',
   bara_icu_card: '🏥 Bara ICU Dosing Card',
-  helen_guidelines: '🩺 Helen (HJTH) Guidelines',
+  helen_guidelines: '🩺 Helen (HJH) Guidelines',
   cmjah_guidelines: '🏨 CMJAH Guidelines',
   rmmch_guidelines: '👶 RMMCH Guidelines',
   edl_phc_guidelines: '🇿🇦 SA EDL / PHC Guidelines',
@@ -1951,7 +1951,7 @@ export default function App() {
             <h4 className="font-bold text-md text-slate-100 dark:text-slate-100 flex items-center gap-1.5 flex-wrap">
               <span className={theme === 'light' ? 'text-slate-900' : 'text-slate-100'}>{n}</span>
               {selectedCategory === 'helen_guidelines' ? (
-                <span className="text-[10px] bg-indigo-950/80 text-indigo-300 border border-indigo-800/40 font-bold px-1.5 py-0.5 rounded">🩺 Helen (HJTH)</span>
+                <span className="text-[10px] bg-indigo-950/80 text-indigo-300 border border-indigo-800/40 font-bold px-1.5 py-0.5 rounded">🩺 Helen (HJH)</span>
               ) : selectedCategory === 'cmjah_guidelines' ? (
                 <span className="text-[10px] bg-violet-950/80 text-violet-300 border border-violet-800/40 font-bold px-1.5 py-0.5 rounded">🏨 CMJAH</span>
               ) : selectedCategory === 'rmmch_guidelines' ? (
@@ -2119,7 +2119,7 @@ export default function App() {
                 ? 'bg-orange-950/80 text-orange-300 border-orange-800/40'
                 : 'bg-blue-950/80 text-blue-300 border-blue-800/40'
             }`}>
-              {selectedCategory === 'helen_guidelines' ? '🩺 Helen (HJTH)'
+              {selectedCategory === 'helen_guidelines' ? '🩺 Helen (HJH)'
                 : selectedCategory === 'cmjah_guidelines' || p._meta?.sourceGroup === 'cmjah' ? '🏨 CMJAH'
                 : selectedCategory === 'rmmch_guidelines' || p._meta?.sourceGroup === 'rmmch' ? '👶 RMMCH'
                 : '🇿🇦 SA EDL / PHC'}
@@ -2526,7 +2526,7 @@ export default function App() {
     );
   };
 
-  // Dedicated view for Helen Joseph Tertiary Hospital (HJTH) ED Guidelines
+  // Dedicated view for Helen Joseph Hospital (HJH) ED Guidelines
   const renderEdlPhcView = () => {
     const matched = allContentCategoryIds()
       .map(k => renderCategorySect(k, ['edl_phc']))
@@ -2803,7 +2803,7 @@ export default function App() {
       JSON.stringify(p.sections).toLowerCase().includes(searchQuery.toLowerCase())
     );
     const facilityTabs: { key: 'hjh' | 'bara' | 'edl'; label: string }[] = [
-      { key: 'hjh', label: '🩺 Helen (HJTH)' },
+      { key: 'hjh', label: '🩺 Helen (HJH)' },
       { key: 'bara', label: '🏥 Bara ICU' },
       { key: 'edl', label: '🇿🇦 SA EDL / PHC' },
     ];
@@ -3005,6 +3005,9 @@ export default function App() {
       return (
         <ProtocolLandingPage
           protocol={activeProtocol}
+          onOpenProtocol={navigateToProtocol}
+          weight={weight}
+          setWeight={setWeight}
           onBack={() => {
             setSelectedFacility(facilityId);
             setSelectedProtocolId(null);
