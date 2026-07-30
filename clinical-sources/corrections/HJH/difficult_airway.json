@@ -1,0 +1,23 @@
+{
+  "_meta": {
+    "id": "difficult_airway",
+    "type": "protocol",
+    "category": "06_ed_airway",
+    "subcategory": "protocols",
+    "title": "Difficult Airway Approach",
+    "source_doc": "HJH ED 2026",
+    "review_state": "reviewed-against-pdf-pages-64-66"
+  },
+  "protocol": {
+    "item": "Difficult Airway Approach",
+    "protocol_type": "ed_protocol",
+    "pdfPages": [
+      64,
+      65,
+      66
+    ],
+    "source_text": "SPECIAL CONSIDERATIONS \n• Anaphylaxis and angioedema: LMA unlikely to be effective. If \nunable to intubate, consider early surgical airway \n• UGIB/Haemoptysis: Consider suction assisted laryngoscopy and \ndecontamination (SALAD). DL may offer better views than VL due to \nblood on fibre-optic scope \n• Stridor: LMA unlikely to be effective. If unable to intubate, consider \nearly surgical airway. Early ENT consultation \n• Ludwig’s Angina/Retropharyngeal Abscess: Avoid airway \nmanipulation if possible. Likely to require formal surgical airway in \ntheatre. \nPREDICT THE DIFFICULT AIRWAY \n• L: Look externally \n• E: Evaluate 3-3-2 rule (mouth opening at least 3 fingers, \ndistance from tip of chin to hyoid bone at least 3 fingers, \ndistance from hyoid bone to thyroid cartilage at least 2 \nfingers) \n• M: Mallampati score \n• O: Obesity/ Obstruction \n• N: Neck mobility \n• S: Saturation (oxygen) \nSETUP FOR THE PREDICTED DIFFICULT AIRWAY \n• Prepare all equipment and staff beforehand if time allows \n• Video laryngoscope prepared if not initial device \n• Difficult/surgical airway box on top shelf in resus \n• Double setup – 1 staff member to intubate, 1 for surgical airway, \nscrubbed and ready. All equipment laid out and ready. \n• Mark cricothyroid membrane with permanent marker prior to induction \n• Consider DSI and vocal cord visualization prior to muscle relaxation \nOPTIMISE ALL FACTORS \n• Most experienced intubator \n• Height of bed \n• Patient position \n• Neck extension/shoulder elevation/ramping \n• Different laryngoscope blade/video scope \n• 2-handed pull technique \n• Consider awake or nasal intubation – experienced \noperator ONLY \nDIFFICULT AIRWAY APPROACH\n\nhttps://aimeairway.ca/algorithms",
+    "source_image": "/clinical-sources/hjh/difficult-airway-surgical-airway.jpg",
+    "source_image_alt": "HJH surgical-airway cricothyrotomy infographic from difficult-airway PDF page 66"
+  }
+}

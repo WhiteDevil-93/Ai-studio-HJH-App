@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "id": "gastroenteritis_paediatrics",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Gastroenteritis in Paediatrics",
+    "source_doc": "HJH ED 2026",
+    "review_state": "reviewed-against-pdf-page-76"
+  },
+  "protocol": {
+    "item": "Gastroenteritis in Paediatrics",
+    "protocol_type": "ed_protocol",
+    "pdfPages": [
+      76
+    ],
+    "source_text": "SIGNS OF DEHYDRATION \n* Loss of weight \n* Sunken eyes & fontanelle \n* Dry mucous membranes \n* Thirst \n* Loss of skin turgor \n* Acidotic breathing \n* Decreased urine output \nSIGNS OF SHOCK \n* CRT > 3 secs \n* Cold peripheries \n* Thready pulses \n* Listless \n* Tachycardia \n* Decreased BP \n* Depressed LOC \nGASTROENTERITIS IN \nPAEDIATRICS \nMANAGEMENT SHOCK & SEVERE DEHYDRATION \nResuscitation \n• ABC approach \n• Oxygen, monitors, IV line \n• Fluid bolus 20ml/kg with a crystalloid (Ringers Lactate / 0.9% Normal Saline) \nunless \n■ Severely malnourished \n■ Cardiac failure \n■ Severe pneumonia \n■ Hypernatraemia (Na+ \n■ Encephalopathy \n■ < 3 months old \n \n> 150 mmol/l) \n• Still shocked – give 10ml/kg boluses until pulse is palpable or maximum of \n60ml/kg in total has been given \n \nCorrect Electrolyte Abnormalities \n• Hypokalaemia (K+ < 2.5) 15% KCl (ml) [(0.3) x (weight in kgs) x (4)] / 2 \n(correct over 4 hours) \n• Hypoglycaemia 2ml/kg of 25% Dextrose (5ml 50% dextrose + 5ml NS) \n \nIndications for Antibiotics (see box) \n \nSpecial investigations \n• Urine dipstix & blood glucose on ALL patients \n• Blood gas (see box for indications) \n• Tailor further blood & radiological investigations to clinical findings \n \nDisposition \n• Urgent Paediatric referral \n \nINDICATIONS FOR BLOOD GAS \n* ALL severely dehydrated & shocked children \n* Malnourished \n*  Moderately dehydrated but with an atypical \npresentation \n* If IV rehydration is required \n* Complications – ileus, seizures \n \nINDICATIONS for ANTIBIOTICS \n* Severe malnutrition \n* Suspected systemic infection \n* Immunocompromised \n* Dysentery \n* Cholera with severe dehydration \n \n \n \nNB! All IV fluids must be controlled and preferably given using an \ninfusion pump \n \nMANAGEMENT MILD TO MODERATE DEHYDRATION \nFirst Line = Oral rehydration solution (ORS) \n \n* Oral or via NGT \n* Volume according to the degree of dehydration \n* 12.5ml/kg/hr for 4 hours \n* Reassess \n- if tolerated & improving clinically ➔ Discharge \n- not tolerated & no clinical improvement ➔ Admit & \ncommence IV fluids - ½ DD @ 10mls/kg/hr"
+  }
+}

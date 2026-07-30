@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "id": "pulmonary_embolism",
+    "type": "protocol",
+    "category": "05_ed_pulmonary",
+    "subcategory": "protocols",
+    "title": "Pulmonary Embolism",
+    "source_doc": "HJH ED 2026",
+    "review_state": "reviewed-against-pdf-page-159"
+  },
+  "protocol": {
+    "item": "Pulmonary Embolism",
+    "protocol_type": "ed_protocol",
+    "pdfPages": [
+      159
+    ],
+    "source_text": "*Chest pain \n*Shortness of breath \n*Palpitations \n*Haemoptysis \n \n \n \nHISTORY \nPULMONARY EMBOLISM \nINVESTIGATIONS \nBEDSIDE \n* ECG \n*Syncope or pre-syncope, diaphoresis, mottling \n*Unexplained fatigue / breathlessness \n*Gynae hx – pregnant / oestrogen-based contraception \n*Previous surgery or immobilization in the last 4 weeks \n*Previous DVT or PE \n*Malignancy \n*Travel history \n \n \n \n \nRISK FACTORS FOR PE \n“THROMBOSIS” \n*Trauma/Travel \n*Hypercoagulable state/HRT \n*Recreational drugs (IVDU) \n*Older \n*Malignancy \n*Birth Control \n*Obesity/Obstetrical \n(risk of PE is highest in the first 6 weeks postpartum) \n*Surgery \n*Immobilization \n*Sickness \n \n \n \n- sinus tachycardia \n- T wave inversions in the right precordial leads (V1-V4) and inferior leads (II, III, avF) \n- Non-specific ST-T wave abnormalities – STE or STD \n- S1 Q3 T3 \n- Dominant R wave in V1 \n- Right ventricular enlargement – peaked p-wave in lead II > 2.5mm in height \n- Right heart strain and acute cor pulmonale \n- tall peaked p-waves in lead II \n- right axis deviation \n- RBBB \n- S1Q3T3 \n- Atrial tachyarrhythmias \n-atrial fibrillation, atrial flutter, atrial tachycardia \n- May be completely normal \n* ABG \n- hypoxaemia \n- hypocapnia \n- respiratory alkalosis \n- Rising lactate \n* Point of Care Ultrasound (POCUS) \n- Echo \n- RV enlargement \n- RV free wall hypokinesia \n- McConnell’s Sign – akinesia of the mid free wall with sparing of the RV apex \n- Interventricular septal flattening \n- Plethoric/dilated IVC \n- LCUS – assessment for an acute proximal DVT in the lower limbs \nLABORATORY \n* U&E, FBC, CRP, D-dimer, Trop T \n* Other causes of elevated D-dimer: infection, malignancy, surgery, trauma, pregnancy, age, cirrhosis etc. \n* RADIOLOGICAL \n*CXR \n- may be normal \n-  Hamptons hump – wedge-shaped, pleural based triangular opacity \n-  Westermark sign – decreased vascularity with dilation of the pulmonary vessels and \nsharp cut-off \n*CTPA = Gold standard \n \nCLINICAL SIGNS AND SYMPTOMS \n*Non-specific \n*Consider PESI score to risk stratify \n*High index of suspicion especially in patients with \n-unexplained dyspnoea \n-tachypnoea \n-unexplained tachycardia \n-unilateral leg swelling \n \nINDICATIONS FOR THROMBOLYSIS \nMassive PE \n*Sustained hypotension (SBP < 90mmHg) \nfor 15 minutes or requiring inotropic \nsupport \n*Persistent bradycardia with signs of shock \n*RV dysfunction on echo \n*Myocardial necrosis \n(Trop I > 0.4ng/ml or Trop T > 0.1ng/ml) \nCardiac Arrest in PE \nADJUNCT: 5mg nebulised nitrocine over \n15 mins, rpt PRN \nTHROMBOLYTIC OF CHOICE \nALTEPLASE (ACTILYSE®) \nMassive PE \n*≥65kg \n10mg bolus followed by 90mg infusion \nover 2 hours \n*<65kg \nTotal dose of 1.5mg/kg \n10mg bolus and remainder of dose \ninfused over 2 hours \nCardiac Arrest: 50mg IVI as a stat dose \nStable on low-dose pressor: consider \n10mg bolus, then 40mg over 2 hrs \n(0.5mg/kg) \n \nAGE ADJUSTED D-DIMER > 50 years \nAGE x 5 (divide by 1000 = mg/L stat lab \nunits) \nUsual cutoff = 0.25 mg/L \nTRIMESTER ADJUSTED D-DIMER \nTHRESHOLD \n1st - < 750 ng/ml (0.75mg/l)  \n2nd - < 1000 ng/ml (1mg/l)  \n3rd - < 1250 ng/ml (1.25mg/l)"
+  }
+}

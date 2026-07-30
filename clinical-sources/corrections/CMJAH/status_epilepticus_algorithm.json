@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "id": "status_epilepticus_algorithm",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Status Epilepticus Algorithm",
+    "source_doc": "CMJAH ED December 2020",
+    "review_state": "reviewed-against-pdf-page-119"
+  },
+  "protocol": {
+    "item": "Status Epilepticus Algorithm",
+    "protocol_type": "ed_protocol",
+    "pdfPages": [
+      119
+    ],
+    "source_text": "STATUS EPILEPTICUS \nANTICONVULSANT ALGORITHM \n \n \n \nABORT SEIZURE \nFIRST LINE AGENTS - BENZODIAZEPINE \n \n• Lorazepam  (AtivanÒ)  0.1 mg/kg IV    (max rate 2mg/min) \n• Diazepam (ValiumÒ)  0.2 – 0.3 mg/kg IV  (max rate 5mg/min) \n• Clonazepam (RivotrilÒ) 0.02 mg/kg IV \n• Midazolam (DormicumÒ) 0.2 mg/kg IV  \n0.3 mg/kg buccal / intranasal \n \n** If the seizure continues, administer a 2nd dose of the chosen benzodiazepine \nLOAD WITH A SECOND LINE ANTICONVULSANT \n \n• Phenytoin  20 mg/kg IV  (max rate 50 mg/min) \n• Sodium Valproate 20 - 30 mg/kg IV (max rate 3-6 mg/kg/min) \n• Phenobarbitone 20 mg/kg IV   \n \nIF SEIZURE CONTINUES \nIF SEIZURE TERMINATES \nLOAD WITH A 2nd \nLINE \nANTICONVULSANT \nIF SEIZURE CONTINUES \nREPEAT 2ND LINE ANTICONVULSANT after 20 minutes \n \n• Phenytoin  10 mg/kg IV  (max rate 50 mg/min) \n• Sodium Valproate 10 mg/kg IV  (max rate 3-6 mg/kg/min) \n• Phenobarbitone 10 mg/kg   \n \nIF SEIZURE CONTINUES \nREFRACTORY STATUS EPILEPTICUS \nTHIRD LINE ANTICONVULSANT \n \n• Midazolam (DormicumÒ) Loading Dose 0.2 mg/kg IV then \nInfusion 0.1 mg/kg/hr (0.05 - 2mg/kg/hr) \n• Propofol   Loading dose 3 – 5 mg/kg IV then \nInfusion 1 – 15 mg/kg/hr \n• Ketamine   Loading dose 1.5 mg/kg then \nInfusion 0.01 – 0.05 mg/kg/hr \nDr R Gihwala CMJAH Emergency Department June 2020"
+  }
+}

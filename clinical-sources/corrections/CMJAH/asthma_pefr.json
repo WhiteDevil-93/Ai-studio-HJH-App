@@ -1,0 +1,27 @@
+{
+  "_meta": {
+    "id": "asthma_pefr",
+    "type": "protocol",
+    "category": "05_ed_pulmonary",
+    "subcategory": "protocols",
+    "title": "Asthma PEFR Normal Values",
+    "source_doc": "CMJAH ED December 2020",
+    "review_state": "reviewed-against-pdf-page-36"
+  },
+  "protocol": {
+    "item": "Asthma PEFR Normal Values",
+    "protocol_type": "ed_protocol",
+    "pdfPages": [
+      36
+    ],
+    "clinical_features": {
+      "chart_scope": [
+        "Peak expiratory flow rate normal values",
+        "For use with EU/EN13826-scale peak-flow meters only",
+        "The facility chart plots age against expected PEFR for men and women at the listed heights"
+      ]
+    },
+    "source_image": "/clinical-sources/cmjah/asthma-pefr-normal-values.jpg",
+    "source_image_alt": "CMJAH peak expiratory flow rate normal-values chart for men and women by age and height"
+  }
+}

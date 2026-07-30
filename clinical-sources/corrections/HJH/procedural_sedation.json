@@ -1,0 +1,123 @@
+{
+  "_meta": {
+    "id": "procedural_sedation",
+    "type": "protocol",
+    "category": "06_ed_airway",
+    "subcategory": "protocols",
+    "title": "Procedural Sedation & Analgesia",
+    "source_doc": "HJH ED 2026",
+    "review_state": "reviewed-against-pdf-page-158"
+  },
+  "protocol": {
+    "item": "Procedural Sedation & Analgesia",
+    "protocol_type": "ed_protocol",
+    "pdfPages": [
+      158
+    ],
+    "clinical_features": {
+      "pre_sedation_assessment": [
+        "Consent in chart (right patient, site and procedure)",
+        "IV access obtained and line patent",
+        "Pre-sedation PRN medicines given (Ondansetron, Midazolam, Fentanyl PRN)",
+        "Relevant past medical history reviewed; document ASA class",
+        "Document allergies",
+        "Document last meal and patient weight",
+        "Difficult-airway predictors assessed",
+        "Document planned sedative dose and paralytic dose",
+        "Confirm sedation benefits outweigh risks"
+      ],
+      "difficult_airway_assessment": {
+        "BVM — ROMAN": "Radiation/Restriction; Obstruction/Obesity/OSA; Mask seal/Male/Mallampati; Aged; No teeth",
+        "Extraglottic device — RODS": "Restriction; Obstruction/Obesity; Distorted anatomy; Short thyromental distance",
+        "Direct laryngoscopy — LEMON": "Look externally; Evaluate 3-3-2; Mallampati; Obstruction/Obesity; Neck mobility",
+        "Cricothyrotomy — SMART": "Surgery; Mass; Access/Anatomy; Radiation; Tumour"
+      },
+      "team_roles": [
+        "Registered nurse",
+        "Procedure doctor",
+        "PSA sedation doctor",
+        "PSA airway doctor"
+      ]
+    },
+    "equipment": [
+      "Patient pre-oxygenation: nasal cannula at >15 L/min or non-rebreather mask",
+      "ETCO2 and pulse oximetry with an adequate waveform",
+      "Cardiac monitor with blood pressure every 3–5 minutes and as required",
+      "RSI equipment: laryngoscope blade, ETT, stylet, syringe, extraglottic device and lubricant",
+      "Ventilation rescue equipment: nasal airway, oral airway and BVM connected to oxygen",
+      "Suction functional and connected",
+      "Sedative and emergency paralytic vials",
+      "Reversal-agent vials: naloxone and flumazenil"
+    ],
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Prepare and assess",
+        "details": "Complete the bedside-equipment, pre-sedation, difficult-airway and team checklists before medication administration."
+      },
+      {
+        "step_number": "2",
+        "action": "Monitor throughout procedural sedation",
+        "details": "Use ETCO2, pulse oximetry with an adequate waveform, continuous cardiac monitoring and blood pressure measurement every 3–5 minutes and as required."
+      },
+      {
+        "step_number": "3",
+        "action": "Escalate interventions for hypoventilation",
+        "details": "Position the patient and suction as required; perform jaw thrust; insert nasal trumpets; use BVM ventilation; insert an oral airway; consider reversal with naloxone or flumazenil; proceed to RSI or an extraglottic device if required."
+      }
+    ],
+    "warnings": [
+      "Ketofol note from the HJH checklist: ketamine plus propofol; do not mix in the same syringe."
+    ]
+  },
+  "embedded_drugs": [
+    {
+      "item": "Etomidate",
+      "protocol_dose": "Initial dose 0.15 mg/kg",
+      "repeat_dose": "0.05 mg/kg every 2 minutes as required",
+      "onset": "10–15 seconds",
+      "duration": "4–10 minutes",
+      "precautions": "Myoclonus; adrenal suppression"
+    },
+    {
+      "item": "Ketamine",
+      "protocol_dose": "0.1–0.3 mg/kg for pain; 1–2 mg/kg IV for sedation",
+      "repeat_dose": "0.5 mg/kg every 2 minutes as required",
+      "onset": "30–120 seconds",
+      "duration": "15–30 minutes",
+      "precautions": "Hypertension, CHF, CAD, schizophrenia, emesis and emergence; consider midazolam 1–2 mg PRN"
+    },
+    {
+      "item": "Propofol",
+      "protocol_dose": "Initial dose 0.5 mg/kg in elderly patients or 1.0 mg/kg standard dose",
+      "repeat_dose": "0.25 mg/kg every 2 minutes as required",
+      "onset": "10–40 seconds",
+      "duration": "3–10 minutes",
+      "precautions": "Soy/egg allergy, hypotension, tachycardia and elderly patients"
+    },
+    {
+      "item": "Midazolam",
+      "protocol_dose": "Initial dose 0.01–0.03 mg/kg",
+      "repeat_dose": "0.01–0.03 mg/kg every 3–5 minutes as required",
+      "onset": "3–5 minutes",
+      "duration": "120 minutes",
+      "precautions": "Pregnancy, delayed onset and opiate co-administration"
+    },
+    {
+      "item": "Fentanyl",
+      "protocol_dose": "Initial dose 1 mcg/kg",
+      "repeat_dose": "0.5–1 mcg/kg every 3–5 minutes as required",
+      "onset": "2–5 minutes",
+      "duration": "30–60 minutes",
+      "precautions": "Respiratory depression and delayed onset"
+    },
+    {
+      "item": "Ketofol",
+      "protocol_dose": "Initial dose 1 mg/kg: 0.5 mg/kg propofol plus 0.5 mg/kg ketamine",
+      "repeat_dose": "0.5 mg/kg every 2 minutes as required",
+      "onset": "30–120 seconds",
+      "duration": "8–14 minutes",
+      "precautions": "See ketamine and propofol precautions; do not mix in the same syringe"
+    }
+  ]
+}

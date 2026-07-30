@@ -208,14 +208,31 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
     'disposition',
     'note',
     'source_text',
+    'source_image',
+    'source_image_alt',
     'equipment',
   ]);
   const additionalFields = Object.entries(body).filter(
     ([key, value]) => !reserved.has(key) && value !== null && value !== undefined && value !== '',
   );
-  const hasWeightBasedDoses = /(?:mcg|µg|ug|mg|mmol|g|m[lℓ]|units?|iu|u|meq|j)\s*\/\s*kg/i.test(
-    JSON.stringify({body, embeddedDrugs: contentProtocol.embeddedDrugs}),
+  const calculableDoseText = [
+    ...managementSteps.flatMap(step => {
+      const record = isRecord(step) ? step : {};
+      return typeof record.details === 'string' ? [record.details] : [];
+    }),
+    ...contentProtocol.embeddedDrugs.flatMap(drug =>
+      ['adult_dose', 'paediatric_dose', 'protocol_dose']
+        .map(field => drug[field])
+        .filter((value): value is string => typeof value === 'string'),
+    ),
+  ];
+  const hasWeightBasedDoses = calculableDoseText.some(
+    text => extractWeightDoseResults(text, 70).length > 0,
   );
+  const sourceImage = typeof body.source_image === 'string' ? body.source_image : '';
+  const sourceImageAlt = typeof body.source_image_alt === 'string'
+    ? body.source_image_alt
+    : `${contentProtocol.title} source image`;
 
   return (
     <article className="mx-auto max-w-5xl space-y-5 pb-12">
@@ -389,6 +406,33 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
           <pre className="max-h-[70vh] overflow-auto whitespace-pre-wrap rounded-xl border border-slate-200 bg-slate-50 p-4 font-sans text-sm leading-7 text-slate-700 dark:border-slate-800 dark:bg-slate-950/50 dark:text-slate-300">
             {sourceText}
           </pre>
+        </ClinicalSection>
+      )}
+
+      {sourceImage && (
+        <ClinicalSection title="Facility source image" icon={<FileText className="h-5 w-5 text-slate-500" />}>
+          <a
+            href={sourceImage}
+            target="_blank"
+            rel="noreferrer"
+            className="block overflow-hidden rounded-xl border border-slate-200 bg-white dark:border-slate-800"
+            title="Open the full-size facility source image"
+          >
+            <img
+              src={sourceImage}
+              alt={sourceImageAlt}
+              loading="lazy"
+              className="mx-auto h-auto max-h-[80vh] w-auto max-w-full object-contain"
+            />
+          </a>
+          <a
+            href={sourceImage}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-3 inline-flex text-xs font-bold text-indigo-600 underline underline-offset-2 dark:text-indigo-300"
+          >
+            Open full-size source image
+          </a>
         </ClinicalSection>
       )}
     </article>

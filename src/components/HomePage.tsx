@@ -9,6 +9,7 @@ import {
   hospitalProtocolCount,
   type HospitalId,
 } from '../clinical/hospitalProtocols';
+import {SUPPLIED_GUIDELINE_LINK_AUDIT} from '../clinical/globalReferenceDocuments';
 
 interface HomePageProps {
   onSelectFacility: (facilityId: HospitalId) => void;
@@ -210,9 +211,10 @@ export const HomePage: React.FC<HomePageProps> = ({
         </button>
         <button
           onClick={() => onSelectCategory('trials_guidelines')}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-purple-100 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/40 hover:bg-purple-200 dark:hover:bg-purple-900/40 transition-colors"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-black bg-purple-100 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 border border-purple-300 dark:border-purple-700 hover:bg-purple-200 dark:hover:bg-purple-900/40 transition-colors"
         >
-          <BookOpen className="w-3.5 h-3.5" /> Trials & Int'l Guidelines
+          <BookOpen className="w-3.5 h-3.5" />
+          {SUPPLIED_GUIDELINE_LINK_AUDIT.guidelineCount} International Guidelines
         </button>
         <button
           onClick={() => onSelectFacility('hjh')}

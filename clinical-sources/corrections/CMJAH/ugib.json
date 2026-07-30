@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "id": "ugib",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Ugib",
+    "source_doc": "CMJAH ED December 2020",
+    "review_state": "reviewed-against-pdf-page-145"
+  },
+  "protocol": {
+    "item": "Ugib",
+    "protocol_type": "ed_protocol",
+    "pdfPages": [
+      145
+    ],
+    "source_text": "UPPER GI BLEED IN THE ED \n \n \n \n \n \nMANAGEMENT \n* ABC approach to initial resuscitation \n* 2 large bore IV lines à Give warm Balsol or Ringers Lactate (10mls/kg) \n* Keep NPO \n* Transfuse if: \n• Haemodynamic instability despite 1 crystalloid fluid bolus \n• Hb < 9 in a high risk patient i.e. elderly; coronary artery disease \n• Hb < 7 in a low risk patient \n• Avoid over transfusion if the bleeding may be 2° varices \n*If haemodynamically unstable à Give FFP (10-20mls/kg) \n*Pantoprazole (PantolocÒ) \n• Loading dose 80mg \n• Consider Infusion: 200mg in 200mls N/S @ 8 mls/hr \n*Consider Sengstaken-Blakemore Tube for variceal bleeds  \n*Notify surgeons ASAP \n*NB – no role for TXA in UGIB \n \nHISTORY \nSymptoms \n• Abdominal pain \n• Haematemesis \n• Melena \n• Haematochezia \n• Syncope (especially in elderly) \nRisk factors \n• Alcohol abuse \n• NSAIDs \n• Antiplatelet / anticoagulant therapy \n• Previous GI bleed \n• Liver disease \n• Smoking \nDISPOSITION \n \nDischarge only if patient meets ALL criteria: \n• Stable  \n• No witnessed haematemesis in ED \n• Blatchford Score = 0 \n \nDischarged patients should follow up at SOPD \n \nEXAMINATION \n*\t­HR ¯BP = moderate – severe blood loss \n* Digital rectal examination to assess for melena \n* Look for signs of liver disease  \n* Signs of acute abdomen suggest perforation \n \nINVESTIGATIONS \n* NB! initial Hb may be normal \n* VBG, FBC, U&E, INR & Type and screen \n* LFT only if indicated \n* CXR erect à assess for free air under diaphragm \n* POCUS to assess volume status \nBLATCHFORD SCORE \n \n* Urea < 6.5 mmol/l \n* Hb > 13 (males) ; > 12 (females) \n* Systolic BP > 110 mmHg \n* Pulse < 100 bpm \n* Absence of melena, syncope, cardiac failure  \n   or liver disease \nDr R Gihwala CMJAH Emergency Department June 2020"
+  }
+}

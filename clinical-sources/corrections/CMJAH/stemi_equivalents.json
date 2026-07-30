@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "id": "stemi_equivalents",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Stemi Equivalents",
+    "source_doc": "CMJAH ED December 2020",
+    "review_state": "reviewed-against-pdf-page-11"
+  },
+  "protocol": {
+    "item": "Stemi Equivalents",
+    "protocol_type": "ed_protocol",
+    "pdfPages": [
+      11
+    ],
+    "source_text": "STEMI EQUIVALENTS \n  \n \n \n \n \n \n \n \n \n \n \n \n \n \nDr R Gihwala CMJAH Emergency Department June 2020 \nSTEMI EQUIVALENTS \n*Those patients who do not present with the classical  \n  ECG changes but have acutely occluded coronary artery/s \n*Often associated with poorer outcome and worse prognosis \n*Benefit from timely intervention \nhttps://www.jacc.org/doi/full/10.1016/j.jaccas.2019.10.030 \nECG Patterns Hinting for Potentially High-Risk Critical Artery Stenosis or Occlusion \n(A) Conventional STEMI    (B-K) Potential STEMI Equivalents"
+  }
+}

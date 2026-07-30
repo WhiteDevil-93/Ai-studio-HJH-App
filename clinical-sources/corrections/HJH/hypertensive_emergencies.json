@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "id": "hypertensive_emergencies",
+    "type": "protocol",
+    "category": "03_ed_cardiovascular",
+    "subcategory": "protocols",
+    "title": "Hypertensive Emergencies",
+    "source_doc": "HJH ED 2026",
+    "review_state": "reviewed-against-pdf-page-99"
+  },
+  "protocol": {
+    "item": "Hypertensive Emergencies",
+    "protocol_type": "ed_protocol",
+    "pdfPages": [
+      99
+    ],
+    "source_text": "HYPERTENSIVE EMERGENCIES \n \n \nManagement of Hypertensive Emergencies \n• ABC approach to resuscitation \n• A – definitive airway if a depressed level of consciousness \n• B – Acute pulmonary oedema, but intubation is not indicated, start non-invasive \nventilation (see NIV protocol) \n• C – Fluid bolus with Balsol / Ringers Lactate @ 10ml/kg prior to commencing IV anti- \nhypertensive agent \nTREATMENT GOAL \nWithin 1st hour: Reduce MAP by 20-25% only; DBP not less than 110mmHg except \nAortic Dissection: Goal systolic < 100-120 within 20 minutes if tolerated \nICH: avoid systolic BP < 130 \n \n \n \nLabetalol \nIndications \n• Aortic dissection \n• Encephalopathy (confusion/seizures/coma) \n• CVA – haemorrhagic / ischaemic \n• Alternative: Esmolol (see infusions) \n \nLabetalol (Trandate®) \nBolus \n• 20 mg (4mls) then \nInfusion \n• Add 16 mls (80 mg) + a 2nd vial (100 mg) of \nLabetalol to 200 mls 0.9% Normal Saline \n(0.76 mg/ml) \n• Start infusion via infusion pump or dial-a- \nflow at 80 ml/hr \n• Increase by 10 ml/hr every 5 minutes until \nBP target reached \n• Maximum 160 ml/hr (2 mg/min) \n \nNitroglycerin \nIndications \n• Acute pulmonary oedema \n• Acute LV dysfunction \n• ACS – STEMI/NSTE-ACS \n• Alternative: Isoket (see infusions) \n \nNitroglycerin (Nitrocine®) Infusion (50μg/ml) \n• 10mg in 200ml Normal Saline \n• Withdraw 10mls Normal Saline before \nadding the Nitrocine® \n• Start at 12mls/hr (10μg/min) \n• Double the dose every 2 minutes until \ntarget BP is reached \n• Maximum 200 μg/min \n \n \nHypertensive Urgency \n \n• Old terminology, still used by local \nclinics/GP’s.  \n• Manage as for asymptomatic HT \n• Screen carefully for TOD and refer as \nrequired \n• Plan to lower BP over next 2 – 3 days as \ninpt/outpt (Int med/polyclinic/local clinic) \n• Consider admission if severely \nelevated/poor follow-up/multiple \ncomorbidities \n• NO INDICATION FOR IV ANTI-\nHYPERTENSIVE AGENTS! \n \n \nHypertensive Emergency \nElevated blood pressure (> 180/110) \nWITH LIFE THREATENING ACUTE END ORGAN DAMAGE \n• Hypertensive encephalopathy & \nretinopathy \n• Haemorrhagic / acute Ischaemic CVA \n• ACS – STEMI/NSTE-ACS \n• Acute LV dysfunction / Congestive heart \nfailure \n• Acute pulmonary oedema (SCAPE) \n• Aortic dissection \n• Acute renal failure \n• Eclampsia / Pre-eclampsia"
+  }
+}

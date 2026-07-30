@@ -1,0 +1,83 @@
+{
+  "auditedOn": "2026-07-30",
+  "facility": "CMJAH",
+  "rawArchivePolicy": "The supplied all_hospitals_protocols ZIP mirror remains immutable. Reviewed corrections are runtime overlays.",
+  "primarySource": {
+    "filename": "CMJAH Emergency Department Protocols December 2020 v2.pdf",
+    "sha256": "70187c9d418f08dc36faf6637c85a50a4aed4229371f5b73004c14fa152502b9"
+  },
+  "rootCause": "Several supplied JSON records used table-of-contents text or another protocol page as their source_text payload.",
+  "pdfPageTranscriptionOverlays": {
+    "stemi_equivalents": [
+      11
+    ],
+    "aha_resuscitation_algorithms": [
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30
+    ],
+    "hyperglycaemia_approach": [
+      68
+    ],
+    "hypertension_management": [
+      75
+    ],
+    "nstemi_management": [
+      12
+    ],
+    "infusions": [
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88
+    ],
+    "status_epilepticus_algorithm": [
+      119
+    ],
+    "syncope_ecg": [
+      123,
+      124,
+      125,
+      126,
+      127,
+      128,
+      129
+    ],
+    "ugib": [
+      145
+    ],
+    "vascular_emergencies": [
+      147
+    ]
+  },
+  "imagePageOverlays": {
+    "asthma_pefr": {
+      "pdfPages": [
+        36
+      ],
+      "asset": "public/clinical-sources/cmjah/asthma-pefr-normal-values.jpg",
+      "assetSha256": "85830ce08b275a0f8c3b26f8ccfe6461450b598cf82c62f2a440ad0c848f5ffe"
+    },
+    "paracetamol_nomogram": {
+      "pdfPages": [
+        108
+      ],
+      "asset": "public/clinical-sources/cmjah/paracetamol-treatment-nomogram.png",
+      "assetSha256": "ea58d87fee2c75f2e198d1c3115d3c6f4d3cf44db9a48c938b962848515ae2fa"
+    }
+  }
+}

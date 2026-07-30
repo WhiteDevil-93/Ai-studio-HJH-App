@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "id": "hypertension_flowchart",
+    "type": "protocol",
+    "category": "03_ed_cardiovascular",
+    "subcategory": "protocols",
+    "title": "Hypertension Flowchart",
+    "source_doc": "HJH ED 2026",
+    "review_state": "reviewed-against-pdf-page-98"
+  },
+  "protocol": {
+    "item": "Hypertension Flowchart",
+    "protocol_type": "ed_protocol",
+    "pdfPages": [
+      98
+    ],
+    "source_text": "Does the patient have ACUTE, LIFE- \nTHREATENING end-organ damage? \n• Hypertensive encephalopathy & retinopathy \n• Haemorrhagic / Ischaemic CVA \n• ACS – STEMI/NSTE-ACS \n• Acute LV dysfunction / Congestive heart failure \n• Acute pulmonary oedema (SCAPE) \n• Aortic dissection \n• Acute renal failure \n• Eclampsia / Pre-eclampsia \nBlood Pressure elevated? \nHYPERTENSION FLOWCHART \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n**Please note** \nNo role in the ED for stat oral antihypertensives \n• Treat the initial presenting \ncomplaint \n• Screen for TOD – likely true HT if \npresent \n• True HT: Discharge on oral \nantihypertensive agents – HCTZ + \nACE-inhibitor/Ca Channel blocker \n• Reactive HT: reassure, no TTO \n• Follow up at local Clinic for \nrepeat BP/Rx continuation \nYES \n NO \nUncontrolled Hypertension \nor \nPoorly controlled \nHypertension \n \nHypertensive Emergency \n \nImmediate IV antihypertensive \ntherapy in the ED \n(See hypertensive Emergencies \nprotocol below) \nExclude reversible \ncauses \n• Incorrect cuff/ \ntechnique \n• Pain \n• Anxiety \n• Full bladder \n• Medications"
+  }
+}

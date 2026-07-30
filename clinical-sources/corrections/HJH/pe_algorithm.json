@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "id": "pe_algorithm",
+    "type": "protocol",
+    "category": "05_ed_pulmonary",
+    "subcategory": "protocols",
+    "title": "Pulmonary Embolism Algorithm",
+    "source_doc": "HJH ED 2026",
+    "review_state": "reviewed-against-pdf-page-160"
+  },
+  "protocol": {
+    "item": "Pulmonary Embolism Algorithm",
+    "protocol_type": "ed_protocol",
+    "pdfPages": [
+      160
+    ],
+    "source_text": "WELL’S SCORE for PULMONARY EMBOLISM \nPULMONARY EMBOLISM ALGORITHM \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nCLINICAL FEATURE POINTS \nClinical signs and symptoms of DVT 3 \nPE is #1 diagnosis 3 \nHeart rate > 100 bpm 1.5 \nImmobilisation > 3 days or surgery in last 4 weeks 1.5 \nPrevious DVT/PE 1.5 \nHaemoptysis 1 \nMalignancy treated in last 6 months or palliative care 1 \n \n \n \nCalculate \nWells score for PE \nLow Risk \n 2 \nPERC score \nNegative \n Positive \nD-dimer \nNo PE \n  \nD-dimer \nabove Age \nadjusted \nlevel \nD-dimer \nbelow \nAge \nadjusted \nlevel \nNo PE \n Consider \nCTPA \nModerate Risk \n2 - 4 \nHigh Risk \n> 4 \nClexane® if no \ncontraindication \n1mg/kg SC stat \n \nCTPA \n(if GFR >60ml/min) \nHigh index of suspicion!!! \n(refer to Pulmonary Embolism Protocol) \nCalculate Well’s Score \nCalculate PERC Score \nFollow the Algorithm ➔ \nPERC Score (Pulmonary Embolism Rule-Out Criteria) \nH – No Hormones (oestrogen) \nA – Age < 50 \nD – No DVT/PE history \nC – No Coughing blood \nL – No unilateral Lower limb oedema \nO – Oxygen saturations ≥ 95% \nT – No Tachycardia ≥ 100bpm \nS – No Surgery / trauma within 28 days \nALL need to be confirmed in order to be “PERC Negative”"
+  }
+}

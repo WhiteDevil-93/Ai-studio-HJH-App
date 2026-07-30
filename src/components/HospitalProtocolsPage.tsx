@@ -16,6 +16,7 @@ import {
   type HospitalId,
   type HospitalProtocol,
 } from '../clinical/hospitalProtocols';
+import {SUPPLIED_GUIDELINE_LINK_AUDIT} from '../clinical/globalReferenceDocuments';
 
 interface HospitalProtocolsPageProps {
   facilityId: HospitalId;
@@ -142,7 +143,7 @@ export const HospitalProtocolsPage: React.FC<HospitalProtocolsPageProps> = ({
               className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-900/75 px-4 py-3 text-xs font-bold text-slate-200 hover:bg-slate-800"
             >
               <BookOpen className="h-4 w-4" />
-              Trials & guidelines
+              {SUPPLIED_GUIDELINE_LINK_AUDIT.guidelineCount} global guidelines
             </button>
           </div>
         </div>

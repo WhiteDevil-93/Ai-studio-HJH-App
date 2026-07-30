@@ -1,0 +1,20 @@
+{
+  "_meta": {
+    "id": "pain_management",
+    "type": "protocol",
+    "category": "15_ed_procedures",
+    "subcategory": "protocols",
+    "title": "Pain Management In The Ed",
+    "source_doc": "HJH ED 2026",
+    "review_state": "reviewed-against-pdf-pages-141-142"
+  },
+  "protocol": {
+    "item": "Pain Management In The Ed",
+    "protocol_type": "ed_protocol",
+    "pdfPages": [
+      141,
+      142
+    ],
+    "source_text": "PAIN MANAGEMENT IN THE ED \nPARACETAMOL \nAdults \n• 1g PO \n• 1g IV over 30 minutes \n• TTO: 1g PO q6-8hrly \nPaeds \n• 15-20mg/kg PO q8hrly \n• Weight x 0.6 = ml of syrup [120mg/5ml] \nCaution: liver impairment \n \nNON-STEROIDAL ANTI-INFLAMMATORIES (NSAIDs) \nIBUPROFEN \nAdults \n• 200 – 600 mg PO \n• TTO: 200 – 400mg PO q6-8hrly cc (with meals) \nPaeds \n• 5-10mg/kg/dose PO q6-8hrly cc (NB! not to exceed 40mg/kg/day) \n \nCaution: renal failure, bleeding / PUD, elderly \n \n \n \n \nFENTANYL \nOPIOIDS \n• 1µg/kg IV slowly (Duration of action: 30-45min) \n• 1-2µg/kg/hr infusion \n• Cardio stable \n• 1.5 mcg/kg Intranasal in paeds  \nMORPHINE \n• 0.1mg/kg IV (Duration of action: 4-6hrs) \n• 0.1mg/kg/hr infusion \nTRAMADOL (DO NOT GIVE IN ED – BETTER ALTERNATIVES AVAILABLE) \n• TTO: 50-100mg po q8hrly MAX 1 WEEK TTO \n \n \nKETAMINE \nIV \n• 0.3-1mg/kg (slow IV over 5-10min) \n• 0.2-1mg/kg/hr infusion (see Ketamine infusion protocol) \nPaeds \n• 2-6mg/kg IM \n• 6-10mg/kg PO (mix with 0.2-0.3ml/kg of beverage, 30min prior to procedure) \nIntranasal \n• 1mg/kg IN (max 0.5ml/nostril)\n\nPAIN MANAGEMENT cnt. \n \nAvailable Agents \nNo. Category Name Stat Application Notes \n \n1 \n \nNSAIDs \nIbuprofen 200-600mg PO TTO: 200-400mg Q6-8h cc Renal failure, bleeding/PUD, \nelderly \nDiclofenac 75-100mg IV, in 500mℓ \nR/Lactate TTO: 50mg Q8h Renal failure, bleeding/PUD, \nelderly \n \n2 \n \nParacetamol \n1g PO TTO: 1g PO Q6-8h Liver impairment \n1g IV over 30 minutes   \n(120mg/5mℓ) TTO: 15-20mg/kg PO Q8h Weight x 0.6 =mℓ of fluid \n \n \n \n3 \n \n \n \nOpiates \nFentanyl 1mcg/kg IV IV (slowly) Duration of action: 30-45 minutes \n1-2mcg/kg/hr Infusion Infusion  \nMorphine 0.1mg/kg IV Slow IV Duration of action: 4-6 hours \n0.1mg/kg/hr Infusion   \nTramadol 1mg/kg PO/IV TTO: 50-100mg PO Q8h Combo: Tramacet 50/500 Q4-6h \nNaloxone 0.4-4mg IV Q2-3min, up to \n10mg \nREVERSAL AGENT SHORTER HALFLIFE THAN MOST \nOPIOIDS (+- 1 HOUR) \n \n \n \n4 \n \n \n \nKetamine \n \nIV \n0.3-1mg/kg 20-30mg, slow IV over 5-10 \nminutes \nConcentrations of 10, 50, \n100mg/mℓ \n0.2-1mg/kg/hr 20-30mg in 200mℓ NS over 1 \nhour Emergence delirium \nChildren 2-6mg/kg IM   \n6-10mg/kg PO Mix with 0.2-0.3mℓ/kg of beverage, 30 minutes prior to procedure \nIntranasal 1mg/kg IN  max 0.5mℓ per nostril \n \n5 \n \nAnaesthetics \nLignocaine 3-4mg/kg without adrenaline 1 or 2%  \n7mg/kg with adrenaline   \nBupivacaine 3mg/kg with or without \nadrenaline \n  \n \n \n \n \n \n \n6 \n \nRegional Nerve Blockade \n \n \n \nFacial Lacerations \n1. Supra-orbital block \n2. Infra-orbital block \n3. Mental block \n4. Ear block \n \n \n \n \n \nUpper Limb \n1. Metacarpal block \n2. FUN (Forearm \nUltrasound-guided \nNerve) block \n3. Axillary block \n4. Infraclavicular \n5. Supraclavicular \n6. Interscalene \n \nLower Limb \n1. Femoral/ 3-in-1 \n2. Pop-sciatic \n3. Metatarsal block \n7 TCA Amitriptyline  Consider TTO: 10-25mg PO \nnocte Refer Pain Clinic \n \n \n8 \n \n \nNon-pharmacological \n• Explain why there is pain \n• Immobilise joint or \nfracture \n• Calm environment \n• Distraction (for children- \nmedals and toys) \n  \n9 Patient-controlled Analgesia Morphine Pump Not available yet"
+  }
+}

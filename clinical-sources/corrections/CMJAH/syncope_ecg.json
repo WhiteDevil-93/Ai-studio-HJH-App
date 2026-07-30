@@ -1,0 +1,25 @@
+{
+  "_meta": {
+    "id": "syncope_ecg",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Syncope Ecg",
+    "source_doc": "CMJAH ED December 2020",
+    "review_state": "reviewed-against-pdf-pages-123-124-125-126-127-128-129"
+  },
+  "protocol": {
+    "item": "Syncope Ecg",
+    "protocol_type": "ed_protocol",
+    "pdfPages": [
+      123,
+      124,
+      125,
+      126,
+      127,
+      128,
+      129
+    ],
+    "source_text": "ECG FOR CAUSES OF SYNCOPE \n \n- ECG = Principle Investigation \n \n- Memory Aid \n \nCan Quick BRAD Walk Home In Adverse Events? \n \nConduction blocks, Long/ short QT, Brugada, RV infarction or Strain, ARVD, DCM, WPW (and other pre-\nexcitation features), Hypertrophy (HCM or LVH due to AS), Infarction, Arrythmia, Electrical alternans \n \nCONDUCTION BLOCKS \n \nHeart Blocks \n \n1\nst Degree \n \n \n \n2\nnd Degree: Mobitz I \n \n \n \n2\nnd Degree: Mobitz II \n \n \n \n3\nrd Degree\n\nBundle Branch Block (>120ms) \n \n \n \n \nIncomplete Block (80-110ms): Consider LAFB or LPFB \n \n \n \nQT CHANGES \n \nSeveral Formulae (commonly Bazett’s).  \nRough Guide: <1/2 RR interval\n\nBRUGADA SYNDROME \n \nType 1 is Diagnostic.  \nType 2 must meet additional Criteria \n \n \n \n \nRV INFARCTION\n\nARVD (ARRHYTHMOGENIC RIGHT VENTRICULAR DYSPLASIA) \n \nFibro-fatty replacement of the right ventricular myocardium \nEpsilon wave (ARROW - most specific finding, seen in 30% of patients) \nT wave inversion in V1-3 (85% of patients) \nProlonged S-wave upstroke of 55ms in V1-3 (95% of patients) \nLocalised QRS widening of 110ms in V1-3 \nParoxysmal episodes of ventricular tachycardia with LBBB morphology  \n \n \n \n \n \n \nDILATED CARDIOMYOPATHY \n \nLeft Atrial Enlargement may progress to atrial fibrillation. \nBi-atrial enlargement \nLVH or Bi-ventricular enlargement \nLBBB (RBBB can also occur). \nLeft Axis Deviation \nPoor R-Wave Progression with QS complexes in V1-4 (“pseudo-infarction” pattern). \nFrequent ventricular ectopicy or ventricular  bigeminy (seen with severe DCM). \nVentricular dysrhythmias (VT / VF).\n\nWOLFF-PARKINSON-WHITE SYNDROME (OR OTHER PRE-EXCITATION SYNDROMES) \n \nShortened PR \nProne to tachydysrhythmias (AVRT) \n \n \n \n \n \n \nHYPERTROPHY \n \n   \n \n \n \n \n \n \nINFARCTION \n*See ECG Changes in ACS Protocol\n\nARRHYTHMIAS \n \n \nTachydysrhythmia  \n \n Regular Irregular \n \n \n \nNarrow \nQRS \nSinus tachycardia \nAtrial tachycardia \nAtrial flutter \nSupraventricular tachycardia \nAVNRT \nOrthodromic AVRT \nNarrow complex VT (fascicular \ntachycardia) \nTachycardia \nwith PACs, PJCs, PVCs \nAtrial fibrillation \nAtrial flutter with variable block \nAtrial tachycardia with variable \nblock \nMultifocal atrial tachycardia \nParoxysmal atrial tachycardia \nDigoxin toxicity \n \n \n \n \n \n \nWide \nQRS \nMonomorphic VT \nVentricular flutter \nAntidromic AVRT \nPacemaker tachycardia \nAccelerated idioventricular rhythm (AIVR) \nSodium channel blocker toxicity (e.g. \ntricyclic antidepressants, cocaine) \nHyperkalemia \nPost-electrical cardioversion \nIschaemia \nRegular tachycardia with aberrancy, \nbundle branch block or pre-excitation \nsyndromes \nPolymorphic VT (torsades de \npointes) \nIrregular VT \nVentricular fibrillation \nIrregular tachycardia with \naberrancy, bundle branch block \nor pre-excitation syndromes \nAtrial fibrillation or flutter \nwith pre-excitation syndromes \n \n \n \n \n \n \nBradydysrhythmia \n \n Regular Irregular \n \n \nNarrow \nQRS \nSinus bradycardia \nJunctional bradycardia \nComplete AV block (junctional escape) \nAtrial flutter with high degree block \nSinus arrhythmia, pause or arrest \nSinoatrial exit block (second degree) \nAtrial fibrillation with slow ventricular \nresponse \nAtrial flutter with variable block \nSecond degree AV block, type I \nSecond degree AV block, type II \n \n \nWide \nQRS \nIdioventricular rhythm \nComplete AV block (ventricular \nescape) \nSino-ventricular rhythm \nRegular bradycardias with aberrancy \nor bundle branch block \nSecond degree AV block, type I \nSecond degree AV block, type II \nSinoatrial exit block (second degree) \nwith bundle branch block \nIrregular bradycardias with bundle \nbranch block\n\nELECTRICAL ALTERNANS \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nDr J du Plessis/ Dr R Gihwala CMJAH Emergency Department June 2020"
+  }
+}

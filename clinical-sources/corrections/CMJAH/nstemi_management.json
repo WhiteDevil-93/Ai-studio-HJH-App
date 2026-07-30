@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "id": "nstemi_management",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Nstemi Management",
+    "source_doc": "CMJAH ED December 2020",
+    "review_state": "reviewed-against-pdf-page-12"
+  },
+  "protocol": {
+    "item": "Nstemi Management",
+    "protocol_type": "ed_protocol",
+    "pdfPages": [
+      12
+    ],
+    "source_text": "MANAGEMENT OF NSTE – ACS  \n \n \nThe HEART Score for Chest Pain in the ED \nHistory \n* Highly suspicious * 2 points \n* Moderately suspicious * 1 point \n* Slightly / non-suspicious * 0 points \nECG \n* Significant ST depression * 2 points \n* Nonspecific repolarisation  * 1 point \n* Normal * 0 points \nAge \n* ≥ 65 years * 2 points \n* > 45 - < 65 years * 1 point \n* ≤ 45 years * 0 points \nRisk Factors \n* ≥ 3 risk factors * 2 points \n* 1 or 2 risk factors * 1 point \n* No risk factors * 0 points \nTroponin \n* ≥ 3 x normal limit * 2 points \n* > 1 - < 3 x normal limit * 1 point \n* ≤ normal limit * 0 points \nRisk Factors: Diabetes Mellitus, current or recent (<1 month) smoker, \nHypertension, Hypercholestrolaemia, Family History, Obesity  \nScore 0 - 3 (low risk) 2.5% MACE over next 6 weeks \nScore 4 - 6 (intermediate risk) 20.3% MACE over next 6 weeks \nScore 7 - 10 (high risk) 72.7% MACE over next 6 weeks \nMACE = Major Adverse Cardiac Event \n\t\nNSTE - ACS \nHigh Risk Unstable Angina (UA) / NSTEMI \n* ST depression ≥ 0.5mm (see box for criteria) \n* ST elevation > 0.5mm but < 1mm \n* Dynamic inverted t-waves                                                        \n  i.e. T-waves previously been upright but are inverted  \n  when the patient has chest  pain \n \nTIMI Risk Score for Patients with NSTE - ACS \n1 point for each variable present \n* Age ≥ 65years   1 \n* ≥ 3 risk factors for CAD                1 \n   -Family history \n   -Hypertension \n   -Hypercholestrolaemia \n   -Diabetes Mellitus \n   -Smoker \n* Aspirin use in last 7 days              1 \n* Recent, severe symptoms of angina                 1 \n   - ≥ 2 events in last 24hrs \n* Elevated cardiac markers               1 \n* ST deviation ≥ 0.5mm                 1 \n* Prior coronary artery stenosis ≥ 50%                  1 \nScore: 0-1   Low Risk (5% #) \n              2   Low Risk (8% #) \n              3   Intermediate Risk (13% #) \n              4   Intermediate Risk (20% #) \n              5   High Risk (26% #) \n # risk of death, recurrent or new MI,  or need  \n       for  urgent revascularisation \nStart Adjunctive Treatments \n* Heparin \n   LMWH:  Clexane® 30mg IV stat then 1mg/kg SC after 15 min \n                                             or if no LMWH \n   Heparin: 60IU/kg (max 4000IU) IV stat then infusion with 12IU/kg/hr  \n                                           (max 1000IU/hr) \n \n* Thienopyridines \n   Clopidogrel (Plavix®) 300mg stat po \n \n* Statin \n   Simvastatin (Zocor®) 40mg stat po \n \n* β blocker (if no contraindications - see box) \n    Atenolol (Tenormin®) 50mg stat po \n  \nCalculate & document \nTIMI / HEART score \n \nST SEGMENT CRITERIA HIGH RISK \nNSTE-ACS \n* J-point ST segment depression ≥ \n0.5mm in leads V2 and V3 \nand/or \n* J-point ST segment depression ≥ \n1mm in all other leads \n* Discuss with & transfer to cardiology CMJAH \n* Admit to HCU / Medicine \n \nContraindications  \nβ Blockers \n* Haemodynamic instability \n* Heart failure \n* Pulmonary oedema \n* SBP < 100 mmHg \n* Bradycardia (HR ≤ 60 bpm)  \n* AV block 2° or 3° \n* Asthma  \nDr R Gihwala CMJAH Emergency Department June 2020"
+  }
+}

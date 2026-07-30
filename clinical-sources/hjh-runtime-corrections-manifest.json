@@ -1,0 +1,152 @@
+{
+  "auditedOn": "2026-07-30",
+  "facility": "HJH",
+  "rawArchivePolicy": "The supplied all_hospitals_protocols ZIP mirror remains immutable. Reviewed corrections are runtime overlays.",
+  "primarySource": {
+    "filename": "HJH ED Protocol book 2026 v1.pdf",
+    "sha256": "2845afd7491ff8937c2eac22bc99eb25e94531bbb0774fc3a66c51ca5ba805f8"
+  },
+  "rootCause": "The supplied ZIP-generation pipeline attached fixed-size text windows from adjacent or unrelated PDF pages to otherwise correctly titled HJH JSON records.",
+  "confirmedCollisionExamples": [
+    {
+      "incorrectRecord": "procedural_sedation.json",
+      "incorrectPayload": "Pulmonary embolism and alteplase content",
+      "correctPdfPages": [
+        158
+      ]
+    },
+    {
+      "incorrectRecord": "c_spine_imaging.json",
+      "incorrectPayload": "Calcium-channel blocker and beta-blocker overdose content",
+      "correctPdfPages": [
+        54
+      ]
+    },
+    {
+      "incorrectRecord": "community_acquired_pneumonia.json",
+      "incorrectPayload": "Compartment-syndrome content",
+      "correctPdfPages": [
+        58
+      ]
+    },
+    {
+      "incorrectRecord": "triage_tews.json",
+      "incorrectPayload": "Tricyclic-antidepressant overdose content",
+      "correctPdfPages": [
+        194,
+        195
+      ]
+    },
+    {
+      "incorrectRecord": "raised_icp.json",
+      "incorrectPayload": "Renal-colic content",
+      "correctPdfPages": [
+        165,
+        166
+      ]
+    },
+    {
+      "incorrectRecord": "hypertensive_emergencies.json",
+      "incorrectPayload": "Hyperthermia content",
+      "correctPdfPages": [
+        99
+      ]
+    }
+  ],
+  "pdfPageTranscriptionOverlays": {
+    "back_pain": [
+      48
+    ],
+    "blood_products": [
+      49
+    ],
+    "c_spine_imaging": [
+      54
+    ],
+    "community_acquired_pneumonia": [
+      58
+    ],
+    "critical_care_principles": [
+      60,
+      61
+    ],
+    "difficult_airway": [
+      64,
+      65,
+      66
+    ],
+    "femoral_nerve_block": [
+      197
+    ],
+    "gastroenteritis_paediatrics": [
+      76
+    ],
+    "hypokalaemia": [
+      95
+    ],
+    "hypernatraemia": [
+      96
+    ],
+    "hypertension_flowchart": [
+      98
+    ],
+    "hypertensive_emergencies": [
+      99
+    ],
+    "indications_dialysis": [
+      104
+    ],
+    "oncological_emergencies": [
+      133,
+      134,
+      135,
+      136,
+      137
+    ],
+    "pain_management": [
+      141,
+      142
+    ],
+    "pulmonary_embolism": [
+      159
+    ],
+    "pe_algorithm": [
+      160
+    ],
+    "raised_icp": [
+      165,
+      166
+    ],
+    "thyroid_emergencies": [
+      189,
+      190
+    ],
+    "triage_tews": [
+      194,
+      195
+    ]
+  },
+  "imagePageStructuredOverlays": {
+    "asthma_pefr": [
+      45
+    ],
+    "procedural_sedation": [
+      158
+    ]
+  },
+  "sourceImageAssets": {
+    "asthma_pefr": {
+      "asset": "public/clinical-sources/hjh/asthma-pefr-normal-values.png",
+      "assetSha256": "5f978f37ef09de571d0762852073aab4b87cf3608bffadb01ec2a33c94b2ab1d"
+    },
+    "difficult_airway": {
+      "asset": "public/clinical-sources/hjh/difficult-airway-surgical-airway.jpg",
+      "assetSha256": "7ad1957111e3babcf6585a995f035c5f244dba3dbcefdb054241f7946fda22d9"
+    }
+  },
+  "automatedGuards": [
+    "Procedural sedation must contain the page-158 equipment, assessment, airway, team, medication, and hypoventilation content.",
+    "Procedural sedation must not contain PESI, pulmonary embolism, or alteplase content.",
+    "No identical clinical payload of 500 or more normalized characters may be attached to multiple unrelated HJH protocol IDs."
+  ]
+}

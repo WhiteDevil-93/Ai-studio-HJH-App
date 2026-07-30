@@ -41,6 +41,7 @@ import { CodeRedDrawer } from './components/CodeRedDrawer';
 import { HospitalProtocolsPage } from './components/HospitalProtocolsPage';
 import { ProtocolLandingPage } from './components/ProtocolLandingPage';
 import { GlobalReferenceDocumentPage } from './components/GlobalReferenceDocumentPage';
+import { SUPPLIED_GUIDELINE_LINK_AUDIT } from './clinical/globalReferenceDocuments';
 import {
   HOSPITALS,
   HOSPITAL_PROTOCOLS_BY_FACILITY,
@@ -91,7 +92,7 @@ const CATEGORIES: Record<string, string> = {
   cmjah_guidelines: '🏨 CMJAH Guidelines',
   rmmch_guidelines: '👶 RMMCH Guidelines',
   edl_phc_guidelines: '🇿🇦 SA EDL / PHC Guidelines',
-  trials_guidelines: '🔬 Trials & Int\'l Guidelines',
+  trials_guidelines: `📚 ${SUPPLIED_GUIDELINE_LINK_AUDIT.guidelineCount} International Guidelines`,
   mindmaps: '⚡ Resuscitation Mind Maps',
   policies: '📑 Hospital SOPs & Policies',
   all: 'All Categories',
@@ -123,7 +124,7 @@ const CATEGORY_ICONS: Record<string, string> = {
   cmjah_guidelines: '🏨',
   rmmch_guidelines: '👶',
   edl_phc_guidelines: '🇿🇦',
-  trials_guidelines: '🔬',
+  trials_guidelines: '📚',
   mindmaps: '⚡',
   policies: '📑',
   all: '📋',
@@ -265,7 +266,7 @@ export default function App() {
   const [activePolicy, setActivePolicy] = useState<string | null>(null);
   const [globalReferenceView, setGlobalReferenceView] = useState<
     'evidence' | 'pocket' | 'guidelines'
-  >('evidence');
+  >('guidelines');
   const [codeRedOpen, setCodeRedOpen] = useState<boolean>(false);
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
   const [sourceFilter, setSourceFilter] = useState<'all' | 'bara_icu' | 'edl_phc'>('all');
@@ -336,6 +337,9 @@ export default function App() {
   const aboutDialogRef = useRef<HTMLDivElement>(null);
 
   const navigateToCategory = (categoryId: string) => {
+    if (categoryId === 'trials_guidelines') {
+      setGlobalReferenceView('guidelines');
+    }
     setSelectedCategory(categoryId);
     setSelectedFacility(null);
     setSelectedProtocolId(null);
@@ -2723,20 +2727,28 @@ export default function App() {
     }, {} as Record<string, TrialReferenceEntry[]>);
 
     const referenceNavigation = (
-      <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
+      <div
+        className="grid grid-cols-3 gap-2"
+        aria-label="Global clinical references"
+      >
         {[
-          {id: 'evidence' as const, label: 'Evidence Cards', count: TRIALS_REFERENCE.length},
+          {
+            id: 'guidelines' as const,
+            label: 'Guidelines',
+            count: SUPPLIED_GUIDELINE_LINK_AUDIT.guidelineCount,
+          },
+          {id: 'evidence' as const, label: 'Evidence', count: TRIALS_REFERENCE.length},
           {id: 'pocket' as const, label: 'Pocket Guide', count: 9},
-          {id: 'guidelines' as const, label: 'Guideline Directory', count: 43},
         ].map(item => (
           <button
             key={item.id}
             type="button"
+            aria-pressed={globalReferenceView === item.id}
             onClick={() => {
               setGlobalReferenceView(item.id);
               window.scrollTo({top: 0, behavior: 'smooth'});
             }}
-            className={`rounded-xl border px-3 py-2.5 text-left transition-colors ${
+            className={`min-w-0 rounded-xl border px-2 py-2.5 text-center transition-colors sm:px-3 sm:text-left ${
               globalReferenceView === item.id
                 ? 'border-purple-500 bg-purple-950/60 text-purple-100'
                 : 'border-slate-800 bg-[#081212] text-slate-400 hover:border-purple-800 hover:text-purple-200'
@@ -3424,7 +3436,10 @@ export default function App() {
                       { id: 'cmjah_guidelines', label: '🏨 CMJAH ED Protocols' },
                       { id: 'rmmch_guidelines', label: '👶 RMMCH Paediatric Protocols' },
                       { id: 'edl_phc_guidelines', label: '🇿🇦 SA EDL / PHC Protocols' },
-                      { id: 'trials_guidelines', label: '🔬 Landmark Trials & Rules' },
+                      {
+                        id: 'trials_guidelines',
+                        label: `📚 ${SUPPLIED_GUIDELINE_LINK_AUDIT.guidelineCount} International Guidelines`,
+                      },
                       { id: 'favourites', label: `⭐ Favourites (${favourites.length})` },
                       { id: 'recently_viewed', label: `⏱️ Recently Viewed (${recentlyViewed.length})` },
                       { id: 'all', label: '📋 All Categories' }

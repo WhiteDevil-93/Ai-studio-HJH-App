@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "id": "community_acquired_pneumonia",
+    "type": "protocol",
+    "category": "05_ed_pulmonary",
+    "subcategory": "protocols",
+    "title": "Community Acquired Pneumonia",
+    "source_doc": "HJH ED 2026",
+    "review_state": "reviewed-against-pdf-page-58"
+  },
+  "protocol": {
+    "item": "Community Acquired Pneumonia",
+    "protocol_type": "ed_protocol",
+    "pdfPages": [
+      58
+    ],
+    "source_text": "COMMUNITY ACQUIRED PNEUMONIA \n \n \n \n \n \nCURB 65 Severity Score 0 - 1 \n(risk of death < 3%) \n \nOther reasons for admission? \ne.g. Hypoxic, unstable comorbidities, \npoor social circumstances, no \ntransport? \n \nNo Yes \n \n \nTreat according to clinical judgment & \nCURB 65 Severity Score \n \n \n \nCURB 65 Severity Score 3 - 5 \n(risk of death 15-40%) \n \n \nDischarge Home Admit Urgent Hospital Admission\n \n \nAmoxicillin 1g tds po \nx 5/7 \n± \nAzithromycin 500mg \ndly po x 3/7 (if atypical \nfeatures on xrays) \n \nIf Amoxicillin out of \nstock: Augmentin \n1g bd po x 5/7 \nIf Penicillin Allergy: \nMoxifloxacin 400mg \npo x 5/7 \n \nManagement as for \nSeverity Score 2 \n \n \n*If TB infection is \nsuspected-advise \nsputum AFB's & \nGXP \n \nCURB 65 Severity Score 2 \n(risk of death < 9%) \n \nHospital Admission \n \n* Supportive Care e.g. oxygen, IV fluids \n* Bloods: FBC/U+E/CRP \n* Initiate early IV antibiotic therapy \n \n \nAugmentin 1.2g IV stat \n± \nAzithromycin 500mg po/IV \nif \n* Atypical features on x-ray \n* Supportive Care e.g. oxygen, IV fluids \n* Intubate if required \n* Bloods: ABG/FBC/U+E/CRP/Blood cultures \n* Initiate early IV antibiotic therapy \n \nAugmentin 1.2g IV stat / Ceftriaxone 2g IV stat \nAND \nAzithromycin 500mg po/IV \nAND \nHydrocortisone 100mg IVI stat \n \n \nCURB 65 4-5 \nICU/High Care Admission \nConsider PJP/TB cover \n \nIf Age > 65 years is the only criteria - Follow for \nSeverity Score 2 as renal dysfunction likely \n* Elderly \n* COPD exacerbation 2° bacterial infection \nSUSPECTED PNEUMONIA \n* History \n* Clinical examination \n* Radiographic findings \nCURB65 Severity Score \n1 point for each feature present \n* Confusion \n* Urea ≥ 7mmol \n* Respiratory Rate ≥ 30/min \n* Blood Pressure \nSBP ≤ 90mmHg / DBP ≤ 60mmHg \n* Age ≥ 65 years"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "id": "hypertension_management",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Hypertension Management",
+    "source_doc": "CMJAH ED December 2020",
+    "review_state": "reviewed-against-pdf-page-75"
+  },
+  "protocol": {
+    "item": "Hypertension Management",
+    "protocol_type": "ed_protocol",
+    "pdfPages": [
+      75
+    ],
+    "source_text": "HYPERTENSION IN THE ED \n \n \n \n \n \nHypertensive Emergency \nElevated blood pressure with life-threatening acute \nend organ damage \n• Hypertensive encephalopathy & \nretinopathy \n• Haemorrhagic / Ischaemic CVA \n• ACS – STEMI/NSTE-ACS \n• Acute LV dysfunction / Congestive heart \nfailure \n• Acute pulmonary oedema \n• Aortic dissection \n• Acute renal failure \n• Eclampsia / Pre-eclampsia \n \n \nManagement of Hypertensive Emergencies \n• ABC approach to resuscitation \n• A – definitive airway if a depressed level of consciousness  \n• B – Acute pulmonary oedema, but intubation is not indicated, start non-invasive \nventilation (see NIV protocol) \n• C – Fluid bolus with Balsol / Ringers Lactate @ 10ml/kg prior to commencing IV anti-\nhypertensive agent \n \nTREATMENT GOAL \nWithin 1st hour: Reduce MAP by 20-25% only; DBP not less than 110mmHg except \n Aortic Dissection:  Goal systolic < 100-120 within 20 minutes if tolerated \n \n \nHypertensive Urgency \nElevated blood pressure with signs of TOD but \nno immediate life-threatening complications \n• Severe headache \n• Blurred vision \n• Proteinuria \n• Mild LV failure \n \nManagement \n§ Examination \n§ ECG \n§ Refer to cardiology – start oral \nantihypertensive agents aiming to \ndecrease the BP over the next 2-3 days \n \nNitroglycerin  \nIndications  \n• Acute pulmonary oedema \n• Acute LV dysfunction \n• ACS – STEMI/NSTE-ACS \n \nNitroglycerin (Nitrocine®) Infusion (50μg/ml) \n• 10mg in 200ml Normal Saline \n• Withdraw 10mls Normal Saline before \nadding the Nitrocine® \n• Start at 12mls/hr (10μg/min) \n• Double the dose every 2 minutes until \ntarget BP is reached \n• Maximum 200 μg/min \n\t\nLabetalol  \nIndications  \n• Aortic dissection \n• Encephalopathy (confusion/seizures/coma) \n• CVA – haemorrhagic / ischaemic \n \nLabetalol (Trandate®)  \nBolus \n• 20 mg (4mls) then \nInfusion \n• Add 16 mls (80 mg) + a 2nd vial (100 mg) of \nLabetalol to 200 mls 0.9% Normal Saline \n(0.76 mg/ml) \n• Start infusion via infusion pump or dial-a-\nflow at 80 ml/hr \n• Increase by 10 ml/hr every 5 minutes until \nBP target reached \n• Maximum 160 ml/hr (2 mg/min) \nDr R Gihwala CMJAH Emergency Department June 2020"
+  }
+}

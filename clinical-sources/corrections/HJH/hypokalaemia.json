@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "id": "hypokalaemia",
+    "type": "protocol",
+    "category": "14_ed_metabolic",
+    "subcategory": "protocols",
+    "title": "Hypokalaemia",
+    "source_doc": "HJH ED 2026",
+    "review_state": "reviewed-against-pdf-page-95"
+  },
+  "protocol": {
+    "item": "Hypokalaemia",
+    "protocol_type": "ed_protocol",
+    "pdfPages": [
+      95
+    ],
+    "source_text": "K+ < 3.5mmol/l \n \nBOTH Potassium & Magnesium need to be replaced simultaneously in \nhypokalaemia (Mg2+ activates the Na+- K+ ATPase pump to promote cellular \nuptake of K+) \n40 mmol KCl + 2g MgSO4 in 200 ml \n0.9% Normal Saline over 4 hours \n(via infusion pump / dial-a-flow @ 50 ml/hr) \n \n \nLIFE-THREATENING HYPOKALAEMIA \n(cardiac arrest / impending arrest) \n \n20 mEq/mmol KCl (10ml) can be administered @ 1ml/min then \nre-check potassium level \nHYPOKALAEMIA"
+  }
+}

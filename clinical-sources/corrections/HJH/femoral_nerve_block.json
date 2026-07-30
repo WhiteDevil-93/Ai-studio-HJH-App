@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "id": "femoral_nerve_block",
+    "type": "protocol",
+    "category": "15_ed_procedures",
+    "subcategory": "protocols",
+    "title": "Ultrasound Guided Femoral Nerve Block",
+    "source_doc": "HJH ED 2026",
+    "review_state": "reviewed-against-pdf-page-197"
+  },
+  "protocol": {
+    "item": "Ultrasound Guided Femoral Nerve Block",
+    "protocol_type": "ed_protocol",
+    "pdfPages": [
+      197
+    ],
+    "source_text": "ULTRASOUND GUIDED FEMORAL NERVE BLOCK \n \nINDICATIONS \n* Neck of femur fractures \n* Femoral fractures \n* Knee and patellar injuries \n* Anterior thigh laceration, abscess drainage etc. \n*  Any painful procedure of the area innervated by \nthe femoral nerve \n \n \nTHIS BLOCK WILL ANAESTHETISE \n■ Anterior thigh \n■ Most of the femur \n■ Knee \n■ Skin on the medial aspect \nof the lower leg \n \nHOW TO PERFORM AN ULTRASOUND GUIDED FEMORAL \nNERVE BLOCK \n \n* Place the patient in a supine position \n* Clean and drape \n*  Place the linear transducer in the inguinal crease to locate the femoral \nnerve (visualized lateral to the pulsatile common femoral artery). \n*  On visualization of the nerve, insert the needle just below the inguinal \nligament and lateral to the artery. \n* Aspirate before injecting to avoid injecting into a vessel. \n* Infiltrate 20ml Marcaine (2-3mg/kg) \n*  Successful block can be expected when local anaesthetic is seen \ncircumferentially around the nerve \n \n \n \n \nX"
+  }
+}

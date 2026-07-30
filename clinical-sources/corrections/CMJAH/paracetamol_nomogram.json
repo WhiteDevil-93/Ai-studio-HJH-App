@@ -1,0 +1,27 @@
+{
+  "_meta": {
+    "id": "paracetamol_nomogram",
+    "type": "protocol",
+    "category": "12_ed_toxicology",
+    "subcategory": "protocols",
+    "title": "Paracetamol Treatment Nomogram",
+    "source_doc": "CMJAH ED December 2020",
+    "review_state": "reviewed-against-pdf-page-108"
+  },
+  "protocol": {
+    "item": "Paracetamol Treatment Nomogram",
+    "protocol_type": "ed_protocol",
+    "pdfPages": [
+      108
+    ],
+    "clinical_features": {
+      "facility_chart_instructions": [
+        "Treat all patients with serum paracetamol levels above the nomogram treatment line.",
+        "A single nomogram treatment line is recommended. This line has been lowered by 25% from standard lines to allow for potential error estimating the time of ingestion and increased safety for patients with potential risk factors.",
+        "Ensure that the correct units are used: µmol/L or mg/L."
+      ]
+    },
+    "source_image": "/clinical-sources/cmjah/paracetamol-treatment-nomogram.png",
+    "source_image_alt": "CMJAH paracetamol treatment nomogram plotting blood concentration against hours after ingestion"
+  }
+}

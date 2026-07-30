@@ -1,4 +1,7 @@
 import {describe, expect, it} from 'vitest';
+import {createElement} from 'react';
+import {renderToStaticMarkup} from 'react-dom/server';
+import {ProtocolLandingPage} from '../components/ProtocolLandingPage';
 import {
   findReferencedHospitalProtocol,
   findHospitalProtocol,
@@ -180,6 +183,131 @@ describe('supplied hospital protocol corpus', () => {
       'Ventilator Guidelines: Initial ED Mechanical Ventilation',
     );
     expect(ent?.title).toBe('ENT Emergencies: Epistaxis Management');
+  });
+
+  it('renders the HJH procedural-sedation checklist instead of pulmonary-embolism data', () => {
+    const sedation = findHospitalProtocol('hjh', 'procedural_sedation');
+    expect(sedation).toBeDefined();
+    expect(sedation?.reviewState).toBe('reviewed-against-pdf-page-158');
+    expect(sedation?.pdfPages).toEqual([158]);
+    expect(sedation?.body.equipment).toEqual(
+      expect.arrayContaining([
+        expect.stringContaining('ETCO2'),
+        expect.stringContaining('Reversal-agent vials'),
+      ]),
+    );
+    expect(sedation?.embeddedDrugs).toHaveLength(6);
+    expect(sedation?.embeddedDrugs.map(drug => drug.item)).toEqual([
+      'Etomidate',
+      'Ketamine',
+      'Propofol',
+      'Midazolam',
+      'Fentanyl',
+      'Ketofol',
+    ]);
+
+    const serialized = JSON.stringify(sedation);
+    expect(serialized).not.toMatch(/PESI|PULMONARY EMBOLISM|ALTEPLASE/i);
+
+    const html = renderToStaticMarkup(createElement(ProtocolLandingPage, {
+      protocol: sedation!,
+      onBack: () => undefined,
+      onOpenProtocol: () => undefined,
+      weight: '70',
+      setWeight: () => undefined,
+    }));
+    expect(html).toContain('Pre Sedation Assessment');
+    expect(html).toContain('Equipment');
+    expect(html).toContain('Etomidate');
+    expect(html).not.toMatch(/PESI|PULMONARY EMBOLISM|ALTEPLASE/i);
+  });
+
+  it('replaces the other confirmed cross-topic protocol payloads', () => {
+    const difficultAirway = findHospitalProtocol('hjh', 'difficult_airway');
+    const femoralBlock = findHospitalProtocol('hjh', 'femoral_nerve_block');
+    const gastroenteritis = findHospitalProtocol('hjh', 'gastroenteritis_paediatrics');
+    const vascular = findHospitalProtocol('cmjah', 'vascular_emergencies');
+
+    expect(difficultAirway?.body.source_text).toContain('PREDICT THE DIFFICULT AIRWAY');
+    expect(difficultAirway?.body.source_text).not.toContain('HINTS EXAM');
+    expect(difficultAirway?.body.source_image).toBe(
+      '/clinical-sources/hjh/difficult-airway-surgical-airway.jpg',
+    );
+
+    expect(femoralBlock?.body.source_text).toContain(
+      'ULTRASOUND GUIDED FEMORAL NERVE BLOCK',
+    );
+    expect(femoralBlock?.body.source_text).not.toContain('Haematemesis');
+
+    expect(gastroenteritis?.body.source_text).toContain('SIGNS OF DEHYDRATION');
+    expect(gastroenteritis?.body.source_text).toContain('Oral rehydration solution');
+
+    expect(vascular?.body.source_text).toContain('VASCULAR EMERGENCIES');
+    expect(vascular?.body.source_text).toContain('ABDOMINAL AORTIC ANEURYSM');
+  });
+
+  it('renders CMJAH image-only references instead of table-of-contents text', () => {
+    const pefr = findHospitalProtocol('cmjah', 'asthma_pefr');
+    const nomogram = findHospitalProtocol('cmjah', 'paracetamol_nomogram');
+
+    expect(pefr?.title).toBe('Asthma PEFR Normal Values');
+    expect(pefr?.body.source_image).toBe(
+      '/clinical-sources/cmjah/asthma-pefr-normal-values.jpg',
+    );
+    expect(nomogram?.title).toBe('Paracetamol Treatment Nomogram');
+    expect(nomogram?.body.source_image).toBe(
+      '/clinical-sources/cmjah/paracetamol-treatment-nomogram.png',
+    );
+    expect(JSON.stringify({pefr, nomogram})).not.toContain(
+      'Acetylcholinesterase Inhibitor Overdose',
+    );
+
+    const html = renderToStaticMarkup(createElement(ProtocolLandingPage, {
+      protocol: nomogram!,
+      onBack: () => undefined,
+      onOpenProtocol: () => undefined,
+      weight: '70',
+      setWeight: () => undefined,
+    }));
+    expect(html).toContain('Facility source image');
+    expect(html).toContain('Open full-size source image');
+    expect(html).toContain('/clinical-sources/cmjah/paracetamol-treatment-nomogram.png');
+  });
+
+  it('has no identical long clinical payloads attached to unrelated facility protocols', () => {
+    for (const [facilityId, facilityProtocols] of Object.entries(
+      HOSPITAL_PROTOCOLS_BY_FACILITY,
+    )) {
+      const occurrences = new Map<string, Set<string>>();
+      const collectLongStrings = (value: unknown, protocolId: string) => {
+        if (typeof value === 'string') {
+          const normalized = value.toLowerCase().replace(/\s+/g, ' ').trim();
+          if (normalized.length >= 500) {
+            const protocols = occurrences.get(normalized) ?? new Set<string>();
+            protocols.add(protocolId);
+            occurrences.set(normalized, protocols);
+          }
+          return;
+        }
+        if (Array.isArray(value)) {
+          value.forEach(entry => collectLongStrings(entry, protocolId));
+          return;
+        }
+        if (value && typeof value === 'object') {
+          Object.values(value).forEach(entry => collectLongStrings(entry, protocolId));
+        }
+      };
+
+      for (const protocol of facilityProtocols) {
+        collectLongStrings(protocol.body, protocol.id);
+        collectLongStrings(protocol.embeddedDrugs, protocol.id);
+      }
+
+      const collisions = [...occurrences.values()]
+        .filter(protocolIds => protocolIds.size > 1)
+        .map(protocolIds => [...protocolIds].sort());
+      expect(collisions, facilityId).toEqual([]);
+    }
   });
 
   it('keeps every protocol summary concise and free of transcription line breaks', () => {

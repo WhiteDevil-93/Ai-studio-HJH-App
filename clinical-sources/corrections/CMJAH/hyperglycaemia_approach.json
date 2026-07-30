@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "id": "hyperglycaemia_approach",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Hyperglycaemia Approach",
+    "source_doc": "CMJAH ED December 2020",
+    "review_state": "reviewed-against-pdf-page-68"
+  },
+  "protocol": {
+    "item": "Hyperglycaemia Approach",
+    "protocol_type": "ed_protocol",
+    "pdfPages": [
+      68
+    ],
+    "source_text": "APPROACH TO HYPERGLYCAEMIA  \n \n \n  \nHyperglycaemia \nHGT ³ 11 mmol/l \n* Urine ketones \n* Nausea or vomiting \n* Dehydration \n* Altered mental state \n* Acidotic breathing \nNO YES \n \nDOES PATIENT HAVE ANY OF THE FOLLOWING? \nManage as DKA/HHS  \n(see protocol) \nUNCOMPLICATED \nHYPERGLYCAEMIA \n* Known DM \n* Undiagnosed Type 2 DM \n* Find and treat the \ncause for hyperglycaemia \n \n* Discharge with referral \nletter to follow up at \nDiabetic Clinic \n* Undiagnosed Type 1 DM \n* Age < 35 years old \n* Find and treat the cause \nfor hyperglycaemia \n \n* Endocrinology referral \nDr R Gihwala CMJAH Emergency Department June 2020 \nCauses of Hyperglycaemia \n \n* Infection (UTI, pneumonia) \n* Infarction \n* Ischaemia \n* Ignorance (defaulter) \n* Intoxication \n* Implantation (pregnancy) \n* Intra-abdominal (pancreatitis,    \n   cholecystitis, appendicitis)"
+  }
+}

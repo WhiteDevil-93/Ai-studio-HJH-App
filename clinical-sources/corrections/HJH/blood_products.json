@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "id": "blood_products",
+    "type": "protocol",
+    "category": "17_ed_critical_care",
+    "subcategory": "protocols",
+    "title": "Blood Products: Indications And Complications",
+    "source_doc": "HJH ED 2026",
+    "review_state": "reviewed-against-pdf-page-49"
+  },
+  "protocol": {
+    "item": "Blood Products: Indications And Complications",
+    "protocol_type": "ed_protocol",
+    "pdfPages": [
+      49
+    ],
+    "source_text": "GENERAL \n• Consent is required for all blood products! \n• Blood warming only necessary if > 2 units to be transfused (>50ml/kg/hr adults) \n• Continuous monitoring during transfusion \n• Specific indications and transfusion triggers decrease mortality & morbidity, and costs \n• Massive transfusion: Whole blood volume (BV) in 24 hrs, or 50% of BV in \n4 hrs. (Adult BV approximately 70ml/kg) \nCOSTS 2025 \nPacked Red Cells: R 2 516 \nFresh Frozen Plasma: R 2 012  \nMega-unit Platelets: R 10 600 \nCrossmatch: R 1 119 \nType & Screen: R 501 \nAfter hours  R 565 \n \nFREEZE-DRIED PLASMA \n1 UNIT FDP = 1 UNIT FFP \n• Ward stock, room temp, TTO room \n• Life-threatening bleeding, until FFP is \navailable \n• Complete the FDP register for each unit \nBLOOD PRODUCTS: INDICATIONS AND COMPLICATIONS \n \n \nSPECIFIC INDICATIONS \n• PACKED RED CELLS (1 unit ➔ 1.5 rise in Hb; 3% rise in Hct) \n■ Acute haemorrhage: ±FFPs. Platelets ONLY if massive transfusion protocol or \nspecifically indicated. Based on clinical features, lactate, vital signs, amount of \nbleeding, Hb < 10. NB: Normal Hb may be misleading/falsely reassuring in early \nbleeding! Transfuse PRC and FFP 1:1 ratio if > 1 unit PRC required. \n■ Anaemia: Hb < 7; Hb < 10 if there is high risk of myocardial ischaemia, or if clinically \nindicated – syncope, ADHF, severe fatigue due to anaemia. \nNB! Find and treat the underlying cause \n• FRESH FROZEN PLASMA or FREEZE-DRIED PLASMA (15-20ml/kg)  \n■ Warfarin overdose: if INR > 1.5 and actively bleeding. Vit K and other management \nas per protocol. Consider PCC if > 3 units of FFP’s are likely to be needed \n■ Acute haemorrhage: See above \n• PLATELETS (10ml/kg) – use platelet specific transfusion set \n■ Plt <10 – consider transfusion even if not bleeding. \nPlt <50 and bleeding/invasive procedure to be performed. \n■ Platelet dysfunction and active bleeding – regardless of platelet count. \n■ Massive transfusion protocol - PRC:FFPs:Mega-unit Platelets = 4:4:1 \n■ Not usually given in ITP, TTP, HUS. \n• PROTHROMBIN COMPLEX CONCENTRATE (PCC) (1ml/kg) (Haemosolvex – pharmacy stock) \nWarfarin overdose; as FFP alternative, reversal of DOACs \n• CRYOPRECIPITATE (5-10ml/kg): \nDIC, haemophilia, von Willebrand’s Disease, hypofibrinogenaemia (all in consultation with Haematology) \nCOMPLICATIONS \nSTOP TRANSFUSION IMMEDIATELY! \nMAJORITY ARE MANAGED SUPPORTIVELY \n• ABO mismatch and haemolysis \nRare, p/w fever, tachycardia, chest pain, shock, DIC \n• Rh mismatch \nRh negative females of childbearing age MUST receive Rh \nnegative products! \n• Anaphylaxis ➔ See anaphylaxis protocol \n• Transfusion-related Acute Lung Injury (TRALI) \nARDS type non-cardiogenic pulmonary oedema, shock. More \ncommon with FFPs. \n• Transfusion-associated circulatory overload (TACO) \nFluid overload; may mimic TRALI. More common in chronic \nanaemia/poor circulatory compliance \n• Hypothermia \nMore common with massive transfusion of cooled products \n• Electrolyte abnormalities \nLow Calcium/Magnesium/Potassium; lactic acidosis \n• Infection \ndelayed, due to contaminated blood/site \n• Minor reactions \nUrticaria, pyrexia, tachycardia – exclude more serious \ncomplications, slow rate of transfusion, provide \nsymptomatic relief"
+  }
+}
