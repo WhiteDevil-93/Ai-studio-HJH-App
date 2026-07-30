@@ -2,7 +2,7 @@
   "_meta": {
     "id": "blood_products",
     "type": "protocol",
-    "category": "10_ed_procedure",
+    "category": "17_ed_critical_care",
     "subcategory": "protocols",
     "title": "Blood Products: Indications And Complications",
     "source_doc": "HJH ED 2026",
@@ -12,7 +12,7 @@
     "item": "Blood Products: Indications And Complications",
     "protocol_type": "ed_protocol",
     "clinical_features": {
-      "symptoms": "clinical features, lactate, vital signs, amount of \nbleeding, Hb < 10. NB: Normal Hb may be misleading/falsely reassuring in early \nbleeding! Transfuse PRC and FFP 1:1 ratio if > 1 unit PRC required. \n\u25a0 \nAnaemia: Hb < 7; Hb < 10 if there is high risk of myocardial ischaemia, or if clinically \nindicated \u2013 syncope, ADHF, severe fatigue due to anaemia. \nNB! Find and treat the underlying cause \n\u2022 \nFRESH FROZEN PLASMA or FREEZE-DRIED PLASMA (15-20ml/kg)  \n\u25a0 \nWarfarin overdose: if INR > 1.5 and actively bleeding. Vit K and other management \nas per protocol. Consider PCC if > 3 units of FFP\u2019s are likely to be needed \n\u25a0 \nAcute haemorrhage: See above \n\u2022 \nPLATELETS (10ml/kg) \u2013 use platelet specific transfusion set \n\u25a0 \nPlt <10 \u2013 consider transfusion even if not bleeding. \nPlt <50 and bleeding/invasive procedure to be performed. \n\u25a0 \nPlatelet dysfunction and active bleeding \u2013 regardless of platelet count. \n\u25a0 \nMassive transfusion protocol - PRC:FFPs:Mega-unit Platelets = 4:4:1 \n\u25a0 \nNot usually given in ITP, TTP, HUS. \n\u2022 \nPROTHROMBIN COMPLEX CONCENTRATE (PCC) (1ml/kg) (Haemosolvex \u2013 pharmacy stock) \nWarfarin overdose; as FFP alternative, reversal of DOACs \n\u2022 \nCRYOPRECIPITATE (5-10ml/kg): \nDIC, haemophilia, von Willebrand\u2019s Disease, hypofibrinogenaemia (all in consultation with Haematology) \nCOMPLICATIONS \nSTOP TRANSFUSION IMMEDIATELY! \nMAJORITY ARE MANAGED SUPPORTIVELY \n\u2022 \nABO mismatch and haemolysis \nRare, p/w fever, tachycardia, chest pain, shock, DIC \n\u2022 \nRh mismatch \nRh negative females of childbearing age MUST receive Rh \nnegative products! \n\u2022 \nAnaphylaxis \u2794 See anaphylaxis protocol \n\u2022 \nTransfusion-related Acute Lung Injury (TRALI) \nARDS type non-cardiogenic pulmonary oedema, shock. More \ncommon with FFPs. \n\u2022 \nTransfusion-associated circulatory overload (TACO) \nFluid overload; may mimic TRALI. More common in chronic \nanaemia/poor circulatory compliance \n\u2022 \nHypothermia \nMore common with massive transfusion of cooled products \n\u2022 \nElectrolyte abnormalities \nLow Calcium/Magnesium/P"
+      "symptoms": "clinical features, lactate, vital signs, amount of \nbleeding, Hb < 10. NB: Normal Hb may be misleading/falsely reassuring in early \nbleeding! Transfuse PRC and FFP 1:1 ratio if > 1 unit PRC required. \n■ \nAnaemia: Hb < 7; Hb < 10 if there is high risk of myocardial ischaemia, or if clinically \nindicated – syncope, ADHF, severe fatigue due to anaemia. \nNB! Find and treat the underlying cause \n• \nFRESH FROZEN PLASMA or FREEZE-DRIED PLASMA (15-20ml/kg)  \n■ \nWarfarin overdose: if INR > 1.5 and actively bleeding. Vit K and other management \nas per protocol. Consider PCC if > 3 units of FFP’s are likely to be needed \n■ \nAcute haemorrhage: See above \n• \nPLATELETS (10ml/kg) – use platelet specific transfusion set \n■ \nPlt <10 – consider transfusion even if not bleeding. \nPlt <50 and bleeding/invasive procedure to be performed. \n■ \nPlatelet dysfunction and active bleeding – regardless of platelet count. \n■ \nMassive transfusion protocol - PRC:FFPs:Mega-unit Platelets = 4:4:1 \n■ \nNot usually given in ITP, TTP, HUS. \n• \nPROTHROMBIN COMPLEX CONCENTRATE (PCC) (1ml/kg) (Haemosolvex – pharmacy stock) \nWarfarin overdose; as FFP alternative, reversal of DOACs \n• \nCRYOPRECIPITATE (5-10ml/kg): \nDIC, haemophilia, von Willebrand’s Disease, hypofibrinogenaemia (all in consultation with Haematology) \nCOMPLICATIONS \nSTOP TRANSFUSION IMMEDIATELY! \nMAJORITY ARE MANAGED SUPPORTIVELY \n• \nABO mismatch and haemolysis \nRare, p/w fever, tachycardia, chest pain, shock, DIC \n• \nRh mismatch \nRh negative females of childbearing age MUST receive Rh \nnegative products! \n• \nAnaphylaxis ➔ See anaphylaxis protocol \n• \nTransfusion-related Acute Lung Injury (TRALI) \nARDS type non-cardiogenic pulmonary oedema, shock. More \ncommon with FFPs. \n• \nTransfusion-associated circulatory overload (TACO) \nFluid overload; may mimic TRALI. More common in chronic \nanaemia/poor circulatory compliance \n• \nHypothermia \nMore common with massive transfusion of cooled products \n• \nElectrolyte abnormalities \nLow Calcium/Magnesium/P"
     },
     "management_steps": [
       {
@@ -22,8 +22,8 @@
       },
       {
         "step_number": "2",
-        "action": "as per protocol. Consider PCC if > 3 units of FFP\u2019s are likely to be needed",
-        "details": "as per protocol. Consider PCC if > 3 units of FFP\u2019s are likely to be needed"
+        "action": "as per protocol. Consider PCC if > 3 units of FFP’s are likely to be needed",
+        "details": "as per protocol. Consider PCC if > 3 units of FFP’s are likely to be needed"
       },
       {
         "step_number": "3",
@@ -32,13 +32,13 @@
       },
       {
         "step_number": "4",
-        "action": "PLATELETS (10ml/kg) \u2013 use platelet specific transfusion set",
-        "details": "PLATELETS (10ml/kg) \u2013 use platelet specific transfusion set"
+        "action": "PLATELETS (10ml/kg) – use platelet specific transfusion set",
+        "details": "PLATELETS (10ml/kg) – use platelet specific transfusion set"
       },
       {
         "step_number": "5",
-        "action": "Plt <10 \u2013 consider transfusion even if not bleeding.",
-        "details": "Plt <10 \u2013 consider transfusion even if not bleeding."
+        "action": "Plt <10 – consider transfusion even if not bleeding.",
+        "details": "Plt <10 – consider transfusion even if not bleeding."
       },
       {
         "step_number": "6",
@@ -54,8 +54,8 @@
       }
     ],
     "warnings": [
-      "NB: Normal Hb may be misleading/falsely reassuring in early \nbleeding! Transfuse PRC and FFP 1:1 ratio if > 1 unit PRC required. \n\u25a0 \nAnaemia: Hb < 7; Hb < 10 if there is high risk of myocardial ischaemia, or if clinically \nindicated \u2013 syncope, ADHF, severe fatigue due to anaemia. \nNB! Find and treat the underlying cause \n\u2022 \nFRESH FROZEN PLASMA or FREEZE-DRIED PLASMA (15-20ml/kg)  \n\u25a0 \nWarfarin overdose: if INR > 1.5 and actively bleeding. Vit K and other management \nas per protocol. Consider PCC "
+      "NB: Normal Hb may be misleading/falsely reassuring in early \nbleeding! Transfuse PRC and FFP 1:1 ratio if > 1 unit PRC required. \n■ \nAnaemia: Hb < 7; Hb < 10 if there is high risk of myocardial ischaemia, or if clinically \nindicated – syncope, ADHF, severe fatigue due to anaemia. \nNB! Find and treat the underlying cause \n• \nFRESH FROZEN PLASMA or FREEZE-DRIED PLASMA (15-20ml/kg)  \n■ \nWarfarin overdose: if INR > 1.5 and actively bleeding. Vit K and other management \nas per protocol. Consider PCC "
     ],
-    "disposition": "DISPOSITION \n\u2022\nCertify death at time of BRAIN DEATH \n\u2022\nCounsel family prior to cessation of mechanical \nventilation \n\u2022\nConsider for organ donation referral if appropriate \n \nINCOMPATIBLE WITH BRAIN DEATH \n\u2022\nDecerebrate or decorticate posturing \n\u2022\nTrue extensor or flexor motor response \n\u2022\nWitnessed seizures \n \nCOMPATIBLE WITH BRAIN DEATH \n\u2022\nSpinal reflexes \n\u2022\nSweating, blushing \n\u2022\nTachycardia, normal blood pressure"
+    "disposition": "DISPOSITION \n•\nCertify death at time of BRAIN DEATH \n•\nCounsel family prior to cessation of mechanical \nventilation \n•\nConsider for organ donation referral if appropriate \n \nINCOMPATIBLE WITH BRAIN DEATH \n•\nDecerebrate or decorticate posturing \n•\nTrue extensor or flexor motor response \n•\nWitnessed seizures \n \nCOMPATIBLE WITH BRAIN DEATH \n•\nSpinal reflexes \n•\nSweating, blushing \n•\nTachycardia, normal blood pressure"
   }
 }

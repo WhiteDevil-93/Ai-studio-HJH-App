@@ -2,7 +2,7 @@
   "_meta": {
     "id": "vaginal_bleeding_ed_management",
     "type": "protocol",
-    "category": "11_ed_medical_emergencies",
+    "category": "08_ed_obstetrics_gynaecology",
     "subcategory": "protocols",
     "title": "Vaginal Bleeding (ED Management)",
     "source_doc": "HJH ED 2026 / CMJAH / Bara ICU",
@@ -34,7 +34,7 @@
       }
     ],
     "warnings": [
-      "Do NOT perform digital PV examination in antepartum haemorrhage (>24 weeks) if placenta praevia is suspected \u2014 confirm on ultrasound first.",
+      "Do NOT perform digital PV examination in antepartum haemorrhage (>24 weeks) if placenta praevia is suspected — confirm on ultrasound first.",
       "Rh-negative mothers with vaginal bleeding require anti-D immunoglobulin (within 72 hours)."
     ]
   },

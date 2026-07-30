@@ -2,7 +2,7 @@
   "_meta": {
     "id": "sepsis_septic_shock",
     "type": "protocol",
-    "category": "11_ed_medical_emergencies",
+    "category": "17_ed_critical_care",
     "subcategory": "protocols",
     "title": "Sepsis & Septic Shock",
     "source_doc": "HJH ED 2026 / CMJAH / Bara ICU",
@@ -35,7 +35,7 @@
   },
   "embedded_drugs": [
     {
-      "category": "Bara ICU \u2014 Inotropes",
+      "category": "Bara ICU — Inotropes",
       "item": "Noradrenaline",
       "formula": "ml/hr = (ug/kg/min x kg x 60) / 50",
       "standard_dilutions": "Double Strength: 10mg in 200ml N/S"

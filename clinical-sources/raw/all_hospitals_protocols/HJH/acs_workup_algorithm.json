@@ -2,7 +2,7 @@
   "_meta": {
     "id": "acs_workup_algorithm",
     "type": "protocol",
-    "category": "11_ed_medical_emergencies",
+    "category": "03_ed_cardiovascular",
     "subcategory": "protocols",
     "title": "ACS Workup Algorithm",
     "source_doc": "HJH ED 2026",

@@ -807,6 +807,26 @@ export default function App() {
               ? `HJH PDF page${sc.source_pages.length > 1 ? 's' : ''} ${sc.source_pages.join(', ')} · clinical review pending`
               : 'Source page mapping or external-source approval required'}
         </div>
+        {sc.review_status && (
+          <div className="mt-0.5 text-[9px] font-medium text-amber-300">
+            Review status: {String(sc.review_status).replace(/-/g, ' ')}
+          </div>
+        )}
+        {Array.isArray(sc.applicability) && sc.applicability.length > 0 && (
+          <details
+            className="mt-1 text-[10px] font-normal text-slate-400"
+            onClick={event => event.stopPropagation()}
+          >
+            <summary className="cursor-pointer font-bold text-teal-300">
+              Applicability
+            </summary>
+            <ul className="mt-1 list-disc space-y-0.5 pl-4">
+              {sc.applicability.map((condition: string) => (
+                <li key={condition}>{condition}</li>
+              ))}
+            </ul>
+          </details>
+        )}
       </div>
     );
 
@@ -840,6 +860,12 @@ export default function App() {
           {sc.review_note && (
             <div className="mb-3 text-[10px] leading-normal text-slate-400">
               {sc.review_note}
+            </div>
+          )}
+          {sc.formula && (
+            <div className="mb-3 rounded-lg border border-teal-900/30 bg-black/20 p-2 text-[10px] text-slate-300">
+              <span className="font-bold text-teal-300">Source formula:</span>{' '}
+              <code>{sc.formula}</code>
             </div>
           )}
           <div className="space-y-3">
@@ -1966,6 +1992,9 @@ export default function App() {
               {isWarning && <span className="text-[10px] bg-rose-500/20 text-rose-400 border border-rose-500/30 font-bold px-1.5 py-0.5 rounded uppercase">Warning</span>}
               {isCaution && !isWarning && <span className="text-[10px] bg-amber-500/20 text-amber-400 border border-amber-500/30 font-bold px-1.5 py-0.5 rounded uppercase">Caution</span>}
             </h4>
+            {it.category && (
+              <div className="text-[10px] text-slate-500">{it.category}</div>
+            )}
           </div>
           <button
             onClick={e => toggleFavourite(key, e)}
@@ -2004,6 +2033,15 @@ export default function App() {
                 {it.protocol_dose}
                 {renderWeightDoseSummary(protocolDoseText, 'Protocol')}
               </span>
+            </div>
+          )}
+
+          {it.route && (
+            <div className="flex items-start gap-2.5 text-sm">
+              <span className="text-[10px] uppercase font-black bg-sky-950/50 text-sky-300 border border-sky-900/30 px-1.5 py-0.5 rounded flex-shrink-0 mt-0.5">
+                Route
+              </span>
+              <span className="text-slate-300 flex-1 leading-relaxed">{it.route}</span>
             </div>
           )}
 

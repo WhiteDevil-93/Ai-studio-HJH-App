@@ -2,7 +2,7 @@
   "_meta": {
     "id": "syncope_ecg",
     "type": "protocol",
-    "category": "11_ed_medical_emergencies",
+    "category": "03_ed_cardiovascular",
     "subcategory": "protocols",
     "title": "Syncope - ECG Causes",
     "source_doc": "HJH ED 2026",

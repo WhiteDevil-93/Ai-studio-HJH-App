@@ -1,0 +1,63 @@
+{
+  "_meta": {
+    "id": "non_invasive_ventilation",
+    "type": "protocol",
+    "category": "06_ed_airway",
+    "subcategory": "protocols",
+    "title": "Non-Invasive Ventilation (NIV)",
+    "source_doc": "HJH ED 2026",
+    "review_state": "reviewed"
+  },
+  "protocol": {
+    "item": "Non-Invasive Ventilation (NIV)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "indications": [
+        "Acute exacerbation of COPD with hypercapnic respiratory failure (pH < 7.35, PaCO2 > 6.0 kPa / 45 mmHg)",
+        "Acute cardiogenic pulmonary oedema (severe dyspnoea, orthopnoea, pulmonary rales)",
+        "Immunocompromised patients with acute hypoxic respiratory failure",
+        "Post-extubation respiratory failure prevention in high-risk patients"
+      ],
+      "contraindications": [
+        "Cardiac or respiratory arrest",
+        "Severely impaired consciousness (GCS < 10) / inability to protect airway",
+        "Uncooperative, severely agitated, or somnolent patient",
+        "High aspiration risk, persistent vomiting, or bowel obstruction",
+        "Haemodynamic instability, shock, or severe uncorrected arrhythmias",
+        "Craniofacial trauma, facial burns, or anatomical deformity preventing mask seal",
+        "Immediate indication for invasive intubation"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Resuscitation Area Setup & Monitoring",
+        "details": "Manage patient in the Resuscitation Area. Attach continuous cardiac monitoring, non-invasive BP (NIBP), and pulse oximetry."
+      },
+      {
+        "step_number": "2",
+        "action": "Patient Positioning & Preparation",
+        "details": "Sit patient upright (> 45°). Reassure and explain the procedure clearly to the patient and family to reduce anxiety."
+      },
+      {
+        "step_number": "3",
+        "action": "Mask Selection & Interface Fit",
+        "details": "Select the appropriate size oro-nasal or full-face mask. Secure straps gently without excessive pressure to prevent skin breakdown."
+      },
+      {
+        "step_number": "4",
+        "action": "Ventilator Mode & Initial Parameter Setup",
+        "details": "CPAP mode: Start 5–10 cmH2O (for Pulmonary Oedema). BiPAP mode: Start IPAP 10–12 cmH2O, EPAP 4–5 cmH2O (for COPD). Titrate FiO2 to achieve SpO2 88–92% (COPD) or > 94%."
+      },
+      {
+        "step_number": "5",
+        "action": "Reassessment & Blood Gas Monitoring",
+        "details": "Repeat VBG/ABG after 1 hour. If pH improves and PaCO2 drops, continue NIV. If patient deteriorates, becomes somnolent, or SpO2 drops, proceed to ETT intubation."
+      }
+    ],
+    "warnings": [
+      "Failure of NIV is an indication for immediate invasive mechanical ventilation (ETT intubation)."
+    ],
+    "disposition": "High Care / ICU admission for patients requiring ongoing NIV support."
+  }
+}

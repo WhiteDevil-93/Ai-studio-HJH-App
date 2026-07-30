@@ -2,7 +2,7 @@
   "_meta": {
     "id": "acute_heart_failure_ahf",
     "type": "protocol",
-    "category": "11_ed_medical_emergencies",
+    "category": "03_ed_cardiovascular",
     "subcategory": "protocols",
     "title": "Acute Heart Failure (AHF)",
     "source_doc": "HJH ED 2026 / CMJAH / Bara ICU",
@@ -50,13 +50,13 @@
       "notes": "Monitor electrolytes. Ototoxicity at high doses"
     },
     {
-      "category": "HJH ED Protocol \u2014 Infusions",
+      "category": "HJH ED Protocol — Infusions",
       "item": "Nitroglycerin",
       "formula": "Dose x 60 / prepared concentration",
       "standard_dilutions": "10mg in 200ml N/S (50mcg/ml)"
     },
     {
-      "category": "HJH ED Protocol \u2014 Infusions",
+      "category": "HJH ED Protocol — Infusions",
       "item": "Isosorbide Dinitrate",
       "formula": "Dose / prepared concentration",
       "standard_dilutions": "20mg in 200ml (0.1mg/ml); protocol also lists 100mg in 200ml (0.5mg/ml)"
@@ -68,13 +68,13 @@
       "notes_updates": "First-line opioid for severe pain"
     },
     {
-      "category": "Bara ICU \u2014 Inotropes",
+      "category": "Bara ICU — Inotropes",
       "item": "Dobutamine",
       "formula": "ml/hr = (ug/kg/min x kg x 60) / 1250",
       "standard_dilutions": "250mg in 200ml N/S"
     },
     {
-      "category": "Bara ICU \u2014 Inotropes",
+      "category": "Bara ICU — Inotropes",
       "item": "Noradrenaline",
       "formula": "ml/hr = (ug/kg/min x kg x 60) / 50",
       "standard_dilutions": "Double Strength: 10mg in 200ml N/S"

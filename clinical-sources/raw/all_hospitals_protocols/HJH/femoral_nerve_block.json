@@ -2,7 +2,7 @@
   "_meta": {
     "id": "femoral_nerve_block",
     "type": "protocol",
-    "category": "10_ed_procedure",
+    "category": "15_ed_procedures",
     "subcategory": "protocols",
     "title": "Ultrasound Guided Femoral Nerve Block",
     "source_doc": "HJH ED 2026",
@@ -12,7 +12,7 @@
     "item": "Ultrasound Guided Femoral Nerve Block",
     "protocol_type": "ed_protocol",
     "clinical_features": {
-      "symptoms": "Symptoms \n\u2022 \nAbdominal pain \n\u2022 \nHaematemesis \n\u2022 \nMelena \n\u2022 \nHaematochezia \n\u2022 \nSyncope (especially in elderly) \nRisk factors \n\u2022 \nAlcohol abuse \n\u2022 \nNSAIDs \n\u2022 \nAntiplatelet / anticoagulant therapy \n\u2022 \nPrevious GI bleed \n\u2022 \nLiver disease \n\u2022 \nSmoking \n \nEXAMINATION \n* \uf0adHR \uf0afBP = moderate \u2013 severe blood loss \n* Digital rectal examination to assess for melena \n* Look for signs of liver disease \n* Signs of acute abdomen suggest perforation \n \n \nINVESTIGATIONS \n* NB! initial Hb may be normal \n* VBG, FBC, U&E, INR & Type and screen \n* LFT only if indicated \n* CXR erect \u2794 assess for free air under diaphragm \n* POCUS to assess volume status \n \n \n \n \nMANAGEMENT \n* ABC approach to initial resuscitation \n* 2 large bore IV lines \u2794 Give warm Balsol or Ringers Lactate (10mls/kg) \n* Keep NPO \n* Transfuse if: \n\u2022\nHaemodynamic instability despite 1 crystalloid fluid bolus \n\u2022\nHb < 9 in a high risk patient i.e. elderly; coronary artery disease \n\u2022\nHb < 7 in a low risk patient \n\u2022\nAvoid over transfusion if the bleeding may be 2\uf0b0 varices \n*If haemodynamically unstable \u2794 Give FFP (10-20mls/kg) \n*Pantoprazole (Pantoloc\uf0d2) \n\u2022\nLoading dose 80mg \n\u2022\nConsider Infusion: 200mg in 200mls N/S @ 8 mls/hr \n*Consider Sengstaken-Blakemore Tube for variceal bleeds \n*Consider Ceftriaxone 1g & Octreotide 50mcg bolus, 50 mcg/hr infusion in variceal bleeds/liver cirrhosis \n*Notify surgeon ASAP \n*NB \u2013 no role for TXA in UGIB"
+      "symptoms": "Symptoms \n• \nAbdominal pain \n• \nHaematemesis \n• \nMelena \n• \nHaematochezia \n• \nSyncope (especially in elderly) \nRisk factors \n• \nAlcohol abuse \n• \nNSAIDs \n• \nAntiplatelet / anticoagulant therapy \n• \nPrevious GI bleed \n• \nLiver disease \n• \nSmoking \n \nEXAMINATION \n* HR BP = moderate – severe blood loss \n* Digital rectal examination to assess for melena \n* Look for signs of liver disease \n* Signs of acute abdomen suggest perforation \n \n \nINVESTIGATIONS \n* NB! initial Hb may be normal \n* VBG, FBC, U&E, INR & Type and screen \n* LFT only if indicated \n* CXR erect ➔ assess for free air under diaphragm \n* POCUS to assess volume status \n \n \n \n \nMANAGEMENT \n* ABC approach to initial resuscitation \n* 2 large bore IV lines ➔ Give warm Balsol or Ringers Lactate (10mls/kg) \n* Keep NPO \n* Transfuse if: \n•\nHaemodynamic instability despite 1 crystalloid fluid bolus \n•\nHb < 9 in a high risk patient i.e. elderly; coronary artery disease \n•\nHb < 7 in a low risk patient \n•\nAvoid over transfusion if the bleeding may be 2 varices \n*If haemodynamically unstable ➔ Give FFP (10-20mls/kg) \n*Pantoprazole (Pantoloc) \n•\nLoading dose 80mg \n•\nConsider Infusion: 200mg in 200mls N/S @ 8 mls/hr \n*Consider Sengstaken-Blakemore Tube for variceal bleeds \n*Consider Ceftriaxone 1g & Octreotide 50mcg bolus, 50 mcg/hr infusion in variceal bleeds/liver cirrhosis \n*Notify surgeon ASAP \n*NB – no role for TXA in UGIB"
     },
     "management_steps": [
       {
@@ -27,8 +27,8 @@
       },
       {
         "step_number": "3",
-        "action": "* 2 large bore IV lines \u2794 Give warm Balsol or Ringers Lactate (10mls/kg)",
-        "details": "* 2 large bore IV lines \u2794 Give warm Balsol or Ringers Lactate (10mls/kg)"
+        "action": "* 2 large bore IV lines ➔ Give warm Balsol or Ringers Lactate (10mls/kg)",
+        "details": "* 2 large bore IV lines ➔ Give warm Balsol or Ringers Lactate (10mls/kg)"
       },
       {
         "step_number": "4",
@@ -68,6 +68,6 @@
         "notes": "Extracted from HJH ED 2026"
       }
     ],
-    "disposition": "DISPOSITION \nDischarge only if patient meets ALL criteria: \n\u2022\nStable \n\u2022\nNo witnessed haematemesis in ED \n\u2022\nBlatchford Score = 0 \nDischarged patients should follow up at SOPD \nBLATCHFORD SCORE \n \n* Urea < 6.5 mmol/l \n* Hb > 13 (males); > 12 (females) \n* Systolic BP > 110 mmHg \n* Pulse < 100 bpm \n* Absence of melena, syncope, cardiac failure \nor liver disease \nContents \nUPPER GI BLEED \n \n \nHISTORY \nSymptoms \n\u2022 \nAbdominal pain \n\u2022 \nHaematemesis \n\u2022 \nMelena \n\u2022 \nHaematochezia \n\u2022 \nSyncope (especially in elderly) \nRisk factors \n\u2022 \nAlcohol abuse \n\u2022 \nNSAIDs \n\u2022 \nAntiplatelet / anticoagulant therapy \n\u2022 \nPrevious GI bleed \n\u2022 \nLiver disease \n\u2022 \nSmoking \n \nEXAMINATION \n* \uf0adHR \uf0afBP = moderate \u2013 severe blood loss \n* Digital rectal examination to assess for melena \n* Look for signs of liver disease \n* Signs of acute abdomen suggest perforation \n \n \nINVESTIGATIONS \n* NB! initial Hb may be normal \n* VBG, FBC, U&E, INR & Type and screen \n* LFT only if indicated \n* CXR erect \u2794 assess for free air under diaphra"
+    "disposition": "DISPOSITION \nDischarge only if patient meets ALL criteria: \n•\nStable \n•\nNo witnessed haematemesis in ED \n•\nBlatchford Score = 0 \nDischarged patients should follow up at SOPD \nBLATCHFORD SCORE \n \n* Urea < 6.5 mmol/l \n* Hb > 13 (males); > 12 (females) \n* Systolic BP > 110 mmHg \n* Pulse < 100 bpm \n* Absence of melena, syncope, cardiac failure \nor liver disease \nContents \nUPPER GI BLEED \n \n \nHISTORY \nSymptoms \n• \nAbdominal pain \n• \nHaematemesis \n• \nMelena \n• \nHaematochezia \n• \nSyncope (especially in elderly) \nRisk factors \n• \nAlcohol abuse \n• \nNSAIDs \n• \nAntiplatelet / anticoagulant therapy \n• \nPrevious GI bleed \n• \nLiver disease \n• \nSmoking \n \nEXAMINATION \n* HR BP = moderate – severe blood loss \n* Digital rectal examination to assess for melena \n* Look for signs of liver disease \n* Signs of acute abdomen suggest perforation \n \n \nINVESTIGATIONS \n* NB! initial Hb may be normal \n* VBG, FBC, U&E, INR & Type and screen \n* LFT only if indicated \n* CXR erect ➔ assess for free air under diaphra"
   }
 }

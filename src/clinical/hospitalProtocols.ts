@@ -75,12 +75,47 @@ export const HOSPITALS: Record<HospitalId, HospitalDefinition> = {
   },
 };
 
-const modules = import.meta.glob<Record<string, unknown>>(
+const rawModules = import.meta.glob<Record<string, unknown>>(
   '../../clinical-sources/raw/all_hospitals_protocols/{HJH,CMJAH,CHBAH,RMMCH}/*.json',
   {
     eager: true,
     import: 'default',
   },
+);
+
+const correctionModules = import.meta.glob<Record<string, unknown>>(
+  '../../clinical-sources/corrections/{HJH,CMJAH,CHBAH,RMMCH}/*.json',
+  {
+    eager: true,
+    import: 'default',
+  },
+);
+
+const moduleIdentity = (modulePath: string): string | undefined => {
+  const match = modulePath.match(/\/(HJH|CMJAH|CHBAH|RMMCH)\/([^/]+)\.json$/);
+  return match ? `${match[1]}/${match[2]}` : undefined;
+};
+
+const correctionsByIdentity = new Map(
+  Object.entries(correctionModules)
+    .map(([modulePath, value]) => {
+      const identity = moduleIdentity(modulePath);
+      return identity ? [identity, value] as const : undefined;
+    })
+    .filter(
+      (entry): entry is readonly [string, Record<string, unknown>] =>
+        entry !== undefined,
+    ),
+);
+
+const modules = Object.fromEntries(
+  Object.entries(rawModules).map(([modulePath, rawValue]) => {
+    const identity = moduleIdentity(modulePath);
+    return [
+      modulePath,
+      identity ? correctionsByIdentity.get(identity) ?? rawValue : rawValue,
+    ];
+  }),
 );
 
 const directoryToHospital: Record<HospitalDefinition['archiveDirectory'], HospitalId> = {
@@ -124,7 +159,7 @@ const CATEGORY_LABEL_OVERRIDES: Record<string, string> = {
   '17_ed_critical_care': 'Critical Care & Resuscitation',
   '16_ed_administration': 'Triage & Administration',
   '08_ed_obstetrics_gynaecology': 'Obstetrics & Gynaecology',
-  '14_ed_metabolic': 'Metabolic & Endocrine',
+  '14_ed_metabolic': 'Metabolic & Electrolytes',
   '15_ed_general_surgery': 'General Surgery',
   '13_ed_infectious_diseases': 'Infectious Diseases',
   'psychiatry': 'Psychiatry & Mental Health',
@@ -132,14 +167,362 @@ const CATEGORY_LABEL_OVERRIDES: Record<string, string> = {
   'airway': 'Airway & Ventilation',
   'medical_emergencies': 'Medical Emergencies',
   'trauma': 'Trauma',
+  'antimicrobials': 'Antimicrobials',
+  'cardiovascular': 'Cardiovascular',
+  'sedation': 'Sedation & Analgesia',
+  'metabolic': 'Metabolic & Electrolytes',
+  'neurology': 'Neurology',
 };
 
-const PROTOCOL_CATEGORY_OVERRIDES: Record<string, string> = {
-  'hjh:mental_health_psychosis': '14_ed_psychiatry',
-  'hjh:non_invasive_ventilation': '06_ed_airway',
-  'hjh:ventilator_guidelines': '06_ed_airway',
-  'hjh:ent_emergencies': '07_ed_ent',
+const HJH_PROTOCOLS_BY_CATEGORY: Record<string, readonly string[]> = {
+  '02_ed_trauma_ortho': [
+    'back_pain',
+    'compartment_syndrome',
+    'crush_injury',
+    'c_spine_imaging',
+    'trauma_basics',
+  ],
+  '03_ed_cardiovascular': [
+    'acs_workup_algorithm',
+    'actilyse_protocol',
+    'acute_coronary_syndrome_acs_algorithm',
+    'acute_heart_failure_ahf',
+    'atrial_fibrillation_af',
+    'hypertension_flowchart',
+    'hypertensive_emergencies',
+    'intermediate_low_risk_chest_pain',
+    'nstemi_management',
+    'stemi_equivalents_sgarbossa_criteria',
+    'stemi_management',
+    'syncope',
+    'syncope_ecg',
+    'vascular_emergencies_aaa_dissection_limb_ischaemia',
+  ],
+  '04_ed_neurology': [
+    'acute_ischaemic_stroke',
+    'dizziness_vertigo_hints_exam',
+    'first_onset_seizures',
+    'headache_red_flags_primary_syndromes',
+    'raised_icp',
+    'status_epilepticus',
+    'status_epilepticus_algorithm',
+    'subarachnoid_haemorrhage',
+  ],
+  '05_ed_pulmonary': [
+    'asthma_exacerbation',
+    'asthma_pefr',
+    'community_acquired_pneumonia',
+    'copd_exacerbation',
+    'dvt',
+    'pe_algorithm',
+    'pulmonary_embolism',
+  ],
+  '06_ed_airway': [
+    'airway_management_checklist_rsi',
+    'difficult_airway',
+    'non_invasive_ventilation',
+    'procedural_sedation',
+    'ventilator_guidelines',
+  ],
+  '07_ed_ent': ['ent_emergencies'],
+  '08_ed_obstetrics_gynaecology': [
+    'sexual_assault',
+    'vaginal_bleeding_ed_management',
+  ],
+  '11_ed_medical_emergencies': [
+    'gastroenteritis_paediatrics',
+    'haematological_emergencies',
+    'hyperthermia',
+    'hypothermia',
+    'liver_failure',
+    'oncological_emergencies',
+    'ophthalmology_emergencies',
+    'renal_colic',
+  ],
+  '12_ed_toxicology': [
+    'acetylcholinesterase_inhibitor_overdose',
+    'anaphylaxis',
+    'angioedema',
+    'ccb_bb_overdose',
+    'general_toxicology',
+    'isoniazid_overdose',
+    'paracetamol_nomogram',
+    'paracetamol_overdose',
+    'salicylate_overdose',
+    'scorpion_envenomation',
+    'snakebite',
+    'tca_overdose',
+    'toxic_alcohol',
+    'toxidromes',
+    'warfarin_toxicity',
+  ],
+  '13_ed_infectious_diseases': [
+    'malaria_uncomplicated_complicated',
+    'meningococcal_prophylaxis',
+    'post_exposure_prophylaxis',
+    'rabies_animal_bites',
+    'tetanus',
+  ],
+  '14_ed_metabolic': [
+    'diabetic_ketoacidosis_dka',
+    'hyperglycaemia_flowchart',
+    'hyperkalaemia',
+    'hypernatraemia',
+    'hypoglycaemia',
+    'hypokalaemia',
+    'hyponatraemia',
+    'indications_dialysis',
+    'thyroid_emergencies',
+  ],
+  '14_ed_psychiatry': [
+    'agitation_aggression',
+    'mental_health_psychosis',
+  ],
+  '15_ed_general_surgery': [
+    'acute_appendicitis',
+    'acute_cholecystitis',
+    'jaundice_flowchart',
+    'upper_gastrointestinal_bleed_ugib',
+  ],
+  '15_ed_procedures': [
+    'femoral_nerve_block',
+    'infusions',
+    'pain_management',
+  ],
+  '16_ed_administration': [
+    'medicolegal_recordkeeping',
+    'triage_tews',
+  ],
+  '17_ed_critical_care': [
+    'aha_resuscitation_algorithms',
+    'blood_products',
+    'brainstem_death',
+    'critical_care_principles',
+    'sepsis_septic_shock',
+  ],
 };
+
+const CMJAH_PROTOCOLS_BY_CATEGORY: Record<string, readonly string[]> = {
+  '02_ed_trauma_ortho': [
+    'back_pain',
+    'crush_injury',
+  ],
+  '03_ed_cardiovascular': [
+    'acs_workup_algorithm',
+    'actilyse_protocol',
+    'acute_heart_failure',
+    'atrial_fibrillation',
+    'hypertension_approach',
+    'hypertension_management',
+    'intermediate_low_risk_chest_pain',
+    'nstemi_management',
+    'stemi_equivalents',
+    'stemi_management',
+    'syncope',
+    'syncope_ecg',
+    'vascular_emergencies',
+  ],
+  '04_ed_neurology': [
+    'acute_ischaemic_stroke',
+    'dizziness_vertigo',
+    'first_onset_seizures',
+    'headache',
+    'status_epilepticus',
+    'status_epilepticus_algorithm',
+    'subarachnoid_haemorrhage',
+  ],
+  '05_ed_pulmonary': [
+    'asthma',
+    'asthma_pefr',
+    'community_acquired_pneumonia',
+    'copd',
+    'dvt',
+    'pe_algorithm',
+    'pulmonary_embolism',
+  ],
+  '06_ed_airway': [
+    'difficult_airway',
+    'non_invasive_ventilation',
+  ],
+  '07_ed_ent': ['epistaxis'],
+  '08_ed_obstetrics_gynaecology': ['vaginal_bleeding'],
+  '11_ed_medical_emergencies': [
+    'gastroenteritis_paediatrics',
+    'haematological_emergencies',
+    'hyperthermia',
+    'hypothermia',
+    'liver_failure',
+    'oncological_emergencies',
+    'renal_colic',
+  ],
+  '12_ed_toxicology': [
+    'acetylcholinesterase_inhibitor_overdose',
+    'anaphylaxis',
+    'ccb_bb_overdose',
+    'general_toxicology',
+    'isoniazid_overdose',
+    'paracetamol_nomogram',
+    'paracetamol_overdose',
+    'salicylate_overdose',
+    'scorpion_envenomation',
+    'snakebite',
+    'tca_overdose',
+    'toxic_alcohol',
+    'toxidromes',
+  ],
+  '13_ed_infectious_diseases': [
+    'antibiotic_guidelines_paediatric',
+    'malaria',
+    'tetanus',
+  ],
+  '13_ed_trauma_surgical': ['burns'],
+  '14_ed_metabolic': [
+    'dka_hhs',
+    'hyperglycaemia_approach',
+    'hyperkalaemia',
+    'hypernatraemia',
+    'hypokalaemia',
+    'hyponatraemia',
+    'indications_dialysis',
+    'thyroid_emergencies',
+  ],
+  '14_ed_psychiatry': [
+    'agitated_patient',
+    'mental_health_psychosis',
+  ],
+  '15_ed_general_surgery': [
+    'acute_appendicitis',
+    'acute_cholecystitis',
+    'jaundice_approach',
+    'ugib',
+  ],
+  '15_ed_procedures': [
+    'femoral_nerve_block',
+    'infusions',
+    'pain_management',
+  ],
+  '16_ed_administration': ['triage'],
+  '17_ed_critical_care': [
+    'aha_resuscitation_algorithms',
+    'blood_products',
+    'critical_care_principles',
+    'sepsis_septic_shock',
+  ],
+};
+
+const RMMCH_PROTOCOLS_BY_CATEGORY: Record<string, readonly string[]> = {
+  '02_ed_trauma_ortho': [
+    'c_spine_injuries',
+    'ct_c_spine_protocol',
+  ],
+  '03_ed_cardiovascular': [
+    'bradycardia',
+    'rmmch-bradycardia',
+    'rmmch-pediatric-bradycardia',
+    'rmmch-tachycardia',
+    'tachycardia',
+  ],
+  '04_ed_neurology': [
+    'ctb_protocol',
+    'headaches',
+    'neuro_prognostication',
+    'rmmch-status-epilepticus',
+    'seizures_convulsions',
+  ],
+  '05_ed_pulmonary': [
+    'acute_asthma',
+    'rmmch-acute-asthma',
+  ],
+  '06_ed_airway': [
+    'airway_management_advanced',
+    'procedural_sedation_analgesia',
+    'rmmch-advanced-airway-management',
+    'rmmch-croup',
+    'rsi_checklist',
+  ],
+  '11_ed_medical_emergencies': [
+    'rmmch-acute-gastroenteritis-paediatric',
+  ],
+  '12_ed_toxicology': [
+    'anaphylaxis',
+    'opioid_overdose',
+    'rmmch-anaphylaxis',
+    'toxidromes',
+  ],
+  '13_ed_infectious_diseases': [
+    'animal_mammalian_bites',
+    'notifiable_conditions',
+    'rabies_prophylaxis',
+    'rmmch-animal-mammalian-bites',
+    'rmmch-tetanus-prophylaxis',
+    'tetanus_prophylaxis',
+  ],
+  '13_ed_trauma_surgical': [
+    'head_injuries',
+    'rmmch-traumatic-cardiac-arrest',
+    'traumatic_cardiac_arrest',
+  ],
+  '14_ed_metabolic': ['hyperthyroidism'],
+  '15_ed_general_surgery': [
+    'rmmch-upper-git-bleed',
+    'upper_git_bleed',
+  ],
+  '15_ed_procedures': [
+    'analgesia',
+    'efast',
+    'rmmch-analgesia',
+  ],
+  '16_ed_administration': [
+    'customer_service',
+    'medicolegal_documentation',
+    'triage',
+  ],
+  '17_ed_critical_care': [
+    'brain_death_testing',
+    'cardiac_arrest_adult_paediatric',
+    'post_cardiac_arrest_care',
+    'reversible_causes_hs_ts',
+    'rmmch-cardiac-arrest-adult-and-paediatric',
+    'rmmch-neonatal-resuscitation',
+    'rmmch-post-cardiac-arrest-care',
+    'rmmch-sepsis-and-septic-shock',
+    'sepsis_septic_shock',
+  ],
+};
+
+const assignmentsFor = (
+  protocolsByCategory: Record<string, readonly string[]>,
+): Record<string, string> =>
+  Object.fromEntries(
+    Object.entries(protocolsByCategory).flatMap(([categoryId, slugs]) =>
+      slugs.map(slug => [slug, categoryId]),
+    ),
+  );
+
+export const FACILITY_PROTOCOL_CATEGORY_ASSIGNMENTS: Record<
+  HospitalId,
+  Record<string, string>
+> = {
+  hjh: assignmentsFor(HJH_PROTOCOLS_BY_CATEGORY),
+  cmjah: assignmentsFor(CMJAH_PROTOCOLS_BY_CATEGORY),
+  rmmch: assignmentsFor(RMMCH_PROTOCOLS_BY_CATEGORY),
+  // CHBAH is a medication/dosing corpus whose supplied medication categories
+  // are already more specific than the hospital protocol taxonomy.
+  chbah: {},
+};
+
+export const HJH_PROTOCOL_CATEGORY_ASSIGNMENTS =
+  FACILITY_PROTOCOL_CATEGORY_ASSIGNMENTS.hjh;
+
+const PROTOCOL_CATEGORY_OVERRIDES: Record<string, string> = Object.fromEntries(
+  Object.entries(FACILITY_PROTOCOL_CATEGORY_ASSIGNMENTS).flatMap(
+    ([facilityId, assignments]) =>
+      Object.entries(assignments).map(([slug, categoryId]) => [
+        `${facilityId}:${slug}`,
+        categoryId,
+      ]),
+  ),
+);
 
 export const categoryLabel = (categoryId: string): string => {
   if (CATEGORY_LABEL_OVERRIDES[categoryId]) {

@@ -2,7 +2,7 @@
   "_meta": {
     "id": "indications_dialysis",
     "type": "protocol",
-    "category": "11_ed_medical_emergencies",
+    "category": "14_ed_metabolic",
     "subcategory": "protocols",
     "title": "Indications For Dialysis",
     "source_doc": "HJH ED 2026",
@@ -27,8 +27,8 @@
       },
       {
         "step_number": "3",
-        "action": "Clinical features: Depletes Vit B6, causing decreased GABA \u2013 seizures, lactic acidosis",
-        "details": "Clinical features: Depletes Vit B6, causing decreased GABA \u2013 seizures, lactic acidosis"
+        "action": "Clinical features: Depletes Vit B6, causing decreased GABA – seizures, lactic acidosis",
+        "details": "Clinical features: Depletes Vit B6, causing decreased GABA – seizures, lactic acidosis"
       },
       {
         "step_number": "4",
@@ -48,14 +48,14 @@
     ],
     "drugs": [
       {
-        "item": "Dose: 5mg/kg (Max 300mg) in 200m\u2113 5% dextrose over",
-        "adult_dose": "Dose: 5mg/kg (Max 300mg) in 200m\u2113 5% dextrose over 1",
+        "item": "Dose: 5mg/kg (Max 300mg) in 200mℓ 5% dextrose over",
+        "adult_dose": "Dose: 5mg/kg (Max 300mg) in 200mℓ 5% dextrose over 1",
         "notes": "Extracted from HJH ED 2026"
       }
     ],
     "warnings": [
-      "NOTE: Use ketamine with concentration of 100mg/m\u2113 NOT ketamine 10mg/m\u2113. Withdraw 2m\u2113 normal saline \nbefore adding 2m\u2113 (200mg) of ketamine \n1mg/m\u2113 \nAnalgesia | Ketamine Infusion \n \n \n \n \nLoading Dose Ketamine: \n0.25mg/kg IVI bolus administer prior to starting infusion \n \nWeight (kg) \nRATE \nmg/hr (m\u2113/hr) \n40 \n50 \n60 \n70 \n80 \n90 \n100 \n110 \n120 \nAnalgesia \n0.05 \n2 \n2.5 \n3 \n3.5 \n4 \n4.5 \n5 \n5.5 \n6 \n0.1 \n4 \n5 \n6 \n7 \n8 \n9 \n10 \n11 \n12 \nSedation \n0.2 \n8 \n10 \n12 \n14 \n16 \n18 \n20 \n22 \n24 \n0.3 \n12 \n15 \n18 \n21"
+      "NOTE: Use ketamine with concentration of 100mg/mℓ NOT ketamine 10mg/mℓ. Withdraw 2mℓ normal saline \nbefore adding 2mℓ (200mg) of ketamine \n1mg/mℓ \nAnalgesia | Ketamine Infusion \n \n \n \n \nLoading Dose Ketamine: \n0.25mg/kg IVI bolus administer prior to starting infusion \n \nWeight (kg) \nRATE \nmg/hr (mℓ/hr) \n40 \n50 \n60 \n70 \n80 \n90 \n100 \n110 \n120 \nAnalgesia \n0.05 \n2 \n2.5 \n3 \n3.5 \n4 \n4.5 \n5 \n5.5 \n6 \n0.1 \n4 \n5 \n6 \n7 \n8 \n9 \n10 \n11 \n12 \nSedation \n0.2 \n8 \n10 \n12 \n14 \n16 \n18 \n20 \n22 \n24 \n0.3 \n12 \n15 \n18 \n21"
     ],
-    "disposition": "DISPOSITION \n\u2022\nInternal medicine referral \n\u2022\nWill likely require ICU/High care \n\u2022\nContinue serial ECG and VBG monitoring in ED \nISONIAZID (INH) OVERDOSE \n \nGENERAL APPROACH \nConsider INH toxicity in all refractory seizures, especially if on TB Rx/prophylaxis \n\u2022 \nClinical features: Depletes Vit B6, causing decreased GABA \u2013 seizures, lactic acidosis \n\u2022 \nECG Features: No specific features, sinus tachycardia \n\u2022 \nBlood gas: HAGMA, severe lactic acidosis \n\u2022 \nTriage to RESUS AREA, even if patient initially appears well \n\u2022 \nTerminate seizures with Benzodiazepines (high doses may be required). \nSee Status Epilepticus protocol, but avoid anti-epileptic agents. \n\u2022 \nRapid ABC assessment, 2 IV lines, monitors, HGT, VBG, urine \u00dfHCG, ECG \n\u2022 \nEarly airway management \u2013 will require intubation prior to Pyridoxine administration \n\u2022 \nCorrect abnormal electrolytes, consider other causes of seizures \n\u2022 \nCrystalloid fluid bolus 20mg/kg if hypotensive \n\u2022 \nComprehensive history and exam, including: \n\u25a0 \nAmount "
+    "disposition": "DISPOSITION \n•\nInternal medicine referral \n•\nWill likely require ICU/High care \n•\nContinue serial ECG and VBG monitoring in ED \nISONIAZID (INH) OVERDOSE \n \nGENERAL APPROACH \nConsider INH toxicity in all refractory seizures, especially if on TB Rx/prophylaxis \n• \nClinical features: Depletes Vit B6, causing decreased GABA – seizures, lactic acidosis \n• \nECG Features: No specific features, sinus tachycardia \n• \nBlood gas: HAGMA, severe lactic acidosis \n• \nTriage to RESUS AREA, even if patient initially appears well \n• \nTerminate seizures with Benzodiazepines (high doses may be required). \nSee Status Epilepticus protocol, but avoid anti-epileptic agents. \n• \nRapid ABC assessment, 2 IV lines, monitors, HGT, VBG, urine ßHCG, ECG \n• \nEarly airway management – will require intubation prior to Pyridoxine administration \n• \nCorrect abnormal electrolytes, consider other causes of seizures \n• \nCrystalloid fluid bolus 20mg/kg if hypotensive \n• \nComprehensive history and exam, including: \n■ \nAmount "
   }
 }

@@ -2,7 +2,7 @@
   "_meta": {
     "id": "thyroid_emergencies",
     "type": "protocol",
-    "category": "11_ed_medical_emergencies",
+    "category": "14_ed_metabolic",
     "subcategory": "protocols",
     "title": "Thyroid Emergencies",
     "source_doc": "HJH ED 2026",
@@ -12,7 +12,7 @@
     "item": "Thyroid Emergencies",
     "protocol_type": "ed_protocol",
     "clinical_features": {
-      "symptoms": "signs: Sinus tachycardia/new AF, hypertension, increased \ntemperature \n* Causes: Graves\u2019 disease, thyroid tumours, multinodular goitre, \nHashimoto\u2019s thyroiditis, TSH producing pituitary tumour, \npregnancy related (Molar pregnancy), drug induced e.g. \namiodarone, levothyroxine overtreatment \n* Differential diagnosis: Sepsis; heat stroke; anticholinergic / \nsympathomimetic drug intoxication; malignant \nhyperthermia; neuroleptic malignant syndrome; \nserotonergic syndrome; delirium tremens / \nwithdrawal; pheochromocytoma; psychiatric / \npsychological conditions (diagnosis of exclusion) \n* Biochemistry: Usually high T3/T4, low TSH, except TSH producing pituitary \nconditions. Concomitant adrenal insufficiency \u2013 \nhyperkalaemia, hyponatraemia, hypoglycaemia \n* Risk stratification: Burch-Wartofsky scale to assess risk of Thyroid storm \n\u2022 ACUTE MANAGEMENT: \nIdentify precipitant, screen and manage complications e.g. AF, consult \nendocrine to start antithyroid Rx/further workup \n\u2022 THERAPY: \nCarbimazole (Neo-mercazole) 20-60mg dly, titrate to effect. Propranolol \n40mg bd for symptom control. Definitive Rx Radioactive Iodine therapy \n \n \n \nHYPOTHYROIDISM \n*History: Fatigue/lethargy, cold intolerance, weight gain, cognitive \nimpairment/slowed mentation, depression, coarse features, \nconstipation. High index of suspicion in elderly, depressed pts \n*Examination: Dry skin, coarse hair, slowed speech/movement, pallor, \nhair loss, goitre, hoarseness, non-pitting oedema \n(myxoedema) \n* Vital signs: Bradycardia, hypotension, decreased temperature \n*Causes: Autoimmune thyroiditis, previous thyroid surgery/radioactive \niodine treatment, dietary iodine deficiency, drug induced, \npituitary pathology \n*Differential diagnosis: Sepsis; hypothermia, cardiac arrhythmias e.g. \n3rd degree heart block, slow AF; dementia; \nsedative intoxication; psychiatric/psychological \nconditions \n*Biochemistry: Usually low T3/T4, high TSH \n*Risk stratification: Screen for features of impending myxoedema coma \n*AC"
+      "symptoms": "signs: Sinus tachycardia/new AF, hypertension, increased \ntemperature \n* Causes: Graves’ disease, thyroid tumours, multinodular goitre, \nHashimoto’s thyroiditis, TSH producing pituitary tumour, \npregnancy related (Molar pregnancy), drug induced e.g. \namiodarone, levothyroxine overtreatment \n* Differential diagnosis: Sepsis; heat stroke; anticholinergic / \nsympathomimetic drug intoxication; malignant \nhyperthermia; neuroleptic malignant syndrome; \nserotonergic syndrome; delirium tremens / \nwithdrawal; pheochromocytoma; psychiatric / \npsychological conditions (diagnosis of exclusion) \n* Biochemistry: Usually high T3/T4, low TSH, except TSH producing pituitary \nconditions. Concomitant adrenal insufficiency – \nhyperkalaemia, hyponatraemia, hypoglycaemia \n* Risk stratification: Burch-Wartofsky scale to assess risk of Thyroid storm \n• ACUTE MANAGEMENT: \nIdentify precipitant, screen and manage complications e.g. AF, consult \nendocrine to start antithyroid Rx/further workup \n• THERAPY: \nCarbimazole (Neo-mercazole) 20-60mg dly, titrate to effect. Propranolol \n40mg bd for symptom control. Definitive Rx Radioactive Iodine therapy \n \n \n \nHYPOTHYROIDISM \n*History: Fatigue/lethargy, cold intolerance, weight gain, cognitive \nimpairment/slowed mentation, depression, coarse features, \nconstipation. High index of suspicion in elderly, depressed pts \n*Examination: Dry skin, coarse hair, slowed speech/movement, pallor, \nhair loss, goitre, hoarseness, non-pitting oedema \n(myxoedema) \n* Vital signs: Bradycardia, hypotension, decreased temperature \n*Causes: Autoimmune thyroiditis, previous thyroid surgery/radioactive \niodine treatment, dietary iodine deficiency, drug induced, \npituitary pathology \n*Differential diagnosis: Sepsis; hypothermia, cardiac arrhythmias e.g. \n3rd degree heart block, slow AF; dementia; \nsedative intoxication; psychiatric/psychological \nconditions \n*Biochemistry: Usually low T3/T4, high TSH \n*Risk stratification: Screen for features of impending myxoedema coma \n*AC"
     },
     "management_steps": [
       {
@@ -32,8 +32,8 @@
       },
       {
         "step_number": "4",
-        "action": "\u2022 THERAPY:",
-        "details": "\u2022 THERAPY:"
+        "action": "• THERAPY:",
+        "details": "• THERAPY:"
       },
       {
         "step_number": "5",
@@ -74,8 +74,8 @@
       }
     ],
     "warnings": [
-      "Caution in ADHF*: \nPropranolol 60-80 mg po 4hrly, OR \nEsmolol 250-500\uf06dg/kg IV load over 1 min, then 50- \n100 \uf06dg/kg/min IV \n\u2022 \nMethimazole 20-30mg PO 6hrly, OR \nPropylthiouracil 600-1000mg PO load, then 300mg \nPO 6hrly (max 1.2g/day) \n\u2022 \nHydrocortisone 100mg IV stat then q8hrly OR \nDexamethasone 2-4mg q6hrly \n\u2022 \nLugol\u2019s iodine 4-8 drops PO 6hrly \u2013 60 minutes AFTER \nPTU/methimazole \nIf Iodine allergy \u2794 Li Carbonate 300mg 6 hrly \n\u2022 \nConsider antibiotics and sepsis workup \n\u2022 \nPlasmapheresis as last "
+      "Caution in ADHF*: \nPropranolol 60-80 mg po 4hrly, OR \nEsmolol 250-500g/kg IV load over 1 min, then 50- \n100 g/kg/min IV \n• \nMethimazole 20-30mg PO 6hrly, OR \nPropylthiouracil 600-1000mg PO load, then 300mg \nPO 6hrly (max 1.2g/day) \n• \nHydrocortisone 100mg IV stat then q8hrly OR \nDexamethasone 2-4mg q6hrly \n• \nLugol’s iodine 4-8 drops PO 6hrly – 60 minutes AFTER \nPTU/methimazole \nIf Iodine allergy ➔ Li Carbonate 300mg 6 hrly \n• \nConsider antibiotics and sepsis workup \n• \nPlasmapheresis as last "
     ],
-    "disposition": "DISPOSITION \n\u2022 \nMedicine/renal consult \n\u2022 \nWill likely require ICU/High care \n\u2022 \nContinue serial ECG and VBG monitoring in ED"
+    "disposition": "DISPOSITION \n• \nMedicine/renal consult \n• \nWill likely require ICU/High care \n• \nContinue serial ECG and VBG monitoring in ED"
   }
 }

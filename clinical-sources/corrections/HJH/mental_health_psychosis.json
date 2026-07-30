@@ -1,0 +1,91 @@
+{
+  "_meta": {
+    "id": "mental_health_psychosis",
+    "type": "protocol",
+    "category": "14_ed_psychiatry",
+    "subcategory": "protocols",
+    "title": "Mental Healthcare Users: General Approach",
+    "source_doc": "HJH ED 2026",
+    "review_state": "reviewed"
+  },
+  "protocol": {
+    "item": "Mental Healthcare Users: General Approach",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "general_approach": [
+        "Rapid assessment and sedation/restraint if patient is violent or severely agitated (see AGITATION PROTOCOL).",
+        "Check vital signs including HGT; monitor O2 saturation if heavily sedated.",
+        "Comprehensive medical history and clinical examination to exclude underlying organic/medical conditions.",
+        "Perform baseline investigations as per protocol (Index vs Known MHCU).",
+        "Hand over to Psychiatry on call if bloods, vitals, and physical exam are normal.",
+        "Psychiatry to arrange rapid transfer to ward as soon as bed is available.",
+        "Patients will NOT wait in ED for additional investigations or management unless medically indicated.",
+        "Ensure patient comfort is attended to (toilet needs, regular meals, smoke breaks, etc.)."
+      ],
+      "index_mhcu_investigations": [
+        "VBG, FBC, U&E, CRP, TPHA/RPR (Criteria: CRP < 60; WCC < 20)",
+        "CSF ONLY if acute meningitis features OR advanced RVD (Chemistry, cell count, MCS, India Ink, CLAT, TB GXP; add VDRL if TPHA/RPR positive)",
+        "CT Brain if clinically indicated – low threshold for immunocompromised patients (contrast preferred)",
+        "→ If all normal and no red flags, refer to Psychiatry"
+      ],
+      "known_mhcu_investigations": [
+        "VBG, HGT baseline",
+        "Further investigations only as clinically indicated",
+        "Consider drug levels as indicated (anti-epileptics, mood stabilisers)",
+        "Exclusions: Advanced RVD, Thyroid dysfunction, SLE, new neurology"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Immediate Assessment & Agitation Control",
+        "details": "Perform rapid assessment. If patient is violent or severely agitated, initiate sedation/restraint per Agitation Protocol."
+      },
+      {
+        "step_number": "2",
+        "action": "Medical Exclusion & Vital Signs",
+        "details": "Check vitals (HGT, SpO2). Conduct thorough physical examination to rule out medical/organic etiologies."
+      },
+      {
+        "step_number": "3",
+        "action": "Targeted Investigations",
+        "details": "Index MHCU: VBG, FBC, U&E, CRP, TPHA/RPR (CSF/CTB if indicated). Known MHCU: VBG, HGT ± targeted drug levels."
+      },
+      {
+        "step_number": "4",
+        "action": "Psychiatry Referral & Ward Transfer",
+        "details": "If workup is normal and no red flags exist, hand over to Psychiatry on-call for rapid ward placement."
+      }
+    ],
+    "drugs": [
+      {
+        "condition": "Extrapyramidal Side Effects / Acute Dystonic Reaction",
+        "presentation": "Fixed abnormal posture, oculogyric crisis, laryngospasm",
+        "treatment": "Biperiden (Akineton) 2.5 mg IV slowly, repeat every 2 minutes prn (max 4 doses)"
+      },
+      {
+        "condition": "Neuroleptic Malignant Syndrome (NMS)",
+        "presentation": "Develops over 24–72 hrs, hyperthermia, muscle rigidity, rhabdomyolysis",
+        "treatment": "Resuscitate, withdraw precipitating antipsychotic agent, provide supportive ICU care"
+      }
+    ],
+    "warnings": [
+      "ALL FEMALE PATIENTS MUST HAVE A PREGNANCY TEST DOCUMENTED IN THE FILE."
+    ],
+    "red_flags": [
+      "Age > 60 years",
+      "Head trauma",
+      "Meningitis features (fever, neck stiffness, photophobia)",
+      "Recent travel history",
+      "Autoimmune / endocrine dysfunction",
+      "Potentially toxic drug levels (e.g. Epilim, Lithium)",
+      "Advanced RVD features",
+      "Post-ictal state",
+      "Acute drug intoxication or withdrawal (requires medical admission)",
+      "Pregnancy or recent postpartum state",
+      "New onset visual or tactile hallucinations",
+      "Focal neurological deficit"
+    ],
+    "disposition": "Transfer to Psychiatry ward if medically cleared and bloods/exam normal. Admit to Medical ward if red flags, acute intoxication/withdrawal, pregnancy complications, or focal neurology are present."
+  }
+}

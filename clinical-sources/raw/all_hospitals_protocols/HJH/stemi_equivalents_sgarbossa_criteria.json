@@ -2,7 +2,7 @@
   "_meta": {
     "id": "stemi_equivalents_sgarbossa_criteria",
     "type": "protocol",
-    "category": "11_ed_medical_emergencies",
+    "category": "03_ed_cardiovascular",
     "subcategory": "protocols",
     "title": "STEMI Equivalents & Sgarbossa Criteria",
     "source_doc": "HJH ED 2026 / CMJAH / Bara ICU",
@@ -29,7 +29,7 @@
   },
   "embedded_drugs": [
     {
-      "category": "HJH ED Protocol \u2014 Infusions",
+      "category": "HJH ED Protocol — Infusions",
       "item": "Nitroglycerin",
       "formula": "Dose x 60 / prepared concentration",
       "standard_dilutions": "10mg in 200ml N/S (50mcg/ml)"

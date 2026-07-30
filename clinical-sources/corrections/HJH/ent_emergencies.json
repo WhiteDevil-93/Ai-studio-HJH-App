@@ -1,0 +1,70 @@
+{
+  "_meta": {
+    "id": "ent_emergencies",
+    "type": "protocol",
+    "category": "07_ed_ent",
+    "subcategory": "protocols",
+    "title": "ENT Emergencies: Epistaxis Management",
+    "source_doc": "HJH ED 2026",
+    "review_state": "reviewed"
+  },
+  "protocol": {
+    "item": "ENT Emergencies: Epistaxis Management",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "assessment": [
+        "Duration, frequency, and side of bleeding",
+        "Severity and estimated blood loss",
+        "Bleeding diathesis or anticoagulant therapy (Warfarin, NOACs)",
+        "Comorbidities (Hypertension, COPD, Cardiac disorders)",
+        "Current nasal spray or oral medication history",
+        "History of recent facial or nasal trauma"
+      ],
+      "investigations": [
+        "Blood tests not routinely required for minor self-limiting bleeds",
+        "Bedside Hb (Ward Hb) for excessive bleeding",
+        "FBC / INR indicated if: Shocked, Age > 65 years, Pale / symptomatic anaemia, On Warfarin, Known bleeding disorder"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Immediate Resuscitation & First Aid",
+        "details": "ABCD approach. Ask patient to blow nose gently to clear clots. Sit patient leaning forward. Pinch soft part of nose (alae against septum) continuously for 10–15 minutes. Patient to spit out blood (swallowing causes vomiting)."
+      },
+      {
+        "step_number": "2",
+        "action": "Assessment of Hemostasis",
+        "details": "If bleeding stops → observe for 30 minutes. If no re-bleeding → discharge with advice. TTO: Bactroban ointment 8 hourly for 3 days."
+      },
+      {
+        "step_number": "3",
+        "action": "Anterior Nasal Packing (If Still Bleeding)",
+        "details": "Oxymetazoline (Iliadin) spray 2 puffs. Anaesthetise nostril with cotton wool soaked in 2% Lignocaine. Insert Merocel Nasal Tampon along floor of nostril; expand with Adrenaline 1:10 000. Leave in situ for 24–48 hours. (If Merocel unavailable, pack with ribbon gauze soaked in 1:10 000 adrenaline)."
+      },
+      {
+        "step_number": "4",
+        "action": "Posterior Nasal Packing (For Refractory / Posterior Bleeds)",
+        "details": "Call senior doctor. Administer Tranexamic Acid (Cyclokapron) 15 mg/kg (max 1 g) IV over 15 min. Remove anterior packing. Insert Foley catheter (size 10–14F) along nasal floor into oropharynx. Inflate bulb with 10–20 mL water. Retract catheter gently against posterior palate. Secure catheter with umbilical cord clamp and gauze padding. Repack anterior nostrils. Urgent ENT Referral."
+      }
+    ],
+    "drugs": [
+      {
+        "item": "Oxymetazoline (Iliadin) Nasal Spray",
+        "notes": "2 puffs per nostril for local vasoconstriction"
+      },
+      {
+        "item": "Tranexamic Acid (Cyclokapron)",
+        "notes": "15 mg/kg (max 1 g) IV over 15 minutes for refractory/posterior epistaxis"
+      },
+      {
+        "item": "Augmentin (Co-amoxiclav)",
+        "notes": "Oral 3-day course as prophylactic coverage if anterior nasal packing in situ"
+      }
+    ],
+    "warnings": [
+      "No direct causal evidence between hypertension and epistaxis; anxiety causes acute BP elevation during bleeding. Epistaxis is more common in hypertensives due to vascular fragility."
+    ],
+    "disposition": "Admit elderly patients, posterior packing, COPD, or severe cardiac disease. If discharged with anterior packing, arrange ENT OPD review within 48 hours for pack removal."
+  }
+}
