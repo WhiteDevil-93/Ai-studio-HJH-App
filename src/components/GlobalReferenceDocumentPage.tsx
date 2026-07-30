@@ -1,11 +1,8 @@
 import React from 'react';
 import {
-  GLOBAL_REFERENCE_DOCUMENTS,
   OFFICIAL_EDITION_CHECKS,
   PARSED_GLOBAL_REFERENCE_DOCUMENTS,
-  SUPPLIED_GUIDELINE_LINK_AUDIT,
   getClinicalReferenceCorrection,
-  getGuidelineId,
   type GlobalReferenceDocumentId,
 } from '../clinical/globalReferenceDocuments';
 
@@ -13,6 +10,11 @@ interface GlobalReferenceDocumentPageProps {
   documentId: GlobalReferenceDocumentId;
   searchQuery: string;
 }
+
+const REFERENCE_DISPLAY_TITLES: Record<GlobalReferenceDocumentId, string> = {
+  guidelines: 'International Clinical Guidelines Directory',
+  pocket: 'African Resuscitation & Emergency Medicine Pocket Reference',
+};
 
 const cleanClinicalMarkdown = (value: string) => value
   .replace(/\t+/g, ' ')
@@ -45,7 +47,7 @@ const InlineReferenceText = ({text}: {text: string}) => {
               href={suppliedLink[2]}
               target="_blank"
               rel="noreferrer"
-              title="Open supplied source link (not independently verified)"
+              title="Open source reference"
               className="break-all font-semibold text-sky-300 underline decoration-sky-700 underline-offset-2 hover:text-sky-200"
             >
               {suppliedLink[1]}
@@ -106,7 +108,6 @@ export const GlobalReferenceDocumentPage = ({
   documentId,
   searchQuery,
 }: GlobalReferenceDocumentPageProps) => {
-  const definition = GLOBAL_REFERENCE_DOCUMENTS[documentId];
   const document = PARSED_GLOBAL_REFERENCE_DOCUMENTS[documentId];
   const q = searchQuery.trim().toLowerCase();
   const entries = document.entries.filter(entry => (
@@ -126,19 +127,21 @@ export const GlobalReferenceDocumentPage = ({
     <div className="space-y-4" data-reference-document={documentId}>
       <div className="rounded-xl border border-purple-900/50 bg-[#1a0f26] p-4">
         <div className="text-xs font-bold uppercase tracking-wider text-purple-400">
-          Supplied global reference document
+          International clinical reference library
         </div>
         <div className="mt-1 flex flex-wrap items-center justify-between gap-2">
-          <h2 className="text-xl font-black text-white">{document.title}</h2>
+          <h2 className="text-xl font-black text-white">
+            {REFERENCE_DISPLAY_TITLES[documentId]}
+          </h2>
           <span className="rounded border border-purple-800/40 bg-purple-950 px-2 py-0.5 text-[10px] font-bold text-purple-300">
             {entries.length} of {document.entries.length} entries
           </span>
         </div>
         <p className="mt-2 text-xs leading-relaxed text-slate-400">
-          This is a searchable rendering of {definition.filename}. It is global reference material,
-          not a hospital-approved protocol. V3 bibliography and source links are retained and
-          clickable, but they are shown as supplied and are not proof that each clinical claim or
-          named guideline has been verified.
+          Searchable guideline summaries and source-organization references for rapid clinical
+          access. Global references are maintained separately from each facility&apos;s protocol
+          library. Reference governance and provenance information is available under Settings
+          → Disclaimer.
         </p>
         {document.introduction && (
           <div className="mt-3 border-t border-purple-900/40 pt-3">
@@ -147,26 +150,9 @@ export const GlobalReferenceDocumentPage = ({
         )}
       </div>
 
-      <div className="rounded-xl border border-red-900/50 bg-red-950/20 p-4">
-        <div className="text-xs font-black uppercase tracking-wider text-red-300">
-          Audit required — do not use as stand-alone bedside instruction
-        </div>
-        <div className="mt-2 space-y-1.5">
-          {definition.auditNotes.map(note => (
-            <div key={note} className="flex gap-2 text-xs leading-relaxed text-red-100">
-              <span className="font-black text-red-400">!</span>
-              <span>{note}</span>
-            </div>
-          ))}
-        </div>
-        <div className="mt-3 text-[10px] text-red-200/80">
-          {definition.citationMarkerCount} citation markers · {definition.uniqueCitationMarkerCount} unique markers · {definition.imperativeTermCount} imperative/high-risk terms
-        </div>
-      </div>
-
       <div className="rounded-xl border border-sky-900/50 bg-sky-950/20 p-4">
         <div className="text-xs font-black uppercase tracking-wider text-sky-300">
-          Official edition checks
+          Official guideline sources
         </div>
         <div className="mt-2 flex flex-wrap gap-2">
           {OFFICIAL_EDITION_CHECKS.map(check => (
@@ -202,13 +188,6 @@ export const GlobalReferenceDocumentPage = ({
 
           {sectionEntries.map(entry => {
             const correction = getClinicalReferenceCorrection(documentId, entry.title);
-            const guidelineId = documentId === 'guidelines'
-              ? getGuidelineId(entry.title)
-              : null;
-            const hasDuplicatedSuppliedUrl = guidelineId !== null &&
-              SUPPLIED_GUIDELINE_LINK_AUDIT.affectedGuidelineIds.includes(
-                guidelineId as typeof SUPPLIED_GUIDELINE_LINK_AUDIT.affectedGuidelineIds[number],
-              );
 
             return (
               <details
@@ -220,16 +199,10 @@ export const GlobalReferenceDocumentPage = ({
                   <span className="text-lg text-purple-400 transition-transform group-open:rotate-45">+</span>
                 </summary>
                 <div className="space-y-3 border-t border-slate-800 px-4 py-3">
-                  {hasDuplicatedSuppliedUrl && (
-                    <div className="rounded-lg border border-amber-800/60 bg-amber-950/30 px-3 py-2 text-[11px] leading-relaxed text-amber-100">
-                      <strong>Link audit:</strong> this card’s direct URL is duplicated across
-                      unrelated guideline organizations and does not verify the named guideline.
-                    </div>
-                  )}
                   {correction && (
-                    <div className="rounded-lg border border-red-700/70 bg-red-950/40 px-3 py-2 text-[11px] leading-relaxed text-red-100">
-                      <div className="font-black uppercase tracking-wide text-red-300">
-                        Primary-source correction
+                    <div className="rounded-lg border border-sky-800/60 bg-sky-950/30 px-3 py-2 text-[11px] leading-relaxed text-sky-100">
+                      <div className="font-black uppercase tracking-wide text-sky-300">
+                        Current source note
                       </div>
                       <div className="mt-1">{correction.summary}</div>
                       <a

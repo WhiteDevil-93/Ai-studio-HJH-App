@@ -9,7 +9,7 @@ import {
   Star, Search, Scale, ChevronDown, Check,
   AlertTriangle, Moon, Sun, BookOpen,
   Calculator, Stethoscope, Activity, Heart, ShieldAlert,
-  Info, Sparkles, CheckSquare, Plus, RefreshCw, Clock, Home, Menu, X, Smartphone, Download
+  Info, Sparkles, CheckSquare, Plus, RefreshCw, Clock, Home, Menu, X, Smartphone, Download, Settings
 } from 'lucide-react';
 import { PWAInstallPrompt, usePWAInstall } from './components/PWAInstallPrompt';
 import {
@@ -41,7 +41,10 @@ import { CodeRedDrawer } from './components/CodeRedDrawer';
 import { HospitalProtocolsPage } from './components/HospitalProtocolsPage';
 import { ProtocolLandingPage } from './components/ProtocolLandingPage';
 import { GlobalReferenceDocumentPage } from './components/GlobalReferenceDocumentPage';
-import { SUPPLIED_GUIDELINE_LINK_AUDIT } from './clinical/globalReferenceDocuments';
+import {
+  GLOBAL_REFERENCE_DOCUMENTS,
+  SUPPLIED_GUIDELINE_LINK_AUDIT,
+} from './clinical/globalReferenceDocuments';
 import {
   HOSPITALS,
   HOSPITAL_PROTOCOLS_BY_FACILITY,
@@ -333,6 +336,7 @@ export default function App() {
   const [expandedSubCategories, setExpandedSubCategories] = useState<Record<string, boolean>>({});
   const [checklistStatus, setChecklistStatus] = useState<Record<string, boolean>>({});
   const [aboutOpen, setAboutOpen] = useState<boolean>(false);
+  const [aboutTab, setAboutTab] = useState<'about' | 'disclaimer'>('about');
   const aboutTriggerRef = useRef<HTMLButtonElement>(null);
   const aboutDialogRef = useRef<HTMLDivElement>(null);
 
@@ -3520,12 +3524,15 @@ export default function App() {
 
           <button
             ref={aboutTriggerRef}
-            onClick={() => setAboutOpen(true)}
-            aria-label="About, clinical status, and sources"
+            onClick={() => {
+              setAboutTab('about');
+              setAboutOpen(true);
+            }}
+            aria-label="Open settings and clinical information"
             className="p-2 rounded-xl bg-slate-800/60 hover:bg-slate-700 text-slate-300 transition-colors"
-            title="About / Clinical Sources"
+            title="Settings & Clinical Information"
           >
-            <BookOpen className="h-4 w-4" />
+            <Settings className="h-4 w-4" />
           </button>
 
           <button
@@ -3667,7 +3674,7 @@ export default function App() {
 
       {/* FOOTER */}
       <footer className="text-center py-8 text-xs opacity-60">
-        Asclepius validation prototype · Clinical content rights remain with the respective source owners
+        Asclepius Clinical Reference · For healthcare professional use · Source rights remain with their respective owners
       </footer>
 
       {/* TO TOP BUTTON */}
@@ -3681,38 +3688,116 @@ export default function App() {
         </button>
       )}
 
-      {/* ABOUT / CLINICAL REFERENCE MODAL */}
+      {/* SETTINGS / CLINICAL INFORMATION MODAL */}
       {aboutOpen && (
-        <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4" role="dialog" aria-modal="true" aria-labelledby="about-title">
-          <div ref={aboutDialogRef} className="bg-slate-900 border border-teal-500/30 text-slate-100 rounded-xl max-w-lg w-full p-6 max-h-[85vh] overflow-y-auto shadow-2xl relative">
+        <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+          <div ref={aboutDialogRef} className="bg-slate-900 border border-teal-500/30 text-slate-100 rounded-xl max-w-2xl w-full p-6 max-h-[85vh] overflow-y-auto shadow-2xl relative">
             <button
               onClick={() => setAboutOpen(false)}
-              aria-label="Close about dialog"
+              aria-label="Close settings"
               className="absolute top-4 right-4 text-slate-400 hover:text-white text-xl"
             >
               ✕
             </button>
-            <h2 id="about-title" className="text-xl font-bold border-b border-teal-500/20 pb-2 mb-4 text-[#00d9b5]">Asclepius Reference App</h2>
-            <div className="space-y-4 text-sm leading-relaxed text-slate-300">
-              <p>
-                <strong>Asclepius</strong> is a specialized clinical reference database designed for rapid dosing, protocol exploration, and medical calculation in high-acuity environments (ICU and Emergency Department).
-              </p>
-              <p className="text-xs text-slate-400">
-                <strong>Clinical status:</strong> Protocol transcription in review. HJH is largely adult-focused and refers paediatric users to RMMCH protocols.
-              </p>
-              <div>
-                <h3 className="font-bold text-white mb-1 font-sans">🏥 Primary Data Sources</h3>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li><strong>Chris Hani Baragwanath Academic Hospital ICU Dosing Card</strong> (2024 Updates).</li>
-                  <li><strong>Helen Joseph Tertiary Hospital Emergency Department Clinical Guidelines 2026</strong>.</li>
-                  <li>Editor: Dr Jana du Plessis.</li>
-                  <li>Contributing Authors: Dr P Saffy, Dr L Chadinha, Dr JP da Costa, Dr C Geldenhuys, Dr N Bruton.</li>
-                </ul>
-              </div>
-              <p className="text-xs text-rose-400 bg-rose-950/20 border border-rose-900/30 p-3 rounded-lg leading-normal">
-                <strong>Disclaimer:</strong> This application is intended as a clinical memory-aid and decision support tool for medical professionals. Always double-check calculations and drug properties prior to administration.
-              </p>
+            <h2 id="settings-title" className="text-xl font-bold text-[#00d9b5]">
+              Settings & Clinical Information
+            </h2>
+
+            <div className="mt-4 grid grid-cols-2 gap-2 border-b border-slate-700 pb-4" role="tablist" aria-label="Settings sections">
+              {[
+                {id: 'about' as const, label: 'About & Sources'},
+                {id: 'disclaimer' as const, label: 'Disclaimer'},
+              ].map(tab => (
+                <button
+                  key={tab.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={aboutTab === tab.id}
+                  onClick={() => setAboutTab(tab.id)}
+                  className={`rounded-lg border px-3 py-2 text-xs font-bold transition-colors ${
+                    aboutTab === tab.id
+                      ? 'border-teal-400 bg-teal-500/15 text-teal-200'
+                      : 'border-slate-700 bg-slate-800/60 text-slate-400 hover:text-white'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
             </div>
+
+            {aboutTab === 'about' ? (
+              <div className="mt-4 space-y-4 text-sm leading-relaxed text-slate-300" role="tabpanel">
+                <p>
+                  <strong>Asclepius</strong> is a clinical reference platform for rapid protocol
+                  navigation, medication dosing, medical calculations, and evidence access in
+                  emergency and critical-care environments.
+                </p>
+                <p className="text-xs text-slate-400">
+                  Facility protocol libraries are kept separate by source institution. Global
+                  calculators, trials, and international guidelines are available across all
+                  facilities.
+                </p>
+                <div>
+                  <h3 className="font-bold text-white mb-1 font-sans">🏥 Primary data sources</h3>
+                  <ul className="list-disc pl-5 space-y-1">
+                    <li><strong>Helen Joseph Hospital Emergency Department Clinical Guidelines 2026</strong>.</li>
+                    <li><strong>Charlotte Maxeke Johannesburg Academic Hospital ED Protocols</strong> (Version 2, December 2020).</li>
+                    <li><strong>Rahima Moosa Mother & Child Hospital EM Clinical Protocols</strong> (Version 5, January 2024).</li>
+                    <li><strong>Chris Hani Baragwanath Academic Hospital ICU Dosing Card</strong> (2024 updates).</li>
+                  </ul>
+                </div>
+              </div>
+            ) : (
+              <div className="mt-4 space-y-4 text-xs leading-relaxed text-slate-300" role="tabpanel">
+                <section className="rounded-xl border border-slate-700 bg-slate-800/40 p-4">
+                  <h3 className="font-black uppercase tracking-wider text-slate-100">Clinical use</h3>
+                  <p className="mt-2">
+                    Asclepius is intended for healthcare professionals as a clinical memory aid and
+                    decision-support reference. Apply clinical judgement, confirm patient-specific
+                    contraindications, and verify calculations, medication preparation, and dosing
+                    before administration. The current local protocol and responsible clinician
+                    remain authoritative.
+                  </p>
+                </section>
+
+                <section className="rounded-xl border border-slate-700 bg-slate-800/40 p-4">
+                  <h3 className="font-black uppercase tracking-wider text-slate-100">Facility and global content</h3>
+                  <p className="mt-2">
+                    Hospital tabs contain only that facility&apos;s published protocol collection.
+                    Scores, calculators, trials, pocket references, and international guidelines
+                    are global resources and do not represent facility-specific approval.
+                  </p>
+                </section>
+
+                <section className="rounded-xl border border-amber-900/50 bg-amber-950/15 p-4">
+                  <h3 className="font-black uppercase tracking-wider text-amber-200">Reference integrity & provenance</h3>
+                  <p className="mt-2 text-slate-300">
+                    Reference summaries retain their source citations and are supplemented with
+                    current-source notes where a newer or primary publication changes the supplied
+                    interpretation.
+                  </p>
+                  <div className="mt-3 space-y-3">
+                    {Object.values(GLOBAL_REFERENCE_DOCUMENTS).map(reference => (
+                      <details key={reference.id} className="rounded-lg border border-slate-700 bg-slate-900/50 p-3">
+                        <summary className="cursor-pointer font-bold text-slate-100">
+                          {reference.label} · governance notes
+                        </summary>
+                        <ul className="mt-2 list-disc space-y-1.5 pl-4 text-slate-400">
+                          {reference.auditNotes.map(note => <li key={note}>{note}</li>)}
+                        </ul>
+                        <p className="mt-2 text-[10px] text-slate-500">
+                          {reference.citationMarkerCount} citation markers · {reference.uniqueCitationMarkerCount} unique markers
+                        </p>
+                      </details>
+                    ))}
+                  </div>
+                  <p className="mt-3 text-[11px] text-slate-400">
+                    Link-quality review: {SUPPLIED_GUIDELINE_LINK_AUDIT.recordsWithDuplicatedUrlCount} of {SUPPLIED_GUIDELINE_LINK_AUDIT.guidelineCount} directory records contain a duplicated outbound URL. Confirm the current publication on the named organization&apos;s official website.
+                  </p>
+                </section>
+              </div>
+            )}
+
             <button
               onClick={() => setAboutOpen(false)}
               className="mt-6 w-full py-2 bg-teal-400 hover:bg-teal-300 text-black font-bold rounded-lg transition"

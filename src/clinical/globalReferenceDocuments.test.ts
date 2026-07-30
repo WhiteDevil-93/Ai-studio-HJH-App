@@ -121,7 +121,7 @@ describe('supplied global reference documents', () => {
     ).toContain('not the rigid one-hour rule');
   });
 
-  it('renders supplied source links, corrections, and the pocket bibliography as clickable data', () => {
+  it('renders source links, current-source notes, and the pocket bibliography as clickable data', () => {
     const pocketHtml = renderToStaticMarkup(createElement(GlobalReferenceDocumentPage, {
       documentId: 'pocket',
       searchQuery: '',
@@ -134,7 +134,8 @@ describe('supplied global reference documents', () => {
       documentId: 'guidelines',
       searchQuery: '',
     }));
-    expect(guidelineHtml).toContain('this card’s direct URL is duplicated');
+    expect(guidelineHtml).toContain('Current source note');
+    expect(guidelineHtml).not.toContain('this card’s direct URL is duplicated');
     expect(guidelineHtml).toContain('Official SSC 2026 guideline');
   });
 
