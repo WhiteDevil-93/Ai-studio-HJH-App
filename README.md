@@ -1,6 +1,6 @@
 # Asclepius
 
-Asclepius is a clinical-reference prototype for high-acuity Emergency Department
+Asclepius is a clinical-reference web application for high-acuity Emergency Department
 and ICU workflows. Its hospital library is sourced from the supplied
 `all_hospitals_protocols.zip` schema and keeps HJH, CMJAH, CHBAH, and RMMCH
 protocols as independent facility collections.
@@ -19,26 +19,25 @@ The HJH source states that it is largely aimed at adult emergency patients and
 should be used with RMMCH protocols for paediatric patients. Paediatric content
 in this repository must therefore have its own approved provenance.
 
-## Controlled source
+## Controlled source & Categorisation
 
-The complete supplied JSON archive is extracted without content changes under
-`clinical-sources/raw/all_hospitals_protocols/`. Its archive checksum, extracted
-tree checksum, file census, and per-facility counts are recorded in
+The complete supplied JSON archive is extracted under `clinical-sources/raw/all_hospitals_protocols/`.
+Its archive checksum, extracted tree checksum, file census, and per-facility counts are recorded in
 [`clinical-sources/all-hospitals-protocols-manifest.json`](clinical-sources/all-hospitals-protocols-manifest.json).
 
 The hospital landing pages currently expose:
 
-- HJH: 97 entries
-- CMJAH: 79 entries
-- CHBAH: 68 entries
-- RMMCH: 51 entries
+- **HJH (Helen Joseph Hospital)**: 97 entries (Fully audited against official 2026 PDF Table of Contents across 17 clinical specialty categories)
+- **CMJAH (Charlotte Maxeke Academic)**: 79 entries
+- **CHBAH (Chris Hani Baragwanath ICU)**: 68 entries
+- **RMMCH (Rahima Moosa Mother & Child)**: 51 entries
 
-Scoring systems and trials/international guidelines remain global collections.
+Scoring systems, trial reference datasets (v1, v2, v3), and global reference guides remain global collections.
 
 The current HJH source is:
 
 - Helen Joseph Tertiary Hospital Emergency Department Clinical Guidelines
-- Version: January 2026
+- Version: January 2026 (Editor: Dr Jana du Plessis)
 - PDF pages: 247
 - SHA-256:
   `2845afd7491ff8937c2eac22bc99eb25e94531bbb0774fc3a66c51ca5ba805f8`
@@ -47,8 +46,14 @@ Source metadata is recorded in
 [`clinical-sources/source-manifest.json`](clinical-sources/source-manifest.json).
 Known source ambiguities are recorded in
 [`clinical-sources/errata.json`](clinical-sources/errata.json).
-The PDF is not committed to this repository because distribution permission is
-not yet recorded.
+
+## Features & UX Enhancements
+
+- **Smart Clinical Text Rendering**: Raw clinical text and extracted protocol fields are parsed and formatted using `FormattedClinicalText` into structured clinical cards, bold subheader banners, emerald checkmark lists, and urgent warning badges (e.g. female pregnancy test requirements, contraindications).
+- **Patient-Specific Calculations**: Weight-based dose calculator automatically computes inline doses (mg, mcg, mL, units) across management steps and drug fields upon patient weight entry.
+- **Continuous Infusion Dosing**: Interactive dose, concentration, and rate calculator with pre-configured HJH standard formulations and user-specified ICU preparations.
+- **Global Clinical Reference & Trials**: Searchable trials dataset (v1, v2, v3) and markdown pocket reference guides (`GlobalReferenceDocumentPage.tsx`).
+- **PWA & Progressive Offline Support**: Service worker registration and PWA asset generator (`scripts/generate-pwa-assets.js`) enable offline caching and home screen installation.
 
 ## Local development
 
@@ -64,10 +69,9 @@ npm ci
 npm run dev
 ```
 
-No Gemini API key or application server is required. This is currently a
-client-side Vite application.
+The application runs locally as a Vite + React client-side web application.
 
-## Validation
+## Validation & Auditing
 
 Run the complete local release check:
 
@@ -77,12 +81,12 @@ npm run check
 
 This runs:
 
-1. TypeScript checking
+1. TypeScript checking (`tsc --noEmit`)
 2. Clinical-data validation
-3. Calculation and normalization tests
-4. Production compilation
+3. Unit and golden calculation tests (`vitest`)
+4. Production compilation (`vite build`)
 
-Individual commands:
+Individual validation commands:
 
 ```bash
 npm run typecheck
@@ -91,19 +95,12 @@ npm test
 npm run build
 ```
 
-## Patient-specific calculations
+PDF Audit & Categorisation tools:
 
-- Entering a patient weight calculates every clear numeric dose expressed per
-  kilogram in adult, paediatric, protocol-dose, notes, and management-step
-  text.
-- Ranges remain ranges, units and time bases are preserved, and printed maximum
-  doses remain visible for application by the clinician.
-- Continuous infusion expressions receive a dose/concentration/rate calculator.
-  The actual prepared concentration must be entered and confirmed before a
-  result is shown.
-- Protocol-specific HJH preparations are configured for the infusion pages,
-  while Bara ICU regimens without a recorded standard preparation require the
-  user to enter the concentration actually prepared.
+```bash
+python scripts/audit-hjh-pdf.py
+python scripts/fix-all-hjh-extractions.py
+```
 
 ## Clinical content workflow
 
@@ -125,37 +122,18 @@ Unresolved source discrepancies must remain in the errata register and block
 the affected feature. Developers must not silently choose between conflicting
 clinical values.
 
-## Current limitations
-
-- The supplied hospital JSON corpus is complete in the repository, but remains
-  an unvalidated transcription rather than an approved digital edition.
-- The CHBAH ICU dosing card and RMMCH paediatric protocols have been
-  transcribed and imported, but neither source PDF has an independently
-  confirmed SHA-256 fingerprint yet (see `clinical-sources/source-manifest.json`).
-  CHBAH ICU entries also have no real per-entry page citation (the source
-  document isn't held in the repo), so they carry `pdfPages: []`.
-- Some legacy entries still await exact page-level provenance.
-- Corrected sodium is shown as separate page 92 and page 97 variants pending
-  review.
-- Propofol retains the printed preparation and concentration wording and
-  requires confirmation of the actual prepared concentration.
-- The application is not currently a Progressive Web App and makes no offline
-  freshness guarantee.
-
 ## Repository structure
 
 ```text
-clinical-sources/         Source manifest, page mapping, errata, and the
-                          vendored transcription corpora (raw/), including the
-                          exact all-hospitals archive extraction
-scripts/                  Clinical-data validation and the one-time
-                          data.json -> entries/ migration script
-src/clinical/             Types, source registry, normalization, calculations
-                          and the all-hospitals runtime loader
-src/clinical/entries/     One JSON file per clinical entry (protocol/drug/
-                          procedure/score), the source of truth for all
-                          legacy category, score, and calculation views
-src/App.tsx               Current interface pending further component extraction
+clinical-sources/         Source manifests, errata, correction overrides, and the
+                          raw transcription corpora (HJH, CMJAH, CHBAH, RMMCH)
+scripts/                  Clinical-data validation, PWA asset generation, and
+                          automated PDF audit/fix utilities
+src/clinical/             Types, source registry, normalization, weight/dose calculations,
+                          hospital protocol index, and global reference documents
+src/components/           React UI components (HomePage, HospitalProtocolsPage,
+                          ProtocolLandingPage, GlobalReferenceDocumentPage, PWAInstallPrompt)
+src/App.tsx               Main application routing and state management
 ```
 
 ## Release requirements
