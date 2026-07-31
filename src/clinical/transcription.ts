@@ -25,11 +25,12 @@ export interface TranscriptionBlock {
   /** Ordinal of a numbered step, e.g. `8.`, so ordered steps stay ordered. */
   marker?: string;
   /**
-   * `directive` marks a shouted instruction such as `STOP TRANSFUSION
-   * IMMEDIATELY!`. `label` marks an upper-case line that titles a run of content
+   * `directive` marks a mandatory instruction such as `STOP TRANSFUSION
+   * IMMEDIATELY!`. `branch` marks a flowchart decision outcome such as `YES` or
+   * `NO TO ANY`. `label` marks an upper-case line that titles a run of content
    * the extraction did not keep with it — a caption, not a warning.
    */
-  tone?: 'directive' | 'label';
+  tone?: 'directive' | 'branch' | 'label';
 }
 
 export interface TranscriptionSection {
@@ -46,6 +47,12 @@ const ORPHAN_MARKER = new RegExp(`^[${BULLET_GLYPHS}*\\-–—]$`);
  */
 const GLYPH_BULLET = new RegExp(`^([${BULLET_GLYPHS}]|\\*|[-–—])\\s*(\\S.*)$`);
 const ORDINAL_BULLET = /^((?:\d+|[a-z])[.)])\s+(\S.*)$/;
+/**
+ * These documents use a bare `o` as their second-level bullet. Requiring the
+ * text after it to start with a capital or digit keeps the rule off ordinary
+ * prose, and the sub-level is implied by the glyph rather than by indentation.
+ */
+const SUB_GLYPH_BULLET = /^o\s+([A-Z0-9]\S*.*)$/;
 const LABELLED = /^([A-Z][A-Za-z0-9 /&'’-]{1,40}):\s+(\S.*)$/;
 
 /** Indent (in columns) at which a bullet is treated as a sub-point. */
@@ -57,6 +64,8 @@ interface RawLine {
   text: string;
   /** Ordinal marker worth rendering, e.g. `8.`; glyph markers are dropped. */
   marker?: string;
+  /** Set when the glyph itself, rather than indentation, marks a sub-point. */
+  subPoint?: boolean;
   /** Whether the line carried, or inherited, a bullet marker. */
   bulleted: boolean;
 }
@@ -81,8 +90,26 @@ const isUpperCaseLine = (text: string): boolean => {
   return letters === letters.toLocaleUpperCase();
 };
 
-/** A closing `!` always signals an instruction rather than a heading. */
-const isDirective = (text: string): boolean => text.endsWith('!');
+/**
+ * Mandatory instructions are set in upper case like headings but must never be
+ * demoted to one. A closing `!` marks most of them; the rest are recognised by
+ * the imperative wording the protocols use.
+ */
+const MANDATORY_WORDING =
+  /\b(?:MUST|DO NOT|DON'T|NEVER|ALWAYS|STOP|IMMEDIATELY|URGENT(?:LY)?|DANGER|WARNING|CAUTION|NB|CONTRAINDICAT\w*)\b/;
+
+const isDirective = (text: string): boolean =>
+  text.endsWith('!') || MANDATORY_WORDING.test(text);
+
+/**
+ * Flowchart pages transcribe their decision outcomes as bare `YES` / `NO`
+ * lines. They are branch labels, so treating one as a heading would nest the
+ * opposite outcome beneath it and invert the rule being described.
+ */
+const DECISION_BRANCH = /^(?:YES|NO)\b[A-Z\s]*$/;
+
+const isDecisionBranch = (text: string): boolean =>
+  text.length <= 24 && DECISION_BRANCH.test(text);
 
 /**
  * A line continues the previous point when it opens the way a wrapped sentence
@@ -100,16 +127,22 @@ const CONTROL_CHARACTERS = /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/;
 
 /**
  * Rejects the residue those failed extractions leave behind — runs of stray
- * symbols such as `+-` or `&"4= +4 &6 +4=+ 4- 4/`. The thresholds are set so
- * that short clinical fragments (`+/- 5mg`, `120`, `ECG`) always survive.
+ * symbols such as `+-` or `&"4= +4 &6 +4=+ 4- 4/ >/- /"?`.
+ *
+ * The test is how densely a line packs letters and digits, never how many
+ * letters it has: infusion charts are whole tables of bare numbers, and a rule
+ * counting letters would delete every dose in them. Symbol residue sits near
+ * 0.3; the sparsest real lines (`+/- 5mg`) sit at 0.5.
  */
+const MINIMUM_ALPHANUMERIC_DENSITY = 0.5;
+
 const isLegible = (text: string): boolean => {
-  const letters = (text.match(/[A-Za-z]/g) ?? []).length;
-  const digits = (text.match(/[0-9]/g) ?? []).length;
-  if (letters === 0 && digits === 0) return false;
+  const alphanumeric = (text.match(/[A-Za-z0-9]/g) ?? []).length;
+  if (alphanumeric === 0) return false;
 
   const dense = text.replace(/\s/g, '').length;
-  return !(letters <= 4 && dense >= 12);
+  if (dense < 12) return true;
+  return alphanumeric / dense >= MINIMUM_ALPHANUMERIC_DENSITY;
 };
 
 /** Splits a transcription into the lines that carry legible text. */
@@ -156,12 +189,14 @@ const readLines = (raw: string): RawLine[] => {
 
     const ordinal = ORDINAL_BULLET.exec(trimmed);
     const glyph = ordinal ? null : GLYPH_BULLET.exec(trimmed);
+    const subGlyph = ordinal || glyph ? null : SUB_GLYPH_BULLET.exec(trimmed);
 
     lines.push({
       indent: line.length - line.trimStart().length,
-      text: (ordinal?.[2] ?? glyph?.[2] ?? trimmed).trim(),
+      text: (ordinal?.[2] ?? glyph?.[2] ?? subGlyph?.[1] ?? trimmed).trim(),
       marker: ordinal?.[1],
-      bulleted: Boolean(ordinal || glyph) || pendingMarker,
+      subPoint: Boolean(subGlyph),
+      bulleted: Boolean(ordinal || glyph || subGlyph) || pendingMarker,
     });
     pendingMarker = false;
   }
@@ -171,7 +206,8 @@ const readLines = (raw: string): RawLine[] => {
 
 const toBlock = (line: RawLine): TranscriptionBlock => {
   const kind: TranscriptionBlock['kind'] = line.bulleted ? 'bullet' : 'paragraph';
-  const level = line.bulleted && line.indent >= SUB_POINT_INDENT ? 1 : 0;
+  const level =
+    line.subPoint || (line.bulleted && line.indent >= SUB_POINT_INDENT) ? 1 : 0;
 
   const labelled = LABELLED.exec(line.text);
   const block: TranscriptionBlock = labelled
@@ -204,9 +240,14 @@ export const structureTranscription = (
     if (!line || line.marker) return false;
     return isUpperCaseLine(line.text);
   };
-  /** A directive can never become a heading, so it counts as content below one. */
+  /**
+   * Directives and decision branches can never become headings, so each counts
+   * as content sitting below one.
+   */
   const isHeadingCandidate = (index: number): boolean =>
-    isPlainUpperCase(index) && !isDirective(lines[index].text);
+    isPlainUpperCase(index) &&
+    !isDirective(lines[index].text) &&
+    !isDecisionBranch(lines[index].text);
 
   const sections: TranscriptionSection[] = [];
   let current: TranscriptionSection = {heading: null, blocks: []};
@@ -218,6 +259,13 @@ export const structureTranscription = (
   };
 
   lines.forEach((line, index) => {
+    // Checked before the upper-case rules because `NO` is too short to read as
+    // a heading anyway, and both outcomes must render the same way.
+    if (!line.marker && isDecisionBranch(line.text)) {
+      current.blocks.push({kind: 'paragraph', level: 0, text: line.text, tone: 'branch'});
+      return;
+    }
+
     if (isPlainUpperCase(index)) {
       // Only open a section when something actually sits beneath the heading.
       // Otherwise the line stays in place as a block, which keeps its wording

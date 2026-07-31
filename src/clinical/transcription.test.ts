@@ -228,6 +228,70 @@ describe('structureTranscription', () => {
     }
   });
 
+  it('keeps the numeric rows of an infusion rate table', () => {
+    // These rows are almost entirely digits; a letter-count rule would delete
+    // every dose in the chart and leave only its headers behind.
+    const rows = [
+      '0.05 2 2.5 3 3.5 4 4.5 5 5.5 6',
+      '1 40 50 60 70 80 90 100 110 120',
+      '2.5 4.8 6 7.2 8.4 9.6 10.8 12 13.2 14.4',
+      '• 200 – 600 mg PO',
+    ];
+
+    expect(legibleTranscriptionLines(rows.join('\n'))).toEqual(rows);
+  });
+
+  it('renders both outcomes of a decision branch as siblings', () => {
+    const sections = structureTranscription(
+      ['NO', 'YES', 'NO', 'YES TO ALL', 'NO TO ANY'].join('\n'),
+    );
+
+    expect(sections).toHaveLength(1);
+    expect(sections[0].heading).toBeNull();
+    expect(sections[0].blocks.map(block => [block.text, block.tone])).toEqual([
+      ['NO', 'branch'],
+      ['YES', 'branch'],
+      ['NO', 'branch'],
+      ['YES TO ALL', 'branch'],
+      ['NO TO ANY', 'branch'],
+    ]);
+  });
+
+  it('treats a mandatory upper-case instruction as a directive without an exclamation mark', () => {
+    const sections = structureTranscription(
+      [
+        'ALL FEMALE PATIENTS MUST HAVE A PREGNANCY TEST DOCUMENTED',
+        'MANAGEMENT',
+        '* Sedate as required',
+      ].join('\n'),
+    );
+
+    expect(sections[0].blocks[0]).toEqual({
+      kind: 'paragraph',
+      level: 0,
+      text: 'ALL FEMALE PATIENTS MUST HAVE A PREGNANCY TEST DOCUMENTED',
+      tone: 'directive',
+    });
+    expect(sections[1].heading).toBe('MANAGEMENT');
+  });
+
+  it('reads a bare `o` glyph as the second-level bullet these documents use', () => {
+    const sections = structureTranscription(
+      [
+        'HIGH-RISK FACTORS',
+        '• Dangerous mechanism of injury:',
+        'o Pedestrian struck by vehicle',
+        'o Fall from height > 1m',
+      ].join('\n'),
+    );
+
+    expect(sections[0].blocks.map(block => [block.level, block.text])).toEqual([
+      [0, 'Dangerous mechanism of injury:'],
+      [1, 'Pedestrian struck by vehicle'],
+      [1, 'Fall from height > 1m'],
+    ]);
+  });
+
   it('preserves every legible word of the supplied transcriptions', () => {
     const wordsIn = (value: string) => value.toLowerCase().match(/[a-z0-9]+/g) ?? [];
 
@@ -244,8 +308,15 @@ describe('structureTranscription', () => {
         ])
         .join(' ');
 
+      // Bullet glyphs are markers rather than words. Every glyph but `o` is
+      // punctuation and so never tokenises; `o` has to be dropped explicitly,
+      // matching the rule the structurer applies.
+      const expected = legibleTranscriptionLines(sourceText)
+        .map(line => line.trim().replace(/^o\s+(?=[A-Z0-9])/, ''))
+        .join(' ');
+
       expect(wordsIn(rendered), `${protocol.id} lost transcription content`).toEqual(
-        wordsIn(legibleTranscriptionLines(sourceText).join(' ')),
+        wordsIn(expected),
       );
     }
   });
