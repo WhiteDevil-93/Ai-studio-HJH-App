@@ -223,6 +223,22 @@ const TranscriptionPoint: React.FC<{block: TranscriptionBlock; highlight?: strin
     );
   }
 
+  if (block.tone === 'branch') {
+    const affirmative = /^YES\b/i.test(block.text);
+    return (
+      <div
+        className={`my-2 inline-flex items-center gap-2 rounded-lg border px-3 py-1.5 text-xs font-black ${
+          affirmative
+            ? 'border-rose-300 bg-rose-100 text-rose-950 dark:border-rose-900/60 dark:bg-rose-950/60 dark:text-rose-200'
+            : 'border-emerald-300 bg-emerald-100 text-emerald-950 dark:border-emerald-900/60 dark:bg-emerald-950/60 dark:text-emerald-200'
+        }`}
+      >
+        <span className={`h-2 w-2 rounded-full ${affirmative ? 'bg-rose-600' : 'bg-emerald-600'}`} />
+        {body}
+      </div>
+    );
+  }
+
   if (block.tone === 'label') {
     return (
       <p className="mt-3 text-xs font-black uppercase tracking-wide text-slate-600 dark:text-slate-300">
