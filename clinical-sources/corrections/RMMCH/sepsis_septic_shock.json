@@ -1,0 +1,4 @@
+{
+  "_meta": {"id":"sepsis_septic_shock","type":"protocol","category":"17_ed_critical_care","subcategory":"protocols","title":"Sepsis + Septic Shock","source_doc":"RMMCH EM Clinical Protocols V5 03/01/2024","review_state":"withheld-superseded-by-canonical-entry"},
+  "protocol": {"item":"Sepsis + Septic Shock","protocol_type":"withheld","note":"superseded by rmmch-sepsis-and-septic-shock"}
+}
