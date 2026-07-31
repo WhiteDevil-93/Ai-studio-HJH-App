@@ -1,0 +1,43 @@
+{
+  "categoryId": "15_ed_procedures",
+  "subcategoryId": "protocols",
+  "slug": "ventilator-guidelines-hjh",
+  "order": 2012,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      202,
+      203
+    ],
+    "sectionTitle": "Ventilator Guidelines",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Ventilator Guidelines",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "symptoms and signs of psychotic or psychoneurotic behaviour \nincluding mood disorders where the mood does not conform to the \nexisting circumstances of the person involved. \n \n• \nClinical evidence of drugs or alcohol: \n• \nDocument any obvious smell of liquor or dagga. \n• \nObvious clinical signs include abnormal size of pupils, congested conjunctivae, \nnystagmus, dry mouth and slurred speech. \n• \nInspect injection sites for needlestick marks. \n• \nConclusion: \nIn order to be able to come to a conclusion as to whether the clinical findings are \ncompatible with the time and circumstances of the alleged incident, a short history \nis necessary. The history should be very brief and give only the essential facts \nnecessary for a medical conclusion. \nFor example: \n• \nIt is alleged by the complainant that on the 18th December 2001 at 20h00 she was \nassaulted with \na belt (or “belt-like object”) on her back by an adult male. \n• \nThe mother (Mrs X) alleges that child Y was sexually assaulted by an adult \nmale sometime during the first 3 months of this year. \n• \nDiscrepancies in the statements given could be used by the defence counsel \nto dispute the evidence in court. \n• \nThe final conclusion should be short and clear: \n• \nInjuries compatible with/not compatible with time and circumstances of alleged \nincident. \n• \nInjuries compatible with injuries caused by a sharp object/ compatible with \ninjuries caused by a blunt object. Do not name the object, as the knife \nmentioned by the patient, might actually have been a sharpened screwdriver. \nIn court counsel for the defence will again attempt to use such discrepancies \nto the advantage of the accused."
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "management office.",
+        "details": "management office."
+      }
+    ],
+    "drugs": [
+      {
+        "item": "See protocol",
+        "notes": "Drug details in source PDF"
+      }
+    ],
+    "warnings": [
+      "NB: \nNever give the name of the accused or alleged perpetrator. \nDo not give any more detailed information as it might not be exactly the same as in the \nstatement given to the Police by the complainant. \n• \nMental health and emotional status: \n▪ \nDocument whether person is abnormally calm, distraught, weeping, hysterical \nor stuporous. \n▪ \nIf any suspicion of mental retardation exists, relate mental age to \nchronological age in adults and milestones for age in children. \n▪ \nNote any discrepancy"
+    ],
+    "disposition": "referral specialty (e.g. Medicine/Surgery) \nis aware of patient in order to take over once discharged from ICU \nit is not a prerequisite for consultation \n \n \n3.\nED doctor to fill in ICU Consult Form and place in patient's file in ED \n \n \n4.\nICU doctor to consult patient and inform ED doctors of decision \n \n \n \n \n \n \n \n \n \n \n \nDr M Mukansi \nHOD | Intensive Care Unit \nICU REFERRAL POLICY"
+  }
+}

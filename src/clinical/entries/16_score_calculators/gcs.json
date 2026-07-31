@@ -4,13 +4,15 @@
   "slug": "gcs",
   "order": 0,
   "source": {
-    "sourceId": "source-unresolved",
-    "pdfPages": [],
-    "sectionTitle": "gcs",
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      89
+    ],
+    "sectionTitle": "Glasgow Coma Scale",
     "transformation": "combined",
-    "verification": "unverifiable"
+    "verification": "page-index"
   },
-  "sourceGroup": "bara_icu",
+  "sourceGroup": "hjth",
   "reviewState": "unreviewed",
   "errata": [],
   "record": {

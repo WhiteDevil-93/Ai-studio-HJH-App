@@ -4,13 +4,15 @@
   "slug": "stemi-equivalents-sgarbossa-criteria",
   "order": 1,
   "source": {
-    "sourceId": "source-unresolved",
-    "pdfPages": [],
-    "sectionTitle": "Source mapping required",
-    "transformation": "combined",
-    "verification": "unverifiable"
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      12
+    ],
+    "sectionTitle": "STEMI Equivalents",
+    "transformation": "condensed",
+    "verification": "page-index"
   },
-  "sourceGroup": "edl_phc",
+  "sourceGroup": "hjth",
   "reviewState": "unreviewed",
   "errata": [],
   "record": {
@@ -30,6 +32,32 @@
     ],
     "warnings": [
       "Failure to recognize STEMI equivalents leads to catastrophic treatment delays. Actively look for them in chest pain patients with normal or non-diagnostic ECGs."
+    ],
+    "embedded_drugs": [
+      {
+        "category": "HJH ED Protocol — Infusions",
+        "item": "Nitroglycerin",
+        "formula": "Dose x 60 / prepared concentration",
+        "standard_dilutions": "10mg in 200ml N/S (50mcg/ml)"
+      },
+      {
+        "drug": "Enoxaparin (Clexane)",
+        "adult_dose": "1mg/kg SC 12hrly",
+        "paediatric_dose": "1mg/kg SC 12hrly",
+        "notes_updates": "Anti-Xa monitoring in renal impairment, pregnancy"
+      },
+      {
+        "drug": "Heparin (UFH)",
+        "adult_dose": "Loading: 80units/kg IV; Maint: 18units/kg/hr",
+        "paediatric_dose": "Loading: 75units/kg IV; Maint: 20-28units/kg/hr",
+        "notes_updates": "Target aPTT: 50-70sec. Protamine 1mg per 100units heparin"
+      },
+      {
+        "drug": "Alteplase (tPA)",
+        "adult_dose": "PE: 100mg IV over 2hrs. STEMI: 15mg bolus, 50mg/30min, 35mg/60min",
+        "paediatric_dose": "0.1-0.5mg/kg/hr IV",
+        "notes_updates": "Monitor for bleeding"
+      }
     ]
   }
 }

@@ -4,13 +4,15 @@
   "slug": "corrected_na_hjh_page97",
   "order": 12,
   "source": {
-    "sourceId": "source-unresolved",
-    "pdfPages": [],
-    "sectionTitle": "corrected_na_hjh_page97",
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      97
+    ],
+    "sectionTitle": "Corrected Sodium — Hyponatraemia protocol",
     "transformation": "combined",
-    "verification": "unverifiable"
+    "verification": "page-index"
   },
-  "sourceGroup": "bara_icu",
+  "sourceGroup": "hjth",
   "reviewState": "unreviewed",
   "errata": [],
   "record": {

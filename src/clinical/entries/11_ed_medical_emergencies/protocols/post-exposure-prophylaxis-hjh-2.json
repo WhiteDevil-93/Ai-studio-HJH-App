@@ -1,0 +1,65 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "post-exposure-prophylaxis-hjh-2",
+  "order": 2037,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      145,
+      146,
+      147,
+      148,
+      149,
+      150,
+      151,
+      152
+    ],
+    "sectionTitle": "Post Exposure Prophylaxis: Non-Occupational",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Post Exposure Prophylaxis: Non-Occupational",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "signs and symptoms of ARS include the following: headache, fever, fatigue, lymphadenopathy, myalgia, \narthralgia, sore throat. If the patient has these symptoms for prolonged periods and mucocutaneous ulcers, \nthen one should be especially suspicious of ARS and should consider taking PEP as the source will be at his/her \nmost infectious state. The risk of acquiring HIV is 8-12 times higher if the source is in the window period. \n \nSexual Exposure \n \nExposure Type \nHIV +, \nDetectable VL \nHIV+, \nUndetectable VL \nUnknown \nHIV Status \n• Receptive anal sex \nRecommended \nRecommended \nRecommended \n• Insertive anal sex \nRecommended \nRecommended \nRecommended \n• Receptive vaginal sex \nRecommended \nRecommended \nRecommended \n• Insertive vaginal sex \nRecommended \nRecommended \nRecommended \n• Fellatio with ejaculation A \nRecommended \nRecommended \nRecommended \n• Fellatio without ejaculation AB \nRecommended \nRecommended \nRecommended \n• Cunnilingus \nRecommended \nRecommended \nRecommended \nLEGEND \n \no \nFellatio: Oral-Sex involving exposure to the sex-organs of a male partner \no \nCunnilingus: Oral-Sex involving exposure to the sex-organs of a female partner \no \nCondoms are >95% effective if used correctly, thus if the condom was intact and used reliably then one should not prescribe NPEP in the above \ncircumstances \nA \nSome authorities will consider the risk to be too low to start ARVs \nB \nOne still needs to consider that the recipient may be exposed to pre-ejaculate \n \n \n \nHuman Bite \nNO \nUnlikely risk of transmission of HIV/ HBV/ HCV \n \n \n  \n \nAttends hospital within 72hrs * \nPresence of penetration of skin \nBiter had blood in mouth prior to bite \nIs HIV Positive: However if unknown treat as \nif positive \nInjury \nDid biter (Source) have \nblood in his/her mouth \nprior to biting? \nRisk may be present to \nthe biter if the bitten \nperson blood enters \nbiter’s mouth \nBreach in skin? \n \n \nHuman Bite \nNot a risk if the skin is \nnot breached \nSalivary enzymes \ngenerally reduce the \nactivity o"
+    },
+    "drugs": [
+      {
+        "item": "Is pt possibly resistant",
+        "adult_dose": "Is pt possibly resistant",
+        "notes": "Extracted from HJH ED 2026"
+      },
+      {
+        "item": "(consult HIV doctor)",
+        "adult_dose": "(consult HIV doctor)",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "warnings": [
+      "NOTE: Dual Therapy is no longer recommended. \nCaveat: \nThese guidelines DO NOT take into account: Tetanus exposure, STI Prophylaxis \nand Emergency Contraception. (See Sexual assault protocol) \nDrug Combination Options \n \nPreferred regimen for all adult patients: \n \n1 \nTLD (Tenofovir/Lamivudine/Dolutegravir \n                                                                                        (1 tablet dly) \n                                                                           Safe in preg"
+    ],
+    "disposition": "referrals and consultations \n• \nPatient/family education \n• \nSpecific instructions for follow-up \n7. The documentation should support the intensity of the patient evaluation and/or the treatment, including \nthought processes and the complexity of medical decision-making as it relates to the patient’s chief \ncomplaint for the encounter. \n8. All entries to the medical record should be dated and authenticated. \n9. The ICD-10 code should be reflected in the documentation in the medical record.",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Warning",
+        "details": "NOTE: Dual Therapy is no longer recommended. \nCaveat: \nThese guidelines DO NOT take into account: Tetanus exposure, STI Prophylaxis \nand Emergency Contraception. (See Sexual assault protocol) \nDrug Combination Options \n \nPreferred regimen for all adult patients: \n \n1 \nTLD (Tenofovir/Lamivudine/Dolutegravir \n                                                                                        (1 tablet dly) \n                                                                           Safe in preg"
+      },
+      {
+        "step_number": "2",
+        "action": "Is pt possibly resistant",
+        "details": "item: Is pt possibly resistant; adult_dose: Is pt possibly resistant; notes: Extracted from HJH ED 2026"
+      },
+      {
+        "step_number": "3",
+        "action": "(consult HIV doctor)",
+        "details": "item: (consult HIV doctor); adult_dose: (consult HIV doctor); notes: Extracted from HJH ED 2026"
+      }
+    ]
+  }
+}

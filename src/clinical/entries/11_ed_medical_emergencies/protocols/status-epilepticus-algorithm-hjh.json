@@ -1,0 +1,32 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "status-epilepticus-algorithm-hjh",
+  "order": 2047,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      5,
+      177,
+      178
+    ],
+    "sectionTitle": "Status Epilepsy Anticonvulsant Therapy Algorithm",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Status Epilepsy Anticonvulsant Therapy Algorithm",
+    "protocol_type": "ed_protocol",
+    "note": "This is a subsection or flowchart. See status_epilepticus for complete management.",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Key Information",
+        "details": "This is a subsection or flowchart. See status_epilepticus for complete management."
+      }
+    ]
+  }
+}

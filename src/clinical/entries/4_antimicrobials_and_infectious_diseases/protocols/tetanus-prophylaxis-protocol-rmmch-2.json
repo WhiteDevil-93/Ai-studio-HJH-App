@@ -1,0 +1,43 @@
+{
+  "categoryId": "4_antimicrobials_and_infectious_diseases",
+  "subcategoryId": "protocols",
+  "slug": "tetanus-prophylaxis-protocol-rmmch-2",
+  "order": 3000,
+  "source": {
+    "sourceId": "rmmch-paediatric-protocols",
+    "pdfPages": [
+      49
+    ],
+    "sectionTitle": "Tetanus Prophylaxis Protocol",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "rmmch",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Tetanus Prophylaxis Protocol (RMMCH)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "Wound assessment for patients >= 6 years old: Clean, minor wound vs All other wounds (contaminated with dirt, faeces, saliva, soil, puncture wounds, avulsion, bites, burns etc)."
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Clean, Minor Wounds",
+        "details": "If primary tetanus series incomplete/unknown: Administer ATT 40IU IM STAT, 2nd dose 6 weeks later, 3rd dose 6 months later. If primary series completed: If most recent dose within past 10 years -> NO vaccine required. If most recent dose > 10 years ago -> Administer ATT 40IU IM."
+      },
+      {
+        "step_number": "2",
+        "action": "All Other Wounds",
+        "details": "If primary series incomplete/unknown: Administer ATT 40IU IM (2nd dose 6 weeks later, 3rd dose 6 months later) AND Administer Tetanus Immune Globulin (TIG) 250IU IM at separate sites (N.B. If > 24 hours since injury or heavy contamination, TIG 500IU IM). If primary series completed: If most recent dose within past 5 years -> NO vaccine required today. If most recent dose > 5 years ago -> Administer ATT 40IU IM."
+      }
+    ],
+    "warnings": [
+      "40IU ATT = 0.5ml IM.",
+      "Administer ATT and TIG at separate anatomical sites."
+    ]
+  }
+}

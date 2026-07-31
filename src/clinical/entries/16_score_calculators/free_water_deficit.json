@@ -4,13 +4,15 @@
   "slug": "free_water_deficit",
   "order": 13,
   "source": {
-    "sourceId": "source-unresolved",
-    "pdfPages": [],
-    "sectionTitle": "free_water_deficit",
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      96
+    ],
+    "sectionTitle": "Free Water Deficit",
     "transformation": "combined",
-    "verification": "unverifiable"
+    "verification": "page-index"
   },
-  "sourceGroup": "bara_icu",
+  "sourceGroup": "hjth",
   "reviewState": "unreviewed",
   "errata": [],
   "record": {

@@ -1,0 +1,30 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "asthma-pefr-hjh",
+  "order": 2010,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      45
+    ],
+    "sectionTitle": "Asthma PEFR Normal Values",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Asthma PEFR Normal Values",
+    "protocol_type": "ed_protocol",
+    "source_text": " \nFor use with EU/EN13826 scale PEF meters only \nAcknowledgement \nAdapted by Clement Clarke for use with EN13826/ EU scale peak flow meters \nfrom Nunn AJ Gregg I, Br Med J 1989: 298;1068-70 \nContents \n \n \n \nPEAK EXPIRATORY FLOW RATE - NORMAL VALUES \n \n \n \n680 \n \n660 \n640 \n620 \n600 \n \n580 \nHeight: Men \ncm \ninch \n190 \n75” \n183 \n72” \n175 \n69” \n167 \n66” \n160 \n63” \nHeight: Women \ncm \ninch \n183 \n72” \n175 \n69” \n167 \n66” \n160 \n63” \n152 \n60” \n560 \n540 \n520 \n500 \n480 \n \n460 \n440 \n420 \n400 \n380 \n360 \n340 \n320 \n300 \n15 \n20 \n25 \n30 \n35 \n40 \n45 \n50 \n55 \n60 \n65 \n70 \n75 \n80 \n85 \n \n\n \n \nUNSTABLE AF causing: \n*Hypotension \n*Acute cardiac failure \n*Chest pain \n*Dyspnoea \n*Altered mental status \nMANAGEMENT \n1.Cardioversion \n-150-200J \n-consider using max dose first \n-max 3 attempts \n-BP preserving analgesia/sedation \n(fentanyl/ketamine/dormicum) \n2. Anti-coagulation \n-Balance between risk (HAS-BLED) & \nbenefit (CHA2DS2VASc) \n-start Clexane 1mg/kg SC stat in ED if \nno contraindications \nCARDIOVERSION FAILS \nRate control \n- First exclude WPW (**see ECG and box below**) \n \n-Amiodarone 150mg IVI in D5W over 30min then \n900mg in 200ml D5W @ 8.3mls/hr \n-Consider MgSO4 2-4g IVI over 15min \n \nYES \nIs the patient STABLE? \nCorrect hypoxia/electrolytes/HGT/ \nfluid status/analgesia etc. \n \nNO \n \n \n \n \nCANDIDATE FOR CARDIOVERSION? \n*< 48hrs \n*New onset \n*No LV dysfunction \n*No valvular heart disease \n*No history of VTE \n*Therapeutic anticoagulation \n \n \nNO \n \n \nRATE CONTROL \n(GOAL < 110bpm) \nATRIAL FIBRILLATION \nYES \nMANAGEMENT \n*Synchronised cardioversion \n*Analgesia & sedation \n*Consider anticoagulation \n-Balance between risk (HAS-BLED) \n& benefit (CHA2DS2VASc) \n-start Clexane 1mg/kg SC stat in ED if \nno contraindications \n \n \n \nLook for and treat underlying cause \n“The Atrial Fibs” \nMANAGEMENT \n*Amiodarone \n150mg IVI in D5W over 30min then \n900mg in 200ml D5W @ 8.3mls/hr \n*Beta-blocker \n-Carvedilol 3.125mg stat po or \n-Atenolol 50mg stat po or \n-Propranolol if thyroid associated \n*Calcium channel blocker \n*Digoxin \nT: Thyroid Dx \nH: Hypothermia \nE: Embolism (PE) \nA: Alcohol \nT: Trauma (cardiac contusion) \nR: Recent surgery (e.g. CABG) \nI: Ischaemia \nA: Atrial enlargement \nL: Lone/idiopathic \nF: Fever/anaemia/high out-put states \nI: Infarct \nB: Bad valves (e.g. Mitral stenosis) \nS: Stimulants (Cocaine, theophylline, caffeine) \n",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Reference / Guidance",
+        "details": "For use with EU/EN13826 scale PEF meters only \nAcknowledgement \nAdapted by Clement Clarke for use with EN13826/ EU scale peak flow meters \nfrom Nunn AJ Gregg I, Br Med J 1989: 298;1068-70 \nContents \n \n \n \nPEAK EXPIRATORY FLOW RATE - NORMAL VALUES \n \n \n \n680 \n \n660 \n640 \n620 \n600 \n \n580 \nHeight: Men \ncm \ninch \n190 \n75” \n183 \n72” \n175 \n69” \n167 \n66” \n160 \n63” \nHeight: Women \ncm \ninch \n183 \n72” \n175 \n69” \n167 \n66” \n160 \n63” \n152 \n60” \n560 \n540 \n520 \n500 \n480 \n \n460 \n440 \n420 \n400 \n380 \n360 \n340 \n320 \n300 \n15 \n20 \n25 \n30 \n35 \n40 \n45 \n50 \n55 \n60 \n65 \n70 \n75 \n80 \n85 \n \n\n \n \nUNSTABLE AF causing: \n*Hypotension \n*Acute cardiac failure \n*Chest pain \n*Dyspnoea \n*Altered mental status \nMANAGEMENT \n1.Cardioversion \n-150-200J \n-consider using max dose first \n-max 3 attempts \n-BP preserving analgesia/sedation \n(fentanyl/ketamine/dormicum) \n2. Anti-coagulation \n-Balance between risk (HAS-BLED) & \nbenefit (CHA2DS2VASc) \n-start Clexane 1mg/kg SC stat in ED if \nno contraindications \nCARDIOVERSION FAILS \nRate control \n- First exclude WPW (**see ECG and box below**) \n \n-Amiodarone 150mg IVI in D5W over 30min then \n900mg in 200ml D5W @ 8.3mls/hr \n-Consider MgSO4 2-4g IVI over 15min \n \nYES \nIs the patient STABLE? \nCorrect hypoxia/electrolytes/HGT/ \nfluid status/analgesia etc. \n \nNO \n \n \n \n \nCANDIDATE FOR CARDIOVERSION? \n*< 48hrs \n*New onset \n*No LV dysfunction \n*No valvular heart disease \n*No history of VTE \n*Therapeutic anticoagulation \n \n \nNO \n \n \nRATE CONTROL \n(GOAL < 110bpm) \nATRIAL FIBRILLATION \nYES \nMANAGEMENT \n*Synchronised cardioversion \n*Analgesia & sedation \n*Consider anticoagulation \n-Balance between risk (HAS-BLED) \n& benefit (CHA2DS2VASc) \n-start Clexane 1mg/kg SC stat in ED if \nno contraindications \n \n \n \nLook for and treat underlying cause \n“The Atrial Fibs” \nMANAGEMENT \n*Amiodarone \n150mg IVI in D5W over 30min then \n900mg in 200ml D5W @ 8.3mls/hr \n*Beta-blocker \n-Carvedilol 3.125mg stat po or \n-Atenolol 50mg stat po or \n-Propranolol if thyroid associated \n*Calcium channel blocker \n*Digoxin \nT: Thyroid Dx \nH: Hypothermia \nE: Embolism (PE) \nA: Alcohol \nT: Trauma (cardiac contusion) \nR: Recent surgery (e.g. CABG) \nI: Ischaemia \nA: Atrial enlargement \nL: Lone/idiopathic \nF: Fever/anaemia/high out-put states \nI: Infarct \nB: Bad valves (e.g. Mitral stenosis) \nS: Stimulants (Cocaine, theophylline, caffeine)"
+      }
+    ]
+  }
+}

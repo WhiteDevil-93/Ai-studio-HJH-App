@@ -4,13 +4,15 @@
   "slug": "canadian_cspine",
   "order": 2,
   "source": {
-    "sourceId": "source-unresolved",
-    "pdfPages": [],
-    "sectionTitle": "canadian_cspine",
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      54
+    ],
+    "sectionTitle": "Canadian C-Spine Rule",
     "transformation": "combined",
-    "verification": "unverifiable"
+    "verification": "page-index"
   },
-  "sourceGroup": "bara_icu",
+  "sourceGroup": "hjth",
   "reviewState": "unreviewed",
   "errata": [],
   "record": {

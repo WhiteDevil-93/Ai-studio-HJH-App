@@ -1,0 +1,37 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "headache-red-flags-primary-syndromes-hjh",
+  "order": 2021,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [],
+    "sectionTitle": "Headache (Red Flags & Primary Syndromes)",
+    "transformation": "condensed",
+    "verification": "manual"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Headache (Red Flags & Primary Syndromes)",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Screen for Red Flags (Secondary Causes)",
+        "details": "Onset: sudden/thunderclap (SAH), post-traumatic. Symptoms: altered GCS, seizure, focal neurology, meningism (meningitis), fever. Comorbidities: malignancy, pregnancy (pre-eclampsia), HIV. Medications: anticoagulants."
+      },
+      {
+        "step_number": "2",
+        "action": "Differentiate Primary Syndromes",
+        "details": "Tension: bilateral pressure/tightness, mild-mod. Migraine: gradual unilateral pulsating, photophobia, visual auras, mod-severe. Cluster: rapid peri-orbital excruciating, ipsilateral eye redness/lacrimation, rhinorrhoea, Horner's syndrome, severe."
+      },
+      {
+        "step_number": "3",
+        "action": "Manage Analgesia",
+        "details": "Tension: NSAIDs, Paracetamol. Migraine: Metoclopramide, triptans, NSAIDs, consider steroids. AVOID OPIOIDS! Cluster: 100% Oxygen high flow, paracetamol, triptans, steroids, ketamine if refractory."
+      }
+    ]
+  }
+}

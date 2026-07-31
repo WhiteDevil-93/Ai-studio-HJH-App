@@ -1,0 +1,41 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "sepsis-septic-shock-hjh",
+  "order": 2043,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [],
+    "sectionTitle": "Sepsis & Septic Shock",
+    "transformation": "condensed",
+    "verification": "manual"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Sepsis & Septic Shock",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Resuscitation & Fluids",
+        "details": "ABCD survey. Establish large-bore IVs. Administer 30ml/kg balanced crystalloid bolus (Ringer's Lactate/Balsol) for hypotension or Lactate > 4."
+      },
+      {
+        "step_number": "2",
+        "action": "Surviving Sepsis 3-Hour Bundle",
+        "details": "Measure Lactate. Obtain blood cultures PRIOR to antibiotics (aerobic bottle ONLY, minimum 10ml, preferably 20ml). Administer broad-spectrum antibiotics within 1 hour."
+      },
+      {
+        "step_number": "3",
+        "action": "Surviving Sepsis 6-Hour Bundle",
+        "details": "If persistent hypotension despite fluids: start Adrenaline/Noradrenaline infusion to maintain MAP >= 65 mmHg. Re-measure lactate if initial lactate was high."
+      }
+    ],
+    "warnings": [
+      "Blood cultures must always be taken BEFORE the first dose of antibiotics.",
+      "Be extremely cautious with aggressive fluids in patients with cardiac dysfunction or elderly (risk of acute pulmonary edema)."
+    ]
+  }
+}

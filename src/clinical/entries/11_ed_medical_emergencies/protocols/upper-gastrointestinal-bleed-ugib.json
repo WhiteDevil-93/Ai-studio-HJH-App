@@ -4,13 +4,16 @@
   "slug": "upper-gastrointestinal-bleed-ugib",
   "order": 8,
   "source": {
-    "sourceId": "source-unresolved",
-    "pdfPages": [],
-    "sectionTitle": "Source mapping required",
-    "transformation": "combined",
-    "verification": "unverifiable"
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      196,
+      198
+    ],
+    "sectionTitle": "Upper Gastrointestinal Bleed",
+    "transformation": "condensed",
+    "verification": "page-index"
   },
-  "sourceGroup": "edl_phc",
+  "sourceGroup": "hjth",
   "reviewState": "unreviewed",
   "errata": [],
   "record": {
@@ -41,6 +44,31 @@
     "warnings": [
       "Avoid over-transfusion in suspected variceal bleeds (increases portal pressure and worsens haemorrhage).",
       "There is NO role for Tranexamic Acid (TXA) in upper GI bleeding."
+    ],
+    "embedded_drugs": [
+      {
+        "condition_or_drug": "Ceftriaxone",
+        "adult_dose": "1-2g IV 12-24hrly",
+        "paediatric_dose": "50-100mg/kg IV 12-24hrly (max 4g/day)"
+      },
+      {
+        "drug": "Tranexamic Acid",
+        "adult_dose": "1g IV over 10min (repeat 8hrly); Trauma: 1g/10min then 1g/8hrs",
+        "paediatric_dose": "15mg/kg IV 8hrly",
+        "notes_updates": "Contraindicated: significant haematuria, DIC"
+      },
+      {
+        "item": "Fresh Frozen Plasma (FFP)",
+        "adult_dose": "15-20ml/kg IV",
+        "paediatric_dose": "15-20ml/kg IV",
+        "notes": "For coagulopathy with active bleeding"
+      },
+      {
+        "item": "Platelets",
+        "adult_dose": "1 pool raises count by 20-40x10^9/L",
+        "paediatric_dose": "10-15ml/kg IV",
+        "notes": "Indicated: count <10 or <50 with bleeding/procedure"
+      }
     ]
   }
 }

@@ -1,0 +1,40 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "malaria-uncomplicated-complicated-hjh",
+  "order": 2029,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [],
+    "sectionTitle": "Malaria (Uncomplicated & Complicated)",
+    "transformation": "condensed",
+    "verification": "manual"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Malaria (Uncomplicated & Complicated)",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Assess & Triage",
+        "details": "Triage as ORANGE. Check FBC, malaria smear & antigen. Look for high-risk criteria: children, pregnant, elderly, splenectomy."
+      },
+      {
+        "step_number": "2",
+        "action": "Uncomplicated Malaria Treatment",
+        "details": "If smear/antigen positive with < 5% parasitaemia and no organ dysfunction: give Co-artem 4 tablets PO stat, 4 after 8 hours, then BD for 2 days. If unavailable: Quinine + Doxycycline (or Quinine + Clindamycin in pregnancy/children)."
+      },
+      {
+        "step_number": "3",
+        "action": "Complicated / Severe Malaria Treatment",
+        "details": "Smear > 5%, or any organ dysfunction (coma, convulsions, pulmonary edema, shock, jaundice, severe anaemia Hb < 5, hypoglycemia < 2.2, lactate > 5): Give Artesunate 2.4 mg/kg IV stat at 0, 12, 24 hours. (Alternative: Quinine infusion)."
+      }
+    ],
+    "warnings": [
+      "Observe for vomiting for 1 hour in the ED after oral antimalarial. If vomiting occurs within 1 hour, re-administer the dose. If vomiting persists, refer to Internal Medicine."
+    ]
+  }
+}

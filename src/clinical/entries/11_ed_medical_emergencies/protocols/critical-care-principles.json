@@ -1,0 +1,82 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "critical-care-principles",
+  "order": 2008,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      60
+    ],
+    "sectionTitle": "Critical Care Management Principles",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Critical Care Management Principles",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "MANAGEMENT PRINCIPLES",
+        "details": "MANAGEMENT PRINCIPLES"
+      },
+      {
+        "step_number": "2",
+        "action": "GENERAL FOR ALL PATIENTS IN THE ED",
+        "details": "GENERAL FOR ALL PATIENTS IN THE ED"
+      },
+      {
+        "step_number": "3",
+        "action": "“FASTHUGS IN BED”",
+        "details": "“FASTHUGS IN BED”"
+      },
+      {
+        "step_number": "4",
+        "action": "F – Fluid therapy and Feeding",
+        "details": "F – Fluid therapy and Feeding"
+      },
+      {
+        "step_number": "5",
+        "action": "A – Analgesia and Antibiotics (if indicated),",
+        "details": "A – Analgesia and Antibiotics (if indicated),"
+      },
+      {
+        "step_number": "6",
+        "action": "Antiemetics (if indicated)",
+        "details": "Antiemetics (if indicated)"
+      },
+      {
+        "step_number": "7",
+        "action": "S – Sedation and Spontaneous Breathing Trial",
+        "details": "S – Sedation and Spontaneous Breathing Trial"
+      },
+      {
+        "step_number": "8",
+        "action": "T – Thromboprophylaxis",
+        "details": "T – Thromboprophylaxis"
+      },
+      {
+        "step_number": "9",
+        "action": "Clexane® 0.5mg/kg OD SC;",
+        "details": "Clexane® 0.5mg/kg OD SC;"
+      },
+      {
+        "step_number": "10",
+        "action": "Clexane® 0.25mg/kg OC SC if renal dysfunction (GFR<30)",
+        "details": "Clexane® 0.25mg/kg OC SC if renal dysfunction (GFR<30)"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "dose",
+        "adult_dose": "dose",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "disposition": "Disposition \n- Refer Surgery depending on cause \nDefinitions \n•\nCrush Injury: physical injury from prolonged compression. May be \ndue to direct effect of trauma or ischaemia related to compression. \n•\nCrush Syndrome: systemic manifestations resulting from crush \ninjury, i.e. rhabdomyolysis leading to acute kidney injury, \nmultisystem organ injury or death. \n \nCRUSH INJURY & SYNDROME \n(RHABDOMYOLYSIS) \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nIndications for dialysis \n* Refractory acidosis \n* Refractory hyperkalaemia \n*\n \n*\n \n*\n \n \nClinical Examination \n* Tramline bruising \n* Tense, oedematous, painful muscle groups \n* Dark / tea-coloured urine \n* Circulatory shock \nInvestigations \n* Blood gas – metabolic acidosis (bicarb < 20, \npH < 7.3,  lactate \n* U-dipstix – haemoglobin / protein \n* eFAST \n* Bloods: Creatinine kinase, U&E, CMP \n* No indication for repeat CK/trending of levels \n \nCauses \nExtensive soft tissue trauma \n- Community assault \n- Sjambok injury \nSnake bite (rare"
+  }
+}

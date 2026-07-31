@@ -1,0 +1,61 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "asthma-acute-rmmch-2",
+  "order": 3000,
+  "source": {
+    "sourceId": "rmmch-paediatric-protocols",
+    "pdfPages": [
+      13,
+      14
+    ],
+    "sectionTitle": "Asthma - Acute",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "rmmch",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Asthma - Acute (RMMCH)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "Severe / Life Threatening: HR > 120 or bradycardia, SpO2 < 90%, PaO2 < 60 mmHg, PaCO2 > 42 mmHg, Peak Flow < 50% or unable to perform.",
+        "Moderate: HR 100-120, SpO2 90-95%, PaCO2 < 42 mmHg, PEFR 50-75%.",
+        "Mild: HR < 100, SpO2 > 95%, PEFR > 75%."
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Severe / Life Threatening Management",
+        "details": "MgSO4 25-50mg/kg (adults 2g) IVI over 15 mins. Salbutamol 4ug/kg (adults 250ug) IVI slowly. B2 Agonist (Salbutamol/Fenoterol) AND Anticholinergic (Ipratropium bromide) MDI + spacer or continuous nebulization. In extremis: Adrenaline 0.3mg IMI OR Adrenaline infusion 0.05ug/kg/min IV."
+      },
+      {
+        "step_number": "2",
+        "action": "Moderate Asthma Management",
+        "details": "Hydrocortisone 5mg/kg (adults 200mg) IVI stat + MDI + spacer or continuous nebulization."
+      },
+      {
+        "step_number": "3",
+        "action": "Mild Asthma Management",
+        "details": "Prednisone 0.5mg/kg PO stat (alternative = Dexamethasone 0.6mg/kg IV/IM)."
+      },
+      {
+        "step_number": "4",
+        "action": "Inhaled Medication Dosing",
+        "details": "MDI Adults: Salbutamol 100ug 2 puffs, Ipratropium 20ug 1-4 puffs. MDI Paeds: Salbutamol 100ug 2 puffs, Ipratropium 20ug (<5 yrs 2 puffs, 5-12 yrs 4 puffs). Nebs Adults: Salbutamol 2.5-5mg, Ipratropium 500ug. Nebs Paeds: Salbutamol (20m-5 yrs 2.5mg, 6-12 yrs 2.5-5mg), Ipratropium (<5 yrs 250ug, 5-12 yrs 250-500ug)."
+      },
+      {
+        "step_number": "5",
+        "action": "Ventilator Settings & Discharge Plan",
+        "details": "Ventilator settings: SIMV mode, TV 6-8 ml/kg, I:E 1:3, RR 10-12 bpm (child 20bpm). Discharge Plan: B2 agonist MDI QID PRN + Budesonide 400ug BD + Oral prednisone 0.5mg/kg po daily x 7 days OR Dexamethasone 10mg IM STAT."
+      }
+    ],
+    "warnings": [
+      "High Risk Features for Death: previous near fatal exacerbation/intubation/ICU, >2 canisters SABA in last month, recent steroids, ED visit/admission in last month (>2 admissions/yr, >3 ED visits/yr), illicit drug use, psychiatric history, cardiac/lung comorbidities.",
+      "Routine prescription of antibiotics is not indicated unless a bacterial source is found."
+    ]
+  }
+}

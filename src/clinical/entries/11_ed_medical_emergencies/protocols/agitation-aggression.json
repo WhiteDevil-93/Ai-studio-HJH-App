@@ -1,0 +1,84 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "agitation-aggression",
+  "order": 2004,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      19,
+      20,
+      21
+    ],
+    "sectionTitle": "Agitation & Aggression",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Agitation & Aggression",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "signs \n• \nChest X-Ray \n• \nABG after 30 minutes \n• \nSedation (if required) \no Morphine \no Midazolam-watch BP \n6. Attach to ventilator with HME Filter (see protocol)"
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "management as indicated",
+        "details": "management as indicated"
+      },
+      {
+        "step_number": "2",
+        "action": "Intubate early if airway is threatened/likely to become",
+        "details": "Intubate early if airway is threatened/likely to become"
+      },
+      {
+        "step_number": "3",
+        "action": "compromised",
+        "details": "compromised"
+      },
+      {
+        "step_number": "4",
+        "action": "NEXT 10 MINUTES",
+        "details": "NEXT 10 MINUTES"
+      },
+      {
+        "step_number": "5",
+        "action": "INVESTIGATE AND CORRECT REVERSIBLE FACTORS",
+        "details": "INVESTIGATE AND CORRECT REVERSIBLE FACTORS"
+      },
+      {
+        "step_number": "6",
+        "action": "Blood gas – correct electrolytes, acidosis",
+        "details": "Blood gas – correct electrolytes, acidosis"
+      },
+      {
+        "step_number": "7",
+        "action": "Head to toe examination",
+        "details": "Head to toe examination"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "doses (every 30 – 60 min)",
+        "adult_dose": "doses (every 30 – 60 min)",
+        "notes": "Extracted from HJH ED 2026"
+      },
+      {
+        "item": "Alternative Etomine 40mg",
+        "adult_dose": "Alternative Etomine 40mg",
+        "notes": "Extracted from HJH ED 2026"
+      },
+      {
+        "item": "IM stat",
+        "adult_dose": "IM stat",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "warnings": [
+      "NB: Verbal de-escalation is most effective for mild/moderate agitation. \nDo not attempt to negotiate with a completely incoherent patient. \ndegrees up \n*Tie restraints to bedframe, not rails \n*Ensure the airway is patent and \nmaintained \n*Regular limb and pulse checks (30 mins) \n*Minimal time restrained, review regularly \n*Use in conjunction with chemical \nrestraint, to avoid physical \ninjury/rhabdomyolysis \n*Female pt: at least 1 female team \nmember \n*Restraint time: 4 hours adults, 2 hours \nad"
+    ]
+  }
+}

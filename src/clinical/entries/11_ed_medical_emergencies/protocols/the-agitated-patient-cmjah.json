@@ -8,9 +8,9 @@
     "pdfPages": [
       131
     ],
-    "sectionTitle": "The Agitated Patient (CMJAH)",
+    "sectionTitle": "The Agitated Patient",
     "transformation": "condensed",
-    "verification": "manual"
+    "verification": "page-index"
   },
   "sourceGroup": "cmjah",
   "reviewState": "unreviewed",

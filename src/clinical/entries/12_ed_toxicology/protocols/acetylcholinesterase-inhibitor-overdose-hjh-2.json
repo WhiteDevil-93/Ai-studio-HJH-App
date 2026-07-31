@@ -1,0 +1,78 @@
+{
+  "categoryId": "12_ed_toxicology",
+  "subcategoryId": "protocols",
+  "slug": "acetylcholinesterase-inhibitor-overdose-hjh-2",
+  "order": 2000,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      6
+    ],
+    "sectionTitle": "Acetylcholinesterase Inhibitor (Ache-I) Overdose",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Acetylcholinesterase Inhibitor (Ache-I) Overdose",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "SYMPTOMS & SIGNS \nMUSCARINIC (“DUMBELS”) \nNICOTINIC \nCNS \nD – \ndiaphoresis, diarrhoea \nU – \nurination \nM – \nmiosis \nB – \nbradycardia, bronchorrhoea, \nbronchospasm \nE – \nemesis \nL – \nlacrimation \nS – \nsalivation \nFasciculations \nWeakness \nHypertension \nTachycardia \nMydriasis \nAnxiety \nAtaxia \nRestlessness \nConfusion \nConvulsions \nComa \n \n \n \n \n* Universal precautions \nIMMEDIATE MANAGEMENT \n* Decontamination – remove clothing, wash patient with soap and water \n*  Supportive care of ABCs and general management principles of a poisoned \npatient (see protocol) \nNote: \nIf intubation is required, avoid succinylcholine if possible (causes prolonged paralysis) \n \n \n \n \n \n** ATROPINE \nSPECIFIC MANAGEMENT \n- \ncan be administered IM if no immediate IV access (100mg amps in resus, NB SECTION 21 FORM) \n- \nthis only treats the muscarinic symptoms \n- \nMay cause anticholinergic toxidrome at high doses – monitor closely. NB urine catheter \nSTAT DOSE \nINFUSION (start once atropinised) \n0.04 - 0.05mg/kg IV (3 – 5mg adult) \ndouble every 5 minutes until atropinisation \n“escalating atropinisation” \n200mg Atropine in 200ml 0.9% NaCl (1mg/ml) \nUse a Dial-a-flow/Infusion pump  \n10-20% of total dose already given/hr \n(total dose i.e. for escalating atropinisation) \n \n \nEND POINT = CLEARING OF RESPIRATORY SECRETIONS (ATROPINISATION) (NOT based on tachycardia or pupil dilation) \n** SEIZURES \n- \nCheck blood glucose \n- \nUse a benzodiazepine only – NO anticonvulsant agents \n- \nClonazepam; Diazepam; Lorazepam \n** MONITOR & CORRECT ELECTROLYTE ABNORMALITIES. Consider MgSO4 4g/day (weak evidence) \n** WEAKNESS \n- look for signs of weakness (nicotinic symptom) \n- is the patient able to lift and hold their head up for 10 seconds; ask the patient to squeeze your hand \n- Intubation and supportive management is the only way to control weakness (respiratory failure) \n \n \nDISPOSITION \nInt Med Consultation"
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "IMMEDIATE MANAGEMENT",
+        "details": "IMMEDIATE MANAGEMENT"
+      },
+      {
+        "step_number": "2",
+        "action": "* Decontamination – remove clothing, wash patient with soap and water",
+        "details": "* Decontamination – remove clothing, wash patient with soap and water"
+      },
+      {
+        "step_number": "3",
+        "action": "*  Supportive care of ABCs and general management principles of a poisoned",
+        "details": "*  Supportive care of ABCs and general management principles of a poisoned"
+      },
+      {
+        "step_number": "4",
+        "action": "patient (see protocol)",
+        "details": "patient (see protocol)"
+      },
+      {
+        "step_number": "5",
+        "action": "If intubation is required, avoid succinylcholine if possible (causes prolonged paralysis)",
+        "details": "If intubation is required, avoid succinylcholine if possible (causes prolonged paralysis)"
+      },
+      {
+        "step_number": "6",
+        "action": "** ATROPINE",
+        "details": "** ATROPINE"
+      },
+      {
+        "step_number": "7",
+        "action": "SPECIFIC MANAGEMENT",
+        "details": "SPECIFIC MANAGEMENT"
+      },
+      {
+        "step_number": "8",
+        "action": "can be administered IM if no immediate IV access (100mg amps in resus, NB SECTION 21 FORM)",
+        "details": "can be administered IM if no immediate IV access (100mg amps in resus, NB SECTION 21 FORM)"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "DOSE",
+        "adult_dose": "DOSE",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "warnings": [
+      "cautions \nIMMEDIATE MANAGEMENT \n* Decontamination – remove clothing, wash patient with soap and water \n*  Supportive care of ABCs and general management principles of a poisoned \npatient (see protocol) \nNote: \nIf intubation is required, avoid succinylcholine if possible (causes prolonged paralysis) \n \n \n \n \n \n** ATROPINE \nSPECIFIC MANAGEMENT \n- \ncan be administered IM if no immediate IV access (100mg amps in resus, NB SECTION 21 FORM) \n- \nthis only treats the muscarinic symptoms \n- \nMay cause an"
+    ],
+    "disposition": "DISPOSITION \nInt Med Consultation"
+  }
+}

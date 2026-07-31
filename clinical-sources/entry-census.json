@@ -1,33 +1,34 @@
 {
-  "generatedAt": "2026-07-29T09:15:37.078Z",
+  "generatedAt": "2026-07-31T22:29:54.229Z",
   "totals": {
-    "entries": 368,
-    "protocols": 108,
-    "sourceMapped": 250
+    "entries": 588,
+    "protocols": 328,
+    "sourceMapped": 485
   },
   "byCategory": {
-    "11_ed_medical_emergencies": 47,
-    "4_antimicrobials_and_infectious_diseases": 64,
-    "1_resuscitation_fluids_and_inotropes": 32,
-    "7_useful_formulae": 12,
-    "15_ed_procedures": 10,
-    "8_cardiovascular": 25,
-    "12_ed_toxicology": 19,
-    "5_metabolic_electrolytes_and_nutrition": 30,
-    "14_ed_metabolic": 10,
-    "2_airway_and_ventilation": 30,
-    "13_ed_trauma_surgical": 13,
     "10_endocrine_and_other": 5,
-    "3_sedation_analgesia_and_neurology": 32,
-    "9_blood_products": 4,
+    "11_ed_medical_emergencies": 167,
+    "12_ed_toxicology": 52,
+    "13_ed_trauma_surgical": 25,
+    "14_ed_metabolic": 21,
+    "15_ed_procedures": 39,
+    "16_score_calculators": 55,
+    "17_phc_primary_care": 30,
+    "1_resuscitation_fluids_and_inotropes": 37,
+    "2_airway_and_ventilation": 30,
+    "3_sedation_analgesia_and_neurology": 33,
+    "4_antimicrobials_and_infectious_diseases": 67,
+    "5_metabolic_electrolytes_and_nutrition": 36,
     "6_poisoning_and_toxicology": 5,
-    "17_phc_primary_care": 30
+    "7_useful_formulae": 12,
+    "8_cardiovascular": 25,
+    "9_blood_products": 4
   },
   "bySourceGroup": {
-    "hjth": 32,
-    "edl_phc": 132,
-    "cmjah": 36,
-    "rmmch": 18,
+    "hjth": 223,
+    "edl_phc": 117,
+    "cmjah": 62,
+    "rmmch": 36,
     "bara_icu": 82,
     "chbah": 68
   }

@@ -1,0 +1,42 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "pediatric-bradycardia-with-a-pulse-algorithm-rmmch-2",
+  "order": 3000,
+  "source": {
+    "sourceId": "rmmch-paediatric-protocols",
+    "pdfPages": [
+      68
+    ],
+    "sectionTitle": "Pediatric Bradycardia With a Pulse Algorithm",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "rmmch",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Pediatric Bradycardia With a Pulse Algorithm (RMMCH)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "Patient with bradycardia and Cardiopulmonary compromise: Acutely altered mental status, Signs of shock, Hypotension."
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Support & CPR",
+        "details": "Maintain patent airway, assist breathing with PPV and oxygen. Cardiac monitor, pulse, BP, oximetry. Start CPR if HR < 60/min despite oxygenation and ventilation."
+      },
+      {
+        "step_number": "2",
+        "action": "Persistent Bradycardia Interventions",
+        "details": "Continue CPR if HR < 60/min. IV/IO access. Epinephrine IV/IO dose: 0.01 mg/kg (0.1 mL/kg of the 0.1 mg/mL concentration) repeat every 3-5 minutes (if ET tube in place: ET dose 0.1 mg/kg [0.1 mL/kg of 1 mg/mL concentration]). Atropine IV/IO dose: 0.02 mg/kg for increased vagal tone or primary AV block (may repeat once; min dose 0.1 mg, max single dose 0.5 mg). Consider transthoracic/transvenous pacing."
+      }
+    ],
+    "warnings": [
+      "Check pulse every 2 minutes; if pulse absent, go to Pediatric Cardiac Arrest Algorithm."
+    ]
+  }
+}

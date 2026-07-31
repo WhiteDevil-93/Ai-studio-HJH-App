@@ -1,0 +1,44 @@
+{
+  "categoryId": "13_ed_trauma_surgical",
+  "subcategoryId": "protocols",
+  "slug": "head-injury-hjh-2",
+  "order": 2004,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      87,
+      88,
+      90
+    ],
+    "sectionTitle": "Head Injury",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Head Injury",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "GCS and Pupil assessment",
+        "details": "Verify Eye, Verbal, Motor responses (GCS 3-15)"
+      },
+      {
+        "step_number": "2",
+        "action": "Determine CT Scan Indication",
+        "details": "Absolute indications: GCS <13 initially or <15 at 2 hours, open/depressed/base-of-skull fracture, post-traumatic seizure, focal neuro deficit, anticoagulants"
+      },
+      {
+        "step_number": "3",
+        "action": "Implement Neuroprotective Measures",
+        "details": "Head up 30-45°, MAP >90 (unless ICH then >75-80), PCO2 34-40 (normocarbia), O2 sats >95% (normoxia), glucose 5-10 mmol/L, avoid neck pressure (C-spine collars)"
+      }
+    ],
+    "warnings": [
+      "Avoid steroids in traumatic intracranial hemorrhage — no therapeutic role"
+    ]
+  }
+}

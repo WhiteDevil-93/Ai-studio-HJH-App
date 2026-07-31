@@ -1,0 +1,39 @@
+{
+  "categoryId": "15_ed_procedures",
+  "subcategoryId": "protocols",
+  "slug": "procedural-sedation-analgesia-hjh",
+  "order": 2010,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      158
+    ],
+    "sectionTitle": "Procedural Sedation & Analgesia",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Procedural Sedation & Analgesia",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "SIGNS AND SYMPTOMS \n*Non-specific \n*Consider PESI score to risk stratify \n*High index of suspicion especially in patients with \n-unexplained dyspnoea \n-tachypnoea \n-unexplained tachycardia \n-unilateral leg swelling \n \nINDICATIONS FOR THROMBOLYSIS \nMassive PE \n*Sustained hypotension (SBP < 90mmHg) \nfor 15 minutes or requiring inotropic \nsupport \n*Persistent bradycardia with signs of shock \n*RV dysfunction on echo \n*Myocardial necrosis \n(Trop I > 0.4ng/ml or Trop T > 0.1ng/ml) \nCardiac Arrest in PE \nADJUNCT: 5mg nebulised nitrocine over \n15 mins, rpt PRN \nTHROMBOLYTIC OF CHOICE \nALTEPLASE (ACTILYSE®) \nMassive PE \n*≥65kg \n10mg bolus followed by 90mg infusion \nover 2 hours \n*<65kg \nTotal dose of 1.5mg/kg \n10mg bolus and remainder of dose \ninfused over 2 hours \nCardiac Arrest: 50mg IVI as a stat dose \nStable on low-dose pressor: consider \n10mg bolus, then 40mg over 2 hrs \n(0.5mg/kg) \nAGE ADJUSTED D-DIMER > 50 years \nAGE x 5 (divide by 1000 = mg/L stat lab \nunits) \nUsual cutoff = 0.25 mg/L \nTRIMESTER ADJUSTED D-DIMER \nTHRESHOLD \n1st - < 750 ng/ml (0.75mg/l)  \n2nd - < 1000 ng/ml (1mg/l)  \n3rd - < 1250 ng/ml (1.25mg/l)"
+    },
+    "drugs": [
+      {
+        "item": "drugs (IVDU)",
+        "adult_dose": "drugs (IVDU)",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "drugs (IVDU)",
+        "details": "item: drugs (IVDU); adult_dose: drugs (IVDU); notes: Extracted from HJH ED 2026"
+      }
+    ]
+  }
+}

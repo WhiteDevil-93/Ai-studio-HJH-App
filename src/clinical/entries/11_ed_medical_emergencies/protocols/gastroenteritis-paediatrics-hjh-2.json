@@ -1,0 +1,30 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "gastroenteritis-paediatrics-hjh-2",
+  "order": 2019,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      76
+    ],
+    "sectionTitle": "Gastroenteritis in Paediatrics",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Gastroenteritis in Paediatrics",
+    "protocol_type": "ed_protocol",
+    "note": "This is a subsection or flowchart. See main protocol for complete management.",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Key Information",
+        "details": "This is a subsection or flowchart. See main protocol for complete management."
+      }
+    ]
+  }
+}

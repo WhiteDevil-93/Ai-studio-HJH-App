@@ -40,3 +40,39 @@ Wrote 215 entry files from the corpus (3 near-duplicates skipped).
 - corrected pdfPages for "Thyroid Emergencies (CMJAH)": corpus said [125], verified pages are [133,134]
 - corrected pdfPages for "Toxic Alcohol Ingestion (CMJAH)": corpus said [126], verified pages are [135]
 - corrected pdfPages for "Tricyclic Antidepressant (TCA) Overdose (CMJAH)": corpus said [133], verified pages are [143]
+
+# Migration report
+
+## Isolated per-source import pass
+
+User requirement: each protocol must be isolated; repeated topics across HJH,
+RMMCH, and CMJAH are allowed to exist as independent entries.
+
+Using the supplied `all_hospitals_protocols` archive corpus:
+
+- **HJH:** imported all 97 archive protocols as isolated `-hjh` entries, with
+  sourceId `hjh-ed-2026-v1` and `verification: page-index` where pages were
+  available from `pdf_page_index.txt`.
+- **RMMCH:** imported all 18 content-bearing archive protocols as isolated
+  `-rmmch` entries, with sourceId `rmmch-paediatric-protocols` and
+  `verification: page-index`.
+- **CMJAH:** imported all 13 content-bearing archive protocols as isolated
+  `-cmjah` entries, with sourceId `cmjah-ed-protocols-2020-v2`. Four archive
+  page numbers were corrected against `cmjah_page_index.txt`:
+  - The Agitated Patient: 124 → 131
+  - Snakebite Pathway: 115–116 → 117–118
+  - Toxic Alcohol Ingestion: 126 → 135
+  - Tricyclic Antidepressant (TCA) Overdose: 133 → 143
+
+- Added `clinical-sources/source-map-rmmch.json` and
+  `clinical-sources/source-map-cmjah.json`; updated
+  `src/clinical/sourceRegistry.ts` to consult HJH, RMMCH, and CMJAH maps.
+- Added hospital-specific title variants to `PROTOCOL_MINDMAP_LINKS` in
+  `src/App.tsx` so isolated entries attach to existing interactive pathways.
+- Corrected dose-field transcription artefacts in two HJH isolated duplicates
+  (`renal-colic-kidney-stones-hjh-2` fentanyl `1mcg/kg`;
+  `hyponatraemia-hjh-2` hypertonic saline `2 ml/kg`) so the `weightDose`
+  coverage test continues to pass.
+
+Updated baseline: 588 clinical entries, 328 protocols/procedures, 485
+source-mapped, 103 awaiting provenance.

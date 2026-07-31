@@ -8,9 +8,9 @@
     "pdfPages": [
       16
     ],
-    "sectionTitle": "Bradycardia Management Algorithm (RMMCH)",
+    "sectionTitle": "Bradycardia Management Algorithm",
     "transformation": "condensed",
-    "verification": "unverifiable"
+    "verification": "page-index"
   },
   "sourceGroup": "rmmch",
   "reviewState": "unreviewed",

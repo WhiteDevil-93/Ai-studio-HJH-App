@@ -1,0 +1,66 @@
+{
+  "categoryId": "12_ed_toxicology",
+  "subcategoryId": "protocols",
+  "slug": "isoniazid-overdose-hjh",
+  "order": 2003,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      246,
+      247
+    ],
+    "sectionTitle": "Isoniazid (Inh) Overdose",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Isoniazid (Inh) Overdose",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "Clinical features: Depletes Vit B6, causing decreased GABA – seizures, lactic acidosis \n• \nECG Features: No specific features, sinus tachycardia \n• \nBlood gas: HAGMA, severe lactic acidosis \n• \nTriage to RESUS AREA, even if patient initially appears well \n• \nTerminate seizures with Benzodiazepines (high doses may be required). \nSee Status Epilepticus protocol, but avoid anti-epileptic agents. \n• \nRapid ABC assessment, 2 IV lines, monitors, HGT, VBG, urine ßHCG, ECG \n• \nEarly airway management – will require intubation prior to Pyridoxine administration \n• \nCorrect abnormal electrolytes, consider other causes of seizures \n• \nCrystalloid fluid bolus 20mg/kg if hypotensive \n• \nComprehensive history and exam, including: \n■ \nAmount and time of ingestion, co-ingestants \n■ \nComorbidities, chronic medications, symptoms prior to arrival \n• \nDocument specific features of toxicity \n• \nFurther investigations: FBC, U&E, LFT, Paracetamol/Salicylate level, urine tox screen, \nimaging as clinically indicated \n \n \n \n \nSPECIFIC MANAGEMENT \n*Enhanced elimination \nConsider activated charcoal 50g via NGT once airway is secured, IF INGESTION < 1 HOUR AGO \nDialysis too slow, not indicated. \n*Haemodynamic support \nFluid bolus/inotropes prn. Consider co-ingestants if persistent hypotension \n*Airway support \nProfound CNS depression and prolonged seizures usually require intubation \n*Specific antidote therapy: Pyridoxine (see box) \nPYRIDOXINE THERAPY \n•\nKNOWN AMOUNT INGESTED \n1g Pyridoxine for each gram of INH ingested, \nmax 5g total or 70mg/kg in children. \n•\nUNKNOWN AMOUNT INGESTED \nGive 5g total \nRepeat after 10 - 20 minutes if no response \n•\nPyridoxine is available in 25mg tablets \n•\nCrush tablets and administer via NGT once airway is \nprotected \n•\nCall pharmacy early to request enough stock, as it is \nunlikely to be available in ED \n•\nTherapeutic endpoint: seizure termination, \nresolution of lactic acidosis \n5g = 200 tablets"
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "APPROACH",
+        "details": "APPROACH"
+      },
+      {
+        "step_number": "2",
+        "action": "Consider INH toxicity in all refractory seizures, especially if on TB Rx/prophylaxis",
+        "details": "Consider INH toxicity in all refractory seizures, especially if on TB Rx/prophylaxis"
+      },
+      {
+        "step_number": "3",
+        "action": "Clinical features: Depletes Vit B6, causing decreased GABA – seizures, lactic acidosis",
+        "details": "Clinical features: Depletes Vit B6, causing decreased GABA – seizures, lactic acidosis"
+      },
+      {
+        "step_number": "4",
+        "action": "ECG Features: No specific features, sinus tachycardia",
+        "details": "ECG Features: No specific features, sinus tachycardia"
+      },
+      {
+        "step_number": "5",
+        "action": "Blood gas: HAGMA, severe lactic acidosis",
+        "details": "Blood gas: HAGMA, severe lactic acidosis"
+      },
+      {
+        "step_number": "6",
+        "action": "Triage to RESUS AREA, even if patient initially appears well",
+        "details": "Triage to RESUS AREA, even if patient initially appears well"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "DOSE",
+        "adult_dose": "DOSE",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "disposition": "DISPOSITION \n•\nInternal medicine referral \n•\nWill likely require ICU/High care \n•\nContinue serial ECG and VBG monitoring in ED \nISONIAZID (INH) OVERDOSE \n \nGENERAL APPROACH \nConsider INH toxicity in all refractory seizures, especially if on TB Rx/prophylaxis \n• \nClinical features: Depletes Vit B6, causing decreased GABA – seizures, lactic acidosis \n• \nECG Features: No specific features, sinus tachycardia \n• \nBlood gas: HAGMA, severe lactic acidosis \n• \nTriage to RESUS AREA, even if patient initially appears well \n• \nTerminate seizures with Benzodiazepines (high doses may be required). \nSee Status Epilepticus protocol, but avoid anti-epileptic agents. \n• \nRapid ABC assessment, 2 IV lines, monitors, HGT, VBG, urine ßHCG, ECG \n• \nEarly airway management – will require intubation prior to Pyridoxine administration \n• \nCorrect abnormal electrolytes, consider other causes of seizures \n• \nCrystalloid fluid bolus 20mg/kg if hypotensive \n• \nComprehensive history and exam, including: \n■ \nAmount "
+  }
+}

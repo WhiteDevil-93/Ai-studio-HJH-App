@@ -1,0 +1,32 @@
+{
+  "categoryId": "12_ed_toxicology",
+  "subcategoryId": "protocols",
+  "slug": "angioedema-hjh",
+  "order": 2002,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [],
+    "sectionTitle": "Angioedema",
+    "transformation": "condensed",
+    "verification": "manual"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Angioedema",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Assess Airway & Prepare for difficult airway",
+        "details": "Stridor, drooling, dyspnoea are red flags. Double surgical setup ready."
+      },
+      {
+        "step_number": "2",
+        "action": "Identify Type: Histaminergic vs Bradykinin-mediated",
+        "details": "If ACE-I induced (Bradykinin-mediated): Adrenaline, steroids, antihistamines are ineffective. Give Tranexamic Acid 1g IV over 10 min + FFP 2 units."
+      }
+    ]
+  }
+}

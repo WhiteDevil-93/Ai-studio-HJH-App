@@ -4,13 +4,17 @@
   "slug": "head-injury-radiography-guidelines",
   "order": 0,
   "source": {
-    "sourceId": "source-unresolved",
-    "pdfPages": [],
-    "sectionTitle": "Source mapping required",
-    "transformation": "combined",
-    "verification": "unverifiable"
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      87,
+      88,
+      90
+    ],
+    "sectionTitle": "Head Injury",
+    "transformation": "condensed",
+    "verification": "page-index"
   },
-  "sourceGroup": "edl_phc",
+  "sourceGroup": "hjth",
   "reviewState": "unreviewed",
   "errata": [],
   "record": {

@@ -4,13 +4,16 @@
   "slug": "atrial-fibrillation-af",
   "order": 4,
   "source": {
-    "sourceId": "source-unresolved",
-    "pdfPages": [],
-    "sectionTitle": "Source mapping required",
-    "transformation": "combined",
-    "verification": "unverifiable"
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      46,
+      47
+    ],
+    "sectionTitle": "Atrial Fibrillation",
+    "transformation": "condensed",
+    "verification": "page-index"
   },
-  "sourceGroup": "edl_phc",
+  "sourceGroup": "hjth",
   "reviewState": "unreviewed",
   "errata": [],
   "record": {
@@ -40,6 +43,32 @@
     ],
     "warnings": [
       "WPW + Atrial Fibrillation (Wide QRS, rate > 200, irregular): DO NOT give nodal blocking agents (Beta-blockers, CCBs, Digoxin, Amiodarone) as it will precipitate VF! Perform immediate synchronized electrical cardioversion."
+    ],
+    "embedded_drugs": [
+      {
+        "item": "Amiodarone",
+        "adult_dose": "300mg IV bolus (unstable); 150mg IV (stable)",
+        "paediatric_dose": "5mg/kg IV bolus",
+        "notes_updates": "300mg in 5% Dextrose over 30 min (Loading)."
+      },
+      {
+        "category": "HJH ED Protocol — Infusions",
+        "item": "Esmolol",
+        "formula": "Dose x weight x 60 / prepared concentration",
+        "standard_dilutions": "500mg undiluted in a 50ml syringe (10mg/ml)"
+      },
+      {
+        "drug": "Labetalol",
+        "adult_dose": "10-20mg IV over 2min (may double every 10min)",
+        "paediatric_dose": "0.2-1mg/kg IV",
+        "notes_updates": "Mixed alpha/beta blocker. Good for hypertensive emergencies"
+      },
+      {
+        "drug": "Digoxin",
+        "adult_dose": "Loading: 0.5-1mg IV/PO; Maint: 125-250mcg daily",
+        "paediatric_dose": "10-15mcg/kg IV/PO",
+        "notes_updates": "Check levels. Toxicity: nausea, visual changes, arrhythmias"
+      }
     ]
   }
 }

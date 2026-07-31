@@ -1,0 +1,70 @@
+{
+  "categoryId": "14_ed_metabolic",
+  "subcategoryId": "protocols",
+  "slug": "hypothermia-hjh-2",
+  "order": 2002,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      101,
+      102,
+      103
+    ],
+    "sectionTitle": "Hypothermia",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Hypothermia",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "Clinical Features \nTypical \nTemperature \nI \nConscious, shivering \n32 – 35°C \nII \nImpaired consciousness, not \nshivering \n28 – 32°C \nIII \nUnconscious, not shivering, \nvital signs present \n24 – 28°C \nIV \nVital signs absent \n< 24°C \nStage \nManagement \nI \nWarm environment & clothing, warm sweet drinks & active movement \nII \nCardiac monitoring, careful movement of patient to avoid arrhythmias, full-body \ninsulation, active external rewarming & minimally invasive rewarming (warm \nenvironment, electrical, or forced-air heating blankets; warm parenteral fluids) , \ncorrect hypoglycaemia \nIII \nSame as hypothermia Stage II with airway management as indicated \nPLUS \nCentral active warming \n• \nwarm IV fluids (42°C) (only give if need fluids, prevents cooling rather \nthan promotes warming) \n• \nbody cavity lavage with 40°C fluid e.g., gastric, bladder, right-sided \nthoracic lavage (increases by 3-6°C/hr) \n• \nmake sure patient is intubated before attempting gastric lavage \n• \nBladder lavage: \no warm up fluid in microwave if needed make sure not too hot! \no empty the bladder after urinary catheter insertion \no connect IV giving set to urinary catheter \no Infuse ±500ml of warm fluid \no Close the drip and wait for 10mins \no Empty the bladder \no Repeat until core temperature improves \n• \nRenal replacement therapy \n• \nECMO/ bypass (increase by 9-18°C/h) \nIV \nAll of the above with CPR, adrenaline, defibrillation and ECMO as available \nHYPOTHERMIA"
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "MANAGEMENT",
+        "details": "MANAGEMENT"
+      },
+      {
+        "step_number": "2",
+        "action": "Staging",
+        "details": "Staging"
+      },
+      {
+        "step_number": "3",
+        "action": "Clinical Features",
+        "details": "Clinical Features"
+      },
+      {
+        "step_number": "4",
+        "action": "Typical",
+        "details": "Typical"
+      },
+      {
+        "step_number": "5",
+        "action": "Temperature",
+        "details": "Temperature"
+      },
+      {
+        "step_number": "6",
+        "action": "Conscious, shivering",
+        "details": "Conscious, shivering"
+      },
+      {
+        "step_number": "7",
+        "action": "32 – 35°C",
+        "details": "32 – 35°C"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "See protocol",
+        "notes": "Drug details in source PDF"
+      }
+    ]
+  }
+}

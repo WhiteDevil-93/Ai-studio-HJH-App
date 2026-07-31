@@ -1,0 +1,35 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "ent-emergencies-hjh-2",
+  "order": 2017,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      69,
+      70,
+      71,
+      72,
+      73,
+      74
+    ],
+    "sectionTitle": "EPISTAXIS",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "EPISTAXIS",
+    "protocol_type": "ed_protocol",
+    "source_text": " \nImportant information to note \nDuration/frequency/side \nSeverity & estimated blood loss \nBleeding diathesis \nComorbidities \nCurrent medication (oral/nasal) \nHistory of recent trauma \nInvestigations \nBlood tests are not routinely required \nExcessive bleeding ➔ Ward Hb \nFBC/INR if: \nShocked \nAge > 65 years \nPale \nOn Warfarin \nBleeding disorder \n \nEPISTAXIS \nAdmission Criteria \n* Elderly \n* Posterior nasal packing \n* COPD \n* Cardiac disorders \n \n \nDischarge Instructions \n*  Counsel the patient on how to stop their \nown bleeds (pinching nares for at least \n15 minutes) \n*  Avoid blowing nose, sniffing & nose \npicking \n* Encourage nasal hydration \n-  Normal saline drops / Vaseline to keep \nnostrils moist \n* If discharged with anterior packing in situ: \n-  refer within 48 hours for removal & \nreview at ENT OPD \n- prophylactic antibiotics \n- Augmentin oral for 3/7 \n \n \n \n \n \n \n \n \n \n \n \n \nStill bleeding? \nPosterior bleed \nis likely \nPosterior Nasal Packing \n* Call a senior doctor \n* Administer Cyclokapron 15mg/kg (max 1g) IV over 15 min \n* Remove nasal packing \n*  Insert a Foley’s catheter (size 10 – 14F) along the \nfloor of the nasal cavity until the tip is visualized in \nthe oropharynx. \n*  Inflate Foley’s bulb with 10-20ml of water for \ninjection. Retract catheter gently so that it butts \nagainst the posterior palate. \n*  Keep catheter in place by clamping with an umbilical \ncord clamp. Place gauze around the umbilical cord clamp \nas well as between the alar/nose & clamp to prevent \npressure necrosis. \n* Repack both nostrils with new anterior packing. \n* ENT Referral \n \nNO evidence between hypertension & epistaxis. \nEpistaxis is more common in hypertensive patients due to vascular fragility. \nEpistaxis & the associated anxiety cause an acute elevation in BP. \n \nImmediate Management \n* ABCD approach \n* Ask the patient to blow their nose to remove all clots \n* Sit patient forward & ask them to pinch their nose \n(press alae firmly against septum) for 10 – 15 minutes \n* Patient to spit out excess blood (swallowing will cause vomiting) \n* If bleeding stops ➔ observe for 30 mins for re-bleeding \n* If no re-bleeding ➔ Discharge \n* TTO: Bactroban ointment apply 8 hourly for 3/7 \nStill bleeding / Re-bleed \nNasal Packing \n*\nOxymetazoline (Iliadin) nasal spray 2 puffs  \n* Anaesthetise prior to packing \nCotton wool soaked in 2% Lignocaine \nplaced into the nose \nNasal nerve block \n* Merocel Nasal Tampon \n-Trim tampon if patient has a small nose \n-Insert along the floor of the nostril \n-Pack both nostrils ➔ tamponade \n-Expand with adrenaline 1:10 000 \n-Leave in situ for 24-48 hours \n* If no nasal tampons: \n-Soak a 10 x 10 cm piece of gauze in \nCyclokapron [500mg/5ml] – insert into \nbleeding nostril \n-Pack with ribbon gauze soaked in 1:10 000 \nadrenaline \n\n \n \nPRESENTATION \n•\nBarking cough, Inspiratory stridor, widespread wheeze, increased \nWOB. +- Fever, but no signs of toxicity \n•\nAge: 6 – 36 months, can affect older children \n•\nUncommon < 6 months, rare <",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Reference / Guidance",
+        "details": "Important information to note \nDuration/frequency/side \nSeverity & estimated blood loss \nBleeding diathesis \nComorbidities \nCurrent medication (oral/nasal) \nHistory of recent trauma \nInvestigations \nBlood tests are not routinely required \nExcessive bleeding ➔ Ward Hb \nFBC/INR if: \nShocked \nAge > 65 years \nPale \nOn Warfarin \nBleeding disorder \n \nEPISTAXIS \nAdmission Criteria \n* Elderly \n* Posterior nasal packing \n* COPD \n* Cardiac disorders \n \n \nDischarge Instructions \n*  Counsel the patient on how to stop their \nown bleeds (pinching nares for at least \n15 minutes) \n*  Avoid blowing nose, sniffing & nose \npicking \n* Encourage nasal hydration \n-  Normal saline drops / Vaseline to keep \nnostrils moist \n* If discharged with anterior packing in situ: \n-  refer within 48 hours for removal & \nreview at ENT OPD \n- prophylactic antibiotics \n- Augmentin oral for 3/7 \n \n \n \n \n \n \n \n \n \n \n \n \nStill bleeding? \nPosterior bleed \nis likely \nPosterior Nasal Packing \n* Call a senior doctor \n* Administer Cyclokapron 15mg/kg (max 1g) IV over 15 min \n* Remove nasal packing \n*  Insert a Foley’s catheter (size 10 – 14F) along the \nfloor of the nasal cavity until the tip is visualized in \nthe oropharynx. \n*  Inflate Foley’s bulb with 10-20ml of water for \ninjection. Retract catheter gently so that it butts \nagainst the posterior palate. \n*  Keep catheter in place by clamping with an umbilical \ncord clamp. Place gauze around the umbilical cord clamp \nas well as between the alar/nose & clamp to prevent \npressure necrosis. \n* Repack both nostrils with new anterior packing. \n* ENT Referral \n \nNO evidence between hypertension & epistaxis. \nEpistaxis is more common in hypertensive patients due to vascular fragility. \nEpistaxis & the associated anxiety cause an acute elevation in BP. \n \nImmediate Management \n* ABCD approach \n* Ask the patient to blow their nose to remove all clots \n* Sit patient forward & ask them to pinch their nose \n(press alae firmly against septum) for 10 – 15 minutes \n* Patient to spit out excess blood (swallowing will cause vomiting) \n* If bleeding stops ➔ observe for 30 mins for re-bleeding \n* If no re-bleeding ➔ Discharge \n* TTO: Bactroban ointment apply 8 hourly for 3/7 \nStill bleeding / Re-bleed \nNasal Packing \n*\nOxymetazoline (Iliadin) nasal spray 2 puffs  \n* Anaesthetise prior to packing \nCotton wool soaked in 2% Lignocaine \nplaced into the nose \nNasal nerve block \n* Merocel Nasal Tampon \n-Trim tampon if patient has a small nose \n-Insert along the floor of the nostril \n-Pack both nostrils ➔ tamponade \n-Expand with adrenaline 1:10 000 \n-Leave in situ for 24-48 hours \n* If no nasal tampons: \n-Soak a 10 x 10 cm piece of gauze in \nCyclokapron [500mg/5ml] – insert into \nbleeding nostril \n-Pack with ribbon gauze soaked in 1:10 000 \nadrenaline \n\n \n \nPRESENTATION \n•\nBarking cough, Inspiratory stridor, widespread wheeze, increased \nWOB. +- Fever, but no signs of toxicity \n•\nAge: 6 – 36 months, can affect older children \n•\nUncommon < 6 months, rare <"
+      }
+    ]
+  }
+}

@@ -4,13 +4,16 @@
   "slug": "burch_wartofsky",
   "order": 8,
   "source": {
-    "sourceId": "source-unresolved",
-    "pdfPages": [],
-    "sectionTitle": "burch_wartofsky",
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      189,
+      190
+    ],
+    "sectionTitle": "Burch-Wartofsky Score",
     "transformation": "combined",
-    "verification": "unverifiable"
+    "verification": "page-index"
   },
-  "sourceGroup": "bara_icu",
+  "sourceGroup": "hjth",
   "reviewState": "unreviewed",
   "errata": [],
   "record": {

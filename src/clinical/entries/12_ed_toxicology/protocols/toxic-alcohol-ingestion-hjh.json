@@ -1,0 +1,58 @@
+{
+  "categoryId": "12_ed_toxicology",
+  "subcategoryId": "protocols",
+  "slug": "toxic-alcohol-ingestion-hjh",
+  "order": 2009,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [],
+    "sectionTitle": "Toxic Alcohol Ingestion",
+    "transformation": "condensed",
+    "verification": "manual"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Toxic Alcohol Ingestion",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "symptoms prior to arrival \n•\nDocument specific features of toxicity \n•\nFurther investigations: FBC, UE, LFT, Paracetamol/Salicylate level, urine tox \nscreen, serum alcohol level. \n•\nCalculate anion gap, osmolar gap – HAGMA with high osmolar gap suggests toxic \nalcohol ingestion \nTOXIC ALCOHOL INGESTION \n \n \nCOMMON TOXIC ALCOHOLS \nMETHANOL \n• \nAntifreeze, windshield wiper fluid, paint removers \n• \nMetabolised to formaldehyde > formic acid - HAGMA \n• \nOcular effects: blurry vision, reduced visual acuity, photophobia, “snowstorm” \nvision \n• \nNeurological effects: Parkinsonism, transverse myelitis, basal ganglia \nhaemorrhages, inebriation \nETHYLENE GLYCOL \n \n \n \n \n \n \nSPECIFIC MANAGEMENT \n* DECONTAMINATION: Not recommended \n* ENHANCED ELIMINATION: Haemodialysis effective, usually required \n* pH CORRECTION: Sodabic boluses 1ml/kg 8.5% until pH > 7.2 \n* SEIZURES: IV benzodiazepines. Monitor for arrhythmias/hypoglycaemia as cause \n* INTUBATION: Airway protection prior to ETOH administration \n* ANTIDOTE: Required for ethylene glycol/methanol ingestion \n• \nFomepizole 15mg/kg loading, then 10mg/kg 12 hrly \n• \nAlcohol: 40% ethanol e.g. Vodka, 1.5 – 2 ml/kg loading dose, \nthen 0.3ml/kg/hr maintenance via NGT. Continue until vital \nsigns and lab values normalize or pt receives dialysis \n*COFACTORS: promote conversion to non-toxic metabolites \n• \nEthylene glycol: pyridoxine 100mg QID, thiamine 100mg QID \n• \nMethanol: folic acid 50mg 4-6hrly \n*ISOPROPYL ALCOHOL: supportive Rx, PPI \n• \nRadiator antifreeze, brake fluid, metal cleaners \n• \nMetabolized to glycoaldehyde > glycolic acid > glycoxylic acid > oxalic acid. \nArtefactual lactic acidosis, HAGMA \n• \nNeurologic effects: coma, seizures, meningism, muscle spasms, ocular paralysis \n• \nCardiopulmonary: tachycardia, hyperventilation, ARDS, heart failure \n• \nHypocalcaemia, prolonged QT interval, acute renal failure due to calcium \noxalate crystalluria \nISOPROPYL ALCOHOL \n• \nHand sanitizer, rubbing alcohol \n• \nMetabolized to acetone, k"
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "APPROACH",
+        "details": "APPROACH"
+      },
+      {
+        "step_number": "2",
+        "action": "Triage to RESUS AREA, even if patient initially appears well",
+        "details": "Triage to RESUS AREA, even if patient initially appears well"
+      },
+      {
+        "step_number": "3",
+        "action": "Rapid ABC assessment, 2 IV lines, monitors, HGT, VBG, urine HCG, ECG",
+        "details": "Rapid ABC assessment, 2 IV lines, monitors, HGT, VBG, urine HCG, ECG"
+      },
+      {
+        "step_number": "4",
+        "action": "Correct abnormal electrolytes",
+        "details": "Correct abnormal electrolytes"
+      },
+      {
+        "step_number": "5",
+        "action": "Crystalloid fluid bolus 20mg/kg if hypotensive",
+        "details": "Crystalloid fluid bolus 20mg/kg if hypotensive"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "medications, symptoms prior to arrival",
+        "adult_dose": "medications, symptoms prior to arrival",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "disposition": "DISPOSITION \n• \nMedicine/renal consult \n• \nWill likely require ICU/High care \n• \nContinue serial ECG and VBG monitoring in ED"
+  }
+}

@@ -9,9 +9,9 @@
       46,
       47
     ],
-    "sectionTitle": "Sepsis + Septic Shock (RMMCH)",
+    "sectionTitle": "Sepsis + Septic Shock",
     "transformation": "condensed",
-    "verification": "unverifiable"
+    "verification": "page-index"
   },
   "sourceGroup": "rmmch",
   "reviewState": "unreviewed",

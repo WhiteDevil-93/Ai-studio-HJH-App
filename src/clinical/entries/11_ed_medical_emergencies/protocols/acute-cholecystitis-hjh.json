@@ -1,0 +1,86 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "acute-cholecystitis-hjh",
+  "order": 2003,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [],
+    "sectionTitle": "Acute Cholecystitis",
+    "transformation": "condensed",
+    "verification": "manual"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Acute Cholecystitis",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "CLINICAL FEATURES \nSymptoms \n*RUQ pain / epigastric pain \n*Nausea \n*Vomiting \n*Anorexia \n*Low grade fever \nSigns \n*Vital signs parallel the degree of illness \n*± Jaundice \n*Epigastric / RUQ tenderness \n*Abdominal guarding \n*Murphy’s sign \n➔ inspiratory pause on palpation of RUQ \n*Search for complications & other sources of \npain \n \n \n \n \nRISK FACTORS \n*Increasing age \n*Female \n*Parity \n*Family history \n*Obesity \n*Diabetes Mellitus \n*Profound weight loss \n*Fasting \n*Cystic fibrosis \n*Malabsorption syndromes \n*Medications e.g. antibiotics, lipid lowering, \ndiuretics, oestrogen-containing, steroids \n \nED MANAGEMENT \nThe primary goal of ED care is resuscitation, stabilization and an \nexpedient diagnosis \nRESUSCITATION \n*ABC approach \n*IV line – 20mls/kg Balsol/Ringer’s Lactate fluid bolus if shocked \nINVESTIGATIONS \n*Bedside \nECG, blood gas, U-dipstix, U-ßHCG, POCUS (see ultrasound features box) \n*Laboratory \nFBC, U&E, CRP, CMP, LFT, amylase, lipase, ±INR/PTT, ±blood \ncultures \n*Radiological \nX-rays – CXR erect, AXR supine & erect \nAbdominal ultrasound \nCT Abdomen – not test of choice and recommended only for the \nevaluation of abdominal pain if the diagnosis is uncertain \nSPECIFIC TREATMENT \n*Antibiotics – Augmentin® 1.2g stat IV \n*Antiemetics \n*Analgesia – see Pain Management in ED Protocol \n \nDISPOSITION \n*Urgent surgical referral \nCOMPLICATIONS \n*Sepsis \n*Pancreatitis \n*Ascending cholangitis \n*Gallbladder empyema \n*Emphysematous cholecystitis \n*Gallbladder perforation – localized/free \n*Hepatitis \n*Choledocholithiasis \n \n \n \n \nULTRASOUND FEATURES \nGallstones/sludge and 1 or more of \nthe following: \n*GB wall thickening (>4mm) \n(false positive in wall thickening found in \nascites, CCF, carcinoma, hypoalbuminaemia) \n*GB distention \n(diameter >4cm, length >10cm) \n*Pericholecystic fluid \n*Dilated ducts ➔ CBD or intrahepatic \n*Air in the GB wall \n*Ultrasonographic Murphy sign \n➔  pain when the probe is pushed \ndirectly on the GB (not related to \nbreathing)"
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "MANAGEMENT",
+        "details": "MANAGEMENT"
+      },
+      {
+        "step_number": "2",
+        "action": "The primary goal of ED care is resuscitation, stabilization and an",
+        "details": "The primary goal of ED care is resuscitation, stabilization and an"
+      },
+      {
+        "step_number": "3",
+        "action": "expedient diagnosis",
+        "details": "expedient diagnosis"
+      },
+      {
+        "step_number": "4",
+        "action": "RESUSCITATION",
+        "details": "RESUSCITATION"
+      },
+      {
+        "step_number": "5",
+        "action": "*ABC approach",
+        "details": "*ABC approach"
+      },
+      {
+        "step_number": "6",
+        "action": "*IV line – 20mls/kg Balsol/Ringer’s Lactate fluid bolus if shocked",
+        "details": "*IV line – 20mls/kg Balsol/Ringer’s Lactate fluid bolus if shocked"
+      },
+      {
+        "step_number": "7",
+        "action": "INVESTIGATIONS",
+        "details": "INVESTIGATIONS"
+      },
+      {
+        "step_number": "8",
+        "action": "*Bedside",
+        "details": "*Bedside"
+      },
+      {
+        "step_number": "9",
+        "action": "ECG, blood gas, U-dipstix, U-ßHCG, POCUS (see ultrasound features box)",
+        "details": "ECG, blood gas, U-dipstix, U-ßHCG, POCUS (see ultrasound features box)"
+      },
+      {
+        "step_number": "10",
+        "action": "*Laboratory",
+        "details": "*Laboratory"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "The primary goal of ED care is resuscitation, stab",
+        "adult_dose": "The primary goal of ED care is resuscitation, stabilization and an",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "warnings": [
+      "Contraindications \nAspirin \n* Hypercholestrolaemia \n* Hypertension \n*  Drug Abuse: cocaine, \nmethamphetamine \n* Previous MI \n* HIV ± HAART (PI) \n \n \n \n \n \n \nImmediate Assessment \n \n \n \nTRIAGE - ORANGE \n \n \n \n \n \n \nImmediate General Treatment \n*  Known hypersensitivity to \naspirin - Give patient \nClopidogrel 300mg stat po \nRelative Contraindications \n* Active peptic ulcer disease \n* Bleeding disorder \n* Allergy \n* ABCs \n* General appearance \n* Focused physical examination \n* 12 & 15 lead ECG (V4R"
+    ],
+    "disposition": "DISPOSITION \n*Urgent surgical referral \nCOMPLICATIONS \n*Sepsis \n*Pancreatitis \n*Ascending cholangitis \n*Gallbladder empyema \n*Emphysematous cholecystitis \n*Gallbladder perforation – localized/free \n*Hepatitis \n*Choledocholithiasis \n \n \n \n \nULTRASOUND FEATURES \nGallstones/sludge and 1 or more of \nthe following: \n*GB wall thickening (>4mm) \n(false positive in wall thickening found in \nascites, CCF, carcinoma, hypoalbuminaemia) \n*GB distention \n(diameter >4cm, length >10cm) \n*Pericholecystic fluid \n*Dilated ducts ➔ CBD or intrahepatic \n*Air in the GB wall \n*Ultrasonographic Murphy sign \n➔  pain when the probe is pushed \ndirectly on the GB (not related to \nbreathing)"
+  }
+}

@@ -4,13 +4,16 @@
   "slug": "perc",
   "order": 6,
   "source": {
-    "sourceId": "source-unresolved",
-    "pdfPages": [],
-    "sectionTitle": "perc",
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      159,
+      160
+    ],
+    "sectionTitle": "PERC Rule for PE Exclusion",
     "transformation": "combined",
-    "verification": "unverifiable"
+    "verification": "page-index"
   },
-  "sourceGroup": "bara_icu",
+  "sourceGroup": "hjth",
   "reviewState": "unreviewed",
   "errata": [],
   "record": {

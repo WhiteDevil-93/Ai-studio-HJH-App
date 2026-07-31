@@ -1,0 +1,32 @@
+{
+  "categoryId": "15_ed_procedures",
+  "subcategoryId": "protocols",
+  "slug": "non-invasive-ventilation-hjh-2",
+  "order": 2008,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      132
+    ],
+    "sectionTitle": "Non-Invasive Ventilation (Niv)",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Non-Invasive Ventilation (Niv)",
+    "protocol_type": "ed_protocol",
+    "warnings": [
+      "CONTRAINDICATIONS \n• Cardiac arrest \n• Respiratory arrest \n•  LOC \n• Uncooperative patient (agitated/somnolent) \n• High aspiration risk \n• Haemodynamic instability \n• Craniofacial trauma / burns to face \n• Non-fitting mask \n• Indications for intubation \n \nHOW TO PERFORM NIV \n1. Manage patient in the Resuscitation Area \n2. Attach patient to monitors: cardiac monitors, NIBP, pulse oximetry \n3. Sit patient up > 45 \n4. Explain the procedure to the patient and family \n5. Select the appropriate size"
+    ],
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Warning",
+        "details": "CONTRAINDICATIONS \n• Cardiac arrest \n• Respiratory arrest \n•  LOC \n• Uncooperative patient (agitated/somnolent) \n• High aspiration risk \n• Haemodynamic instability \n• Craniofacial trauma / burns to face \n• Non-fitting mask \n• Indications for intubation \n \nHOW TO PERFORM NIV \n1. Manage patient in the Resuscitation Area \n2. Attach patient to monitors: cardiac monitors, NIBP, pulse oximetry \n3. Sit patient up > 45 \n4. Explain the procedure to the patient and family \n5. Select the appropriate size"
+      }
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "the-agitated-patient-cmjah-3",
+  "order": 4000,
+  "source": {
+    "sourceId": "cmjah-ed-protocols-2020-v2",
+    "pdfPages": [
+      131
+    ],
+    "sectionTitle": "The Agitated Patient",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "cmjah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "The Agitated Patient (CMJAH)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "Agitation, aggression, delirium, threat to self or staff"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Mild Agitation",
+        "details": "Lorazepam 1-2 mg SL OR Haloperidol 5mg PO."
+      },
+      {
+        "step_number": "2",
+        "action": "Moderate Agitation",
+        "details": "Midazolam 2-5 mg IM OR Haloperidol 5-10 mg IM."
+      },
+      {
+        "step_number": "3",
+        "action": "Severe Agitation / Excited Delirium",
+        "details": "Ketamine 5 mg/kg IM OR Haloperidol 10 mg IM + Midazolam 10 mg IM."
+      }
+    ],
+    "warnings": []
+  }
+}

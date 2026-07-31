@@ -9,9 +9,9 @@
       117,
       118
     ],
-    "sectionTitle": "Snakebite Pathway (CMJAH)",
+    "sectionTitle": "Snakebite Pathway",
     "transformation": "condensed",
-    "verification": "manual"
+    "verification": "page-index"
   },
   "sourceGroup": "cmjah",
   "reviewState": "unreviewed",

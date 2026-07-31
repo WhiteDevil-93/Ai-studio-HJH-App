@@ -1,0 +1,78 @@
+{
+  "categoryId": "15_ed_procedures",
+  "subcategoryId": "protocols",
+  "slug": "back-pain-red-flags",
+  "order": 2001,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      48
+    ],
+    "sectionTitle": "Non-Traumatic Back Pain",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Non-Traumatic Back Pain",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "symptoms \n•\nImmune suppression (HIV, DM, steroids, immune suppressants) \n•\nIV drug use \n•\nBowel/bladder function change, erectile dysfunction \n•\nFever, night sweats, weight loss \n•\nAnticoagulant use e.g. warfarin \n \nGENERAL APPROACH \nOne of the most common complaints in ED \nNB! History and examination more useful than special investigations. \n•\nMajority of NON-TRAUMA cases are benign musculoskeletal lower back pain \n•\nPhysical exam concerning features: \nMotor: arm/leg weakness, especially bilateral \nSensory: saddle anaesthesia, paraesthesia, sensory level \nReflexes: any abnormal reflexes, including Babinski \nSphincter dysfunction: decreased rectal tone, urinary retention/incontinence \nMidline spinal tenderness, deformity, swelling, fluctuance \nSystemic: wasting, fever, lymphadenopathy, other pathologic fractures \n•\nImaging: Spinal x-rays are neither sensitive nor specific \n•\nBack pain with new neurology, or suspicion for epidural abscess requires urgent MRI \n•\nLab workup for underlying condition as indicated \n \nSPINE RELATED CAUSES \n•\nInfectious: Spinal epidural abscess, vertebral osteomyelitis, infectious discitis, TB spine \n•\nOncological: Pathological fracture, bone or epidural metastases, spinal tumours \n•\nHaematological: Spinal epidural haematoma – anticoagulants, recent lumbar \npuncture/epidural anaesthesia/spinal surgery \n•\nNeurological: Cauda equina syndrome, disc herniation causing cord compression \n•\nDegenerative: Spondylolysis/spondylolisthesis/OA with radiculopathy \nSPECIFIC MANAGEMENT \n•\nEpidural abscess: Antibiotics – Consider Ceftriaxone, Cefazolin or Vancomycin \n•\nSuspected metastases: Dexamethasone 10mg IV stat, urgent MRI \n \nDISPOSITION \n•\nLow risk patients: Non-specific pain < 6 weeks with no \nred flags, monoradiculopathy/sciatica – DC with simple \nanalgesics and physio/spine OPD follow up \n•\nHigh risk patients – manage underlying cause, admit to \nappropriate subspecialty once stable \n \nNON-SPINE RELATED CAUSES \n•\nVASCULAR: AAA, aortic dissection, "
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "APPROACH",
+        "details": "APPROACH"
+      },
+      {
+        "step_number": "2",
+        "action": "One of the most common complaints in ED",
+        "details": "One of the most common complaints in ED"
+      },
+      {
+        "step_number": "3",
+        "action": "NB! History and examination more useful than special investigations.",
+        "details": "NB! History and examination more useful than special investigations."
+      },
+      {
+        "step_number": "4",
+        "action": "Majority of NON-TRAUMA cases are benign musculoskeletal lower back pain",
+        "details": "Majority of NON-TRAUMA cases are benign musculoskeletal lower back pain"
+      },
+      {
+        "step_number": "5",
+        "action": "Physical exam concerning features:",
+        "details": "Physical exam concerning features:"
+      },
+      {
+        "step_number": "6",
+        "action": "Motor: arm/leg weakness, especially bilateral",
+        "details": "Motor: arm/leg weakness, especially bilateral"
+      },
+      {
+        "step_number": "7",
+        "action": "Sensory: saddle anaesthesia, paraesthesia, sensory level",
+        "details": "Sensory: saddle anaesthesia, paraesthesia, sensory level"
+      },
+      {
+        "step_number": "8",
+        "action": "Reflexes: any abnormal reflexes, including Babinski",
+        "details": "Reflexes: any abnormal reflexes, including Babinski"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "dose: if INR > 1.5 and actively bleeding. Vit K an",
+        "adult_dose": "dose: if INR > 1.5 and actively bleeding. Vit K and other management",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "warnings": [
+      "NB: Normal Hb may be misleading/falsely reassuring in early \nbleeding! Transfuse PRC and FFP 1:1 ratio if > 1 unit PRC required. \n■ \nAnaemia: Hb < 7; Hb < 10 if there is high risk of myocardial ischaemia, or if clinically \nindicated – syncope, ADHF, severe fatigue due to anaemia. \nNB! Find and treat the underlying cause \n• \nFRESH FROZEN PLASMA or FREEZE-DRIED PLASMA (15-20ml/kg)  \n■ \nWarfarin overdose: if INR > 1.5 and actively bleeding. Vit K and other management \nas per protocol. Consider PCC "
+    ],
+    "disposition": "DISPOSITION \n•\nLow risk patients: Non-specific pain < 6 weeks with no \nred flags, monoradiculopathy/sciatica – DC with simple \nanalgesics and physio/spine OPD follow up \n•\nHigh risk patients – manage underlying cause, admit to \nappropriate subspecialty once stable \n \nNON-SPINE RELATED CAUSES \n•\nVASCULAR: AAA, aortic dissection, renal artery \ndissection/thrombosis \n•\nRENAL: renal colic, pyelonephritis, perinephric abscess, prostatitis \n•\nGIT: pancreatitis, PUD, cholecystitis \n•\nANTICOAGULANTS: retroperitoneal haemorrhage \n•\nGYNAE: PID, rarely ectopic pregnancy. Lower back pain is common \nin PREGNANCY \n•\nSoft tissue: Psoas abscess, muscle spasm"
+  }
+}

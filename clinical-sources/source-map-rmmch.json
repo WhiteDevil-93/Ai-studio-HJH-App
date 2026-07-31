@@ -1,0 +1,24 @@
+{
+  "sourceId": "rmmch-paediatric-protocols",
+  "sections": [
+    {"match": "Airway management - advanced", "pages": [5]},
+    {"match": "Analgesia", "pages": [6, 7, 8, 9, 10]},
+    {"match": "Anaphylaxis", "pages": [11]},
+    {"match": "Animal / Mammalian Bites", "pages": [12]},
+    {"match": "Asthma - Acute", "pages": [13, 14]},
+    {"match": "Bradycardia Management", "pages": [16]},
+    {"match": "Advanced Cardiac Arrest", "pages": [18, 19]},
+    {"match": "Trauma Cardiac Arrest", "pages": [20]},
+    {"match": "Post Cardiac Arrest Care", "pages": [21, 22]},
+    {"match": "Seizures / Convulsions - Status Epilepticus", "pages": [43, 44]},
+    {"match": "Sepsis + Septic Shock", "pages": [46, 47]},
+    {"match": "qSOFA", "pages": [46, 47]},
+    {"match": "Tachycardia Management", "pages": [48]},
+    {"match": "Tetanus Prophylaxis", "pages": [49]},
+    {"match": "Upper GIT Bleeding", "pages": [52]},
+    {"match": "Acute Gastroenteritis", "pages": [57]},
+    {"match": "Pediatric Bradycardia", "pages": [68]},
+    {"match": "Croup", "pages": [100]},
+    {"match": "Neonatal Resuscitation", "pages": [155]}
+  ]
+}

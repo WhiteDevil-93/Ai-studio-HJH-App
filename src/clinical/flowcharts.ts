@@ -598,6 +598,7 @@ export const JAUNDICE_FLOWCHART_DATA: FlowchartData = {
 };
 
 export const BUILTIN_FLOWCHARTS: Record<string, FlowchartData> = {
+  // Existing underscore-key aliases (used by legacy pages and tests).
   hypertension_flowchart: HYPERTENSION_FLOWCHART_DATA,
   hypertension_management: HYPERTENSION_FLOWCHART_DATA,
   hypertension_approach: HYPERTENSION_FLOWCHART_DATA,
@@ -607,7 +608,20 @@ export const BUILTIN_FLOWCHARTS: Record<string, FlowchartData> = {
   pe_algorithm: PE_ALGORITHM_FLOWCHART_DATA,
   jaundice_flowchart: JAUNDICE_FLOWCHART_DATA,
   jaundice_approach: JAUNDICE_FLOWCHART_DATA,
+
+  // HJH 2026 imported canonical-entry slug aliases.
+  'hypertension-flowchart-hjh': HYPERTENSION_FLOWCHART_DATA,
+  'hypertensive-emergencies-hjh': HYPERTENSION_FLOWCHART_DATA,
+  'hyperglycaemia-flowchart': HYPERGLYCAEMIA_FLOWCHART_DATA,
+  'diabetic-ketoacidosis-dka-hjh': HYPERGLYCAEMIA_FLOWCHART_DATA,
+  'status-epilepticus-algorithm': STATUS_EPILEPTICUS_FLOWCHART_DATA,
+  'status-epilepticus-hjh': STATUS_EPILEPTICUS_FLOWCHART_DATA,
+  'pe-algorithm-hjh': PE_ALGORITHM_FLOWCHART_DATA,
+  'pulmonary-embolism-hjh': PE_ALGORITHM_FLOWCHART_DATA,
+  'jaundice-flowchart': JAUNDICE_FLOWCHART_DATA,
+  'liver-failure-hjh': JAUNDICE_FLOWCHART_DATA,
 };
+
 
 export const generateDynamicFlowchartFromProtocol = (
   protocolId: string,

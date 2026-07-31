@@ -1,0 +1,49 @@
+{
+  "categoryId": "14_ed_metabolic",
+  "subcategoryId": "protocols",
+  "slug": "hyperglycaemic-emergencies-dka-hhs-cmjah-3",
+  "order": 4000,
+  "source": {
+    "sourceId": "cmjah-ed-protocols-2020-v2",
+    "pdfPages": [
+      68,
+      69
+    ],
+    "sectionTitle": "Hyperglycaemic Emergencies (DKA/HHS)",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "cmjah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Hyperglycaemic Emergencies (DKA/HHS) (CMJAH)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "DKA: HGT >= 11 mmol/l, younger age, onset hours-days, nausea/vomiting, abdominal pain, acidotic Kussmaul breathing, urine ketones positive, metabolic acidosis, anion gap > 16",
+        "HHS: HGT >= 30 mmol/l, elderly, onset several days, altered mental state, focal neuro signs, urine ketones negative/weak, osmolality > 350, normal anion gap (12-16)"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Fluid Resuscitation",
+        "details": "If shocked: Balsol/Ringers Lactate 20ml/kg bolus. DKA: 1st litre over 1 hour, 2nd litre over 1 hour, then maintenance to UO 1-2ml/kg/hr. HHS: 250-500 ml/hr. Change to 5% Dextrose water when HGT <= 15 mmol/l or serum Na > 150 mmol/l."
+      },
+      {
+        "step_number": "2",
+        "action": "Electrolytes & Acidosis",
+        "details": "Potassium: Add 20-40mmol/l to IV fluids to maintain K at 4-5 mmol/l. Magnesium: 2g MgSO4 in fluids. Sodium Bicarbonate 8.5%: 1 ml/kg IV over 30 min ONLY if pH <= 6.85, tCO3 < 5."
+      },
+      {
+        "step_number": "3",
+        "action": "Insulin & Anticoagulation",
+        "details": "Delay insulin until serum K+ > 3.5 mmol/l. Actrapid 0.1 u/kg IV STAT (max 10u) then hourly OR Actrapid infusion @ 0.1 u/kg/hr. HHS anticoagulation: Clexane 0.5 mg/kg SC STAT."
+      }
+    ],
+    "warnings": [
+      "Delay insulin until serum Potassium > 3.5 mmol/l to prevent lethal hypokalaemic cardiac arrest."
+    ]
+  }
+}

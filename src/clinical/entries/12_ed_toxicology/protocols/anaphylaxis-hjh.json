@@ -1,0 +1,53 @@
+{
+  "categoryId": "12_ed_toxicology",
+  "subcategoryId": "protocols",
+  "slug": "anaphylaxis-hjh",
+  "order": 2001,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [],
+    "sectionTitle": "Anaphylaxis",
+    "transformation": "condensed",
+    "verification": "manual"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Anaphylaxis",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Stop suspected allergen & Position Patient",
+        "details": "Place supine, elevate legs. Stop trigger."
+      },
+      {
+        "step_number": "2",
+        "action": "Adrenaline IM STAT",
+        "details": "0.5ml neat 1:1000 IM in anterolateral thigh. Repeat q3-5min if required."
+      },
+      {
+        "step_number": "3",
+        "action": "High-Flow Oxygen & Aggressive Fluids",
+        "details": "20ml/kg Crystalloid bolus (Ringer's Lactate/Balsol). Airway management ready."
+      },
+      {
+        "step_number": "4",
+        "action": "Adjunctive Steroids/Antihistamines",
+        "details": "Hydrocortisone 200mg IV stat + Promethazine 12.5mg slow IV."
+      }
+    ],
+    "drugs": [
+      {
+        "item": "Adrenaline (IM)",
+        "adult_dose": "0.5ml 1:1000 IM STAT",
+        "notes": "Cornerstone. Do not wait."
+      }
+    ],
+    "warnings": [
+      "Biphasic reaction occurs in 5-20% of cases — monitor for 4-8 hours minimum",
+      "Avoid beta-blockers as they cause unopposed alpha-agonism during treatment"
+    ]
+  }
+}

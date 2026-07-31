@@ -1,0 +1,68 @@
+{
+  "categoryId": "12_ed_toxicology",
+  "subcategoryId": "protocols",
+  "slug": "tricyclic-antidepressant-overdose-hjh",
+  "order": 2006,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      244,
+      245,
+      246,
+      247
+    ],
+    "sectionTitle": "Tricyclic Antidepressant Overdose",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Tricyclic Antidepressant Overdose",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "symptoms prior to arrival \n•\nDocument specific features of TCA OD: \nSedation/coma/seizures \nMetabolic acidosis \nBroad complex tachydysrhythmias, hypotension \nAnticholinergic syndrome \nECG changes \n•\nFurther investigations: FBC, U&E, LFT, Paracetamol/Salicylate level, urine tox \nscreen \n \nECG FEATURES \n•\nNa channel blocking agent \n•\nSinus tachycardia \n•\nProlonged PR interval \n•\nInterventricular conduction delay – QRS > 100 ms \nQRS > 100ms predictive of seizures \nQRS > 160ms predictive of ventricular arrhythmias \n•\nProlonged QT interval \n•\nRBBB \n•\nRight axis deviation of the terminal QRS \nTerminal R wave > 3mm in aVR (tall R wave) \nR/S ratio > 0.7 in aVR \nTRICYCLIC ANTIDEPRESSANT OVERDOSE \n \n \n \n \n \n• \nSignificant overdose > 10 mg/kg \n \nSPECIFIC MANAGEMENT \nFURTHER MANAGEMENT CONSIDERATIONS \n• \nHypertonic saline 3% 100ml boluses if Sodabic unavailable \n• \n3RD line treatment: \n• \nIV Sodium bicarbonate 1- 2 mmol/kg (1 - 2 ml/kg 8.4% or 2 - 4 ml/kg 4.2%) \n■ \nIndications: pH < 7.1, QRS > 100ms, arrhythmias, seizures, hypotension \n■ \nRepeat every 5 minutes until BP improves and QRS complexes narrow \n■ \nIf arrhythmias occur, cardioversion is unlikely to be successful, continue Sodabic boluses until \nrhythm normalizes \n■ \nIf seizures occur, Sodabic is the 1st line treatment \n• \nIntubate early for airway protection and hyperventilation – BEWARE WORSENING ACIDOSIS \n• \nHyperventilate to maintain pH at 7.5 – 7.55 \n• \nAdminister 1g/kg activated charcoal via NGT ONLY once airway is protected (even if presentation > 1 \nhour after ingestion). Consider MDAC in severe cases \n• \nBenzodiazepines can be used for seizures, AVOID ANTI-EPILEPTIC DRUGS \n• \nFluid bolus 20ml/kg crystalloid, consider inotropes if still hypotensive \nTHE MAINSTAY OF TREATMENT IS SODIUM BICARBONATE AND HYPERVENTILATION \nLignocaine 1.5 mg/kg IV for arrhythmias once pH >7.5 \n• \nConsider Magnesium Sulphate if significant QT prolongation \n• \nConsider Intralipid in consultation with GIT/ICU \n• \nConsider ECMO in refract"
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "APPROACH",
+        "details": "APPROACH"
+      },
+      {
+        "step_number": "2",
+        "action": "Triage to RESUS AREA, even if patient initially appears well",
+        "details": "Triage to RESUS AREA, even if patient initially appears well"
+      },
+      {
+        "step_number": "3",
+        "action": "Rapid ABC assessment, 2 IV lines, monitors, HGT, VBG, urine BHCG",
+        "details": "Rapid ABC assessment, 2 IV lines, monitors, HGT, VBG, urine BHCG"
+      },
+      {
+        "step_number": "4",
+        "action": "Correct electrolyte abnormalities",
+        "details": "Correct electrolyte abnormalities"
+      },
+      {
+        "step_number": "5",
+        "action": "Comprehensive history and examination, including:",
+        "details": "Comprehensive history and examination, including:"
+      },
+      {
+        "step_number": "6",
+        "action": "Amount and time of ingestion, co-ingestants",
+        "details": "Amount and time of ingestion, co-ingestants"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "medications, symptoms prior to arrival",
+        "adult_dose": "medications, symptoms prior to arrival",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "disposition": "DISPOSITION \nMedicine consult \nWill likely require ICU/High care \nContinue serial ECG and VBG monitoring in ED"
+  }
+}

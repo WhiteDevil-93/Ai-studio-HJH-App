@@ -8,9 +8,9 @@
     "pdfPages": [
       143
     ],
-    "sectionTitle": "Tricyclic Antidepressant (TCA) Overdose (CMJAH)",
+    "sectionTitle": "Tricyclic Antidepressant (TCA) Overdose",
     "transformation": "condensed",
-    "verification": "manual"
+    "verification": "page-index"
   },
   "sourceGroup": "cmjah",
   "reviewState": "unreviewed",

@@ -4,13 +4,15 @@
   "slug": "anion_gap",
   "order": 10,
   "source": {
-    "sourceId": "source-unresolved",
-    "pdfPages": [],
-    "sectionTitle": "anion_gap",
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      92
+    ],
+    "sectionTitle": "Anion Gap (HJH, potassium-inclusive)",
     "transformation": "combined",
-    "verification": "unverifiable"
+    "verification": "page-index"
   },
-  "sourceGroup": "bara_icu",
+  "sourceGroup": "hjth",
   "reviewState": "unreviewed",
   "errata": [],
   "record": {

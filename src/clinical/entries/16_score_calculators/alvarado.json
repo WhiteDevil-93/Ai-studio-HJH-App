@@ -4,13 +4,15 @@
   "slug": "alvarado",
   "order": 3,
   "source": {
-    "sourceId": "source-unresolved",
-    "pdfPages": [],
-    "sectionTitle": "alvarado",
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      7
+    ],
+    "sectionTitle": "Alvarado Score",
     "transformation": "combined",
-    "verification": "unverifiable"
+    "verification": "page-index"
   },
-  "sourceGroup": "bara_icu",
+  "sourceGroup": "hjth",
   "reviewState": "unreviewed",
   "errata": [],
   "record": {

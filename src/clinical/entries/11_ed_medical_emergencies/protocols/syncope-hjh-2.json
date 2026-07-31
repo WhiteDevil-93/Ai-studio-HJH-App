@@ -1,0 +1,65 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "syncope-hjh-2",
+  "order": 2051,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      180,
+      181
+    ],
+    "sectionTitle": "Syncope",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Syncope",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "signs/ECG are significantly abnormal \n• \nRapid ABC assessment \n• \nIV access only if patient unstable \n• \nBedside investigations: HGT, VBG, urine ß-HCG for all females \n• \nECG on all patients – look for features of ischaemia, prolonged QT interval, shortened PR interval \nor ECG signs of metabolic derangements (see Protocol: ECG for causes of syncope) \n• \nCorrect electrolyte abnormalities \n• \nComprehensive history including collateral and thorough physical examination \n■ \nFocused CVS and CNS examination \n■ \nComplete head to toe examination \n• \nFurther investigations: FBC, U&E, D-dimer, serial troponins and ECGs as indicated, \n• \nPOCUS – AAA, ectopic, volume status, cardiac contractility/structural abnormalities. \n• \nCT Brain if neurological fallout \n \n \n \n \n \n• \nCardiovascular & Respiratory \nCAUSES \nUp to 50% - no cause found in ED \n■ \nDysrhythmias: AV nodal blocks/Paroxysmal SVT/VT/AF, pacemaker dysfx \n■ \nHereditary syndromes e.g. WPW, Brugada, ARVC, long/short QT, obstructive cardiomyopathy \n■ \nStructural heart disease e.g. aortic stenosis, obstructive cardiomyopathy \n■ \nACS, especially RV infarction \n■ \nAortic dissection \n■ \nPericardial tamponade \n■ \nPE \n■ \nVascular steal syndromes \n• \nOrthostatic \n■ \nAutonomic failure: pure autonomic failure, diabetic neuropathy, Parkinson’s, drugs/ETOH \n■ \nVolume depletion: haemorrhage (NB ECTOPIC PREGNANCY), diarrhoea, Addison’s disease \n• \nNeurally-mediated \n■ \nVasovagal faint – prolonged standing, warm environment, stressors, pain, anxiety \n■ \nSituational: cough, sneeze, micturition, defaecation, exercise related, carotid sinus pressure \n■ \nCarotid sinus syncope \n \n \nHIGH RISK CLINICAL FEATURES \n•\nExtremes of age \n•\nDocumented or suspected cardiac abnormalities/ischaemia \n•\nDiabetes \n•\nRecurrent, frequent syncopal episodes without clear cause \n•\nAnaemia/suspected haemorrhage – ectopic, GI bleed \n•\nPersistent abnormal vital signs \n•\nSyncope during exertion - HOCM \n•\nFamily hx of sudden death – hereditary cardiac syndromes \n \nDI"
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "APPROACH",
+        "details": "APPROACH"
+      },
+      {
+        "step_number": "2",
+        "action": "Transient, self-limiting LOC with spontaneous recovery",
+        "details": "Transient, self-limiting LOC with spontaneous recovery"
+      },
+      {
+        "step_number": "3",
+        "action": "NB! History and examination more useful than special investigations.",
+        "details": "NB! History and examination more useful than special investigations."
+      },
+      {
+        "step_number": "4",
+        "action": "Triage to RESUS AREA if vital signs/ECG are significantly abnormal",
+        "details": "Triage to RESUS AREA if vital signs/ECG are significantly abnormal"
+      },
+      {
+        "step_number": "5",
+        "action": "Rapid ABC assessment",
+        "details": "Rapid ABC assessment"
+      },
+      {
+        "step_number": "6",
+        "action": "IV access only if patient unstable",
+        "details": "IV access only if patient unstable"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "See protocol",
+        "notes": "Drug details in source PDF"
+      }
+    ],
+    "disposition": "DISPOSITION \n•\nElderly + co-morbid disease/high risk features + syncope ➔ refer \nto appropriate subspecialty for admission \n \n•\nYoung + normal vital signs + normal ECG & normal examination \nDischarge \nSYNCOPE MIMICS \n•\nHypoglycaemia \n•\nSeizures \n•\nAcute intoxications \n•\nTIAs \n•\nPsychogenic faints \nRISK STRATIFICATION \nPREDICTION RULES \nNo clinical prediction rules \nare sufficiently accurate to \nreplace clinical judgement"
+  }
+}

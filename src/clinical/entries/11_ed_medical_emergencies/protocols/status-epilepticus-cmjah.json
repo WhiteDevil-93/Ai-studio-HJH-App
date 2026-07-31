@@ -9,9 +9,9 @@
       119,
       120
     ],
-    "sectionTitle": "Status Epilepticus (CMJAH)",
+    "sectionTitle": "Status Epilepticus",
     "transformation": "condensed",
-    "verification": "manual"
+    "verification": "page-index"
   },
   "sourceGroup": "cmjah",
   "reviewState": "unreviewed",

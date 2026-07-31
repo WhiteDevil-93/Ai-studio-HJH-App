@@ -9,9 +9,9 @@
       133,
       134
     ],
-    "sectionTitle": "Thyroid Emergencies (CMJAH)",
+    "sectionTitle": "Thyroid Emergencies",
     "transformation": "condensed",
-    "verification": "manual"
+    "verification": "page-index"
   },
   "sourceGroup": "cmjah",
   "reviewState": "unreviewed",

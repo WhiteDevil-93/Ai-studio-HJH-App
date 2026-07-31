@@ -1,0 +1,66 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "indications-for-dialysis",
+  "order": 2019,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [],
+    "sectionTitle": "Indications For Dialysis",
+    "transformation": "condensed",
+    "verification": "manual"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Indications For Dialysis",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "Signs \nAcknowledgement \nCompiled by Dr LN Goldstein, Aug \n2013\nAmiodarone Infusion"
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "APPROACH",
+        "details": "APPROACH"
+      },
+      {
+        "step_number": "2",
+        "action": "Consider INH toxicity in all refractory seizures, especially if on TB Rx/prophylaxis",
+        "details": "Consider INH toxicity in all refractory seizures, especially if on TB Rx/prophylaxis"
+      },
+      {
+        "step_number": "3",
+        "action": "Clinical features: Depletes Vit B6, causing decreased GABA – seizures, lactic acidosis",
+        "details": "Clinical features: Depletes Vit B6, causing decreased GABA – seizures, lactic acidosis"
+      },
+      {
+        "step_number": "4",
+        "action": "ECG Features: No specific features, sinus tachycardia",
+        "details": "ECG Features: No specific features, sinus tachycardia"
+      },
+      {
+        "step_number": "5",
+        "action": "Blood gas: HAGMA, severe lactic acidosis",
+        "details": "Blood gas: HAGMA, severe lactic acidosis"
+      },
+      {
+        "step_number": "6",
+        "action": "Triage to RESUS AREA, even if patient initially appears well",
+        "details": "Triage to RESUS AREA, even if patient initially appears well"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "Dose: 5mg/kg (Max 300mg) in 200mℓ 5% dextrose over",
+        "adult_dose": "Dose: 5mg/kg (Max 300mg) in 200mℓ 5% dextrose over 1",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "warnings": [
+      "NOTE: Use ketamine with concentration of 100mg/mℓ NOT ketamine 10mg/mℓ. Withdraw 2mℓ normal saline \nbefore adding 2mℓ (200mg) of ketamine \n1mg/mℓ \nAnalgesia | Ketamine Infusion \n \n \n \n \nLoading Dose Ketamine: \n0.25mg/kg IVI bolus administer prior to starting infusion \n \nWeight (kg) \nRATE \nmg/hr (mℓ/hr) \n40 \n50 \n60 \n70 \n80 \n90 \n100 \n110 \n120 \nAnalgesia \n0.05 \n2 \n2.5 \n3 \n3.5 \n4 \n4.5 \n5 \n5.5 \n6 \n0.1 \n4 \n5 \n6 \n7 \n8 \n9 \n10 \n11 \n12 \nSedation \n0.2 \n8 \n10 \n12 \n14 \n16 \n18 \n20 \n22 \n24 \n0.3 \n12 \n15 \n18 \n21"
+    ],
+    "disposition": "DISPOSITION \n•\nInternal medicine referral \n•\nWill likely require ICU/High care \n•\nContinue serial ECG and VBG monitoring in ED \nISONIAZID (INH) OVERDOSE \n \nGENERAL APPROACH \nConsider INH toxicity in all refractory seizures, especially if on TB Rx/prophylaxis \n• \nClinical features: Depletes Vit B6, causing decreased GABA – seizures, lactic acidosis \n• \nECG Features: No specific features, sinus tachycardia \n• \nBlood gas: HAGMA, severe lactic acidosis \n• \nTriage to RESUS AREA, even if patient initially appears well \n• \nTerminate seizures with Benzodiazepines (high doses may be required). \nSee Status Epilepticus protocol, but avoid anti-epileptic agents. \n• \nRapid ABC assessment, 2 IV lines, monitors, HGT, VBG, urine ßHCG, ECG \n• \nEarly airway management – will require intubation prior to Pyridoxine administration \n• \nCorrect abnormal electrolytes, consider other causes of seizures \n• \nCrystalloid fluid bolus 20mg/kg if hypotensive \n• \nComprehensive history and exam, including: \n■ \nAmount "
+  }
+}

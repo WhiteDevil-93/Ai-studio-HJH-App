@@ -1,0 +1,82 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "hypertension-flowchart-hjh-2",
+  "order": 2024,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      98,
+      99
+    ],
+    "sectionTitle": "Hypertension Flowchart",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Hypertension Flowchart",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Management of Hypertensive Emergencies",
+        "details": "Management of Hypertensive Emergencies"
+      },
+      {
+        "step_number": "2",
+        "action": "• ABC approach to resuscitation",
+        "details": "• ABC approach to resuscitation"
+      },
+      {
+        "step_number": "3",
+        "action": "• A – definitive airway if a depressed level of consciousness",
+        "details": "• A – definitive airway if a depressed level of consciousness"
+      },
+      {
+        "step_number": "4",
+        "action": "• B – Acute pulmonary oedema, but intubation is not indicated, start non-invasive",
+        "details": "• B – Acute pulmonary oedema, but intubation is not indicated, start non-invasive"
+      },
+      {
+        "step_number": "5",
+        "action": "ventilation (see NIV protocol)",
+        "details": "ventilation (see NIV protocol)"
+      },
+      {
+        "step_number": "6",
+        "action": "• C – Fluid bolus with Balsol / Ringers Lactate @ 10ml/kg prior to commencing IV anti-",
+        "details": "• C – Fluid bolus with Balsol / Ringers Lactate @ 10ml/kg prior to commencing IV anti-"
+      },
+      {
+        "step_number": "7",
+        "action": "hypertensive agent",
+        "details": "hypertensive agent"
+      },
+      {
+        "step_number": "8",
+        "action": "TREATMENT GOAL",
+        "details": "TREATMENT GOAL"
+      },
+      {
+        "step_number": "9",
+        "action": "Within 1st hour: Reduce MAP by 20-25% only; DBP not less than 110mmHg except",
+        "details": "Within 1st hour: Reduce MAP by 20-25% only; DBP not less than 110mmHg except"
+      },
+      {
+        "step_number": "10",
+        "action": "Aortic Dissection: Goal systolic < 100-120 within 20 minutes if tolerated",
+        "details": "Aortic Dissection: Goal systolic < 100-120 within 20 minutes if tolerated"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "See protocol",
+        "notes": "Drug details in source PDF"
+      }
+    ],
+    "disposition": "admission if severely \nelevated/poor follow-up/multiple \ncomorbidities \n•\nNO INDICATION FOR IV ANTI-\nHYPERTENSIVE AGENTS! \n \n \nHypertensive Emergency \nElevated blood pressure (> 180/110) \nWITH LIFE THREATENING ACUTE END ORGAN DAMAGE \n•\nHypertensive encephalopathy & \nretinopathy \n•\nHaemorrhagic / acute Ischaemic CVA \n•\nACS – STEMI/NSTE-ACS \n•\nAcute LV dysfunction / Congestive heart \nfailure \n•\nAcute pulmonary oedema (SCAPE) \n•\nAortic dissection \n•\nAcute renal failure \n•\nEclampsia / Pre-eclampsia"
+  }
+}

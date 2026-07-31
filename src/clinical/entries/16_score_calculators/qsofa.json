@@ -8,7 +8,7 @@
     "pdfPages": [46, 47],
     "sectionTitle": "Sepsis + Septic Shock (RMMCH)",
     "transformation": "derived",
-    "verification": "unverifiable"
+    "verification": "page-index"
   },
   "sourceGroup": "rmmch",
   "reviewState": "unreviewed",
@@ -17,7 +17,7 @@
     "name": "qSOFA Score",
     "category": "sepsis",
     "source_pages": [46, 47],
-    "source_label": "RMMCH PDF pages 46-47 · fingerprint unconfirmed, clinical review pending",
+    "source_label": "RMMCH EM Clinical Protocols V5 (March 2024) · pages 46-47",
     "components": [
       {
         "name": "Altered mental status (GCS < 15)",

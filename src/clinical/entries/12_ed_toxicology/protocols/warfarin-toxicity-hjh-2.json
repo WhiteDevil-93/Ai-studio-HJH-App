@@ -1,0 +1,75 @@
+{
+  "categoryId": "12_ed_toxicology",
+  "subcategoryId": "protocols",
+  "slug": "warfarin-toxicity-hjh-2",
+  "order": 2011,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [],
+    "sectionTitle": "Warfarin Toxicity",
+    "transformation": "condensed",
+    "verification": "manual"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Warfarin Toxicity",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "presentation < 1 hour post ingestion \n* NB Do not discharge even if asymptomatic! Must be monitored for 72 hours. \nSuper-warfarins may require WEEKS of Vit K therapy \nRISK STRATIFICATION IF ANTI-COAGULATION IS REVERSED \nHigh: mechanical valve, especially mitral valve \nModerate: AF/cardiomyopathy with valvular disease/previous CVA/MI/embolism/CCF, multiple PE/DVT, \nbiological valve < 3/12, DVT < 2/12, lab-confirmed hypercoagulability + DVT/PE, prev arterial emboli \nLow: AF/Cardiomyopathy with no complications, biological valve > 3/12, vascular prosthetic grafts, post \nstent insertion, mural thrombus prophylaxis"
+    },
+    "drugs": [
+      {
+        "item": "dose, retest dly, resume at lower dose once",
+        "adult_dose": "dose, retest dly, resume at lower dose once",
+        "notes": "Extracted from HJH ED 2026"
+      },
+      {
+        "item": "* 4.5 – 10: Stop warfarin, assess causes. Give 1 –",
+        "adult_dose": "* 4.5 – 10: Stop warfarin, assess causes. Give 1 – 2.5mg oral Vit K if bleeding",
+        "notes": "Extracted from HJH ED 2026"
+      },
+      {
+        "item": "risk high. Resume warfarin at lower dose once INR ",
+        "adult_dose": "risk high. Resume warfarin at lower dose once INR therapeutic",
+        "notes": "Extracted from HJH ED 2026"
+      },
+      {
+        "item": "* >10: Stop warfarin, assess causes. 2.5 – 5mg ora",
+        "adult_dose": "* >10: Stop warfarin, assess causes. 2.5 – 5mg oral Vit K. Resume warfarin at",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "warnings": [
+      "NB: GOAL OF TREATMENT IS A RETURN TO THERAPEUTIC INR, NOT SUB-THERAPEUTIC/NORMAL INR \nFACTORS AFFECTING INR & BLEEDING RISK \n•\nComorbidities e.g. CCF, Liver/Renal disease \n•\nAntibiotics, NSAIDs, paracetamol, dietary Vit K \n•\nAcute illness, dehydration, AGE, medication errors \n•\nElderly/frail/fall risk \n•\nPrevious labile INR \n•\nRecent major bleed/surgery \n•\nThrombocytopaenia/antiplatelet agents \n•\nHigh HASBLED score \nACUTE NON-ACCIDENTAL OVERDOSE  \n \n* Warfarin or Super-warfarin (Coumadin) – rat "
+    ],
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Warning",
+        "details": "NB: GOAL OF TREATMENT IS A RETURN TO THERAPEUTIC INR, NOT SUB-THERAPEUTIC/NORMAL INR \nFACTORS AFFECTING INR & BLEEDING RISK \n•\nComorbidities e.g. CCF, Liver/Renal disease \n•\nAntibiotics, NSAIDs, paracetamol, dietary Vit K \n•\nAcute illness, dehydration, AGE, medication errors \n•\nElderly/frail/fall risk \n•\nPrevious labile INR \n•\nRecent major bleed/surgery \n•\nThrombocytopaenia/antiplatelet agents \n•\nHigh HASBLED score \nACUTE NON-ACCIDENTAL OVERDOSE  \n \n* Warfarin or Super-warfarin (Coumadin) – rat"
+      },
+      {
+        "step_number": "2",
+        "action": "dose, retest dly, resume at lower dose once",
+        "details": "item: dose, retest dly, resume at lower dose once; adult_dose: dose, retest dly, resume at lower dose once; notes: Extracted from HJH ED 2026"
+      },
+      {
+        "step_number": "3",
+        "action": "* 4.5 – 10: Stop warfarin, assess causes. Give 1 –",
+        "details": "item: * 4.5 – 10: Stop warfarin, assess causes. Give 1 –; adult_dose: * 4.5 – 10: Stop warfarin, assess causes. Give 1 – 2.5mg oral Vit K if bleeding; notes: Extracted from HJH ED 2026"
+      },
+      {
+        "step_number": "4",
+        "action": "risk high. Resume warfarin at lower dose once INR ",
+        "details": "item: risk high. Resume warfarin at lower dose once INR ; adult_dose: risk high. Resume warfarin at lower dose once INR therapeutic; notes: Extracted from HJH ED 2026"
+      },
+      {
+        "step_number": "5",
+        "action": "* >10: Stop warfarin, assess causes. 2.5 – 5mg ora",
+        "details": "item: * >10: Stop warfarin, assess causes. 2.5 – 5mg ora; adult_dose: * >10: Stop warfarin, assess causes. 2.5 – 5mg oral Vit K. Resume warfarin at; notes: Extracted from HJH ED 2026"
+      }
+    ]
+  }
+}

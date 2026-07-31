@@ -1,0 +1,54 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "upper-git-bleeding-ugib-protocol-rmmch-2",
+  "order": 3000,
+  "source": {
+    "sourceId": "rmmch-paediatric-protocols",
+    "pdfPages": [
+      52
+    ],
+    "sectionTitle": "Upper GIT Bleeding UGIB Protocol",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "rmmch",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Upper GIT Bleeding UGIB Protocol (RMMCH)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "Bleeding above the ligament of Treitz.",
+        "Clinical features: Haematemesis, Melena stools, Haematochezia, Syncope, Epigastric/abdo pain, Heartburn/dyspepsia.",
+        "Glasgow Blatchford Score (GBS): 0 = early D/C, <2 = low risk, >6 = high risk."
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Unstable Patient Resuscitation",
+        "details": "ABCs, Large bore IV lines, Warmed IV fluids, Fluid/blood warmer, Bair-hugger. TRANSFUSE Packed cells +/- blood products."
+      },
+      {
+        "step_number": "2",
+        "action": "High / Moderate Risk Management",
+        "details": "Contact surgeon early. Pantoprazole 80mg IV STAT + Pantoprazole infusion 80mg in 200ml N/S @ 20ml/hr. Immediate endoscopy, ICU/HCA bed request for admission. If Moderate risk: Pantoprazole 40mg IV STAT, Urgent endoscopy within 24 hrs of admission."
+      },
+      {
+        "step_number": "3",
+        "action": "Variceal Bleeding Specifics",
+        "details": "Prophylactic Antibiotics: Ceftriaxone 1G IVI STAT. Consider balloon tamponade."
+      },
+      {
+        "step_number": "4",
+        "action": "Low Risk Management",
+        "details": "GBS = 0 early D/C. Book outpatient endoscopy & F/U. Script for PPIs, risk modification."
+      }
+    ],
+    "warnings": [
+      "Danger groups: Elderly, Varices, Shocked, Fresh blood, Comorbidities, Re-bleeds."
+    ]
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "oncological-emergencies-hjh-2",
+  "order": 2033,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      133,
+      134,
+      135,
+      136,
+      137
+    ],
+    "sectionTitle": "Oncological Emergencies In The Ed",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Oncological Emergencies In The Ed",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "Signs and Symptoms \n■ \nExertional dyspnoea, chest pain, tachycardia, pulsus paradox \n■ \nBeck’s triad: Muffled heart sounds, distended neck veins, \nhypotension (only 1/3 patients) \n■ \nWorrying signs: Tachypnoea, tachycardia, hypotension, narrow \npulse pressure, altered GCS \n• Bedside U/S \n■ \nFluid around heart \n■ \nDanger signs: RA collapse in late diastole, RV collapse in early \ndiastole \n• ECG: Low amplitude QRS, electrical alternans \n• CXR: Increased cardiac shadow (increased cardio-thoracic ratio) \n• Emergent Rx: Pericardiocentesis (Emergency ED procedure in tamponade) \n■ \nU/S guided - Seldinger technique with CVP set \n➔ NB! DO NOT SLASH MYOCARDIUM \n■ \nElevate bed 30-45, aseptic, identify deepest pocket of fluid \nparasternal/apical/subxiphoid view, insert needle above rib with \nU/S guidance into pericardial sac \n• Supportive treatment \n■ \nFluid resus only if hypovolaemic \n■ \nTry avoiding intubation - worsens haemodynamic status \n• Disposition \n■ \nOncology referral if known patient (by inpt dept)\nONCOLOGICAL EMERGENCIES \nLOCAL EFFECTS \n \nSVC SYNDROME \n• Mechanical obstruction SVC \nInternal: Clot \nExternal: Tumour/Lymph node \n• Cancers: Lung, NH Lymphoma \n• Sx depends on extent obstruction and rapidity of onset \n• Signs and symptoms \nDyspnoea, facial oedema, cough, chest pain, dysphagia, \ndistended neck veins, facial plethora, arm oedema \nRARE and DANGEROUS vocal cord oedema \n• CXR: Can be normal, widened mediastinum, pleural effusion \n• CT gold standard \n• Treatment \nManage airway if needed (NB! expect difficult airway) \nElevate head, supportive treatment \nSteroids: Dexamethasone 8mg STAT \nConsider anti-coagulation (if thrombus suspected) \n• Disposition \nOncology referral by inpt dept \nUltimate Rx: Chemotherapy, radiotherapy, stenting"
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "management",
+        "details": "management"
+      },
+      {
+        "step_number": "2",
+        "action": "Neurology: Dexamethasone 10mg STAT",
+        "details": "Neurology: Dexamethasone 10mg STAT"
+      },
+      {
+        "step_number": "3",
+        "action": "• Disposition",
+        "details": "• Disposition"
+      },
+      {
+        "step_number": "4",
+        "action": "Urgent Ortho Spine referral",
+        "details": "Urgent Ortho Spine referral"
+      },
+      {
+        "step_number": "5",
+        "action": "Urgent Radiation oncology referral (by inpt dept)",
+        "details": "Urgent Radiation oncology referral (by inpt dept)"
+      },
+      {
+        "step_number": "6",
+        "action": "BRAIN METASTASIS",
+        "details": "BRAIN METASTASIS"
+      },
+      {
+        "step_number": "7",
+        "action": "Most common oncological neurological manifestation",
+        "details": "Most common oncological neurological manifestation"
+      },
+      {
+        "step_number": "8",
+        "action": "Cancer: Melanoma, lung, breast, liver, thyroid",
+        "details": "Cancer: Melanoma, lung, breast, liver, thyroid"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "dose steroids,",
+        "adult_dose": "dose steroids,",
+        "notes": "Extracted from HJH ED 2026"
+      },
+      {
+        "item": "Leukaemia, lymphoma, aggressive Rx, high tumour",
+        "adult_dose": "Leukaemia, lymphoma, aggressive Rx, high tumour",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "warnings": [
+      "Caution: liver impairment \n \nNON-STEROIDAL ANTI-INFLAMMATORIES (NSAIDs) \nIBUPROFEN \nAdults \n• \n200 – 600 mg PO \n• \nTTO: 200 – 400mg PO q6-8hrly cc (with meals) \nPaeds \n• \n5-10mg/kg/dose PO q6-8hrly cc (NB! not to exceed 40mg/kg/day) \n \nCaution: renal failure, bleeding / PUD, elderly \n \n \n \n \nFENTANYL \nOPIOIDS \n• \n1µg/kg IV slowly \n(Duration of action: 30-45min) \n• \n1-2µg/kg/hr infusion \n• \nCardio stable \n• \n1.5 mcg/kg Intranasal in paeds  \nMORPHINE \n• \n0.1mg/kg IV \n(Duration of action: 4-6hrs) \n"
+    ],
+    "disposition": "Disposition \n■ \nOncology referral if known patient (by inpt dept)\nONCOLOGICAL EMERGENCIES \nLOCAL EFFECTS \n \nSVC SYNDROME \n• Mechanical obstruction SVC \nInternal: Clot \nExternal: Tumour/Lymph node \n• Cancers: Lung, NH Lymphoma \n• Sx depends on extent obstruction and rapidity of onset \n• Signs and symptoms \nDyspnoea, facial oedema, cough, chest pain, dysphagia, \ndistended neck veins, facial plethora, arm oedema \nRARE and DANGEROUS vocal cord oedema \n• CXR: Can be normal, widened mediastinum, pleural effusion \n• CT gold standard \n• Treatment \nManage airway if needed (NB! expect difficult airway) \nElevate head, supportive treatment \nSteroids: Dexamethasone 8mg STAT \nConsider anti-coagulation (if thrombus suspected) \n• Disposition \nOncology referral by inpt dept \nUltimate Rx: Chemotherapy, radiotherapy, stenting"
+  }
+}

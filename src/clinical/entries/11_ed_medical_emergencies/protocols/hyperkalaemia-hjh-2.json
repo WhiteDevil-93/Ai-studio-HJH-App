@@ -1,0 +1,82 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "hyperkalaemia-hjh-2",
+  "order": 2023,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      94
+    ],
+    "sectionTitle": "Hyperkalaemia = K",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Hyperkalaemia = K",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "MANAGEMENT",
+        "details": "MANAGEMENT"
+      },
+      {
+        "step_number": "2",
+        "action": "Stop exogenous K+ administration",
+        "details": "Stop exogenous K+ administration"
+      },
+      {
+        "step_number": "3",
+        "action": "Stabilise the cardiac membrane (see table)",
+        "details": "Stabilise the cardiac membrane (see table)"
+      },
+      {
+        "step_number": "4",
+        "action": "Shift K+ intracellularly & increase K+ excretion (see table)",
+        "details": "Shift K+ intracellularly & increase K+ excretion (see table)"
+      },
+      {
+        "step_number": "5",
+        "action": "Treat the underlying cause",
+        "details": "Treat the underlying cause"
+      },
+      {
+        "step_number": "6",
+        "action": "Follow-up monitoring of potassium",
+        "details": "Follow-up monitoring of potassium"
+      },
+      {
+        "step_number": "7",
+        "action": "Sodium Bicarbonate",
+        "details": "Sodium Bicarbonate"
+      },
+      {
+        "step_number": "8",
+        "action": "Routine use no longer recommended",
+        "details": "Routine use no longer recommended"
+      },
+      {
+        "step_number": "9",
+        "action": "Minimal effect on K+",
+        "details": "Minimal effect on K+"
+      },
+      {
+        "step_number": "10",
+        "action": "May be of benefit in NORMAL ANION GAP METABOLIC ACIDOSIS",
+        "details": "May be of benefit in NORMAL ANION GAP METABOLIC ACIDOSIS"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "DOSE",
+        "adult_dose": "DOSE",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "disposition": "Follow-up monitoring of potassium \n \nSodium Bicarbonate \nRoutine use no longer recommended \nMinimal effect on K+ \nMay be of benefit in NORMAL ANION GAP METABOLIC ACIDOSIS \nDosage 8.5% solution 1mEq/kg = 1ml/kg \nAdminister in separate IV line to calcium \nCAUSES \n*Impaired excretion \ne.g. renal failure, drugs (spironolactone), \nhypoaldosteronism (Addison’s) \n*Transcellular shifts \ne.g. haemolysis (2 rhabdomyolysis), acidosis, \nhyperglycaemia \n*Measurement error \ne.g. haemolysis during phlebotomy \nCORRECTION FOR ACID-BASE STATUS \nDecrease of pH by 0.1 \n= \nIncreased K+ of 0.3 – 0.5mmol/l \ne.g. pH 7.1 and K+ 6, then corrected K+ = 5.1 \nMore useful in mineral met acidosis e.g. renal failure \nthan organic acidosis e.g. DKA, lactate \n \nECG CHANGES \nPeaked T waves \nProlonged PR interval \nFlattened P waves \nQRS widening \nSine wave \nCardiac arrest"
+  }
+}

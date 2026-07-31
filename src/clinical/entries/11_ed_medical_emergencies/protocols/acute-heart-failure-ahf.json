@@ -4,13 +4,15 @@
   "slug": "acute-heart-failure-ahf",
   "order": 3,
   "source": {
-    "sourceId": "source-unresolved",
-    "pdfPages": [],
-    "sectionTitle": "Source mapping required",
-    "transformation": "combined",
-    "verification": "unverifiable"
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      16
+    ],
+    "sectionTitle": "Acute Heart Failure",
+    "transformation": "condensed",
+    "verification": "page-index"
   },
-  "sourceGroup": "edl_phc",
+  "sourceGroup": "hjth",
   "reviewState": "unreviewed",
   "errata": [],
   "record": {
@@ -44,6 +46,50 @@
         "step_number": "4",
         "action": "Inotropic Support (if cardiogenic shock)",
         "details": "If SBP < 90 with signs of hypoperfusion: start Dobutamine infusion 2.5-10 ug/kg/min (avoid in pure diastolic dysfunction or severe aortic stenosis)."
+      }
+    ],
+    "embedded_drugs": [
+      {
+        "item": "Furosemide",
+        "adult_dose": "Bolus: 20-40mg IV; Infusion: 5-40mg/hr",
+        "paediatric_dose": "0.5-1mg/kg IV 8-12hrly",
+        "notes": "Monitor electrolytes. Ototoxicity at high doses"
+      },
+      {
+        "category": "HJH ED Protocol — Infusions",
+        "item": "Nitroglycerin",
+        "formula": "Dose x 60 / prepared concentration",
+        "standard_dilutions": "10mg in 200ml N/S (50mcg/ml)"
+      },
+      {
+        "category": "HJH ED Protocol — Infusions",
+        "item": "Isosorbide Dinitrate",
+        "formula": "Dose / prepared concentration",
+        "standard_dilutions": "20mg in 200ml (0.1mg/ml); protocol also lists 100mg in 200ml (0.5mg/ml)"
+      },
+      {
+        "drug": "Morphine",
+        "adult_dose": "0.1mg/kg IV; 0.1-0.4mg/kg/hr",
+        "paediatric_dose": "0.1mg/kg IV; 0.01-0.05mg/kg/hr",
+        "notes_updates": "First-line opioid for severe pain"
+      },
+      {
+        "category": "Bara ICU — Inotropes",
+        "item": "Dobutamine",
+        "formula": "ml/hr = (ug/kg/min x kg x 60) / 1250",
+        "standard_dilutions": "250mg in 200ml N/S"
+      },
+      {
+        "category": "Bara ICU — Inotropes",
+        "item": "Noradrenaline",
+        "formula": "ml/hr = (ug/kg/min x kg x 60) / 50",
+        "standard_dilutions": "Double Strength: 10mg in 200ml N/S"
+      },
+      {
+        "drug": "Digoxin",
+        "adult_dose": "Loading: 0.5-1mg IV/PO; Maint: 125-250mcg daily",
+        "paediatric_dose": "10-15mcg/kg IV/PO",
+        "notes_updates": "Check levels. Toxicity: nausea, visual changes, arrhythmias"
       }
     ]
   }

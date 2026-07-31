@@ -167,6 +167,11 @@ const CATEGORY_ICONS: Record<string, string> = {
   '17_phc_primary_care': '💊'
 };
 
+// Source preference order used when grouping/sorting entries within a category.
+// Entries are shown institution-by-institution so duplicates across hospitals
+// are easy to scan and compare while remaining independent.
+const SOURCE_GROUP_ORDER = ['hjh', 'rmmch', 'cmjah', 'chbah', 'bara_icu', 'edl_phc'];
+
 const ORDER = [
   'home',
   'landmark_studies',
@@ -235,6 +240,32 @@ const PROTOCOL_MINDMAP_LINKS: Record<string, string> = {
   'STEMI Equivalents & Sgarbossa Criteria': 'acs_stemi_flowchart',
   'Acute Ischaemic Stroke': 'stroke_thrombolysis',
   'Diabetic Ketoacidosis (DKA)': 'dka_hhs_flowchart',
+  'Diabetic Ketoacidosis (DKA) & HHS': 'dka_hhs_flowchart',
+  'Hypertension Flowchart': 'hypertension_flowchart',
+  'Hypertensive Emergencies': 'hypertension_flowchart',
+  'Hyperglycaemia Flowchart': 'dka_hhs_flowchart',
+  'Jaundice Flowchart': 'jaundice_flowchart',
+  'Liver Failure': 'jaundice_flowchart',
+  'PE Algorithm': 'pe_algorithm',
+  'Pulmonary Embolism': 'pe_algorithm',
+  'Status Epilepticus': 'status_epilepticus_algorithm',
+  'Status Epilepsy Anticonvulsant Therapy Algorithm': 'status_epilepticus_algorithm',
+  'Anaphylaxis': 'anaphylaxis_flowchart',
+  'Agitation & Aggression': 'psychosis_flowchart',
+  'Mental Health / Psychosis': 'psychosis_flowchart',
+  'Syncope': 'syncope_ecg',
+  // RMMCH title variants that share the same interactive pathways.
+  'Anaphylaxis (RMMCH)': 'anaphylaxis_flowchart',
+  'Asthma - Acute (RMMCH)': 'croup_algorithm',
+  'Seizures / Convulsions - Status Epilepticus (RMMCH)': 'status_epilepticus',
+  // CMJAH title variants that share existing interactive pathways.
+  'Anaphylaxis (CMJAH)': 'anaphylaxis_flowchart',
+  'Status Epilepticus (CMJAH)': 'status_epilepticus',
+  'Hyperglycaemic Emergencies (DKA/HHS) (CMJAH)': 'dka_hhs_flowchart',
+  'Hypertension in the ED (CMJAH)': 'hypertension_flowchart',
+  'Pulmonary Embolism (CMJAH)': 'pe_algorithm',
+  'Snakebite Pathway (CMJAH)': 'snakebite_pathway',
+  'The Agitated Patient (CMJAH)': 'psychosis_flowchart',
 };
 
 interface DrugItem {
@@ -267,6 +298,65 @@ const CATEGORY_FACILITY: Record<string, HospitalId | undefined> = {
   cmjah_guidelines: 'cmjah',
   bara_icu_card: 'chbah',
   rmmch_guidelines: 'rmmch',
+};
+
+// Source group labels and colour classes used throughout the UI to identify
+// which institution a clinical entry belongs to.
+const SOURCE_GROUP_META: Record<string, { label: string; short: string; emoji: string; badgeClass: string; lightBadgeClass: string }> = {
+  hjh: {
+    label: 'Helen Joseph Hospital (HJH)',
+    short: 'HJH',
+    emoji: '🩺',
+    badgeClass: 'bg-indigo-950/80 text-indigo-300 border-indigo-800/40',
+    lightBadgeClass: 'bg-indigo-50 text-indigo-700 border-indigo-200',
+  },
+  cmjah: {
+    label: 'Charlotte Maxeke Academic Hospital (CMJAH)',
+    short: 'CMJAH',
+    emoji: '🏨',
+    badgeClass: 'bg-violet-950/80 text-violet-300 border-violet-800/40',
+    lightBadgeClass: 'bg-violet-50 text-violet-700 border-violet-200',
+  },
+  rmmch: {
+    label: 'Rahima Moosa Mother & Child Hospital (RMMCH)',
+    short: 'RMMCH',
+    emoji: '👶',
+    badgeClass: 'bg-orange-950/80 text-orange-300 border-orange-800/40',
+    lightBadgeClass: 'bg-orange-50 text-orange-700 border-orange-200',
+  },
+  chbah: {
+    label: 'Chris Hani Baragwanath Academic Hospital (CHBAH / Bara)',
+    short: 'Bara',
+    emoji: '🏥',
+    badgeClass: 'bg-cyan-950/80 text-cyan-300 border-cyan-800/40',
+    lightBadgeClass: 'bg-cyan-50 text-cyan-700 border-cyan-200',
+  },
+  bara_icu: {
+    label: 'Bara ICU Dosing Card',
+    short: 'Bara ICU',
+    emoji: '🏥',
+    badgeClass: 'bg-cyan-950/80 text-cyan-300 border-cyan-800/40',
+    lightBadgeClass: 'bg-cyan-50 text-cyan-700 border-cyan-200',
+  },
+  edl_phc: {
+    label: 'SA EDL / PHC Guidelines',
+    short: 'EDL/PHC',
+    emoji: '🇿🇦',
+    badgeClass: 'bg-blue-950/80 text-blue-300 border-blue-800/40',
+    lightBadgeClass: 'bg-blue-50 text-blue-700 border-blue-200',
+  },
+};
+
+const getSourceGroupMeta = (group?: string, fallbackLabel?: string) => {
+  const meta = SOURCE_GROUP_META[group || ''];
+  if (meta) return meta;
+  return {
+    label: fallbackLabel || group || 'Clinical reference',
+    short: fallbackLabel || group || 'Reference',
+    emoji: '📋',
+    badgeClass: 'bg-slate-800 text-slate-300 border-slate-700',
+    lightBadgeClass: 'bg-slate-100 text-slate-700 border-slate-200',
+  };
 };
 
 const parseHospitalHash = (): {facilityId: HospitalId; slug?: string} | null => {
@@ -2185,6 +2275,7 @@ export default function App() {
     const fav = isFavourite(key);
     const isExpanded = expandedProtocols[key] === true;
     const pairedDrugs = getPairedDrugsForDisease(p.item);
+    const procedureSourceMeta = getSourceGroupMeta(p?._meta?.sourceGroup, selectedCategory === 'helen_guidelines' ? 'HJH' : selectedCategory === 'cmjah_guidelines' ? 'CMJAH' : selectedCategory === 'rmmch_guidelines' ? 'RMMCH' : undefined);
 
     return (
       <div
@@ -2207,39 +2298,35 @@ export default function App() {
           role="button"
           tabIndex={0}
           aria-expanded={isExpanded}
-          className="flex items-start justify-between gap-4 cursor-pointer"
+          aria-label={`${p.item}, ${procedureSourceMeta.label}. Tap to expand protocol.`}
+          className="flex items-start justify-between gap-4 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg -m-1 p-1"
         >
-          <div className="flex items-center gap-2 flex-wrap">
-            <span className="text-lg">🛠️</span>
-            <h4 className="font-bold text-md text-[#00d9b5]">{p.item}</h4>
-            <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded border ${
-              selectedCategory === 'helen_guidelines'
-                ? 'bg-indigo-950/80 text-indigo-300 border-indigo-800/40'
-                : selectedCategory === 'cmjah_guidelines' || p._meta?.sourceGroup === 'cmjah'
-                ? 'bg-violet-950/80 text-violet-300 border-violet-800/40'
-                : selectedCategory === 'rmmch_guidelines' || p._meta?.sourceGroup === 'rmmch'
-                ? 'bg-orange-950/80 text-orange-300 border-orange-800/40'
-                : 'bg-blue-950/80 text-blue-300 border-blue-800/40'
-            }`}>
-              {selectedCategory === 'helen_guidelines' ? '🩺 Helen (HJH)'
-                : selectedCategory === 'cmjah_guidelines' || p._meta?.sourceGroup === 'cmjah' ? '🏨 CMJAH'
-                : selectedCategory === 'rmmch_guidelines' || p._meta?.sourceGroup === 'rmmch' ? '👶 RMMCH'
-                : '🇿🇦 SA EDL / PHC'}
-            </span>
+          <div className="flex items-start gap-2 flex-wrap min-w-0 flex-1">
+            <span className="text-lg shrink-0">🛠️</span>
+            <div className="min-w-0 flex-1">
+              <h4 className="font-bold text-md text-[#00d9b5] leading-tight">{p.item}</h4>
+              <span className={`inline-block mt-1 text-[10px] font-bold px-1.5 py-0.5 rounded border ${theme === 'dark' ? procedureSourceMeta.badgeClass : procedureSourceMeta.lightBadgeClass}`}>
+                {procedureSourceMeta.emoji} {procedureSourceMeta.short}
+              </span>
+            </div>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 shrink-0">
             {PROTOCOL_MINDMAP_LINKS[p.item] && (
               <button
+                type="button"
                 onClick={e => { e.stopPropagation(); setActiveMindMap(PROTOCOL_MINDMAP_LINKS[p.item]); }}
-                className="flex items-center gap-1 px-2 py-1 rounded-full bg-rose-500/10 text-rose-400 border border-rose-500/30 text-[10px] font-bold hover:bg-rose-500/20 transition"
+                aria-label={`Open ${p.item} interactive flowchart`}
+                className="flex items-center gap-1 px-2 py-1.5 rounded-full bg-rose-500/10 text-rose-400 border border-rose-500/30 text-[10px] font-bold hover:bg-rose-500/20 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
                 title="View the interactive flowchart for this protocol"
               >
                 ⚡ Flowchart
               </button>
             )}
             <button
+              type="button"
               onClick={e => toggleFavourite(key, e)}
-              className={`p-1 rounded-full hover:bg-slate-800/40 transition active:scale-95 ${fav ? 'text-yellow-400' : 'text-slate-600'}`}
+              aria-label={fav ? 'Remove from favourites' : 'Add to favourites'}
+              className={`p-2 -m-1 rounded-full hover:bg-slate-800/40 transition active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${fav ? 'text-yellow-400' : 'text-slate-600'}`}
             >
               <Star className={`h-5 w-5 ${fav ? 'fill-yellow-400' : ''}`} />
             </button>
@@ -2556,7 +2643,9 @@ export default function App() {
             ) : catKey === '15_ed_procedures' ? (
               finalItems.map(entry => renderClinicalEntryCard(entry.item, catKey))
             ) : (
-              // Group normal entries by subCategory
+              // Group normal entries by subCategory, then sort each group by
+              // source institution so duplicate topics across hospitals appear
+              // together and clearly labelled.
               (Object.entries(
                 finalItems.reduce((acc, entry) => {
                   const sub = entry.subCategory || 'General';
@@ -2567,6 +2656,16 @@ export default function App() {
               ) as [string, any[]][]).map(([subCatName, subCatItems]) => {
                 const subCatKey = `${catKey}::${subCatName}`;
                 const isSubCatExpanded = expandedSubCategories[subCatKey] !== false;
+                const sortedItems = [...subCatItems].sort((left, right) => {
+                  const leftGroup = left?._meta?.sourceGroup || '';
+                  const rightGroup = right?._meta?.sourceGroup || '';
+                  const leftIndex = SOURCE_GROUP_ORDER.indexOf(leftGroup);
+                  const rightIndex = SOURCE_GROUP_ORDER.indexOf(rightGroup);
+                  if (leftIndex !== rightIndex) return (leftIndex === -1 ? 999 : leftIndex) - (rightIndex === -1 ? 999 : rightIndex);
+                  const leftName = String(left.item || left.drug || left.condition_or_drug || '').toLowerCase();
+                  const rightName = String(right.item || right.drug || right.condition_or_drug || '').toLowerCase();
+                  return leftName.localeCompare(rightName);
+                });
 
                 return (
                   <div key={subCatName} className="space-y-2 border-l border-teal-950/20 pl-3">
@@ -2581,7 +2680,7 @@ export default function App() {
                     </button>
                     {isSubCatExpanded && (
                       <div className="space-y-2">
-                        {subCatItems.map(it => renderClinicalEntryCard(it, catKey))}
+                        {sortedItems.map(it => renderClinicalEntryCard(it, catKey))}
                       </div>
                     )}
                   </div>

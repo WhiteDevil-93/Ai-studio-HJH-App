@@ -8,9 +8,9 @@
     "pdfPages": [
       135
     ],
-    "sectionTitle": "Toxic Alcohol Ingestion (CMJAH)",
+    "sectionTitle": "Toxic Alcohol Ingestion",
     "transformation": "condensed",
-    "verification": "manual"
+    "verification": "page-index"
   },
   "sourceGroup": "cmjah",
   "reviewState": "unreviewed",

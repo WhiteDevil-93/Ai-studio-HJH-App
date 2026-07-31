@@ -4,13 +4,16 @@
   "slug": "wells_pe",
   "order": 5,
   "source": {
-    "sourceId": "source-unresolved",
-    "pdfPages": [],
-    "sectionTitle": "wells_pe",
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      159,
+      160
+    ],
+    "sectionTitle": "Wells Score for PE",
     "transformation": "combined",
-    "verification": "unverifiable"
+    "verification": "page-index"
   },
-  "sourceGroup": "bara_icu",
+  "sourceGroup": "hjth",
   "reviewState": "unreviewed",
   "errata": [],
   "record": {

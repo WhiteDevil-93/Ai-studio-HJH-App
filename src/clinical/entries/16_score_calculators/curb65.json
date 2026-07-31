@@ -4,13 +4,15 @@
   "slug": "curb65",
   "order": 7,
   "source": {
-    "sourceId": "source-unresolved",
-    "pdfPages": [],
-    "sectionTitle": "curb65",
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      58
+    ],
+    "sectionTitle": "CURB-65 Score",
     "transformation": "combined",
-    "verification": "unverifiable"
+    "verification": "page-index"
   },
-  "sourceGroup": "bara_icu",
+  "sourceGroup": "hjth",
   "reviewState": "unreviewed",
   "errata": [],
   "record": {

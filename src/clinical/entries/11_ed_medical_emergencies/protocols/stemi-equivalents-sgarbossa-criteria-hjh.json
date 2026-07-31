@@ -1,0 +1,35 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "stemi-equivalents-sgarbossa-criteria-hjh",
+  "order": 2048,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [],
+    "sectionTitle": "STEMI Equivalents & Sgarbossa Criteria",
+    "transformation": "condensed",
+    "verification": "manual"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "STEMI Equivalents & Sgarbossa Criteria",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Identify STEMI Equivalents",
+        "details": "These indicate critical coronary occlusion without classic STE: (1) De Winter syndrome (V1-6 J-point depression with tall symmetric T waves), (2) Posterior STEMI (horizontal STD in V1-3, tall R in V1-2), (3) Wellens Sign A (biphasic T waves in V2-3) or Sign B (deeply inverted anterior T waves), (4) Shark fin pattern, (5) Hyperacute T waves."
+      },
+      {
+        "step_number": "2",
+        "action": "Evaluate Sgarbossa Criteria (LBBB or Paced)",
+        "details": "Score >= 3 has 90% specificity for MI: (1) Criteria A (5 pts): concordant STE >= 1mm in any lead, (2) Criteria B (3 pts): concordant STD >= 1mm in V1, V2, or V3, (3) Criteria C (2 pts): discordant STE >= 5mm in any lead (Modified: STE >= 25% of preceding S-wave)."
+      }
+    ],
+    "warnings": [
+      "Failure to recognize STEMI equivalents leads to catastrophic treatment delays. Actively look for them in chest pain patients with normal or non-diagnostic ECGs."
+    ]
+  }
+}

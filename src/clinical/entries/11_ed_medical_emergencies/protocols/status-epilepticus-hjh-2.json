@@ -1,0 +1,99 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "status-epilepticus-hjh-2",
+  "order": 2046,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      5,
+      75,
+      177,
+      178,
+      179
+    ],
+    "sectionTitle": "Status Epilepticus",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Status Epilepticus",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "signs \n• \nGeneral examination & any evidence underlying diseases \n• \nNeurological examination \n• \nSigns of meningitis \n• \nFocal neurological deficit \n \nInvestigations \n• \nECG, blood glucose and blood gas on ALL patients \n• \nUrine-HCG on ALL female patients \n• \nTailor further investigations to clinical findings \n• \nUrgent CT brain with contrast if: \n• \nNo return to baseline \n• \nFocal neurological deficit \nIdentify and treat the precipitating factor \nDisposition \n• \nConsult Neurology/IM as appropriate \nDEFINITIONS \nStatus Epilepticus \nContinuous seizures for 5 minutes or  2 discrete seizures in close \nsuccession without full recovery of consciousness between episodes \nRefractory Status Epilepticus \nSeizures persisting despite  2 anticonvulsant agents (i.e. \n1st & 2nd line anticonvulsants)"
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "ALGORITHM",
+        "details": "ALGORITHM"
+      },
+      {
+        "step_number": "2",
+        "action": "• Lorazepam (Ativan)",
+        "details": "• Lorazepam (Ativan)"
+      },
+      {
+        "step_number": "3",
+        "action": "0.1 mg/kg IV",
+        "details": "0.1 mg/kg IV"
+      },
+      {
+        "step_number": "4",
+        "action": "(max rate 2mg/min)",
+        "details": "(max rate 2mg/min)"
+      },
+      {
+        "step_number": "5",
+        "action": "• Diazepam (Valium)",
+        "details": "• Diazepam (Valium)"
+      },
+      {
+        "step_number": "6",
+        "action": "0.2 – 0.3 mg/kg IV",
+        "details": "0.2 – 0.3 mg/kg IV"
+      },
+      {
+        "step_number": "7",
+        "action": "(max rate 5mg/min)",
+        "details": "(max rate 5mg/min)"
+      },
+      {
+        "step_number": "8",
+        "action": "• Clonazepam (Rivotril)",
+        "details": "• Clonazepam (Rivotril)"
+      },
+      {
+        "step_number": "9",
+        "action": "0.02 mg/kg IV",
+        "details": "0.02 mg/kg IV"
+      },
+      {
+        "step_number": "10",
+        "action": "• Midazolam (Dormicum)",
+        "details": "• Midazolam (Dormicum)"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "dose of the chosen benzodiazepine",
+        "adult_dose": "dose of the chosen benzodiazepine",
+        "notes": "Extracted from HJH ED 2026"
+      },
+      {
+        "item": "20 mg/kg IV",
+        "adult_dose": "20 mg/kg IV",
+        "notes": "Extracted from HJH ED 2026"
+      },
+      {
+        "item": "(max rate 50 mg/min)",
+        "adult_dose": "(max rate 50 mg/min)",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "disposition": "Disposition \n• \nConsult Neurology/IM as appropriate \nDEFINITIONS \nStatus Epilepticus \nContinuous seizures for 5 minutes or  2 discrete seizures in close \nsuccession without full recovery of consciousness between episodes \nRefractory Status Epilepticus \nSeizures persisting despite  2 anticonvulsant agents (i.e. \n1st & 2nd line anticonvulsants)"
+  }
+}

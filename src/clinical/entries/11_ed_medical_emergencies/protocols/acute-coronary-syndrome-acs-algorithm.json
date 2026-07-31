@@ -58,6 +58,61 @@
     "warnings": [
       "RV Infarction (V4R STE): Avoid Nitroglycerin and Beta-blockers. Treat hypotension with IV fluid boluses (20ml/kg) to maintain preload.",
       "Nitroglycerin Contraindications: SBP < 90, HR < 50 or > 100, RV infarction, or PDE5 inhibitor use within 24-48h."
+    ],
+    "embedded_drugs": [
+      {
+        "item": "Adrenalin",
+        "adult_dose": "0.1-1ug/kg/min IV",
+        "paediatric_dose": "0.1-1ug/kg/min IV"
+      },
+      {
+        "item": "Amiodarone",
+        "adult_dose": "300mg IV bolus (unstable); 150mg IV (stable)",
+        "paediatric_dose": "5mg/kg IV bolus",
+        "notes_updates": "300mg in 5% Dextrose over 30 min (Loading)."
+      },
+      {
+        "category": "HJH ED Protocol — Infusions",
+        "item": "Nitroglycerin",
+        "formula": "Dose x 60 / prepared concentration",
+        "standard_dilutions": "10mg in 200ml N/S (50mcg/ml)"
+      },
+      {
+        "category": "HJH ED Protocol — Infusions",
+        "item": "Isosorbide Dinitrate",
+        "formula": "Dose / prepared concentration",
+        "standard_dilutions": "20mg in 200ml (0.1mg/ml); protocol also lists 100mg in 200ml (0.5mg/ml)"
+      },
+      {
+        "drug": "Morphine",
+        "adult_dose": "0.1mg/kg IV; 0.1-0.4mg/kg/hr",
+        "paediatric_dose": "0.1mg/kg IV; 0.01-0.05mg/kg/hr",
+        "notes_updates": "First-line opioid for severe pain"
+      },
+      {
+        "drug": "Fentanyl",
+        "adult_dose": "1-2ug/kg IV; 1-2ug/kg/hr",
+        "paediatric_dose": "1-2ug/kg IV; 0.5-2ug/kg/hr",
+        "notes_updates": "Good for renal failure or unstable BP"
+      },
+      {
+        "drug": "Enoxaparin (Clexane)",
+        "adult_dose": "1mg/kg SC 12hrly",
+        "paediatric_dose": "1mg/kg SC 12hrly",
+        "notes_updates": "Anti-Xa monitoring in renal impairment, pregnancy"
+      },
+      {
+        "drug": "Heparin (UFH)",
+        "adult_dose": "Loading: 80units/kg IV; Maint: 18units/kg/hr",
+        "paediatric_dose": "Loading: 75units/kg IV; Maint: 20-28units/kg/hr",
+        "notes_updates": "Target aPTT: 50-70sec. Protamine 1mg per 100units heparin"
+      },
+      {
+        "drug": "Alteplase (tPA)",
+        "adult_dose": "PE: 100mg IV over 2hrs. STEMI: 15mg bolus, 50mg/30min, 35mg/60min",
+        "paediatric_dose": "0.1-0.5mg/kg/hr IV",
+        "notes_updates": "Monitor for bleeding"
+      }
     ]
   }
 }

@@ -8,9 +8,9 @@
     "pdfPages": [
       5
     ],
-    "sectionTitle": "Airway management - advanced (RMMCH)",
+    "sectionTitle": "Airway management - advanced",
     "transformation": "condensed",
-    "verification": "unverifiable"
+    "verification": "page-index"
   },
   "sourceGroup": "rmmch",
   "reviewState": "unreviewed",

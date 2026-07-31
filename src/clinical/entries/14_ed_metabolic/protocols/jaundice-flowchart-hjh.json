@@ -1,0 +1,31 @@
+{
+  "categoryId": "14_ed_metabolic",
+  "subcategoryId": "protocols",
+  "slug": "jaundice-flowchart-hjh",
+  "order": 2003,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      119,
+      120
+    ],
+    "sectionTitle": "Jaundice Flowchart",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Jaundice Flowchart",
+    "protocol_type": "ed_protocol",
+    "note": "This is a subsection or flowchart. See liver_failure for complete management.",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Key Information",
+        "details": "This is a subsection or flowchart. See liver_failure for complete management."
+      }
+    ]
+  }
+}

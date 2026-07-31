@@ -4,13 +4,15 @@
   "slug": "headache-red-flags-primary-syndromes",
   "order": 12,
   "source": {
-    "sourceId": "source-unresolved",
-    "pdfPages": [],
-    "sectionTitle": "Source mapping required",
-    "transformation": "combined",
-    "verification": "unverifiable"
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      86
+    ],
+    "sectionTitle": "Headache",
+    "transformation": "condensed",
+    "verification": "page-index"
   },
-  "sourceGroup": "edl_phc",
+  "sourceGroup": "hjth",
   "reviewState": "unreviewed",
   "errata": [],
   "record": {
@@ -31,6 +33,21 @@
         "step_number": "3",
         "action": "Manage Analgesia",
         "details": "Tension: NSAIDs, Paracetamol. Migraine: Metoclopramide, triptans, NSAIDs, consider steroids. AVOID OPIOIDS! Cluster: 100% Oxygen high flow, paracetamol, triptans, steroids, ketamine if refractory."
+      }
+    ],
+    "embedded_drugs": [
+      {
+        "item": "Paracetamol",
+        "adult_dose": "NAC Old Regimen: 150mg/kg in 200ml 5% Dextrose IV over 1hr, then 50mg/kg in 500ml 5% Dextrose IV over 4hrs, then 100mg/kg in 1L 5% Dextrose IV over 16hrs | NAC SNAP Protocol: 100mg/kg in 200ml 5% Dextrose IV over 2hrs, then 200mg/kg in 1L 5% Dextrose IV over 10hrs",
+        "paediatric_dose": "Same weight-based dosing as adults",
+        "route": "IV infusion",
+        "notes": "Toxic dose: 150mg/kg or >10g in adults. Use nomogram to establish need for antidote. Start <8hrs if possible. If in doubt, give NAC."
+      },
+      {
+        "drug": "Morphine",
+        "adult_dose": "0.1mg/kg IV; 0.1-0.4mg/kg/hr",
+        "paediatric_dose": "0.1mg/kg IV; 0.01-0.05mg/kg/hr",
+        "notes_updates": "First-line opioid for severe pain"
       }
     ]
   }

@@ -1,0 +1,98 @@
+{
+  "categoryId": "12_ed_toxicology",
+  "subcategoryId": "protocols",
+  "slug": "paracetamol-overdose-hjh-2",
+  "order": 2006,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      143
+    ],
+    "sectionTitle": "Paracetamol Overdose",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Paracetamol Overdose",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "presentation \n* Administer NAC as follows (old regimen): \n•\n150mg/kg in 200ml 5% Dextrose IV over 1 hour followed by \n•\n50mg/kg in 500ml 5% Dextrose IV over 4 hours followed by \n•\n100mg/kg in 1L 5% Dextrose IV over 16 hours \n* Preferred dosing regimen (SNAP Protocol) – NB Inform admitting doctor to continue this regimen! \n•\n100mg/kg in 200ml 5% Dextrose IV over 2 hours followed by \n•\n200mg/kg in 1 L 5% Dextrose IV over 10 hours \n \nStart treatment as soon as possible \nif indicated, \npreferably < 8hrs post-ingestion \nIF IN DOUBT, GIVE NAC \nDISPOSITION \nInt Med Referral \nPARACETAMOL OVERDOSE \nTOXIC DOSE \n150mg/kg or > 10g in adults \n \nINITIAL ASSESSMENT & MANAGEMENT \n* Assess and support ABC’s \n* Monitor glucose \n* Attempt to quantify the amount ingested & of any co-ingestants \n* Establish a timeframe from the time of ingestion to presentation \n* Presentation < 1 hour from ingestion \n• Activated charcoal 50g PO (not via NGT) \n* ECG – look for signs of co-ingestants e.g. prolonged QT \n* Laboratory investigations \n• Blood gas, U&E, salicylate level \n• Paracetamol levels (provided  4 hours post ingestion) \n• No need for AST/ALT/INR unless > 12 hours post ingestion \n \n**Refer to Protocol: General management principles of a poisoned/overdose patient** \n \n \n \n \n \n \n \n \nNAC CAUTIONS/SIDE-EFFECTS – Less common with SNAP Protocol \n*Anaphylaxis \n*Vomiting \n*Separate IV infusion as may be inactivated by other medications \nPREGNANCY \n*Paracetamol crosses the placenta \n*Administer NAC as above \nHIGH RISK PATIENTS \n*Hypotensive \n*Pre-existing liver dysfunction e.g. alcoholic \n*Elderly"
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "MANAGEMENT",
+        "details": "MANAGEMENT"
+      },
+      {
+        "step_number": "2",
+        "action": "* Assess and support ABC’s",
+        "details": "* Assess and support ABC’s"
+      },
+      {
+        "step_number": "3",
+        "action": "* Monitor glucose",
+        "details": "* Monitor glucose"
+      },
+      {
+        "step_number": "4",
+        "action": "* Attempt to quantify the amount ingested & of any co-ingestants",
+        "details": "* Attempt to quantify the amount ingested & of any co-ingestants"
+      },
+      {
+        "step_number": "5",
+        "action": "* Establish a timeframe from the time of ingestion to presentation",
+        "details": "* Establish a timeframe from the time of ingestion to presentation"
+      },
+      {
+        "step_number": "6",
+        "action": "* Presentation < 1 hour from ingestion",
+        "details": "* Presentation < 1 hour from ingestion"
+      },
+      {
+        "step_number": "7",
+        "action": "• Activated charcoal 50g PO (not via NGT)",
+        "details": "• Activated charcoal 50g PO (not via NGT)"
+      },
+      {
+        "step_number": "8",
+        "action": "* ECG – look for signs of co-ingestants e.g. prolonged QT",
+        "details": "* ECG – look for signs of co-ingestants e.g. prolonged QT"
+      },
+      {
+        "step_number": "9",
+        "action": "* Laboratory investigations",
+        "details": "* Laboratory investigations"
+      },
+      {
+        "step_number": "10",
+        "action": "• Blood gas, U&E, salicylate level",
+        "details": "• Blood gas, U&E, salicylate level"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "dosing regimen (SNAP Protocol) – NB Inform admitti",
+        "adult_dose": "dosing regimen (SNAP Protocol) – NB Inform admitting doctor to continue this regimen!",
+        "notes": "Extracted from HJH ED 2026"
+      },
+      {
+        "item": "100mg/kg in 200ml 5% Dextrose IV over 2 hours foll",
+        "adult_dose": "100mg/kg in 200ml 5% Dextrose IV over 2 hours followed by",
+        "notes": "Extracted from HJH ED 2026"
+      },
+      {
+        "item": "200mg/kg in 1 L 5% Dextrose IV over 10 hours",
+        "adult_dose": "200mg/kg in 1 L 5% Dextrose IV over 10 hours",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "warnings": [
+      "CAUTIONS/SIDE-EFFECTS – Less common with SNAP Protocol \n*Anaphylaxis \n*Vomiting \n*Separate IV infusion as may be inactivated by other medications \nPREGNANCY \n*Paracetamol crosses the placenta \n*Administer NAC as above \nHIGH RISK PATIENTS \n*Hypotensive \n*Pre-existing liver dysfunction e.g. alcoholic \n*Elderly"
+    ],
+    "disposition": "DISPOSITION \nInt Med Referral \nPARACETAMOL OVERDOSE \nTOXIC DOSE \n150mg/kg or > 10g in adults \n \nINITIAL ASSESSMENT & MANAGEMENT \n* Assess and support ABC’s \n* Monitor glucose \n* Attempt to quantify the amount ingested & of any co-ingestants \n* Establish a timeframe from the time of ingestion to presentation \n* Presentation < 1 hour from ingestion \n• Activated charcoal 50g PO (not via NGT) \n* ECG – look for signs of co-ingestants e.g. prolonged QT \n* Laboratory investigations \n• Blood gas, U&E, salicylate level \n• Paracetamol levels (provided  4 hours post ingestion) \n• No need for AST/ALT/INR unless > 12 hours post ingestion \n \n**Refer to Protocol: General management principles of a poisoned/overdose patient** \n \n \n \n \n \n \n \n \nNAC CAUTIONS/SIDE-EFFECTS – Less common with SNAP Protocol \n*Anaphylaxis \n*Vomiting \n*Separate IV infusion as may be inactivated by other medications \nPREGNANCY \n*Paracetamol crosses the placenta \n*Administer NAC as above \nHIGH RISK PATIENTS \n*Hypotensive \n*Pre-"
+  }
+}

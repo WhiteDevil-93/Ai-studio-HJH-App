@@ -1,0 +1,42 @@
+{
+  "categoryId": "12_ed_toxicology",
+  "subcategoryId": "protocols",
+  "slug": "scorpion-envenomation-guideline-cmjah",
+  "order": 4000,
+  "source": {
+    "sourceId": "cmjah-ed-protocols-2020-v2",
+    "pdfPages": [
+      113
+    ],
+    "sectionTitle": "Scorpion envenomation guideline",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "cmjah",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Scorpion envenomation guideline (CMJAH)",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": [
+        "Parabuthus species envenomation: severe localized pain, hyperaesthesia, autonomic/neuromuscular hyperexcitability, profuse salivation, diaphoresis, muscle cramps, restlessness, respiratory distress, heart failure"
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Supportive Care & Monitoring",
+        "details": "Support ABCs. Local pain relief (ice packs, analgesia). Monitor vital signs, SpO2, and ECG."
+      },
+      {
+        "step_number": "2",
+        "action": "Antivenom Administration",
+        "details": "Administer South African polyvalent antivenom for systemic envenomation (Parabuthus species) with resuscitation equipment immediately at bedside."
+      }
+    ],
+    "warnings": [
+      "Have Adrenaline immediately ready due to risk of antivenom anaphylaxis."
+    ]
+  }
+}

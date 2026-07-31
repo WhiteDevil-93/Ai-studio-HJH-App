@@ -1,0 +1,30 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "hyperglycaemia-flowchart",
+  "order": 2014,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      91
+    ],
+    "sectionTitle": "Hyperglycaemia Flowchart",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Hyperglycaemia Flowchart",
+    "protocol_type": "ed_protocol",
+    "note": "This is a subsection or flowchart. See main protocol for complete management.",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Key Information",
+        "details": "This is a subsection or flowchart. See main protocol for complete management."
+      }
+    ]
+  }
+}

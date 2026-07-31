@@ -8,9 +8,9 @@
     "pdfPages": [
       100
     ],
-    "sectionTitle": "Croup (Laryngotracheobronchitis) (RMMCH)",
+    "sectionTitle": "Croup (Laryngotracheobronchitis)",
     "transformation": "condensed",
-    "verification": "unverifiable"
+    "verification": "page-index"
   },
   "sourceGroup": "rmmch",
   "reviewState": "unreviewed",

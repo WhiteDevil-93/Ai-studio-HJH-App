@@ -4,13 +4,16 @@
   "slug": "copd-exacerbation",
   "order": 6,
   "source": {
-    "sourceId": "source-unresolved",
-    "pdfPages": [],
-    "sectionTitle": "Source mapping required",
-    "transformation": "combined",
-    "verification": "unverifiable"
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      56,
+      57
+    ],
+    "sectionTitle": "COPD",
+    "transformation": "condensed",
+    "verification": "page-index"
   },
-  "sourceGroup": "edl_phc",
+  "sourceGroup": "hjth",
   "reviewState": "unreviewed",
   "errata": [],
   "record": {
@@ -31,6 +34,24 @@
         "step_number": "3",
         "action": "Non-Invasive Ventilation (NIV)",
         "details": "NIV (BiPAP) is highly effective for COPD respiratory acidosis (pH < 7.35, PaCO2 > 45mmHg). Reduces intubation rates dramatically."
+      }
+    ],
+    "embedded_drugs": [
+      {
+        "item": "Salbutamol",
+        "adult_dose": "2.5-5mg nebulised (Nebulise with O2); 0.25-0.5mg IV",
+        "paediatric_dose": "2.5-5mg nebulised; 5-10ug/kg/min IV"
+      },
+      {
+        "item": "Berotec/Atrovent",
+        "adult_dose": "0.5mg/2.5mg nebulised (repeat 20min x 3)",
+        "paediatric_dose": "0.25-0.5mg/1.25-2.5mg nebulised"
+      },
+      {
+        "drug": "Hydrocortisone",
+        "adult_dose": "Stress: 50-100mg IV 6-8hrly; Physiological: 20mg AM + 10mg PM",
+        "paediatric_dose": "Stress: 1-2mg/kg IV 6hrly",
+        "notes_updates": "Stress dose for adrenal insufficiency, septic shock"
       }
     ]
   }

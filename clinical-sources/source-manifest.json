@@ -16,6 +16,7 @@
       "documentDate": "2025-12-24",
       "pageCount": 247,
       "sha256": "2845afd7491ff8937c2eac22bc99eb25e94531bbb0774fc3a66c51ca5ba805f8",
+      "file": "clinical-sources/source-documents/HJH ED Protocol book 2026 v1.pdf",
       "scope": "Largely adult emergency patients; use with RMMCH ED protocols for paediatric patients.",
       "status": "source-received",
       "distributionPermission": "unconfirmed"
@@ -24,8 +25,11 @@
       "id": "chbah-icu-dosing-card-2024",
       "title": "Chris Hani Baragwanath Academic Hospital ICU Dosing Card",
       "version": "2024 updates",
+      "pageCount": 1,
+      "sha256": "d50747d1d55612aeac09c437d0365c5be9b7f1eb37df4006ed3b64d8a36dd70a",
+      "file": "clinical-sources/source-documents/CHBAH ICU Dosing Chart.pdf",
       "scope": "ICU drug dosing and infusions",
-      "status": "content-retained-review-copy-required",
+      "status": "source-received",
       "distributionPermission": "unconfirmed"
     },
     {
@@ -35,6 +39,7 @@
       "documentDate": "2024-01-03",
       "pageCount": 200,
       "sha256": "429cb5f3e026b589c8face1b52425136d30e590a198caf38fce2f68ca1d9b04c",
+      "file": "clinical-sources/source-documents/RMMCH EM Clinical Protocols March 2024.pdf",
       "scope": "General, paediatric, neonatal and women’s health emergency protocols.",
       "status": "source-received-partial-page-review",
       "distributionPermission": "unconfirmed"
@@ -46,8 +51,9 @@
       "documentDate": "2020-12",
       "pageCount": 147,
       "sha256": "70187c9d418f08dc36faf6637c85a50a4aed4229371f5b73004c14fa152502b9",
+      "file": "clinical-sources/source-documents/CMJAH Emergency Department Protocols  December 2020 v2.pdf",
       "scope": "Adult & paediatric ED protocols: resuscitation (AHA 2020 algorithms), toxicology, infusions, triage, and administrative policy. Editor: Dr Radha Gihwala.",
-      "status": "source-received",
+      "status": "source-received-page-index-verified",
       "distributionPermission": "confirmed-public"
     },
     {

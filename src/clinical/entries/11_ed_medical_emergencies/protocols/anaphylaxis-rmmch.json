@@ -8,9 +8,9 @@
     "pdfPages": [
       11
     ],
-    "sectionTitle": "Anaphylaxis (RMMCH)",
+    "sectionTitle": "Anaphylaxis",
     "transformation": "condensed",
-    "verification": "unverifiable"
+    "verification": "page-index"
   },
   "sourceGroup": "rmmch",
   "reviewState": "unreviewed",

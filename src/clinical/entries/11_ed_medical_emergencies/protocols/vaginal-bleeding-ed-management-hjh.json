@@ -1,0 +1,46 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "vaginal-bleeding-ed-management-hjh",
+  "order": 2054,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [],
+    "sectionTitle": "Vaginal Bleeding (ED Management)",
+    "transformation": "condensed",
+    "verification": "manual"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Vaginal Bleeding (ED Management)",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Triage & Stabilisation",
+        "details": "If unstable/shocked: Triage to RESUS. Insert 2x large-bore IVs. Send bloods for FBC, U&E, Crossmatch, and VBG. Transfuse emergency group O negative blood."
+      },
+      {
+        "step_number": "2",
+        "action": "Immediate Investigations",
+        "details": "Check urine pregnancy test and perform bedside ultrasound: look for viable IUP, non-viable/incomplete products, empty uterus with free fluid (ruptured ectopic)."
+      },
+      {
+        "step_number": "3",
+        "action": "Specific Management - Ectopic & Miscarriage",
+        "details": "Ectopic: Urgent gynae consult, prepare for surgery. Incomplete Miscarriage: Rub up uterus, expel products, start Oxytocin infusion (20 units in 1L fluid at 125ml/hr). Septic Miscarriage: Augmentin 30mg/kg IV."
+      },
+      {
+        "step_number": "4",
+        "action": "Postpartum Haemorrhage (PPH)",
+        "details": "Rub up uterus, expel products, start Oxytocin infusion, give Tranexamic Acid 1g IV over 10 min, insert Foley catheter to empty bladder, and consider balloon tamponade."
+      }
+    ],
+    "warnings": [
+      "Do NOT perform digital PV examination in antepartum haemorrhage (>24 weeks) if placenta praevia is suspected — confirm on ultrasound first.",
+      "Rh-negative mothers with vaginal bleeding require anti-D immunoglobulin (within 72 hours)."
+    ]
+  }
+}

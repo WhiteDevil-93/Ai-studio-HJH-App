@@ -1,0 +1,80 @@
+{
+  "categoryId": "15_ed_procedures",
+  "subcategoryId": "protocols",
+  "slug": "femoral-nerve-block-hjh",
+  "order": 2005,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      197
+    ],
+    "sectionTitle": "Ultrasound Guided Femoral Nerve Block",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Ultrasound Guided Femoral Nerve Block",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "Symptoms \n• \nAbdominal pain \n• \nHaematemesis \n• \nMelena \n• \nHaematochezia \n• \nSyncope (especially in elderly) \nRisk factors \n• \nAlcohol abuse \n• \nNSAIDs \n• \nAntiplatelet / anticoagulant therapy \n• \nPrevious GI bleed \n• \nLiver disease \n• \nSmoking \n \nEXAMINATION \n* HR BP = moderate – severe blood loss \n* Digital rectal examination to assess for melena \n* Look for signs of liver disease \n* Signs of acute abdomen suggest perforation \n \n \nINVESTIGATIONS \n* NB! initial Hb may be normal \n* VBG, FBC, U&E, INR & Type and screen \n* LFT only if indicated \n* CXR erect ➔ assess for free air under diaphragm \n* POCUS to assess volume status \n \n \n \n \nMANAGEMENT \n* ABC approach to initial resuscitation \n* 2 large bore IV lines ➔ Give warm Balsol or Ringers Lactate (10mls/kg) \n* Keep NPO \n* Transfuse if: \n•\nHaemodynamic instability despite 1 crystalloid fluid bolus \n•\nHb < 9 in a high risk patient i.e. elderly; coronary artery disease \n•\nHb < 7 in a low risk patient \n•\nAvoid over transfusion if the bleeding may be 2 varices \n*If haemodynamically unstable ➔ Give FFP (10-20mls/kg) \n*Pantoprazole (Pantoloc) \n•\nLoading dose 80mg \n•\nConsider Infusion: 200mg in 200mls N/S @ 8 mls/hr \n*Consider Sengstaken-Blakemore Tube for variceal bleeds \n*Consider Ceftriaxone 1g & Octreotide 50mcg bolus, 50 mcg/hr infusion in variceal bleeds/liver cirrhosis \n*Notify surgeon ASAP \n*NB – no role for TXA in UGIB"
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "MANAGEMENT",
+        "details": "MANAGEMENT"
+      },
+      {
+        "step_number": "2",
+        "action": "* ABC approach to initial resuscitation",
+        "details": "* ABC approach to initial resuscitation"
+      },
+      {
+        "step_number": "3",
+        "action": "* 2 large bore IV lines ➔ Give warm Balsol or Ringers Lactate (10mls/kg)",
+        "details": "* 2 large bore IV lines ➔ Give warm Balsol or Ringers Lactate (10mls/kg)"
+      },
+      {
+        "step_number": "4",
+        "action": "* Keep NPO",
+        "details": "* Keep NPO"
+      },
+      {
+        "step_number": "5",
+        "action": "* Transfuse if:",
+        "details": "* Transfuse if:"
+      },
+      {
+        "step_number": "6",
+        "action": "Haemodynamic instability despite 1 crystalloid fluid bolus",
+        "details": "Haemodynamic instability despite 1 crystalloid fluid bolus"
+      },
+      {
+        "step_number": "7",
+        "action": "Hb < 9 in a high risk patient i.e. elderly; coronary artery disease",
+        "details": "Hb < 9 in a high risk patient i.e. elderly; coronary artery disease"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "dose 80mg",
+        "adult_dose": "dose 80mg",
+        "notes": "Extracted from HJH ED 2026"
+      },
+      {
+        "item": "Consider Infusion: 200mg in 200mls N/S @ 8 mls/hr",
+        "adult_dose": "Consider Infusion: 200mg in 200mls N/S @ 8 mls/hr",
+        "notes": "Extracted from HJH ED 2026"
+      },
+      {
+        "item": "*Consider Ceftriaxone 1g & Octreotide 50mcg bolus,",
+        "adult_dose": "*Consider Ceftriaxone 1g & Octreotide 50mcg bolus, 50 mcg/hr infusion in variceal bleeds/liver cirrhosis",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "disposition": "DISPOSITION \nDischarge only if patient meets ALL criteria: \n•\nStable \n•\nNo witnessed haematemesis in ED \n•\nBlatchford Score = 0 \nDischarged patients should follow up at SOPD \nBLATCHFORD SCORE \n \n* Urea < 6.5 mmol/l \n* Hb > 13 (males); > 12 (females) \n* Systolic BP > 110 mmHg \n* Pulse < 100 bpm \n* Absence of melena, syncope, cardiac failure \nor liver disease \nContents \nUPPER GI BLEED \n \n \nHISTORY \nSymptoms \n• \nAbdominal pain \n• \nHaematemesis \n• \nMelena \n• \nHaematochezia \n• \nSyncope (especially in elderly) \nRisk factors \n• \nAlcohol abuse \n• \nNSAIDs \n• \nAntiplatelet / anticoagulant therapy \n• \nPrevious GI bleed \n• \nLiver disease \n• \nSmoking \n \nEXAMINATION \n* HR BP = moderate – severe blood loss \n* Digital rectal examination to assess for melena \n* Look for signs of liver disease \n* Signs of acute abdomen suggest perforation \n \n \nINVESTIGATIONS \n* NB! initial Hb may be normal \n* VBG, FBC, U&E, INR & Type and screen \n* LFT only if indicated \n* CXR erect ➔ assess for free air under diaphra"
+  }
+}

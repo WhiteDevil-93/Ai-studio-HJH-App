@@ -1,0 +1,74 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "wells-score-dvt-hjh",
+  "order": 2009,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      63
+    ],
+    "sectionTitle": "Deep Vein Thrombosis",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Deep Vein Thrombosis",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "algorithm (see box)",
+        "details": "algorithm (see box)"
+      },
+      {
+        "step_number": "2",
+        "action": "If DVT positive ➔ start Clexane 1mg/kg SC stat",
+        "details": "If DVT positive ➔ start Clexane 1mg/kg SC stat"
+      },
+      {
+        "step_number": "3",
+        "action": "and admit",
+        "details": "and admit"
+      },
+      {
+        "step_number": "4",
+        "action": "DEEP VEIN THROMBOSIS",
+        "details": "DEEP VEIN THROMBOSIS"
+      },
+      {
+        "step_number": "5",
+        "action": "WELLS SCORE for DVT",
+        "details": "WELLS SCORE for DVT"
+      },
+      {
+        "step_number": "6",
+        "action": "CLINICAL FEATURE",
+        "details": "CLINICAL FEATURE"
+      },
+      {
+        "step_number": "7",
+        "action": "Active cancer",
+        "details": "Active cancer"
+      },
+      {
+        "step_number": "8",
+        "action": "Recently bedridden for  3 days or major surgery",
+        "details": "Recently bedridden for  3 days or major surgery"
+      },
+      {
+        "step_number": "9",
+        "action": "within the past 12 weeks",
+        "details": "within the past 12 weeks"
+      },
+      {
+        "step_number": "10",
+        "action": "Paralysis, paresis or recent plaster immobilization of",
+        "details": "Paralysis, paresis or recent plaster immobilization of"
+      }
+    ]
+  }
+}

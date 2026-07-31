@@ -1,0 +1,67 @@
+{
+  "categoryId": "15_ed_procedures",
+  "subcategoryId": "protocols",
+  "slug": "mental-health-psychosis",
+  "order": 2007,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      129
+    ],
+    "sectionTitle": "Mental Healthcare Users: General Approach",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Mental Healthcare Users: General Approach",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "signs including HGT, monitor O2 saturation if heavily sedated \n• \nComprehensive history and exam to exclude underlying medical conditions \n• \nInvestigations as per protocol – see below \n• \nHand over to Psychiatry on call if bloods/vitals/exam is normal \n• \nPsychiatry to arrange rapid transfer to ward as soon as bed is available \n• \nPts will NOT wait in ED for additional investigations/management unless medically indicated \n• \nEnsure that patient comfort is attended to – toilet needs, regular meals, smoke breaks etc. \n \n \n \n• \nINDEX MHCU baseline investigations \nINVESTIGATIONS \n \n• \nVBG, FBC, UE, CRP, TPHA/RPR (CRP < 60; WCC < 20) \n• \nCSF ONLY if acute meningitis fx OR advanced RVD – Chemistry, cell count, MCS, India Ink, \nCLAT, TB GXP. Add VDRL if TPHA/RPR positive \n• \nCTB if clinically indicated – low threshold for immune compromised pts. With contrast \npreferred \n→ if all normal and no red flags, refer to Psychiatry \n \n• \nKNOWN MHCU baseline investigations: \n• \nVBG, HGT \n• \nFurther investigations only as clinically indicated \n• \nConsider drug levels as indicated – anti-epileptics, mood stabilisers \n• \nEXCLUSIONS: Advanced RVD, Thyroid dysfx, SLE, new neurology \n \nALL FEMALE PATIENTS MUST HAVE A PREGNANCY TEST DOCUMENTED IN THE FILE \nCOMPLICATIONS ASSOCIATED WITH ANTIPSYCHOTIC DRUGS \n \n*EXTRAPYRAMIDAL SIDE EFFECTS/ACUTE DYSTONIC REACTION: fixed abnormal posture, oculogyric crisis, laryngospasm \nBiperiden (Akineton) 2.5 mg IV slowly, repeat every 2 minutes prn, max 4 doses \n*NEUROLEPTIC MALIGNANT SYNDROME: develops over 24 – 72 hrs, hyperthermia, muscle rigidity, rhabdomyolysis \nResuscitate, withdraw precipitating agent, supportive care \n \nRED FLAGS \n* Age > 60 \n* Trauma \n* Meningitis features \n* Recent Travel hx \n* Auto-immune/endocrine fx \n* Potentially toxic drug levels – Epilim, Lithium \n* Advanced RVD features \n* Post-ictal features \n* Acute drug intoxication/withdrawal – Medical admission \n* Pregnancy/Recent postpartum \n* New onset visual/tactile hallucination"
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "APPROACH",
+        "details": "APPROACH"
+      },
+      {
+        "step_number": "2",
+        "action": "GENERAL MANAGEMENT",
+        "details": "GENERAL MANAGEMENT"
+      },
+      {
+        "step_number": "3",
+        "action": "Rapid assessment and sedation/restraint if violent or severely agitated – see AGITATION PROTOCOL",
+        "details": "Rapid assessment and sedation/restraint if violent or severely agitated – see AGITATION PROTOCOL"
+      },
+      {
+        "step_number": "4",
+        "action": "Check vital signs including HGT, monitor O2 saturation if heavily sedated",
+        "details": "Check vital signs including HGT, monitor O2 saturation if heavily sedated"
+      },
+      {
+        "step_number": "5",
+        "action": "Comprehensive history and exam to exclude underlying medical conditions",
+        "details": "Comprehensive history and exam to exclude underlying medical conditions"
+      },
+      {
+        "step_number": "6",
+        "action": "Investigations as per protocol – see below",
+        "details": "Investigations as per protocol – see below"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "See protocol",
+        "notes": "Drug details in source PDF"
+      }
+    ],
+    "warnings": [
+      "CAUTIONS FOR THE \nPATIENT MUST BE IMPLEMENTED WHILST IN THE ED. \nAcknowledgement \nCompiled by Dr R Kularatne (Clinical Microbiology & \nInfectious Diseases, WITS/NHLS) \nUpdated by Dr LN Goldstein, Mar 2015"
+    ],
+    "disposition": "admission \n* Pregnancy/Recent postpartum \n* New onset visual/tactile hallucinations \n* Focal Neurology"
+  }
+}

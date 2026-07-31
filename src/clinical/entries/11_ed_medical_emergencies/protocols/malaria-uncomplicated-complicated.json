@@ -4,13 +4,16 @@
   "slug": "malaria-uncomplicated-complicated",
   "order": 11,
   "source": {
-    "sourceId": "source-unresolved",
-    "pdfPages": [],
-    "sectionTitle": "Source mapping required",
-    "transformation": "combined",
-    "verification": "unverifiable"
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      126,
+      127
+    ],
+    "sectionTitle": "Malaria",
+    "transformation": "condensed",
+    "verification": "page-index"
   },
-  "sourceGroup": "edl_phc",
+  "sourceGroup": "hjth",
   "reviewState": "unreviewed",
   "errata": [],
   "record": {
@@ -35,6 +38,21 @@
     ],
     "warnings": [
       "Observe for vomiting for 1 hour in the ED after oral antimalarial. If vomiting occurs within 1 hour, re-administer the dose. If vomiting persists, refer to Internal Medicine."
+    ],
+    "embedded_drugs": [
+      {
+        "condition_or_drug": "Artesunate (severe malaria)",
+        "adult_dose": "2.4mg/kg IV at 0, 12, 24h, then daily",
+        "paediatric_dose": "2.4mg/kg IV at 0, 12, 24h, then daily",
+        "notes_updates": "Superior to Quinine. Min 3 doses."
+      },
+      {
+        "item": "Paracetamol",
+        "adult_dose": "NAC Old Regimen: 150mg/kg in 200ml 5% Dextrose IV over 1hr, then 50mg/kg in 500ml 5% Dextrose IV over 4hrs, then 100mg/kg in 1L 5% Dextrose IV over 16hrs | NAC SNAP Protocol: 100mg/kg in 200ml 5% Dextrose IV over 2hrs, then 200mg/kg in 1L 5% Dextrose IV over 10hrs",
+        "paediatric_dose": "Same weight-based dosing as adults",
+        "route": "IV infusion",
+        "notes": "Toxic dose: 150mg/kg or >10g in adults. Use nomogram to establish need for antidote. Start <8hrs if possible. If in doubt, give NAC."
+      }
     ]
   }
 }

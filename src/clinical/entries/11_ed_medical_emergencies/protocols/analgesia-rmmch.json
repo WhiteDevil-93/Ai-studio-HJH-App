@@ -12,9 +12,9 @@
       9,
       10
     ],
-    "sectionTitle": "Analgesia (RMMCH)",
+    "sectionTitle": "Analgesia",
     "transformation": "condensed",
-    "verification": "unverifiable"
+    "verification": "page-index"
   },
   "sourceGroup": "rmmch",
   "reviewState": "unreviewed",

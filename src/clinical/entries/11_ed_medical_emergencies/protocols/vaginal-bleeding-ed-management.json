@@ -4,13 +4,15 @@
   "slug": "vaginal-bleeding-ed-management",
   "order": 9,
   "source": {
-    "sourceId": "source-unresolved",
-    "pdfPages": [],
-    "sectionTitle": "Source mapping required",
-    "transformation": "combined",
-    "verification": "unverifiable"
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      199
+    ],
+    "sectionTitle": "Vaginal Bleeding",
+    "transformation": "condensed",
+    "verification": "page-index"
   },
-  "sourceGroup": "edl_phc",
+  "sourceGroup": "hjth",
   "reviewState": "unreviewed",
   "errata": [],
   "record": {
@@ -41,6 +43,14 @@
     "warnings": [
       "Do NOT perform digital PV examination in antepartum haemorrhage (>24 weeks) if placenta praevia is suspected — confirm on ultrasound first.",
       "Rh-negative mothers with vaginal bleeding require anti-D immunoglobulin (within 72 hours)."
+    ],
+    "embedded_drugs": [
+      {
+        "drug": "Tranexamic Acid",
+        "adult_dose": "1g IV over 10min (repeat 8hrly); Trauma: 1g/10min then 1g/8hrs",
+        "paediatric_dose": "15mg/kg IV 8hrly",
+        "notes_updates": "Contraindicated: significant haematuria, DIC"
+      }
     ]
   }
 }

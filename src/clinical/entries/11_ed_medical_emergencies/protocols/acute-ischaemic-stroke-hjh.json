@@ -1,0 +1,45 @@
+{
+  "categoryId": "11_ed_medical_emergencies",
+  "subcategoryId": "protocols",
+  "slug": "acute-ischaemic-stroke-hjh",
+  "order": 2006,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [],
+    "sectionTitle": "Acute Ischaemic Stroke",
+    "transformation": "condensed",
+    "verification": "manual"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Acute Ischaemic Stroke",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Exclude Mimics & Assess NIHSS",
+        "details": "Check glucose immediately (rule out hypoglycaemia). Assess GCS and clinical onset time. Exclude other mimics: Todd's paresis, migraine, tumour, encephalitis."
+      },
+      {
+        "step_number": "2",
+        "action": "Urgent Non-Contrast CT Brain",
+        "details": "Verify absence of intracranial hemorrhage. Consult neurology/stroke team immediately."
+      },
+      {
+        "step_number": "3",
+        "action": "Alteplase Thrombolysis (<3 to 4.5 hours)",
+        "details": "If within 3-4.5h and no contraindications: Alteplase 0.9 mg/kg IV (10% bolus over 1 min, remainder over 60 mins). Max dose 90mg. Keep SBP < 185 and DBP < 110."
+      },
+      {
+        "step_number": "4",
+        "action": "Management of Post-Thrombolysis Bleeding",
+        "details": "If bleeding is suspected: stop Alteplase, order urgent CT brain, send clotting studies, transfuse Cryoprecipitate 10 U/kg IV over 10-30 min, and give Tranexamic Acid 1g IV."
+      }
+    ],
+    "warnings": [
+      "Absolute Contraindications: Prior ICH, known vascular lesion (AVM), malignant neoplasm, active bleeding, stroke/trauma within 3 months, SBP > 185 / DBP > 110 despite treatment, INR > 1.7."
+    ]
+  }
+}

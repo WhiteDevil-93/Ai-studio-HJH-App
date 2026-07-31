@@ -24,6 +24,9 @@ in this repository must therefore have its own approved provenance.
 The complete supplied JSON archive is extracted under `clinical-sources/raw/all_hospitals_protocols/`.
 Its archive checksum, extracted tree checksum, file census, and per-facility counts are recorded in
 [`clinical-sources/all-hospitals-protocols-manifest.json`](clinical-sources/all-hospitals-protocols-manifest.json).
+The original hospital PDF source documents are retained under
+[`clinical-sources/source-documents/`](clinical-sources/source-documents/) and their checksums are recorded in
+[`clinical-sources/source-manifest.json`](clinical-sources/source-manifest.json).
 
 The hospital landing pages currently expose:
 
@@ -126,7 +129,8 @@ clinical values.
 
 ```text
 clinical-sources/         Source manifests, errata, correction overrides, and the
-                          raw transcription corpora (HJH, CMJAH, CHBAH, RMMCH)
+                          original PDFs and raw transcription corpora (HJH, CMJAH,
+                          CHBAH, RMMCH)
 scripts/                  Clinical-data validation, PWA asset generation, and
                           automated PDF audit/fix utilities
 src/clinical/             Types, source registry, normalization, weight/dose calculations,

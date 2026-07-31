@@ -1,0 +1,97 @@
+{
+  "categoryId": "5_metabolic_electrolytes_and_nutrition",
+  "subcategoryId": "electrolyte_replacement",
+  "slug": "hyponatraemia-hjh",
+  "order": 2002,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      97
+    ],
+    "sectionTitle": "Hyponatraemia",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Hyponatraemia",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "symptoms": "Symptoms: Nausea, Vomiting, CNS Dysfunction (headache, \nirritability, lethargy, seizures, coma) death \nPathophysiology: Solute depletion or solute dilution \n \nClassification based on serum Osmolality (N= 272-295mOsm): \nIf Hypertonic: Mannitol, osmotic diuresis, hyperglycemia (DKA, HHS), alcoholism \nIf Isotonic: Pseudohyponatremia- Artefactual (lab error), hyperlipidemia, hyperproteinemia (Multiple myeloma) \nIf Hypotonic: True Hyponatraemia \n \nEquations: Calculated serum osmolality = (2 x Na+) + glucose + urea \nCorrected Na+ for hyperglycaemia: Na+ + [2.4(Glucose - 5.4)/5.4] \nHypertonic / Normal saline infusion rate: Use MDCalc \n \nTrue Hyponatraemia \nGeneral Approach if critically Ill: \n-ABC’s, Monitors, IV, ECG, urine catheter \n-If pronounced CNS dysfunction (usually Na+ <110): Give 3% hypertonic Saline: 2mls/kg over 60min, aim to \nraise Na+ to 120mmol/l. Once at 120mmol/l, slow rate of Na+ increase to maximum rate of 0.5mmol/l/hr (NB: \nMaximum increase 12mmol/l per 24hrs) *if no Hypertonic saline available, Sodium Bicarbonate (1-2mls/kg) can be used \n-DO NOT CORRECT TOO FAST for risk of pontine myelinolysis. If low GCS with Na >120mmol, search for other \ncause of coma or seizures. \n \nApproach based on cause (once stable – Na+ > 120): \nTrue Hyponatreamia \n \nIs the Patient dehydrated? \nYes \nNo \n \nIs the Urinary Na >20mmol/l? \nIs the patient oedematous? \n \n \n \n \nFluid Na+ Concentrations (mmol/l) \n*5% Hypertonic Saline – 856 \n*3% Hypertonic Saline – 513 \n*Sodium Bicarbonate 8.5% – 1000 (50 in 50ml bag) \n*Sodium Bicarbonate 4.2% - 500 (100 in 200ml bottle) \n*0.9% Normal Saline – 154 \n*0.45% Normal Saline – 77 \n*Ringers Lactate – 131 \n*Balsol – 140 \n \n \n \nYes \nRenal Na+ Loss \n- Addisons \n- Renal Failure \n-Diuretic Excess \nNo \n \nUrine Osmolality >500mmol/kg \nYes  \n \n \n-Nephrotic Syndrome \n-Cardiac Failure \n-Osmolar Diuresis \n \nLoss elsewhere \n-Diarrhoea \nNo \n-Vomiting \n-Burns \n-Small bowel obstr \n-Trauma \nYes \n \n \nNo \nSIADH \n \n-Water overload \n-Severe hypothyroidism \n-Glu"
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Approach if critically Ill:",
+        "details": "Approach if critically Ill:"
+      },
+      {
+        "step_number": "2",
+        "action": "-ABC’s, Monitors, IV, ECG, urine catheter",
+        "details": "-ABC’s, Monitors, IV, ECG, urine catheter"
+      },
+      {
+        "step_number": "3",
+        "action": "-If pronounced CNS dysfunction (usually Na+ <110): Give 3% hypertonic Saline: 2mls/kg over 60min, ai",
+        "details": "-If pronounced CNS dysfunction (usually Na+ <110): Give 3% hypertonic Saline: 2mls/kg over 60min, aim to"
+      },
+      {
+        "step_number": "4",
+        "action": "raise Na+ to 120mmol/l. Once at 120mmol/l, slow rate of Na+ increase to maximum rate of 0.5mmol/l/hr",
+        "details": "raise Na+ to 120mmol/l. Once at 120mmol/l, slow rate of Na+ increase to maximum rate of 0.5mmol/l/hr (NB:"
+      },
+      {
+        "step_number": "5",
+        "action": "Maximum increase 12mmol/l per 24hrs) *if no Hypertonic saline available, Sodium Bicarbonate (1-2mls/",
+        "details": "Maximum increase 12mmol/l per 24hrs) *if no Hypertonic saline available, Sodium Bicarbonate (1-2mls/kg) can be used"
+      },
+      {
+        "step_number": "6",
+        "action": "-DO NOT CORRECT TOO FAST for risk of pontine myelinolysis. If low GCS with Na >120mmol, search for o",
+        "details": "-DO NOT CORRECT TOO FAST for risk of pontine myelinolysis. If low GCS with Na >120mmol, search for other"
+      },
+      {
+        "step_number": "7",
+        "action": "cause of coma or seizures.",
+        "details": "cause of coma or seizures."
+      },
+      {
+        "step_number": "8",
+        "action": "Approach based on cause (once stable – Na+ > 120):",
+        "details": "Approach based on cause (once stable – Na+ > 120):"
+      },
+      {
+        "step_number": "9",
+        "action": "True Hyponatreamia",
+        "details": "True Hyponatreamia"
+      },
+      {
+        "step_number": "10",
+        "action": "Is the Patient dehydrated?",
+        "details": "Is the Patient dehydrated?"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "True Hyponatraemia",
+        "adult_dose": "True Hyponatraemia",
+        "notes": "Extracted from HJH ED 2026"
+      },
+      {
+        "item": "-ABC’s, Monitors, IV, ECG, urine catheter",
+        "adult_dose": "-ABC’s, Monitors, IV, ECG, urine catheter",
+        "notes": "Extracted from HJH ED 2026"
+      },
+      {
+        "item": "-If pronounced CNS dysfunction (usually Na+ <110):",
+        "adult_dose": "If pronounced CNS dysfunction (usually Na+ <110): Give 3% hypertonic Saline 2 ml/kg over 60 min, aim to raise Na+ to 120 mmol/l",
+        "notes": "Extracted from HJH ED 2026"
+      }
+    ],
+    "warnings": [
+      "NB: \nMaximum increase 12mmol/l per 24hrs) *if no Hypertonic saline available, Sodium Bicarbonate (1-2mls/kg) can be used \n-DO NOT CORRECT TOO FAST for risk of pontine myelinolysis. If low GCS with Na >120mmol, search for other \ncause of coma or seizures. \n \nApproach based on cause (once stable – Na+ > 120): \nTrue Hyponatreamia \n \nIs the Patient dehydrated? \nYes \nNo \n \nIs the Urinary Na >20mmol/l? \nIs the patient oedematous? \n \n \n \n \nFluid Na+ Concentrations (mmol/l) \n*5% Hypertonic Saline – 856 "
+    ]
+  }
+}

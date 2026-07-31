@@ -9,9 +9,9 @@
       13,
       14
     ],
-    "sectionTitle": "Asthma - Acute (RMMCH)",
+    "sectionTitle": "Asthma - Acute",
     "transformation": "condensed",
-    "verification": "unverifiable"
+    "verification": "page-index"
   },
   "sourceGroup": "rmmch",
   "reviewState": "unreviewed",

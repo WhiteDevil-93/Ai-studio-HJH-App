@@ -4,13 +4,17 @@
   "slug": "parkland",
   "order": 9,
   "source": {
-    "sourceId": "source-unresolved",
-    "pdfPages": [],
-    "sectionTitle": "parkland",
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      51,
+      52,
+      53
+    ],
+    "sectionTitle": "Modified Brooke Formula",
     "transformation": "combined",
-    "verification": "unverifiable"
+    "verification": "page-index"
   },
-  "sourceGroup": "bara_icu",
+  "sourceGroup": "hjth",
   "reviewState": "unreviewed",
   "errata": [],
   "record": {

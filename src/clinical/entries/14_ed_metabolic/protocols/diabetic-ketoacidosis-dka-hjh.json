@@ -1,0 +1,44 @@
+{
+  "categoryId": "14_ed_metabolic",
+  "subcategoryId": "protocols",
+  "slug": "diabetic-ketoacidosis-dka-hjh",
+  "order": 2000,
+  "source": {
+    "sourceId": "hjh-ed-2026-v1",
+    "pdfPages": [
+      92,
+      93
+    ],
+    "sectionTitle": "Diabetic Ketoacidosis (DKA)",
+    "transformation": "condensed",
+    "verification": "page-index"
+  },
+  "sourceGroup": "hjth",
+  "reviewState": "unreviewed",
+  "errata": [],
+  "record": {
+    "item": "Diabetic Ketoacidosis (DKA)",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Confirm diagnosis & Check Potassium First",
+        "details": "HGT >11, pH <7.3, HCO3 <18, Anion Gap >16, ketones positive. Hold insulin if K+ <3.3."
+      },
+      {
+        "step_number": "2",
+        "action": "Aggressive Fluids (Ringer's/Balsol)",
+        "details": "1L/hr for first 1-2 hours, then titrate to maintain urine output 1-2ml/kg/hr. Switch to Dextrose-containing fluids when HGT <15."
+      },
+      {
+        "step_number": "3",
+        "action": "Insulin Therapy & Potassium replacement",
+        "details": "0.1 U/kg/hr Actrapid infusion. Maintain potassium at 4-5 mmol/L by adding KCl to fluid bags."
+      }
+    ],
+    "warnings": [
+      "Delay insulin until potassium is >3.5 mmol/L to prevent precipitous drops",
+      "Avoid routine bicarbonate unless pH <6.8 and in severe shock"
+    ]
+  }
+}
