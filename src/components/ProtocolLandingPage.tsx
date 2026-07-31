@@ -239,6 +239,14 @@ const TranscriptionPoint: React.FC<{block: TranscriptionBlock; highlight?: strin
     );
   }
 
+  if (block.tone === 'data') {
+    return (
+      <p className="my-1 overflow-x-auto whitespace-pre-wrap break-words rounded-lg border border-slate-200 bg-slate-100/70 px-3 py-2 font-mono text-[11px] leading-6 tabular-nums text-slate-700 dark:border-slate-800 dark:bg-slate-950/60 dark:text-slate-300">
+        {body}
+      </p>
+    );
+  }
+
   if (block.tone === 'label') {
     return (
       <p className="mt-3 text-xs font-black uppercase tracking-wide text-slate-600 dark:text-slate-300">

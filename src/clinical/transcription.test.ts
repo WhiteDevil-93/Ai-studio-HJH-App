@@ -241,6 +241,36 @@ describe('structureTranscription', () => {
     expect(legibleTranscriptionLines(rows.join('\n'))).toEqual(rows);
   });
 
+  it('rebuilds a table row that arrived one cell per line', () => {
+    const sections = structureTranscription(
+      ['Weight (kg)', '40', '50', '60', '70', 'Rate is in ml/hr'].join('\n'),
+    );
+
+    expect(sections[0].blocks.map(block => [block.text, block.tone])).toEqual([
+      ['Weight (kg)', undefined],
+      ['40 50 60 70', 'data'],
+      ['Rate is in ml/hr', undefined],
+    ]);
+  });
+
+  it('keeps numbered steps out of the table-row grouping', () => {
+    const sections = structureTranscription(['STEPS', '1. Assess', '2. Treat'].join('\n'));
+
+    expect(sections[0].blocks.map(block => [block.marker, block.text])).toEqual([
+      ['1.', 'Assess'],
+      ['2.', 'Treat'],
+    ]);
+  });
+
+  it('does not join cells across a heading', () => {
+    const sections = structureTranscription(['DOSE', '40', 'RATE', '60'].join('\n'));
+
+    expect(sections.map(section => [section.heading, section.blocks[0].text])).toEqual([
+      ['DOSE', '40'],
+      ['RATE', '60'],
+    ]);
+  });
+
   it('renders both outcomes of a decision branch as siblings', () => {
     const sections = structureTranscription(
       ['NO', 'YES', 'NO', 'YES TO ALL', 'NO TO ANY'].join('\n'),

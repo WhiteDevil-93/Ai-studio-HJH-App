@@ -1,3 +1,5 @@
+import {repairGlyphsDeep} from './glyphRepair';
+
 export type HospitalId = 'hjh' | 'cmjah' | 'chbah' | 'rmmch';
 
 export interface HospitalDefinition {
@@ -701,7 +703,11 @@ const normalizeProtocol = (
   const filename = `${match[2]}.json`;
   const slug = match[2];
   const meta = isRecord(rawValue._meta) ? rawValue._meta : {};
-  const body = isRecord(rawValue.protocol) ? rawValue.protocol : rawValue;
+  // Repaired once here so the page, the search index, and the card summaries all
+  // read the same text. `raw` below keeps the archive bytes for provenance.
+  const body = repairGlyphsDeep(
+    isRecord(rawValue.protocol) ? rawValue.protocol : rawValue,
+  );
   const protocolId = `${facilityId}:${slug}`;
   const title =
     PROTOCOL_TITLE_OVERRIDES[protocolId] ||
@@ -720,7 +726,7 @@ const normalizeProtocol = (
     asString(body.sourceDoc) ||
     HOSPITALS[facilityId].sourceLabel;
   const embeddedDrugs = Array.isArray(rawValue.embedded_drugs)
-    ? rawValue.embedded_drugs.filter(isRecord)
+    ? repairGlyphsDeep(rawValue.embedded_drugs.filter(isRecord))
     : [];
 
   return {

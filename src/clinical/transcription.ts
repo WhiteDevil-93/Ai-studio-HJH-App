@@ -28,9 +28,11 @@ export interface TranscriptionBlock {
    * `directive` marks a mandatory instruction such as `STOP TRANSFUSION
    * IMMEDIATELY!`. `branch` marks a flowchart decision outcome such as `YES` or
    * `NO TO ANY`. `label` marks an upper-case line that titles a run of content
-   * the extraction did not keep with it — a caption, not a warning.
+   * the extraction did not keep with it — a caption, not a warning. `data` marks
+   * figures recovered from a dose or weight chart whose grid the extraction
+   * flattened, so they are shown as the tabular values they are.
    */
-  tone?: 'directive' | 'branch' | 'label';
+  tone?: 'directive' | 'branch' | 'label' | 'data';
 }
 
 export interface TranscriptionSection {
@@ -110,6 +112,14 @@ const DECISION_BRANCH = /^(?:YES|NO)\b[A-Z\s]*$/;
 
 const isDecisionBranch = (text: string): boolean =>
   text.length <= 24 && DECISION_BRANCH.test(text);
+
+/**
+ * A table cell the extraction put on a line of its own. Dose and weight charts
+ * arrive as long columns of these — the dialysis page alone carries 245 — so
+ * consecutive cells are regrouped into the row they came from rather than
+ * becoming one bullet per number.
+ */
+const TABLE_CELL = /^\d+(?:\.\d+)?$/;
 
 /**
  * A line continues the previous point when it opens the way a wrapped sentence
@@ -251,18 +261,34 @@ export const structureTranscription = (
 
   const sections: TranscriptionSection[] = [];
   let current: TranscriptionSection = {heading: null, blocks: []};
+  /** The row currently being rebuilt from single-cell-per-line table output. */
+  let openRow: TranscriptionBlock | null = null;
 
   const flush = () => {
     if (current.heading !== null || current.blocks.length > 0) {
       sections.push(current);
     }
+    openRow = null;
   };
 
   lines.forEach((line, index) => {
+    const isTableCell = !line.bulleted && !line.marker && TABLE_CELL.test(line.text);
+    if (!isTableCell) openRow = null;
+
     // Checked before the upper-case rules because `NO` is too short to read as
     // a heading anyway, and both outcomes must render the same way.
     if (!line.marker && isDecisionBranch(line.text)) {
       current.blocks.push({kind: 'paragraph', level: 0, text: line.text, tone: 'branch'});
+      return;
+    }
+
+    if (isTableCell) {
+      if (openRow && current.blocks[current.blocks.length - 1] === openRow) {
+        openRow.text = `${openRow.text} ${line.text}`;
+        return;
+      }
+      openRow = {kind: 'paragraph', level: 0, text: line.text, tone: 'data'};
+      current.blocks.push(openRow);
       return;
     }
 
