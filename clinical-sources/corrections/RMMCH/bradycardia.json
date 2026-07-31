@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "bradycardia",
+    "type": "protocol",
+    "category": "03_ed_cardiovascular",
+    "subcategory": "protocols",
+    "title": "Bradycardia",
+    "source_doc": "RMMCH EM Clinical Protocols V5 03/01/2024",
+    "review_state": "withheld-superseded-by-canonical-entry"
+  },
+  "protocol": {
+    "item": "Bradycardia",
+    "protocol_type": "withheld",
+    "note": "superseded by the structured RMMCH bradycardia entries"
+  }
+}

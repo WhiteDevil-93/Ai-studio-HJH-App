@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "id": "traumatic_cardiac_arrest",
+    "type": "protocol",
+    "category": "02_ed_trauma_ortho",
+    "subcategory": "protocols",
+    "title": "Traumatic Cardiac Arrest",
+    "source_doc": "RMMCH EM Clinical Protocols V5 03/01/2024",
+    "review_state": "withheld-superseded-by-canonical-entry"
+  },
+  "protocol": {
+    "item": "Traumatic Cardiac Arrest",
+    "protocol_type": "withheld",
+    "note": "superseded by rmmch-traumatic-cardiac-arrest"
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "_meta": {"id":"tachycardia","type":"protocol","category":"03_ed_cardiovascular","subcategory":"protocols","title":"Tachycardia","source_doc":"RMMCH EM Clinical Protocols V5 03/01/2024","review_state":"withheld-superseded-by-canonical-entry"},
+  "protocol": {"item":"Tachycardia","protocol_type":"withheld","note":"superseded by rmmch-tachycardia"}
+}

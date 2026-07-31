@@ -1,0 +1,36 @@
+{
+  "_meta": {
+    "id": "rmmch-sepsis-and-septic-shock",
+    "type": "protocol",
+    "category": "17_ed_critical_care",
+    "subcategory": "protocols",
+    "title": "Sepsis + Septic Shock",
+    "source_doc": "RMMCH EM Clinical Protocols V5 03/01/2024",
+    "review_state": "reviewed-against-rmmch-v5-pdf-pages-46-47"
+  },
+  "protocol": {
+    "sourceDoc": "RMMCH EM Clinical Protocols V5 03/01/2024",
+    "pdfPages": [46, 47],
+    "item": "Sepsis + Septic Shock",
+    "categoryHint": "resuscitation",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "sirs_adults": [
+        "Temperature below 36°C or above 38°C.",
+        "Heart rate above 90/min.",
+        "Respiratory rate above 20/min or PaCO₂ below 32 mmHg.",
+        "White cell count below 4 or above 12, or more than 10% immature band forms."
+      ],
+      "q_sofa_adults": [
+        "Altered mental status: Glasgow Coma Scale below 15.",
+        "Tachypnoea: respiratory rate 22/min or more.",
+        "Hypotension: systolic blood pressure 100 mmHg or less."
+      ],
+      "sofa_adults": "The source includes the adult SOFA score table for ICU referrals on page 47; no management bundle is printed on pages 46-47."
+    },
+    "warnings": [
+      "SIRS is not specific to sepsis and can occur in trauma, after surgery, burns, pancreatitis and acute inflammatory conditions."
+    ],
+    "source_text": "Sepsis + Septic Shock\nSIRS = Systemic Inflammatory Response Syndrome. SIRS is not specific to sepsis. Q-SOFA Adults is a screening tool for undifferentiated patients. SOFA Score Adults is included for ICU referrals."
+  }
+}

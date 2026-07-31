@@ -78,6 +78,52 @@
           "applicationAction": "Text shown as printed; a warning is surfaced on the card"
         }
       ]
+    },
+    {
+      "sourceId": "rmmch-paediatric-protocols",
+      "releaseBlocking": true,
+      "items": [
+        {
+          "id": "ERR-RMMCH-001",
+          "pdfPages": [7],
+          "topic": "Paediatric paracetamol route and dose",
+          "issue": "The structured extraction conflated the oral 20 mg/kg STAT dose with the separate rectal 15-20 mg/kg STAT dose.",
+          "status": "resolved-from-source",
+          "applicationAction": "A reviewed correction preserves oral and rectal doses as separate route-specific statements."
+        },
+        {
+          "id": "ERR-RMMCH-002",
+          "pdfPages": [46, 47],
+          "topic": "Sepsis source attribution",
+          "issue": "The structured entry attributed an Hour-1 management bundle to pages that contain only adult SIRS, qSOFA and SOFA material.",
+          "status": "resolved-from-source",
+          "applicationAction": "Unsupported management steps were removed; only content present on pages 46-47 remains."
+        },
+        {
+          "id": "ERR-RMMCH-003",
+          "pdfPages": [27, 28],
+          "topic": "e-FAST and FASTHUGS page contamination",
+          "issue": "The e-FAST extraction contained FASTHUGS content from the following page while omitting the image-based e-FAST guide.",
+          "status": "blocked-from-runtime",
+          "applicationAction": "The e-FAST card is withheld until a faithful source-image implementation is added."
+        },
+        {
+          "id": "ERR-RMMCH-004",
+          "pdfPages": [],
+          "topic": "Duplicate same-facility protocol representations",
+          "issue": "Structured and transcription copies of the same RMMCH topics were exposed as separate protocols.",
+          "status": "resolved-in-runtime",
+          "applicationAction": "Thirteen superseded transcription copies are withheld; the canonical structured entries remain."
+        },
+        {
+          "id": "ERR-RMMCH-005",
+          "pdfPages": [],
+          "topic": "Incomplete or unreadable source extractions",
+          "issue": "C-spine injuries and triage were title-only; CT C-spine and CTB rules contained unreadable control-character payloads.",
+          "status": "blocked-from-runtime",
+          "applicationAction": "The four affected cards are withheld until page-faithful image or structured reconstructions are available."
+        }
+      ]
     }
   ]
 }

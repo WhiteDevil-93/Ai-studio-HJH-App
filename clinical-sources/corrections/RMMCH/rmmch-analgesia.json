@@ -1,0 +1,49 @@
+{
+  "_meta": {
+    "id": "rmmch-analgesia",
+    "type": "protocol",
+    "category": "15_ed_procedures",
+    "subcategory": "protocols",
+    "title": "Analgesia",
+    "source_doc": "RMMCH EM Clinical Protocols V5 03/01/2024",
+    "review_state": "reviewed-against-rmmch-v5-pdf-pages-6-10"
+  },
+  "protocol": {
+    "sourceDoc": "RMMCH EM Clinical Protocols V5 03/01/2024",
+    "pdfPages": [6, 7, 8, 9, 10],
+    "item": "Analgesia",
+    "categoryHint": "medical_emergencies",
+    "protocol_type": "ed_protocol",
+    "clinical_features": {
+      "pain_assessment": [
+        "QUESTT: question the patient; use an age- and developmentally appropriate pain-rating scale; evaluate behaviour and physiological changes; secure parental involvement if the patient is a child; take the cause of pain into account; take action and evaluate the response.",
+        "Pain score interpretation: 0 no pain; 1-3 mild pain; 4-6 moderate pain; 7-10 severe pain."
+      ]
+    },
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Mild acute pain (1-3)",
+        "details": "Glucose 25% oral solution: 2 mL PO. Paracetamol oral: children 20 mg/kg PO STAT; adults 1.5 g PO STAT. Maximum dosing: birth-2 months 60 mg/kg/day divided TDS/QID; older than 2 months 90 mg/kg/day, maximum 4 g/day; adults 1 g PO QID. Paracetamol rectal: children 15-20 mg/kg PR STAT. Ibuprofen: children and adults 10 mg/kg PO STAT, then 5-10 mg/kg PO TDS with food. Mefanamic acid: children 6.5-7.5 mg/kg PO STAT; children 6 months-2 years 125 mg PR STAT; adults 500 mg PO STAT. Diclofenac: adults over 50 kg 75 mg IMI; off-label IV 1 mg/kg diluted in 5 mL/kg crystalloid and administered slowly."
+      },
+      {
+        "step_number": "2",
+        "action": "Moderate acute pain (4-6)",
+        "details": "Use medication for mild pain and consider one additional option. Tramadol oral 0.5-1 mg/kg STAT or IV/IO 1-1.5 mg/kg; maximum 8 mg/kg/day and 400 mg/day. Myprodol: adults 2 capsules STAT; children 3-5 years 5 mL PO STAT; children 6-12 years 10 mL PO STAT."
+      },
+      {
+        "step_number": "3",
+        "action": "Severe acute pain (7-10)",
+        "details": "Perfalgan IV/IO: younger than 1 month 10 mg/kg STAT; older than 1 month 15 mg/kg STAT; adults 1 g IVI. Fentanyl IV/IO 1-1.5 µg STAT; intranasal atomised 1-2 µg/kg STAT; transmucosal 10-15 µg/kg. Morphine IV/IO 0.1-0.15 mg/kg; IM under 50 kg 0.1 mg/kg STAT, over 50 kg 0.1-0.2 mg/kg STAT; oral 0.25-0.5 mg/kg. Meperidine IMI under 50 kg 1 mg/kg STAT; adults over 50 kg 75-100 mg IMI STAT; IV/IO 0.25-0.5 mg/kg. Ketamine analgesic doses: IV/IO 0.25 mg/kg STAT (range 0.1-0.3 mg/kg); IM 1-2 mg/kg; oral 1-2 mg/kg; rectal 1-2.5 mg/kg; intranasal atomised 1.5-2.5 mg/kg."
+      }
+    ],
+    "warnings": [
+      "Only one NSAID is to be used.",
+      "Ibuprofen, mefanamic acid and diclofenac are contraindicated in pregnancy.",
+      "Diclofenac is contraindicated in acute kidney injury, polytrauma and hypotension.",
+      "Tramadol is highly emetogenic and lowers the seizure threshold.",
+      "Morphine syrup: caution in very small infants; apnoea is a real risk."
+    ],
+    "note": "Route-specific paracetamol doses are retained separately from the source table: oral 20 mg/kg STAT and rectal 15-20 mg/kg STAT."
+  }
+}
