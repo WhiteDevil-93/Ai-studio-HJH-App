@@ -96,7 +96,7 @@ describe('supplied hospital protocol corpus', () => {
         ]),
     );
 
-    expect(Object.keys(HJH_PROTOCOL_CATEGORY_ASSIGNMENTS)).toHaveLength(95);
+    expect(Object.keys(HJH_PROTOCOL_CATEGORY_ASSIGNMENTS)).toHaveLength(97);
     for (const [slug, categoryId] of Object.entries(
       HJH_PROTOCOL_CATEGORY_ASSIGNMENTS,
     )) {
@@ -107,9 +107,9 @@ describe('supplied hospital protocol corpus', () => {
         .filter(protocol => !HJH_PROTOCOL_CATEGORY_ASSIGNMENTS[protocol.slug])
         .map(protocol => protocol.slug)
         .sort(),
-    ).toEqual(['burns', 'head_injury']);
+    ).toEqual([]);
     expect(categoryCounts).toEqual({
-      '02_ed_trauma_ortho': 5,
+      '02_ed_trauma_ortho': 7,
       '03_ed_cardiovascular': 14,
       '04_ed_neurology': 8,
       '05_ed_pulmonary': 7,
@@ -119,7 +119,6 @@ describe('supplied hospital protocol corpus', () => {
       '11_ed_medical_emergencies': 8,
       '12_ed_toxicology': 15,
       '13_ed_infectious_diseases': 5,
-      '13_ed_trauma_surgical': 2,
       '14_ed_metabolic': 9,
       '14_ed_psychiatry': 2,
       '15_ed_general_surgery': 4,
@@ -127,6 +126,50 @@ describe('supplied hospital protocol corpus', () => {
       '16_ed_administration': 2,
       '17_ed_critical_care': 5,
     });
+  });
+
+  it('files burns and head injury under the same heading as the other facilities', () => {
+    // The archive left these two HJH records under a trauma-surgical umbrella
+    // that no other record used, splitting one topic across two headings.
+    for (const [facilityId, slug] of [
+      ['hjh', 'burns'],
+      ['hjh', 'head_injury'],
+      ['cmjah', 'burns'],
+      ['rmmch', 'head_injuries'],
+    ] as const) {
+      expect(
+        findHospitalProtocol(facilityId, slug)?.categoryLabel,
+        `${facilityId}:${slug}`,
+      ).toBe('Trauma & Orthopaedics');
+    }
+  });
+
+  it('names one concept with one heading across facilities', () => {
+    const labelsByConcept = new Map<string, Set<string>>();
+    for (const protocol of HOSPITAL_PROTOCOLS) {
+      const key = protocol.categoryLabel
+        .toLocaleLowerCase()
+        .split(/\s*&\s*/)
+        .map(part => part.trim())
+        .sort()
+        .join(' & ');
+      const labels = labelsByConcept.get(key) ?? new Set<string>();
+      labels.add(protocol.categoryLabel);
+      labelsByConcept.set(key, labels);
+    }
+
+    for (const [key, labels] of labelsByConcept) {
+      expect([...labels], `${key} is worded more than one way`).toHaveLength(1);
+    }
+  });
+
+  it('restores title characters the archive extraction dropped', () => {
+    expect(findHospitalProtocol('hjh', 'ccb_bb_overdose')?.title).toBe(
+      'β-Blocker & Calcium-Channel Blocker Overdose',
+    );
+    for (const protocol of HOSPITAL_PROTOCOLS) {
+      expect(protocol.title, protocol.id).toMatch(/^[A-Za-zΑ-Ωα-ω0-9]/);
+    }
   });
 
   it('assigns every CMJAH and RMMCH protocol to a specific clinical category', () => {
