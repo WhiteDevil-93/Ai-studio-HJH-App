@@ -241,6 +241,145 @@ describe('structureTranscription', () => {
     expect(legibleTranscriptionLines(rows.join('\n'))).toEqual(rows);
   });
 
+  it('reads § and Ø as the list markers these documents use them for', () => {
+    const sections = structureTranscription(
+      [
+        'CLINICAL SIGNS',
+        'Ø Date of onset of symptoms',
+        'Ø Travel history',
+        '§ Examination',
+      ].join('\n'),
+    );
+
+    expect(sections[0].blocks).toEqual([
+      {kind: 'bullet', level: 0, text: 'Date of onset of symptoms'},
+      {kind: 'bullet', level: 0, text: 'Travel history'},
+      {kind: 'bullet', level: 0, text: 'Examination'},
+    ]);
+  });
+
+  it('treats a doubled asterisk as the emphasis marker it is', () => {
+    const sections = structureTranscription(
+      [
+        'HYPERKALAEMIA',
+        '* Give calcium gluconate',
+        '**Administer IV separate to dextrose**',
+        '***LEVELS CORRELATE POORLY WITH SEVERITY OF TOXICITY',
+      ].join('\n'),
+    );
+
+    expect(sections[0].blocks).toEqual([
+      {kind: 'bullet', level: 0, text: 'Give calcium gluconate'},
+      {
+        kind: 'paragraph',
+        level: 0,
+        text: 'Administer IV separate to dextrose',
+        tone: 'directive',
+      },
+      {
+        kind: 'paragraph',
+        level: 0,
+        text: 'LEVELS CORRELATE POORLY WITH SEVERITY OF TOXICITY',
+        tone: 'directive',
+      },
+    ]);
+  });
+
+  it('rejoins an emphasised line with the remainder it wrapped onto', () => {
+    const sections = structureTranscription(
+      ['HYPERKALAEMIA', '**Administer IV', 'separate to dextrose**', '* Next point'].join('\n'),
+    );
+
+    expect(sections[0].blocks).toEqual([
+      {
+        kind: 'paragraph',
+        level: 0,
+        text: 'Administer IV separate to dextrose',
+        tone: 'directive',
+      },
+      {kind: 'bullet', level: 0, text: 'Next point'},
+    ]);
+  });
+
+  it('rejoins an emphasised line whose remainder opens on a dose figure', () => {
+    const sections = structureTranscription(
+      ['HYPERKALAEMIA', '**Administer', '1ml/kg 50% dextrose prior to insulin **'].join('\n'),
+    );
+
+    expect(sections[0].blocks).toEqual([
+      {
+        kind: 'paragraph',
+        level: 0,
+        text: 'Administer 1ml/kg 50% dextrose prior to insulin',
+        tone: 'directive',
+      },
+    ]);
+  });
+
+  it('leaves a single trailing asterisk footnote marker alone', () => {
+    const sections = structureTranscription(['NOTES', 'See dosing table*'].join('\n'));
+
+    expect(sections[0].blocks[0].text).toBe('See dosing table*');
+  });
+
+  it('renders every Roman numeral in a grade list the same way', () => {
+    const sections = structureTranscription(
+      [
+        'GRADING OF HEPATIC ENCEPHALOPATHY',
+        'I',
+        'Impaired attention, irritable',
+        'II',
+        'Drowsy, poor memory',
+        'III',
+        'Confusion, somnolence',
+        'IV',
+        'Stupor, coma',
+      ].join('\n'),
+    );
+
+    expect(sections).toHaveLength(1);
+    expect(sections[0].blocks.map(block => block.text)).toEqual([
+      'I',
+      'Impaired attention, irritable',
+      'II',
+      'Drowsy, poor memory',
+      'III',
+      'Confusion, somnolence',
+      'IV',
+      'Stupor, coma',
+    ]);
+  });
+
+  it('rebuilds a table row that arrived one cell per line', () => {
+    const sections = structureTranscription(
+      ['Weight (kg)', '40', '50', '60', '70', 'Rate is in ml/hr'].join('\n'),
+    );
+
+    expect(sections[0].blocks.map(block => [block.text, block.tone])).toEqual([
+      ['Weight (kg)', undefined],
+      ['40 50 60 70', 'data'],
+      ['Rate is in ml/hr', undefined],
+    ]);
+  });
+
+  it('keeps numbered steps out of the table-row grouping', () => {
+    const sections = structureTranscription(['STEPS', '1. Assess', '2. Treat'].join('\n'));
+
+    expect(sections[0].blocks.map(block => [block.marker, block.text])).toEqual([
+      ['1.', 'Assess'],
+      ['2.', 'Treat'],
+    ]);
+  });
+
+  it('does not join cells across a heading', () => {
+    const sections = structureTranscription(['DOSE', '40', 'RATE', '60'].join('\n'));
+
+    expect(sections.map(section => [section.heading, section.blocks[0].text])).toEqual([
+      ['DOSE', '40'],
+      ['RATE', '60'],
+    ]);
+  });
+
   it('renders both outcomes of a decision branch as siblings', () => {
     const sections = structureTranscription(
       ['NO', 'YES', 'NO', 'YES TO ALL', 'NO TO ANY'].join('\n'),
