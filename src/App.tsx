@@ -3181,6 +3181,7 @@ export default function App() {
           onOpenProtocol={navigateToProtocol}
           weight={weight}
           setWeight={setWeight}
+          searchQuery={searchQuery}
           onBack={() => {
             setSelectedFacility(facilityId);
             setSelectedProtocolId(null);
