@@ -5,15 +5,17 @@
   "type": "module",
   "scripts": {
     "generate:hjh": "node scripts/generate-hjh-official-corrections.mjs",
-    "dev": "npm run generate:hjh && node scripts/generate-pwa-assets.js && vite --port=3000 --host=0.0.0.0",
-    "build": "npm run generate:hjh && node scripts/generate-pwa-assets.js && vite build",
+    "generate:cmjah": "node scripts/generate-cmjah-official-corrections.mjs",
+    "generate:clinical": "npm run generate:hjh && npm run generate:cmjah",
+    "dev": "npm run generate:clinical && node scripts/generate-pwa-assets.js && vite --port=3000 --host=0.0.0.0",
+    "build": "npm run generate:clinical && node scripts/generate-pwa-assets.js && vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "typecheck": "tsc --noEmit",
     "lint": "tsc --noEmit",
-    "validate:data": "npm run generate:hjh && node --import tsx scripts/validate-clinical-data.ts",
-    "test": "npm run generate:hjh && vitest run",
-    "test:watch": "npm run generate:hjh && vitest",
+    "validate:data": "npm run generate:clinical && node --import tsx scripts/validate-clinical-data.ts",
+    "test": "npm run generate:clinical && vitest run",
+    "test:watch": "npm run generate:clinical && vitest",
     "check": "npm run typecheck && npm run validate:data && npm run test && npm run build"
   },
   "dependencies": {
