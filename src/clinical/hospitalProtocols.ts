@@ -163,7 +163,8 @@ const CATEGORY_LABEL_OVERRIDES: Record<string, string> = {
   '15_ed_general_surgery': 'General Surgery',
   '13_ed_infectious_diseases': 'Infectious Diseases',
   'psychiatry': 'Psychiatry & Mental Health',
-  'resuscitation': 'Resuscitation & Critical Care',
+  // Same wording as `17_ed_critical_care` so one concept has one heading.
+  'resuscitation': 'Critical Care & Resuscitation',
   'airway': 'Airway & Ventilation',
   'medical_emergencies': 'Medical Emergencies',
   'trauma': 'Trauma',
@@ -177,9 +178,14 @@ const CATEGORY_LABEL_OVERRIDES: Record<string, string> = {
 const HJH_PROTOCOLS_BY_CATEGORY: Record<string, readonly string[]> = {
   '02_ed_trauma_ortho': [
     'back_pain',
+    // Burns and head injury are filed here rather than under the separate
+    // trauma-surgical umbrella so that the same topic sits under the same
+    // heading as CMJAH's `burns` and RMMCH's `head_injuries`.
+    'burns',
     'compartment_syndrome',
     'crush_injury',
     'c_spine_imaging',
+    'head_injury',
     'trauma_basics',
   ],
   '03_ed_cardiovascular': [
@@ -605,6 +611,15 @@ const PROTOCOL_CATEGORY_OVERRIDES: Record<string, string> = Object.fromEntries(
   ),
 );
 
+/**
+ * Titles the supplied archive stores with characters the extraction dropped.
+ * Keyed by `facilityId:slug`; the wording otherwise matches the source record.
+ */
+const PROTOCOL_TITLE_OVERRIDES: Record<string, string> = {
+  // Archive title begins `-Blocker`; the leading beta symbol did not survive.
+  'hjh:ccb_bb_overdose': 'β-Blocker & Calcium-Channel Blocker Overdose',
+};
+
 export const categoryLabel = (categoryId: string): string => {
   if (CATEGORY_LABEL_OVERRIDES[categoryId]) {
     return CATEGORY_LABEL_OVERRIDES[categoryId];
@@ -687,12 +702,13 @@ const normalizeProtocol = (
   const slug = match[2];
   const meta = isRecord(rawValue._meta) ? rawValue._meta : {};
   const body = isRecord(rawValue.protocol) ? rawValue.protocol : rawValue;
+  const protocolId = `${facilityId}:${slug}`;
   const title =
+    PROTOCOL_TITLE_OVERRIDES[protocolId] ||
     asString(meta.title) ||
     asString(body.item) ||
     asString(body.drug) ||
     titleFromFilename(filename);
-  const protocolId = `${facilityId}:${slug}`;
   const categoryId =
     PROTOCOL_CATEGORY_OVERRIDES[protocolId] ||
     asString(meta.category) ||

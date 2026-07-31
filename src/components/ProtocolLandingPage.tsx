@@ -17,6 +17,10 @@ import {
 import {findFlowchartForProtocol} from '../clinical/flowcharts';
 import {FlowchartViewer} from './FlowchartViewer';
 import {extractWeightDoseResults} from '../clinical/calculations/weightDose';
+import {
+  structureTranscription,
+  type TranscriptionBlock,
+} from '../clinical/transcription';
 
 interface ProtocolLandingPageProps {
   protocol: HospitalProtocol;
@@ -34,14 +38,6 @@ const labelFor = (value: string): string =>
   value
     .replace(/_/g, ' ')
     .replace(/\b\w/g, character => character.toUpperCase());
-
-const compactSourceText = (value: string): string =>
-  value
-    .replace(/\r/g, '')
-    .split('\n')
-    .map(line => line.trim())
-    .filter(Boolean)
-    .join('\n');
 
 const escapeRegExp = (value: string): string => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
@@ -203,6 +199,103 @@ const ValueBlock: React.FC<{value: unknown; highlight?: string}> = ({value, high
   return null;
 };
 
+const TranscriptionPoint: React.FC<{block: TranscriptionBlock; highlight?: string}> = ({
+  block,
+  highlight,
+}) => {
+  const body = (
+    <>
+      {block.label && (
+        <span className="font-bold text-slate-900 dark:text-slate-100">
+          <HighlightedText text={block.label} highlight={highlight} />:{' '}
+        </span>
+      )}
+      <HighlightedText text={block.text} highlight={highlight} />
+    </>
+  );
+
+  if (block.tone === 'directive') {
+    return (
+      <p className="my-2 flex items-start gap-2 rounded-lg border-l-4 border-amber-400 bg-amber-50 px-3 py-2 text-sm font-bold leading-relaxed text-amber-900 dark:border-amber-500/70 dark:bg-amber-950/25 dark:text-amber-200">
+        <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" />
+        <span className="flex-1">{body}</span>
+      </p>
+    );
+  }
+
+  if (block.tone === 'label') {
+    return (
+      <p className="mt-3 text-xs font-black uppercase tracking-wide text-slate-600 dark:text-slate-300">
+        {body}
+      </p>
+    );
+  }
+
+  if (block.kind === 'paragraph') {
+    return (
+      <p
+        className={`text-sm leading-relaxed text-slate-700 dark:text-slate-300 ${
+          block.level > 0 ? 'ml-6' : ''
+        }`}
+      >
+        {body}
+      </p>
+    );
+  }
+
+  return (
+    <div
+      className={`flex items-start gap-2 text-sm leading-6 text-slate-700 dark:text-slate-300 ${
+        block.level > 0 ? 'ml-6' : ''
+      }`}
+    >
+      {block.marker ? (
+        <span className="mt-0.5 min-w-[1.4rem] shrink-0 text-xs font-black tabular-nums text-indigo-500 dark:text-indigo-400">
+          {block.marker}
+        </span>
+      ) : block.level > 0 ? (
+        <span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-slate-400" />
+      ) : (
+        <CheckCircle2 className="mt-1 h-3.5 w-3.5 shrink-0 text-emerald-500" />
+      )}
+      <span className="flex-1">{body}</span>
+    </div>
+  );
+};
+
+const TranscriptionView: React.FC<{
+  text: string;
+  title: string;
+  highlight?: string;
+}> = ({text, title, highlight}) => {
+  const sections = useMemo(
+    () => structureTranscription(text, {omitHeading: title}),
+    [text, title],
+  );
+
+  if (sections.length === 0) return null;
+
+  return (
+    <div className="space-y-5">
+      {sections.map((section, index) => (
+        <section key={`${section.heading ?? 'intro'}-${index}`}>
+          {section.heading && (
+            <h3 className="mb-2 flex items-center gap-2 border-b border-indigo-100 pb-1 text-xs font-black uppercase tracking-wider text-indigo-600 dark:border-indigo-900/40 dark:text-indigo-400">
+              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500" />
+              <HighlightedText text={section.heading} highlight={highlight} />
+            </h3>
+          )}
+          <div className="space-y-1.5">
+            {section.blocks.map((block, blockIndex) => (
+              <TranscriptionPoint key={blockIndex} block={block} highlight={highlight} />
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+  );
+};
+
 const ClinicalSection: React.FC<{
   title: string;
   icon?: React.ReactNode;
@@ -254,7 +347,13 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
   const body = contentProtocol.body;
   const managementSteps = Array.isArray(body.management_steps) ? body.management_steps : [];
   const warnings = Array.isArray(body.warnings) ? body.warnings : [];
-  const sourceText = typeof body.source_text === 'string' ? compactSourceText(body.source_text) : '';
+  // Passed through unmodified: the structurer reads original indentation to tell
+  // a sub-point from a top-level one.
+  const sourceText = typeof body.source_text === 'string' ? body.source_text : '';
+  const pdfPageLabel =
+    contentProtocol.pdfPages.length > 0
+      ? `${contentProtocol.pdfPages.length === 1 ? 'page' : 'pages'} ${contentProtocol.pdfPages.join(', ')}`
+      : '';
   const trimmedQuery = searchQuery.trim();
   const matchCount = useMemo(() => {
     if (!trimmedQuery) return 0;
@@ -508,10 +607,20 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
       )}
 
       {sourceText && (
-        <ClinicalSection title="Source transcription" icon={<FileText className="h-5 w-5 text-slate-500" />}>
-          <div className="max-h-[70vh] overflow-auto rounded-xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-950/40">
-            <FormattedClinicalText text={sourceText} highlight={trimmedQuery} />
-          </div>
+        <ClinicalSection
+          title="Protocol content"
+          icon={<FileText className="h-5 w-5 text-slate-500" />}
+        >
+          <TranscriptionView
+            text={sourceText}
+            title={contentProtocol.title}
+            highlight={trimmedQuery}
+          />
+          <p className="mt-5 border-t border-slate-200 pt-3 text-[11px] leading-relaxed text-slate-500 dark:border-slate-800">
+            Transcribed from {protocol.sourceDocument}
+            {pdfPageLabel ? ` (${pdfPageLabel})` : ''}. Layout is applied for reading;
+            the wording is reproduced from the facility document.
+          </p>
         </ClinicalSection>
       )}
 
