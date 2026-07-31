@@ -41,6 +41,9 @@ describe('repairExtractionGlyphs', () => {
       ['Partial thickness burns ³ 15% in adults', 'Partial thickness burns ≥ 15% in adults'],
       ['IV Antibiotics – AugmentinÒ 30mg/kg', 'IV Antibiotics – Augmentin® 30mg/kg'],
       ['aspiration à intubate', 'aspiration ➔ intubate'],
+      // The up arrow arrives as a soft hyphen, which is invisible on the page,
+      // so this line was reaching the reader as a bare "HR BP".
+      ['­HR ¯BP = moderate – severe blood loss', '↑HR ↓BP = moderate – severe blood loss'],
     ];
 
     for (const [damaged, expected] of cases) {
@@ -130,7 +133,7 @@ describe('the loaded protocol corpus', () => {
 
   it('no longer prints a comparison as a superscript or a currency sign', () => {
     for (const protocol of HOSPITAL_PROTOCOLS) {
-      expect(protocol.searchText, protocol.id).not.toMatch(/[£³Òà]/);
+      expect(protocol.searchText, protocol.id).not.toMatch(/[£³Òà­¯]/);
     }
   });
 

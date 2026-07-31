@@ -40,14 +40,33 @@ export interface TranscriptionSection {
   blocks: TranscriptionBlock[];
 }
 
-const BULLET_GLYPHS = '•▪◦‣·●■';
+/**
+ * `§` and `Ø` are here because these documents use them as list markers rather
+ * than as the section and diameter signs — every occurrence in the archive
+ * opens a clinical point, and the liver-failure page uses `Ø` for the same list
+ * another copy marks with `►`.
+ */
+const BULLET_GLYPHS = '•▪◦‣·●■§Ø►';
 const ORPHAN_MARKER = new RegExp(`^[${BULLET_GLYPHS}*\\-–—]$`);
 /**
  * Glyph markers frequently abut their text (`*History:`), so the separating
  * space is optional. Ordinals keep a mandatory space — without it `1.5mg` would
  * be misread as item `1.` of a list.
  */
-const GLYPH_BULLET = new RegExp(`^([${BULLET_GLYPHS}]|\\*|[-–—])\\s*(\\S.*)$`);
+const GLYPH_BULLET = new RegExp(`^([${BULLET_GLYPHS}]|\\*+|[-–—])\\s*(\\S.*)$`);
+/**
+ * A doubled or tripled asterisk is this archive's emphasis marker, not a
+ * bullet — `**NEUROGLYCOPENIA CAN OCCUR EVEN AT NORMAL HGT LEVELS**`. It always
+ * wraps an instruction or a warning, so the run is stripped from both ends and
+ * the line is treated as a directive.
+ */
+const EMPHASIS_RUN = /^\*{2,}/;
+/**
+ * The closing half of that marker, which often lands on the wrapped line rather
+ * than the one that opened it. Only a run of two or more is stripped, so a
+ * single trailing `*` footnote reference is left alone.
+ */
+const TRAILING_EMPHASIS = /\s*\*{2,}$/;
 const ORDINAL_BULLET = /^((?:\d+|[a-z])[.)])\s+(\S.*)$/;
 /**
  * These documents use a bare `o` as their second-level bullet. Requiring the
@@ -68,6 +87,10 @@ interface RawLine {
   marker?: string;
   /** Set when the glyph itself, rather than indentation, marks a sub-point. */
   subPoint?: boolean;
+  /** Set when the line was wrapped in the archive's `**` emphasis marker. */
+  emphasised?: boolean;
+  /** Set when the line carried the closing half of that marker. */
+  closesEmphasis?: boolean;
   /** Whether the line carried, or inherited, a bullet marker. */
   bulleted: boolean;
 }
@@ -82,11 +105,19 @@ const comparableHeading = (value: string): string =>
   normalizeHeading(value).toLocaleLowerCase().replace(/[^a-z0-9]+/g, '');
 
 /**
+ * Grades and stages are listed as bare Roman numerals. `III` would otherwise
+ * clear the three-letter bar and become a heading while `I`, `II` and `IV` did
+ * not, so one item of a list would look unlike its siblings.
+ */
+const ROMAN_NUMERAL = /^(?:I{1,3}|IV|VI{0,3}|IX|XI{0,3})$/;
+
+/**
  * Upper case marks both section headings and shouted directives in the source
  * documents. Requiring several letters keeps fragments such as `NB!` out.
  */
 const isUpperCaseLine = (text: string): boolean => {
   if (text.length > 70) return false;
+  if (ROMAN_NUMERAL.test(text)) return false;
   const letters = text.replace(/[^A-Za-z]/g, '');
   if (letters.length < 3) return false;
   return letters === letters.toLocaleUpperCase();
@@ -197,16 +228,21 @@ const readLines = (raw: string): RawLine[] => {
       continue;
     }
 
+    const emphasised = EMPHASIS_RUN.test(trimmed);
     const ordinal = ORDINAL_BULLET.exec(trimmed);
     const glyph = ordinal ? null : GLYPH_BULLET.exec(trimmed);
     const subGlyph = ordinal || glyph ? null : SUB_GLYPH_BULLET.exec(trimmed);
+    const text = (ordinal?.[2] ?? glyph?.[2] ?? subGlyph?.[1] ?? trimmed).trim();
 
     lines.push({
       indent: line.length - line.trimStart().length,
-      text: (ordinal?.[2] ?? glyph?.[2] ?? subGlyph?.[1] ?? trimmed).trim(),
+      text: text.replace(TRAILING_EMPHASIS, '').trim(),
       marker: ordinal?.[1],
       subPoint: Boolean(subGlyph),
-      bulleted: Boolean(ordinal || glyph || subGlyph) || pendingMarker,
+      emphasised,
+      closesEmphasis: !emphasised && TRAILING_EMPHASIS.test(text),
+      // An emphasis run is a warning marker, not a list marker.
+      bulleted: (Boolean(ordinal || glyph || subGlyph) || pendingMarker) && !emphasised,
     });
     pendingMarker = false;
   }
@@ -263,6 +299,8 @@ export const structureTranscription = (
   let current: TranscriptionSection = {heading: null, blocks: []};
   /** The row currently being rebuilt from single-cell-per-line table output. */
   let openRow: TranscriptionBlock | null = null;
+  /** Lines already absorbed into an emphasised span that opened earlier. */
+  const consumed = new Set<number>();
 
   const flush = () => {
     if (current.heading !== null || current.blocks.length > 0) {
@@ -271,7 +309,25 @@ export const structureTranscription = (
     openRow = null;
   };
 
+  /**
+   * An emphasised instruction wraps over several lines and only the last of them
+   * carries the closing `**`. The span is taken as a whole when that closing
+   * line turns up nearby; without one the opening line stands alone, so an
+   * unpaired marker can never swallow the rest of the section.
+   */
+  const EMPHASIS_SPAN_LIMIT = 6;
+  const emphasisSpanEnd = (start: number): number => {
+    const last = Math.min(start + EMPHASIS_SPAN_LIMIT, lines.length - 1);
+    for (let index = start + 1; index <= last; index += 1) {
+      if (lines[index].emphasised || lines[index].bulleted) return start;
+      if (lines[index].closesEmphasis) return index;
+    }
+    return start;
+  };
+
   lines.forEach((line, index) => {
+    if (consumed.has(index)) return;
+
     const isTableCell = !line.bulleted && !line.marker && TABLE_CELL.test(line.text);
     if (!isTableCell) openRow = null;
 
@@ -279,6 +335,22 @@ export const structureTranscription = (
     // a heading anyway, and both outcomes must render the same way.
     if (!line.marker && isDecisionBranch(line.text)) {
       current.blocks.push({kind: 'paragraph', level: 0, text: line.text, tone: 'branch'});
+      return;
+    }
+
+    // The author marked these for emphasis, so they never become a heading.
+    if (line.emphasised) {
+      const end = emphasisSpanEnd(index);
+      const text = lines
+        .slice(index, end + 1)
+        .map(spanLine => spanLine.text)
+        .join(' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+      for (let absorbed = index + 1; absorbed <= end; absorbed += 1) {
+        consumed.add(absorbed);
+      }
+      current.blocks.push({kind: 'paragraph', level: 0, text, tone: 'directive'});
       return;
     }
 

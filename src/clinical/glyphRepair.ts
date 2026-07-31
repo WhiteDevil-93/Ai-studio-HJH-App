@@ -53,6 +53,8 @@ const PRIVATE_USE_AREA = /[\uf000-\uf0ff]/g;
  */
 const LATIN1_MOJIBAKE: Record<string, string> = {
   '£': '≤', // 0xA3 — "DOOR TO NEEDLE TIME ≤ 30 MINUTES"
+  ['\u00ad']: '↑', // soft hyphen, invisible on the page: "↑HR ↓BP"
+  ['\u00af']: '↓', // macron; other copies of that line carry the arrow byte
   '³': '≥', // 0xB3 — "seizures for ≥ 5 minutes", "INR ≥ 1.5", "burns ≥ 15%"
   Ò: '®', // 0xD2 — "Augmentin®", "(Valium®)"
   à: '➔', // 0xE0 — "aspiration ➔ intubate"
