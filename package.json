@@ -4,15 +4,16 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node scripts/generate-pwa-assets.js && vite --port=3000 --host=0.0.0.0",
-    "build": "node scripts/generate-pwa-assets.js && vite build",
+    "generate:hjh": "node scripts/generate-hjh-official-corrections.mjs",
+    "dev": "npm run generate:hjh && node scripts/generate-pwa-assets.js && vite --port=3000 --host=0.0.0.0",
+    "build": "npm run generate:hjh && node scripts/generate-pwa-assets.js && vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "typecheck": "tsc --noEmit",
     "lint": "tsc --noEmit",
-    "validate:data": "node --import tsx scripts/validate-clinical-data.ts",
-    "test": "vitest run",
-    "test:watch": "vitest",
+    "validate:data": "npm run generate:hjh && node --import tsx scripts/validate-clinical-data.ts",
+    "test": "npm run generate:hjh && vitest run",
+    "test:watch": "npm run generate:hjh && vitest",
     "check": "npm run typecheck && npm run validate:data && npm run test && npm run build"
   },
   "dependencies": {
