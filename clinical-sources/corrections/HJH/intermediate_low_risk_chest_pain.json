@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "id": "intermediate_low_risk_chest_pain",
+    "type": "protocol",
+    "category": "10_ed_procedure",
+    "subcategory": "protocols",
+    "title": "Management Of Intermediate/Low Risk Chest Pain",
+    "source_doc": "HJH ED 2026",
+    "review_state": "source_verified"
+  },
+  "protocol": {
+    "item": "Management Of Intermediate/Low Risk Chest Pain",
+    "protocol_type": "ed_protocol",
+    "sourceDoc": "HJH ED 2026",
+    "source_fidelity": "Official HJH Emergency Department Clinical Guidelines 2026 transcription",
+    "pdfPages": [
+      14
+    ],
+    "source_text": "symptoms of angina \n- ≥ 2 events in last 24hrs \nElevated cardiac markers \nST deviation ≥ 0.5mm \nPrior coronary artery stenosis ≥ 50% \nScore: 0-1 \nLow Risk (5% #) \nLow Risk (8% #) \nIntermediate Risk (13% #) \nIntermediate Risk (20% #) \nHigh Risk (26% #) \n# risk of death, recurrent or new MI, or need \nfor urgent revascularisation \n1 \n1 \n1 \n1 \n1 \n1 \n1 \nContraindications \nβ Blockers \nHaemodynamic instability \nHeart failure \nPulmonary oedema \nSBP < 100 mmHg \nBradycardia (HR ≤ 60 bpm) \nAV block 2° or 3° \nAsthma \nRepeat Trop  & ECG at 3 hours (HS) or 6 \nhrs (STATLAB)  \nRepeat ECG if pain / vital signs change \nThe HEART Score for Chest Pain in the ED \nHistory \n* Highly suspicious \n* 2 points \n* Moderately suspicious \n* 1 point \n* Slightly / non-suspicious \n* 0 points \nECG \n* Significant ST depression \n* 2 points \n* Nonspecific repolarisation \n* 1 point \n* Normal \n* 0 points \nAge \n* ≥ 65 years \n* 2 points \n* > 45 - < 65 years \n* 1 point \n* ≤ 45 years \n* 0 points \nRisk Factors \n* ≥ 3 risk factors \n* 2 points \n* 1 or 2 risk factors \n* 1 point \n* No risk factors \n* 0 points \nTroponin \n* ≥ 3 x normal limit \n* 2 points \n* > 1 - < 3 x normal limit \n* 1 point \n* ≤ normal limit \n* 0 points \nRisk Factors: Diabetes Mellitus, current or recent (<1 month) smoker, \nHypertension, Hypercholestrolaemia, Family History, Obesity \nScore 0 - 3 (low risk) \n2.5% MACE over next 6 weeks \nScore 4 - 6 (intermediate risk) \n20.3% MACE over next 6 weeks \nScore 7 - 10 (high risk) \n72.7% MACE over next 6 weeks \nMACE = Major Adverse Cardiac Event \nRefer to Int med/Cardiology \nDelta Trop or ECG changes? \nYES \nSTAT > 23ng/L \n \nAcute ACS - Delta trop: \n>20 % OR >10ng/L change (rise & fall, at \nleast 1 above upper limit or normal) \n \nSTATLAB Trop I (not high sensitivity): \n23ng/L is UPPER LIMIT OF NORMAL \nCauses of positive troponin: \nACS, CCF, PE, Aortic aneurysm, renal \nfailure, hypoxia, hypoperfusion, trauma, \nsepsis, stroke and more"
+  }
+}

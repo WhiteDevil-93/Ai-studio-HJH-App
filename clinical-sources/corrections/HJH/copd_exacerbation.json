@@ -1,0 +1,38 @@
+{
+  "_meta": {
+    "id": "copd_exacerbation",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "COPD Exacerbation",
+    "source_doc": "HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "COPD Exacerbation",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Oxygen Therapy & Nebulisation",
+        "details": "Titrate oxygen carefully to target Sats 88-92% (prevent hypercapnic respiratory drive failure). Deliver Salbutamol + Ipratropium Bromide nebs."
+      },
+      {
+        "step_number": "2",
+        "action": "Steroids & Antibiotics",
+        "details": "Give Hydrocortisone 200mg IV stat (or Prednisone 0.5mg/kg PO). If infection is suspected (increased sputum volume/purulence/fever): Augmentin 1g BD PO (or 1.2g IV) + Azithromycin 500mg PO daily."
+      },
+      {
+        "step_number": "3",
+        "action": "Non-Invasive Ventilation (NIV)",
+        "details": "NIV (BiPAP) is highly effective for COPD respiratory acidosis (pH < 7.35, PaCO2 > 45mmHg). Reduces intubation rates dramatically."
+      }
+    ],
+    "sourceDoc": "HJH ED 2026",
+    "source_fidelity": "Supplied HJH structured extraction pending official PDF transcription",
+    "pdfPages": [
+      56,
+      57
+    ]
+  }
+}

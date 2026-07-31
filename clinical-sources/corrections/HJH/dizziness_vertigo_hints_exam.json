@@ -1,0 +1,37 @@
+{
+  "_meta": {
+    "id": "dizziness_vertigo_hints_exam",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Dizziness & Vertigo (HINTS Exam)",
+    "source_doc": "HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Dizziness & Vertigo (HINTS Exam)",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Classify: Peripheral vs Central",
+        "details": "Peripheral (vestibular neuritis, labyrinthitis, BPPV): Sudden onset, severe, intermittent, horizontal unilateral nystagmus. Central (posterior stroke, cerebellar hemorrhage, tumor): Gradual/sudden, mild, continuous, purely vertical or direction-changing nystagmus, neurological deficits present."
+      },
+      {
+        "step_number": "2",
+        "action": "Apply HINTS bedside exam (for Acute Vestibular Syndrome)",
+        "details": "Rule out central cause: (1) Head Impulse Test (peripheral = catchup saccade, central = no saccade/normal - worrying!), (2) Nystagmus (peripheral = unilateral horizontal, central = direction-changing or vertical), (3) Test of Skew (central = refixation present after uncover, peripheral = no refixation)."
+      },
+      {
+        "step_number": "3",
+        "action": "Specific Maneuvers",
+        "details": "BPPV: Dix-Hallpike maneuver to elicit nystagmus and confirm affected canal. Epley maneuver to reposition canaliths and resolve symptoms."
+      }
+    ],
+    "sourceDoc": "HJH ED 2026",
+    "source_fidelity": "Supplied HJH structured extraction pending official PDF transcription",
+    "pdfPages": [
+      67
+    ]
+  }
+}

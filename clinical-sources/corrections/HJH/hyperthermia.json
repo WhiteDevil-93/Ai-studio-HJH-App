@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "id": "hyperthermia",
+    "type": "protocol",
+    "category": "05_ed_pulmonary",
+    "subcategory": "protocols",
+    "title": "Hyperthermia",
+    "source_doc": "HJH ED 2026",
+    "review_state": "source_verified"
+  },
+  "protocol": {
+    "item": "Hyperthermia",
+    "protocol_type": "ed_protocol",
+    "sourceDoc": "HJH ED 2026",
+    "source_fidelity": "Official HJH Emergency Department Clinical Guidelines 2026 transcription",
+    "pdfPages": [
+      100
+    ],
+    "source_text": "Clinical features: Decreased GCS, agitation, sweating (no sweating in heat stroke) \nDEFINITIONS \nMinor heat illness \nmuscle cramps, minor peripheral oedema, syncope, \nheat rash \nHeat exhaustion \nTemp < 40°C, sweating intact \nIntact neurological function, weakness, fatigue, \nheadache, nausea, vomiting, syncope \nABOVE CAN BE MANAGED WITH SUPPORTIVE CARE \nHeat stroke \nTemp > 40°C, ± sweating \nAgitation, confusion, seizures, coma, shock, AKI, \ncoagulopathy, electrolyte disturbances \nHEAT STROKE IS A LIFE-THREATENING EMERGENCY! \n• \nECG Features: Non-specific ST and T changes, tachycardia, features of electrolyte AbNs, VT \nand VF can occur \n• \nTriage to RESUS AREA, CENTRAL TEMPERATURE MONITORING \n• \nRapid ABC assessment, 2 IV lines, monitors, HGT, VBG, urine ßHCG, ECG \n• \nConsider early airway management for altered GCS/seizures \n• \nBenzodiazepines for seizures/agitation \n• \nCorrect electrolyte abnormalities & HGT \n• \nCrystalloid fluid bolus 20mg/kg if hypotensive \n• \nComprehensive history and exam, including: \n■ \nCircumstances that patient was found in – precipitating event, outside/inside, \ndowntime if known \n■ \nCo-morbidities, chronic medications, symptoms prior to arrival \n■ \nHistory of trauma or intoxication ➔ NB! TOXIDROME FEATURES \n• \nDocument specific features and severity of hyperthermia \n• \nFurther investigations: FBC, U&E, LFT, TFTs, INR, Paracetamol/Salicylate level, urine tox \nscreen, imaging as clinically indicated \nNB – THERE IS OFTEN AN UNDERLYING MEDICAL CONDITION CONTRIBUTING TO HYPERTHERMIA \n \n \n \nCAUSES and DIFFERENTIAL DIAGNOSIS \n■ \nEnvironmental exposure – outdoor sports, marathons \n■ \nToxins – anticholinergic, sympathomimetic \n■ \nSepsis \n■ \nExtremes of age – poor thermoregulation \n■ \nEndocrine – hyperthyroid, thyroid storm, phaeochromocytoma \n■ \nSerotonin syndrome \n■ \nMalignant hyperthermia \n■ \nNeuroleptic malignant syndrome \n■ \nHypothalamic dysfunction – trauma, stroke, CNS infection \nACTIVE COOLING \nTARGET Temp < 39°C WITHIN 30 MINUTES \n• Peripher"
+  }
+}

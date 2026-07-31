@@ -70,6 +70,11 @@
     "warnings": [
       "Always monitor Plateau Pressure (Pplat). Keep Pplat ≤ 30 cmH2O to prevent barotrauma/volutrauma."
     ],
-    "disposition": "ICU / High Care transfer following consultation and handover."
+    "disposition": "ICU / High Care transfer following consultation and handover.",
+    "sourceDoc": "HJH ED 2026",
+    "pdfPages": [
+      202,
+      203
+    ]
   }
 }

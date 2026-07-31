@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "id": "isoniazid_overdose",
+    "type": "protocol",
+    "category": "12_ed_toxicology",
+    "subcategory": "protocols",
+    "title": "Isoniazid (Inh) Overdose",
+    "source_doc": "HJH ED 2026",
+    "review_state": "source_verified"
+  },
+  "protocol": {
+    "item": "Isoniazid (Inh) Overdose",
+    "protocol_type": "ed_protocol",
+    "sourceDoc": "HJH ED 2026",
+    "source_fidelity": "Official HJH Emergency Department Clinical Guidelines 2026 transcription",
+    "pdfPages": [
+      118
+    ],
+    "source_text": "Clinical features: Depletes Vit B6, causing decreased GABA – seizures, lactic acidosis \n• \nECG Features: No specific features, sinus tachycardia \n• \nBlood gas: HAGMA, severe lactic acidosis \n• \nTriage to RESUS AREA, even if patient initially appears well \n• \nTerminate seizures with Benzodiazepines (high doses may be required). \nSee Status Epilepticus protocol, but avoid anti-epileptic agents. \n• \nRapid ABC assessment, 2 IV lines, monitors, HGT, VBG, urine ßHCG, ECG \n• \nEarly airway management – will require intubation prior to Pyridoxine administration \n• \nCorrect abnormal electrolytes, consider other causes of seizures \n• \nCrystalloid fluid bolus 20mg/kg if hypotensive \n• \nComprehensive history and exam, including: \n■ \nAmount and time of ingestion, co-ingestants \n■ \nComorbidities, chronic medications, symptoms prior to arrival \n• \nDocument specific features of toxicity \n• \nFurther investigations: FBC, U&E, LFT, Paracetamol/Salicylate level, urine tox screen, \nimaging as clinically indicated \n \n \n \n \nSPECIFIC MANAGEMENT \n*Enhanced elimination \nConsider activated charcoal 50g via NGT once airway is secured, IF INGESTION < 1 HOUR AGO \nDialysis too slow, not indicated. \n*Haemodynamic support \nFluid bolus/inotropes prn. Consider co-ingestants if persistent hypotension \n*Airway support \nProfound CNS depression and prolonged seizures usually require intubation \n*Specific antidote therapy: Pyridoxine (see box) \nPYRIDOXINE THERAPY \n•\nKNOWN AMOUNT INGESTED \n1g Pyridoxine for each gram of INH ingested, \nmax 5g total or 70mg/kg in children. \n•\nUNKNOWN AMOUNT INGESTED \nGive 5g total \nRepeat after 10 - 20 minutes if no response \n•\nPyridoxine is available in 25mg tablets \n•\nCrush tablets and administer via NGT once airway is \nprotected \n•\nCall pharmacy early to request enough stock, as it is \nunlikely to be available in ED \n•\nTherapeutic endpoint: seizure termination, \nresolution of lactic acidosis \n5g = 200 tablets"
+  }
+}

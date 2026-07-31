@@ -10,7 +10,7 @@ import {
   AlertTriangle, Moon, Sun, BookOpen,
   Calculator, Stethoscope, Activity, Heart, ShieldAlert,
   Info, Sparkles, CheckSquare, Plus, RefreshCw, Clock, Home, Menu, X, Smartphone, Download, Settings,
-  FlaskConical, Globe2
+  FlaskConical, Globe2, Building2
 } from 'lucide-react';
 import { PWAInstallPrompt, usePWAInstall } from './components/PWAInstallPrompt';
 import {
@@ -462,7 +462,7 @@ export default function App() {
   const [expandedSubCategories, setExpandedSubCategories] = useState<Record<string, boolean>>({});
   const [checklistStatus, setChecklistStatus] = useState<Record<string, boolean>>({});
   const [aboutOpen, setAboutOpen] = useState<boolean>(false);
-  const [aboutTab, setAboutTab] = useState<'about' | 'disclaimer'>('about');
+  const [aboutTab, setAboutTab] = useState<'about' | 'disclaimer' | 'design' | 'privacy'>('about');
   const aboutTriggerRef = useRef<HTMLButtonElement>(null);
   const aboutDialogRef = useRef<HTMLDivElement>(null);
 
@@ -2599,19 +2599,19 @@ export default function App() {
           type="button"
           onClick={() => toggleCategory(catKey)}
           aria-expanded={isExpanded}
-          className={`flex items-center justify-between px-4 py-3 cursor-pointer select-none transition ${theme === 'dark' ? 'bg-[#1e293b]/90 hover:bg-[#334155]/60 text-slate-100' : 'bg-slate-100 hover:bg-slate-200 text-slate-900'
+          className={`flex items-center justify-between px-3 sm:px-4 py-3 cursor-pointer select-none transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo-500 ${theme === 'dark' ? 'bg-[#1e293b]/90 hover:bg-[#334155]/60 text-slate-100' : 'bg-slate-100 hover:bg-slate-200 text-slate-900'
             } w-full text-left`}
         >
-          <div className="flex items-center gap-2.5">
-            <span className="text-xl">{CATEGORY_ICONS[catKey] || '📋'}</span>
-            <h3 className={`font-extrabold text-sm uppercase tracking-wider ${theme === 'dark' ? 'text-sky-400' : 'text-indigo-700'}`}>{catLabel}</h3>
-            <span className={`text-[10px] font-bold px-2 py-0.5 rounded border ${
+          <div className="flex items-center gap-2.5 min-w-0 flex-1">
+            <span className="text-xl shrink-0">{CATEGORY_ICONS[catKey] || '📋'}</span>
+            <h3 className={`font-extrabold text-sm uppercase tracking-wider truncate ${theme === 'dark' ? 'text-sky-400' : 'text-indigo-700'}`}>{catLabel}</h3>
+            <span className={`shrink-0 text-[10px] font-bold px-2 py-0.5 rounded border ${
               theme === 'dark' ? 'bg-slate-800 text-sky-300 border-slate-700' : 'bg-indigo-50 text-indigo-700 border-indigo-200'
             }`}>
               {finalItems.length + (catKey === '7_useful_formulae' ? Object.keys(INFUSION_DEFINITIONS).length : 0)}
             </span>
           </div>
-          <ChevronDown className={`h-5 w-5 text-slate-400 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} />
+          <ChevronDown className={`h-5 w-5 text-slate-400 transition-transform duration-200 shrink-0 ${isExpanded ? 'rotate-180' : ''}`} />
         </button>
 
         {isExpanded && (
@@ -2678,7 +2678,7 @@ export default function App() {
                       type="button"
                       onClick={() => setExpandedSubCategories(prev => ({ ...prev, [subCatKey]: !isSubCatExpanded }))}
                       aria-expanded={isSubCatExpanded}
-                      className="w-full text-left text-xs font-bold text-teal-400 uppercase tracking-widest border-b border-teal-950/20 pb-1.5 mb-2 flex items-center justify-between cursor-pointer select-none hover:text-teal-300 transition-colors"
+                      className="w-full text-left text-xs font-bold text-teal-400 uppercase tracking-widest border-b border-teal-950/20 pb-1.5 mb-2 flex items-center justify-between cursor-pointer select-none hover:text-teal-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded"
                     >
                       <span>{subCatName.replace(/_/g, ' ')}</span>
                       <ChevronDown className={`h-3.5 w-3.5 text-slate-400 transition-transform duration-200 ${isSubCatExpanded ? 'rotate-180' : ''}`} />
@@ -3200,11 +3200,13 @@ export default function App() {
         <div className="flex items-center justify-between border-b border-teal-950/20 pb-2 mb-2">
           <span className="text-xs text-slate-400 font-bold uppercase tracking-wider">Recently Viewed History</span>
           <button
+            type="button"
             onClick={() => {
               setRecentlyViewed([]);
               localStorage.removeItem('tr_rv');
             }}
-            className="text-xs text-rose-400 hover:text-rose-300 transition-colors font-bold flex items-center gap-1"
+            aria-label="Clear recently viewed history"
+            className="text-xs text-rose-400 hover:text-rose-300 transition-colors font-bold flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 rounded p-1 -m-1"
           >
             Clear History
           </button>
@@ -3656,42 +3658,42 @@ export default function App() {
       </AnimatePresence>
 
       {/* UNCLUTTERED TOP HEADER */}
-      <header className={`sticky top-0 z-50 px-4 py-3 flex items-center justify-between shadow-md transition-colors duration-300 ${
+      <header className={`sticky top-0 z-50 px-3 sm:px-4 py-2.5 sm:py-3 flex items-center justify-between shadow-md transition-colors duration-300 ${
         theme === 'dark' ? 'bg-slate-900/95 border-b border-slate-800/80 backdrop-blur-md' : 'bg-slate-900 text-white border-b border-slate-800'
       }`}>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
           <button
             type="button"
             onClick={() => setSidebarOpen(true)}
             aria-label="Open Activity Panel"
-            className="p-2 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-slate-200 border border-slate-700/50 transition-colors flex items-center gap-2 text-xs font-bold cursor-pointer"
+            className="p-2.5 sm:p-2 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-slate-200 border border-slate-700/50 transition-colors flex items-center gap-2 text-xs font-bold cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 min-h-[2.75rem] min-w-[2.75rem] sm:min-h-0 sm:min-w-0"
             title="Open Activity & Navigation Panel"
           >
             <Menu className="w-5 h-5 text-indigo-400" />
-            <span className="hidden sm:inline">Activity Panel</span>
+            <span className="hidden sm:inline">Menu</span>
           </button>
 
           <button
             type="button"
             onClick={() => navigateToCategory('home')}
             aria-label="Go to Home"
-            className="flex items-center gap-2 cursor-pointer bg-transparent border-0 p-0"
+            className="flex items-center gap-2 cursor-pointer bg-transparent border-0 p-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg"
           >
-            <Activity className="h-6 w-6 text-indigo-400 animate-pulse" />
-            <h1 className="text-xl sm:text-2xl font-extrabold tracking-tight text-white">Asclep<span className="text-indigo-400">ius</span></h1>
+            <Activity className="h-6 w-6 text-indigo-400 animate-pulse shrink-0" />
+            <h1 className="text-lg sm:text-xl md:text-2xl font-extrabold tracking-tight text-white truncate">Asclep<span className="text-indigo-400">ius</span></h1>
           </button>
         </div>
 
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           <button
             type="button"
             onClick={() => setCodeRedOpen(true)}
             aria-label="Code Red Resuscitation Mode"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-red-600 hover:bg-red-500 text-white font-black text-xs tracking-wider shadow-lg animate-pulse cursor-pointer border border-red-400/50 transition-all hover:scale-105"
+            className="flex items-center gap-1.5 px-2.5 sm:px-3 py-2 sm:py-1.5 rounded-full bg-red-600 hover:bg-red-500 text-white font-black text-[10px] sm:text-xs tracking-wider shadow-lg animate-pulse cursor-pointer border border-red-400/50 transition-all hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400 min-h-[2.5rem]"
             title="Code Red Emergency Resuscitation Cards"
           >
             <ShieldAlert className="w-4 h-4 text-white shrink-0" />
-            <span className="font-extrabold tracking-widest text-[11px]">CODE RED</span>
+            <span className="font-extrabold tracking-widest hidden sm:inline">CODE RED</span>
           </button>
 
           <button
@@ -3701,7 +3703,7 @@ export default function App() {
               setAboutOpen(true);
             }}
             aria-label="Open settings and clinical information"
-            className="p-2 rounded-xl bg-slate-800/60 hover:bg-slate-700 text-slate-300 transition-colors"
+            className="p-2.5 sm:p-2 rounded-xl bg-slate-800/60 hover:bg-slate-700 text-slate-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 min-h-[2.75rem] min-w-[2.75rem] sm:min-h-0 sm:min-w-0"
             title="Settings & Clinical Information"
           >
             <Settings className="h-4 w-4" />
@@ -3711,7 +3713,7 @@ export default function App() {
             onClick={() => setTheme(theme => theme === 'light' ? 'dark' : 'light')}
             aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
             id="theme-tog"
-            className="p-2 rounded-xl bg-slate-800/60 hover:bg-slate-700 transition"
+            className="p-2.5 sm:p-2 rounded-xl bg-slate-800/60 hover:bg-slate-700 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 min-h-[2.75rem] min-w-[2.75rem] sm:min-h-0 sm:min-w-0"
             title="Toggle Theme"
           >
             {theme === 'light'
@@ -3723,11 +3725,11 @@ export default function App() {
 
       {/* STREAMLINED SEARCH BAR (hidden on Home landing page) */}
       {!(selectedCategory === 'home' && !activeMindMap && !activePolicy) && (
-        <div className={`sticky top-[3.5rem] z-40 p-3 shadow-md border-b transition-colors duration-300 ${
+        <div className={`sticky top-[3rem] sm:top-[3.5rem] z-40 p-2.5 sm:p-3 shadow-md border-b transition-colors duration-300 ${
           theme === 'dark' ? 'bg-[#0f172a] border-slate-800' : 'bg-slate-200/80 border-slate-300'
         }`}>
-          <div className={`${isGlobalReferenceCategory ? 'max-w-5xl' : 'max-w-7xl'} mx-auto flex items-center gap-3`}>
-            <div className="relative flex-1">
+          <div className={`${isGlobalReferenceCategory ? 'max-w-5xl' : 'max-w-7xl'} mx-auto flex items-center gap-2 sm:gap-3`}>
+            <div className="relative flex-1 min-w-0">
               <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-indigo-400 opacity-70" />
               <input
                 type="text"
@@ -3740,7 +3742,7 @@ export default function App() {
                     : 'Search drug, protocol, emergency condition, score...'
                 }
                 aria-label="Search clinical reference"
-                className={`w-full pl-10 pr-4 py-2 rounded-xl text-sm transition focus:outline-none ${
+                className={`w-full pl-10 pr-4 py-2.5 sm:py-2 rounded-xl text-sm transition focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
                   theme === 'dark'
                     ? 'bg-slate-900/90 border border-slate-700/70 text-slate-100 focus:border-indigo-400'
                     : 'bg-white border border-slate-300 text-slate-900 focus:border-indigo-600'
@@ -3751,9 +3753,10 @@ export default function App() {
             {!isGlobalReferenceCategory && (
               <button
                 onClick={() => setSidebarOpen(true)}
-                className="text-xs font-bold px-3 py-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-indigo-300 border border-slate-700/60 transition-colors shrink-0 flex items-center gap-1.5 cursor-pointer"
+                aria-label="Open source filter"
+                className="text-xs font-bold px-3 py-2.5 sm:py-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-indigo-300 border border-slate-700/60 transition-colors shrink-0 flex items-center gap-1.5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 min-h-[2.75rem]"
               >
-                <span>
+                <span className="hidden sm:inline">
                   {activeFacilityId
                     ? `${HOSPITALS[activeFacilityId].shortName} only`
                     : sourceFilter === 'all'
@@ -3762,6 +3765,7 @@ export default function App() {
                         ? 'Bara ICU'
                         : 'SA EDL'}
                 </span>
+                <span className="sm:hidden">Filter</span>
                 <ChevronDown className="w-3.5 h-3.5" />
               </button>
             )}
@@ -3771,11 +3775,14 @@ export default function App() {
 
       {/* CATEGORY BAR (PILLS) — hidden on Home landing page */}
       {!(selectedCategory === 'home' && !activeMindMap && !activePolicy) && (
-        <div className={`sticky top-[7rem] z-30 flex gap-2 overflow-x-auto whitespace-nowrap border-b transition-colors duration-300 no-scrollbar ${
-          isGlobalReferenceCategory ? 'justify-start px-4 py-2.5 sm:justify-center' : 'p-3'
+        <div className={`sticky top-[6.5rem] sm:top-[7rem] z-30 flex gap-2 overflow-x-auto whitespace-nowrap border-b transition-colors duration-300 no-scrollbar py-2 px-3 sm:p-3 ${
+          isGlobalReferenceCategory ? 'justify-start sm:justify-center' : ''
         } ${
           theme === 'dark' ? 'bg-slate-900/90 border-slate-800/80' : 'bg-slate-100 border-slate-200'
-        }`}>
+        }`}
+          role="navigation"
+          aria-label="Clinical categories"
+        >
           {categoryBarOrder.map(k => {
             const label = CATEGORIES[k] || k;
             const isSelected = selectedCategory === k;
@@ -3792,7 +3799,9 @@ export default function App() {
                     navigateToCategory(k);
                   }
                 }}
-                className={`flex-shrink-0 text-xs font-semibold transition duration-200 cursor-pointer ${
+                aria-current={isSelected ? 'page' : undefined}
+                aria-label={label}
+                className={`flex-shrink-0 text-xs font-semibold transition duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 min-h-[2.25rem] ${
                   isGlobalReferenceCategory ? 'rounded-lg border px-3 py-2' : 'rounded-full px-3.5 py-1.5'
                 } ${
                   isSelected
@@ -3814,7 +3823,8 @@ export default function App() {
                 ) : (
                   <span className="mr-1">{CATEGORY_ICONS[k] || '📋'}</span>
                 )}
-                <span>{label}</span>
+                <span className="hidden sm:inline">{label}</span>
+                <span className="sm:hidden">{(CATEGORIES[k] || k).split(' ')[0]}</span>
                 {globalCount !== undefined && (
                   <span className={`ml-2 rounded px-1.5 py-0.5 text-[9px] ${
                     isSelected ? 'bg-indigo-400/20 text-indigo-100' : 'bg-black/20 text-slate-400'
@@ -3834,7 +3844,7 @@ export default function App() {
       )}
 
       {/* MAIN CONTAINER */}
-      <main className={`${isGlobalReferenceCategory ? 'max-w-5xl' : 'max-w-7xl'} mx-auto p-4 pb-20`}>
+      <main className={`${isGlobalReferenceCategory ? 'max-w-5xl' : 'max-w-7xl'} mx-auto p-3 sm:p-4 pb-20`}>
         {/* Toggle Controls for All Containers (NOT shown on Home landing page) */}
         {selectedCategory !== 'home' && selectedCategory !== 'favourites' && selectedCategory !== 'recently_viewed' && !GLOBAL_REFERENCE_CATEGORY_IDS.includes(selectedCategory as typeof GLOBAL_REFERENCE_CATEGORY_IDS[number]) && !CATEGORY_FACILITY[selectedCategory] && !activeMindMap && !activePolicy && (
           <div className="flex justify-end gap-2 mb-4">
@@ -3905,29 +3915,35 @@ export default function App() {
               Settings & Clinical Information
             </h2>
 
-            <div className="mt-4 grid grid-cols-2 gap-2 border-b border-slate-700 pb-4" role="tablist" aria-label="Settings sections">
+            <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-2 border-b border-slate-700 pb-4" role="tablist" aria-label="Settings sections">
               {[
-                {id: 'about' as const, label: 'About & Sources'},
-                {id: 'disclaimer' as const, label: 'Disclaimer'},
-              ].map(tab => (
-                <button
-                  key={tab.id}
-                  type="button"
-                  role="tab"
-                  aria-selected={aboutTab === tab.id}
-                  onClick={() => setAboutTab(tab.id)}
-                  className={`rounded-lg border px-3 py-2 text-xs font-bold transition-colors ${
-                    aboutTab === tab.id
-                      ? 'border-teal-400 bg-teal-500/15 text-teal-200'
-                      : 'border-slate-700 bg-slate-800/60 text-slate-400 hover:text-white'
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
+                {id: 'about' as const, label: 'About & Sources', icon: Building2},
+                {id: 'disclaimer' as const, label: 'Disclaimer', icon: AlertTriangle},
+                {id: 'design' as const, label: 'Design & UX', icon: Sparkles},
+                {id: 'privacy' as const, label: 'Privacy & Data', icon: ShieldAlert},
+              ].map(tab => {
+                const TabIcon = tab.icon;
+                return (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={aboutTab === tab.id}
+                    onClick={() => setAboutTab(tab.id)}
+                    className={`rounded-lg border px-3 py-2 text-xs font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
+                      aboutTab === tab.id
+                        ? 'border-teal-400 bg-teal-500/15 text-teal-200'
+                        : 'border-slate-700 bg-slate-800/60 text-slate-400 hover:text-white'
+                    }`}
+                  >
+                    <TabIcon className="inline h-3.5 w-3.5 mr-1.5" />
+                    {tab.label}
+                  </button>
+                );
+              })}
             </div>
 
-            {aboutTab === 'about' ? (
+            {aboutTab === 'about' && (
               <div className="mt-4 space-y-4 text-sm leading-relaxed text-slate-300" role="tabpanel">
                 <p>
                   <strong>Asclepius</strong> is a clinical reference platform for rapid protocol
@@ -3949,16 +3965,21 @@ export default function App() {
                   </ul>
                 </div>
               </div>
-            ) : (
+            )}
+
+            {aboutTab === 'disclaimer' && (
               <div className="mt-4 space-y-4 text-xs leading-relaxed text-slate-300" role="tabpanel">
-                <section className="rounded-xl border border-slate-700 bg-slate-800/40 p-4">
-                  <h3 className="font-black uppercase tracking-wider text-slate-100">Clinical use</h3>
-                  <p className="mt-2">
-                    Asclepius is intended for healthcare professionals as a clinical memory aid and
-                    decision-support reference. Apply clinical judgement, confirm patient-specific
-                    contraindications, and verify calculations, medication preparation, and dosing
-                    before administration. The current local protocol and responsible clinician
-                    remain authoritative.
+                <section className="rounded-xl border border-rose-900/50 bg-rose-950/15 p-4">
+                  <h3 className="font-black uppercase tracking-wider text-rose-200 flex items-center gap-2">
+                    <AlertTriangle className="h-4 w-4" />
+                    Clinical decision-support disclaimer
+                  </h3>
+                  <p className="mt-2 text-slate-300">
+                    Asclepius is intended for qualified healthcare professionals as a clinical
+                    memory aid and decision-support reference only. It does not replace clinical
+                    judgement, specialist consultation, or institutional protocols. Always
+                    verify doses, drug preparations, allergies, renal/hepatic adjustments, and
+                    patient-specific contraindications before administration.
                   </p>
                 </section>
 
@@ -3967,7 +3988,8 @@ export default function App() {
                   <p className="mt-2">
                     Hospital tabs contain only that facility&apos;s published protocol collection.
                     Scores, calculators, trials, pocket references, and international guidelines
-                    are global resources and do not represent facility-specific approval.
+                    are global resources and do not represent facility-specific approval unless
+                    explicitly stated.
                   </p>
                 </section>
 
@@ -3995,6 +4017,52 @@ export default function App() {
                   </div>
                   <p className="mt-3 text-[11px] text-slate-400">
                     Link-quality review: {SUPPLIED_GUIDELINE_LINK_AUDIT.recordsWithDuplicatedUrlCount} of {SUPPLIED_GUIDELINE_LINK_AUDIT.guidelineCount} directory records contain a duplicated outbound URL. Confirm the current publication on the named organization&apos;s official website.
+                  </p>
+                </section>
+              </div>
+            )}
+
+            {aboutTab === 'design' && (
+              <div className="mt-4 space-y-4 text-xs leading-relaxed text-slate-300" role="tabpanel">
+                <section className="rounded-xl border border-indigo-900/50 bg-indigo-950/15 p-4">
+                  <h3 className="font-black uppercase tracking-wider text-indigo-200">Design principles</h3>
+                  <ul className="mt-2 list-disc pl-4 space-y-1 text-slate-300">
+                    <li><strong>Calm authority:</strong> Deep slate and indigo reduce visual fatigue during long shifts.</li>
+                    <li><strong>Source-first colour coding:</strong> Every protocol and drug card is badged by originating facility so users instantly know whose guideline they are reading.</li>
+                    <li><strong>Semantic status colours:</strong> Emerald for safe/pass, amber for caution, rose for critical alerts.</li>
+                    <li><strong>Readable typography:</strong> A strict type scale keeps dosing numbers, warnings, and prose distinct.</li>
+                    <li><strong>Touch-friendly targets:</strong> Buttons and inputs meet or exceed 44 × 44 px for gloved or fatigued use.</li>
+                    <li><strong>Progressive disclosure:</strong> Cards expand, categories collapse, and source transcription is shown only when needed.</li>
+                  </ul>
+                </section>
+
+                <section className="rounded-xl border border-slate-700 bg-slate-800/40 p-4">
+                  <h3 className="font-black uppercase tracking-wider text-slate-100">Accessibility</h3>
+                  <p className="mt-2">
+                    The interface supports keyboard navigation, focus-visible rings, screen-reader
+                    labels, and reduced-motion preferences. Contrast ratios aim for WCAG 2.1 AA
+                    across all interactive and clinical text.
+                  </p>
+                </section>
+              </div>
+            )}
+
+            {aboutTab === 'privacy' && (
+              <div className="mt-4 space-y-4 text-xs leading-relaxed text-slate-300" role="tabpanel">
+                <section className="rounded-xl border border-emerald-900/50 bg-emerald-950/15 p-4">
+                  <h3 className="font-black uppercase tracking-wider text-emerald-200">Local-first data</h3>
+                  <p className="mt-2 text-slate-300">
+                    Favourites, recently viewed items, theme preference, and patient weight are
+                    stored only in your browser&apos;s localStorage. No patient-identifiable
+                    information, searches, or usage data is transmitted to any server.
+                  </p>
+                </section>
+
+                <section className="rounded-xl border border-slate-700 bg-slate-800/40 p-4">
+                  <h3 className="font-black uppercase tracking-wider text-slate-100">Offline use</h3>
+                  <p className="mt-2">
+                    Once installed as a PWA, the full reference works offline. External links to
+                    guidelines or studies require an internet connection.
                   </p>
                 </section>
               </div>

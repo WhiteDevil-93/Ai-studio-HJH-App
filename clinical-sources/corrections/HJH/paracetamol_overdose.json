@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "id": "paracetamol_overdose",
+    "type": "protocol",
+    "category": "12_ed_toxicology",
+    "subcategory": "protocols",
+    "title": "Paracetamol Overdose",
+    "source_doc": "HJH ED 2026",
+    "review_state": "source_verified"
+  },
+  "protocol": {
+    "item": "Paracetamol Overdose",
+    "protocol_type": "ed_protocol",
+    "sourceDoc": "HJH ED 2026",
+    "source_fidelity": "Official HJH Emergency Department Clinical Guidelines 2026 transcription",
+    "pdfPages": [
+      143
+    ],
+    "source_text": "presentation \n* Administer NAC as follows (old regimen): \n•\n150mg/kg in 200ml 5% Dextrose IV over 1 hour followed by \n•\n50mg/kg in 500ml 5% Dextrose IV over 4 hours followed by \n•\n100mg/kg in 1L 5% Dextrose IV over 16 hours \n* Preferred dosing regimen (SNAP Protocol) – NB Inform admitting doctor to continue this regimen! \n•\n100mg/kg in 200ml 5% Dextrose IV over 2 hours followed by \n•\n200mg/kg in 1 L 5% Dextrose IV over 10 hours \n \nStart treatment as soon as possible \nif indicated, \npreferably < 8hrs post-ingestion \nIF IN DOUBT, GIVE NAC \nDISPOSITION \nInt Med Referral \nPARACETAMOL OVERDOSE \nTOXIC DOSE \n150mg/kg or > 10g in adults \n \nINITIAL ASSESSMENT & MANAGEMENT \n* Assess and support ABC’s \n* Monitor glucose \n* Attempt to quantify the amount ingested & of any co-ingestants \n* Establish a timeframe from the time of ingestion to presentation \n* Presentation < 1 hour from ingestion \n• Activated charcoal 50g PO (not via NGT) \n* ECG – look for signs of co-ingestants e.g. prolonged QT \n* Laboratory investigations \n• Blood gas, U&E, salicylate level \n• Paracetamol levels (provided  4 hours post ingestion) \n• No need for AST/ALT/INR unless > 12 hours post ingestion \n \n**Refer to Protocol: General management principles of a poisoned/overdose patient** \n \n \n \n \n \n \n \n \nNAC CAUTIONS/SIDE-EFFECTS – Less common with SNAP Protocol \n*Anaphylaxis \n*Vomiting \n*Separate IV infusion as may be inactivated by other medications \nPREGNANCY \n*Paracetamol crosses the placenta \n*Administer NAC as above \nHIGH RISK PATIENTS \n*Hypotensive \n*Pre-existing liver dysfunction e.g. alcoholic \n*Elderly"
+  }
+}

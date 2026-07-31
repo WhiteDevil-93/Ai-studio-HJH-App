@@ -87,6 +87,16 @@ export const FACILITIES: FacilityCard[] = [
   }
 ];
 
+const getSourceEmoji = (facilityId: string) => {
+  switch (facilityId) {
+    case 'hjh': return '🩺';
+    case 'rmmch': return '👶';
+    case 'cmjah': return '🏨';
+    case 'chbah': return '🏥';
+    default: return '📋';
+  }
+};
+
 export const QUICK_RESUS_ALGORITHMS = [
   { id: 'aha_bls_acls', title: 'Adult Cardiac Arrest Algorithm (2020)', category: 'Resuscitation', icon: Activity, color: 'bg-red-500/10 text-red-500 border-red-500/30' },
   { id: 'trauma_arrest', title: 'Trauma Cardiac Arrest (H-O-T-T)', category: 'Trauma', icon: ShieldAlert, color: 'bg-amber-500/10 text-amber-500 border-amber-500/30' },
@@ -129,26 +139,26 @@ export const HomePage: React.FC<HomePageProps> = ({
   setSearchQuery
 }) => {
   return (
-    <div className="space-y-8 pb-12">
+    <div className="space-y-6 sm:space-y-8 pb-12">
       {/* Hero Header Section */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-8 sm:p-10 border border-slate-800 shadow-2xl text-white">
-        <div className="relative z-10 space-y-6 max-w-4xl">
-          <div className="flex flex-wrap items-center gap-3">
+      <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-5 sm:p-8 lg:p-10 border border-slate-800 shadow-2xl text-white">
+        <div className="relative z-10 space-y-5 sm:space-y-6 max-w-4xl">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-xs font-semibold uppercase tracking-wider">
               <Building2 className="w-3.5 h-3.5" />
-              Helen Joseph Tertiary Hospital • ED Clinical Guidelines 2026
+              Multi-Facility Clinical Reference
             </div>
             {onOpenCodeRed && (
               <button
                 onClick={onOpenCodeRed}
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-600 hover:bg-red-500 border border-red-400 text-white text-xs font-black uppercase tracking-wider shadow-lg animate-pulse cursor-pointer transition-all hover:scale-105"
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-600 hover:bg-red-500 border border-red-400 text-white text-xs font-black uppercase tracking-wider shadow-lg animate-pulse cursor-pointer transition-all hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400"
               >
                 <ShieldAlert className="w-4 h-4 text-white" />
                 🚨 CODE RED Resuscitation Cards
               </button>
             )}
           </div>
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
             Emergency Department <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-sky-400">Clinical Guidelines</span> & Facilities
           </h1>
           <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl">
@@ -166,7 +176,8 @@ export const HomePage: React.FC<HomePageProps> = ({
                   placeholder="e.g. 70"
                   value={weight}
                   onChange={(e) => setWeight(e.target.value)}
-                  className="w-full bg-slate-800/90 border border-slate-700 text-white rounded-xl pl-9 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all placeholder:text-slate-500"
+                  aria-label="Patient weight in kilograms"
+                  className="w-full bg-slate-800/90 border border-slate-700 text-white rounded-xl pl-9 pr-4 py-2.5 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 transition-all placeholder:text-slate-500"
                 />
               </div>
             </div>
@@ -179,7 +190,8 @@ export const HomePage: React.FC<HomePageProps> = ({
                   placeholder="Search ACS, Stroke, DKA, Snakebite, J88, Triage..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-slate-800/90 border border-slate-700 text-white rounded-xl pl-9 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all placeholder:text-slate-500"
+                  aria-label="Search protocols and guidelines"
+                  className="w-full bg-slate-800/90 border border-slate-700 text-white rounded-xl pl-9 pr-4 py-2.5 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 transition-all placeholder:text-slate-500"
                 />
               </div>
             </div>
@@ -196,55 +208,57 @@ export const HomePage: React.FC<HomePageProps> = ({
         {onOpenCodeRed && (
           <button
             onClick={onOpenCodeRed}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-black bg-red-600 hover:bg-red-500 text-white border border-red-500 shadow-md animate-pulse cursor-pointer transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-black bg-red-600 hover:bg-red-500 text-white border border-red-500 shadow-md animate-pulse cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400"
           >
-            <ShieldAlert className="w-3.5 h-3.5" /> CODE RED Resuscitation Cards
+            <ShieldAlert className="w-3.5 h-3.5" /> CODE RED
           </button>
         )}
         <button
           onClick={() => onSelectCategory('favourites')}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
         >
           <Star className="w-3.5 h-3.5" /> Favourites
         </button>
         <button
           onClick={() => onSelectCategory('recently_viewed')}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
         >
-          <Clock className="w-3.5 h-3.5" /> Recently Viewed
+          <Clock className="w-3.5 h-3.5" /> Recent
         </button>
         <button
           onClick={() => onSelectCategory('landmark_studies')}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-black bg-purple-100 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 border border-purple-300 dark:border-purple-700 hover:bg-purple-200 dark:hover:bg-purple-900/40 transition-colors"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-black bg-purple-100 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 border border-purple-300 dark:border-purple-700 hover:bg-purple-200 dark:hover:bg-purple-900/40 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400"
         >
           <FlaskConical className="w-3.5 h-3.5" />
-          {TRIALS_REFERENCE.length} Landmark Studies
+          <span className="hidden sm:inline">{TRIALS_REFERENCE.length} Landmark Studies</span>
+          <span className="sm:hidden">{TRIALS_REFERENCE.length} Studies</span>
         </button>
         <button
           onClick={() => onSelectCategory('international_guidelines')}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-black bg-sky-100 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 border border-sky-300 dark:border-sky-700 hover:bg-sky-200 dark:hover:bg-sky-900/40 transition-colors"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-black bg-sky-100 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 border border-sky-300 dark:border-sky-700 hover:bg-sky-200 dark:hover:bg-sky-900/40 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
         >
           <Globe2 className="w-3.5 h-3.5" />
-          {SUPPLIED_GUIDELINE_LINK_AUDIT.guidelineCount} International Guidelines
+          <span className="hidden sm:inline">{SUPPLIED_GUIDELINE_LINK_AUDIT.guidelineCount} International Guidelines</span>
+          <span className="sm:hidden">{SUPPLIED_GUIDELINE_LINK_AUDIT.guidelineCount} Guidelines</span>
         </button>
         <button
           onClick={() => onSelectCategory('pocket_guides')}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-black bg-indigo-100 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 border border-indigo-300 dark:border-indigo-700 hover:bg-indigo-200 dark:hover:bg-indigo-900/40 transition-colors"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-black bg-indigo-100 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 border border-indigo-300 dark:border-indigo-700 hover:bg-indigo-200 dark:hover:bg-indigo-900/40 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
         >
           <BookOpen className="w-3.5 h-3.5" />
           {PARSED_GLOBAL_REFERENCE_DOCUMENTS.pocket.entries.length} Pocket Guides
         </button>
         <button
           onClick={() => onSelectFacility('hjh')}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-indigo-100 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800/40 hover:bg-indigo-200 dark:hover:bg-indigo-900/40 transition-colors"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-indigo-100 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800/40 hover:bg-indigo-200 dark:hover:bg-indigo-900/40 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
         >
-          <Stethoscope className="w-3.5 h-3.5" /> Helen (HJH) Guidelines
+          <Stethoscope className="w-3.5 h-3.5" /> Helen (HJH)
         </button>
         <button
           onClick={() => onSelectCategory('edl_phc_guidelines')}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-blue-100 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800/40 hover:bg-blue-200 dark:hover:bg-blue-900/40 transition-colors"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-blue-100 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800/40 hover:bg-blue-200 dark:hover:bg-blue-900/40 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
         >
-          <Globe2 className="w-3.5 h-3.5" /> SA EDL / PHC Guidelines
+          <Globe2 className="w-3.5 h-3.5" /> SA EDL / PHC
         </button>
       </div>
 
@@ -252,31 +266,33 @@ export const HomePage: React.FC<HomePageProps> = ({
       <section className="space-y-4">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
-              <Building2 className="w-6 h-6 text-indigo-500" />
+            <h2 className="text-lg sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
+              <Building2 className="w-5 sm:w-6 h-5 sm:h-6 text-indigo-500" />
               Select Hospital / Facility Protocols
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-              Click a facility to explore its specific emergency protocols, referral pathways, and guidelines.
+              Each facility&apos;s protocols are kept independent. Select one to view only that hospital&apos;s guidelines.
             </p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {FACILITIES.map((facility) => {
             const Icon = facility.icon;
             return (
-              <div
+              <button
                 key={facility.id}
+                type="button"
                 onClick={facility.available ? () => onSelectFacility(facility.id) : undefined}
-                aria-disabled={!facility.available}
-                className={`group relative overflow-hidden rounded-2xl border p-6 shadow-sm transition-all duration-300 ${
+                disabled={!facility.available}
+                aria-label={`Open ${facility.name} protocols`}
+                className={`group relative overflow-hidden rounded-2xl border p-5 sm:p-6 shadow-sm transition-all duration-300 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
                   facility.available
                     ? 'cursor-pointer border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:shadow-xl hover:-translate-y-1'
                     : 'cursor-not-allowed border-slate-200/60 dark:border-slate-800/60 bg-slate-50 dark:bg-slate-900/40 opacity-60'
                 }`}
               >
-                <div className="flex items-start justify-between">
+                <div className="flex items-start justify-between gap-3">
                   <div className={`p-3.5 rounded-xl bg-gradient-to-br ${facility.color} text-white shadow-md ${!facility.available ? 'grayscale' : ''}`}>
                     <Icon className="w-6 h-6" />
                   </div>
@@ -290,12 +306,14 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </div>
 
                 <div className="mt-4 space-y-2">
-                  <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors flex items-center justify-between">
-                    {facility.name}
+                  <div className="flex items-start justify-between gap-2">
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors text-left">
+                      {facility.name}
+                    </h3>
                     {facility.available && (
-                      <ChevronRight className="w-5 h-5 text-slate-400 group-hover:translate-x-1 transition-transform" />
+                      <ChevronRight className="w-5 h-5 text-slate-400 group-hover:translate-x-1 transition-transform shrink-0 mt-0.5" />
                     )}
-                  </h3>
+                  </div>
                   <p className="text-xs font-medium text-indigo-600 dark:text-indigo-400">{facility.subtitle}</p>
                   <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">{facility.description}</p>
                 </div>
@@ -303,14 +321,14 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <div className="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
                   {facility.available ? (
                     <>
-                      <span className="font-semibold text-slate-700 dark:text-slate-300">{facility.protocolCount} Protocols & Guidelines</span>
-                      <span className="text-indigo-500 font-medium group-hover:underline">Explore Protocols →</span>
+                      <span className="font-semibold text-slate-700 dark:text-slate-300">{facility.protocolCount} isolated protocols</span>
+                      <span className="text-indigo-500 font-medium group-hover:underline">Explore →</span>
                     </>
                   ) : (
                     <span className="font-semibold text-amber-600 dark:text-amber-500">Awaiting confirmed source material</span>
                   )}
                 </div>
-              </div>
+              </button>
             );
           })}
         </div>
@@ -396,12 +414,12 @@ export const HomePage: React.FC<HomePageProps> = ({
       <section className="space-y-4">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
-              <Stethoscope className="w-6 h-6 text-sky-500" />
+            <h2 className="text-lg sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
+              <Stethoscope className="w-5 sm:w-6 h-5 sm:h-6 text-sky-500" />
               Clinical Categories & Speciality Modules
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-              Browse all 92 protocols categorized by clinical specialty.
+              Browse all categories by clinical specialty. Each card shows independent hospital versions where available.
             </p>
           </div>
         </div>
@@ -428,9 +446,10 @@ export const HomePage: React.FC<HomePageProps> = ({
             <button
               key={cat.id}
               onClick={() => onSelectCategory(cat.id)}
-              className="flex flex-col items-center justify-center p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:bg-indigo-50 dark:hover:bg-slate-800 hover:border-indigo-300 dark:hover:border-indigo-500/30 transition-all text-center group shadow-sm"
+              aria-label={`Browse ${cat.name}`}
+              className="flex flex-col items-center justify-center p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:bg-indigo-50 dark:hover:bg-slate-800 hover:border-indigo-300 dark:hover:border-indigo-500/30 transition-all text-center group shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 min-h-[6rem]"
             >
-              <span className="text-3xl mb-2 group-hover:scale-110 transition-transform">{cat.icon}</span>
+              <span className="text-3xl mb-2 group-hover:scale-110 transition-transform" aria-hidden="true">{cat.icon}</span>
               <span className="text-xs font-semibold text-slate-800 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400">
                 {cat.name}
               </span>

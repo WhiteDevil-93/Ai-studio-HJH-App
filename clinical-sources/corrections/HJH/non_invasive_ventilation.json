@@ -58,6 +58,10 @@
     "warnings": [
       "Failure of NIV is an indication for immediate invasive mechanical ventilation (ETT intubation)."
     ],
-    "disposition": "High Care / ICU admission for patients requiring ongoing NIV support."
+    "disposition": "High Care / ICU admission for patients requiring ongoing NIV support.",
+    "sourceDoc": "HJH ED 2026",
+    "pdfPages": [
+      132
+    ]
   }
 }

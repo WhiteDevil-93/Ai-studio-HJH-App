@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "id": "renal_colic",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Renal Colic / Kidney Stones",
+    "source_doc": "HJH ED 2026",
+    "review_state": "source_verified"
+  },
+  "protocol": {
+    "item": "Renal Colic / Kidney Stones",
+    "protocol_type": "ed_protocol",
+    "sourceDoc": "HJH ED 2026",
+    "source_fidelity": "Official HJH Emergency Department Clinical Guidelines 2026 transcription",
+    "pdfPages": [
+      167
+    ],
+    "source_text": "signs of dehydration \nAnalgesia \n* NSAIDs \n-  Diclofenac Sodium (only if no renal impairment) 75 mg IM stat or \nIV infusion over 30 min or \n- Indocid suppositories \n* Opioid  \n- Fentanyl 1/kg IV or \n- Morphine 0.1mg/kg IV \nAnti-emetic \n- Metoclopramide 10 mg IV stat \nObserve in ED for intractable pain/vomiting after above Rx \n \n \n \n \n \n \n \n \n \n \nCriteria for Admission & Urgent Urology Referral \n* Urine infection \n* Urosepsis \n* Acute kidney injury \n* Hydronephrosis \n* Bilateral obstruction \n* Obstruction in pregnancy \n* Anuria \n* Intractable pain / vomiting \n* Obstruction of solitary / transplant kidney \nThe “STONE” score for Clinical Prediction \nSTONE score \nPoints \nSEX \n- female \n0 \n- male \n2 \nTIME (duration of pain to presentation) \n- > 24 hours \n0 \n- 6 – 24 hours \n1 \n- < 6 hours \n3 \nORIGIN (race) \n- Black \n0 \n- Non-Black \n3 \nNAUSEA and VOMITING \n- Absent \n0 \n- Nausea only \n1 \n- Vomiting \n2 \nERYTHROCYTES (urine dipstix) \n- Absent \n0 \n- Present \n3 \nTOTAL \n0-13 \nScore 0 – 5 ➔ Low probability \nScore 6 – 9 ➔ Moderate probability \nScore 10 – 13 ➔ High probability \nDischarge Criteria \n* No infection \n* No hydronephrosis \n* No renal dysfunction \n* No intractable pain/vomiting \nDischarge Management \n* Encourage oral fluid intake of 2.5l/day \n* Analgesia x 5/7 \n- Paracetamol 1g QID po \n- Diclofenac 25-50mg TDS po \n- Tramadol 50-100mg TDS po \n* Antiemetic \n- Metoclopramide 10 mg TDS/PRN po \n \nUrology OPD follow up"
+  }
+}

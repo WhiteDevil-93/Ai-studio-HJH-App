@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "id": "crush_injury",
+    "type": "protocol",
+    "category": "02_ed_trauma_ortho",
+    "subcategory": "protocols",
+    "title": "Crush Injury & Syndrome",
+    "source_doc": "HJH ED 2026",
+    "review_state": "source_verified"
+  },
+  "protocol": {
+    "item": "Crush Injury & Syndrome",
+    "protocol_type": "ed_protocol",
+    "sourceDoc": "HJH ED 2026",
+    "source_fidelity": "Official HJH Emergency Department Clinical Guidelines 2026 transcription",
+    "pdfPages": [
+      62
+    ],
+    "source_text": "Disposition \n- Refer Surgery depending on cause \nDefinitions \n•\nCrush Injury: physical injury from prolonged compression. May be \ndue to direct effect of trauma or ischaemia related to compression. \n•\nCrush Syndrome: systemic manifestations resulting from crush \ninjury, i.e. rhabdomyolysis leading to acute kidney injury, \nmultisystem organ injury or death. \n \nCRUSH INJURY & SYNDROME \n(RHABDOMYOLYSIS) \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nIndications for dialysis \n* Refractory acidosis \n* Refractory hyperkalaemia \n*\n \n*\n \n*\n \n \nClinical Examination \n* Tramline bruising \n* Tense, oedematous, painful muscle groups \n* Dark / tea-coloured urine \n* Circulatory shock \nInvestigations \n* Blood gas – metabolic acidosis (bicarb < 20, \npH < 7.3,  lactate \n* U-dipstix – haemoglobin / protein \n* eFAST \n* Bloods: Creatinine kinase, U&E, CMP \n* No indication for repeat CK/trending of levels \n \nCauses \nExtensive soft tissue trauma \n- Community assault \n- Sjambok injury \nSnake bite (rare"
+  }
+}

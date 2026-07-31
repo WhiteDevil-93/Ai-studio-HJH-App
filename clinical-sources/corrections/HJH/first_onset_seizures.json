@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "id": "first_onset_seizures",
+    "type": "protocol",
+    "category": "04_ed_neurology",
+    "subcategory": "protocols",
+    "title": "First Onset Seizures",
+    "source_doc": "HJH ED 2026",
+    "review_state": "source_verified"
+  },
+  "protocol": {
+    "item": "First Onset Seizures",
+    "protocol_type": "ed_protocol",
+    "sourceDoc": "HJH ED 2026",
+    "source_fidelity": "Official HJH Emergency Department Clinical Guidelines 2026 transcription",
+    "pdfPages": [
+      75
+    ],
+    "source_text": "Admission Criteria \n• \nComorbidities e.g. renal failure, \nmalnutrition \n• \nAge > 60 years \n• \nImmunocompromise \n• \nKnown cardiovascular disease \n \n• \nPregnancy \n• \nFocal neurology/delirium \n• \nToxins \n• \nTrauma \n• \nMalignancy \n \nHistory \n•\nDetailed history of seizure \n•\nNB! Recent history of head trauma? \n•\nDrug use/abuse/overdose? \nPhysical Examination \n•\nVital signs \n•\nGeneral examination & any evidence of underlying \ndiseases, including trauma \n•\nNeurological examination \nSigns of meningitis. NB Crypto can be subtle \nFocal neurological deficit \nInvestigations \n•\nECG and blood glucose on ALL patients \n•\nTailor further investigations to clinical findings \n•\nUrgent CT brain with contrast if \nNo return to baseline \nFocal neurological deficit \nFeatures of raised ICP \nDischarge if: \n* Return to baseline \n* No significant concerns on clinical examination \nNote \n* DO NOT require anti-epileptic treatment \n* Follow up at Neuro OPD for workup"
+  }
+}

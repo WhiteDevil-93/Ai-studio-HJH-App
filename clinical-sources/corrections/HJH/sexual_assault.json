@@ -1,0 +1,23 @@
+{
+  "_meta": {
+    "id": "sexual_assault",
+    "type": "protocol",
+    "category": "08_ed_obstetrics_gynaecology",
+    "subcategory": "protocols",
+    "title": "Sexual Assault Protocol (Adults)",
+    "source_doc": "HJH ED 2026",
+    "review_state": "source_verified"
+  },
+  "protocol": {
+    "item": "Sexual Assault Protocol (Adults)",
+    "protocol_type": "ed_protocol",
+    "sourceDoc": "HJH ED 2026",
+    "source_fidelity": "Official HJH Emergency Department Clinical Guidelines 2026 transcription",
+    "pdfPages": [
+      173,
+      174,
+      175
+    ],
+    "source_text": "referrals on a case-by-case basis. \nSurvivor to be given a letter to Thembalethu clinic to collect rest of PEP. \n• \n• \n• \nSAECK kits that are not collected by the police within six (6) months of examination \nmay be discarded, as per the recommended protocols \n \nChain of Evidence \nSAECK to be handed over to the investigating officer. \nBoth the J88 and Evidence Collection Forms are to be signed by the Investigating Officer and the doctor \nwho completed the forensic examination. \n \nPost-Exposure Prophylaxis (PEP) \nMonday-Friday 08h00 to 16h00: \nPatient to collect from pharmacy \nAfter hours, Weekends and Public holidays: \nKept in the sexual assault room \n \n \n \nContinuing Care"
+  }
+}

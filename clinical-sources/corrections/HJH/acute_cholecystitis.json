@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "id": "acute_cholecystitis",
+    "type": "protocol",
+    "category": "15_ed_general_surgery",
+    "subcategory": "protocols",
+    "title": "Acute Cholecystitis",
+    "source_doc": "HJH ED 2026",
+    "review_state": "source_verified"
+  },
+  "protocol": {
+    "item": "Acute Cholecystitis",
+    "protocol_type": "ed_protocol",
+    "sourceDoc": "HJH ED 2026",
+    "source_fidelity": "Official HJH Emergency Department Clinical Guidelines 2026 transcription",
+    "pdfPages": [
+      8
+    ],
+    "source_text": "CLINICAL FEATURES \nSymptoms \n*RUQ pain / epigastric pain \n*Nausea \n*Vomiting \n*Anorexia \n*Low grade fever \nSigns \n*Vital signs parallel the degree of illness \n*± Jaundice \n*Epigastric / RUQ tenderness \n*Abdominal guarding \n*Murphy’s sign \n➔ inspiratory pause on palpation of RUQ \n*Search for complications & other sources of \npain \n \n \n \n \nRISK FACTORS \n*Increasing age \n*Female \n*Parity \n*Family history \n*Obesity \n*Diabetes Mellitus \n*Profound weight loss \n*Fasting \n*Cystic fibrosis \n*Malabsorption syndromes \n*Medications e.g. antibiotics, lipid lowering, \ndiuretics, oestrogen-containing, steroids \n \nED MANAGEMENT \nThe primary goal of ED care is resuscitation, stabilization and an \nexpedient diagnosis \nRESUSCITATION \n*ABC approach \n*IV line – 20mls/kg Balsol/Ringer’s Lactate fluid bolus if shocked \nINVESTIGATIONS \n*Bedside \nECG, blood gas, U-dipstix, U-ßHCG, POCUS (see ultrasound features box) \n*Laboratory \nFBC, U&E, CRP, CMP, LFT, amylase, lipase, ±INR/PTT, ±blood \ncultures \n*Radiological \nX-rays – CXR erect, AXR supine & erect \nAbdominal ultrasound \nCT Abdomen – not test of choice and recommended only for the \nevaluation of abdominal pain if the diagnosis is uncertain \nSPECIFIC TREATMENT \n*Antibiotics – Augmentin® 1.2g stat IV \n*Antiemetics \n*Analgesia – see Pain Management in ED Protocol \n \nDISPOSITION \n*Urgent surgical referral \nCOMPLICATIONS \n*Sepsis \n*Pancreatitis \n*Ascending cholangitis \n*Gallbladder empyema \n*Emphysematous cholecystitis \n*Gallbladder perforation – localized/free \n*Hepatitis \n*Choledocholithiasis \n \n \n \n \nULTRASOUND FEATURES \nGallstones/sludge and 1 or more of \nthe following: \n*GB wall thickening (>4mm) \n(false positive in wall thickening found in \nascites, CCF, carcinoma, hypoalbuminaemia) \n*GB distention \n(diameter >4cm, length >10cm) \n*Pericholecystic fluid \n*Dilated ducts ➔ CBD or intrahepatic \n*Air in the GB wall \n*Ultrasonographic Murphy sign \n➔  pain when the probe is pushed \ndirectly on the GB (not related to \nbreathing)"
+  }
+}

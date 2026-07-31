@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "id": "status_epilepticus",
+    "type": "protocol",
+    "category": "04_ed_neurology",
+    "subcategory": "protocols",
+    "title": "Status Epilepticus",
+    "source_doc": "HJH ED 2026",
+    "review_state": "source_verified"
+  },
+  "protocol": {
+    "item": "Status Epilepticus",
+    "protocol_type": "ed_protocol",
+    "sourceDoc": "HJH ED 2026",
+    "source_fidelity": "Official HJH Emergency Department Clinical Guidelines 2026 transcription",
+    "pdfPages": [
+      178
+    ],
+    "source_text": "signs \n• \nGeneral examination & any evidence underlying diseases \n• \nNeurological examination \n• \nSigns of meningitis \n• \nFocal neurological deficit \n \nInvestigations \n• \nECG, blood glucose and blood gas on ALL patients \n• \nUrine-HCG on ALL female patients \n• \nTailor further investigations to clinical findings \n• \nUrgent CT brain with contrast if: \n• \nNo return to baseline \n• \nFocal neurological deficit \nIdentify and treat the precipitating factor \nDisposition \n• \nConsult Neurology/IM as appropriate \nDEFINITIONS \nStatus Epilepticus \nContinuous seizures for 5 minutes or  2 discrete seizures in close \nsuccession without full recovery of consciousness between episodes \nRefractory Status Epilepticus \nSeizures persisting despite  2 anticonvulsant agents (i.e. \n1st & 2nd line anticonvulsants)"
+  }
+}

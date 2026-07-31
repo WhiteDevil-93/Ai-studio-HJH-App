@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "id": "toxidromes",
+    "type": "protocol",
+    "category": "12_ed_toxicology",
+    "subcategory": "protocols",
+    "title": "Toxidromes",
+    "source_doc": "HJH ED 2026",
+    "review_state": "source_verified"
+  },
+  "protocol": {
+    "item": "Toxidromes",
+    "protocol_type": "ed_protocol",
+    "sourceDoc": "HJH ED 2026",
+    "source_fidelity": "Official HJH Emergency Department Clinical Guidelines 2026 transcription",
+    "pdfPages": [
+      192
+    ],
+    "source_text": "Clinical features: \nagitation, delusions, paranoia, tachycardia, \nhypertension, hyperthermia, mydriasis, \nhyperreflexia, seizures \n*Investigations: \nECG for tachydysrhythmias, monitor for \nrhabdomyolysis \n*Specific management: \n•\nBenzodiazepines for agitation \n•\nSupportive care \n•\nAvoid Beta-blockers – unopposed alpha agonism \n \n \n \nCHOLINERGIC \nTOXIDROMES \n \n \n \nSEDATIVE-HYPNOTIC \n \n*Common agents: \nOrganophosphates, Carbamates, Physostigmine, \nmushroom toxins \n*Clinical features: \nSalivation, lacrimation, urination, diarrhoea, \nvomiting, sweating, miosis, fasciculations, \nbrady/tachycardia, confusion, seizures \n*Investigations: \nAs per toxicology protocols, \npseudocholinesterase levels if diagnosis in doubt \n*Specific management: \nAtropine boluses/infusion \nSEE ACETYLCHOLINESTERASE INHIBITOR OVERDOSE PROTOCOL FOR FURTHER DETAILS \n* Common agents: \nOpioids, benzodiazepines, barbiturates, Nyaope & \nother opioid based illicit substances \n* Clinical features: \nsedation, coma, respiratory and cardiovascular \ndepression, miosis/mydriasis \n* Investigations: \nClinical dx, consider urine drugs of abuse screen \n* Specific management: \n• Opioids: Consider Naloxone 0.04 – 2 mg IV boluses \n• Benzos: Avoid Flumazenil – can precipitate withdrawal/seizures \nMAINSTAY OF TREATMENT FOR ALL SEDATIVE-HYPNOTICS IS VENTILATORY AND \nCARDIOVASCULAR SUPPORT \n \n \n \n \n \nANTICHOLINERGIC \n* Common agents: \nAntihistamines, antiparkinsonians, \natropine, antispasmodics, plant \ntoxins – Devil’s trumpet, Jimson \nweed, Nightshade \n* Clinical features: \nDelirium, tachycardia, dry/flushed \nskin, dilated pupils, hyperthermia, \nmyoclonus, urinary retention, \nseizures, decreased bowel sounds \n* Investigations: \nECG – monitor for \ntachydysrhythmias \n* Specific management: \n•\nBenzodiazepines for agitation \n•\nConsider activated charcoal, \n•\nConsider physostigmine (expert consultation)"
+  }
+}

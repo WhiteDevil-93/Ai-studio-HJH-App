@@ -42,6 +42,7 @@
       "No role in the ED for stat oral antihypertensives in asymptomatic or non-emergent hypertension.",
       "Reduce MAP by max 20-25% in 1st hour for Hypertensive Emergencies (except Aortic Dissection: SBP goal <100-120 in 20 min)."
     ],
-    "disposition": "Hypertensive Emergency: Internal Medicine / ICU / High Care admission.\nUncontrolled HT: Discharge to local clinic for follow-up within 3-7 days with oral antihypertensives (HCTZ + ACEi/CCB)."
+    "disposition": "Hypertensive Emergency: Internal Medicine / ICU / High Care admission.\nUncontrolled HT: Discharge to local clinic for follow-up within 3-7 days with oral antihypertensives (HCTZ + ACEi/CCB).",
+    "sourceDoc": "HJH ED 2026"
   }
 }

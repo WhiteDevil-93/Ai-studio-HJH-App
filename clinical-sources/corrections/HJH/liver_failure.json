@@ -1,0 +1,25 @@
+{
+  "_meta": {
+    "id": "liver_failure",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Acute Liver Failure",
+    "source_doc": "HJH ED 2026",
+    "review_state": "source_verified"
+  },
+  "protocol": {
+    "item": "Acute Liver Failure",
+    "protocol_type": "ed_protocol",
+    "sourceDoc": "HJH ED 2026",
+    "source_fidelity": "Official HJH Emergency Department Clinical Guidelines 2026 transcription",
+    "pdfPages": [
+      121,
+      122,
+      123,
+      124,
+      125
+    ],
+    "source_text": "Clinical features of Acute Liver Failure \n \nHistory \nClinical signs on examination of ALF \n► Date of onset of symptoms \n► Travel history \n► Drug use – prescription and illicit \n► Alcohol use \n► Herbal or traditional medication use \n► Target symptoms consistent with the \npresenting complication \n► Exposure to a viral illness (sexual contacts, \nbody piercing) \n► Jaundice \n► RUQ tenderness \n► Hepatomegaly \n► Splenomegaly \n► Ascites \n► Evidence of bleeding \n► Evidence of infection \n► Asterixis (hepatic flap) \n► Evidence of encephalopathy \n \nGrading of Hepatic Encephalopathy (HE) \n \nGrade \nIntellectual Function \nNeuromuscular Function \nI \nImpaired attention, irritable, depressed, personality \nchanges \nTremor, apraxia, incoordination \nII \nDrowsy, poor memory, behavioural changes, sleep \ndisturbances \nAsterixis, ataxia, slow slurred \nspeech \nIII \nConfusion, somnolence, disorientation, amnesia \nHypoactive reflexes, clonus, \nnystagmus, muscle rigidity \nIV \nStupor, coma \nDilated pupils, decerebrate \nposture, oculocephalic reflex"
+  }
+}

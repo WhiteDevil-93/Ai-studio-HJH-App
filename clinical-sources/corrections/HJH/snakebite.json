@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "id": "snakebite",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Snakebite Pathway (EMCT)",
+    "source_doc": "HJH ED 2026",
+    "review_state": "source_verified"
+  },
+  "protocol": {
+    "item": "Snakebite Pathway (EMCT)",
+    "protocol_type": "ed_protocol",
+    "sourceDoc": "HJH ED 2026",
+    "source_fidelity": "Official HJH Emergency Department Clinical Guidelines 2026 transcription",
+    "pdfPages": [
+      176
+    ],
+    "source_text": "Source: EM Guidance EMCT Snakebite Emergencies, accessed \n24/10/2024 \n\n \nABORT SEIZURE \nFIRST LINE AGENTS - BENZODIAZEPINE \n0.3 mg/kg buccal / intranasal \n \n** If the seizure continues, administer a 2nd dose of the chosen benzodiazepine \n• Phenytoin \n20 mg/kg IV \n(max rate 50 mg/min) \n• Sodium Valproate \n20 - 30 mg/kg IV \n(max rate 3-6 mg/kg/min) \n• Phenobarbitone \n20 mg/kg IV \nLOAD WITH A 2nd \nLINE \nANTICONVULSANT \nSTATUS EPILEPTICUS \nANTICONVULSANT ALGORITHM \n \n \n \n \n \n• Lorazepam (Ativan) \n0.1 mg/kg IV \n(max rate 2mg/min) \n• Diazepam (Valium) \n0.2 – 0.3 mg/kg IV \n(max rate 5mg/min) \n• Clonazepam (Rivotril) \n0.02 mg/kg IV \n• Midazolam (Dormicum) \n0.2 mg/kg IV \n \n \n \n \n \n \nIF SEIZURE CONTINUES \n \nIF SEIZURE TERMINATES \n \nLOAD WITH A SECOND LINE ANTICONVULSANT \n \nIF SEIZURE CONTINUES \n \nREPEAT 2ND LINE ANTICONVULSANT after 20 minutes \n \n• \nPhenytoin \n10 mg/kg IV \n(max rate 50 mg/min) \n• \nSodium Valproate \n10 mg/kg IV \n(max rate 3-6 mg/kg/min) \n• \nPhenobarbitone \n10 mg/kg \n \nIF SEIZURE CONTINUES \n \n \nREFRACTORY STATUS EPILEPTICUS \nTHIRD LINE ANTICONVULSANT \n• Midazolam (Dormicum) \nLoading Dose 0.2 mg/kg IV then \nInfusion \n0.1 mg/kg/hr (0.05 - 2mg/kg/hr) \n• Propofol \nLoading dose 3 – 5 mg/kg IV then \nInfusion \n1 – 15 mg/kg/hr \n• Ketamine \nLoading dose 1.5 mg/kg then \nInfusion \n0.01 – 0.05 mg/kg/hr \n \n\n \n \nSTATUS EPILEPTICUS \n \nImmediate Management \n• \nABCD approach to initial resuscitation \n• \nDon’t ever forget glucose \n• \nHypoglycaemia \n1ml/kg of 50% Dextrose IV \n5ml/kg 10% Dextrose IV (child) \nif no IV line – 50% dextrose buccal 1ml in children; 2-5mls adults \n \nAirway and Breathing \n• \nPatient position – lateral \n• \nSupplemental oxygen (nasal prongs/FMO2) \n• \nRapid Sequence Intubation (RSI) if seizures continue for \n 5 minutes (see RSI protocol) \n \nCirculation \n• \nInsert an IV line \n• \nShock: Fluid bolus 20ml/kg of Balsol/Ringers Lactate \n \nDrugs \n• \nGlucose if hypoglycaemia \n• \nBenzodiazepine to abort seizure \n• \nLoad with 2nd line anticonvulsant agent \n• \nSee status epilepticus anticonvulsant algorithm \n \n \nPRECIPITATING FACTORS \n• \nInfection / Intoxication \n• \nMetabolic / Electrolyte abnormalities (HypoNa) \n• \nTrauma / Toxins (INH, TCA) \n• \nDrug toxicity (anti-epileptics) \n• \nEclampsia, thyrotoxicosis \n• \nIntracranial haemorrhage / ischaemic stroke \n \n \n \n \n \n \n \nHistory \n• \nDetailed history of seizure \n• \nIdentify precipitating factors \n \nPhysical Examination \n• \nVital signs \n• \nGeneral examination & any evidence underlying diseases \n• \nNeurological examination \n• \nSigns of meningitis \n• \nFocal neurological deficit \n \nInvestigations \n• \nECG, blood glucose and blood gas on ALL patients \n• \nUrine-HCG on ALL female patients \n• \nTailor further investigations to clinical findings \n• \nUrgent CT brain with contrast if: \n• \nNo return to baseline \n• \nFocal neurological deficit \nIdentify and treat the precipitating factor \nDisposition \n• \nConsult Neurology/IM as appropriate \nDEFINITIONS \nStatus Epilepticus \nContinuous seizures for 5 minutes or  2 discrete seizures in close \nsuccession without full recovery of consciousness between episodes \nRefractory Status Epilepticus \nSeizures persisting despite  2 anticonvulsant agents (i.e. \n1st & 2nd line anticonvulsants)"
+  }
+}

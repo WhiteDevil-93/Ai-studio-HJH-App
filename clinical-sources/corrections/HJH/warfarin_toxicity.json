@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "id": "warfarin_toxicity",
+    "type": "protocol",
+    "category": "12_ed_toxicology",
+    "subcategory": "protocols",
+    "title": "Warfarin Toxicity",
+    "source_doc": "HJH ED 2026",
+    "review_state": "source_verified"
+  },
+  "protocol": {
+    "item": "Warfarin Toxicity",
+    "protocol_type": "ed_protocol",
+    "sourceDoc": "HJH ED 2026",
+    "source_fidelity": "Official HJH Emergency Department Clinical Guidelines 2026 transcription",
+    "pdfPages": [
+      201
+    ],
+    "source_text": "presentation < 1 hour post ingestion \n* NB Do not discharge even if asymptomatic! Must be monitored for 72 hours. \nSuper-warfarins may require WEEKS of Vit K therapy \nRISK STRATIFICATION IF ANTI-COAGULATION IS REVERSED \nHigh: mechanical valve, especially mitral valve \nModerate: AF/cardiomyopathy with valvular disease/previous CVA/MI/embolism/CCF, multiple PE/DVT, \nbiological valve < 3/12, DVT < 2/12, lab-confirmed hypercoagulability + DVT/PE, prev arterial emboli \nLow: AF/Cardiomyopathy with no complications, biological valve > 3/12, vascular prosthetic grafts, post \nstent insertion, mural thrombus prophylaxis"
+  }
+}

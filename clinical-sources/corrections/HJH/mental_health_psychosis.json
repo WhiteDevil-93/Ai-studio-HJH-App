@@ -86,6 +86,11 @@
       "New onset visual or tactile hallucinations",
       "Focal neurological deficit"
     ],
-    "disposition": "Transfer to Psychiatry ward if medically cleared and bloods/exam normal. Admit to Medical ward if red flags, acute intoxication/withdrawal, pregnancy complications, or focal neurology are present."
+    "disposition": "Transfer to Psychiatry ward if medically cleared and bloods/exam normal. Admit to Medical ward if red flags, acute intoxication/withdrawal, pregnancy complications, or focal neurology are present.",
+    "sourceDoc": "HJH ED 2026",
+    "pdfPages": [
+      128,
+      129
+    ]
   }
 }

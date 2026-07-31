@@ -438,13 +438,14 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
       <button
         type="button"
         onClick={onBack}
-        className="inline-flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-white transition-colors"
+        aria-label={`Back to ${facility.shortName} protocols`}
+        className="inline-flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg p-1 -m-1"
       >
         <ArrowLeft className="h-4 w-4" />
         Back to {facility.shortName} protocols
       </button>
 
-      <header className="overflow-hidden rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 p-6 text-white shadow-2xl sm:p-9">
+      <header className="overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 p-5 sm:p-7 lg:p-9 text-white shadow-2xl">
         <div className="flex flex-wrap items-center gap-2">
           <span className="inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/15 px-3 py-1 text-xs font-black uppercase tracking-wider text-indigo-300">
             <Building2 className="h-3.5 w-3.5" />
@@ -457,7 +458,7 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
             Published facility protocol
           </span>
         </div>
-        <h1 className="mt-5 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+        <h1 className="mt-4 sm:mt-5 text-2xl sm:text-4xl lg:text-5xl font-black leading-tight tracking-tight">
           <HighlightedText text={protocol.title} highlight={trimmedQuery} />
         </h1>
         <p className="mt-4 text-sm leading-relaxed text-slate-400">
@@ -514,7 +515,7 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
       )}
 
       {hasWeightBasedDoses && (
-        <label className="flex flex-wrap items-center gap-3 rounded-2xl border border-cyan-300 bg-cyan-50 p-4 text-sm text-cyan-950">
+        <label className="flex flex-wrap items-center gap-3 rounded-2xl border border-cyan-300 bg-cyan-50 p-4 text-sm text-cyan-950 focus-within:ring-2 focus-within:ring-cyan-400">
           <span className="font-black">Patient weight</span>
           <input
             type="number"
@@ -523,7 +524,8 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
             value={weight}
             onChange={event => setWeight(event.target.value)}
             placeholder="kg"
-            className="w-28 rounded-lg border border-cyan-400 bg-white px-3 py-2 font-bold outline-none"
+            aria-label="Patient weight for dose calculation"
+            className="w-28 rounded-lg border border-cyan-400 bg-white px-3 py-2 font-bold outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
           />
           <span className="text-xs">kg — weight-based doses calculate inline below.</span>
         </label>
@@ -654,7 +656,7 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
             href={sourceImage}
             target="_blank"
             rel="noreferrer"
-            className="block overflow-hidden rounded-xl border border-slate-200 bg-white dark:border-slate-800"
+            className="block overflow-hidden rounded-xl border border-slate-200 bg-white dark:border-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
             title="Open the full-size facility source image"
           >
             <img
@@ -668,7 +670,7 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
             href={sourceImage}
             target="_blank"
             rel="noreferrer"
-            className="mt-3 inline-flex text-xs font-bold text-indigo-600 underline underline-offset-2 dark:text-indigo-300"
+            className="mt-3 inline-flex text-xs font-bold text-indigo-600 underline underline-offset-2 dark:text-indigo-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded p-1 -m-1"
           >
             Open full-size source image
           </a>

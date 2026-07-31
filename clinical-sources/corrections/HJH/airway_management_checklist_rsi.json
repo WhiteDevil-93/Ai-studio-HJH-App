@@ -1,0 +1,51 @@
+{
+  "_meta": {
+    "id": "airway_management_checklist_rsi",
+    "type": "protocol",
+    "category": "15_ed_procedures",
+    "subcategory": "protocols",
+    "title": "Airway Management Checklist & RSI",
+    "source_doc": "HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Airway Management Checklist & RSI",
+    "protocol_type": "ed_protocol",
+    "equipment": [
+      "Suction",
+      "ET tubes (various sizes)",
+      "Oxygen source",
+      "Bougie",
+      "Video laryngoscope",
+      "Cricothyrotomy kit"
+    ],
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "Check Equipment & Predict Difficult Airway",
+        "details": "Use LEMON criteria. Verify suction and alternative airways."
+      },
+      {
+        "step_number": "2",
+        "action": "Positioning & Pre-oxygenation",
+        "details": "Align ear to sternal notch (sniffing position). Pre-oxygenate 100% for 3 min."
+      },
+      {
+        "step_number": "3",
+        "action": "Pre-load Fluids",
+        "details": "10-20ml/kg Ringer's Lactate/Balsol to offset induction-induced hypotension."
+      },
+      {
+        "step_number": "4",
+        "action": "Induction & Paralysis",
+        "details": "Induction (Ketamine 1-2mg/kg IV or Etomidate 0.3mg/kg IV) followed by paralytic (Suxamethonium 1.5mg/kg IV or Rocuronium 1mg/kg IV)."
+      }
+    ],
+    "sourceDoc": "HJH ED 2026",
+    "source_fidelity": "Supplied HJH structured extraction pending official PDF transcription",
+    "pdfPages": [
+      22,
+      23
+    ]
+  }
+}

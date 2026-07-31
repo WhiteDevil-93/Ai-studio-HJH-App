@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "id": "tetanus",
+    "type": "protocol",
+    "category": "13_ed_infectious_diseases",
+    "subcategory": "protocols",
+    "title": "Tetanus",
+    "source_doc": "HJH ED 2026",
+    "review_state": "source_verified"
+  },
+  "protocol": {
+    "item": "Tetanus",
+    "protocol_type": "ed_protocol",
+    "sourceDoc": "HJH ED 2026",
+    "source_fidelity": "Official HJH Emergency Department Clinical Guidelines 2026 transcription",
+    "pdfPages": [
+      188
+    ],
+    "source_text": "CLINICAL FEATURES \nTRIAD – rigidity, muscle spasms & autonomic dysfunction \n* Contaminated wound may be trivial \n* Incubation period – 3-14 days ➔ time to first symptom \n* Onset time – 1-7 days ➔ time from first symptom to first spasm \n* Rigidity (persists > 2 weeks) \n-trismus, dysphagia, increased tone in trunk muscles \n* Spasms (reduce after 2 weeks) \n-laryngospasm, risus sardonicus, opisthotonos \n-may be spontaneous or provoked by physical/emotional \nstimuli \n* Autonomic disturbances (onset after spasms – lasts 1-2 weeks) \n-tachycardia & hypertension may alternate with \nbradycardia & hypotension, dysrhythmia, cardiac arrest \n-salivation, bronchial secretions \n-gastric stasis, ileus, diarrhoea \n* Respiratory compromise \n-chest wall rigidity \n-laryngospasm \n-aspiration \n \nCOMPLICATIONS \n*Respiratory – aspiration, laryngospasm, apnoea, respiratory failure, ARDS, VAP \n*Cardiovascular – tachy/bradycardia, hyper/hypotension, ischaemia, cardiac failure \n*Renal – high output/oliguric renal failure, urinary stasis & infection \n*GIT – gastric stasis, ileus, diarrhoea, UGIB/LGIB \n*Musculoskeletal – rhabdomyolysis, fractures/tendon avulsions 2° spasms \n*Other – dehydration, thromboembolism, sepsis, MOD \n \n \nCAUSE \n*Clostridium tetani \nanaerobic spore forming gram positive bacillus \n*When spores germinate, and bacteria multiply ➔ \ntoxins released i.e. tetanospasmin and tetanolysin \nTYPES \n*Cephalic / Local / Generalised / Neonatal \n \nDIFFERENTIAL DIAGNOSIS \n*Trismus 2 orofacial infection \n*Acute dystonic reactions \n*Hypocalcaemic tetany \n*Seizure disorder \n*Meningism \n*Psychogenic \n*Strychnine poisoning \nED INVESTIGATIONS \n*U&E; CMP; CK; FBC \n*Blood cultures \n*ABG (respiratory failure) \n*U-dipstix \n*ECG"
+  }
+}

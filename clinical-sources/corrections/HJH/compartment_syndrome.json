@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "id": "compartment_syndrome",
+    "type": "protocol",
+    "category": "02_ed_trauma_ortho",
+    "subcategory": "protocols",
+    "title": "Compartment Syndrome",
+    "source_doc": "HJH ED 2026",
+    "review_state": "source_verified"
+  },
+  "protocol": {
+    "item": "Compartment Syndrome",
+    "protocol_type": "ed_protocol",
+    "sourceDoc": "HJH ED 2026",
+    "source_fidelity": "Official HJH Emergency Department Clinical Guidelines 2026 transcription",
+    "pdfPages": [
+      59
+    ],
+    "source_text": "CLINICAL FEATURES \n•\nPain out of proportion to the injury \n•\nPain on passive stretch \n•\nTense compartment  \n•\nDecreased capillary refill time \n•\nPulses are usually PRESENT. Absent pulses \nmay be due to systemic hypotension, \narterial occlusion or vascular injury \nLate signs – do not delay until these \nappear! \n•\nPallor \n•\nParalysis \n•\nParaesthesia \n \nMANAGEMENT \nTIME SENSITIVE LIMB THREATENING DIAGNOSIS! DO NOT DELAY! \n \n•\nUrgent surgical consult \n•\nEmergency fasciotomy \n•\nDo not delay surgery for imaging e.g. CT angio UNLESS truly necessary \n•\nRemove constrictive dressings/casts \n•\nReduce fractures but avoid traction/tight casts \n•\nPlace limb at the level of the heart \n•\nLiberal analgesia – avoid nerve blocks/regional anaesthesia! \n•\nMeasure intracompartmental pressure if available (can use a-line set) \n•\nConsider concomitant rhabdomyolysis and crush syndrome \n \n \nCAUSES \n•\nBlunt soft tissue injury \n•\nBurns, NB Electrical burns \n•\nCasts  \n•\nContrast extravasation/other high-speed fluid \ninjectors e.g. paint guns \n•\nDVT – phlegmasia cerulea/alba dolens \n•\nEMG \n•\nExercise – rare \n•\nFractures – common \n•\nHaemorrhage (Haemophilia) \n•\nInfections \n•\nIV/IO infusions \n•\nSkin/skeletal traction \n•\nSnake bites (NB more likely PSEUDO-\ncompartment syndrome) \n \nPOCUS: may be used as an adjunct to investigate \ncause of compartment syndrome e.g. \nintramuscular haematoma, or pseudo-\ncompartment syndrome in cytotoxic snakebite \n \nASSESSMENT \n•\nCaused by excessive pressure in a fascial compartment. Leading to decreased perfusion \n•\nMost common in tibial/forearm fractures, high-energy wrist fractures, crush injury \n•\nOther: restrictive dressings/casts, prolonged immobilization and reperfusion of ischaemic \nlimbs.  \n•\nDocument time and mechanism of injury, time of evaluation, level of pain, level of \nconsciousness, response to analgesia, neurovascular status of affected limb \n•\nAVOID REGIONAL ANAESTHESIA IN HIGH RISK CASES"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "id": "ccb_bb_overdose",
+    "type": "protocol",
+    "category": "12_ed_toxicology",
+    "subcategory": "protocols",
+    "title": "-Blocker & Calcium-Channel Blocker Overdose",
+    "source_doc": "HJH ED 2026",
+    "review_state": "source_verified"
+  },
+  "protocol": {
+    "item": "-Blocker & Calcium-Channel Blocker Overdose",
+    "protocol_type": "ed_protocol",
+    "sourceDoc": "HJH ED 2026",
+    "source_fidelity": "Official HJH Emergency Department Clinical Guidelines 2026 transcription",
+    "pdfPages": [
+      55
+    ],
+    "source_text": "CLINICAL FEATURES \n* Hypotension, bradycardia, hyperglycaemia (CCB) hypoglycaemia (BB), acidosis, \nCNS depression \n \nECG FEATURES (see Tox ECG appendix) \n* Sinus bradycardia, AV blocks, junctional bradycardia, ventricular bradycardia \n \nNOTE: \n• \nPropranolol: Also acts as a Na channel blocker – TCA-like features of OD \n• \nSotalol: Blocks myocardial K channels – QT prolongation, Torsades \n \n \n \nSPECIFIC MANAGEMENT \n*Enhanced elimination: Consider activated charcoal 50g via NGT \n*Haemodynamic support: Fluid bolus, high dose inotropes may be required  \n*Airway support: Beta blocker OD may lead to profound CNS depression \n*Specific therapy: \n• \nHIET – see protocol \n• \nCalcium chloride 10 ml 10% over 10 minutes via large bore IV or central line (target Ca \n2mmol) \n• \nConsider Intralipid & glucagon – specialist consultation \n• \nConsider ECMO if no response to HIET – specialist consultation \nHIGH DOSE INSULIN EUGLYCAEMIC THERAPY \n(HIET) \n* Start with a 50ml 50% dextrose bolus \n* Insulin loading dose: \n■ \nActrapid 1 IU/kg (ie 60-80 units) IV stat \n* Infusion: \n■ \n Actrapid 0.5 IU/kg/hr, titrate up every 30 \nminutes to a max dose of 10 IU/kg/hr IV \n*Dextrose infusion: \n■ \nMaintenance @ 25g/hr \n(50ml 50% dextrose/hr or 100ml 25% dextrose) via central \nline to maintain euglycemia \n*  Monitor HGT every 20 minutes for 1st hour, then every 1 \nhour \n* Monitor Potassium – replace if < 2.5 mmol \nTHERAPEUTIC ENDPOINTS: \n■ \nEF > 50%; SBP > 90mmHg \n■ \nAdequate heart rate (> 60 bpm) \n■ \nResolution of acidaemia; euglycaemia \n■ \nUrine output 1-2ml/kg/hr \n■ \nReverse cardiac conduction Abns - QRS < 120ms \n■ \nImproved GCS \n■ \nAble to wean inotropic support \n \n \nDISPOSITION \n* Int med consult (consider renal consult – dialysis) \n* Will likely require ICU/High care \n* Continue serial ECG and VBG monitoring in ED \nGENERAL APPROACH (see also general toxicology approach) \n•\nTriage to RESUS AREA, even if patient initially appears well \n•\nRapid ABC assessment, 2 IV lines, monitors, HGT, VBG, urine"
+  }
+}

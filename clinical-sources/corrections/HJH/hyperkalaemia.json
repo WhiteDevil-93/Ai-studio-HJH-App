@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "id": "hyperkalaemia",
+    "type": "protocol",
+    "category": "05_ed_pulmonary",
+    "subcategory": "protocols",
+    "title": "Hyperkalaemia = K",
+    "source_doc": "HJH ED 2026",
+    "review_state": "source_verified"
+  },
+  "protocol": {
+    "item": "Hyperkalaemia = K",
+    "protocol_type": "ed_protocol",
+    "sourceDoc": "HJH ED 2026",
+    "source_fidelity": "Official HJH Emergency Department Clinical Guidelines 2026 transcription",
+    "pdfPages": [
+      94
+    ],
+    "source_text": "Follow-up monitoring of potassium \n \nSodium Bicarbonate \nRoutine use no longer recommended \nMinimal effect on K+ \nMay be of benefit in NORMAL ANION GAP METABOLIC ACIDOSIS \nDosage 8.5% solution 1mEq/kg = 1ml/kg \nAdminister in separate IV line to calcium \nCAUSES \n*Impaired excretion \ne.g. renal failure, drugs (spironolactone), \nhypoaldosteronism (Addison’s) \n*Transcellular shifts \ne.g. haemolysis (2 rhabdomyolysis), acidosis, \nhyperglycaemia \n*Measurement error \ne.g. haemolysis during phlebotomy \nCORRECTION FOR ACID-BASE STATUS \nDecrease of pH by 0.1 \n= \nIncreased K+ of 0.3 – 0.5mmol/l \ne.g. pH 7.1 and K+ 6, then corrected K+ = 5.1 \nMore useful in mineral met acidosis e.g. renal failure \nthan organic acidosis e.g. DKA, lactate \n \nECG CHANGES \nPeaked T waves \nProlonged PR interval \nFlattened P waves \nQRS widening \nSine wave \nCardiac arrest"
+  }
+}

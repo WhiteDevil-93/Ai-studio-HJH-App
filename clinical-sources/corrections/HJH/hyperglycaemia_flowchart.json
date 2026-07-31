@@ -1,0 +1,22 @@
+{
+  "_meta": {
+    "id": "hyperglycaemia_flowchart",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Hyperglycaemia Flowchart",
+    "source_doc": "HJH ED 2026",
+    "review_state": "source_verified",
+    "note": "Subsection/flowchart - see parent protocol for full details"
+  },
+  "protocol": {
+    "item": "Hyperglycaemia Flowchart",
+    "protocol_type": "ed_protocol",
+    "sourceDoc": "HJH ED 2026",
+    "source_fidelity": "Official HJH Emergency Department Clinical Guidelines 2026 subsection pointer",
+    "pdfPages": [
+      91
+    ],
+    "note": "This is a subsection or flowchart. See diabetic_ketoacidosis_dka for the complete official PDF transcription."
+  }
+}

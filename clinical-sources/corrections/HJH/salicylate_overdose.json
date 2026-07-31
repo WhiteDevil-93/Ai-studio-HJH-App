@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "id": "salicylate_overdose",
+    "type": "protocol",
+    "category": "12_ed_toxicology",
+    "subcategory": "protocols",
+    "title": "Salicylate Overdose",
+    "source_doc": "HJH ED 2026",
+    "review_state": "source_verified"
+  },
+  "protocol": {
+    "item": "Salicylate Overdose",
+    "protocol_type": "ed_protocol",
+    "sourceDoc": "HJH ED 2026",
+    "source_fidelity": "Official HJH Emergency Department Clinical Guidelines 2026 transcription",
+    "pdfPages": [
+      168
+    ],
+    "source_text": "CLINICAL FEATURES \nMay take up to 6 hours to appear \n* MINIMAL (<150 mg/kg): minimal symptoms \n* MODERATE (150-300mg/kg): Hyperpnoea; vomiting; nausea; tinnitus \n* SEVERE (>300mg/kg): Metabolic acidosis, seizures, coma, hypotension, \npulmonary oedema, hyperthermia \n* LETHAL (>500mg/kg) \n* CHRONIC: Common in elderly pts, non-specific delirium, confusion, \nfever, unexplained acidosis. \n \nGENERAL APPROACH \n•\nTriage to RESUS AREA, even if patient initially appears well \n•\nRapid ABC assessment, 2 IV lines, monitors, HGT, VBG, urine HCG, ECG \n•\nCorrect electrolyte abnormalities \n•\nCrystalloid fluid bolus 20mg/kg if hypotensive \n•\nComprehensive history and examination, including: \nAmount and time of ingestion, co-ingestants \nComorbidities, chronic medications, symptoms prior to arrival \n•\nDocument specific features of toxicity \n•\nFurther investigations: FBC, U&E, LFT, Paracetamol/Salicylate level, urine tox screen \n \n***LEVELS CORRELATE POORLY WITH SEVERITY OF TOXICITY, BUT SERIAL LEVELS CAN BE USED TO \nMONITOR RESPONSE OF TREATMENT*** \n**NEUROGLYCOPENIA CAN OCCUR EVEN AT NORMAL HGT LEVELS** \nSPECIFIC MANAGEMENT \nDECONTAMINATION: \nIf > 150mg/kg ingested - 50g activated charcoal up to 8 hours post ingestion \nIf > 300mg/kg ingested - SECURE AIRWAY PRIOR TO ACTIVATED CHARCOAL \nConsider MDAC if salicylate levels continue to rise \nENHANCED ELIMINATION: \nUrinary and serum alkalinisation with sodium bicarbonate 1ml/kg IV of 8.5% Sodabic \nGoal serum pH 7.45 – 7.55, urine pH >7.5 \nHaemodialysis – very effective but seldom required \nSEIZURES: \n \n \nIV benzodiazepines \nMonitor for arrhythmias / hypoglycaemia as cause \nINTUBATION CONSIDERATIONS: \n \n \n \n \nAvoid intubation if possible ➔ associated with high peri-intubation mortality \nConsider Sodabic boluses prior to intubation to counteract metabolic acidosis. \nMinimise apnoeic period to avoid worsening acidosis \nMatch patient’s respiratory rate to maintain respiratory alkalosis \nDISPOSITION \n•\nRenal consult if dialysis required \n•\nWi"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "id": "general_toxicology",
+    "type": "protocol",
+    "category": "12_ed_toxicology",
+    "subcategory": "protocols",
+    "title": "General Toxicology Approach",
+    "source_doc": "HJH ED 2026",
+    "review_state": "source_verified"
+  },
+  "protocol": {
+    "item": "General Toxicology Approach",
+    "protocol_type": "ed_protocol",
+    "sourceDoc": "HJH ED 2026",
+    "source_fidelity": "Official HJH Emergency Department Clinical Guidelines 2026 transcription",
+    "pdfPages": [
+      77
+    ],
+    "source_text": "presentation \n• \nRationale for investigations \n• \nRefine risk assessment or prognosis \n \nDecontamination & Enhanced Elimination \n• \nActivated charcoal (1g/kg) may be considered if a patient has \ningested a potentially life-threatening quantity of substance/s and \npresents within 1 hour of ingestion \n• \nConsider transferring for dialysis (see box) \n \nAntidotes \nAntidote \nSubstance \nAtropine \nOrganophosphate & carbamates \nCalcium gluconate/chloride, HIET \nCalcium channel blockers \nDesferrioxamine \nIron \nEthanol, Folic acid \nMethanol \nHIET (high-dose insulin euglycaemic therapy) \n blockers \nIntralipd \nLocal anaesthetic \nMethylene blue \nMethaemaglobinaemia \nN-acetylcysteine \nParacetamol \nPyridoxine \nIsoniazid \nSodium bicarbonate \nTricyclic antidepressants; salicylates \nVit K; FFPs \nWarfarin \n \nDisposition \n• \nUrgent Medicine/ICU referral \n \n \n \nFASTHUGS IN BED Please \n• \nExclude or confirm an important differential \n• \nExclude or confirm an important specific poisoning \n• \nExclude or confirm a complication requiring specific management \n• \nEstablish an indication for antidote administration \n• \nEstablish an indication for institution of enhanced elimination \n• \nMonitor response to therapy \n• \nDefine an endpoint for therapeutic interventions \nF – fluid therapy & feeding \nA – analgesia & antiemetics \nS – sedation \nT – thrombo-prophylaxis \nH – head up position (30) \nU – ulcer prophylaxis \nG – glucose control \nS – skin/eye care; suctioning \nI – indwelling catheter \nN – nasogastric tube \nB – bowel cares \nE – environment (temp control) \nD – de-escalation \nP – psychosocial support \nIngestions that may require dialysis \nBarbiturates \nSalicylates \nLithium \nToxic alcohols i.e. methanol, ethanol, ethylene glycol \nTheophylline/Caffeine \nINH (Seldom) \nMetformin \nDabigatran \nSodium valproate \nCarbamazepine"
+  }
+}

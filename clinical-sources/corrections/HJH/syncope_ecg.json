@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "id": "syncope_ecg",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "Syncope - ECG Causes",
+    "source_doc": "HJH ED 2026",
+    "review_state": "source_verified",
+    "note": "Subsection/flowchart - see parent protocol for full details"
+  },
+  "protocol": {
+    "item": "Syncope - ECG Causes",
+    "protocol_type": "ed_protocol",
+    "sourceDoc": "HJH ED 2026",
+    "source_fidelity": "Official HJH Emergency Department Clinical Guidelines 2026 subsection pointer",
+    "pdfPages": [
+      181,
+      182,
+      183,
+      184,
+      185,
+      186,
+      187
+    ],
+    "note": "This is a subsection or flowchart. See syncope for the complete official PDF transcription."
+  }
+}

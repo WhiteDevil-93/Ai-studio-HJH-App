@@ -1,0 +1,23 @@
+{
+  "_meta": {
+    "id": "agitation_aggression",
+    "type": "protocol",
+    "category": "14_ed_psychiatry",
+    "subcategory": "protocols",
+    "title": "Agitation & Aggression",
+    "source_doc": "HJH ED 2026",
+    "review_state": "source_verified"
+  },
+  "protocol": {
+    "item": "Agitation & Aggression",
+    "protocol_type": "ed_protocol",
+    "sourceDoc": "HJH ED 2026",
+    "source_fidelity": "Official HJH Emergency Department Clinical Guidelines 2026 transcription",
+    "pdfPages": [
+      19,
+      20,
+      21
+    ],
+    "source_text": "NB: Verbal de-escalation is most effective for mild/moderate agitation. \nDo not attempt to negotiate with a completely incoherent patient. \ndegrees up \n*Tie restraints to bedframe, not rails \n*Ensure the airway is patent and \nmaintained \n*Regular limb and pulse checks (30 mins) \n*Minimal time restrained, review regularly \n*Use in conjunction with chemical \nrestraint, to avoid physical \ninjury/rhabdomyolysis \n*Female pt: at least 1 female team \nmember \n*Restraint time: 4 hours adults, 2 hours \nad"
+  }
+}

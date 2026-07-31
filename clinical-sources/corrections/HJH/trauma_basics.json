@@ -1,0 +1,53 @@
+{
+  "_meta": {
+    "id": "trauma_basics",
+    "type": "protocol",
+    "category": "02_ed_trauma_ortho",
+    "subcategory": "protocols",
+    "title": "Trauma Basics & Pearls",
+    "source_doc": "HJH ED 2026",
+    "review_state": "unreviewed"
+  },
+  "protocol": {
+    "item": "Trauma Basics & Pearls",
+    "protocol_type": "ed_protocol",
+    "management_steps": [
+      {
+        "step_number": "1",
+        "action": "APPROACH",
+        "details": "APPROACH"
+      },
+      {
+        "step_number": "2",
+        "action": "ATLS Resus: CABC Primary survey, DEFG Secondary survey",
+        "details": "ATLS Resus: CABC Primary survey, DEFG Secondary survey"
+      },
+      {
+        "step_number": "3",
+        "action": "Keep in headblocks until C-spine clear. No hard C-spine collars!",
+        "details": "Keep in headblocks until C-spine clear. No hard C-spine collars!"
+      },
+      {
+        "step_number": "4",
+        "action": "Remove from hard backboard ASAP to avoid pressure injuries",
+        "details": "Remove from hard backboard ASAP to avoid pressure injuries"
+      },
+      {
+        "step_number": "5",
+        "action": "Fully undress & log-roll ALL potential polytrauma",
+        "details": "Fully undress & log-roll ALL potential polytrauma"
+      }
+    ],
+    "drugs": [
+      {
+        "item": "See protocol",
+        "notes": "Drug details in source PDF"
+      }
+    ],
+    "sourceDoc": "HJH ED 2026",
+    "source_fidelity": "Supplied HJH structured extraction pending official PDF transcription",
+    "pdfPages": [
+      193
+    ]
+  }
+}

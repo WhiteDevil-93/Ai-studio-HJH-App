@@ -100,18 +100,19 @@ export const HospitalProtocolsPage: React.FC<HospitalProtocolsPageProps> = ({
   }, [protocols, searchQuery, selectedCategory]);
 
   return (
-    <div className="hospital-library space-y-6 pb-12">
+    <div className="hospital-library space-y-5 sm:space-y-6 pb-12">
       <button
         type="button"
         onClick={onBack}
-        className="inline-flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-white transition-colors"
+        aria-label="Return to all facilities"
+        className="inline-flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg p-1 -m-1"
       >
         <ArrowLeft className="h-4 w-4" />
         All facilities
       </button>
 
-      <section className={`relative overflow-hidden rounded-3xl border bg-gradient-to-br ${accent.hero} p-6 sm:p-9 text-white shadow-2xl`}>
-        <div className="relative z-10 max-w-4xl space-y-5">
+      <section className={`relative overflow-hidden rounded-2xl sm:rounded-3xl border bg-gradient-to-br ${accent.hero} p-5 sm:p-7 lg:p-9 text-white shadow-2xl`}>
+        <div className="relative z-10 max-w-4xl space-y-4 sm:space-y-5">
           <div className="flex flex-wrap items-center gap-2">
             <span className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-black uppercase tracking-wider ${accent.badge}`}>
               <Building2 className="h-3.5 w-3.5" />
@@ -122,13 +123,13 @@ export const HospitalProtocolsPage: React.FC<HospitalProtocolsPageProps> = ({
             </span>
           </div>
           <div>
-            <h1 className="text-3xl font-black tracking-tight sm:text-5xl">{facility.name}</h1>
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight">{facility.name}</h1>
             <p className="mt-2 text-sm font-semibold text-slate-300">{facility.subtitle}</p>
-            <p className="mt-4 max-w-3xl text-sm leading-relaxed text-slate-400">{facility.description}</p>
+            <p className="mt-3 sm:mt-4 max-w-3xl text-xs sm:text-sm leading-relaxed text-slate-400">{facility.description}</p>
           </div>
 
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
-            <label className="relative block sm:col-span-2 lg:col-span-1">
+          <div className="grid gap-2 sm:gap-3 grid-cols-2 lg:grid-cols-5">
+            <label className="relative block col-span-2 lg:col-span-1">
               <span className="sr-only">Search {facility.shortName} protocols</span>
               <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
               <input
@@ -136,40 +137,48 @@ export const HospitalProtocolsPage: React.FC<HospitalProtocolsPageProps> = ({
                 value={searchQuery}
                 onChange={event => setSearchQuery(event.target.value)}
                 placeholder={`Search all ${facility.shortName} protocols`}
-                className="w-full rounded-xl border border-slate-700 bg-slate-950/75 py-3 pl-10 pr-4 text-sm text-white outline-none transition focus:border-slate-500"
+                className="w-full rounded-xl border border-slate-700 bg-slate-950/75 py-2.5 sm:py-3 pl-10 pr-4 text-sm text-white outline-none transition focus:border-slate-500 focus-visible:ring-2 focus-visible:ring-indigo-500"
               />
             </label>
             <button
               type="button"
               onClick={onOpenScores}
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-900/75 px-4 py-3 text-xs font-bold text-slate-200 hover:bg-slate-800"
+              aria-label="Open global score calculators"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-900/75 px-3 sm:px-4 py-2.5 sm:py-3 text-xs font-bold text-slate-200 hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
             >
               <Calculator className="h-4 w-4" />
-              Global scores
+              <span className="hidden sm:inline">Global scores</span>
+              <span className="sm:hidden">Scores</span>
             </button>
             <button
               type="button"
               onClick={onOpenLandmarkStudies}
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-900/75 px-4 py-3 text-xs font-bold text-slate-200 hover:bg-slate-800"
+              aria-label="Open landmark studies"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-900/75 px-3 sm:px-4 py-2.5 sm:py-3 text-xs font-bold text-slate-200 hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
             >
               <FlaskConical className="h-4 w-4" />
-              {TRIALS_REFERENCE.length} studies
+              {TRIALS_REFERENCE.length}
+              <span className="hidden sm:inline">{' '}studies</span>
             </button>
             <button
               type="button"
               onClick={onOpenInternationalGuidelines}
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-900/75 px-4 py-3 text-xs font-bold text-slate-200 hover:bg-slate-800"
+              aria-label="Open international guidelines"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-900/75 px-3 sm:px-4 py-2.5 sm:py-3 text-xs font-bold text-slate-200 hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
             >
               <Globe2 className="h-4 w-4" />
-              {SUPPLIED_GUIDELINE_LINK_AUDIT.guidelineCount} guidelines
+              {SUPPLIED_GUIDELINE_LINK_AUDIT.guidelineCount}
+              <span className="hidden sm:inline">{' '}guidelines</span>
             </button>
             <button
               type="button"
               onClick={onOpenPocketGuides}
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-900/75 px-4 py-3 text-xs font-bold text-slate-200 hover:bg-slate-800"
+              aria-label="Open pocket guides"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-900/75 px-3 sm:px-4 py-2.5 sm:py-3 text-xs font-bold text-slate-200 hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
             >
               <BookOpen className="h-4 w-4" />
-              {PARSED_GLOBAL_REFERENCE_DOCUMENTS.pocket.entries.length} pocket guides
+              {PARSED_GLOBAL_REFERENCE_DOCUMENTS.pocket.entries.length}
+              <span className="hidden sm:inline">{' '}pocket guides</span>
             </button>
           </div>
         </div>
@@ -177,8 +186,8 @@ export const HospitalProtocolsPage: React.FC<HospitalProtocolsPageProps> = ({
 
       <section className="space-y-3">
         <div className="flex items-center justify-between gap-3">
-          <div>
-            <h2 className="hospital-library-heading text-xl font-black">Browse protocols</h2>
+          <div className="min-w-0 flex-1">
+            <h2 className="hospital-library-heading text-lg sm:text-xl font-black">Browse protocols</h2>
             <p className="text-xs text-slate-500 dark:text-slate-400">
               Every card contains clinical content from this facility’s published protocol collection.
             </p>
@@ -198,7 +207,7 @@ export const HospitalProtocolsPage: React.FC<HospitalProtocolsPageProps> = ({
           <button
             type="button"
             onClick={() => setSelectedCategory('all')}
-            className={`shrink-0 rounded-full border px-3 py-1.5 text-xs font-bold ${
+            className={`shrink-0 rounded-full border px-3 py-1.5 text-xs font-bold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
               selectedCategory === 'all'
                 ? accent.selected
                 : 'border-slate-300 bg-white text-slate-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300'
@@ -211,7 +220,7 @@ export const HospitalProtocolsPage: React.FC<HospitalProtocolsPageProps> = ({
               key={category}
               type="button"
               onClick={() => setSelectedCategory(category)}
-              className={`shrink-0 rounded-full border px-3 py-1.5 text-xs font-bold ${
+              className={`shrink-0 rounded-full border px-3 py-1.5 text-xs font-bold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
                 selectedCategory === category
                   ? accent.selected
                   : 'border-slate-300 bg-white text-slate-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300'
@@ -230,7 +239,8 @@ export const HospitalProtocolsPage: React.FC<HospitalProtocolsPageProps> = ({
               key={protocol.id}
               type="button"
               onClick={() => onOpenProtocol(protocol)}
-              className="group flex min-h-48 flex-col rounded-2xl border border-slate-200 bg-white p-5 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700"
+              aria-label={`Open ${protocol.title}`}
+              className="group flex min-h-[11rem] flex-col rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
             >
               <div className="flex items-start justify-between gap-3">
                 <span className={`rounded-lg border p-2 ${accent.icon}`}>
@@ -240,7 +250,7 @@ export const HospitalProtocolsPage: React.FC<HospitalProtocolsPageProps> = ({
                   {protocol.categoryLabel}
                 </span>
               </div>
-              <h3 className="mt-4 text-base font-black leading-snug text-slate-900 transition group-hover:text-indigo-600 dark:text-white dark:group-hover:text-indigo-400">
+              <h3 className="mt-4 text-sm sm:text-base font-black leading-snug text-slate-900 transition group-hover:text-indigo-600 dark:text-white dark:group-hover:text-indigo-400">
                 {protocol.title}
               </h3>
               <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
@@ -249,7 +259,7 @@ export const HospitalProtocolsPage: React.FC<HospitalProtocolsPageProps> = ({
               <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4 text-[11px] text-slate-500 dark:border-slate-800">
                 <span className="truncate pr-3">{protocol.sourceDocument}</span>
                 <span className="inline-flex shrink-0 items-center gap-1 font-bold text-indigo-500">
-                  Open protocol <ChevronRight className="h-3.5 w-3.5" />
+                  Open <ChevronRight className="h-3.5 w-3.5" />
                 </span>
               </div>
             </button>
@@ -267,7 +277,7 @@ export const HospitalProtocolsPage: React.FC<HospitalProtocolsPageProps> = ({
               setSearchQuery('');
               setSelectedCategory('all');
             }}
-            className="mt-3 text-xs font-bold text-indigo-500 hover:underline"
+            className="mt-3 text-xs font-bold text-indigo-500 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded p-1"
           >
             Clear filters
           </button>

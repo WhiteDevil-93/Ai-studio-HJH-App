@@ -1,0 +1,22 @@
+{
+  "_meta": {
+    "id": "acs_workup_algorithm",
+    "type": "protocol",
+    "category": "11_ed_medical_emergencies",
+    "subcategory": "protocols",
+    "title": "ACS Workup Algorithm",
+    "source_doc": "HJH ED 2026",
+    "review_state": "source_verified",
+    "note": "Subsection/flowchart - see parent protocol for full details"
+  },
+  "protocol": {
+    "item": "ACS Workup Algorithm",
+    "protocol_type": "ed_protocol",
+    "sourceDoc": "HJH ED 2026",
+    "source_fidelity": "Official HJH Emergency Department Clinical Guidelines 2026 subsection pointer",
+    "pdfPages": [
+      9
+    ],
+    "note": "This is a subsection or flowchart. See acute_coronary_syndrome_acs_algorithm for the complete official PDF transcription."
+  }
+}
