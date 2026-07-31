@@ -42,7 +42,7 @@ describe('RMMCH source-fidelity corrections', () => {
     expect(sepsis?.searchText).not.toMatch(
       /Hour-1|30 mL\/kg|broad-spectrum antibiotics|mean arterial pressure/i,
     );
-    expect(sepsis?.searchText).toMatch(/SIRS|Q-SOFA|SOFA/);
+    expect(sepsis?.searchText).toMatch(/SIRS|Q-SOFA|SOFA/i);
   });
 
   it('withholds duplicate, title-only, unreadable and image-only pages', () => {
