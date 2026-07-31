@@ -2119,40 +2119,45 @@ export default function App() {
     const isCaution = ntLower.includes('caution') || ntLower.includes('side effect') || ntLower.includes('high risk');
     const associatedDiseases = getAssociatedDiseasesForDrug(n);
 
+    const sourceMeta = getSourceGroupMeta(it?._meta?.sourceGroup, selectedCategory === 'helen_guidelines' ? 'HJH' : selectedCategory === 'cmjah_guidelines' ? 'CMJAH' : selectedCategory === 'rmmch_guidelines' ? 'RMMCH' : undefined);
+
     return (
       <div
         key={key}
         onClick={() => recordRecentlyViewed(key, n, cat, 'drug')}
-        className={`p-4 rounded-xl border transition-all duration-200 mb-3 cursor-pointer ${theme === 'dark' ? 'bg-[#0b1717] border-teal-950/40 hover:border-teal-800/30' : 'bg-white border-slate-200 shadow-sm hover:shadow-md'
+        role="button"
+        tabIndex={0}
+        onKeyDown={event => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            recordRecentlyViewed(key, n, cat, 'drug');
+          }
+        }}
+        aria-label={`${n}, ${sourceMeta.label}. Tap to view details.`}
+        className={`p-4 rounded-xl border transition-all duration-200 mb-3 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${theme === 'dark' ? 'bg-[#0b1717] border-teal-950/40 hover:border-teal-800/30' : 'bg-white border-slate-200 shadow-sm hover:shadow-md'
           }`}
       >
         <div className="flex items-start justify-between gap-4">
-          <div className="space-y-1">
-            <h4 className="font-bold text-md text-slate-100 dark:text-slate-100 flex items-center gap-1.5 flex-wrap">
-              <span className={theme === 'light' ? 'text-slate-900' : 'text-slate-100'}>{n}</span>
-              {selectedCategory === 'helen_guidelines' ? (
-                <span className="text-[10px] bg-indigo-950/80 text-indigo-300 border border-indigo-800/40 font-bold px-1.5 py-0.5 rounded">🩺 Helen (HJH)</span>
-              ) : selectedCategory === 'cmjah_guidelines' ? (
-                <span className="text-[10px] bg-violet-950/80 text-violet-300 border border-violet-800/40 font-bold px-1.5 py-0.5 rounded">🏨 CMJAH</span>
-              ) : selectedCategory === 'rmmch_guidelines' ? (
-                <span className="text-[10px] bg-orange-950/80 text-orange-300 border border-orange-800/40 font-bold px-1.5 py-0.5 rounded">👶 RMMCH</span>
-              ) : it._meta?.sourceGroup === 'edl_phc' ? (
-                <span className="text-[10px] bg-blue-950/80 text-blue-300 border border-blue-800/40 font-bold px-1.5 py-0.5 rounded">🇿🇦 SA EDL / PHC</span>
-              ) : (
-                <span className="text-[10px] bg-cyan-950/80 text-cyan-300 border border-cyan-800/40 font-bold px-1.5 py-0.5 rounded">🏥 Bara ICU Card</span>
-              )}
+          <div className="space-y-1.5 min-w-0 flex-1">
+            <div className="flex items-start gap-2 flex-wrap">
+              <h4 className={`font-bold text-md leading-tight ${theme === 'light' ? 'text-slate-900' : 'text-slate-100'}`}>{n}</h4>
+              <span className={`shrink-0 text-[10px] border font-bold px-1.5 py-0.5 rounded ${theme === 'dark' ? sourceMeta.badgeClass : sourceMeta.lightBadgeClass}`}>
+                {sourceMeta.emoji} {sourceMeta.short}
+              </span>
               {isFirstLine && <span className="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-bold px-1.5 py-0.5 rounded uppercase">1st Line</span>}
               {isSection21 && <span className="text-[10px] bg-blue-500/20 text-blue-400 border border-blue-500/30 font-bold px-1.5 py-0.5 rounded uppercase">Section 21</span>}
               {isWarning && <span className="text-[10px] bg-rose-500/20 text-rose-400 border border-rose-500/30 font-bold px-1.5 py-0.5 rounded uppercase">Warning</span>}
               {isCaution && !isWarning && <span className="text-[10px] bg-amber-500/20 text-amber-400 border border-amber-500/30 font-bold px-1.5 py-0.5 rounded uppercase">Caution</span>}
-            </h4>
+            </div>
             {it.category && (
               <div className="text-[10px] text-slate-500">{it.category}</div>
             )}
           </div>
           <button
+            type="button"
             onClick={e => toggleFavourite(key, e)}
-            className={`p-1.5 rounded-full hover:bg-slate-800/40 transition active:scale-95 ${fav ? 'text-yellow-400' : 'text-slate-600'}`}
+            aria-label={fav ? 'Remove from favourites' : 'Add to favourites'}
+            className={`p-2 -m-1 rounded-full hover:bg-slate-800/40 transition active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${fav ? 'text-yellow-400' : 'text-slate-600'}`}
           >
             <Star className={`h-5 w-5 ${fav ? 'fill-yellow-400' : ''}`} />
           </button>
