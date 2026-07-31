@@ -19,9 +19,33 @@ const PDF_PAGES = {
 };
 
 const isRecord = value => Boolean(value) && typeof value === 'object' && !Array.isArray(value);
+
+const collectStrings = (value, into = []) => {
+  if (typeof value === 'string') {
+    const text = value.trim();
+    if (text) into.push(text);
+  } else if (Array.isArray(value)) {
+    value.forEach(entry => collectStrings(entry, into));
+  } else if (isRecord(value)) {
+    Object.values(value).forEach(entry => collectStrings(entry, into));
+  }
+  return into;
+};
+
 const sourceTextOf = value => {
   const protocol = isRecord(value?.protocol) ? value.protocol : value;
-  return typeof protocol?.source_text === 'string' ? protocol.source_text.trim() : '';
+  if (typeof protocol?.source_text === 'string' && protocol.source_text.trim()) {
+    return protocol.source_text.trim();
+  }
+
+  // A minority of the supplied HJH records store the intact page transcription
+  // inside a nested clinical field rather than `source_text`. Select only the
+  // longest existing source string; do not concatenate, summarise, or generate
+  // new clinical wording from the structured fields.
+  const candidates = collectStrings(protocol)
+    .filter(text => text.length >= 500)
+    .sort((a, b) => b.length - a.length);
+  return candidates[0] || '';
 };
 
 await mkdir(correctionDirectory, {recursive: true});
