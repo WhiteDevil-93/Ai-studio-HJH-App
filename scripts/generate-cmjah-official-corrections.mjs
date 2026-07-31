@@ -1,5 +1,5 @@
 import {createHash} from 'node:crypto';
-import {gunzipSync} from 'node:zlib';
+import {brotliDecompressSync} from 'node:zlib';
 import {mkdir, readFile, readdir, writeFile} from 'node:fs/promises';
 import path from 'node:path';
 
@@ -26,7 +26,7 @@ const sha256 = value =>
   createHash('sha256').update(value, 'utf8').digest('hex');
 
 const partNames = (await readdir(corpusDirectory))
-  .filter(name => /^cmjah-official-pdf-corpus\.json\.gz\.b64\.part-\d+$/.test(name))
+  .filter(name => /^cmjah-official-pdf-corpus\.json\.br\.b64\.part-\d+$/.test(name))
   .sort();
 
 if (partNames.length === 0) {
@@ -38,7 +38,7 @@ const encoded = (await Promise.all(
 )).join('').replace(/\s+/g, '');
 
 const corpus = JSON.parse(
-  gunzipSync(Buffer.from(encoded, 'base64')).toString('utf8'),
+  brotliDecompressSync(Buffer.from(encoded, 'base64')).toString('utf8'),
 );
 
 if (
