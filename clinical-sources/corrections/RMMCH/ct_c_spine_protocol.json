@@ -1,0 +1,4 @@
+{
+  "_meta": {"id":"ct_c_spine_protocol","type":"protocol","category":"02_ed_trauma_ortho","subcategory":"protocols","title":"CT C-spine Protocol","source_doc":"RMMCH EM Clinical Protocols V5 03/01/2024","review_state":"withheld-incomplete-source-extraction"},
+  "protocol": {"item":"CT C-spine Protocol","protocol_type":"withheld","note":"withheld because the extracted payload is unreadable control-character data"}
+}
