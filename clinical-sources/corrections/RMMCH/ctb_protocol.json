@@ -1,0 +1,4 @@
+{
+  "_meta": {"id":"ctb_protocol","type":"protocol","category":"04_ed_neurology","subcategory":"protocols","title":"CTB Protocol","source_doc":"RMMCH EM Clinical Protocols V5 03/01/2024","review_state":"withheld-incomplete-source-extraction"},
+  "protocol": {"item":"CTB Protocol","protocol_type":"withheld","note":"withheld because the extracted decision rule is unreadable control-character data"}
+}
