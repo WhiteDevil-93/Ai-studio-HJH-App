@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {
   AlertTriangle,
   ArrowLeft,
@@ -24,6 +24,7 @@ interface ProtocolLandingPageProps {
   onOpenProtocol: (protocol: HospitalProtocol) => void;
   weight: string;
   setWeight: (weight: string) => void;
+  searchQuery?: string;
 }
 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
@@ -42,7 +43,34 @@ const compactSourceText = (value: string): string =>
     .filter(Boolean)
     .join('\n');
 
-const FormattedClinicalText: React.FC<{text: string}> = ({text}) => {
+const escapeRegExp = (value: string): string => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+const HighlightedText: React.FC<{text: string; highlight?: string}> = ({text, highlight}) => {
+  const query = highlight?.trim();
+  if (!query) return <>{text}</>;
+
+  const parts = text.split(new RegExp(`(${escapeRegExp(query)})`, 'gi'));
+  if (parts.length <= 1) return <>{text}</>;
+
+  return (
+    <>
+      {parts.map((part, index) =>
+        index % 2 === 1 ? (
+          <mark
+            key={index}
+            className="rounded bg-amber-300/80 px-0.5 text-slate-900 dark:bg-amber-400/90 dark:text-slate-950"
+          >
+            {part}
+          </mark>
+        ) : (
+          <React.Fragment key={index}>{part}</React.Fragment>
+        ),
+      )}
+    </>
+  );
+};
+
+const FormattedClinicalText: React.FC<{text: string; highlight?: string}> = ({text, highlight}) => {
   if (!text || !text.trim()) return null;
 
   const raw = text.replace(/\r/g, '');
@@ -69,7 +97,7 @@ const FormattedClinicalText: React.FC<{text: string}> = ({text}) => {
             <div key={index} className="my-2 inline-flex items-center gap-2 rounded-lg border border-rose-300 bg-rose-100 px-3 py-1.5 text-xs font-black text-rose-950 dark:border-rose-900/60 dark:bg-rose-950/60 dark:text-rose-200">
               <span className="h-2 w-2 rounded-full bg-rose-600" />
               <span>YES</span>
-              {rest && <span className="font-semibold opacity-90">— {rest}</span>}
+              {rest && <span className="font-semibold opacity-90">— <HighlightedText text={rest} highlight={highlight} /></span>}
             </div>
           );
         }
@@ -80,7 +108,7 @@ const FormattedClinicalText: React.FC<{text: string}> = ({text}) => {
             <div key={index} className="my-2 inline-flex items-center gap-2 rounded-lg border border-emerald-300 bg-emerald-100 px-3 py-1.5 text-xs font-black text-emerald-950 dark:border-emerald-900/60 dark:bg-emerald-950/60 dark:text-emerald-200">
               <span className="h-2 w-2 rounded-full bg-emerald-600" />
               <span>NO</span>
-              {rest && <span className="font-semibold opacity-90">— {rest}</span>}
+              {rest && <span className="font-semibold opacity-90">— <HighlightedText text={rest} highlight={highlight} /></span>}
             </div>
           );
         }
@@ -89,7 +117,12 @@ const FormattedClinicalText: React.FC<{text: string}> = ({text}) => {
           return (
             <div key={index} className="my-3 flex items-start gap-3 rounded-xl border border-rose-300 bg-rose-50 p-4 text-sm font-semibold text-rose-950 dark:border-rose-900/60 dark:bg-rose-950/30 dark:text-rose-200">
               <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-rose-600 dark:text-rose-400" />
-              <div className="flex-1 leading-relaxed">{segment.replace(/^(?:ALL FEMALE PATIENTS|NB:|WARNING|CONTRAINDICATIONS|DANGER|CAUTION)[:\s]*/i, '')}</div>
+              <div className="flex-1 leading-relaxed">
+                <HighlightedText
+                  text={segment.replace(/^(?:ALL FEMALE PATIENTS|NB:|WARNING|CONTRAINDICATIONS|DANGER|CAUTION)[:\s]*/i, '')}
+                  highlight={highlight}
+                />
+              </div>
             </div>
           );
         }
@@ -98,7 +131,7 @@ const FormattedClinicalText: React.FC<{text: string}> = ({text}) => {
           return (
             <h4 key={index} className="mt-4 mb-1.5 flex items-center gap-2 text-xs font-black uppercase tracking-wider text-indigo-600 dark:text-indigo-400 border-b border-indigo-100 dark:border-indigo-900/40 pb-1">
               <span className="h-1.5 w-1.5 rounded-full bg-indigo-500" />
-              {segment}
+              <HighlightedText text={segment} highlight={highlight} />
             </h4>
           );
         }
@@ -109,14 +142,14 @@ const FormattedClinicalText: React.FC<{text: string}> = ({text}) => {
           return (
             <div key={index} className="flex items-start gap-2 text-sm leading-6 text-slate-700 dark:text-slate-300">
               <CheckCircle2 className="mt-1 h-3.5 w-3.5 shrink-0 text-emerald-500" />
-              <span className="flex-1">{cleanText}</span>
+              <span className="flex-1"><HighlightedText text={cleanText} highlight={highlight} /></span>
             </div>
           );
         }
 
         return (
           <p key={index} className="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
-            {cleanText}
+            <HighlightedText text={cleanText} highlight={highlight} />
           </p>
         );
       })}
@@ -124,10 +157,10 @@ const FormattedClinicalText: React.FC<{text: string}> = ({text}) => {
   );
 };
 
-const ValueBlock: React.FC<{value: unknown}> = ({value}) => {
+const ValueBlock: React.FC<{value: unknown; highlight?: string}> = ({value, highlight}) => {
   if (value === null || value === undefined || value === '') return null;
   if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
-    return <FormattedClinicalText text={String(value)} />;
+    return <FormattedClinicalText text={String(value)} highlight={highlight} />;
   }
   if (Array.isArray(value)) {
     if (value.length === 0) return null;
@@ -142,12 +175,12 @@ const ValueBlock: React.FC<{value: unknown}> = ({value}) => {
                   {Object.entries(item).map(([key, entry]) => (
                     <div key={key}>
                       <span className="font-bold text-slate-900 dark:text-slate-100">{labelFor(key)}: </span>
-                      <ValueBlock value={entry} />
+                      <ValueBlock value={entry} highlight={highlight} />
                     </div>
                   ))}
                 </div>
               ) : (
-                <ValueBlock value={item} />
+                <ValueBlock value={item} highlight={highlight} />
               )}
             </div>
           </div>
@@ -161,7 +194,7 @@ const ValueBlock: React.FC<{value: unknown}> = ({value}) => {
         {Object.entries(value).map(([key, entry]) => (
           <div key={key} className="rounded-xl border border-slate-200 bg-slate-50 p-3 dark:border-slate-800 dark:bg-slate-950/40">
             <h4 className="mb-1 text-xs font-black uppercase tracking-wider text-slate-500">{labelFor(key)}</h4>
-            <ValueBlock value={entry} />
+            <ValueBlock value={entry} highlight={highlight} />
           </div>
         ))}
       </div>
@@ -213,6 +246,7 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
   onOpenProtocol,
   weight,
   setWeight,
+  searchQuery = '',
 }) => {
   const facility = HOSPITALS[protocol.facilityId];
   const referencedProtocol = findReferencedHospitalProtocol(protocol);
@@ -221,6 +255,12 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
   const managementSteps = Array.isArray(body.management_steps) ? body.management_steps : [];
   const warnings = Array.isArray(body.warnings) ? body.warnings : [];
   const sourceText = typeof body.source_text === 'string' ? compactSourceText(body.source_text) : '';
+  const trimmedQuery = searchQuery.trim();
+  const matchCount = useMemo(() => {
+    if (!trimmedQuery) return 0;
+    const pattern = new RegExp(escapeRegExp(trimmedQuery), 'gi');
+    return (contentProtocol.searchText.match(pattern) || []).length;
+  }, [trimmedQuery, contentProtocol.searchText]);
   const reserved = new Set([
     'item',
     'protocol_type',
@@ -294,8 +334,12 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
             Published facility protocol
           </span>
         </div>
-        <h1 className="mt-5 text-3xl font-black leading-tight tracking-tight sm:text-5xl">{protocol.title}</h1>
-        <p className="mt-4 text-sm leading-relaxed text-slate-400">{contentProtocol.summary}</p>
+        <h1 className="mt-5 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+          <HighlightedText text={protocol.title} highlight={trimmedQuery} />
+        </h1>
+        <p className="mt-4 text-sm leading-relaxed text-slate-400">
+          <HighlightedText text={contentProtocol.summary} highlight={trimmedQuery} />
+        </p>
         <dl className="mt-6 grid gap-3 border-t border-slate-800 pt-5 text-xs sm:grid-cols-2">
           <div>
             <dt className="font-black uppercase tracking-wider text-slate-500">Hospital source</dt>
@@ -307,6 +351,20 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
           </div>
         </dl>
       </header>
+
+      {trimmedQuery && (
+        <div
+          className={`rounded-xl border px-4 py-3 text-sm font-semibold ${
+            matchCount > 0
+              ? 'border-amber-300 bg-amber-50 text-amber-900 dark:border-amber-900/50 dark:bg-amber-950/20 dark:text-amber-200'
+              : 'border-slate-300 bg-slate-50 text-slate-600 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-400'
+          }`}
+        >
+          {matchCount > 0
+            ? `${matchCount} match${matchCount === 1 ? '' : 'es'} for "${trimmedQuery}" highlighted on this protocol, including the source transcription.`
+            : `No matches for "${trimmedQuery}" on this protocol.`}
+        </div>
+      )}
 
       {flowchartData && (
         <FlowchartViewer
@@ -350,7 +408,7 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
 
       {body.clinical_features !== undefined && (
         <ClinicalSection title="Clinical features" icon={<FileText className="h-5 w-5 text-indigo-500" />}>
-          <ValueBlock value={body.clinical_features} />
+          <ValueBlock value={body.clinical_features} highlight={trimmedQuery} />
         </ClinicalSection>
       )}
 
@@ -368,9 +426,11 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
                     {stepNumber}
                   </div>
                   <div>
-                    <h3 className="font-black text-slate-900 dark:text-white">{action}</h3>
+                    <h3 className="font-black text-slate-900 dark:text-white">
+                      <HighlightedText text={action} highlight={trimmedQuery} />
+                    </h3>
                     <div className="mt-1">
-                      <ValueBlock value={details} />
+                      <ValueBlock value={details} highlight={trimmedQuery} />
                       <WeightDoseResults text={details} weight={weight} />
                     </div>
                   </div>
@@ -383,7 +443,7 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
 
       {body.drugs !== undefined && (
         <ClinicalSection title="Medicines and treatment" icon={<Pill className="h-5 w-5 text-cyan-500" />}>
-          <ValueBlock value={body.drugs} />
+          <ValueBlock value={body.drugs} highlight={trimmedQuery} />
         </ClinicalSection>
       )}
 
@@ -393,9 +453,12 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
             {contentProtocol.embeddedDrugs.map((drug, index) => (
               <div key={index} className="rounded-xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-950/40">
                 <h3 className="mb-3 font-black text-slate-900 dark:text-white">
-                  {String(drug.item ?? drug.drug ?? drug.condition_or_drug ?? `Medicine ${index + 1}`)}
+                  <HighlightedText
+                    text={String(drug.item ?? drug.drug ?? drug.condition_or_drug ?? `Medicine ${index + 1}`)}
+                    highlight={trimmedQuery}
+                  />
                 </h3>
-                <ValueBlock value={drug} />
+                <ValueBlock value={drug} highlight={trimmedQuery} />
                 {['adult_dose', 'paediatric_dose', 'protocol_dose'].map(field => (
                   <WeightDoseResults key={field} text={drug[field]} weight={weight} />
                 ))}
@@ -407,27 +470,27 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
 
       {body.equipment !== undefined && (
         <ClinicalSection title="Equipment" icon={<ClipboardList className="h-5 w-5 text-sky-500" />}>
-          <ValueBlock value={body.equipment} />
+          <ValueBlock value={body.equipment} highlight={trimmedQuery} />
         </ClinicalSection>
       )}
 
       {body.disposition !== undefined && (
         <ClinicalSection title="Disposition" icon={<Building2 className="h-5 w-5 text-violet-500" />}>
-          <ValueBlock value={body.disposition} />
+          <ValueBlock value={body.disposition} highlight={trimmedQuery} />
         </ClinicalSection>
       )}
 
       {warnings.length > 0 && (
         <ClinicalSection title="Warnings" icon={<AlertTriangle className="h-5 w-5 text-rose-500" />}>
           <div className="rounded-xl border border-rose-300 bg-rose-50 p-4 dark:border-rose-900/50 dark:bg-rose-950/20">
-            <ValueBlock value={warnings} />
+            <ValueBlock value={warnings} highlight={trimmedQuery} />
           </div>
         </ClinicalSection>
       )}
 
       {body.note !== undefined && !referencedProtocol && (
         <ClinicalSection title="Notes" icon={<FileText className="h-5 w-5 text-amber-500" />}>
-          <ValueBlock value={body.note} />
+          <ValueBlock value={body.note} highlight={trimmedQuery} />
         </ClinicalSection>
       )}
 
@@ -437,7 +500,7 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
             {additionalFields.map(([key, value]) => (
               <div key={key}>
                 <h3 className="mb-2 text-xs font-black uppercase tracking-wider text-slate-500">{labelFor(key)}</h3>
-                <ValueBlock value={value} />
+                <ValueBlock value={value} highlight={trimmedQuery} />
               </div>
             ))}
           </div>
@@ -446,9 +509,9 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
 
       {sourceText && (
         <ClinicalSection title="Source transcription" icon={<FileText className="h-5 w-5 text-slate-500" />}>
-          <pre className="max-h-[70vh] overflow-auto whitespace-pre-wrap rounded-xl border border-slate-200 bg-slate-50 p-4 font-sans text-sm leading-7 text-slate-700 dark:border-slate-800 dark:bg-slate-950/50 dark:text-slate-300">
-            {sourceText}
-          </pre>
+          <div className="max-h-[70vh] overflow-auto rounded-xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-950/40">
+            <FormattedClinicalText text={sourceText} highlight={trimmedQuery} />
+          </div>
         </ClinicalSection>
       )}
 
