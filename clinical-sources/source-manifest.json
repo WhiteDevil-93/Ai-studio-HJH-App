@@ -30,11 +30,13 @@
     },
     {
       "id": "rmmch-paediatric-protocols",
-      "title": "RMMCH Emergency Department Protocols",
+      "title": "RMMCH Emergency Medicine Clinical Protocols",
       "version": "V5",
-      "documentDate": "2024-01",
-      "scope": "Paediatric emergency guidance referenced by the HJH source",
-      "status": "content-transcribed-fingerprint-pending",
+      "documentDate": "2024-01-03",
+      "pageCount": 200,
+      "sha256": "429cb5f3e026b589c8face1b52425136d30e590a198caf38fce2f68ca1d9b04c",
+      "scope": "General, paediatric, neonatal and women’s health emergency protocols.",
+      "status": "source-received-partial-page-review",
       "distributionPermission": "unconfirmed"
     },
     {
