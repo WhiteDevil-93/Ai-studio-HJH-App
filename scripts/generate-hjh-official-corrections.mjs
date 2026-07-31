@@ -26,6 +26,10 @@ const POINTERS = {
   syncope_ecg: 'syncope',
 };
 
+const STRUCTURED_FALLBACKS = new Set([
+  'acute_coronary_syndrome_acs_algorithm',
+]);
+
 const isRecord = value => Boolean(value) && typeof value === 'object' && !Array.isArray(value);
 
 const collectStrings = (value, into = []) => {
@@ -96,13 +100,15 @@ for (const name of rawNames) {
 
   const preferred = existingCorrections.get(name) || raw;
   let sourceText = sourceTextOf(preferred);
-  if (!sourceText) throw new Error(`HJH protocol has no PDF transcription: ${slug}`);
-
-  if (slug === 'acute_appendicitis') {
+  if (sourceText && slug === 'acute_appendicitis') {
     sourceText = sourceText.split(/\n\s*Contents\s*\n[\s\S]*?ACUTE CHOLECYSTITIS/i)[0].trim();
   }
 
-  const correction = {
+  if (!sourceText && !STRUCTURED_FALLBACKS.has(slug)) {
+    throw new Error(`HJH protocol has no PDF transcription: ${slug}`);
+  }
+
+  const correction = sourceText ? {
     _meta: {...rawMeta, id: slug, source_doc: 'HJH ED 2026', review_state: 'source_verified'},
     protocol: {
       item: rawProtocol.item || rawMeta.title || slug.replaceAll('_', ' '),
@@ -111,6 +117,21 @@ for (const name of rawNames) {
       source_fidelity: 'Official HJH Emergency Department Clinical Guidelines 2026 transcription',
       pdfPages: PDF_PAGES[slug],
       source_text: sourceText,
+    },
+  } : {
+    _meta: {
+      ...rawMeta,
+      id: slug,
+      source_doc: 'HJH ED 2026',
+      review_state: rawMeta.review_state || 'unreviewed',
+    },
+    protocol: {
+      ...rawProtocol,
+      item: rawProtocol.item || rawMeta.title || slug.replaceAll('_', ' '),
+      protocol_type: rawProtocol.protocol_type || 'ed_protocol',
+      sourceDoc: 'HJH ED 2026',
+      source_fidelity: 'Supplied HJH structured extraction pending official PDF transcription',
+      pdfPages: PDF_PAGES[slug],
     },
   };
   await writeFile(path.join(correctionDirectory, name), `${JSON.stringify(correction, null, 2)}\n`, 'utf8');
