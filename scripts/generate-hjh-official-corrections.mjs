@@ -26,10 +26,6 @@ const POINTERS = {
   syncope_ecg: 'syncope',
 };
 
-const STRUCTURED_FALLBACKS = new Set([
-  'acute_coronary_syndrome_acs_algorithm',
-]);
-
 const isRecord = value => Boolean(value) && typeof value === 'object' && !Array.isArray(value);
 
 const collectStrings = (value, into = []) => {
@@ -73,7 +69,7 @@ if (rawNames.length !== 97 || JSON.stringify(rawSlugs) !== JSON.stringify(mapped
 const existingCorrections = new Map();
 for (const name of (await readdir(correctionDirectory)).filter(name => name.endsWith('.json'))) {
   const value = JSON.parse(await readFile(path.join(correctionDirectory, name), 'utf8'));
-  if (sourceTextOf(value)) existingCorrections.set(name, value);
+  existingCorrections.set(name, value);
 }
 
 for (const name of rawNames) {
@@ -81,6 +77,7 @@ for (const name of rawNames) {
   const raw = JSON.parse(await readFile(path.join(rawDirectory, name), 'utf8'));
   const rawMeta = isRecord(raw._meta) ? raw._meta : {};
   const rawProtocol = isRecord(raw.protocol) ? raw.protocol : raw;
+  const preferred = existingCorrections.get(name);
 
   if (POINTERS[slug]) {
     const correction = {
@@ -98,14 +95,31 @@ for (const name of rawNames) {
     continue;
   }
 
-  const preferred = existingCorrections.get(name) || raw;
-  let sourceText = sourceTextOf(preferred);
-  if (sourceText && slug === 'acute_appendicitis') {
-    sourceText = sourceText.split(/\n\s*Contents\s*\n[\s\S]*?ACUTE CHOLECYSTITIS/i)[0].trim();
+  if (preferred) {
+    const preferredMeta = isRecord(preferred._meta) ? preferred._meta : rawMeta;
+    const preferredProtocol = isRecord(preferred.protocol) ? preferred.protocol : rawProtocol;
+    const correction = {
+      ...preferred,
+      _meta: {
+        ...preferredMeta,
+        id: slug,
+        source_doc: preferredMeta.source_doc || 'HJH ED 2026',
+      },
+      protocol: {
+        ...preferredProtocol,
+        item: preferredProtocol.item || rawProtocol.item || rawMeta.title || slug.replaceAll('_', ' '),
+        protocol_type: preferredProtocol.protocol_type || rawProtocol.protocol_type || 'ed_protocol',
+        sourceDoc: preferredProtocol.sourceDoc || 'HJH ED 2026',
+        pdfPages: preferredProtocol.pdfPages || PDF_PAGES[slug],
+      },
+    };
+    await writeFile(path.join(correctionDirectory, name), `${JSON.stringify(correction, null, 2)}\n`, 'utf8');
+    continue;
   }
 
-  if (!sourceText && !STRUCTURED_FALLBACKS.has(slug)) {
-    throw new Error(`HJH protocol has no PDF transcription: ${slug}`);
+  let sourceText = sourceTextOf(raw);
+  if (sourceText && slug === 'acute_appendicitis') {
+    sourceText = sourceText.split(/\n\s*Contents\s*\n[\s\S]*?ACUTE CHOLECYSTITIS/i)[0].trim();
   }
 
   const correction = sourceText ? {
