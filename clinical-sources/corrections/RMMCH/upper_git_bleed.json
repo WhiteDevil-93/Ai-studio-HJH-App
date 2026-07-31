@@ -1,0 +1,4 @@
+{
+  "_meta": {"id":"upper_git_bleed","type":"protocol","category":"15_ed_general_surgery","subcategory":"protocols","title":"Upper GIT Bleed","source_doc":"RMMCH EM Clinical Protocols V5 03/01/2024","review_state":"withheld-superseded-by-canonical-entry"},
+  "protocol": {"item":"Upper GIT Bleed","protocol_type":"withheld","note":"superseded by rmmch-upper-git-bleed"}
+}
