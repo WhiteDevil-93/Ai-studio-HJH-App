@@ -18,6 +18,14 @@ const PDF_PAGES = {
   agitation_aggression: [19, 20, 21], mental_health_psychosis: [128, 129], acute_appendicitis: [7], acute_cholecystitis: [8], jaundice_flowchart: [119, 120], upper_gastrointestinal_bleed_ugib: [198], femoral_nerve_block: [197], infusions: [105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117], pain_management: [141, 142], procedural_sedation: [158], medicolegal_recordkeeping: [152, 153, 154, 155, 156, 157], triage_tews: [194, 195], aha_resuscitation_algorithms: [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40], blood_products: [49], brainstem_death: [50], critical_care_principles: [60, 61], sepsis_septic_shock: [170, 171, 172],
 };
 
+const POINTERS = {
+  acs_workup_algorithm: 'acute_coronary_syndrome_acs_algorithm',
+  hyperglycaemia_flowchart: 'diabetic_ketoacidosis_dka',
+  jaundice_flowchart: 'liver_failure',
+  status_epilepticus_algorithm: 'status_epilepticus',
+  syncope_ecg: 'syncope',
+};
+
 const isRecord = value => Boolean(value) && typeof value === 'object' && !Array.isArray(value);
 
 const collectStrings = (value, into = []) => {
@@ -67,6 +75,25 @@ for (const name of (await readdir(correctionDirectory)).filter(name => name.ends
 for (const name of rawNames) {
   const slug = name.replace(/\.json$/, '');
   const raw = JSON.parse(await readFile(path.join(rawDirectory, name), 'utf8'));
+  const rawMeta = isRecord(raw._meta) ? raw._meta : {};
+  const rawProtocol = isRecord(raw.protocol) ? raw.protocol : raw;
+
+  if (POINTERS[slug]) {
+    const correction = {
+      _meta: {...rawMeta, id: slug, source_doc: 'HJH ED 2026', review_state: 'source_verified'},
+      protocol: {
+        item: rawProtocol.item || rawMeta.title || slug.replaceAll('_', ' '),
+        protocol_type: rawProtocol.protocol_type || 'ed_protocol',
+        sourceDoc: 'HJH ED 2026',
+        source_fidelity: 'Official HJH Emergency Department Clinical Guidelines 2026 subsection pointer',
+        pdfPages: PDF_PAGES[slug],
+        note: `This is a subsection or flowchart. See ${POINTERS[slug]} for the complete official PDF transcription.`,
+      },
+    };
+    await writeFile(path.join(correctionDirectory, name), `${JSON.stringify(correction, null, 2)}\n`, 'utf8');
+    continue;
+  }
+
   const preferred = existingCorrections.get(name) || raw;
   let sourceText = sourceTextOf(preferred);
   if (!sourceText) throw new Error(`HJH protocol has no PDF transcription: ${slug}`);
@@ -75,8 +102,6 @@ for (const name of rawNames) {
     sourceText = sourceText.split(/\n\s*Contents\s*\n[\s\S]*?ACUTE CHOLECYSTITIS/i)[0].trim();
   }
 
-  const rawMeta = isRecord(raw._meta) ? raw._meta : {};
-  const rawProtocol = isRecord(raw.protocol) ? raw.protocol : raw;
   const correction = {
     _meta: {...rawMeta, id: slug, source_doc: 'HJH ED 2026', review_state: 'source_verified'},
     protocol: {
