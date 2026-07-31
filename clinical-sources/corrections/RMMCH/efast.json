@@ -1,0 +1,4 @@
+{
+  "_meta": {"id":"efast","type":"protocol","category":"15_ed_procedures","subcategory":"protocols","title":"e-FAST","source_doc":"RMMCH EM Clinical Protocols V5 03/01/2024","review_state":"withheld-incomplete-source-extraction"},
+  "protocol": {"item":"e-FAST","protocol_type":"withheld","note":"withheld because the source page is image-only and the extraction incorrectly contained FASTHUGS from the next page"}
+}
