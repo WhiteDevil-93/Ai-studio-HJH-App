@@ -1,19 +1,26 @@
-import React from 'react';
+import React, {useMemo, useState} from 'react';
 import {
   Building2, Stethoscope, ShieldAlert, FileText, Activity, Heart,
   Calculator, Syringe, Flame, Compass, ChevronRight, Search,
   Award, AlertTriangle, Users, MapPin, Layers, Baby, Brain, FlaskConical,
-  Star, Clock, BookOpen, Globe2
+  Star, Clock, BookOpen, Globe2, ChevronDown, X
 } from 'lucide-react';
 import {
+  HOSPITALS,
+  HOSPITAL_PROTOCOLS,
+  HOSPITAL_VISIBLE_PROTOCOLS_BY_FACILITY,
   hospitalProtocolCount,
   type HospitalId,
+  type HospitalProtocol,
 } from '../clinical/hospitalProtocols';
 import {
   PARSED_GLOBAL_REFERENCE_DOCUMENTS,
   SUPPLIED_GUIDELINE_LINK_AUDIT,
 } from '../clinical/globalReferenceDocuments';
 import {TRIALS_REFERENCE} from '../clinical/trialsReference';
+import {rankProtocolSearch} from '../clinical/protocolSearch';
+import {GlobalCalculatorResults} from './GlobalCalculatorResults';
+import type {GlobalCalculator} from '../clinical/globalCalculators';
 
 interface HomePageProps {
   onSelectFacility: (facilityId: HospitalId) => void;
@@ -22,11 +29,17 @@ interface HomePageProps {
   onSelectPolicy: (policyId: string) => void;
   onSelectScore: (scoreId: string) => void;
   onOpenCodeRed?: () => void;
+  onOpenProtocol?: (protocol: HospitalProtocol) => void;
+  onOpenCalculator?: (calculator: GlobalCalculator) => void;
   weight: string;
   setWeight: (w: string) => void;
   searchQuery: string;
   setSearchQuery: (q: string) => void;
 }
+
+const ALL_VISIBLE_PROTOCOLS: readonly HospitalProtocol[] = (
+  ['hjh', 'rmmch', 'cmjah', 'chbah'] as const
+).flatMap(facilityId => HOSPITAL_VISIBLE_PROTOCOLS_BY_FACILITY[facilityId]);
 
 interface FacilityCard {
   id: HospitalId;
@@ -133,11 +146,51 @@ export const HomePage: React.FC<HomePageProps> = ({
   onSelectPolicy,
   onSelectScore,
   onOpenCodeRed,
+  onOpenProtocol,
+  onOpenCalculator,
   weight,
   setWeight,
   searchQuery,
   setSearchQuery
 }) => {
+  const trimmedQuery = searchQuery.trim();
+  const [mentionsExpanded, setMentionsExpanded] = useState(false);
+
+  // Ranked across every facility at once, so the home quick search answers
+  // with the protocol the query is *about* first, regardless of hospital.
+  const {namedResults, mentionResults} = useMemo(() => {
+    const ranked = rankProtocolSearch(ALL_VISIBLE_PROTOCOLS, trimmedQuery);
+    return {
+      namedResults: ranked.filter(result => result.kind !== 'body'),
+      mentionResults: ranked.filter(result => result.kind === 'body'),
+    };
+  }, [trimmedQuery]);
+
+  // With nothing named after the query, a passing mention is the best answer
+  // there is - promote those rather than showing an empty page.
+  const promoteMentions = namedResults.length === 0;
+  const visibleResults = promoteMentions ? mentionResults : namedResults;
+  const MAX_HOME_RESULTS = 12;
+  const cappedResults = visibleResults.slice(0, MAX_HOME_RESULTS);
+  const overflowCount = visibleResults.length - cappedResults.length;
+
+  const resultBadge = (protocol: HospitalProtocol) => {
+    const hospital = HOSPITALS[protocol.facilityId];
+    return (
+      <span className="shrink-0 rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-slate-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400">
+        {getSourceEmoji(protocol.facilityId)} {hospital.shortName}
+      </span>
+    );
+  };
+
+  const openResult = (protocol: HospitalProtocol) => {
+    if (onOpenProtocol) {
+      onOpenProtocol(protocol);
+    } else {
+      onSelectFacility(protocol.facilityId);
+    }
+  };
+
   return (
     <div className="space-y-6 sm:space-y-8 pb-12">
       {/* Hero Header Section */}
@@ -202,6 +255,124 @@ export const HomePage: React.FC<HomePageProps> = ({
         <div className="absolute -right-12 -bottom-12 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -left-12 -top-12 w-96 h-96 bg-sky-600/10 rounded-full blur-3xl pointer-events-none" />
       </div>
+
+      {/* Live search results across every facility */}
+      {trimmedQuery && (
+        <section aria-label="Search results" className="space-y-3">
+          <div className="flex items-center justify-between gap-3">
+            <h2 className="text-lg sm:text-xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
+              <Search className="w-5 h-5 text-indigo-500" />
+              Results for “{trimmedQuery}”
+            </h2>
+            <span className="flex items-center gap-2">
+              <span className="text-xs font-bold text-slate-500">
+                {visibleResults.length} protocol{visibleResults.length === 1 ? '' : 's'}
+              </span>
+              <button
+                type="button"
+                onClick={() => setSearchQuery('')}
+                aria-label="Clear search"
+                className="rounded-lg border border-slate-200 p-1.5 text-slate-400 transition hover:text-slate-700 dark:border-slate-700 dark:hover:text-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+              >
+                <X className="w-3.5 h-3.5" />
+              </button>
+            </span>
+          </div>
+
+          {onOpenCalculator && (
+            <GlobalCalculatorResults
+              query={trimmedQuery}
+              onOpen={onOpenCalculator}
+              scopeLabel="all facilities"
+            />
+          )}
+
+          {cappedResults.length > 0 ? (
+            <div className="grid gap-2.5 md:grid-cols-2">
+              {cappedResults.map(result => {
+                const protocol = result.protocol;
+                return (
+                  <button
+                    key={protocol.id}
+                    type="button"
+                    onClick={() => openResult(protocol)}
+                    aria-label={`Open ${protocol.title}`}
+                    className="group flex flex-col rounded-xl border border-slate-200 bg-white p-4 text-left shadow-sm transition hover:border-indigo-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900 dark:hover:border-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <h3 className="text-sm font-black leading-snug text-slate-900 transition group-hover:text-indigo-600 dark:text-white dark:group-hover:text-indigo-400">
+                        {protocol.title}
+                      </h3>
+                      {resultBadge(protocol)}
+                    </div>
+                    <p className="mt-1.5 line-clamp-2 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+                      {protocol.summary}
+                    </p>
+                    <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-bold text-indigo-500">
+                      Open <ChevronRight className="h-3 w-3" />
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="rounded-2xl border border-dashed border-slate-300 bg-white/50 py-10 text-center dark:border-slate-700 dark:bg-slate-900/50">
+              <AlertTriangle className="mx-auto h-5 w-5 text-slate-400" />
+              <p className="mt-2 text-sm font-bold text-slate-600 dark:text-slate-300">
+                No protocols match “{trimmedQuery}” in any facility library.
+              </p>
+            </div>
+          )}
+
+          {overflowCount > 0 && (
+            <p className="text-xs font-semibold text-slate-500">
+              …and {overflowCount} more. Open a facility library below to keep browsing this search there.
+            </p>
+          )}
+
+          {!promoteMentions && mentionResults.length > 0 && (
+            <div className="rounded-xl border border-slate-200 bg-white/60 p-3 dark:border-slate-800 dark:bg-slate-900/50">
+              <button
+                type="button"
+                onClick={() => setMentionsExpanded(expanded => !expanded)}
+                aria-expanded={mentionsExpanded}
+                className="flex w-full items-center justify-between gap-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg"
+              >
+                <span className="min-w-0">
+                  <span className="block text-xs font-black text-slate-700 dark:text-slate-200">
+                    Mentioned in {mentionResults.length} other protocol{mentionResults.length === 1 ? '' : 's'}
+                  </span>
+                  <span className="mt-0.5 block text-[11px] text-slate-500 dark:text-slate-400">
+                    These are not about “{trimmedQuery}” — the word just appears somewhere in the text.
+                  </span>
+                </span>
+                <ChevronDown
+                  className={`h-4 w-4 shrink-0 text-slate-400 transition-transform ${mentionsExpanded ? 'rotate-180' : ''}`}
+                />
+              </button>
+              {mentionsExpanded && (
+                <ul className="mt-2 space-y-1.5">
+                  {mentionResults.map(result => (
+                    <li key={result.protocol.id}>
+                      <button
+                        type="button"
+                        onClick={() => openResult(result.protocol)}
+                        aria-label={`Open ${result.protocol.title}`}
+                        className="flex w-full items-center justify-between gap-3 rounded-lg border border-slate-200 bg-white px-3 py-2 text-left transition hover:border-indigo-300 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-indigo-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                      >
+                        <span className="min-w-0 truncate text-xs font-bold text-slate-700 dark:text-slate-200">
+                          {result.protocol.title}
+                        </span>
+                        {resultBadge(result.protocol)}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          )}
+        </section>
+      )}
 
       {/* Quick Links — the only route to these tabs since the category pill bar is hidden on Home */}
       <div className="flex flex-wrap gap-2">

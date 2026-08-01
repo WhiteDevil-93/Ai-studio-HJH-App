@@ -3382,6 +3382,8 @@ export default function App() {
           onSelectPolicy={(polId) => setActivePolicy(polId)}
           onSelectScore={() => navigateToCategory('16_score_calculators')}
           onOpenCodeRed={() => setCodeRedOpen(true)}
+          onOpenProtocol={navigateToProtocol}
+          onOpenCalculator={navigateToCalculator}
           weight={weight}
           setWeight={setWeight}
           searchQuery={searchQuery}
