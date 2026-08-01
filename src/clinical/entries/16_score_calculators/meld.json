@@ -19,7 +19,7 @@
     "calculator_type": "formula",
     "formula_id": "meld",
     "formula": "3.78*ln(bilirubin) + 11.2*ln(INR) + 9.57*ln(creatinine) + 6.43",
-    "review_note": "Estimates 3-month mortality in chronic liver disease. Lab values below 1.0 are floored to 1.0; creatinine is capped at 4.0 (forced to 4.0 if the patient has had dialysis twice in the past week); the final score is rounded and clamped to the standard 6-40 reporting range.",
+    "review_note": "Estimates 3-month mortality in chronic liver disease. UNITS: this formula uses mg/dL, but South African labs report bilirubin and creatinine in µmol/L — convert first: bilirubin mg/dL = µmol/L ÷ 17.1; creatinine mg/dL = µmol/L ÷ 88.4. Lab values below 1.0 are floored to 1.0; creatinine is capped at 4.0 (forced to 4.0 if the patient has had dialysis twice in the past week); the final score is rounded and clamped to the standard 6-40 reporting range.",
     "inputs": [
       {
         "name": "Bilirubin",

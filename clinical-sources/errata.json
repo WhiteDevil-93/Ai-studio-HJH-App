@@ -18,7 +18,7 @@
           "topic": "Ketamine infusion table",
           "issue": "Several 60 kg cells are inconsistent with the stated 1 mg/mL concentration and surrounding arithmetic.",
           "status": "awaiting-clinical-decision",
-          "applicationAction": "No ketamine infusion calculator is exposed pending clinical resolution"
+          "applicationAction": "Calculator derives the rate from the user-confirmed prepared concentration (source: 200 mg in 200 mL = 1 mg/mL); the inconsistent page 106 table cells are not used, and the card warns that they must not be used pending clinical resolution"
         },
         {
           "id": "ERR-HJH-003",
@@ -26,7 +26,7 @@
           "topic": "Phenylephrine infusion table",
           "issue": "Several cells are inconsistent with the stated 100 mcg/mL concentration.",
           "status": "awaiting-clinical-decision",
-          "applicationAction": "Definition derives rates from the stated concentration; calculator is not currently exposed in the UI"
+          "applicationAction": "Calculator derives the rate from the user-confirmed prepared concentration (100 mcg/mL); the inconsistent source table cells are not used, and the card warns that the table contains arithmetic discrepancies"
         },
         {
           "id": "ERR-HJH-004",

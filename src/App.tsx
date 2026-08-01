@@ -922,7 +922,7 @@ export default function App() {
             </div>
           )}
           {sc.review_note && (
-            <div className="mb-3 text-[10px] leading-normal text-slate-400">
+            <div className="mb-3 rounded-lg border border-teal-900/30 bg-teal-950/10 p-2 text-[11px] leading-relaxed text-slate-300">
               {sc.review_note}
             </div>
           )}
