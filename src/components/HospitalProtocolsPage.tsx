@@ -5,6 +5,7 @@ import {
   BookOpen,
   Building2,
   Calculator,
+  ChevronDown,
   ChevronRight,
   FileText,
   FlaskConical,
@@ -23,6 +24,9 @@ import {
   SUPPLIED_GUIDELINE_LINK_AUDIT,
 } from '../clinical/globalReferenceDocuments';
 import {TRIALS_REFERENCE} from '../clinical/trialsReference';
+import {rankProtocolSearch} from '../clinical/protocolSearch';
+import {GlobalCalculatorResults} from './GlobalCalculatorResults';
+import type {GlobalCalculator} from '../clinical/globalCalculators';
 
 interface HospitalProtocolsPageProps {
   facilityId: HospitalId;
@@ -34,6 +38,7 @@ interface HospitalProtocolsPageProps {
   onOpenLandmarkStudies: () => void;
   onOpenInternationalGuidelines: () => void;
   onOpenPocketGuides: () => void;
+  onOpenCalculator?: (calculator: GlobalCalculator) => void;
 }
 
 const accentClasses = {
@@ -73,8 +78,10 @@ export const HospitalProtocolsPage: React.FC<HospitalProtocolsPageProps> = ({
   onOpenLandmarkStudies,
   onOpenInternationalGuidelines,
   onOpenPocketGuides,
+  onOpenCalculator,
 }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [mentionsExpanded, setMentionsExpanded] = useState(false);
   const facility = HOSPITALS[facilityId];
   const sourceProtocols = HOSPITAL_PROTOCOLS_BY_FACILITY[facilityId];
   const protocols = HOSPITAL_VISIBLE_PROTOCOLS_BY_FACILITY[facilityId];
@@ -89,14 +96,30 @@ export const HospitalProtocolsPage: React.FC<HospitalProtocolsPageProps> = ({
     return [...counts.entries()].sort(([left], [right]) => left.localeCompare(right));
   }, [protocols]);
 
-  const visibleProtocols = useMemo(() => {
-    const query = searchQuery.trim().toLocaleLowerCase();
-    return protocols.filter(protocol => {
-      const categoryMatches =
-        selectedCategory === 'all' || protocol.categoryLabel === selectedCategory;
-      const searchMatches = !query || protocol.searchText.includes(query);
-      return categoryMatches && searchMatches;
-    });
+  // Ranked, so a protocol the query is *about* never sits below one that only
+  // mentions the word somewhere in its transcription.
+  const {visibleProtocols, mentionedProtocols} = useMemo(() => {
+    const inCategory = protocols.filter(
+      protocol =>
+        selectedCategory === 'all' || protocol.categoryLabel === selectedCategory,
+    );
+    const results = rankProtocolSearch(inCategory, searchQuery);
+    const named = results.filter(result => result.kind !== 'body');
+    const mentions = results.filter(result => result.kind === 'body');
+
+    // With nothing named after the query, a passing mention is the best answer
+    // there is, so promote those rather than showing an empty library.
+    if (named.length === 0) {
+      return {
+        visibleProtocols: mentions.map(result => result.protocol),
+        mentionedProtocols: [] as HospitalProtocol[],
+      };
+    }
+
+    return {
+      visibleProtocols: named.map(result => result.protocol),
+      mentionedProtocols: mentions.map(result => result.protocol),
+    };
   }, [protocols, searchQuery, selectedCategory]);
 
   return (
@@ -184,6 +207,14 @@ export const HospitalProtocolsPage: React.FC<HospitalProtocolsPageProps> = ({
         </div>
       </section>
 
+      {onOpenCalculator && (
+        <GlobalCalculatorResults
+          query={searchQuery}
+          onOpen={onOpenCalculator}
+          scopeLabel={`${facility.shortName} protocols`}
+        />
+      )}
+
       <section className="space-y-3">
         <div className="flex items-center justify-between gap-3">
           <div className="min-w-0 flex-1">
@@ -266,7 +297,7 @@ export const HospitalProtocolsPage: React.FC<HospitalProtocolsPageProps> = ({
           ))}
         </div>
       ) : (
-        <div className="rounded-2xl border border-dashed border-slate-300 bg-white/50 py-16 text-center dark:border-slate-700 dark:bg-slate-900/50">
+        <div className="rounded-2xl border border-dashed border-slate-300 bg-white/50 py-16 text-center dark:border-slate-700 dark:bg-slate-900/50" data-empty-results>
           <AlertTriangle className="mx-auto h-6 w-6 text-slate-400" />
           <p className="mt-3 text-sm font-bold text-slate-600 dark:text-slate-300">
             No protocols match this search and category.
@@ -282,6 +313,54 @@ export const HospitalProtocolsPage: React.FC<HospitalProtocolsPageProps> = ({
             Clear filters
           </button>
         </div>
+      )}
+
+      {mentionedProtocols.length > 0 && (
+        <section className="rounded-2xl border border-slate-200 bg-white/60 p-4 dark:border-slate-800 dark:bg-slate-900/50">
+          <button
+            type="button"
+            onClick={() => setMentionsExpanded(expanded => !expanded)}
+            aria-expanded={mentionsExpanded}
+            className="flex w-full items-center justify-between gap-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg"
+          >
+            <span className="min-w-0">
+              <span className="block text-sm font-black text-slate-700 dark:text-slate-200">
+                Mentioned in {mentionedProtocols.length} other protocol
+                {mentionedProtocols.length === 1 ? '' : 's'}
+              </span>
+              <span className="mt-0.5 block text-xs text-slate-500 dark:text-slate-400">
+                These are not about “{searchQuery.trim()}” — the word just appears somewhere in the text.
+              </span>
+            </span>
+            <ChevronDown
+              className={`h-4 w-4 shrink-0 text-slate-400 transition-transform ${
+                mentionsExpanded ? 'rotate-180' : ''
+              }`}
+            />
+          </button>
+
+          {mentionsExpanded && (
+            <ul className="mt-3 space-y-1.5">
+              {mentionedProtocols.map(protocol => (
+                <li key={protocol.id}>
+                  <button
+                    type="button"
+                    onClick={() => onOpenProtocol(protocol)}
+                    aria-label={`Open ${protocol.title}`}
+                    className="flex w-full items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white px-3 py-2 text-left transition hover:border-indigo-300 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-indigo-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                  >
+                    <span className="min-w-0 truncate text-xs font-bold text-slate-700 dark:text-slate-200">
+                      {protocol.title}
+                    </span>
+                    <span className="shrink-0 text-[10px] font-black uppercase tracking-wider text-slate-400">
+                      {protocol.categoryLabel}
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
       )}
     </div>
   );
