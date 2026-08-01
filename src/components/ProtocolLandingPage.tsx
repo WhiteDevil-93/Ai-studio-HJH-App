@@ -1,12 +1,17 @@
-import React, {useMemo} from 'react';
+import React, {useEffect, useMemo, useRef, useState} from 'react';
 import {
   AlertTriangle,
   ArrowLeft,
   Building2,
   CheckCircle2,
+  ChevronDown,
+  ChevronUp,
   ClipboardList,
   FileText,
+  Globe2,
   Pill,
+  Search,
+  X,
 } from 'lucide-react';
 import {
   findReferencedHospitalProtocol,
@@ -21,6 +26,8 @@ import {
   structureTranscription,
   type TranscriptionBlock,
 } from '../clinical/transcription';
+import {GlobalCalculatorResults} from './GlobalCalculatorResults';
+import type {GlobalCalculator} from '../clinical/globalCalculators';
 
 interface ProtocolLandingPageProps {
   protocol: HospitalProtocol;
@@ -28,7 +35,12 @@ interface ProtocolLandingPageProps {
   onOpenProtocol: (protocol: HospitalProtocol) => void;
   weight: string;
   setWeight: (weight: string) => void;
+  /** Scoped to this protocol only - see the find bar below. */
   searchQuery?: string;
+  onClearSearch?: () => void;
+  /** Escape hatch out of the protocol scope, back to the facility library. */
+  onSearchAllProtocols?: () => void;
+  onOpenCalculator?: (calculator: GlobalCalculator) => void;
 }
 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
@@ -52,8 +64,10 @@ const HighlightedText: React.FC<{text: string; highlight?: string}> = ({text, hi
     <>
       {parts.map((part, index) =>
         index % 2 === 1 ? (
+          // The find bar counts and steps through these in document order.
           <mark
             key={index}
+            data-search-match=""
             className="rounded bg-amber-300/80 px-0.5 text-slate-900 dark:bg-amber-400/90 dark:text-slate-950"
           >
             {part}
@@ -364,6 +378,9 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
   weight,
   setWeight,
   searchQuery = '',
+  onClearSearch,
+  onSearchAllProtocols,
+  onOpenCalculator,
 }) => {
   const facility = HOSPITALS[protocol.facilityId];
   const referencedProtocol = findReferencedHospitalProtocol(protocol);
@@ -379,11 +396,39 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
       ? `${contentProtocol.pdfPages.length === 1 ? 'page' : 'pages'} ${contentProtocol.pdfPages.join(', ')}`
       : '';
   const trimmedQuery = searchQuery.trim();
-  const matchCount = useMemo(() => {
-    if (!trimmedQuery) return 0;
-    const pattern = new RegExp(escapeRegExp(trimmedQuery), 'gi');
-    return (contentProtocol.searchText.match(pattern) || []).length;
-  }, [trimmedQuery, contentProtocol.searchText]);
+
+  // Matches are counted off the rendered page rather than off the raw record so
+  // the tally is exactly what the reader can scroll to - fields that never make
+  // it onto the page must not inflate it.
+  const articleRef = useRef<HTMLElement>(null);
+  const [matchCount, setMatchCount] = useState(0);
+  const [activeMatch, setActiveMatch] = useState(0);
+
+  const matchNodes = (): HTMLElement[] =>
+    Array.from(
+      articleRef.current?.querySelectorAll<HTMLElement>('mark[data-search-match]') ?? [],
+    );
+
+  useEffect(() => {
+    const nodes = matchNodes();
+    setMatchCount(nodes.length);
+    setActiveMatch(0);
+  }, [trimmedQuery, contentProtocol.id, weight]);
+
+  useEffect(() => {
+    matchNodes().forEach((node, index) => {
+      node.toggleAttribute('data-active-match', index === activeMatch);
+    });
+  }, [activeMatch, matchCount, trimmedQuery]);
+
+  const stepMatch = (delta: number) => {
+    const nodes = matchNodes();
+    if (nodes.length === 0) return;
+    const next = (activeMatch + delta + nodes.length) % nodes.length;
+    setActiveMatch(next);
+    nodes[next]?.scrollIntoView({block: 'center', behavior: 'smooth'});
+  };
+
   const reserved = new Set([
     'item',
     'protocol_type',
@@ -434,7 +479,7 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
   };
 
   return (
-    <article className="mx-auto max-w-5xl space-y-5 pb-12">
+    <article ref={articleRef} className="mx-auto max-w-5xl space-y-5 pb-12">
       <button
         type="button"
         onClick={onBack}
@@ -478,16 +523,84 @@ export const ProtocolLandingPage: React.FC<ProtocolLandingPageProps> = ({
 
       {trimmedQuery && (
         <div
-          className={`rounded-xl border px-4 py-3 text-sm font-semibold ${
+          role="search"
+          aria-label="Find within this protocol"
+          className={`sticky top-[9.25rem] z-20 rounded-xl border px-3 py-2.5 shadow-sm backdrop-blur sm:top-[9.75rem] ${
             matchCount > 0
-              ? 'border-amber-300 bg-amber-50 text-amber-900 dark:border-amber-900/50 dark:bg-amber-950/20 dark:text-amber-200'
-              : 'border-slate-300 bg-slate-50 text-slate-600 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-400'
+              ? 'border-amber-300 bg-amber-50/95 text-amber-900 dark:border-amber-900/50 dark:bg-amber-950/80 dark:text-amber-200'
+              : 'border-slate-300 bg-slate-50/95 text-slate-600 dark:border-slate-800 dark:bg-slate-950/85 dark:text-slate-400'
           }`}
         >
-          {matchCount > 0
-            ? `${matchCount} match${matchCount === 1 ? '' : 'es'} for "${trimmedQuery}" highlighted on this protocol, including the source transcription.`
-            : `No matches for "${trimmedQuery}" on this protocol.`}
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-current/30 px-2.5 py-1 text-[10px] font-black uppercase tracking-wider">
+              <Search className="h-3 w-3" />
+              This protocol only
+            </span>
+
+            <span aria-live="polite" className="text-sm font-bold">
+              {matchCount > 0
+                ? `${activeMatch + 1} of ${matchCount} match${matchCount === 1 ? '' : 'es'} for “${trimmedQuery}”`
+                : `No matches for “${trimmedQuery}” in this protocol`}
+            </span>
+
+            {matchCount > 0 && (
+              <span className="inline-flex items-center gap-1">
+                <button
+                  type="button"
+                  onClick={() => stepMatch(-1)}
+                  aria-label="Previous match"
+                  className="rounded-lg border border-current/30 p-1.5 transition hover:bg-black/5 dark:hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                >
+                  <ChevronUp className="h-3.5 w-3.5" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => stepMatch(1)}
+                  aria-label="Next match"
+                  className="rounded-lg border border-current/30 p-1.5 transition hover:bg-black/5 dark:hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                >
+                  <ChevronDown className="h-3.5 w-3.5" />
+                </button>
+              </span>
+            )}
+
+            <span className="ml-auto flex flex-wrap items-center gap-2">
+              {onSearchAllProtocols && (
+                <button
+                  type="button"
+                  onClick={onSearchAllProtocols}
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-current/30 px-2.5 py-1.5 text-[11px] font-bold transition hover:bg-black/5 dark:hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                >
+                  <Globe2 className="h-3.5 w-3.5" />
+                  Search all {facility.shortName} protocols
+                </button>
+              )}
+              {onClearSearch && (
+                <button
+                  type="button"
+                  onClick={onClearSearch}
+                  aria-label="Clear search"
+                  className="rounded-lg border border-current/30 p-1.5 transition hover:bg-black/5 dark:hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                >
+                  <X className="h-3.5 w-3.5" />
+                </button>
+              )}
+            </span>
+          </div>
+          {matchCount > 0 && (
+            <p className="mt-1.5 text-[11px] font-semibold opacity-80">
+              Highlighted throughout this page, including the source transcription.
+            </p>
+          )}
         </div>
+      )}
+
+      {onOpenCalculator && (
+        <GlobalCalculatorResults
+          query={trimmedQuery}
+          onOpen={onOpenCalculator}
+          scopeLabel="this protocol"
+        />
       )}
 
       {flowchartData && (

@@ -10,7 +10,7 @@ import {
   AlertTriangle, Moon, Sun, BookOpen,
   Calculator, Stethoscope, Activity, Heart, ShieldAlert,
   Info, Sparkles, CheckSquare, Plus, RefreshCw, Clock, Home, Menu, X, Smartphone, Download, Settings,
-  FlaskConical, Globe2, Building2
+  FlaskConical, Globe2, Building2, FileText
 } from 'lucide-react';
 import { PWAInstallPrompt, usePWAInstall } from './components/PWAInstallPrompt';
 import {
@@ -54,6 +54,7 @@ import {
   type HospitalId,
   type HospitalProtocol,
 } from './clinical/hospitalProtocols';
+import type {GlobalCalculator} from './clinical/globalCalculators';
 
 const D = clinicalData as any;
 const POCKET_GUIDE_COUNT = PARSED_GLOBAL_REFERENCE_DOCUMENTS.pocket.entries.length;
@@ -383,6 +384,9 @@ export default function App() {
   // Core Inputs & Navigation
   const [weight, setWeight] = useState<string>(() => localStorage.getItem('tr_w') || '');
   const [searchQuery, setSearchQuery] = useState<string>('');
+  // A protocol page owns its own query: typing inside a protocol searches that
+  // protocol and nothing else, and never re-filters the library behind it.
+  const [protocolSearchQuery, setProtocolSearchQuery] = useState<string>('');
   const [selectedCategory, setSelectedCategory] = useState<string>(
     initialHospitalRoute ? FACILITY_CATEGORY[initialHospitalRoute.facilityId] : 'home',
   );
@@ -530,6 +534,38 @@ export default function App() {
       window.removeEventListener('hashchange', syncFromLocation);
     };
   }, []);
+
+  // Opening a protocol carries in whatever query led the reader to it, so a hit
+  // found in the library stays highlighted on the page. From then on the query
+  // is the protocol's own; closing the protocol drops it and the library search
+  // behind it is untouched. Read through a ref so re-seeding happens on a
+  // protocol change only, not on every keystroke in the library.
+  const librarySearchQueryRef = useRef(searchQuery);
+  useEffect(() => {
+    librarySearchQueryRef.current = searchQuery;
+  }, [searchQuery]);
+  useEffect(() => {
+    setProtocolSearchQuery(selectedProtocolId ? librarySearchQueryRef.current : '');
+  }, [selectedProtocolId]);
+
+  const activeProtocol = selectedFacility && selectedProtocolId
+    ? HOSPITAL_PROTOCOLS_BY_FACILITY[selectedFacility].find(
+        protocol => protocol.id === selectedProtocolId,
+      )
+    : undefined;
+
+  /**
+   * Formulas and score calculators are searchable from every scope, so opening
+   * one has to work from inside a protocol too: leave the protocol, land on the
+   * calculator's category and narrow it to the tool that was picked.
+   */
+  const navigateToCalculator = (calculator: GlobalCalculator) => {
+    navigateToCategory(calculator.categoryId);
+    setSearchQuery(calculator.name);
+    if (typeof window !== 'undefined') {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+  };
 
   // Score Calculator states
   const [gcsState, setGcsState] = useState<Record<string, number>>({});
@@ -3274,26 +3310,28 @@ export default function App() {
   };
 
   const renderHospitalProtocolsView = (facilityId: HospitalId) => {
-    const activeProtocol = selectedFacility === facilityId && selectedProtocolId
-      ? HOSPITAL_PROTOCOLS_BY_FACILITY[facilityId].find(
-          protocol => protocol.id === selectedProtocolId,
-        )
-      : undefined;
+    const backToLibrary = () => {
+      setSelectedFacility(facilityId);
+      setSelectedProtocolId(null);
+      window.history.pushState(null, '', `#/hospital/${facilityId}`);
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    };
 
-    if (activeProtocol) {
+    if (activeProtocol && activeProtocol.facilityId === facilityId) {
       return (
         <ProtocolLandingPage
           protocol={activeProtocol}
           onOpenProtocol={navigateToProtocol}
           weight={weight}
           setWeight={setWeight}
-          searchQuery={searchQuery}
-          onBack={() => {
-            setSelectedFacility(facilityId);
-            setSelectedProtocolId(null);
-            window.history.pushState(null, '', `#/hospital/${facilityId}`);
-            window.scrollTo({top: 0, behavior: 'smooth'});
+          searchQuery={protocolSearchQuery}
+          onClearSearch={() => setProtocolSearchQuery('')}
+          onSearchAllProtocols={() => {
+            setSearchQuery(protocolSearchQuery);
+            backToLibrary();
           }}
+          onOpenCalculator={navigateToCalculator}
+          onBack={backToLibrary}
         />
       );
     }
@@ -3305,6 +3343,7 @@ export default function App() {
         setSearchQuery={setSearchQuery}
         onBack={() => navigateToCategory('home')}
         onOpenProtocol={navigateToProtocol}
+        onOpenCalculator={navigateToCalculator}
         onOpenScores={() => navigateToCategory('16_score_calculators')}
         onOpenLandmarkStudies={() => navigateToCategory('landmark_studies')}
         onOpenInternationalGuidelines={() => navigateToCategory('international_guidelines')}
@@ -3446,6 +3485,12 @@ export default function App() {
   const isGlobalReferenceCategory = GLOBAL_REFERENCE_CATEGORY_IDS.includes(
     selectedCategory as typeof GLOBAL_REFERENCE_CATEGORY_IDS[number],
   );
+
+  // While a protocol is open the one search box drives that protocol's own
+  // query, so a search started there cannot leak into any other view.
+  const isProtocolScoped = Boolean(activeProtocol) && !activeMindMap && !activePolicy;
+  const searchBarValue = isProtocolScoped ? protocolSearchQuery : searchQuery;
+  const setSearchBarValue = isProtocolScoped ? setProtocolSearchQuery : setSearchQuery;
 
   // Keep each navigation family focused so hospital content never mixes and
   // global reference pages do not inherit unrelated clinical-source controls.
@@ -3734,14 +3779,20 @@ export default function App() {
               <input
                 type="text"
                 id="s"
-                value={searchQuery}
-                onChange={e => setSearchQuery(e.target.value)}
+                value={searchBarValue}
+                onChange={e => setSearchBarValue(e.target.value)}
                 placeholder={
-                  isGlobalReferenceCategory
-                    ? `Search ${CATEGORIES[selectedCategory].toLowerCase()}...`
-                    : 'Search drug, protocol, emergency condition, score...'
+                  isProtocolScoped
+                    ? `Search within ${activeProtocol!.title}...`
+                    : isGlobalReferenceCategory
+                      ? `Search ${CATEGORIES[selectedCategory].toLowerCase()}...`
+                      : 'Search drug, protocol, emergency condition, score...'
                 }
-                aria-label="Search clinical reference"
+                aria-label={
+                  isProtocolScoped
+                    ? `Search within ${activeProtocol!.title}`
+                    : 'Search clinical reference'
+                }
                 className={`w-full pl-10 pr-4 py-2.5 sm:py-2 rounded-xl text-sm transition focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
                   theme === 'dark'
                     ? 'bg-slate-900/90 border border-slate-700/70 text-slate-100 focus:border-indigo-400'
@@ -3750,7 +3801,16 @@ export default function App() {
               />
             </div>
 
-            {!isGlobalReferenceCategory && (
+            {isProtocolScoped ? (
+              <span
+                className="shrink-0 inline-flex items-center gap-1.5 rounded-xl border border-amber-500/40 bg-amber-500/10 px-3 py-2.5 sm:py-2 text-xs font-bold text-amber-300 min-h-[2.75rem]"
+                title={`Search is limited to ${activeProtocol!.title}. Formulas and scores are still searched globally.`}
+              >
+                <FileText className="w-3.5 h-3.5" />
+                <span className="hidden sm:inline">This protocol only</span>
+                <span className="sm:hidden">Scoped</span>
+              </span>
+            ) : !isGlobalReferenceCategory && (
               <button
                 onClick={() => setSidebarOpen(true)}
                 aria-label="Open source filter"
@@ -3873,7 +3933,10 @@ export default function App() {
 
         <AnimatePresence mode="wait">
           <motion.div
-            key={selectedCategory + '-' + searchQuery}
+            // Keyed on the view, not the query: re-running the enter animation
+            // on every keystroke is what made typing a search feel like a flash
+            // of blank page between results.
+            key={selectedCategory + '-' + (selectedProtocolId ?? '')}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
