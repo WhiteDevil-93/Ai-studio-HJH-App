@@ -19,6 +19,24 @@ describe('infusion rate calculations', () => {
     ).toBe(true);
   });
 
+  it('keeps errata-flagged calculators (ketamine, phenylephrine) exposed with an explicit source-table warning', () => {
+    // The release-blocking errata register (ERR-HJH-002, ERR-HJH-003) flags
+    // inconsistent printed table cells on pages 106 and 111. The shipped design
+    // exposes these calculators but computes the rate from the user-confirmed
+    // concentration and must warn that the printed table cells are unreliable.
+    // If a future change hides the warning or silently removes it, the UI would
+    // present a plausible rate with no caution - this test guards against that.
+    for (const id of ['ketamine', 'phenylephrine'] as const) {
+      const definition = INFUSION_DEFINITIONS[id];
+      expect(definition.status).toBe('available');
+      expect(
+        definition.warnings.some(warning =>
+          /concentration|table/i.test(warning),
+        ),
+      ).toBe(true);
+    }
+  });
+
   it('matches the HJH adrenaline table for 70 kg at 0.05 mcg/kg/min', () => {
     const result = calculateInfusionRate(INFUSION_DEFINITIONS.adrenaline, {
       dose: 0.05,

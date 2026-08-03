@@ -58,7 +58,10 @@ export const INFUSION_DEFINITIONS: Record<string, InfusionDefinition> = {
     sourceId: 'hjh-ed-2026-v1',
     pdfPages: [106],
     status: 'available',
-    warnings: ['Protocol table cells identified in the review list remain transcribed pending review.'],
+    warnings: [
+      'The rate is calculated from the confirmed prepared concentration (source: 200 mg in 200 mL = 1 mg/mL).',
+      'Several 60 kg cells in the page 106 table are inconsistent with the stated 1 mg/mL concentration and must not be used; confirm the actual prepared concentration before administering.',
+    ],
   },
   morphine: {
     id: 'morphine',
