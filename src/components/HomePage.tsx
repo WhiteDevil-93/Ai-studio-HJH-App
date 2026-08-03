@@ -385,6 +385,12 @@ export const HomePage: React.FC<HomePageProps> = ({
           </button>
         )}
         <button
+          onClick={() => onSelectCategory('7_useful_formulae')}
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-black bg-teal-100 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 border border-teal-300 dark:border-teal-700 hover:bg-teal-200 dark:hover:bg-teal-900/40 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
+        >
+          <Syringe className="w-3.5 h-3.5" /> Dosing &amp; Infusion Calculators
+        </button>
+        <button
           onClick={() => onSelectCategory('favourites')}
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
         >
