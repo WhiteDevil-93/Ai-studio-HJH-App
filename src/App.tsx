@@ -3345,6 +3345,7 @@ export default function App() {
         onOpenProtocol={navigateToProtocol}
         onOpenCalculator={navigateToCalculator}
         onOpenScores={() => navigateToCategory('16_score_calculators')}
+        onOpenFormulae={() => navigateToCategory('7_useful_formulae')}
         onOpenLandmarkStudies={() => navigateToCategory('landmark_studies')}
         onOpenInternationalGuidelines={() => navigateToCategory('international_guidelines')}
         onOpenPocketGuides={() => navigateToCategory('pocket_guides')}
