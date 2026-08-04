@@ -10,6 +10,7 @@ import {
 } from '../src/clinical/entryNormalize.ts';
 import manifest from '../clinical-sources/source-manifest.json' with {type: 'json'};
 import errataRegisters from '../clinical-sources/errata.json' with {type: 'json'};
+import {SCORE_CORRECTIONS} from '../src/clinical/scoreCorrections.ts';
 import hospitalArchiveManifest from '../clinical-sources/all-hospitals-protocols-manifest.json' with {type: 'json'};
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -168,6 +169,33 @@ for (const {path: relPath, file} of files) {
   for (const errataId of file.errata ?? []) {
     if (!KNOWN_ERRATA_IDS.has(errataId)) {
       errors.push(`${relPath}: errata id "${errataId}" not found in clinical-sources/errata.json`);
+    }
+  }
+}
+
+// --- Score-corrections overlay: no orphans ---
+// Every reviewed runtime correction must reference a known errata entry and
+// target an existing singleton score entry + component key, so a correction can
+// never silently apply to nothing (or drift off a renamed component).
+{
+  const filesByEntryId = new Map(
+    files.map(({file}) => [`${file.categoryId}/${file.subcategoryId}`, file]),
+  );
+  for (const correction of SCORE_CORRECTIONS) {
+    const label = `score-correction ${correction.errataId} (${correction.entryId})`;
+    if (!KNOWN_ERRATA_IDS.has(correction.errataId)) {
+      errors.push(`${label}: errata id not found in clinical-sources/errata.json`);
+    }
+    const target = filesByEntryId.get(correction.entryId);
+    if (!target) {
+      errors.push(`${label}: target entry not found`);
+      continue;
+    }
+    const components = (target.record as {components?: Array<{key?: string}>}).components ?? [];
+    for (const patch of correction.componentPatches) {
+      if (!components.some(component => component.key === patch.componentKey)) {
+        errors.push(`${label}: component key "${patch.componentKey}" not found in target entry`);
+      }
     }
   }
 }
