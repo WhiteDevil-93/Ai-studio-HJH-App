@@ -11,7 +11,7 @@
     "verification": "unverifiable"
   },
   "sourceGroup": "bara_icu",
-  "reviewState": "unreviewed",
+  "reviewState": "clinical-review",
   "errata": [],
   "record": {
     "name": "NIH Stroke Scale (NIHSS)",
@@ -162,8 +162,8 @@
             "value": 4
           },
           {
-            "label": "Amputated/joint fused",
-            "value": 9
+            "label": "Amputated/joint fused (untestable — not scored)",
+            "value": 0
           }
         ]
       },
@@ -192,8 +192,8 @@
             "value": 4
           },
           {
-            "label": "Amputated/joint fused",
-            "value": 9
+            "label": "Amputated/joint fused (untestable — not scored)",
+            "value": 0
           }
         ]
       },
@@ -222,8 +222,8 @@
             "value": 4
           },
           {
-            "label": "Amputated/joint fused",
-            "value": 9
+            "label": "Amputated/joint fused (untestable — not scored)",
+            "value": 0
           }
         ]
       },
@@ -252,8 +252,8 @@
             "value": 4
           },
           {
-            "label": "Amputated/joint fused",
-            "value": 9
+            "label": "Amputated/joint fused (untestable — not scored)",
+            "value": 0
           }
         ]
       },
@@ -332,8 +332,8 @@
             "value": 2
           },
           {
-            "label": "Amputated/intubated",
-            "value": 9
+            "label": "Amputated/intubated (untestable — not scored)",
+            "value": 0
           }
         ]
       },
@@ -387,6 +387,7 @@
         "label": "Severe stroke",
         "action": ""
       }
-    ]
+    ],
+    "review_note": "CORRECTION (pending two-person clinical sign-off): the 'untestable' options (amputation/joint fusion for motor arm/leg items 5-6, intubation/physical barrier for dysarthria item 10) previously carried the data-entry sentinel value 9, which the summing scorer added to the total and could inflate a mild stroke into a severe one. Per standard NIHSS scoring these are untestable and are not added to the total, so they now contribute 0."
   }
 }
