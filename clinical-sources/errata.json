@@ -52,6 +52,15 @@
           "status": "resolved-from-source",
           "decision": "Label and implement the HJH potassium-inclusive variant.",
           "applicationAction": "Use (Na + K) - (Cl + HCO3)"
+        },
+        {
+          "id": "ERR-HJH-007",
+          "pdfPages": [54],
+          "topic": "Canadian C-Spine Rule age threshold",
+          "issue": "HJH page 54 prints the high-risk age factor as 'Age > 65'. The validated Canadian C-Spine Rule (Stiell et al., JAMA 2001) uses 'Age >= 65 years', so a patient of exactly 65 must be treated as high-risk rather than excluded.",
+          "status": "awaiting-clinical-decision",
+          "entryIds": ["16_score_calculators.canadian_cspine"],
+          "applicationAction": "The canonical entry still mirrors the immutable supplied source ('Age > 65'); the validated 'Age >= 65 years' correction is pending application through the reviewed runtime-corrections overlay so the source-mirror invariant is preserved. The entry is marked clinical-review until then."
         }
       ]
     },

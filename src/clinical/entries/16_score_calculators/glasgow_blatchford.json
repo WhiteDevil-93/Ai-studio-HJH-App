@@ -11,22 +11,22 @@
     "verification": "unverifiable"
   },
   "sourceGroup": "bara_icu",
-  "reviewState": "unreviewed",
+  "reviewState": "clinical-review",
   "errata": [],
   "record": {
     "name": "Glasgow-Blatchford Score (Upper GI Bleed)",
     "category": "gastrointestinal",
-    "review_note": "Hemoglobin thresholds differ by sex; the Hemoglobin component below lists the matching value for each sex against every option so a single selection is correct regardless of patient sex.",
+    "review_note": "CORRECTION (pending two-person clinical sign-off): urea thresholds now follow the published Glasgow-Blatchford score (Blatchford et al., Lancet 2000) — blood urea in mmol/L: <6.5=0, 6.5-7.9=2, 8.0-9.9=3, 10.0-24.9=4, >=25=6. Hemoglobin thresholds differ by sex; the Hemoglobin component below lists the matching value for each sex against every option so a single selection is correct regardless of patient sex.",
     "components": [
       {
-        "name": "Blood urea nitrogen (mmol/L)",
+        "name": "Blood urea (mmol/L)",
         "key": "bun",
         "options": [
-          { "label": "< 4.0", "value": 0 },
-          { "label": "4.0 - 5.9", "value": 2 },
-          { "label": "6.0 - 7.9", "value": 3 },
-          { "label": "8.0 - 9.9", "value": 4 },
-          { "label": ">= 10.0", "value": 6 }
+          { "label": "< 6.5", "value": 0 },
+          { "label": "6.5 - 7.9", "value": 2 },
+          { "label": "8.0 - 9.9", "value": 3 },
+          { "label": "10.0 - 24.9", "value": 4 },
+          { "label": ">= 25.0", "value": 6 }
         ]
       },
       {

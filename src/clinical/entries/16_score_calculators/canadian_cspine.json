@@ -13,8 +13,8 @@
     "verification": "page-index"
   },
   "sourceGroup": "hjth",
-  "reviewState": "unreviewed",
-  "errata": [],
+  "reviewState": "clinical-review",
+  "errata": ["ERR-HJH-007"],
   "record": {
     "name": "Canadian C-Spine Rule",
     "category": "trauma",
