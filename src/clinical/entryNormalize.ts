@@ -1,4 +1,5 @@
 import type {ClinicalEntryType, ClinicalWarning, SourceReference} from './types';
+import {applyScoreCorrection, scoreCorrectionFor} from './scoreCorrections';
 
 export interface LegacyClinicalRecord extends Record<string, unknown> {
   item?: string;
@@ -184,7 +185,12 @@ export function buildTreeFromFiles(files: Array<{path: string; file: CanonicalEn
 
     const category = (tree[file.categoryId] ??= {});
     if (SINGLETON_CATEGORIES.has(file.categoryId)) {
-      category[file.subcategoryId] = file.record;
+      // Effective runtime record = source-mirrored canonical record + any
+      // reviewed correction overlay. The canonical file itself is never edited.
+      category[file.subcategoryId] = applyScoreCorrection(
+        file.record,
+        scoreCorrectionFor(file.categoryId, file.subcategoryId),
+      );
     } else {
       const bucket = (category[file.subcategoryId] ??= []) as LegacyClinicalRecord[];
       bucket.push(annotateEntry(file));

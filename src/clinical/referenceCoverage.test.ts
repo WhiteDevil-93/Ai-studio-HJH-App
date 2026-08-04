@@ -1,6 +1,7 @@
 import {describe, expect, it} from 'vitest';
 import {clinicalData} from './legacyAdapter';
 import type {CanonicalEntryFile, LegacyClinicalRecord} from './entryNormalize';
+import {applyScoreCorrection, scoreCorrectionFor} from './scoreCorrections';
 
 interface SuppliedReferenceFile {
   _meta: {
@@ -62,9 +63,14 @@ describe('supplied global reference corpus', () => {
       expect(category, supplied._meta.id).toBeDefined();
 
       if (supplied.calculator) {
-        expect(category[supplied._meta.id], supplied._meta.id).toEqual(
-          supplied.calculator,
+        // Effective runtime record = supplied raw record + any reviewed
+        // correction overlay. Most calculators have no correction (identity),
+        // so runtime still equals raw; corrected ones equal raw+overlay.
+        const expected = applyScoreCorrection(
+          supplied.calculator as LegacyClinicalRecord,
+          scoreCorrectionFor(supplied._meta.category, supplied._meta.id),
         );
+        expect(category[supplied._meta.id], supplied._meta.id).toEqual(expected);
         continue;
       }
 
