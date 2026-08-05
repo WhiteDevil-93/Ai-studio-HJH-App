@@ -173,6 +173,44 @@ for (const {path: relPath, file} of files) {
   }
 }
 
+// --- HJH page-citation drift gate ---
+// An entry's pdfPages are what a clinical reviewer opens to verify it, so a
+// wrong page silently sends the reviewer to unrelated text. Every cited HJH page
+// must be owned by an HJH correction record. The entries already known to
+// violate this are listed in clinical-sources/hjh-page-citation-audit.json with
+// their evidence and are awaiting a provenance decision; this gate stops the
+// list GROWING while they are adjudicated.
+{
+  const auditPath = path.join(ROOT, 'clinical-sources/hjh-page-citation-audit.json');
+  const correctionsDir = path.join(ROOT, 'clinical-sources/corrections/HJH');
+  if (fs.existsSync(auditPath) && fs.existsSync(correctionsDir)) {
+    const ownedPages = new Set<number>();
+    for (const name of fs.readdirSync(correctionsDir).filter(n => n.endsWith('.json'))) {
+      const parsed = JSON.parse(fs.readFileSync(path.join(correctionsDir, name), 'utf8'));
+      const protocol = parsed?.protocol ?? parsed;
+      for (const page of protocol?.pdfPages ?? []) ownedPages.add(page);
+    }
+
+    const audit = JSON.parse(fs.readFileSync(auditPath, 'utf8')) as {
+      findings: Array<{entries: string[]}>;
+    };
+    const known = new Set(audit.findings.flatMap(finding => finding.entries));
+
+    for (const {path: relPath, file} of files) {
+      if (file.source?.sourceId !== 'hjh-ed-2026-v1') continue;
+      const unowned = (file.source.pdfPages ?? []).filter(page => !ownedPages.has(page));
+      if (unowned.length === 0) continue;
+      const entryKey = relPath.replace('src/clinical/entries/', '');
+      if (!known.has(entryKey)) {
+        errors.push(
+          `${relPath}: cites HJH page(s) ${unowned.join(', ')} that no HJH correction record covers — ` +
+          'either fix the citation or add it to clinical-sources/hjh-page-citation-audit.json with evidence',
+        );
+      }
+    }
+  }
+}
+
 // --- Score-corrections overlay: no orphans ---
 // Every reviewed runtime correction must reference a known errata entry and
 // target an existing singleton score entry + component key, so a correction can
