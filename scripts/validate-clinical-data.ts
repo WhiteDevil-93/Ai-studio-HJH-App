@@ -192,9 +192,16 @@ for (const {path: relPath, file} of files) {
     }
 
     const audit = JSON.parse(fs.readFileSync(auditPath, 'utf8')) as {
-      findings: Array<{entries: string[]}>;
+      findings: Array<{entries: string[]; status: string}>;
     };
-    const known = new Set(audit.findings.flatMap(finding => finding.entries));
+    // Only findings still awaiting a decision are tolerated. Once a finding is
+    // resolved its entries must genuinely cite owned pages, so a "fix" that did
+    // not actually fix the citation fails CI.
+    const known = new Set(
+      audit.findings
+        .filter(finding => finding.status === 'awaiting-clinical-decision')
+        .flatMap(finding => finding.entries),
+    );
 
     for (const {path: relPath, file} of files) {
       if (file.source?.sourceId !== 'hjh-ed-2026-v1') continue;
