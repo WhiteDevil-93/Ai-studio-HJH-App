@@ -1,0 +1,87 @@
+{
+  "auditedOn": "2026-08-05",
+  "sourceId": "hjh-ed-2026-v1",
+  "purpose": "Every HJH entry states the PDF pages its content came from. That citation is what a clinical reviewer opens to verify the entry, so a wrong page silently sends the reviewer to the wrong text. This audit lists entries citing pages that no HJH correction record owns, together with the evidence from the extracted page text. The validator fails CI if a NEW entry joins this list, so citation drift cannot grow while the entries below are adjudicated.",
+  "method": "Owned pages are the union of pdfPages across clinical-sources/corrections/HJH/*.json (198 pages, 6-203). Evidence quotes are the first line of the extracted text for each page.",
+  "reviewRequired": true,
+  "findings": [
+    {
+      "id": "PAGE-CITE-001",
+      "entries": [
+        "11_ed_medical_emergencies/protocols/sexual-assault-protocol.json",
+        "11_ed_medical_emergencies/protocols/snakebite-pathway-emct-hjh.json",
+        "11_ed_medical_emergencies/protocols/status-epilepticus-algorithm.json",
+        "11_ed_medical_emergencies/protocols/status-epilepticus-hjh.json"
+      ],
+      "unownedPages": [
+        5
+      ],
+      "evidence": "Page 5 is a table-of-contents page: '72. Sexual assault & Rape Crisis centre referral numbers / 73. Snakebite Pathway (EMCT) / 74. Status Epilepsy Anticonvulsant Therapy Algorithm'. Each of these entries also cites its real content pages.",
+      "assessment": "Spurious citation. Page 5 lists these topics in the contents index; it is not the source of any entry's clinical text.",
+      "proposedAction": "Remove page 5 from these four entries' pdfPages, leaving their genuine content pages. Low risk - no clinical text changes.",
+      "status": "resolved-in-entry",
+      "resolution": "Page 5 removed from all four entries; each retains its genuine content pages. No clinical text changed."
+    },
+    {
+      "id": "PAGE-CITE-002",
+      "entries": [
+        "12_ed_toxicology/protocols/tricyclic-antidepressant-overdose-hjh.json"
+      ],
+      "citedPages": [
+        244,
+        245,
+        246,
+        247
+      ],
+      "evidence": "Cited pages 244-247 are general toxicology ECG material ('ECG ANALYSIS IN TOXICOLOGY', 'INTERVALS, SEGMENTS & WAVES', 'TOXICOLOGY DRUG SPECIFIC ECG CHANGES'). The entry's own first management step is 'Triage to RESUS AREA, even if patient initially appears well', which is the opening line of page 196. The authoritative topic map assigns tca_overdose to page 196.",
+      "assessment": "Citation appears wrong; the entry's clinical content is correct for TCA overdose and matches page 196.",
+      "proposedAction": "Repoint pdfPages to [196], optionally retaining 244-247 as related-reading if the reviewer confirms the ECG pages are referenced by this protocol.",
+      "status": "resolved-in-entry",
+      "resolution": "pdfPages repointed to [196]. Verified: p195 is the TEWS calculator and p197 is the femoral nerve block, so the TCA content is confined to p196, whose opening line matches the entry’s first management step."
+    },
+    {
+      "id": "PAGE-CITE-003",
+      "entries": [
+        "12_ed_toxicology/protocols/isoniazid-overdose-hjh.json"
+      ],
+      "citedPages": [
+        246,
+        247
+      ],
+      "evidence": "Cited pages 246-247 are toxicology ECG material. Page 118 reads 'ISONIAZID (INH) OVERDOSE'. The authoritative topic map assigns isoniazid_overdose to page 118.",
+      "assessment": "Citation appears wrong; the entry's clinical content is correct for isoniazid overdose and matches page 118.",
+      "proposedAction": "Repoint pdfPages to [118].",
+      "status": "resolved-in-entry",
+      "resolution": "pdfPages repointed to [118]. Verified: p118 opens the ISONIAZID (INH) OVERDOSE section and p119 begins a different topic (hepatic encephalopathy / jaundice), so the content is confined to p118."
+    },
+    {
+      "id": "PAGE-CITE-004",
+      "entries": [
+        "11_ed_medical_emergencies/protocols/medicolegal-recordkeeping.json"
+      ],
+      "citedPages": [
+        223,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238,
+        239
+      ],
+      "evidence": "Page 223 reads 'J88 Form | Guidelines for Completion' - genuinely medicolegal. The authoritative topic map instead assigns medicolegal_recordkeeping to pages 152-157, which read 'REFERENCES', 'Doctor/ Nursing Notes', 'Laboratory Investigations', 'DISCHARGE FROM ED' - also genuinely recordkeeping.",
+      "assessment": "AMBIGUOUS - unlike the cases above, the entry's citation is NOT obviously wrong. Medicolegal recordkeeping material appears in two separate parts of the document, and the entry and the topic map disagree about which part backs this entry. This is a genuine conflict between two provenance records, not a simple typo.",
+      "proposedAction": "Clinical/provenance reviewer to decide which page range this entry documents, or split it into two entries. Do NOT auto-repoint - the authoritative map is not clearly the correct side here.",
+      "status": "awaiting-clinical-decision"
+    }
+  ],
+  "note": "Findings with status \"awaiting-clinical-decision\" are tolerated by the CI gate; resolved findings are not, so a citation fix that did not actually fix the citation fails CI. PAGE-CITE-004 remains open because the evidence does not identify a correct side."
+}

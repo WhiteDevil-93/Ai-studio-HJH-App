@@ -1,0 +1,159 @@
+// Deduplicates clinical entries that share a byte-identical `record` payload.
+//
+// Duplicates arose from importers writing the same source content under several
+// slugs (e.g. "acute-appendicitis-hjh" and "acute-appendicitis-hjh-2"), which
+// showed the SAME protocol card twice in the same list at the bedside.
+//
+// Canonical selection is provenance-aware, not alphabetical: when two files
+// carry the same clinical payload we keep the one with the strongest
+// provenance (real page citations, stronger verification, more errata links),
+// because that metadata is what the review process depends on. Only the
+// envelope is compared for ranking — the payloads are identical by definition.
+//
+// Removed IDs are recorded in src/clinical/entryAliases.json so stored
+// favourites and recently-viewed entries keep resolving after the files go.
+//
+//   node scripts/dedupe-entries.mjs           # report only
+//   node scripts/dedupe-entries.mjs --apply   # rewrite aliases + delete files
+
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+
+const ROOT = process.cwd();
+const ENTRIES = path.join(ROOT, 'src/clinical/entries');
+const APPLY = process.argv.includes('--apply');
+
+const walk = dir =>
+  fs.readdirSync(dir, {withFileTypes: true}).flatMap(entry => {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) return walk(full);
+    return entry.name.endsWith('.json') ? [full] : [];
+  });
+
+const relOf = abs => path.relative(ENTRIES, abs).split(path.sep).join('/');
+const entryIdOf = rel => {
+  const [categoryId, subcategoryId, file] = rel.split('/');
+  return `${categoryId}.${subcategoryId}.${file.replace(/\.json$/, '')}`;
+};
+
+const VERIFICATION_RANK = {
+  'page-index': 3,
+  preview: 2,
+  manual: 1,
+  unverifiable: 0,
+};
+
+// Higher is better. Ordered by what the clinical review process relies on.
+const provenanceScore = file => [
+  (file.source?.pdfPages ?? []).length > 0 ? 1 : 0,
+  VERIFICATION_RANK[file.source?.verification] ?? 0,
+  (file.errata ?? []).length,
+  file.source?.sourceId && file.source.sourceId !== 'source-unresolved' ? 1 : 0,
+];
+
+const better = (a, b) => {
+  const [sa, sb] = [provenanceScore(a.file), provenanceScore(b.file)];
+  for (let i = 0; i < sa.length; i++) {
+    if (sa[i] !== sb[i]) return sa[i] > sb[i] ? a : b;
+  }
+  // Tie-break deterministically: a slug without an importer's numeric suffix,
+  // then the shorter path, then lexical order.
+  const suffixed = value => (/-\d+\.json$/.test(value.rel) ? 1 : 0);
+  if (suffixed(a) !== suffixed(b)) return suffixed(a) < suffixed(b) ? a : b;
+  if (a.rel.length !== b.rel.length) return a.rel.length < b.rel.length ? a : b;
+  return a.rel < b.rel ? a : b;
+};
+
+const groups = new Map();
+for (const abs of walk(ENTRIES).sort()) {
+  const rel = relOf(abs);
+  const file = JSON.parse(fs.readFileSync(abs, 'utf8'));
+  const digest = crypto.createHash('sha256').update(JSON.stringify(file.record)).digest('hex');
+  if (!groups.has(digest)) groups.set(digest, []);
+  groups.get(digest).push({rel, abs, file});
+}
+
+const duplicateGroups = [...groups.entries()]
+  .filter(([, members]) => members.length > 1)
+  .map(([recordSha256, members]) => {
+    const canonical = members.reduce(better);
+    return {
+      recordSha256,
+      canonical: canonical.rel,
+      duplicates: members.filter(m => m !== canonical).map(m => m.rel).sort(),
+    };
+  })
+  .sort((a, b) => a.canonical.localeCompare(b.canonical));
+
+const excessFiles = duplicateGroups.reduce((total, group) => total + group.duplicates.length, 0);
+console.log(`duplicate groups: ${duplicateGroups.length}, excess files: ${excessFiles}`);
+
+if (!APPLY) {
+  console.log('(dry run — pass --apply to write aliases and delete duplicates)');
+  process.exit(0);
+}
+
+// --- alias map: removed entry ID -> surviving canonical entry ID ---
+const aliasPath = path.join(ROOT, 'src/clinical/entryAliases.json');
+const existing = fs.existsSync(aliasPath) ? JSON.parse(fs.readFileSync(aliasPath, 'utf8')) : {aliases: {}};
+const aliases = {...existing.aliases};
+for (const group of duplicateGroups) {
+  const canonicalId = entryIdOf(group.canonical);
+  for (const duplicate of group.duplicates) {
+    aliases[entryIdOf(duplicate)] = canonicalId;
+  }
+}
+// Collapse any chains so every alias points straight at a surviving entry.
+for (const [from, to] of Object.entries(aliases)) {
+  let target = to;
+  const seen = new Set([from]);
+  while (aliases[target] && !seen.has(target)) {
+    seen.add(target);
+    target = aliases[target];
+  }
+  aliases[from] = target;
+}
+
+fs.writeFileSync(
+  aliasPath,
+  JSON.stringify(
+    {
+      note:
+        'Entry IDs removed during deduplication, mapped to the surviving canonical entry. ' +
+        'Stored favourites and recently-viewed lists are migrated through this map on load ' +
+        'so a saved item never silently disappears. Generated by scripts/dedupe-entries.mjs.',
+      generatedAt: new Date().toISOString(),
+      aliases: Object.fromEntries(Object.entries(aliases).sort(([a], [b]) => a.localeCompare(b))),
+    },
+    null,
+    2,
+  ) + '\n',
+);
+
+for (const group of duplicateGroups) {
+  for (const duplicate of group.duplicates) {
+    fs.rmSync(path.join(ENTRIES, duplicate));
+  }
+}
+
+fs.writeFileSync(
+  path.join(ROOT, 'clinical-sources/duplicate-report.json'),
+  JSON.stringify(
+    {
+      generatedAt: new Date().toISOString(),
+      policy:
+        'Exact-duplicate record payloads have been removed; removed IDs are preserved in ' +
+        'src/clinical/entryAliases.json so saved favourites/recents still resolve. The validator ' +
+        'fails CI if any duplicate payload reappears, which keeps importers idempotent at the gate. ' +
+        'Digests are sha256 of JSON.stringify(record), matching scripts/validate-clinical-data.ts.',
+      groupCount: 0,
+      excessFiles: 0,
+      groups: [],
+    },
+    null,
+    2,
+  ) + '\n',
+);
+
+console.log(`removed ${excessFiles} duplicate files; ${Object.keys(aliases).length} aliases recorded`);
