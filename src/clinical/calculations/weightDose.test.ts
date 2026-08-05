@@ -25,6 +25,42 @@ describe('weight-based dose extraction', () => {
     expect(extractWeightDoseResults('1mg/kg IV', Number.NaN)).toEqual([]);
   });
 
+  it('tokenises per-day and per-dose bases with the full resulting unit', () => {
+    expect(extractWeightDoseResults('Gentamicin 5-7mg/kg/day IV', 70)[0])
+      .toMatchObject({minimum: 350, maximum: 490, resultUnit: 'mg/day'});
+    expect(extractWeightDoseResults('Paracetamol 15mg/kg/dose PO q6h', 20)[0])
+      .toMatchObject({minimum: 300, maximum: 300, resultUnit: 'mg/dose'});
+  });
+
+  it('rejects expressions with an untokenised trailing unit instead of partial-matching', () => {
+    // "mg/kg/week" must not silently render as a plain 5 mg/kg stat dose.
+    expect(extractWeightDoseResults('5mg/kg/week SC', 70)).toEqual([]);
+  });
+
+  it('attaches an unambiguous printed maximum without capping the computed value', () => {
+    const [result] = extractWeightDoseResults('Amiodarone 5mg/kg (Max 300mg) IV', 70);
+    expect(result).toMatchObject({
+      minimum: 350,
+      maximum: 350,
+      resultUnit: 'mg',
+      printedMax: {value: 300, unit: 'mg'},
+    });
+  });
+
+  it('leaves the maximum unattached when the association would be ambiguous', () => {
+    // Two dose expressions, one max clause: attribution is unclear, so no
+    // printedMax is attached (the generic printed-maximum note still shows).
+    const results = extractWeightDoseResults(
+      'Load 1mg/kg then 0.5mg/kg, max 100mg',
+      70,
+    );
+    expect(results).toHaveLength(2);
+    expect(results.every(result => result.printedMax === undefined)).toBe(true);
+    // Mismatched units also stay unattached.
+    const [mismatch] = extractWeightDoseResults('0.1mmol/kg (max 20 ml)', 70);
+    expect(mismatch.printedMax).toBeUndefined();
+  });
+
   it('covers every weight-based adult, paediatric, settings, and protocol dose field', () => {
     const doseFields = new Set([
       'adult_dose',

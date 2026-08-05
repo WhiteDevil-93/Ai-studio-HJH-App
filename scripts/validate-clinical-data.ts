@@ -261,19 +261,85 @@ for (const [categoryId, category] of Object.entries(tree)) {
   }
 }
 
-// --- Census check: errors on any decrease vs the committed baseline, so silent
-// content loss is a CI failure instead of an eyeball check. ---
+// --- Census check: the committed baseline is an EXACT inventory. Any
+// difference — loss or unexplained growth — fails CI; an intentional content
+// change must update entry-census.json in the same reviewed commit. ---
 const censusPath = path.join(ROOT, 'clinical-sources/entry-census.json');
 if (fs.existsSync(censusPath)) {
   const census = JSON.parse(fs.readFileSync(censusPath, 'utf8'));
-  if (entryCount < census.totals.entries) {
-    errors.push(`entryCount dropped: ${entryCount} < committed baseline ${census.totals.entries} in entry-census.json`);
+  const explain = 'update clinical-sources/entry-census.json in the same reviewed commit if this change is intentional';
+  if (entryCount !== census.totals.entries) {
+    errors.push(`entryCount ${entryCount} != committed census ${census.totals.entries} — ${explain}`);
   }
-  if (protocolCount < census.totals.protocols) {
-    errors.push(`protocolCount dropped: ${protocolCount} < committed baseline ${census.totals.protocols} in entry-census.json`);
+  if (protocolCount !== census.totals.protocols) {
+    errors.push(`protocolCount ${protocolCount} != committed census ${census.totals.protocols} — ${explain}`);
+  }
+  const byCategory = new Map<string, number>();
+  for (const {file} of files) {
+    if (file.categoryId === '16_score_calculators') continue;
+    byCategory.set(file.categoryId, (byCategory.get(file.categoryId) ?? 0) + 1);
+  }
+  // Score calculators are singletons counted per file.
+  byCategory.set(
+    '16_score_calculators',
+    files.filter(({file}) => file.categoryId === '16_score_calculators').length,
+  );
+  for (const [categoryId, expected] of Object.entries(census.byCategory ?? {})) {
+    const actual = byCategory.get(categoryId) ?? 0;
+    if (actual !== expected) {
+      errors.push(`census: ${categoryId} has ${actual} entries, committed baseline says ${expected} — ${explain}`);
+    }
   }
 } else if (protocolCount < 40) {
   errors.push(`Expected at least 40 normalized protocols/procedures, found ${protocolCount}`);
+}
+
+// --- Duplicate-payload gate: duplicates are tracked in the committed report
+// (clinical-sources/duplicate-report.json) and must never grow. Deleting them
+// outright is deferred until stable-ID aliases exist (favourites and
+// recently-viewed lists may reference duplicate IDs), but any NEW duplicate —
+// e.g. from a re-run importer — fails CI, which also makes importers
+// effectively idempotent at the gate. ---
+{
+  const reportPath = path.join(ROOT, 'clinical-sources/duplicate-report.json');
+  const payloadGroups = new Map<string, string[]>();
+  for (const {path: relPath, file} of files) {
+    const digest = crypto
+      .createHash('sha256')
+      .update(JSON.stringify(file.record))
+      .digest('hex');
+    const bucket = payloadGroups.get(digest) ?? [];
+    bucket.push(relPath);
+    payloadGroups.set(digest, bucket);
+  }
+  const duplicateGroups = [...payloadGroups.entries()].filter(([, paths]) => paths.length > 1);
+  const excessFiles = duplicateGroups.reduce((total, [, paths]) => total + paths.length - 1, 0);
+
+  if (!fs.existsSync(reportPath)) {
+    if (excessFiles > 0) {
+      errors.push(`${excessFiles} duplicate record payloads found but clinical-sources/duplicate-report.json is missing`);
+    }
+  } else {
+    const report = JSON.parse(fs.readFileSync(reportPath, 'utf8')) as {
+      excessFiles: number;
+      groups: Array<{recordSha256: string}>;
+    };
+    const knownDigests = new Set(report.groups.map(group => group.recordSha256));
+    if (excessFiles > report.excessFiles) {
+      errors.push(
+        `duplicate record payloads grew: ${excessFiles} excess files > committed baseline ${report.excessFiles} — an importer is re-adding existing content`,
+      );
+    } else if (excessFiles < report.excessFiles) {
+      warnings.push(
+        `duplicate payloads shrank to ${excessFiles} (baseline ${report.excessFiles}) — regenerate clinical-sources/duplicate-report.json to ratchet the baseline down`,
+      );
+    }
+    for (const [digest, paths] of duplicateGroups) {
+      if (!knownDigests.has(digest)) {
+        errors.push(`new duplicate payload group not in duplicate-report.json: ${paths.join(', ')}`);
+      }
+    }
+  }
 }
 
 if (unresolvedCount > 0) {

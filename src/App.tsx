@@ -237,35 +237,31 @@ type SourceGroupFilter = 'hjth' | 'cmjah' | 'rmmch' | ReadonlyArray<'bara_icu' |
 // Explicit protocol-title -> mind map id links, for the protocols that have a
 // genuine matching interactive flowchart. Most protocols don't have one yet —
 // this is intentionally a short, curated list rather than a fuzzy title match.
-const PROTOCOL_MINDMAP_LINKS: Record<string, string> = {
+export const PROTOCOL_MINDMAP_LINKS: Record<string, string> = {
   'Acute Coronary Syndrome (ACS) Algorithm': 'acs_stemi_flowchart',
   'STEMI Equivalents & Sgarbossa Criteria': 'acs_stemi_flowchart',
   'Acute Ischaemic Stroke': 'stroke_thrombolysis',
   'Diabetic Ketoacidosis (DKA)': 'dka_hhs_flowchart',
   'Diabetic Ketoacidosis (DKA) & HHS': 'dka_hhs_flowchart',
-  'Hypertension Flowchart': 'hypertension_flowchart',
-  'Hypertensive Emergencies': 'hypertension_flowchart',
+  // Hypertension, PE and syncope titles previously linked to ids that only
+  // exist in the protocol-page flowchart registry (or nowhere, for syncope),
+  // so the viewer silently fell back to the adult cardiac arrest map. Those
+  // links are removed; the pathways render on their own protocol pages.
   'Hyperglycaemia Flowchart': 'dka_hhs_flowchart',
   'Jaundice Flowchart': 'jaundice_flowchart',
   'Liver Failure': 'jaundice_flowchart',
-  'PE Algorithm': 'pe_algorithm',
-  'Pulmonary Embolism': 'pe_algorithm',
-  'Status Epilepticus': 'status_epilepticus_algorithm',
-  'Status Epilepsy Anticonvulsant Therapy Algorithm': 'status_epilepticus_algorithm',
+  'Status Epilepticus': 'status_epilepticus',
+  'Status Epilepsy Anticonvulsant Therapy Algorithm': 'status_epilepticus',
   'Anaphylaxis': 'anaphylaxis_flowchart',
   'Agitation & Aggression': 'psychosis_flowchart',
   'Mental Health / Psychosis': 'psychosis_flowchart',
-  'Syncope': 'syncope_ecg',
   // RMMCH title variants that share the same interactive pathways.
   'Anaphylaxis (RMMCH)': 'anaphylaxis_flowchart',
-  'Asthma - Acute (RMMCH)': 'croup_algorithm',
   'Seizures / Convulsions - Status Epilepticus (RMMCH)': 'status_epilepticus',
   // CMJAH title variants that share existing interactive pathways.
   'Anaphylaxis (CMJAH)': 'anaphylaxis_flowchart',
   'Status Epilepticus (CMJAH)': 'status_epilepticus',
   'Hyperglycaemic Emergencies (DKA/HHS) (CMJAH)': 'dka_hhs_flowchart',
-  'Hypertension in the ED (CMJAH)': 'hypertension_flowchart',
-  'Pulmonary Embolism (CMJAH)': 'pe_algorithm',
   'Snakebite Pathway (CMJAH)': 'snakebite_pathway',
   'The Agitated Patient (CMJAH)': 'psychosis_flowchart',
 };
@@ -814,9 +810,21 @@ export default function App() {
                 : ''}{' '}
               {result.resultUnit}
             </strong>
-            {/\bmax(?:imum)?\b/i.test(text) && (
+            {result.printedMax ? (
+              // Never silently cap: show both values and flag the overshoot so
+              // a prescribing error is visible rather than hidden by a clamp.
+              result.maximum > result.printedMax.value ? (
+                <span className="ml-1 font-bold text-rose-300">
+                  — exceeds the printed maximum of {formatCalculatedDose(result.printedMax.value)} {result.printedMax.unit}: give the maximum, not the weight-based value
+                </span>
+              ) : (
+                <span className="ml-1 text-slate-400">
+                  — printed maximum {formatCalculatedDose(result.printedMax.value)} {result.printedMax.unit}
+                </span>
+              )
+            ) : /\bmax(?:imum)?\b/i.test(text) ? (
               <span className="ml-1 text-slate-400">— apply the printed maximum</span>
-            )}
+            ) : null}
           </div>
         ))}
       </div>

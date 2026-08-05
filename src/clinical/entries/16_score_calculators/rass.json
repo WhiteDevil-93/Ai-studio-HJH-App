@@ -64,6 +64,31 @@
         ]
       }
     ],
-    "interpretation": []
+    "interpretation": [
+      {
+        "min": -5,
+        "max": -4,
+        "label": "Deep sedation / unarousable (RASS -5 to -4)",
+        "action": "No response or only physical-stimulus response. Deeper than routine sedation targets - reassess sedation depth and titrate per unit policy."
+      },
+      {
+        "min": -3,
+        "max": -1,
+        "label": "Sedated (RASS -3 to -1)",
+        "action": "Movement or eye opening to voice. Light-to-moderate sedation; a common ICU target range is RASS -2 to 0 - confirm against the unit's prescribed target."
+      },
+      {
+        "min": 0,
+        "max": 0,
+        "label": "Alert and calm (RASS 0)",
+        "action": "Patient is alert and calm."
+      },
+      {
+        "min": 1,
+        "max": 4,
+        "label": "Agitated (RASS +1 to +4)",
+        "action": "Restlessness through combative behaviour. Assess for pain, delirium (CAM-ICU), hypoxia, and withdrawal; escalate per unit sedation/agitation pathway."
+      }
+    ]
   }
 }
