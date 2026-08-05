@@ -24,6 +24,15 @@ const finitePositive = (value: number, field: string): number => {
   return value;
 };
 
+// Fail-closed binary: a risk-factor input must be exactly 0 (no) or 1 (yes).
+// Any other value — blank (NaN), 0.5, 2, -1 — throws rather than being silently
+// coerced to "absent", which would understate the score.
+const binary = (value: number, field: string): 0 | 1 => {
+  if (value === 0) return 0;
+  if (value === 1) return 1;
+  throw new Error(`${field} must be entered as 0 (no) or 1 (yes)`);
+};
+
 export function calculateFormula(
   key: FormulaKey,
   inputs: NumericInputs,
@@ -41,10 +50,12 @@ export function calculateFormula(
       };
     }
     case 'anion_gap_hjh': {
-      const {na, k, cl, hco3} = inputs;
-      for (const [label, value] of Object.entries({na, k, cl, hco3})) {
-        if (!Number.isFinite(value)) throw new Error(`${label} is required`);
-      }
+      // Electrolytes must be present and physiologically positive; a zero or
+      // negative concentration is a data-entry error, not a real result.
+      const na = finitePositive(inputs.na, 'Sodium');
+      const k = finitePositive(inputs.k, 'Potassium');
+      const cl = finitePositive(inputs.cl, 'Chloride');
+      const hco3 = finitePositive(inputs.hco3, 'Bicarbonate');
       const value = na + k - (cl + hco3);
       return {
         value,
@@ -114,18 +125,21 @@ export function calculateFormula(
     }
     case 'pesi': {
       const age = finitePositive(inputs.age, 'Age');
-      const flag = (v: number | undefined) => (v === 1 ? 1 : 0);
+      // Every risk factor is required and must be an exact 0/1 — a missing or
+      // non-binary factor would silently lower the class and mortality estimate.
+      const factor = (value: number, field: string, weight: number) =>
+        binary(value, field) * weight;
       const points =
-        flag(inputs.male_sex) * 10 +
-        flag(inputs.cancer) * 30 +
-        flag(inputs.chf) * 10 +
-        flag(inputs.copd) * 10 +
-        flag(inputs.pulse_110) * 20 +
-        flag(inputs.sbp_100) * 30 +
-        flag(inputs.rr_30) * 20 +
-        flag(inputs.temp_36) * 20 +
-        flag(inputs.altered_mental_status) * 60 +
-        flag(inputs.spo2_90) * 20;
+        factor(inputs.male_sex, 'Male sex', 10) +
+        factor(inputs.cancer, 'History of cancer', 30) +
+        factor(inputs.chf, 'Chronic heart failure', 10) +
+        factor(inputs.copd, 'Chronic pulmonary disease', 10) +
+        factor(inputs.pulse_110, 'Pulse ≥ 110', 20) +
+        factor(inputs.sbp_100, 'Systolic BP < 100', 30) +
+        factor(inputs.rr_30, 'Respiratory rate ≥ 30', 20) +
+        factor(inputs.temp_36, 'Temperature < 36 °C', 20) +
+        factor(inputs.altered_mental_status, 'Altered mental status', 60) +
+        factor(inputs.spo2_90, 'SpO₂ < 90%', 20);
       const value = Math.round(age) + points;
       return {
         value,
@@ -136,7 +150,9 @@ export function calculateFormula(
     case 'meld': {
       const bilirubin = finitePositive(inputs.bilirubin, 'Bilirubin');
       const inr = finitePositive(inputs.inr, 'INR');
-      const dialysis = inputs.on_dialysis === 1;
+      // Dialysis status is required and binary; it drives the creatinine cap,
+      // so an unspecified value must not default to "no dialysis".
+      const dialysis = binary(inputs.on_dialysis, 'Dialysis status') === 1;
       // Standard MELD rules: lab values below 1.0 are floored to 1.0 to avoid
       // negative logarithms, and creatinine is floored at 1.0 and capped at
       // 4.0 (or set to 4.0 outright) if the patient had dialysis twice in the

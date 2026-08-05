@@ -82,3 +82,50 @@ describe('source-backed formula calculations', () => {
     expect(cappedHigh.value).toBe(atCap.value);
   });
 });
+
+describe('fail-closed input validation', () => {
+  const pesiFactors = {
+    male_sex: 0, cancer: 0, chf: 0, copd: 0, pulse_110: 0,
+    sbp_100: 0, rr_30: 0, temp_36: 0, altered_mental_status: 0, spo2_90: 0,
+  };
+
+  it('rejects non-binary PESI risk factors (0.5, 2, -1, NaN)', () => {
+    for (const bad of [0.5, 2, -1, Number.NaN]) {
+      expect(() =>
+        calculateFormula('pesi', {age: 60, ...pesiFactors, cancer: bad}),
+      ).toThrow(/0 \(no\) or 1 \(yes\)/);
+    }
+  });
+
+  it('requires every PESI risk factor to be present', () => {
+    const {cancer: _omitted, ...missingCancer} = pesiFactors;
+    expect(() =>
+      calculateFormula('pesi', {age: 60, ...missingCancer}),
+    ).toThrow(/History of cancer/);
+  });
+
+  it('scores a valid all-binary PESI (age + exact factor points)', () => {
+    const result = calculateFormula('pesi', {
+      age: 60, ...pesiFactors, cancer: 1, altered_mental_status: 1,
+    });
+    expect(result.value).toBe(60 + 30 + 60);
+  });
+
+  it('requires MELD dialysis status to be an exact 0/1', () => {
+    expect(() =>
+      calculateFormula('meld', {bilirubin: 3, inr: 2, creatinine: 2, on_dialysis: Number.NaN}),
+    ).toThrow(/Dialysis status must be entered as 0 \(no\) or 1 \(yes\)/);
+    expect(() =>
+      calculateFormula('meld', {bilirubin: 3, inr: 2, creatinine: 2, on_dialysis: 2}),
+    ).toThrow(/Dialysis status/);
+  });
+
+  it('rejects zero or negative anion-gap electrolytes', () => {
+    expect(() =>
+      calculateFormula('anion_gap_hjh', {na: 140, k: 0, cl: 104, hco3: 24}),
+    ).toThrow(/Potassium must be greater than zero/);
+    expect(() =>
+      calculateFormula('anion_gap_hjh', {na: -1, k: 4, cl: 104, hco3: 24}),
+    ).toThrow(/Sodium must be greater than zero/);
+  });
+});

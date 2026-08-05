@@ -903,15 +903,18 @@ export default function App() {
       let title = '🟢 Normal Oxygenation';
       let desc = 'No acute respiratory distress syndrome detected.';
 
-      if (result < 100) {
+      // Berlin ARDS boundaries are inclusive: P/F ≤ 100 severe, ≤ 200 moderate,
+      // ≤ 300 mild (all with PEEP/CPAP ≥ 5). Exact values 100/200/300 fall into
+      // the more severe band.
+      if (result <= 100) {
         severityClass = 'bg-rose-950/40 border-rose-500/40 text-rose-200 animate-pulse';
         title = '🔴 Severe ARDS';
         desc = 'Requires urgent lung protective ventilation ($V_T$ 6 mL/kg, optimized PEEP, consider proning/paralysis).';
-      } else if (result < 200) {
+      } else if (result <= 200) {
         severityClass = 'bg-orange-950/30 border-orange-500/30 text-orange-200';
         title = '🟠 Moderate ARDS';
         desc = 'Consider early ICU referral, high PEEP strategy, non-invasive support.';
-      } else if (result < 300) {
+      } else if (result <= 300) {
         severityClass = 'bg-yellow-950/20 border-yellow-500/20 text-yellow-100';
         title = '🟡 Mild ARDS';
         desc = 'Monitor respiratory indices and work of breathing closely.';
@@ -1880,7 +1883,10 @@ export default function App() {
     const concentration = Number(state.conc);
     const percentage = Number(state.weight);
     const confirmed = infusionConfirmed[key] === true;
-    const valid = totalDose > 0 && concentration > 0 && percentage > 0;
+    // The protocol rate is 10–20% of the atropinisation dose per hour; a value
+    // outside that band is rejected rather than silently computed.
+    const percentageInRange = percentage >= 10 && percentage <= 20;
+    const valid = totalDose > 0 && concentration > 0 && percentageInRange;
     const rate = confirmed && valid
       ? (totalDose * percentage / 100) / concentration
       : null;
@@ -1949,7 +1955,11 @@ export default function App() {
           I have confirmed the total dose, selected percentage, and actual concentration.
         </label>
         {confirmed && !valid && (
-          <div className="text-[10px] text-rose-300">Complete all three inputs with values greater than zero.</div>
+          <div className="text-[10px] text-rose-300">
+            {totalDose > 0 && concentration > 0 && percentage > 0 && !percentageInRange
+              ? 'Dose per hour must be within the protocol range of 10–20%.'
+              : 'Complete all three inputs with values greater than zero.'}
+          </div>
         )}
         {rate !== null && (
           <div className="border-t border-teal-900/20 pt-2" aria-live="polite">
@@ -1984,6 +1994,9 @@ export default function App() {
           [field]: val
         }
       }));
+      // Any change to dose, concentration or weight invalidates the prior
+      // confirmation so a rate is never shown against unconfirmed inputs.
+      setInfusionConfirmed(prev => ({ ...prev, [key]: false }));
     };
 
     const dVal = parseFloat(state.dose);
@@ -2057,10 +2070,7 @@ export default function App() {
               step="any"
               min="0"
               placeholder={definition.concentration.toString()}
-              onChange={e => {
-                updateInfusionState('conc', e.target.value);
-                setInfusionConfirmed(prev => ({ ...prev, [key]: false }));
-              }}
+              onChange={e => updateInfusionState('conc', e.target.value)}
               className="w-full px-1.5 py-1 bg-black/40 border border-teal-800/30 rounded text-center text-teal-300 font-bold focus:outline-none focus:border-teal-500"
             />
           </div>
