@@ -899,31 +899,38 @@ export default function App() {
     }
 
     if (calcKey === 'pf_ratio') {
+      // The P/F ratio grades OXYGENATION severity. It does not by itself
+      // diagnose ARDS: the Berlin definition additionally requires acute onset
+      // (≤ 1 week), bilateral opacities, respiratory failure not fully explained
+      // by cardiac failure/fluid overload, and measurement on PEEP/CPAP ≥ 5. The
+      // bands below are labelled as oxygenation ranges (inclusive at 100/200/300,
+      // matching the Berlin severity thresholds) and gate the ARDS wording behind
+      // that caveat rather than asserting a diagnosis from the ratio alone.
       let severityClass = 'bg-teal-950/20 border-teal-500/20 text-teal-200';
-      let title = '🟢 Normal Oxygenation';
-      let desc = 'No acute respiratory distress syndrome detected.';
+      let title = '🟢 Normal oxygenation (P/F > 300)';
+      let desc = 'Above the ARDS oxygenation threshold.';
 
-      // Berlin ARDS boundaries are inclusive: P/F ≤ 100 severe, ≤ 200 moderate,
-      // ≤ 300 mild (all with PEEP/CPAP ≥ 5). Exact values 100/200/300 fall into
-      // the more severe band.
       if (result <= 100) {
         severityClass = 'bg-rose-950/40 border-rose-500/40 text-rose-200 animate-pulse';
-        title = '🔴 Severe ARDS';
-        desc = 'Requires urgent lung protective ventilation ($V_T$ 6 mL/kg, optimized PEEP, consider proning/paralysis).';
+        title = '🔴 Severe hypoxaemia (P/F ≤ 100)';
+        desc = 'Meets the Berlin severe-ARDS oxygenation threshold. If ARDS is confirmed: lung-protective ventilation ($V_T$ 6 mL/kg, optimised PEEP, consider proning/paralysis).';
       } else if (result <= 200) {
         severityClass = 'bg-orange-950/30 border-orange-500/30 text-orange-200';
-        title = '🟠 Moderate ARDS';
-        desc = 'Consider early ICU referral, high PEEP strategy, non-invasive support.';
+        title = '🟠 Moderate hypoxaemia (P/F 101–200)';
+        desc = 'Meets the Berlin moderate-ARDS oxygenation threshold. Consider early ICU referral and a high-PEEP strategy.';
       } else if (result <= 300) {
         severityClass = 'bg-yellow-950/20 border-yellow-500/20 text-yellow-100';
-        title = '🟡 Mild ARDS';
-        desc = 'Monitor respiratory indices and work of breathing closely.';
+        title = '🟡 Mild hypoxaemia (P/F 201–300)';
+        desc = 'Meets the Berlin mild-ARDS oxygenation threshold. Monitor respiratory indices and work of breathing closely.';
       }
 
       return (
         <div className={`mt-3 p-3 rounded-lg text-sm border ${severityClass}`}>
           <div className="font-bold">{title}</div>
           <div className="text-xs mt-1 text-slate-300">{desc}</div>
+          <div className="text-[11px] mt-2 text-slate-400 leading-snug">
+            P/F ratio alone does not diagnose ARDS. Confirm the Berlin criteria — acute onset ≤ 1 week, bilateral opacities, not fully explained by cardiac failure/fluid overload, measured on PEEP/CPAP ≥ 5 cmH₂O — before applying an ARDS label or management.
+          </div>
         </div>
       );
     }
@@ -1885,8 +1892,13 @@ export default function App() {
     const confirmed = infusionConfirmed[key] === true;
     // The protocol rate is 10–20% of the atropinisation dose per hour; a value
     // outside that band is rejected rather than silently computed.
+    // Number.isFinite guards against Infinity (e.g. an overflowing 1e309 entry),
+    // which would otherwise pass `> 0` and render "Infinity mL/hr".
+    const positiveFiniteInputs = [totalDose, concentration, percentage].every(
+      value => Number.isFinite(value) && value > 0,
+    );
     const percentageInRange = percentage >= 10 && percentage <= 20;
-    const valid = totalDose > 0 && concentration > 0 && percentageInRange;
+    const valid = positiveFiniteInputs && percentageInRange;
     const rate = confirmed && valid
       ? (totalDose * percentage / 100) / concentration
       : null;
@@ -1956,9 +1968,9 @@ export default function App() {
         </label>
         {confirmed && !valid && (
           <div className="text-[10px] text-rose-300">
-            {totalDose > 0 && concentration > 0 && percentage > 0 && !percentageInRange
+            {positiveFiniteInputs && !percentageInRange
               ? 'Dose per hour must be within the protocol range of 10–20%.'
-              : 'Complete all three inputs with values greater than zero.'}
+              : 'Complete all three inputs with finite values greater than zero.'}
           </div>
         )}
         {rate !== null && (
