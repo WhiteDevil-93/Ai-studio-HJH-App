@@ -20,6 +20,7 @@ import {
   DISEASE_DRUG_PAIRINGS
 } from './clinical/legacyAdapter';
 import { calculateFormula, type FormulaKey } from './clinical/calculations/formulas';
+import { formulaInputSpec } from './clinical/calculations/formulaInputSpecs';
 import {
   calculateInfusionRate,
   INFUSION_DEFINITIONS,
@@ -1069,25 +1070,60 @@ export default function App() {
             </div>
           )}
           <div className="space-y-3">
-            {sc.inputs.map((inp: any) => (
-              <div key={inp.key} className="flex items-center justify-between gap-4">
-                <span className="text-sm font-medium text-slate-300">{inp.name}</span>
-                <div className="flex items-center gap-1.5">
-                  <input
-                    type="number"
-                    step="any"
-                    min="0"
-                    value={inputs[inp.key] || ''}
-                    placeholder="--"
-                    onChange={e => handleFormulaInputChange(key, inp.key, e.target.value)}
-                    disabled={Boolean(sc.disabled_reason)}
-                    aria-label={`${sc.name}: ${inp.name} (${inp.unit})`}
-                    className="w-24 px-2 py-1 bg-black/20 border border-teal-800/40 rounded text-center text-sm text-teal-300 font-bold focus:outline-none focus:border-teal-400"
-                  />
-                  <span className="text-xs text-slate-400 w-12">{inp.unit}</span>
+            {sc.inputs.map((inp: any) => {
+              const spec = formulaInputSpec(formulaKey, inp.key);
+              // Binary inputs render as explicit No/Yes toggles so the UI can
+              // only ever submit the exact 0/1 the fail-closed validator
+              // accepts — free-typing 0.5 or 2 is impossible, and "unanswered"
+              // stays visibly unanswered instead of defaulting to "no".
+              if (spec?.kind === 'binary') {
+                const current = inputs[inp.key] ?? '';
+                return (
+                  <div key={inp.key} className="flex items-center justify-between gap-4">
+                    <span className="text-sm font-medium text-slate-300">{inp.name}</span>
+                    <div className="flex items-center gap-1.5" role="group" aria-label={`${sc.name}: ${inp.name}`}>
+                      {(['0', '1'] as const).map(optionValue => (
+                        <button
+                          key={optionValue}
+                          type="button"
+                          onClick={() => handleFormulaInputChange(key, inp.key, optionValue)}
+                          disabled={Boolean(sc.disabled_reason)}
+                          aria-pressed={current === optionValue}
+                          className={`rounded border px-3 py-1 text-xs font-bold transition ${current === optionValue
+                              ? optionValue === '1'
+                                ? 'border-rose-400 bg-rose-500/20 text-rose-200'
+                                : 'border-teal-400 bg-teal-500/20 text-teal-200'
+                              : 'border-slate-700 bg-slate-900/50 text-slate-400'
+                            }`}
+                        >
+                          {optionValue === '1' ? 'Yes' : 'No'}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+              return (
+                <div key={inp.key} className="flex items-center justify-between gap-4">
+                  <span className="text-sm font-medium text-slate-300">{inp.name}</span>
+                  <div className="flex items-center gap-1.5">
+                    <input
+                      type="number"
+                      step="any"
+                      min={spec?.kind === 'bounded' ? spec.min : 0}
+                      max={spec?.kind === 'bounded' ? spec.max : undefined}
+                      value={inputs[inp.key] || ''}
+                      placeholder="--"
+                      onChange={e => handleFormulaInputChange(key, inp.key, e.target.value)}
+                      disabled={Boolean(sc.disabled_reason)}
+                      aria-label={`${sc.name}: ${inp.name} (${inp.unit})`}
+                      className="w-24 px-2 py-1 bg-black/20 border border-teal-800/40 rounded text-center text-sm text-teal-300 font-bold focus:outline-none focus:border-teal-400"
+                    />
+                    <span className="text-xs text-slate-400 w-12">{inp.unit}</span>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
           {evaluation.error && (
             <div className="mt-3 rounded-lg border border-rose-500/40 bg-rose-950/20 p-2 text-xs text-rose-200" role="alert">
