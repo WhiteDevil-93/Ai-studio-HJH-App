@@ -1009,9 +1009,33 @@ export const MindMapViewer: React.FC<MindMapViewerProps> = ({
   isFavourite = false,
   onToggleFavourite
 }) => {
-  const mindMap = MIND_MAPS_DATABASE[mindMapId] || MIND_MAPS_DATABASE['aha_bls_acls'];
-  const [currentNodeId, setCurrentNodeId] = useState<string>(mindMap.initialNodeId);
+  // No fallback to another algorithm: opening an unknown mind-map ID must show
+  // an explicit not-found state. Falling back to the adult cardiac arrest map
+  // silently presented the WRONG algorithm whenever a link was broken — and
+  // masked the broken link itself.
+  const mindMap: MindMapDefinition | undefined = MIND_MAPS_DATABASE[mindMapId];
+  const [currentNodeId, setCurrentNodeId] = useState<string>(mindMap?.initialNodeId ?? '');
   const [viewMode, setViewMode] = useState<'step' | 'full_diagram'>('step');
+
+  if (!mindMap) {
+    return (
+      <div className="max-w-2xl mx-auto py-16 text-center space-y-4">
+        <div className="text-4xl">🗺️</div>
+        <h2 className="text-lg font-bold text-slate-900 dark:text-white">Mind map not found</h2>
+        <p className="text-sm text-slate-500 dark:text-slate-400">
+          No interactive pathway exists for the identifier “{mindMapId}”. This link is broken —
+          please report it. No substitute algorithm is shown, to avoid presenting the wrong pathway.
+        </p>
+        <button
+          onClick={onBack}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 font-semibold text-xs transition-colors"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          Back to Home
+        </button>
+      </div>
+    );
+  }
 
   const currentNode = mindMap.nodes[currentNodeId] || mindMap.nodes[mindMap.initialNodeId];
   const allNodesList = Object.values(mindMap.nodes);
