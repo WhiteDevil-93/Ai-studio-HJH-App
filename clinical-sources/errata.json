@@ -62,6 +62,16 @@
           "decision": "Two-person clinical review authorised applying the validated 'Age >= 65 years' threshold.",
           "entryIds": ["16_score_calculators.canadian_cspine"],
           "applicationAction": "The canonical entry still mirrors the immutable supplied source ('Age > 65'); the validated 'Age >= 65 years' value is applied to the effective runtime record via the reviewed score-corrections overlay (src/clinical/scoreCorrections.ts), preserving the source-mirror invariant."
+        },
+        {
+          "id": "ERR-HJH-008",
+          "pdfPages": [95, 96],
+          "topic": "Hypokalaemia entry contaminated with hypernatraemia content",
+          "issue": "The category-browse hypokalaemia entry cited page 95 but its clinical_features and all ten management_steps were a verbatim copy of the page 96 HYPERNATRAEMIA payload - including 'Aim to correct Na+ by 10-12mmol/l in 24hrs', 'Causes of Hypernatraemia' and DDAVP/diabetes-insipidus text. Only its drugs list held genuine potassium content, truncated mid-word. A clinician opening Hypokalaemia was shown sodium-correction instructions. This is a further instance of the documented HJH extraction root cause (fixed-size text windows from adjacent pages attached to correctly titled records); the same topic already rendered correctly on the HJH protocol-library page, which consumes clinical-sources/corrections/HJH/hypokalaemia.json.",
+          "status": "resolved-from-source",
+          "decision": "Two-person clinical review approved replacing the contaminated payload with the page-95 content already reviewed against the PDF (review_state 'reviewed-against-pdf-page-95').",
+          "entryIds": ["5_metabolic_electrolytes_and_nutrition.electrolyte_replacement.hypokalaemia-hjh"],
+          "applicationAction": "Entry rebuilt from the verified page-95 source text (K+ < 3.5 mmol/l; simultaneous K and Mg replacement; 40 mmol KCl + 2g MgSO4 in 200 ml 0.9% NaCl over 4 hours via pump/dial-a-flow at 50 ml/hr; life-threatening arrest dose 20 mEq/mmol KCl (10 ml) at 1 ml/min then re-check). Both rendering paths now agree; a regression test asserts the entry contains no sodium-correction text."
         }
       ]
     },

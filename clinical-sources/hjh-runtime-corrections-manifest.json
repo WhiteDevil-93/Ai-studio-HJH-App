@@ -51,6 +51,13 @@
       "correctPdfPages": [
         99
       ]
+    },
+    {
+      "incorrectRecord": "hypokalaemia.json",
+      "incorrectPayload": "Hypernatraemia content (page 96) in the category-browse entry",
+      "correctPdfPages": [
+        95
+      ]
     }
   ],
   "pdfPageTranscriptionOverlays": {
