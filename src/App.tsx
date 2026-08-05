@@ -30,7 +30,7 @@ import {
   extractWeightDoseResults,
   infusionDefinitionFromDoseText,
 } from './clinical/calculations/weightDose';
-import { calculateChecklistScore } from './clinical/scores';
+import { calculateChecklistScore, evaluateNews2 } from './clinical/scores';
 import type { CriterionAnswer } from './clinical/types';
 import {
   TRIALS_REFERENCE,
@@ -583,6 +583,13 @@ export default function App() {
   // via this generic mechanism automatically, same idea as checklistAnswers
   // above but for graded (not binary) criteria.
   const [gradedScoreAnswers, setGradedScoreAnswers] = useState<Record<string, Record<string, number>>>({});
+  // NEWS2 SpO2 scale: Scale 2 only when a clinician has designated an 88-92%
+  // target (hypercapnic respiratory failure). Switching scales clears both
+  // SpO2 answers so a selection never carries across scales. Answers are keyed
+  // by option label because Scale 2 legitimately has distinct bands with equal
+  // point values (e.g. "88-92" and ">= 93 on air" both score 0).
+  const [news2Scale, setNews2Scale] = useState<'scale1' | 'scale2'>('scale1');
+  const [news2Answers, setNews2Answers] = useState<Record<string, {label: string; value: number}>>({});
   const [burchWartofskyState, setBurchWartofskyState] = useState<Record<string, number>>({});
   const [ccsState, setCcsState] = useState<Record<string, boolean>>({});
   const [ccsApplicable, setCcsApplicable] = useState<CriterionAnswer>('unanswered');
@@ -1653,6 +1660,157 @@ export default function App() {
           <div className="mt-2 text-[10px] text-amber-300">
             Clinical review pending for source-table errata on HJH PDF page 190.
           </div>
+        </div>
+      );
+    }
+
+    // NEWS2 needs a dedicated renderer: it carries two mutually exclusive SpO2
+    // scales (Scale 2 only for clinician-designated 88-92% targets) and the RCP
+    // escalation table's red-score rule — any single parameter scoring 3
+    // escalates to at least urgent review regardless of the aggregate. The
+    // scoring itself lives in evaluateNews2 (scores.ts) so it is unit-tested.
+    if (key === 'news2') {
+      const activeSpo2Key = news2Scale === 'scale2' ? 'spo2_scale2' : 'spo2';
+      const activeComponents = (sc.components as Array<{key: string; name: string; options: Array<{label: string; value: number}>}>)
+        .filter(comp => comp.key !== (news2Scale === 'scale2' ? 'spo2' : 'spo2_scale2'));
+      const requiredKeys = activeComponents.map(comp => comp.key);
+      const news2 = evaluateNews2(
+        requiredKeys,
+        Object.fromEntries(requiredKeys.map(k => [k, news2Answers[k]?.value])),
+      );
+
+      const switchScale = (scale: 'scale1' | 'scale2') => {
+        if (scale === news2Scale) return;
+        setNews2Scale(scale);
+        setNews2Answers(prev => {
+          const next = {...prev};
+          delete next.spo2;
+          delete next.spo2_scale2;
+          return next;
+        });
+      };
+
+      const riskPresentation: Record<string, {label: string; action: string; className: string}> = {
+        low: {
+          label: '🟢 Low clinical risk',
+          action: 'Routine ward-based monitoring per local NEWS2 policy.',
+          className: 'bg-teal-950/20 border-teal-500/25 text-teal-300',
+        },
+        'low-medium': {
+          label: '🟠 Low-medium risk — single parameter scoring 3',
+          action: 'A red score in one parameter mandates an urgent ward-based review by a clinician competent in assessing acute illness, regardless of the total.',
+          className: 'bg-orange-950/30 border-orange-500/30 text-orange-300',
+        },
+        medium: {
+          label: '🟠 Medium clinical risk (NEWS2 5-6)',
+          action: 'Urgent review by a clinician with core competencies in acute illness; escalate monitoring frequency.',
+          className: 'bg-orange-950/30 border-orange-500/30 text-orange-300',
+        },
+        high: {
+          label: '🔴 High clinical risk (NEWS2 ≥ 7)',
+          action: 'Emergency assessment by a team with critical-care competencies; continuous monitoring in a higher-care setting.',
+          className: 'bg-rose-950/30 border-rose-500/30 text-rose-300 animate-pulse',
+        },
+      };
+
+      return (
+        <div
+          key={key}
+          onClick={() => recordRecentlyViewed(key, sc.name, '16_score_calculators', 'calculator')}
+          className={`p-4 rounded-xl border mb-4 cursor-pointer ${theme === 'dark' ? 'bg-[#0f1d1d] border-teal-900/40' : 'bg-white border-slate-200 shadow-sm'}`}
+        >
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2">
+              <Calculator className="h-5 w-5 text-teal-400" />
+              {renderScoreTitle()}
+            </div>
+            <div className="flex items-center gap-2">
+              {news2.complete && (
+                <div className="px-2 py-0.5 rounded bg-teal-950 text-teal-300 border border-teal-800 text-xs font-bold">
+                  Score: {news2.total}
+                </div>
+              )}
+              {renderScoreFavouriteButton(key)}
+            </div>
+          </div>
+
+          <div className="mb-4 rounded-lg border border-teal-900/30 bg-black/10 p-3">
+            <div className="mb-1 text-xs font-bold text-teal-300">SpO₂ scale</div>
+            <p className="mb-2 text-[10px] leading-snug text-slate-400">
+              Use Scale 2 only when a clinician has formally designated a target saturation of 88–92% (hypercapnic respiratory failure, e.g. COPD). If in doubt, use Scale 1.
+            </p>
+            <div className="flex gap-2">
+              <button
+                type="button"
+                onClick={() => switchScale('scale1')}
+                aria-pressed={news2Scale === 'scale1'}
+                className={`rounded border px-3 py-1 text-xs font-bold ${news2Scale === 'scale1' ? 'border-teal-400 bg-teal-500/20 text-teal-200' : 'border-slate-700 text-slate-400'}`}
+              >
+                Scale 1 (standard)
+              </button>
+              <button
+                type="button"
+                onClick={() => switchScale('scale2')}
+                aria-pressed={news2Scale === 'scale2'}
+                className={`rounded border px-3 py-1 text-xs font-bold ${news2Scale === 'scale2' ? 'border-amber-400 bg-amber-500/20 text-amber-200' : 'border-slate-700 text-slate-400'}`}
+              >
+                Scale 2 (target 88–92%)
+              </button>
+            </div>
+            {news2Scale === 'scale2' && (
+              <div className="mt-2 rounded border border-amber-500/30 bg-amber-950/20 p-2 text-[10px] text-amber-100">
+                Scale 2 selected: confirm the 88–92% target is documented by the responsible clinician.
+              </div>
+            )}
+          </div>
+
+          <div className="space-y-4">
+            {activeComponents.map(comp => (
+              <div key={comp.key} className="space-y-1.5">
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">{comp.name}</span>
+                <div className="flex flex-col gap-1.5">
+                  {comp.options.map(opt => {
+                    const isSelected = news2Answers[comp.key]?.label === opt.label;
+                    return (
+                      <button
+                        key={opt.label}
+                        type="button"
+                        onClick={() =>
+                          setNews2Answers(prev => ({...prev, [comp.key]: {label: opt.label, value: opt.value}}))
+                        }
+                        className={`px-3 py-2 rounded-lg border text-left flex justify-between items-center transition ${isSelected
+                            ? 'bg-teal-500/20 border-teal-400 text-teal-300'
+                            : 'bg-black/10 border-teal-950/20 hover:border-teal-700/40 text-slate-300'
+                          }`}
+                      >
+                        <span className="text-xs font-medium">{opt.label}</span>
+                        <span className={`text-[10px] font-black px-1.5 py-0.5 rounded ${isSelected ? 'bg-teal-400 text-black' : 'bg-slate-800 text-slate-400'}`}>
+                          {opt.value === 3 ? '🔴 ' : ''}+{opt.value} pts
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {news2.risk ? (
+            <div className={`mt-4 p-3 rounded-lg border text-sm ${riskPresentation[news2.risk].className}`}>
+              <div className="font-bold">{riskPresentation[news2.risk].label}</div>
+              <div className="text-xs mt-1 text-slate-300">{riskPresentation[news2.risk].action}</div>
+              {news2.anySingleThree && news2.risk !== 'low-medium' && (
+                <div className="text-[11px] mt-2 text-slate-300">
+                  Includes at least one parameter scoring 3 (red score).
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="mt-4 rounded-lg border border-slate-700 bg-slate-900/40 p-3 text-sm text-slate-300" aria-live="polite">
+              <div className="font-bold">Assessment incomplete</div>
+              <div className="mt-1 text-xs">{news2.answeredCount} of {requiredKeys.length} parameters answered ({activeSpo2Key === 'spo2_scale2' ? 'Scale 2' : 'Scale 1'} active). No risk band is shown until every parameter is answered.</div>
+            </div>
+          )}
         </div>
       );
     }
