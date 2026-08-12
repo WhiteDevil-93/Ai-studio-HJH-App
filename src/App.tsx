@@ -31,6 +31,7 @@ import {
   infusionDefinitionFromDoseText,
 } from './clinical/calculations/weightDose';
 import { calculateChecklistScore, evaluateNews2 } from './clinical/scores';
+import { resolveEntryAlias } from './clinical/entryAliases';
 import type { CriterionAnswer } from './clinical/types';
 import {
   TRIALS_REFERENCE,
@@ -406,7 +407,12 @@ export default function App() {
   const [favourites, setFavourites] = useState<string[]>(() => {
     try {
       const parsed: unknown = JSON.parse(localStorage.getItem('tr_f') || '[]');
-      return Array.isArray(parsed) ? parsed.filter((value): value is string => typeof value === 'string') : [];
+      if (!Array.isArray(parsed)) return [];
+      const migrated = parsed
+        .filter((value): value is string => typeof value === 'string')
+        .map(resolveEntryAlias);
+      // Two saved favourites can collapse onto the same canonical entry.
+      return [...new Set(migrated)];
     } catch {
       return [];
     }
@@ -425,7 +431,7 @@ export default function App() {
     try {
       const parsed: unknown = JSON.parse(localStorage.getItem('tr_rv') || '[]');
       if (!Array.isArray(parsed)) return [];
-      return parsed.filter((value): value is RecentlyViewedItem => {
+      const valid = parsed.filter((value): value is RecentlyViewedItem => {
         if (!value || typeof value !== 'object') return false;
         const candidate = value as Partial<RecentlyViewedItem>;
         return (
@@ -436,6 +442,14 @@ export default function App() {
           ['drug', 'procedure', 'calculator'].includes(candidate.type ?? '')
         );
       });
+      // Migrate deduplicated IDs, keeping the most recent view of each entry.
+      const byKey = new Map<string, RecentlyViewedItem>();
+      for (const item of valid) {
+        const key = resolveEntryAlias(item.key);
+        const existing = byKey.get(key);
+        if (!existing || existing.timestamp < item.timestamp) byKey.set(key, {...item, key});
+      }
+      return [...byKey.values()].sort((left, right) => right.timestamp - left.timestamp);
     } catch {
       return [];
     }
