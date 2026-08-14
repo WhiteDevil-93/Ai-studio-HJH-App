@@ -30,7 +30,27 @@ import {
   extractWeightDoseResults,
   infusionDefinitionFromDoseText,
 } from './clinical/calculations/weightDose';
-import { calculateChecklistScore, evaluateNews2 } from './clinical/scores';
+import { calculateChecklistScore, evaluateCanadianCSpine, evaluateNews2 } from './clinical/scores';
+import {
+  interpretAnionGap,
+  interpretBurchWartofsky,
+  interpretCamIcu,
+  interpretCanadianCSpine,
+  interpretChecklistScore,
+  interpretCorrectedSodium,
+  interpretFreeWaterDeficit,
+  interpretGcs,
+  interpretGradedScore,
+  interpretMeld,
+  interpretNews2Risk,
+  interpretNexus,
+  interpretParkland,
+  interpretPesi,
+  interpretPfRatio,
+  interpretSodiumDeficit,
+  interpretTieredRiskRule,
+  PF_RATIO_ARDS_CAVEAT,
+} from './clinical/scoreInterpretations';
 import { resolveEntryAlias } from './clinical/entryAliases';
 import type { CriterionAnswer } from './clinical/types';
 import {
@@ -584,167 +604,128 @@ export default function App() {
     }));
   };
 
-  // Re-usable formula calculation result renderers
   const getFormulaResultDesc = (calcKey: string, result: number) => {
     if (result === null || isNaN(result)) return null;
 
     if (calcKey === 'parkland') {
-      const totalVolume = result;
-      const first8h = totalVolume / 2;
-      const next16h = totalVolume / 2;
-      const hourlyFirst8h = first8h / 8;
-      const hourlyNext16h = next16h / 16;
+      const plan = interpretParkland(result);
       return (
         <div className="mt-3 p-3 rounded-lg bg-teal-950/20 border border-teal-500/20 text-sm space-y-2 text-slate-300">
           <div className="text-teal-400 font-bold">HJH Modified Brooke Resuscitation Plan</div>
-          <div>Total 24-hour Volume: <strong className="text-white">{totalVolume.toFixed(0)} mL</strong></div>
+          <div>Total 24-hour Volume: <strong className="text-white">{plan.totalVolumeMl.toFixed(0)} mL</strong></div>
           <div className="grid grid-cols-2 gap-2 mt-1">
             <div className="p-2 bg-slate-900/50 rounded border border-slate-800">
               <div className="text-xs text-slate-400">First 8 Hours From Time of Burn (50%)</div>
-              <div className="font-bold text-teal-300">{first8h.toFixed(0)} mL</div>
-              <div className="text-[11px] text-teal-400">{hourlyFirst8h.toFixed(1)} mL/hr</div>
+              <div className="font-bold text-teal-300">{plan.first8hMl.toFixed(0)} mL</div>
+              <div className="text-[11px] text-teal-400">{plan.hourlyFirst8hMl.toFixed(1)} mL/hr</div>
             </div>
             <div className="p-2 bg-slate-900/50 rounded border border-slate-800">
               <div className="text-xs text-slate-400">Next 16 Hours (50%)</div>
-              <div className="font-bold text-teal-300">{next16h.toFixed(0)} mL</div>
-              <div className="text-[11px] text-teal-400">{hourlyNext16h.toFixed(1)} mL/hr</div>
+              <div className="font-bold text-teal-300">{plan.next16hMl.toFixed(0)} mL</div>
+              <div className="text-[11px] text-teal-400">{plan.hourlyNext16hMl.toFixed(1)} mL/hr</div>
             </div>
           </div>
-          <div className="text-xs text-rose-300">⚠️ HJH initiation thresholds: adults &gt;20% TBSA and children &gt;15% TBSA. Paediatric maintenance fluid is separate.</div>
+          <div className="text-xs text-rose-300">{plan.warning}</div>
         </div>
       );
     }
 
     if (calcKey === 'anion_gap') {
-      const isHigh = result > 16;
+      const interp = interpretAnionGap(result);
       return (
-        <div className={`mt-3 p-3 rounded-lg text-sm border ${isHigh ? 'bg-rose-950/20 border-rose-500/20 text-rose-200' : 'bg-teal-950/20 border-teal-500/20 text-teal-200'}`}>
-          <div className="font-bold">{isHigh ? '🔴 Elevated Anion Gap' : '🟢 Normal Anion Gap'}</div>
-          <div className="text-xs mt-1 leading-normal text-slate-300">
-            {isHigh
-              ? 'MUDPILES / GOLD MARK differential: Methanol, Uremia, DKA/Ketoacidosis, Paracetamol/Propofol, Iron/INH, Lactic acidosis, Ethylene glycol, Salicylates.'
-              : 'Normal reference range: 8–16 mmol/L.'}
-          </div>
+        <div className={`mt-3 p-3 rounded-lg text-sm border ${interp.tone === 'high' ? 'bg-rose-950/20 border-rose-500/20 text-rose-200' : 'bg-teal-950/20 border-teal-500/20 text-teal-200'}`}>
+          <div className="font-bold">{interp.title}</div>
+          <div className="text-xs mt-1 leading-normal text-slate-300">{interp.action}</div>
         </div>
       );
     }
 
     if (calcKey.startsWith('corrected_na_hjh_')) {
+      const interp = interpretCorrectedSodium(result);
       return (
         <div className="mt-3 p-3 rounded-lg bg-teal-950/20 border border-teal-500/20 text-sm text-slate-300">
           <div>Corrected Sodium: <strong className="text-white">{result.toFixed(1)} mmol/L</strong></div>
-          <div className="text-xs text-slate-400 mt-1">Adjusted for dilutional effect of hyperglycaemia on measured sodium.</div>
+          <div className="text-xs text-slate-400 mt-1">{interp.action}</div>
         </div>
       );
     }
 
     if (calcKey === 'free_water_deficit') {
+      const interp = interpretFreeWaterDeficit(result);
       return (
         <div className="mt-3 p-3 rounded-lg bg-teal-950/20 border border-teal-500/20 text-sm text-slate-300">
           <div>Free Water Deficit: <strong className="text-white">{result.toFixed(1)} Litres</strong></div>
-          <div className="text-xs text-rose-300 mt-1">⚠️ Correct slowly over 48–72 hours to prevent cerebral edema. Max correction 10–12 mmol/L per 24h.</div>
+          <div className="text-xs text-rose-300 mt-1">{interp.action}</div>
         </div>
       );
     }
 
     if (calcKey === 'sodium_deficit') {
+      const interp = interpretSodiumDeficit(result);
       return (
         <div className="mt-3 p-3 rounded-lg bg-teal-950/20 border border-teal-500/20 text-sm text-slate-300">
           <div>Sodium Deficit: <strong className="text-white">{result.toFixed(0)} mmol</strong></div>
-          <div className="text-xs text-rose-300 mt-1">⚠️ Correct severe hyponatremia slowly. Avoid correcting too quickly (risk of osmotic demyelination / pontine myelinolysis). Limit to &lt;10 mmol/L in 24 hours.</div>
+          <div className="text-xs text-rose-300 mt-1">{interp.action}</div>
         </div>
       );
     }
 
     if (calcKey === 'pf_ratio') {
-      // The P/F ratio grades OXYGENATION severity. It does not by itself
-      // diagnose ARDS: the Berlin definition additionally requires acute onset
-      // (≤ 1 week), bilateral opacities, respiratory failure not fully explained
-      // by cardiac failure/fluid overload, and measurement on PEEP/CPAP ≥ 5. The
-      // bands below are labelled as oxygenation ranges (inclusive at 100/200/300,
-      // matching the Berlin severity thresholds) and gate the ARDS wording behind
-      // that caveat rather than asserting a diagnosis from the ratio alone.
-      let severityClass = 'bg-teal-950/20 border-teal-500/20 text-teal-200';
-      let title = '🟢 Normal oxygenation (P/F > 300)';
-      let desc = 'Above the ARDS oxygenation threshold.';
-
-      if (result <= 100) {
-        severityClass = 'bg-rose-950/40 border-rose-500/40 text-rose-200 animate-pulse';
-        title = '🔴 Severe hypoxaemia (P/F ≤ 100)';
-        desc = 'Meets the Berlin severe-ARDS oxygenation threshold. If ARDS is confirmed: lung-protective ventilation ($V_T$ 6 mL/kg, optimised PEEP, consider proning/paralysis).';
-      } else if (result <= 200) {
-        severityClass = 'bg-orange-950/30 border-orange-500/30 text-orange-200';
-        title = '🟠 Moderate hypoxaemia (P/F 101–200)';
-        desc = 'Meets the Berlin moderate-ARDS oxygenation threshold. Consider early ICU referral and a high-PEEP strategy.';
-      } else if (result <= 300) {
-        severityClass = 'bg-yellow-950/20 border-yellow-500/20 text-yellow-100';
-        title = '🟡 Mild hypoxaemia (P/F 201–300)';
-        desc = 'Meets the Berlin mild-ARDS oxygenation threshold. Monitor respiratory indices and work of breathing closely.';
-      }
-
+      const interp = interpretPfRatio(result);
+      const severityClass =
+        interp.tone === 'high'
+          ? 'bg-rose-950/40 border-rose-500/40 text-rose-200 animate-pulse'
+          : interp.title.includes('Moderate')
+            ? 'bg-orange-950/30 border-orange-500/30 text-orange-200'
+            : interp.title.includes('Mild')
+              ? 'bg-yellow-950/20 border-yellow-500/20 text-yellow-100'
+              : 'bg-teal-950/20 border-teal-500/20 text-teal-200';
       return (
         <div className={`mt-3 p-3 rounded-lg text-sm border ${severityClass}`}>
-          <div className="font-bold">{title}</div>
-          <div className="text-xs mt-1 text-slate-300">{desc}</div>
+          <div className="font-bold">{interp.title}</div>
+          <div className="text-xs mt-1 text-slate-300">{interp.action}</div>
           <div className="text-[11px] mt-2 text-slate-400 leading-snug">
-            P/F ratio alone does not diagnose ARDS. Confirm the Berlin criteria — acute onset ≤ 1 week, bilateral opacities, not fully explained by cardiac failure/fluid overload, measured on PEEP/CPAP ≥ 5 cmH₂O — before applying an ARDS label or management.
+            {PF_RATIO_ARDS_CAVEAT}
           </div>
         </div>
       );
     }
 
     if (calcKey === 'pesi') {
-      let severityClass = 'bg-teal-950/20 border-teal-500/20 text-teal-200';
-      let title = 'Class I - Very low risk';
-      let desc = '0-1.6% 30-day mortality.';
-
-      if (result > 125) {
-        severityClass = 'bg-rose-950/40 border-rose-500/40 text-rose-200 animate-pulse';
-        title = 'Class V - Very high risk';
-        desc = '10.0-24.5% 30-day mortality.';
-      } else if (result > 105) {
-        severityClass = 'bg-rose-950/20 border-rose-500/20 text-rose-200';
-        title = 'Class IV - High risk';
-        desc = '4.0-11.4% 30-day mortality.';
-      } else if (result > 85) {
-        severityClass = 'bg-orange-950/30 border-orange-500/30 text-orange-200';
-        title = 'Class III - Moderate risk';
-        desc = '3.2-7.1% 30-day mortality.';
-      } else if (result > 65) {
-        severityClass = 'bg-yellow-950/20 border-yellow-500/20 text-yellow-100';
-        title = 'Class II - Low risk';
-        desc = '1.7-3.5% 30-day mortality.';
-      }
-
+      const interp = interpretPesi(result);
+      const severityClass =
+        interp.title.startsWith('Class V')
+          ? 'bg-rose-950/40 border-rose-500/40 text-rose-200 animate-pulse'
+          : interp.title.startsWith('Class IV')
+            ? 'bg-rose-950/20 border-rose-500/20 text-rose-200'
+            : interp.title.startsWith('Class III')
+              ? 'bg-orange-950/30 border-orange-500/30 text-orange-200'
+              : interp.title.startsWith('Class II')
+                ? 'bg-yellow-950/20 border-yellow-500/20 text-yellow-100'
+                : 'bg-teal-950/20 border-teal-500/20 text-teal-200';
       return (
         <div className={`mt-3 p-3 rounded-lg text-sm border ${severityClass}`}>
-          <div className="font-bold">{title}</div>
-          <div className="text-xs mt-1 text-slate-300">{desc}</div>
+          <div className="font-bold">{interp.title}</div>
+          <div className="text-xs mt-1 text-slate-300">{interp.action}</div>
         </div>
       );
     }
 
     if (calcKey === 'meld') {
-      let severityClass = 'bg-teal-950/20 border-teal-500/20 text-teal-200';
-      let desc = 'Approximate 3-month mortality < 2%.';
-
-      if (result >= 40) {
-        severityClass = 'bg-rose-950/40 border-rose-500/40 text-rose-200 animate-pulse';
-        desc = 'Approximate 3-month mortality ~71%.';
-      } else if (result >= 30) {
-        severityClass = 'bg-rose-950/20 border-rose-500/20 text-rose-200';
-        desc = 'Approximate 3-month mortality ~53%.';
-      } else if (result >= 20) {
-        severityClass = 'bg-orange-950/30 border-orange-500/30 text-orange-200';
-        desc = 'Approximate 3-month mortality ~20%.';
-      } else if (result >= 10) {
-        severityClass = 'bg-yellow-950/20 border-yellow-500/20 text-yellow-100';
-        desc = 'Approximate 3-month mortality ~6%.';
-      }
-
+      const interp = interpretMeld(result);
+      const severityClass =
+        result >= 40
+          ? 'bg-rose-950/40 border-rose-500/40 text-rose-200 animate-pulse'
+          : result >= 30
+            ? 'bg-rose-950/20 border-rose-500/20 text-rose-200'
+            : result >= 20
+              ? 'bg-orange-950/30 border-orange-500/30 text-orange-200'
+              : result >= 10
+                ? 'bg-yellow-950/20 border-yellow-500/20 text-yellow-100'
+                : 'bg-teal-950/20 border-teal-500/20 text-teal-200';
       return (
         <div className={`mt-3 p-3 rounded-lg text-sm border ${severityClass}`}>
-          <div className="text-xs text-slate-300">{desc}</div>
+          <div className="text-xs text-slate-300">{interp.action}</div>
         </div>
       );
     }
@@ -907,26 +888,17 @@ export default function App() {
       const verbal = gcsState.verbal || 0;
       const motor = gcsState.motor || 0;
       const gcsTotal = eye + verbal + motor;
-
-      let severityLabel = 'Select values';
-      let severityClass = 'text-slate-400';
-      let severityAction = 'Provide GCS criteria selections to evaluate severity.';
-
-      if (eye && verbal && motor) {
-        if (gcsTotal >= 13) {
-          severityLabel = 'Mild Head Injury';
-          severityClass = 'text-teal-400';
-          severityAction = 'Perform clinical monitoring. CT head if high-risk features are present.';
-        } else if (gcsTotal >= 9) {
-          severityLabel = 'Moderate Head Injury';
-          severityClass = 'text-amber-400';
-          severityAction = 'Perform urgent CT head and consult Neurosurgery.';
-        } else {
-          severityLabel = 'Severe Head Injury (GCS ≤ 8)';
-          severityClass = 'text-rose-400 animate-pulse';
-          severityAction = 'Intubate for airway protection immediately. Arrange emergent CT brain.';
-        }
-      }
+      const gcsInterp = interpretGcs(eye, verbal, motor);
+      const severityLabel = gcsInterp?.title ?? 'Select values';
+      const severityAction = gcsInterp?.action ?? 'Provide GCS criteria selections to evaluate severity.';
+      const severityClass =
+        gcsInterp?.tone === 'high'
+          ? 'text-rose-400 animate-pulse'
+          : gcsInterp?.tone === 'moderate'
+            ? 'text-amber-400'
+            : gcsInterp?.tone === 'low'
+              ? 'text-teal-400'
+              : 'text-slate-400';
 
       return (
         <div
@@ -988,8 +960,9 @@ export default function App() {
     }
 
     if (key === 'nexus') {
-      const totalAnswered = Object.keys(nexusState).length;
-      const isHighRisk = Object.values(nexusState).some(v => v === true);
+      const nexusKeys = sc.components.map((comp: any) => comp.key);
+      const nexusInterp = interpretNexus(nexusState, nexusKeys);
+      const isHighRisk = nexusInterp?.tone === 'high';
 
       return (
         <div key={key} className={`p-4 rounded-xl border mb-4 ${theme === 'dark' ? 'bg-[#0f1d1d] border-teal-900/40' : 'bg-white border-slate-200 shadow-sm'}`}>
@@ -1032,14 +1005,10 @@ export default function App() {
             })}
           </div>
 
-          {totalAnswered === sc.components.length && (
+          {nexusInterp && (
             <div className={`mt-4 p-3 rounded-lg border text-sm ${isHighRisk ? 'bg-rose-950/20 border-rose-500/20 text-rose-200' : 'bg-teal-950/20 border-teal-500/20 text-teal-200'}`}>
-              <div className="font-bold">{isHighRisk ? '🔴 C-Spine Imaging Required' : '🟢 Clinical Clearance Possible'}</div>
-              <div className="text-xs mt-1 text-slate-300">
-                {isHighRisk
-                  ? 'High-risk factors present. Maintain inline spinal stabilization and order non-contrast C-spine CT.'
-                  : 'Meets low-risk criteria. C-spine may be clinically cleared without radiographs.'}
-              </div>
+              <div className="font-bold">{nexusInterp.title}</div>
+              <div className="text-xs mt-1 text-slate-300">{nexusInterp.action}</div>
             </div>
           )}
         </div>
@@ -1049,18 +1018,21 @@ export default function App() {
     if (key === 'canadian_cspine') {
       const highRiskComponents = sc.components.filter((comp: any) => comp.dangerous);
       const lowRiskComponents = sc.components.filter((comp: any) => comp.simple);
-      const highRiskComplete = highRiskComponents.every(
-        (comp: any) => ccsState[comp.key] !== undefined,
-      );
-      const lowRiskComplete = lowRiskComponents.every(
-        (comp: any) => ccsState[comp.key] !== undefined,
-      );
-      const isDangerous = highRiskComponents.some(
-        (comp: any) => ccsState[comp.key] === true,
-      );
-      const isSimple = lowRiskComponents.some(
-        (comp: any) => ccsState[comp.key] === true,
-      );
+      const toAnswer = (value: boolean | undefined): CriterionAnswer =>
+        value === true ? 'yes' : value === false ? 'no' : 'unanswered';
+      const ccsResult = evaluateCanadianCSpine({
+        applicable: ccsApplicable === 'yes' || ccsApplicable === 'no' ? ccsApplicable : 'unanswered',
+        highRisk: Object.fromEntries(
+          highRiskComponents.map((comp: any) => [comp.key, toAnswer(ccsState[comp.key])]),
+        ),
+        lowRisk: Object.fromEntries(
+          lowRiskComponents.map((comp: any) => [comp.key, toAnswer(ccsState[comp.key])]),
+        ),
+        rotation45Degrees: ccsRotation,
+      });
+      const ccsInterp = interpretCanadianCSpine(ccsResult.state);
+      const highRiskComplete = ccsResult.state !== 'high-risk-incomplete' && ccsResult.state !== 'applicability-required' && ccsResult.state !== 'not-applicable';
+      const isDangerous = ccsResult.state === 'imaging-high-risk';
 
       return (
         <div key={key} className={`p-4 rounded-xl border mb-4 ${theme === 'dark' ? 'bg-[#0f1d1d] border-teal-900/40' : 'bg-white border-slate-200 shadow-sm'}`}>
@@ -1147,49 +1119,27 @@ export default function App() {
           </div>}
 
           <div className="mt-4 pt-3 border-t border-teal-900/20">
-            {ccsApplicable === 'no' ? (
-              <div className="p-3 bg-rose-950/20 border border-rose-500/20 text-rose-200 rounded-lg text-xs font-bold">
-                The Canadian C-Spine Rule is not applicable. Use clinical assessment and the appropriate imaging pathway.
-              </div>
-            ) : ccsApplicable !== 'yes' ? (
-              <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg text-xs text-slate-400">
-                Confirm applicability before entering criteria.
-              </div>
-            ) : isDangerous ? (
-              <div className="p-3 bg-rose-950/20 border border-rose-500/20 text-rose-200 rounded-lg text-xs font-bold">
-                🔴 High risk factor present. Do NOT test range of motion. CT C-spine is indicated.
-              </div>
-            ) : !highRiskComplete ? (
-              <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg text-xs text-slate-400">
-                Complete all high-risk criteria first.
-              </div>
-            ) : !lowRiskComplete ? (
-              <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg text-xs text-slate-400">
-                Complete all low-risk criteria.
-              </div>
-            ) : !isSimple ? (
-              <div className="p-3 bg-rose-950/20 border border-rose-500/20 text-rose-200 rounded-lg text-xs font-bold">
-                No low-risk factor is present. Imaging is indicated in the HJH pathway.
-              </div>
-            ) : ccsRotation === 'unanswered' ? (
+            {ccsResult.state === 'rotation-required' ? (
               <div className="p-3 bg-teal-950/20 border border-teal-500/20 text-teal-200 rounded-lg text-xs">
-                <strong>Low-risk factor present.</strong>
-                <div className="my-2">Can the patient actively rotate the neck 45° left and right?</div>
+                <strong>{ccsInterp.title}.</strong>
+                <div className="my-2">{ccsInterp.action}</div>
                 <div className="flex gap-2">
                   <button type="button" onClick={() => setCcsRotation('no')} className="rounded border border-rose-500 px-3 py-1">No</button>
                   <button type="button" onClick={() => setCcsRotation('yes')} className="rounded border border-teal-500 px-3 py-1">Yes</button>
                 </div>
               </div>
-            ) : ccsRotation === 'yes' ? (
-              <div className="p-3 bg-teal-950/20 border border-teal-500/20 text-teal-200 rounded-lg text-xs font-bold">
-                HJH pathway complete: no C-spine imaging required.
-              </div>
             ) : (
-              <div className="p-3 bg-rose-950/20 border border-rose-500/20 text-rose-200 rounded-lg text-xs font-bold">
-                Unable to rotate 45° left and right: imaging is indicated.
+              <div className={`p-3 rounded-lg text-xs ${
+                ccsInterp.tone === 'high'
+                  ? 'bg-rose-950/20 border border-rose-500/20 text-rose-200 font-bold'
+                  : ccsInterp.tone === 'low'
+                    ? 'bg-teal-950/20 border border-teal-500/20 text-teal-200 font-bold'
+                    : 'bg-slate-900/50 border border-slate-800 text-slate-400'
+              }`}>
+                {ccsInterp.action}
               </div>
             )}
-            {ccsApplicable === 'yes' && highRiskComplete && !isDangerous && !lowRiskComplete && (
+            {ccsResult.state === 'low-risk-incomplete' && (
               <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg text-xs text-slate-400">
                 Do not proceed to range-of-motion assessment until the low-risk section is complete.
               </div>
@@ -1205,8 +1155,13 @@ export default function App() {
         setChecklistAnswers(prevAll => ({ ...prevAll, [key]: { ...(prevAll[key] ?? {}), [critKey]: value } }));
       const features: any[] = sc.features ?? [];
       const allAnswered = features.every((f: any) => answers[f.key] !== undefined && answers[f.key] !== 'unanswered');
-      const isYes = (k: string) => answers[k] === 'yes';
-      const positive = isYes('feature1') && isYes('feature2') && (isYes('feature3') || isYes('feature4'));
+      const camInterp = interpretCamIcu(
+        allAnswered,
+        answers.feature1,
+        answers.feature2,
+        answers.feature3,
+        answers.feature4,
+      );
 
       return (
         <div key={key} className={`p-4 rounded-xl border mb-4 ${theme === 'dark' ? 'bg-[#0f1d1d] border-teal-900/40' : 'bg-white border-slate-200 shadow-sm'}`}>
@@ -1240,14 +1195,10 @@ export default function App() {
             })}
           </div>
 
-          {allAnswered && (
-            <div className={`mt-4 p-3 rounded-lg border text-sm ${positive ? 'bg-rose-950/20 border-rose-500/20 text-rose-200' : 'bg-teal-950/20 border-teal-500/20 text-teal-200'}`}>
-              <div className="font-bold">{positive ? '🔴 CAM-ICU Positive: Delirium present' : '🟢 CAM-ICU Negative: No delirium'}</div>
-              <div className="text-xs mt-1 text-slate-300">
-                {positive
-                  ? 'Identify and treat underlying causes; review sedation; consider non-pharmacological delirium bundle measures.'
-                  : 'Reassess at next scheduled sedation/delirium screen.'}
-              </div>
+          {camInterp && (
+            <div className={`mt-4 p-3 rounded-lg border text-sm ${camInterp.tone === 'high' ? 'bg-rose-950/20 border-rose-500/20 text-rose-200' : 'bg-teal-950/20 border-teal-500/20 text-teal-200'}`}>
+              <div className="font-bold">{camInterp.title}</div>
+              <div className="text-xs mt-1 text-slate-300">{camInterp.action}</div>
             </div>
           )}
         </div>
@@ -1271,6 +1222,12 @@ export default function App() {
       const allCriteria = tiers.flatMap(t => t.items.map((item, i) => `${t.tierKey}_${i}`));
       const allAnswered = allCriteria.every(k => answers[k] !== undefined);
       const triggeredTier = tiers.find(t => t.items.some((_, i) => answers[`${t.tierKey}_${i}`] === 'yes'));
+      const tierInterp = interpretTieredRiskRule(
+        allAnswered,
+        triggeredTier ? (triggeredTier.tierKey as 'high' | 'medium' | 'low') : null,
+        triggeredTier?.label ?? null,
+        typeof sc.interpretation === 'string' ? sc.interpretation : '',
+      );
 
       return (
         <div key={key} className={`p-4 rounded-xl border mb-4 ${theme === 'dark' ? 'bg-[#0f1d1d] border-teal-900/40' : 'bg-white border-slate-200 shadow-sm'}`}>
@@ -1303,15 +1260,16 @@ export default function App() {
             ))}
           </div>
 
-          {triggeredTier ? (
-            <div className={`mt-4 p-3 rounded-lg border text-sm ${triggeredTier.tierKey === 'high' ? 'bg-rose-950/20 border-rose-500/20 text-rose-200' : 'bg-orange-950/20 border-orange-500/20 text-orange-200'}`}>
-              <div className="font-bold">{triggeredTier.label.replace(' factors', '')} present</div>
-              <div className="text-xs mt-1 text-slate-300">{typeof sc.interpretation === 'string' ? sc.interpretation : ''}</div>
-            </div>
-          ) : allAnswered ? (
-            <div className="mt-4 p-3 rounded-lg border bg-teal-950/20 border-teal-500/20 text-teal-200 text-sm">
-              <div className="font-bold">No risk factors present</div>
-              <div className="text-xs mt-1 text-slate-300">Rule does not mandate imaging based on the criteria entered.</div>
+          {tierInterp ? (
+            <div className={`mt-4 p-3 rounded-lg border text-sm ${
+              tierInterp.tone === 'high'
+                ? 'bg-rose-950/20 border-rose-500/20 text-rose-200'
+                : tierInterp.tone === 'moderate'
+                  ? 'bg-orange-950/20 border-orange-500/20 text-orange-200'
+                  : 'bg-teal-950/20 border-teal-500/20 text-teal-200'
+            }`}>
+              <div className="font-bold">{tierInterp.title}</div>
+              <div className="text-xs mt-1 text-slate-300">{tierInterp.action}</div>
             </div>
           ) : (
             <div className="mt-4 rounded-lg border border-slate-700 bg-slate-900/40 p-3 text-sm text-slate-300" aria-live="polite">
@@ -1334,25 +1292,17 @@ export default function App() {
         0,
       );
 
-      let burchLabel = 'Select values';
-      let burchClass = 'text-slate-400 border-slate-800 bg-slate-900/50';
-      let burchAction = 'Select a value for all components to calculate the Thyroid Storm score.';
-
-      if (isAllSelected) {
-        if (totalBurch >= 45) {
-          burchLabel = '🔴 Thyroid Storm Highly Probable (≥45)';
-          burchClass = 'bg-rose-950/30 border-rose-500/25 text-rose-300';
-          burchAction = 'Clinical emergency! Admit to ICU immediately. Initiate PTU, Lugol\'s iodine, beta-blocker, and steroids.';
-        } else if (totalBurch >= 25) {
-          burchLabel = '🟡 Impending Thyroid Storm (25-44)';
-          burchClass = 'bg-amber-950/20 border-amber-500/25 text-amber-300';
-          burchAction = 'Highly suggestive of developing storm. Initiate aggressive supportive therapy, and consult Endocrine urgently.';
-        } else {
-          burchLabel = '🟢 Thyroid Storm Unlikely (<25)';
-          burchClass = 'bg-teal-950/20 border-teal-500/25 text-teal-300';
-          burchAction = 'Thyroid storm is unlikely. Perform thyroid function tests and manage underlying symptoms supportively.';
-        }
-      }
+      const burchInterp = interpretBurchWartofsky(isAllSelected, totalBurch);
+      const burchLabel = burchInterp.title;
+      const burchAction = burchInterp.action;
+      const burchClass =
+        burchInterp.tone === 'high'
+          ? 'bg-rose-950/30 border-rose-500/25 text-rose-300'
+          : burchInterp.tone === 'moderate'
+            ? 'bg-amber-950/20 border-amber-500/25 text-amber-300'
+            : burchInterp.tone === 'low'
+              ? 'bg-teal-950/20 border-teal-500/25 text-teal-300'
+              : 'text-slate-400 border-slate-800 bg-slate-900/50';
 
       return (
         <div
@@ -1440,28 +1390,13 @@ export default function App() {
         });
       };
 
-      const riskPresentation: Record<string, {label: string; action: string; className: string}> = {
-        low: {
-          label: '🟢 Low clinical risk',
-          action: 'Routine ward-based monitoring per local NEWS2 policy.',
-          className: 'bg-teal-950/20 border-teal-500/25 text-teal-300',
-        },
-        'low-medium': {
-          label: '🟠 Low-medium risk — single parameter scoring 3',
-          action: 'A red score in one parameter mandates an urgent ward-based review by a clinician competent in assessing acute illness, regardless of the total.',
-          className: 'bg-orange-950/30 border-orange-500/30 text-orange-300',
-        },
-        medium: {
-          label: '🟠 Medium clinical risk (NEWS2 5-6)',
-          action: 'Urgent review by a clinician with core competencies in acute illness; escalate monitoring frequency.',
-          className: 'bg-orange-950/30 border-orange-500/30 text-orange-300',
-        },
-        high: {
-          label: '🔴 High clinical risk (NEWS2 ≥ 7)',
-          action: 'Emergency assessment by a team with critical-care competencies; continuous monitoring in a higher-care setting.',
-          className: 'bg-rose-950/30 border-rose-500/30 text-rose-300 animate-pulse',
-        },
-      };
+      const news2Interp = interpretNews2Risk(news2.risk);
+      const news2RiskClass =
+        news2.risk === 'high'
+          ? 'bg-rose-950/30 border-rose-500/30 text-rose-300 animate-pulse'
+          : news2.risk === 'medium' || news2.risk === 'low-medium'
+            ? 'bg-orange-950/30 border-orange-500/30 text-orange-300'
+            : 'bg-teal-950/20 border-teal-500/25 text-teal-300';
 
       return (
         <div
@@ -1545,10 +1480,10 @@ export default function App() {
             ))}
           </div>
 
-          {news2.risk ? (
-            <div className={`mt-4 p-3 rounded-lg border text-sm ${riskPresentation[news2.risk].className}`}>
-              <div className="font-bold">{riskPresentation[news2.risk].label}</div>
-              <div className="text-xs mt-1 text-slate-300">{riskPresentation[news2.risk].action}</div>
+          {news2Interp ? (
+            <div className={`mt-4 p-3 rounded-lg border text-sm ${news2RiskClass}`}>
+              <div className="font-bold">{news2Interp.title}</div>
+              <div className="text-xs mt-1 text-slate-300">{news2Interp.action}</div>
               {news2.anySingleThree && news2.risk !== 'low-medium' && (
                 <div className="text-[11px] mt-2 text-slate-300">
                   Includes at least one parameter scoring 3 (red score).
@@ -1584,20 +1519,17 @@ export default function App() {
         0,
       );
 
-      let gradedInterp: { label: string; action: string } | null = null;
-      if (isGradedComplete && Array.isArray(sc.interpretation)) {
-        const match = sc.interpretation.find((band: any) => gradedTotal >= band.min && gradedTotal <= band.max);
-        if (match) gradedInterp = match;
-      }
-      let gradedClass = 'bg-teal-950/20 border-teal-500/20 text-teal-300';
-      if (gradedInterp) {
-        const lower = gradedInterp.label.toLowerCase();
-        if (lower.includes('high') || lower.includes('severe') || lower.includes('class c') || lower.includes('class iv') || lower.includes('class v')) {
-          gradedClass = 'bg-rose-950/20 border-rose-500/20 text-rose-300';
-        } else if (lower.includes('moderate') || lower.includes('intermediate') || lower.includes('class b') || lower.includes('class iii')) {
-          gradedClass = 'bg-orange-950/20 border-orange-500/20 text-orange-300';
-        }
-      }
+      const gradedInterp = interpretGradedScore(
+        isGradedComplete,
+        gradedTotal,
+        Array.isArray(sc.interpretation) ? sc.interpretation : undefined,
+      );
+      const gradedClass =
+        gradedInterp?.tone === 'high'
+          ? 'bg-rose-950/20 border-rose-500/20 text-rose-300'
+          : gradedInterp?.tone === 'moderate'
+            ? 'bg-orange-950/20 border-orange-500/20 text-orange-300'
+            : 'bg-teal-950/20 border-teal-500/20 text-teal-300';
 
       return (
         <div
@@ -1656,7 +1588,7 @@ export default function App() {
           {isGradedComplete ? (
             gradedInterp && (
               <div className={`mt-4 p-3 rounded-lg border text-sm ${gradedClass}`}>
-                <div className="font-bold">{gradedInterp.label}</div>
+                <div className="font-bold">{gradedInterp.title}</div>
                 <div className="text-xs mt-1 text-slate-300">{gradedInterp.action}</div>
               </div>
             )
@@ -1703,7 +1635,13 @@ export default function App() {
     const pointsSum = checklistResult.score - overCountedPoints;
 
     const getScorerBadgeAndInterp = () => {
-      if (!isComplete) {
+      const checklistInterp = interpretChecklistScore(
+        key,
+        isComplete,
+        pointsSum,
+        Array.isArray(sc.interpretation) ? sc.interpretation : undefined,
+      );
+      if (!checklistInterp) {
         return (
           <div className="mt-4 rounded-lg border border-slate-700 bg-slate-900/40 p-3 text-sm text-slate-300" aria-live="polite">
             <div className="font-bold">Assessment incomplete</div>
@@ -1712,36 +1650,16 @@ export default function App() {
         );
       }
 
-      let severityClass = 'bg-teal-950/20 border-teal-500/20 text-teal-300';
-      let title = 'Low risk';
-      let desc = 'Reference standard guidelines.';
-
-      if (key === 'perc') {
-        if (pointsSum === 0) {
-          title = 'PERC Negative';
-          desc = 'All eight HJH PERC criteria have been explicitly confirmed as negative. Apply only within the HJH low-risk PE pathway.';
-        } else {
-          title = 'PERC Positive';
-          desc = `${pointsSum} positive criterion${pointsSum === 1 ? '' : 'a'}. Follow the HJH pulmonary embolism algorithm.`;
-          severityClass = 'bg-orange-950/20 border-orange-500/20 text-orange-300';
-        }
-      } else if (sc.interpretation) {
-        const match = sc.interpretation.find((x: any) => pointsSum >= x.min && pointsSum <= x.max);
-        if (match) {
-          title = match.label;
-          desc = match.action;
-          const lowerTitle = title.toLowerCase();
-          if (lowerTitle.includes('high') || lowerTitle.includes('severe') || lowerTitle.includes('probable')) {
-            severityClass = 'bg-rose-950/20 border-rose-500/20 text-rose-300';
-          } else if (lowerTitle.includes('moderate') || lowerTitle.includes('possible') || lowerTitle.includes('intermediate')) {
-            severityClass = 'bg-orange-950/20 border-orange-500/20 text-orange-300';
-          }
-        }
-      }
+      const severityClass =
+        checklistInterp.tone === 'high'
+          ? 'bg-rose-950/20 border-rose-500/20 text-rose-300'
+          : checklistInterp.tone === 'moderate'
+            ? 'bg-orange-950/20 border-orange-500/20 text-orange-300'
+            : 'bg-teal-950/20 border-teal-500/20 text-teal-300';
       return (
         <div className={`mt-4 p-3 rounded-lg border text-sm ${severityClass}`}>
-          <div className="font-bold">{title}</div>
-          <div className="text-xs mt-1 text-slate-300">{desc}</div>
+          <div className="font-bold">{checklistInterp.title}</div>
+          <div className="text-xs mt-1 text-slate-300">{checklistInterp.action}</div>
         </div>
       );
     };
