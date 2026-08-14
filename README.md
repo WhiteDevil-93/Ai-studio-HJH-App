@@ -52,11 +52,31 @@ Known source ambiguities are recorded in
 
 ## Features & UX Enhancements
 
-- **Smart Clinical Text Rendering**: Raw clinical text and extracted protocol fields are parsed and formatted using `FormattedClinicalText` into structured clinical cards, bold subheader banners, emerald checkmark lists, and urgent warning badges (e.g. female pregnancy test requirements, contraindications).
+- **Protocol-block clinical text**: Extracted protocol fields are rendered from the structural `ProtocolBlock` model (`src/clinical/protocolBlocks.ts`) via `FormattedClinicalText`. Numbering, list markers, and indent hierarchy are preserved as written. Tokens such as YES / NO, uppercase lines, and warning words are shown as ordinary content — the renderer does not infer chips, headings, or checkmarks.
 - **Patient-Specific Calculations**: Weight-based dose calculator automatically computes inline doses (mg, mcg, mL, units) across management steps and drug fields upon patient weight entry.
 - **Continuous Infusion Dosing**: Interactive dose, concentration, and rate calculator with pre-configured HJH standard formulations and user-specified ICU preparations.
 - **Global Clinical Reference & Trials**: Searchable trials dataset (v1, v2, v3) and markdown pocket reference guides (`GlobalReferenceDocumentPage.tsx`).
 - **PWA & Progressive Offline Support**: Service worker registration and PWA asset generator (`scripts/generate-pwa-assets.js`) enable offline caching and home screen installation.
+
+## State management
+
+Patient/encounter state is scoped to a single protocol context and discarded
+when that context closes — it is never persisted and never shared across
+protocols, facilities, or sessions. The protocol-scoped session layer
+(`src/state/protocolSession.ts`) holds weight, calculator inputs, flowchart
+progress, and checklist selections per protocol context, with a hook-based API
+(`useProtocolSession`) designed as a drop-in replacement for the former global
+state.
+
+Only the following keys remain in `localStorage` (persistent UI/user
+preferences):
+
+- `tr_theme` — theme preference (dark/light)
+- `tr_f` — favourite entries (by canonical entry key)
+- `tr_rv` — recently viewed entries (most recent 15)
+
+`tr_w` (persisted patient weight) is a legacy key that leaked patient state
+across sessions; its removal is tracked as a follow-up change.
 
 ## Local development
 
@@ -137,6 +157,7 @@ src/clinical/             Types, source registry, normalization, weight/dose cal
                           hospital protocol index, and global reference documents
 src/components/           React UI components (HomePage, HospitalProtocolsPage,
                           ProtocolLandingPage, GlobalReferenceDocumentPage, PWAInstallPrompt)
+src/state/                Protocol-scoped session state (never persisted)
 src/App.tsx               Main application routing and state management
 ```
 

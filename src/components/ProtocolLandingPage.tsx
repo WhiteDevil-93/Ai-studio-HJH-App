@@ -28,6 +28,8 @@ import {
 } from '../clinical/transcription';
 import {GlobalCalculatorResults} from './GlobalCalculatorResults';
 import type {GlobalCalculator} from '../clinical/globalCalculators';
+import {FormattedClinicalText} from './FormattedClinicalText';
+import {HighlightedText} from './HighlightedText';
 
 interface ProtocolLandingPageProps {
   protocol: HospitalProtocol;
@@ -50,122 +52,6 @@ const labelFor = (value: string): string =>
   value
     .replace(/_/g, ' ')
     .replace(/\b\w/g, character => character.toUpperCase());
-
-const escapeRegExp = (value: string): string => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-
-const HighlightedText: React.FC<{text: string; highlight?: string}> = ({text, highlight}) => {
-  const query = highlight?.trim();
-  if (!query) return <>{text}</>;
-
-  const parts = text.split(new RegExp(`(${escapeRegExp(query)})`, 'gi'));
-  if (parts.length <= 1) return <>{text}</>;
-
-  return (
-    <>
-      {parts.map((part, index) =>
-        index % 2 === 1 ? (
-          // The find bar counts and steps through these in document order.
-          <mark
-            key={index}
-            data-search-match=""
-            className="rounded bg-amber-300/80 px-0.5 text-slate-900 dark:bg-amber-400/90 dark:text-slate-950"
-          >
-            {part}
-          </mark>
-        ) : (
-          <React.Fragment key={index}>{part}</React.Fragment>
-        ),
-      )}
-    </>
-  );
-};
-
-const FormattedClinicalText: React.FC<{text: string; highlight?: string}> = ({text, highlight}) => {
-  if (!text || !text.trim()) return null;
-
-  const raw = text.replace(/\r/g, '');
-  const segments = raw
-    .split(/\n+|\s+•\s+|\s+▪\s+/)
-    .map(line => line.trim())
-    .filter(Boolean);
-
-  if (segments.length === 0) return null;
-
-  return (
-    <div className="space-y-2">
-      {segments.map((segment, index) => {
-        const isAlert = /^(?:ALL FEMALE PATIENTS|NB:|WARNING|CONTRAINDICATIONS|DANGER|CAUTION)/i.test(segment);
-        const isHeader = /^(?:RED FLAGS|EXCLUSIONS:|INDEX MHCU|KNOWN MHCU|COMPLICATIONS|PROCEDURE|MANAGEMENT|INVESTIGATIONS|APPROACH|GENERAL MANAGEMENT|MONITORING|HOW TO PERFORM)/i.test(segment) ||
-          (/^[A-Z\s]{4,}:?$/.test(segment) && segment.length < 40);
-        const isYes = /^YES\b/i.test(segment);
-        const isNo = /^NO\b/i.test(segment);
-        const isBullet = /^[\u2022\u25aa\u25b2\u2192*\-\u2013]\s*/.test(segment) || /^[0-9]+\.\s*/.test(segment);
-
-        if (isYes) {
-          const rest = segment.replace(/^YES[:\s-]*/i, '');
-          return (
-            <div key={index} className="my-2 inline-flex items-center gap-2 rounded-lg border border-rose-300 bg-rose-100 px-3 py-1.5 text-xs font-black text-rose-950 dark:border-rose-900/60 dark:bg-rose-950/60 dark:text-rose-200">
-              <span className="h-2 w-2 rounded-full bg-rose-600" />
-              <span>YES</span>
-              {rest && <span className="font-semibold opacity-90">— <HighlightedText text={rest} highlight={highlight} /></span>}
-            </div>
-          );
-        }
-
-        if (isNo) {
-          const rest = segment.replace(/^NO[:\s-]*/i, '');
-          return (
-            <div key={index} className="my-2 inline-flex items-center gap-2 rounded-lg border border-emerald-300 bg-emerald-100 px-3 py-1.5 text-xs font-black text-emerald-950 dark:border-emerald-900/60 dark:bg-emerald-950/60 dark:text-emerald-200">
-              <span className="h-2 w-2 rounded-full bg-emerald-600" />
-              <span>NO</span>
-              {rest && <span className="font-semibold opacity-90">— <HighlightedText text={rest} highlight={highlight} /></span>}
-            </div>
-          );
-        }
-
-        if (isAlert) {
-          return (
-            <div key={index} className="my-3 flex items-start gap-3 rounded-xl border border-rose-300 bg-rose-50 p-4 text-sm font-semibold text-rose-950 dark:border-rose-900/60 dark:bg-rose-950/30 dark:text-rose-200">
-              <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-rose-600 dark:text-rose-400" />
-              <div className="flex-1 leading-relaxed">
-                <HighlightedText
-                  text={segment.replace(/^(?:ALL FEMALE PATIENTS|NB:|WARNING|CONTRAINDICATIONS|DANGER|CAUTION)[:\s]*/i, '')}
-                  highlight={highlight}
-                />
-              </div>
-            </div>
-          );
-        }
-
-        if (isHeader) {
-          return (
-            <h4 key={index} className="mt-4 mb-1.5 flex items-center gap-2 text-xs font-black uppercase tracking-wider text-indigo-600 dark:text-indigo-400 border-b border-indigo-100 dark:border-indigo-900/40 pb-1">
-              <span className="h-1.5 w-1.5 rounded-full bg-indigo-500" />
-              <HighlightedText text={segment} highlight={highlight} />
-            </h4>
-          );
-        }
-
-        const cleanText = segment.replace(/^[\u2022\u25aa\u25b2\u2192*\-\u20130-9.]+\s*/, '');
-
-        if (isBullet || segments.length > 1) {
-          return (
-            <div key={index} className="flex items-start gap-2 text-sm leading-6 text-slate-700 dark:text-slate-300">
-              <CheckCircle2 className="mt-1 h-3.5 w-3.5 shrink-0 text-emerald-500" />
-              <span className="flex-1"><HighlightedText text={cleanText} highlight={highlight} /></span>
-            </div>
-          );
-        }
-
-        return (
-          <p key={index} className="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
-            <HighlightedText text={cleanText} highlight={highlight} />
-          </p>
-        );
-      })}
-    </div>
-  );
-};
 
 const ValueBlock: React.FC<{value: unknown; highlight?: string}> = ({value, highlight}) => {
   if (value === null || value === undefined || value === '') return null;
