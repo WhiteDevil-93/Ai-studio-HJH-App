@@ -1,7 +1,11 @@
 import React from 'react';
 import {
-  ShieldAlert, X, Activity, Stethoscope, AlertTriangle, Brain, Heart, Syringe, Zap
+  ShieldAlert, X, Activity, Stethoscope, AlertTriangle, Brain, Zap
 } from 'lucide-react';
+import {
+  MIND_MAPS_DATABASE,
+  type MindMapDefinition,
+} from '../clinical/mindMaps';
 
 interface CodeRedDrawerProps {
   isOpen: boolean;
@@ -9,43 +13,54 @@ interface CodeRedDrawerProps {
   onSelectMindMap: (id: string) => void;
 }
 
-export const EMERGENCY_ACTIONS = [
+interface CodeRedActionRef {
+  id: string;
+  sourceId: string;
+  color: string;
+  icon: React.ElementType;
+}
+
+export const EMERGENCY_ACTIONS: CodeRedActionRef[] = [
   {
     id: 'aha_bls_acls',
-    title: 'Adult Cardiac Arrest (ACLS 2020)',
-    subtitle: 'High-quality CPR • 1 Shock • Epinephrine 1mg • Amiodarone 300mg',
+    sourceId: 'aha_bls_acls',
     color: 'bg-red-600 text-white hover:bg-red-700 border-red-500',
     icon: Activity
   },
   {
     id: 'trauma_arrest',
-    title: 'Trauma Cardiac Arrest (H-O-T-T)',
-    subtitle: 'Haemorrhage control • Oxygenation • Tension decompression • Tamponade',
+    sourceId: 'trauma_arrest',
     color: 'bg-orange-600 text-white hover:bg-orange-700 border-orange-500',
     icon: ShieldAlert
   },
   {
     id: 'anaphylaxis_flowchart',
-    title: 'Anaphylaxis Immediate Management',
-    subtitle: 'Adrenaline 0.5ml IM (1:1000 anterolateral thigh) • IV Fluids 20ml/kg',
+    sourceId: 'anaphylaxis_flowchart',
     color: 'bg-rose-600 text-white hover:bg-rose-700 border-rose-500',
     icon: AlertTriangle
   },
   {
     id: 'rsi_checklist',
-    title: 'Airway RSI Checklist (EDICT)',
-    subtitle: 'Pre-oxygenate 100% O2 • Induction + Paralytic • Confirm ETT',
+    sourceId: 'rsi_checklist',
     color: 'bg-sky-600 text-white hover:bg-sky-700 border-sky-500',
     icon: Stethoscope
   },
   {
     id: 'status_epilepticus',
-    title: 'Status Epilepticus Seizure Abort',
-    subtitle: 'Benzodiazepines: Lorazepam 0.1mg/kg IV or Midazolam 0.2mg/kg IV',
+    sourceId: 'status_epilepticus',
     color: 'bg-purple-600 text-white hover:bg-purple-700 border-purple-500',
     icon: Brain
   }
 ];
+
+export function getCodeRedAction(
+  actionRef: CodeRedActionRef,
+  database: Record<string, MindMapDefinition> = MIND_MAPS_DATABASE
+): (CodeRedActionRef & MindMapDefinition) | null {
+  const source = database[actionRef.sourceId];
+  if (!source) return null;
+  return { ...source, ...actionRef };
+}
 
 export const CodeRedDrawer: React.FC<CodeRedDrawerProps> = ({ isOpen, onClose, onSelectMindMap }) => {
   if (!isOpen) return null;
@@ -78,7 +93,9 @@ export const CodeRedDrawer: React.FC<CodeRedDrawerProps> = ({ isOpen, onClose, o
 
         {/* Emergency Action Cards */}
         <div className="space-y-3">
-          {EMERGENCY_ACTIONS.map((action) => {
+          {EMERGENCY_ACTIONS.map((actionRef) => {
+            const action = getCodeRedAction(actionRef);
+            if (!action) return null;
             const Icon = action.icon;
             return (
               <button
