@@ -52,7 +52,7 @@ Known source ambiguities are recorded in
 
 ## Features & UX Enhancements
 
-- **Smart Clinical Text Rendering**: Raw clinical text and extracted protocol fields are parsed and formatted using `FormattedClinicalText` into structured clinical cards, bold subheader banners, emerald checkmark lists, and urgent warning badges (e.g. female pregnancy test requirements, contraindications).
+- **Protocol-block clinical text**: Extracted protocol fields are rendered from the structural `ProtocolBlock` model (`src/clinical/protocolBlocks.ts`) via `FormattedClinicalText`. Numbering, list markers, and indent hierarchy are preserved as written. Tokens such as YES / NO, uppercase lines, and warning words are shown as ordinary content — the renderer does not infer chips, headings, or checkmarks.
 - **Patient-Specific Calculations**: Weight-based dose calculator automatically computes inline doses (mg, mcg, mL, units) across management steps and drug fields upon patient weight entry.
 - **Continuous Infusion Dosing**: Interactive dose, concentration, and rate calculator with pre-configured HJH standard formulations and user-specified ICU preparations.
 - **Global Clinical Reference & Trials**: Searchable trials dataset (v1, v2, v3) and markdown pocket reference guides (`GlobalReferenceDocumentPage.tsx`).
