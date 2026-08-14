@@ -15,9 +15,6 @@ import {
 import { PWAInstallPrompt, usePWAInstall } from './components/PWAInstallPrompt';
 import {
   clinicalData,
-  getAssociatedDiseasesForDrug,
-  getPairedDrugsForDisease,
-  DISEASE_DRUG_PAIRINGS
 } from './clinical/legacyAdapter';
 import {
   INFUSION_DEFINITIONS,
@@ -35,9 +32,12 @@ import {
   type News2Scale,
 } from './components/ScoreCalculatorCard';
 import {
-  extractWeightDoseResults,
-  infusionDefinitionFromDoseText,
-} from './clinical/calculations/weightDose';
+  DrugCard,
+  getEntryKey,
+  sourceGroupFallbackFromCategory,
+} from './components/DrugCard';
+import {EDProcedureCard} from './components/EDProcedureCard';
+import {ClinicalEntryCard} from './components/ClinicalEntryCard';
 import { resolveEntryAlias } from './clinical/entryAliases';
 import type { CriterionAnswer } from './clinical/types';
 import {
@@ -73,11 +73,9 @@ import {
   ORDER,
   PILLAR_CATEGORY_IDS,
   POCKET_GUIDE_COUNT,
-  PROTOCOL_MINDMAP_LINKS,
   SOURCE_GROUP_ORDER,
   TRIAL_TYPE_PRESENTATION,
   UTILITY_CATEGORY_IDS,
-  getSourceGroupMeta,
   parseHospitalHash,
   type SourceGroupFilter,
 } from './app/catalog';
@@ -478,13 +476,6 @@ export default function App() {
     setExpandedProtocols({});
   };
 
-  // Helper to generate key for drugs/protocols
-  const getEntryKey = (item: any, category: string) => {
-    if (item?._meta?.id) return item._meta.id;
-    const name = item.item || item.drug || item.condition_or_drug || item.poison_or_drug || item.antidote_treatment || item.product || '';
-    return `${category}::${name}`;
-  };
-
   // Scroll to top check
   const [showScrollTop, setShowScrollTop] = useState(false);
   useEffect(() => {
@@ -499,54 +490,6 @@ export default function App() {
   const parseProtocolText = (text: string) => {
     if (!text) return [];
     return text.split('|').map(x => x.trim()).filter(x => x.length > 0);
-  };
-
-  const formatCalculatedDose = (value: number): string => {
-    if (Math.abs(value) >= 100) return value.toFixed(0);
-    if (Math.abs(value) >= 10) return value.toFixed(1).replace(/\.0$/, '');
-    return value.toFixed(2).replace(/\.?0+$/, '');
-  };
-
-  const renderWeightDoseSummary = (text: string, label?: string) => {
-    const patientWeight = Number(weight);
-    const results = extractWeightDoseResults(text, patientWeight);
-    if (results.length === 0) return null;
-
-    return (
-      <div className="mt-1.5 space-y-1" aria-live="polite">
-        {results.map(result => (
-          <div
-            key={`${label ?? ''}-${result.sourceExpression}`}
-            className="rounded border border-teal-900/30 bg-teal-950/20 px-2 py-1 text-[10px] text-teal-200"
-          >
-            {label && <span className="font-bold">{label}: </span>}
-            At {formatCalculatedDose(patientWeight)} kg, {result.sourceExpression} ={' '}
-            <strong>
-              {formatCalculatedDose(result.minimum)}
-              {result.maximum !== result.minimum
-                ? `–${formatCalculatedDose(result.maximum)}`
-                : ''}{' '}
-              {result.resultUnit}
-            </strong>
-            {result.printedMax ? (
-              // Never silently cap: show both values and flag the overshoot so
-              // a prescribing error is visible rather than hidden by a clamp.
-              result.maximum > result.printedMax.value ? (
-                <span className="ml-1 font-bold text-rose-300">
-                  — exceeds the printed maximum of {formatCalculatedDose(result.printedMax.value)} {result.printedMax.unit}: give the maximum, not the weight-based value
-                </span>
-              ) : (
-                <span className="ml-1 text-slate-400">
-                  — printed maximum {formatCalculatedDose(result.printedMax.value)} {result.printedMax.unit}
-                </span>
-              )
-            ) : /\bmax(?:imum)?\b/i.test(text) ? (
-              <span className="ml-1 text-slate-400">— apply the printed maximum</span>
-            ) : null}
-          </div>
-        ))}
-      </div>
-    );
   };
 
   const scoreCardSharedProps = {
@@ -610,430 +553,62 @@ export default function App() {
     />
   );
 
-  // Re-usable component to render standard drug / item cards
-  const renderDrugCard = (it: any, cat: string) => {
-    const key = getEntryKey(it, cat);
-    const fav = isFavourite(key);
-    const n = it.item || it.drug || it.condition_or_drug || it.poison_or_drug || it.antidote_treatment || it.product || '';
-    const nt = it.notes_updates || it.notes || '';
-    const ntLower = nt.toLowerCase();
-    const adultDoseText = String(it.adult_dose || it.adult_settings || '');
-    const paediatricDoseText = String(it.paediatric_dose || it.paediatric_settings || '');
-    const protocolDoseText = String(it.protocol_dose || '');
-    const primarySource = it?._meta?.sourceRefs?.[0];
-    const dynamicInfusions = it?._meta?.infusionPresetId
-      ? []
-      : [
-        infusionDefinitionFromDoseText(
-          `${key}.adult-infusion`,
-          `${n} adult infusion`,
-          adultDoseText,
-          it.standard_dilutions,
-          primarySource?.sourceId ?? 'source-unresolved',
-          primarySource?.pdfPages ?? [],
-        ),
-        infusionDefinitionFromDoseText(
-          `${key}.paediatric-infusion`,
-          `${n} paediatric infusion`,
-          paediatricDoseText,
-          it.standard_dilutions,
-          primarySource?.sourceId ?? 'source-unresolved',
-          primarySource?.pdfPages ?? [],
-        ),
-        infusionDefinitionFromDoseText(
-          `${key}.protocol-infusion`,
-          `${n} protocol infusion`,
-          protocolDoseText,
-          it.standard_dilutions,
-          primarySource?.sourceId ?? 'source-unresolved',
-          primarySource?.pdfPages ?? [],
-        ),
-      ].filter((definition): definition is InfusionDefinition => Boolean(definition));
-
-    // Check tags
-    const isFirstLine = ntLower.includes('first-line');
-    const isSection21 = ntLower.includes('section 21');
-    const isWarning = ntLower.includes('warning') || ntLower.includes('avoid') || ntLower.includes('contraindicated') || ntLower.includes('lethal');
-    const isCaution = ntLower.includes('caution') || ntLower.includes('side effect') || ntLower.includes('high risk');
-    const associatedDiseases = getAssociatedDiseasesForDrug(n);
-
-    const sourceMeta = getSourceGroupMeta(it?._meta?.sourceGroup, selectedCategory === 'helen_guidelines' ? 'HJH' : selectedCategory === 'cmjah_guidelines' ? 'CMJAH' : selectedCategory === 'rmmch_guidelines' ? 'RMMCH' : undefined);
-
-    return (
-      <div
-        key={key}
-        onClick={() => recordRecentlyViewed(key, n, cat, 'drug')}
-        role="button"
-        tabIndex={0}
-        onKeyDown={event => {
-          if (event.key === 'Enter' || event.key === ' ') {
-            event.preventDefault();
-            recordRecentlyViewed(key, n, cat, 'drug');
-          }
-        }}
-        aria-label={`${n}, ${sourceMeta.label}. Tap to view details.`}
-        className={`p-4 rounded-xl border transition-all duration-200 mb-3 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${theme === 'dark' ? 'bg-[#0b1717] border-teal-950/40 hover:border-teal-800/30' : 'bg-white border-slate-200 shadow-sm hover:shadow-md'
-          }`}
-      >
-        <div className="flex items-start justify-between gap-4">
-          <div className="space-y-1.5 min-w-0 flex-1">
-            <div className="flex items-start gap-2 flex-wrap">
-              <h4 className={`font-bold text-md leading-tight ${theme === 'light' ? 'text-slate-900' : 'text-slate-100'}`}>{n}</h4>
-              <span className={`shrink-0 text-[10px] border font-bold px-1.5 py-0.5 rounded ${theme === 'dark' ? sourceMeta.badgeClass : sourceMeta.lightBadgeClass}`}>
-                {sourceMeta.emoji} {sourceMeta.short}
-              </span>
-              {isFirstLine && <span className="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-bold px-1.5 py-0.5 rounded uppercase">1st Line</span>}
-              {isSection21 && <span className="text-[10px] bg-blue-500/20 text-blue-400 border border-blue-500/30 font-bold px-1.5 py-0.5 rounded uppercase">Section 21</span>}
-              {isWarning && <span className="text-[10px] bg-rose-500/20 text-rose-400 border border-rose-500/30 font-bold px-1.5 py-0.5 rounded uppercase">Warning</span>}
-              {isCaution && !isWarning && <span className="text-[10px] bg-amber-500/20 text-amber-400 border border-amber-500/30 font-bold px-1.5 py-0.5 rounded uppercase">Caution</span>}
-            </div>
-            {it.category && (
-              <div className="text-[10px] text-slate-500">{it.category}</div>
-            )}
-          </div>
-          <button
-            type="button"
-            onClick={e => toggleFavourite(key, e)}
-            aria-label={fav ? 'Remove from favourites' : 'Add to favourites'}
-            className={`p-2 -m-1 rounded-full hover:bg-slate-800/40 transition active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${fav ? 'text-yellow-400' : 'text-slate-600'}`}
-          >
-            <Star className={`h-5 w-5 ${fav ? 'fill-yellow-400' : ''}`} />
-          </button>
-        </div>
-
-        {/* Doses Display */}
-        <div className="mt-3 space-y-2">
-          {(it.adult_dose || it.adult_settings) && (
-            <div className="flex items-start gap-2.5 text-sm">
-              <span className="text-[10px] uppercase font-black bg-slate-800 text-slate-300 px-1.5 py-0.5 rounded flex-shrink-0 mt-0.5 w-6 text-center">A</span>
-              <div className="text-slate-300 flex-1 leading-relaxed">
-                {it.adult_dose || it.adult_settings}
-                {renderWeightDoseSummary(adultDoseText, 'Adult')}
-              </div>
-            </div>
-          )}
-
-          {(it.paediatric_dose || it.paediatric_settings) && (
-            <div className="flex items-start gap-2.5 text-sm">
-              <span className="text-[10px] uppercase font-black bg-[#135050] text-[#00d9b5] px-1.5 py-0.5 rounded flex-shrink-0 mt-0.5 w-6 text-center">P</span>
-              <div className="text-[#00d9b5] flex-1 leading-relaxed">
-                {it.paediatric_dose || it.paediatric_settings}
-                {renderWeightDoseSummary(paediatricDoseText, 'Paediatric')}
-              </div>
-            </div>
-          )}
-
-          {it.protocol_dose && (
-            <div className="flex items-start gap-2.5 text-sm">
-              <span className="text-[10px] uppercase font-black bg-purple-950/40 text-purple-300 border border-purple-900/30 px-1.5 py-0.5 rounded flex-shrink-0 mt-0.5 w-6 text-center">Rx</span>
-              <span className="text-slate-300 flex-1 leading-relaxed">
-                {it.protocol_dose}
-                {renderWeightDoseSummary(protocolDoseText, 'Protocol')}
-              </span>
-            </div>
-          )}
-
-          {it.route && (
-            <div className="flex items-start gap-2.5 text-sm">
-              <span className="text-[10px] uppercase font-black bg-sky-950/50 text-sky-300 border border-sky-900/30 px-1.5 py-0.5 rounded flex-shrink-0 mt-0.5">
-                Route
-              </span>
-              <span className="text-slate-300 flex-1 leading-relaxed">{it.route}</span>
-            </div>
-          )}
-
-          {/* Inline Infusion Widget */}
-          {it?._meta?.infusionPresetId && renderInfusionCalculatorWidget(it._meta.infusionPresetId)}
-          {dynamicInfusions.map(definition => (
-            <React.Fragment key={definition.id}>
-              {renderInfusionCalculatorWidget(definition)}
-            </React.Fragment>
-          ))}
-
-          {/* Formula Display */}
-          {it.formula && (
-            <div className="mt-2 p-2 rounded bg-black/20 border border-teal-950/20 text-xs flex justify-between font-mono">
-              <span className="text-slate-400">Formula:</span>
-              <span className="text-[#00d9b5] font-bold">{it.formula}</span>
-            </div>
-          )}
-          {it.standard_dilutions && (
-            <div className="text-xs text-slate-400 mt-1 pl-1">
-              <strong>Dilution:</strong> {it.standard_dilutions}
-            </div>
-          )}
-
-          {/* Associated Diseases / Emergency Issues Badges */}
-          {associatedDiseases.length > 0 && (
-            <div className="mt-2.5 pt-2 border-t border-teal-950/20">
-              <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">🩺 Associated Emergencies & Diseases</div>
-              <div className="flex flex-wrap gap-1">
-                {associatedDiseases.map(dis => (
-                  <button
-                    key={dis}
-                    type="button"
-                    onClick={e => {
-                      e.stopPropagation();
-                      setSearchQuery(dis);
-                    }}
-                    className="text-[10px] bg-teal-950/50 hover:bg-teal-900/60 text-teal-300 border border-teal-800/40 px-2 py-0.5 rounded cursor-pointer transition-colors"
-                  >
-                    {dis}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Notes updates callouts */}
-          {nt && (
-            <div className={`mt-3 p-3 rounded-lg text-xs leading-normal border ${isWarning ? 'bg-rose-950/25 border-rose-900/35 text-rose-200' :
-                isCaution ? 'bg-amber-950/20 border-amber-900/35 text-amber-200' :
-                  'bg-black/10 border-teal-950/20 text-slate-400'
-              }`}>
-              {nt}
-              {renderWeightDoseSummary(nt, 'Weight calculation')}
-            </div>
-          )}
-
-          {it?._meta?.sourceRefs?.length > 0 && (
-            <div className="mt-3 border-t border-teal-950/30 pt-2 text-[10px] text-slate-500">
-              {it._meta.sourceRefs.map((source: any) => (
-                <div key={`${source.sourceId}-${source.pdfPages.join('-')}`}>
-                  Source: {source.sourceId}
-                  {source.pdfPages.length > 0 ? ` · PDF page${source.pdfPages.length > 1 ? 's' : ''} ${source.pdfPages.join(', ')}` : ' · mapping required'}
-                  {' · '}Review: {it._meta.reviewState}
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      </div>
-    );
+  const clinicalCardSharedProps = {
+    theme,
+    weight,
+    sourceGroupFallback: sourceGroupFallbackFromCategory(selectedCategory),
+    searchHighlight: searchQuery,
+    isFavourite,
+    onToggleFavourite: toggleFavourite,
+    onRecordRecentlyViewed: recordRecentlyViewed,
+    onSearchQuery: setSearchQuery,
+    infusionDoses,
+    setInfusionDoses,
+    infusionConfirmed,
+    setInfusionConfirmed,
   };
 
-  // Rendering procedures with checklist and equipment
+  const renderDrugCard = (it: any, cat: string) => (
+    <DrugCard
+      key={getEntryKey(it, cat)}
+      item={it}
+      category={cat}
+      {...clinicalCardSharedProps}
+    />
+  );
+
   const renderEDProcedureCard = (p: any, cat: string) => {
     const key = getEntryKey(p, cat);
-    const fav = isFavourite(key);
-    const isExpanded = expandedProtocols[key] === true;
-    const pairedDrugs = getPairedDrugsForDisease(p.item);
-    const procedureSourceMeta = getSourceGroupMeta(p?._meta?.sourceGroup, selectedCategory === 'helen_guidelines' ? 'HJH' : selectedCategory === 'cmjah_guidelines' ? 'CMJAH' : selectedCategory === 'rmmch_guidelines' ? 'RMMCH' : undefined);
-
     return (
-      <div
+      <EDProcedureCard
         key={key}
-        className={`p-4 rounded-xl border transition mb-4 ${theme === 'dark' ? 'bg-[#0b1717] border-teal-950/40 hover:border-teal-900/30' : 'bg-white border-slate-200 shadow-sm'
-          }`}
-      >
-        <div
-          onClick={() => {
-            toggleProtocol(key);
-            recordRecentlyViewed(key, p.item, cat, 'procedure');
-          }}
-          onKeyDown={event => {
-            if (event.key === 'Enter' || event.key === ' ') {
-              event.preventDefault();
-              toggleProtocol(key);
-              recordRecentlyViewed(key, p.item, cat, 'procedure');
-            }
-          }}
-          role="button"
-          tabIndex={0}
-          aria-expanded={isExpanded}
-          aria-label={`${p.item}, ${procedureSourceMeta.label}. Tap to expand protocol.`}
-          className="flex items-start justify-between gap-4 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg -m-1 p-1"
-        >
-          <div className="flex items-start gap-2 flex-wrap min-w-0 flex-1">
-            <span className="text-lg shrink-0">🛠️</span>
-            <div className="min-w-0 flex-1">
-              <h4 className="font-bold text-md text-[#00d9b5] leading-tight">{p.item}</h4>
-              <span className={`inline-block mt-1 text-[10px] font-bold px-1.5 py-0.5 rounded border ${theme === 'dark' ? procedureSourceMeta.badgeClass : procedureSourceMeta.lightBadgeClass}`}>
-                {procedureSourceMeta.emoji} {procedureSourceMeta.short}
-              </span>
-            </div>
-          </div>
-          <div className="flex items-center gap-2 shrink-0">
-            {PROTOCOL_MINDMAP_LINKS[p.item] && (
-              <button
-                type="button"
-                onClick={e => { e.stopPropagation(); setActiveMindMap(PROTOCOL_MINDMAP_LINKS[p.item]); }}
-                aria-label={`Open ${p.item} interactive flowchart`}
-                className="flex items-center gap-1 px-2 py-1.5 rounded-full bg-rose-500/10 text-rose-400 border border-rose-500/30 text-[10px] font-bold hover:bg-rose-500/20 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
-                title="View the interactive flowchart for this protocol"
-              >
-                ⚡ Flowchart
-              </button>
-            )}
-            <button
-              type="button"
-              onClick={e => toggleFavourite(key, e)}
-              aria-label={fav ? 'Remove from favourites' : 'Add to favourites'}
-              className={`p-2 -m-1 rounded-full hover:bg-slate-800/40 transition active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${fav ? 'text-yellow-400' : 'text-slate-600'}`}
-            >
-              <Star className={`h-5 w-5 ${fav ? 'fill-yellow-400' : ''}`} />
-            </button>
-            <ChevronDown className={`h-5 w-5 text-slate-400 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
-          </div>
-        </div>
-
-        {isExpanded && (
-          <div className="mt-4 pt-3 border-t border-teal-900/10 space-y-4">
-
-            {/* Equipment checklist tags */}
-            {p.equipment && p.equipment.length > 0 && (
-              <div className="space-y-1.5">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Required Equipment</span>
-                <div className="flex flex-wrap gap-1.5">
-                  {p.equipment.map((eq: string) => (
-                    <span key={eq} className="px-2 py-0.5 rounded bg-slate-900/80 border border-slate-800 text-[11px] text-slate-300">
-                      {eq}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Checklist status updates */}
-            {p.checklist_items && p.checklist_items.length > 0 && (
-              <div className="space-y-1.5">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Procedure Checklist</span>
-                <div className="space-y-1">
-                  {p.checklist_items.map((item: string) => {
-                    const isChecked = checklistStatus[key + '::' + item] === true;
-                    return (
-                      <label
-                        key={item}
-                        className={`flex items-center gap-2.5 p-2 rounded-lg cursor-pointer transition ${isChecked ? 'bg-teal-500/10 text-slate-400 line-through' : 'bg-black/10 text-slate-200'
-                          }`}
-                      >
-                        <input
-                          type="checkbox"
-                          checked={isChecked}
-                          onChange={() => setChecklistStatus(prev => ({ ...prev, [key + '::' + item]: !prev[key + '::' + item] }))}
-                          className="sr-only"
-                        />
-                        <div className={`w-4 h-4 rounded border flex items-center justify-center text-[10px] flex-shrink-0 ${isChecked ? 'bg-teal-400 border-teal-400 text-black' : 'border-slate-600'
-                          }`}>
-                          {isChecked && '✓'}
-                        </div>
-                        <span className="text-xs leading-normal">{item}</span>
-                      </label>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-
-            {/* Paired Drugs & Infusions for this Disease / Emergency Issue */}
-            {pairedDrugs.length > 0 && (
-              <div className="space-y-2 border-t border-teal-900/20 pt-3">
-                <div className="text-[10px] font-bold uppercase tracking-wider text-teal-300 flex items-center gap-1.5">
-                  <span>💊 Paired Drugs & Infusions for {p.item}</span>
-                  <span className="text-[9px] bg-teal-950 text-teal-400 px-1.5 py-0.5 rounded font-black">{pairedDrugs.length}</span>
-                </div>
-                <div className="space-y-2">
-                  {pairedDrugs.map(d => renderDrugCard(d, (d._meta as any)?.categoryId || cat))}
-                </div>
-              </div>
-            )}
-
-            {/* Drugs table if present */}
-            {p.drugs && p.drugs.length > 0 && (
-              <div className="space-y-2">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Applicable Drugs</span>
-                {p.drugs.map((d: any) => renderDrugCard(d, cat))}
-              </div>
-            )}
-
-            {/* Management Steps timeline */}
-            {p.management_steps && p.management_steps.length > 0 && (
-              <div className="space-y-2">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Step-by-step Timeline</span>
-                <div className="relative border-l border-teal-900/40 pl-4 ml-2 space-y-4">
-                  {p.management_steps.map((s: any) => {
-                    const stepDetails = String(s.details || '');
-                    const source = p?._meta?.sourceRefs?.[0];
-                    const stepInfusion = infusionDefinitionFromDoseText(
-                      `${key}.step-${s.step_number}-infusion`,
-                      `${p.item}: ${s.action}`,
-                      stepDetails,
-                      undefined,
-                      source?.sourceId ?? 'source-unresolved',
-                      source?.pdfPages ?? [],
-                    );
-                    return (
-                      <div key={s.step_number} className="relative">
-                        <div className="absolute -left-[21px] top-1 bg-teal-400 text-black w-4.5 h-4.5 rounded-full flex items-center justify-center font-bold text-[9px]">
-                          {s.step_number}
-                        </div>
-                        <div className="font-bold text-xs text-teal-300">{s.action}</div>
-                        {s.details && (
-                          <div className="text-xs text-slate-400 mt-0.5 leading-relaxed">
-                            {s.details}
-                            {renderWeightDoseSummary(stepDetails, 'Weight calculation')}
-                          </div>
-                        )}
-                        {stepInfusion && renderInfusionCalculatorWidget(stepInfusion)}
-                      </div>
-                    )
-                  })}
-                </div>
-              </div>
-            )}
-
-            {/* General notes / warning callout */}
-            {p.notes_updates && (
-              <div className="p-3 rounded-lg bg-black/20 border border-teal-950/20 text-xs leading-relaxed text-slate-400">
-                {p.notes_updates}
-                {renderWeightDoseSummary(String(p.notes_updates), 'Weight calculation')}
-              </div>
-            )}
-
-            {p?._meta?.warnings?.length > 0 && (
-              <div className="space-y-2">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-rose-300">Warnings and contraindications</span>
-                {p._meta.warnings.map((warning: any) => (
-                  <div
-                    key={warning.id}
-                    role="alert"
-                    className={`rounded-lg border p-3 text-xs leading-relaxed ${warning.severity === 'critical'
-                        ? 'border-rose-500/40 bg-rose-950/30 text-rose-100'
-                        : warning.severity === 'caution'
-                          ? 'border-amber-500/40 bg-amber-950/20 text-amber-100'
-                          : 'border-blue-500/30 bg-blue-950/20 text-blue-100'
-                      }`}
-                  >
-                    {warning.text}
-                    {renderWeightDoseSummary(String(warning.text), 'Weight calculation')}
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {p?._meta?.sourceRefs?.length > 0 && (
-              <div className="border-t border-teal-900/20 pt-2 text-[10px] text-slate-500">
-                {p._meta.sourceRefs.map((source: any) => (
-                  <div key={`${source.sourceId}-${source.pdfPages.join('-')}`}>
-                    Source: {source.sourceId}
-                    {source.pdfPages.length > 0 ? ` · PDF page${source.pdfPages.length > 1 ? 's' : ''} ${source.pdfPages.join(', ')}` : ' · page mapping required'}
-                    {' · '}Review: {p._meta.reviewState}
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        )}
-      </div>
+        item={p}
+        category={cat}
+        {...clinicalCardSharedProps}
+        isExpanded={expandedProtocols[key] === true}
+        onToggleExpanded={toggleProtocol}
+        checklistStatus={checklistStatus}
+        onToggleChecklistItem={toggleChecklist}
+        onOpenMindMap={setActiveMindMap}
+      />
     );
   };
 
   const renderClinicalEntryCard = (entry: any, cat: string) => {
-    const type = entry?._meta?.type;
-    if (type === 'protocol' || type === 'procedure' || entry?.protocol_type === 'ed_protocol') {
-      return renderEDProcedureCard(entry, cat);
-    }
-    return renderDrugCard(entry, cat);
+    const key = getEntryKey(entry, cat);
+    return (
+      <ClinicalEntryCard
+        key={key}
+        entry={entry}
+        category={cat}
+        {...clinicalCardSharedProps}
+        isExpanded={expandedProtocols[key] === true}
+        onToggleExpanded={toggleProtocol}
+        checklistStatus={checklistStatus}
+        onToggleChecklistItem={toggleChecklist}
+        onOpenMindMap={setActiveMindMap}
+      />
+    );
   };
 
   // Re-usable component to render sub-headers of categories
