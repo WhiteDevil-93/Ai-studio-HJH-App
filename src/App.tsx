@@ -39,14 +39,19 @@ import {
 import {EDProcedureCard} from './components/EDProcedureCard';
 import {ClinicalEntryCard} from './components/ClinicalEntryCard';
 import { resolveEntryAlias } from './clinical/entryAliases';
+import {
+  entryIdAliases,
+  rankCategorySearch,
+  type CategorySearchItem,
+} from './clinical/categorySearch';
 import type { CriterionAnswer } from './clinical/types';
 import {
   TRIALS_REFERENCE,
   type TrialReferenceEntry,
 } from './clinical/trialsReference';
 import { HomePage } from './components/HomePage';
-import { MindMapViewer, MIND_MAPS_DATABASE } from './components/MindMapViewer';
-import { PolicyViewer, POLICIES_DATABASE } from './components/PolicyViewer';
+import { MindMapViewer, MIND_MAPS_DATABASE, type MindMapDefinition } from './components/MindMapViewer';
+import { PolicyViewer, POLICIES_DATABASE, type PolicyDefinition } from './components/PolicyViewer';
 import { CodeRedDrawer } from './components/CodeRedDrawer';
 import { HospitalProtocolsPage } from './components/HospitalProtocolsPage';
 import { ProtocolLandingPage } from './components/ProtocolLandingPage';
@@ -83,6 +88,42 @@ import {
 export {PROTOCOL_MINDMAP_LINKS} from './app/catalog';
 
 const D = clinicalData as any;
+
+// Ranked-search item for a legacy clinical record: name tiers, the subcategory
+// as the category tier, removed-entry slugs from entryAliases as name aliases,
+// and the structured clinical fields as the lowest-ranked body tier.
+const clinicalRecordSearchItem = (item: any, subCategory: string): CategorySearchItem => ({
+  name: item.item || item.drug || item.condition_or_drug || item.poison_or_drug || item.antidote_treatment || item.product || '',
+  category: subCategory,
+  aliases: entryIdAliases(item._meta?.id),
+  notes: [item.notes_updates, item.notes].filter(Boolean).join(' '),
+  body: JSON.stringify({
+    management_steps: item.management_steps,
+    equipment: item.equipment,
+    warnings: item.warnings,
+    drugs: item.drugs,
+    standard_dilutions: item.standard_dilutions,
+    adult_dose: item.adult_dose,
+    paediatric_dose: item.paediatric_dose,
+  }),
+});
+
+// Ranked-search item for a score calculator: the score name as the title tier,
+// its specialty category, and component/interpretation text as the body tier.
+const scoreSearchItem = (sc: any): CategorySearchItem => {
+  const components = (sc.components ?? []).map((component: any) => component.name ?? '');
+  const interpretation = (sc.interpretation ?? []).flatMap((row: any) => [
+    row.label ?? '',
+    row.action ?? '',
+  ]);
+  return {
+    name: sc.name ?? '',
+    category: sc.category,
+    aliases: entryIdAliases(sc._meta?.id),
+    notes: sc.notes ? String(sc.notes) : '',
+    body: [...components, ...interpretation].join(' '),
+  };
+};
 
 interface DrugItem {
   item?: string;
@@ -641,46 +682,37 @@ export default function App() {
     // Filters and search logic
     const matchedItems: any[] = [];
 
-    // Filter GCS or score metrics if score calculators
     if (catKey === '16_score_calculators') {
+      // Rank scores by name, then specialty category, then component text.
+      const scoreKeys: { key: string; sc: any }[] = [];
+      const searchItems: CategorySearchItem[] = [];
       Object.entries(catData).forEach(([k, sc]: any) => {
-        if (!searchQuery || sc.name.toLowerCase().includes(searchQuery.toLowerCase())) {
-          matchedItems.push({ key: k, sc });
-        }
+        scoreKeys.push({ key: k, sc });
+        searchItems.push(scoreSearchItem(sc));
       });
+      const scoreBySearchItem = new Map(searchItems.map((search, i) => [search, scoreKeys[i]]));
+      for (const match of rankCategorySearch(searchItems, searchQuery)) {
+        const score = scoreBySearchItem.get(match.item);
+        if (score) matchedItems.push({ key: score.key, sc: score.sc });
+      }
     } else {
-      // Loop over keys
+      // Rank each record by name, then subcategory / entry-id aliases, then
+      // notes and structured clinical fields.
+      const categoryEntries: { item: any; subCategory: string; search: CategorySearchItem }[] = [];
       Object.entries(catData).forEach(([sk, sv]: any) => {
         if (Array.isArray(sv)) {
           sv.forEach(item => {
-            const itemName = item.item || item.drug || item.condition_or_drug || item.poison_or_drug || item.antidote_treatment || item.product || '';
-            const matchName = itemName.toLowerCase().includes(searchQuery.toLowerCase());
-            const matchNotes = (item.notes_updates || item.notes || '').toLowerCase().includes(searchQuery.toLowerCase());
-            const matchStructuredContent = JSON.stringify({
-              management_steps: item.management_steps,
-              equipment: item.equipment,
-              warnings: item.warnings,
-              drugs: item.drugs,
-              standard_dilutions: item.standard_dilutions,
-              adult_dose: item.adult_dose,
-              paediatric_dose: item.paediatric_dose,
-            }).toLowerCase().includes(searchQuery.toLowerCase());
-
-            if (!searchQuery || matchName || matchNotes || matchStructuredContent) {
-              matchedItems.push({ item, subCategory: sk });
-            }
+            categoryEntries.push({ item, subCategory: sk, search: clinicalRecordSearchItem(item, sk) });
           });
         } else if (sv && typeof sv === 'object') {
-          const itemName = sv.item || sv.drug || sv.condition_or_drug || '';
-          const matchName = itemName.toLowerCase().includes(searchQuery.toLowerCase());
-          const matchNotes = (sv.notes_updates || sv.notes || '').toLowerCase().includes(searchQuery.toLowerCase());
-          const matchStructuredContent = JSON.stringify(sv).toLowerCase().includes(searchQuery.toLowerCase());
-
-          if (!searchQuery || matchName || matchNotes || matchStructuredContent) {
-            matchedItems.push({ item: sv, subCategory: sk });
-          }
+          categoryEntries.push({ item: sv, subCategory: sk, search: clinicalRecordSearchItem(sv, sk) });
         }
       });
+      const entryBySearchItem = new Map(categoryEntries.map(e => [e.search, e]));
+      for (const match of rankCategorySearch(categoryEntries.map(e => e.search), searchQuery)) {
+        const entry = entryBySearchItem.get(match.item);
+        if (entry) matchedItems.push({ item: entry.item, subCategory: entry.subCategory });
+      }
     }
 
     // Filter favorites, plus the per-item sourceGroup filter (used by the
@@ -972,20 +1004,25 @@ export default function App() {
 
   // Dedicated view for global landmark studies and decision rules.
   const renderLandmarkStudiesView = () => {
-    const q = searchQuery.toLowerCase();
-    const matched = TRIALS_REFERENCE.filter(t => {
-      if (!q) return true;
-      return (
-        t.title.toLowerCase().includes(q) ||
-        t.domain.toLowerCase().includes(q) ||
-        t.reference.toLowerCase().includes(q) ||
-        t.the_hook.toLowerCase().includes(q) ||
-        t.if_consultant_asks.toLowerCase().includes(q) ||
-        t.killer_stat.toLowerCase().includes(q) ||
-        (t.shift_action || '').toLowerCase().includes(q) ||
-        (t.review_note || '').toLowerCase().includes(q)
-      );
-    });
+    const entries = TRIALS_REFERENCE.map(t => ({
+      study: t,
+      search: {
+        name: t.title,
+        category: t.domain,
+        body: [
+          t.reference,
+          t.the_hook,
+          t.if_consultant_asks,
+          t.killer_stat,
+          t.shift_action ?? '',
+          t.review_note ?? '',
+        ].join(' '),
+      } as CategorySearchItem,
+    }));
+    const studyBySearchItem = new Map(entries.map(e => [e.search, e.study]));
+    const matched = rankCategorySearch(entries.map(e => e.search), searchQuery)
+      .map(match => studyBySearchItem.get(match.item))
+      .filter((study): study is TrialReferenceEntry => study !== undefined);
 
     const byDomain = matched.reduce((acc, t) => {
       if (!acc[t.domain]) acc[t.domain] = [];
@@ -1131,12 +1168,18 @@ export default function App() {
 
   // Dedicated view for Mind Maps & Flowcharts gallery
   const renderMindMapsView = () => {
-    const maps = Object.values(MIND_MAPS_DATABASE).filter(m =>
-      !searchQuery ||
-      m.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      m.subtitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      m.category.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+    const entries = Object.values(MIND_MAPS_DATABASE).map(m => ({
+      map: m,
+      search: {
+        name: m.title,
+        category: m.category,
+        body: m.subtitle,
+      } as CategorySearchItem,
+    }));
+    const mapBySearchItem = new Map(entries.map(e => [e.search, e.map]));
+    const maps = rankCategorySearch(entries.map(e => e.search), searchQuery)
+      .map(match => mapBySearchItem.get(match.item))
+      .filter((map): map is MindMapDefinition => map !== undefined);
 
     return (
       <div className="space-y-4">
@@ -1186,12 +1229,18 @@ export default function App() {
   // Dedicated view for Hospital SOPs & Policies
   const renderPoliciesView = () => {
     const allFacilityPolicies = Object.values(POLICIES_DATABASE).filter(p => p.facility === policyFacilityFilter);
-    const policies = allFacilityPolicies.filter(p =>
-      !searchQuery ||
-      p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      p.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      JSON.stringify(p.sections).toLowerCase().includes(searchQuery.toLowerCase())
-    );
+    const entries = allFacilityPolicies.map(p => ({
+      policy: p,
+      search: {
+        name: p.title,
+        category: p.category,
+        body: p.sections.map(section => [section.title, ...section.items].join(' ')).join(' '),
+      } as CategorySearchItem,
+    }));
+    const policyBySearchItem = new Map(entries.map(e => [e.search, e.policy]));
+    const policies = rankCategorySearch(entries.map(e => e.search), searchQuery)
+      .map(match => policyBySearchItem.get(match.item))
+      .filter((policy): policy is PolicyDefinition => policy !== undefined);
     const facilityTabs: { key: 'hjh' | 'bara' | 'edl'; label: string }[] = [
       { key: 'hjh', label: '🩺 Helen (HJH)' },
       { key: 'bara', label: '🏥 Bara ICU' },

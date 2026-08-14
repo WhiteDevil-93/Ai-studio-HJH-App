@@ -17,10 +17,11 @@ export interface ProtocolSearchResult {
   rank: number;
 }
 
-const normalise = (value: string): string => value.trim().toLocaleLowerCase();
+/** Trim and lowercase a search input so matching is case- and padding-insensitive. */
+export const normalise = (value: string): string => value.trim().toLocaleLowerCase();
 
 /** True when `needle` starts a word in `haystack`, so "pe" misses "appendix". */
-const hasWordStart = (haystack: string, needle: string): boolean => {
+export const hasWordStart = (haystack: string, needle: string): boolean => {
   for (let from = 0; from <= haystack.length; ) {
     const index = haystack.indexOf(needle, from);
     if (index < 0) return false;
