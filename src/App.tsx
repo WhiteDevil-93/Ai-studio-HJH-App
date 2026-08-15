@@ -51,6 +51,9 @@ import { CodeRedDrawer } from './components/CodeRedDrawer';
 import { HospitalProtocolsPage } from './components/HospitalProtocolsPage';
 import { ProtocolLandingPage } from './components/ProtocolLandingPage';
 import { GlobalReferenceDocumentPage } from './components/GlobalReferenceDocumentPage';
+import { SettingsModal, type AppDensity } from './components/SettingsModal';
+import { Button } from './components/ui/Button';
+import { Badge } from './components/ui/Badge';
 import {
   GLOBAL_REFERENCE_DOCUMENTS,
   SUPPLIED_GUIDELINE_LINK_AUDIT,
@@ -105,6 +108,12 @@ interface DrugItem {
 export default function App() {
   const { canInstall, triggerInstall } = usePWAInstall();
   const initialHospitalRoute = parseHospitalHash();
+
+  // Density state
+  const [density, setDensity] = useState<AppDensity>(() => {
+    const stored = localStorage.getItem('tr_density');
+    return stored === 'compact' || stored === 'comfortable' ? stored : 'default';
+  });
 
   // Theme state
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
@@ -1589,7 +1598,12 @@ export default function App() {
           : ORDER;
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${theme === 'dark' ? 'theme-dark bg-[#0b1329] text-slate-100' : 'theme-light bg-slate-100 text-slate-900'}`}>
+    <div
+      className={`min-h-screen transition-colors duration-200 ${
+        theme === 'dark' ? 'theme-dark bg-slate-950 text-slate-100' : 'theme-light bg-slate-100 text-slate-900'
+      }`}
+      data-density={density}
+    >
 
       {/* LEFT COLLAPSIBLE ACTIVITY PANEL / DRAWER */}
       <AnimatePresence>
@@ -1783,79 +1797,78 @@ export default function App() {
       </AnimatePresence>
 
       {/* UNCLUTTERED TOP HEADER */}
-      <header className={`sticky top-0 z-50 px-3 sm:px-4 py-2.5 sm:py-3 flex items-center justify-between shadow-md transition-colors duration-300 ${
+      <header className={`sticky top-0 z-50 px-3 sm:px-4 py-2 flex items-center justify-between shadow-xs transition-colors duration-200 ${
         theme === 'dark' ? 'bg-slate-900/95 border-b border-slate-800/80 backdrop-blur-md' : 'bg-slate-900 text-white border-b border-slate-800'
       }`}>
         <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-          <button
-            type="button"
+          <Button
+            size="sm"
+            variant="ghost"
             onClick={() => setSidebarOpen(true)}
             aria-label="Open Activity Panel"
-            className="p-2.5 sm:p-2 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-slate-200 border border-slate-700/50 transition-colors flex items-center gap-2 text-xs font-bold cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 min-h-[2.75rem] min-w-[2.75rem] sm:min-h-0 sm:min-w-0"
             title="Open Activity & Navigation Panel"
+            icon={<Menu className="w-4 h-4 text-indigo-400" />}
           >
-            <Menu className="w-5 h-5 text-indigo-400" />
             <span className="hidden sm:inline">Menu</span>
-          </button>
+          </Button>
 
           <button
             type="button"
             onClick={() => navigateToCategory('home')}
             aria-label="Go to Home"
-            className="flex items-center gap-2 cursor-pointer bg-transparent border-0 p-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg"
+            className="flex items-center gap-2 cursor-pointer bg-transparent border-0 p-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded"
           >
-            <Activity className="h-6 w-6 text-indigo-400 animate-pulse shrink-0" />
-            <h1 className="text-lg sm:text-xl md:text-2xl font-extrabold tracking-tight text-white truncate">Asclep<span className="text-indigo-400">ius</span></h1>
+            <Activity className="h-5 w-5 text-indigo-400 shrink-0" />
+            <h1 className="text-sm sm:text-base font-bold tracking-tight text-white truncate">Asclep<span className="text-indigo-400">ius</span></h1>
+            <Badge variant="primary" size="sm" className="hidden md:inline-flex">2026</Badge>
           </button>
         </div>
 
-        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+        <div className="flex items-center gap-1.5 shrink-0">
           <button
             type="button"
             onClick={() => setCodeRedOpen(true)}
             aria-label="Code Red Resuscitation Mode"
-            className="flex items-center gap-1.5 px-2.5 sm:px-3 py-2 sm:py-1.5 rounded-full bg-red-600 hover:bg-red-500 text-white font-black text-[10px] sm:text-xs tracking-wider shadow-lg animate-pulse cursor-pointer border border-red-400/50 transition-all hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400 min-h-[2.5rem]"
+            className="flex items-center gap-1 px-2.5 py-1 rounded bg-rose-600 hover:bg-rose-500 text-white font-bold text-[11px] tracking-wider shadow-xs cursor-pointer border border-rose-500/50 transition-desktop focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
             title="Code Red Emergency Resuscitation Cards"
           >
-            <ShieldAlert className="w-4 h-4 text-white shrink-0" />
-            <span className="font-extrabold tracking-widest hidden sm:inline">CODE RED</span>
+            <ShieldAlert className="w-3.5 h-3.5 text-white shrink-0" />
+            <span className="tracking-wider hidden sm:inline">CODE RED</span>
           </button>
 
-          <button
+          <Button
             ref={aboutTriggerRef}
+            size="sm"
+            variant="ghost"
             onClick={() => {
               setAboutTab('about');
               setAboutOpen(true);
             }}
             aria-label="Open settings and clinical information"
-            className="p-2.5 sm:p-2 rounded-xl bg-slate-800/60 hover:bg-slate-700 text-slate-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 min-h-[2.75rem] min-w-[2.75rem] sm:min-h-0 sm:min-w-0"
             title="Settings & Clinical Information"
-          >
-            <Settings className="h-4 w-4" />
-          </button>
+            icon={<Settings className="h-4 w-4" />}
+          />
 
-          <button
+          <Button
+            size="sm"
+            variant="ghost"
             onClick={() => setTheme(theme => theme === 'light' ? 'dark' : 'light')}
             aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
             id="theme-tog"
-            className="p-2.5 sm:p-2 rounded-xl bg-slate-800/60 hover:bg-slate-700 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 min-h-[2.75rem] min-w-[2.75rem] sm:min-h-0 sm:min-w-0"
             title="Toggle Theme"
-          >
-            {theme === 'light'
-              ? <Moon className="h-4 w-4 text-slate-300" />
-              : <Sun className="h-4 w-4 text-amber-300" />}
-          </button>
+            icon={theme === 'light' ? <Moon className="h-4 w-4 text-slate-300" /> : <Sun className="h-4 w-4 text-amber-300" />}
+          />
         </div>
       </header>
 
       {/* STREAMLINED SEARCH BAR (hidden on Home landing page) */}
       {!(selectedCategory === 'home' && !activeMindMap && !activePolicy) && (
-        <div className={`sticky top-[3rem] sm:top-[3.5rem] z-40 p-2.5 sm:p-3 shadow-md border-b transition-colors duration-300 ${
-          theme === 'dark' ? 'bg-[#0f172a] border-slate-800' : 'bg-slate-200/80 border-slate-300'
+        <div className={`sticky top-[2.75rem] z-40 px-3 py-2 shadow-xs border-b transition-colors duration-200 ${
+          theme === 'dark' ? 'bg-slate-950/95 border-slate-800 backdrop-blur-md' : 'bg-slate-200/80 border-slate-300'
         }`}>
-          <div className={`${isGlobalReferenceCategory ? 'max-w-5xl' : 'max-w-7xl'} mx-auto flex items-center gap-2 sm:gap-3`}>
+          <div className={`${isGlobalReferenceCategory ? 'max-w-5xl' : 'max-w-7xl'} mx-auto flex items-center gap-2`}>
             <div className="relative flex-1 min-w-0">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-indigo-400 opacity-70" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-slate-400" />
               <input
                 type="text"
                 id="s"
@@ -1873,17 +1886,17 @@ export default function App() {
                     ? `Search within ${activeProtocol!.title}`
                     : 'Search clinical reference'
                 }
-                className={`w-full pl-10 pr-4 py-2.5 sm:py-2 rounded-xl text-sm transition focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
+                className={`w-full pl-9 pr-4 py-1.5 rounded-md text-xs transition-desktop focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
                   theme === 'dark'
-                    ? 'bg-slate-900/90 border border-slate-700/70 text-slate-100 focus:border-indigo-400'
-                    : 'bg-white border border-slate-300 text-slate-900 focus:border-indigo-600'
+                    ? 'bg-slate-900 border border-slate-800 text-slate-100 placeholder:text-slate-500 focus:border-indigo-500'
+                    : 'bg-white border border-slate-300 text-slate-900 placeholder:text-slate-400 focus:border-indigo-600'
                 }`}
               />
             </div>
 
             {isProtocolScoped ? (
               <span
-                className="shrink-0 inline-flex items-center gap-1.5 rounded-xl border border-amber-500/40 bg-amber-500/10 px-3 py-2.5 sm:py-2 text-xs font-bold text-amber-300 min-h-[2.75rem]"
+                className="shrink-0 inline-flex items-center gap-1.5 rounded-md border border-amber-500/40 bg-amber-500/10 px-2.5 py-1 text-xs font-semibold text-amber-300"
                 title={`Search is limited to ${activeProtocol!.title}. Formulas and scores are still searched globally.`}
               >
                 <FileText className="w-3.5 h-3.5" />
@@ -1894,7 +1907,7 @@ export default function App() {
               <button
                 onClick={() => setSidebarOpen(true)}
                 aria-label="Open source filter"
-                className="text-xs font-bold px-3 py-2.5 sm:py-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-indigo-300 border border-slate-700/60 transition-colors shrink-0 flex items-center gap-1.5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 min-h-[2.75rem]"
+                className="text-xs font-semibold px-2.5 py-1.5 rounded-md bg-slate-900 hover:bg-slate-850 text-indigo-300 border border-slate-800 transition-desktop shrink-0 flex items-center gap-1.5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               >
                 <span className="hidden sm:inline">
                   {activeFacilityId
@@ -1915,10 +1928,10 @@ export default function App() {
 
       {/* CATEGORY BAR (PILLS) — hidden on Home landing page */}
       {!(selectedCategory === 'home' && !activeMindMap && !activePolicy) && (
-        <div className={`sticky top-[6.5rem] sm:top-[7rem] z-30 flex gap-2 overflow-x-auto whitespace-nowrap border-b transition-colors duration-300 no-scrollbar py-2 px-3 sm:p-3 ${
+        <div className={`sticky top-[5.25rem] z-30 flex gap-1.5 overflow-x-auto whitespace-nowrap border-b transition-colors duration-200 no-scrollbar py-1.5 px-3 ${
           isGlobalReferenceCategory ? 'justify-start sm:justify-center' : ''
         } ${
-          theme === 'dark' ? 'bg-slate-900/90 border-slate-800/80' : 'bg-slate-100 border-slate-200'
+          theme === 'dark' ? 'bg-slate-900/90 border-slate-800' : 'bg-slate-100 border-slate-200'
         }`}
           role="navigation"
           aria-label="Clinical categories"
@@ -1941,13 +1954,9 @@ export default function App() {
                 }}
                 aria-current={isSelected ? 'page' : undefined}
                 aria-label={label}
-                className={`flex-shrink-0 text-xs font-semibold transition duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 min-h-[2.25rem] ${
-                  isGlobalReferenceCategory ? 'rounded-lg border px-3 py-2' : 'rounded-full px-3.5 py-1.5'
-                } ${
+                className={`flex-shrink-0 text-xs font-semibold transition-desktop cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-md px-2.5 py-1 ${
                   isSelected
-                    ? isGlobalReferenceCategory
-                      ? 'border-indigo-500/70 bg-indigo-500/15 text-indigo-200'
-                      : 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/20'
+                    ? 'bg-indigo-600 text-white shadow-xs'
                     : theme === 'dark'
                       ? 'bg-slate-800/80 text-slate-300 border border-slate-700/60 hover:bg-slate-700'
                       : 'bg-slate-200 text-slate-700 hover:bg-slate-300'
@@ -1966,14 +1975,14 @@ export default function App() {
                 <span className="hidden sm:inline">{label}</span>
                 <span className="sm:hidden">{(CATEGORIES[k] || k).split(' ')[0]}</span>
                 {globalCount !== undefined && (
-                  <span className={`ml-2 rounded px-1.5 py-0.5 text-[9px] ${
-                    isSelected ? 'bg-indigo-400/20 text-indigo-100' : 'bg-black/20 text-slate-400'
+                  <span className={`ml-1.5 rounded px-1 py-0.2 text-[9px] ${
+                    isSelected ? 'bg-indigo-400/30 text-white' : 'bg-black/30 text-slate-400'
                   }`}>
                     {globalCount}
                   </span>
                 )}
                 {k === 'favourites' && favsCount > 0 && (
-                  <span className="ml-1.5 bg-black/20 text-[10px] px-1.5 py-0.5 rounded-full font-black">
+                  <span className="ml-1 bg-black/30 text-[9px] px-1 py-0.2 rounded font-bold">
                     {favsCount}
                   </span>
                 )}
@@ -2043,183 +2052,16 @@ export default function App() {
         </button>
       )}
 
-      {/* SETTINGS / CLINICAL INFORMATION MODAL */}
-      {aboutOpen && (
-        <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4" role="dialog" aria-modal="true" aria-labelledby="settings-title">
-          <div ref={aboutDialogRef} className="bg-slate-900 border border-teal-500/30 text-slate-100 rounded-xl max-w-2xl w-full p-6 max-h-[85vh] overflow-y-auto shadow-2xl relative">
-            <button
-              onClick={() => setAboutOpen(false)}
-              aria-label="Close settings"
-              className="absolute top-4 right-4 text-slate-400 hover:text-white text-xl"
-            >
-              ✕
-            </button>
-            <h2 id="settings-title" className="text-xl font-bold text-[#00d9b5]">
-              Settings & Clinical Information
-            </h2>
-
-            <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-2 border-b border-slate-700 pb-4" role="tablist" aria-label="Settings sections">
-              {[
-                {id: 'about' as const, label: 'About & Sources', icon: Building2},
-                {id: 'disclaimer' as const, label: 'Disclaimer', icon: AlertTriangle},
-                {id: 'design' as const, label: 'Design & UX', icon: Sparkles},
-                {id: 'privacy' as const, label: 'Privacy & Data', icon: ShieldAlert},
-              ].map(tab => {
-                const TabIcon = tab.icon;
-                return (
-                  <button
-                    key={tab.id}
-                    type="button"
-                    role="tab"
-                    aria-selected={aboutTab === tab.id}
-                    onClick={() => setAboutTab(tab.id)}
-                    className={`rounded-lg border px-3 py-2 text-xs font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
-                      aboutTab === tab.id
-                        ? 'border-teal-400 bg-teal-500/15 text-teal-200'
-                        : 'border-slate-700 bg-slate-800/60 text-slate-400 hover:text-white'
-                    }`}
-                  >
-                    <TabIcon className="inline h-3.5 w-3.5 mr-1.5" />
-                    {tab.label}
-                  </button>
-                );
-              })}
-            </div>
-
-            {aboutTab === 'about' && (
-              <div className="mt-4 space-y-4 text-sm leading-relaxed text-slate-300" role="tabpanel">
-                <p>
-                  <strong>Asclepius</strong> is a clinical reference platform for rapid protocol
-                  navigation, medication dosing, medical calculations, and evidence access in
-                  emergency and critical-care environments.
-                </p>
-                <p className="text-xs text-slate-400">
-                  Facility protocol libraries are kept separate by source institution. Global
-                  calculators, trials, and international guidelines are available across all
-                  facilities.
-                </p>
-                <div>
-                  <h3 className="font-bold text-white mb-1 font-sans">🏥 Primary data sources</h3>
-                  <ul className="list-disc pl-5 space-y-1">
-                    <li><strong>Helen Joseph Hospital Emergency Department Clinical Guidelines 2026</strong>.</li>
-                    <li><strong>Charlotte Maxeke Johannesburg Academic Hospital ED Protocols</strong> (Version 2, December 2020).</li>
-                    <li><strong>Rahima Moosa Mother & Child Hospital EM Clinical Protocols</strong> (Version 5, January 2024).</li>
-                    <li><strong>Chris Hani Baragwanath Academic Hospital ICU Dosing Card</strong> (2024 updates).</li>
-                  </ul>
-                </div>
-              </div>
-            )}
-
-            {aboutTab === 'disclaimer' && (
-              <div className="mt-4 space-y-4 text-xs leading-relaxed text-slate-300" role="tabpanel">
-                <section className="rounded-xl border border-rose-900/50 bg-rose-950/15 p-4">
-                  <h3 className="font-black uppercase tracking-wider text-rose-200 flex items-center gap-2">
-                    <AlertTriangle className="h-4 w-4" />
-                    Clinical decision-support disclaimer
-                  </h3>
-                  <p className="mt-2 text-slate-300">
-                    Asclepius is intended for qualified healthcare professionals as a clinical
-                    memory aid and decision-support reference only. It does not replace clinical
-                    judgement, specialist consultation, or institutional protocols. Always
-                    verify doses, drug preparations, allergies, renal/hepatic adjustments, and
-                    patient-specific contraindications before administration.
-                  </p>
-                </section>
-
-                <section className="rounded-xl border border-slate-700 bg-slate-800/40 p-4">
-                  <h3 className="font-black uppercase tracking-wider text-slate-100">Facility and global content</h3>
-                  <p className="mt-2">
-                    Hospital tabs contain only that facility&apos;s published protocol collection.
-                    Scores, calculators, trials, pocket references, and international guidelines
-                    are global resources and do not represent facility-specific approval unless
-                    explicitly stated.
-                  </p>
-                </section>
-
-                <section className="rounded-xl border border-amber-900/50 bg-amber-950/15 p-4">
-                  <h3 className="font-black uppercase tracking-wider text-amber-200">Reference integrity & provenance</h3>
-                  <p className="mt-2 text-slate-300">
-                    Reference summaries retain their source citations and are supplemented with
-                    current-source notes where a newer or primary publication changes the supplied
-                    interpretation.
-                  </p>
-                  <div className="mt-3 space-y-3">
-                    {Object.values(GLOBAL_REFERENCE_DOCUMENTS).map(reference => (
-                      <details key={reference.id} className="rounded-lg border border-slate-700 bg-slate-900/50 p-3">
-                        <summary className="cursor-pointer font-bold text-slate-100">
-                          {reference.label} · governance notes
-                        </summary>
-                        <ul className="mt-2 list-disc space-y-1.5 pl-4 text-slate-400">
-                          {reference.auditNotes.map(note => <li key={note}>{note}</li>)}
-                        </ul>
-                        <p className="mt-2 text-[10px] text-slate-500">
-                          {reference.citationMarkerCount} citation markers · {reference.uniqueCitationMarkerCount} unique markers
-                        </p>
-                      </details>
-                    ))}
-                  </div>
-                  <p className="mt-3 text-[11px] text-slate-400">
-                    Link-quality review: {SUPPLIED_GUIDELINE_LINK_AUDIT.recordsWithDuplicatedUrlCount} of {SUPPLIED_GUIDELINE_LINK_AUDIT.guidelineCount} directory records contain a duplicated outbound URL. Confirm the current publication on the named organization&apos;s official website.
-                  </p>
-                </section>
-              </div>
-            )}
-
-            {aboutTab === 'design' && (
-              <div className="mt-4 space-y-4 text-xs leading-relaxed text-slate-300" role="tabpanel">
-                <section className="rounded-xl border border-indigo-900/50 bg-indigo-950/15 p-4">
-                  <h3 className="font-black uppercase tracking-wider text-indigo-200">Design principles</h3>
-                  <ul className="mt-2 list-disc pl-4 space-y-1 text-slate-300">
-                    <li><strong>Calm authority:</strong> Deep slate and indigo reduce visual fatigue during long shifts.</li>
-                    <li><strong>Source-first colour coding:</strong> Every protocol and drug card is badged by originating facility so users instantly know whose guideline they are reading.</li>
-                    <li><strong>Semantic status colours:</strong> Emerald for safe/pass, amber for caution, rose for critical alerts.</li>
-                    <li><strong>Readable typography:</strong> A strict type scale keeps dosing numbers, warnings, and prose distinct.</li>
-                    <li><strong>Touch-friendly targets:</strong> Buttons and inputs meet or exceed 44 × 44 px for gloved or fatigued use.</li>
-                    <li><strong>Progressive disclosure:</strong> Cards expand, categories collapse, and source transcription is shown only when needed.</li>
-                  </ul>
-                </section>
-
-                <section className="rounded-xl border border-slate-700 bg-slate-800/40 p-4">
-                  <h3 className="font-black uppercase tracking-wider text-slate-100">Accessibility</h3>
-                  <p className="mt-2">
-                    The interface supports keyboard navigation, focus-visible rings, screen-reader
-                    labels, and reduced-motion preferences. Contrast ratios aim for WCAG 2.1 AA
-                    across all interactive and clinical text.
-                  </p>
-                </section>
-              </div>
-            )}
-
-            {aboutTab === 'privacy' && (
-              <div className="mt-4 space-y-4 text-xs leading-relaxed text-slate-300" role="tabpanel">
-                <section className="rounded-xl border border-emerald-900/50 bg-emerald-950/15 p-4">
-                  <h3 className="font-black uppercase tracking-wider text-emerald-200">Local-first data</h3>
-                  <p className="mt-2 text-slate-300">
-                    Favourites, recently viewed items, theme preference, and patient weight are
-                    stored only in your browser&apos;s localStorage. No patient-identifiable
-                    information, searches, or usage data is transmitted to any server.
-                  </p>
-                </section>
-
-                <section className="rounded-xl border border-slate-700 bg-slate-800/40 p-4">
-                  <h3 className="font-black uppercase tracking-wider text-slate-100">Offline use</h3>
-                  <p className="mt-2">
-                    Once installed as a PWA, the full reference works offline. External links to
-                    guidelines or studies require an internet connection.
-                  </p>
-                </section>
-              </div>
-            )}
-
-            <button
-              onClick={() => setAboutOpen(false)}
-              className="mt-6 w-full py-2 bg-teal-400 hover:bg-teal-300 text-black font-bold rounded-lg transition"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
+      {/* SETTINGS / CLINICAL INFORMATION PREFERENCES MODAL */}
+      <SettingsModal
+        isOpen={aboutOpen}
+        onClose={() => setAboutOpen(false)}
+        defaultTab={aboutTab}
+        density={density}
+        onDensityChange={setDensity}
+        theme={theme}
+        onThemeChange={setTheme}
+      />
 
       {/* Code Red Resuscitation Drawer */}
       <CodeRedDrawer

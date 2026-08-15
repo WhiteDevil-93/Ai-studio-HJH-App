@@ -4,6 +4,9 @@ import {
   CheckCircle2, AlertTriangle, Info, BookOpen, Layers, Search,
   Printer, Star
 } from 'lucide-react';
+import { Button } from './ui/Button';
+import { Badge } from './ui/Badge';
+import { Input } from './ui/Input';
 
 interface PolicyViewerProps {
   policyId: string;
@@ -302,81 +305,88 @@ export const PolicyViewer: React.FC<PolicyViewerProps> = ({
   };
 
   return (
-    <div className="space-y-6 max-w-5xl mx-auto pb-12 print:max-w-none print:p-0">
+    <div className="space-y-4 max-w-5xl mx-auto pb-12 print:max-w-none print:p-0">
       {/* Top Navigation */}
       <div className="flex items-center justify-between print:hidden">
-        <button
+        <Button
+          size="sm"
+          variant="ghost"
           onClick={onBack}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 font-semibold text-xs transition-colors"
+          icon={<ArrowLeft className="w-3.5 h-3.5" />}
         >
-          <ArrowLeft className="w-4 h-4" />
           Back to Home
-        </button>
+        </Button>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5">
           {onToggleFavourite && (
             <button
+              type="button"
               onClick={() => onToggleFavourite(`policy.${policy.id}`)}
-              className={`p-2 rounded-xl border transition-colors ${
+              className={`p-1.5 rounded-md border transition-desktop cursor-pointer ${
                 isFavourite
-                  ? 'bg-amber-500/10 border-amber-500/30 text-amber-500'
-                  : 'bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-400'
+                  ? 'bg-amber-500/10 border-amber-500/30 text-amber-400'
+                  : 'bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200'
               }`}
               title={isFavourite ? 'Remove from Favourites' : 'Add to Favourites'}
             >
-              <Star className={`w-4 h-4 ${isFavourite ? 'fill-amber-500' : ''}`} />
+              <Star className={`w-3.5 h-3.5 ${isFavourite ? 'fill-amber-400' : ''}`} />
             </button>
           )}
 
-          <button
+          <Button
+            size="sm"
+            variant="secondary"
             onClick={handlePrint}
-            className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-semibold inline-flex items-center gap-1.5 transition-colors"
-            title="Print Policy Document"
+            icon={<Printer className="w-3.5 h-3.5" />}
           >
-            <Printer className="w-4 h-4" />
-            <span className="hidden sm:inline">Print Document</span>
-          </button>
+            <span className="hidden sm:inline">Print SOP</span>
+          </Button>
 
-          <span className="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-            PDF Page {policy.pdfPage} • {policy.category}
-          </span>
+          <Badge variant="success" size="sm">
+            PDF Page {policy.pdfPage} · {policy.category}
+          </Badge>
         </div>
       </div>
 
       {/* Policy Header */}
-      <div className="bg-gradient-to-r from-slate-900 via-emerald-950 to-slate-900 rounded-2xl p-6 sm:p-8 text-white border border-slate-800 shadow-xl print:bg-none print:text-black print:border-b print:p-0">
-        <span className="text-xs font-bold uppercase tracking-wider text-emerald-400 print:text-slate-600">Hospital Administrative Policy & SOP</span>
-        <h1 className="text-2xl sm:text-3xl font-extrabold mt-1">{policy.title}</h1>
+      <div className="rounded-lg p-4 sm:p-5 text-white border border-slate-800 bg-slate-900/90 shadow-xs print:bg-none print:text-black print:border-b print:p-0">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div className="space-y-1">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 print:text-slate-600">
+              Hospital Administrative Policy &amp; SOP
+            </span>
+            <h1 className="text-base sm:text-lg font-bold">{policy.title}</h1>
+          </div>
 
-        <div className="mt-4 relative max-w-md print:hidden">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-          <input
-            type="text"
-            placeholder="Filter policy text..."
-            value={filterText}
-            onChange={(e) => setFilterText(e.target.value)}
-            className="w-full bg-slate-800/90 border border-slate-700 text-white rounded-xl pl-9 pr-4 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500 placeholder:text-slate-500"
-          />
+          <div className="w-full sm:w-64 print:hidden">
+            <Input
+              size="sm"
+              placeholder="Filter policy text..."
+              value={filterText}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFilterText(e.target.value)}
+              leadingIcon={<Search className="w-3.5 h-3.5 text-slate-400" />}
+            />
+          </div>
         </div>
       </div>
 
       {/* Sections Container */}
-      <div className="space-y-6">
+      <div className="space-y-3">
         {policy.sections.map((section, sIdx) => {
           const filteredItems = section.items.filter(item => item.toLowerCase().includes(filterText.toLowerCase()));
           if (filterText && filteredItems.length === 0) return null;
 
           return (
-            <div key={sIdx} className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm space-y-4">
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
-                <FileText className="w-5 h-5 text-emerald-500" />
+            <div key={sIdx} className="bg-slate-900/85 rounded-lg border border-slate-800 p-4 shadow-xs space-y-3">
+              <h3 className="text-xs font-semibold text-white flex items-center gap-2 border-b border-slate-800 pb-2">
+                <FileText className="w-4 h-4 text-emerald-400" />
                 {section.title}
               </h3>
 
-              <ul className="space-y-2.5">
+              <ul className="space-y-1.5">
                 {filteredItems.map((item, iIdx) => (
-                  <li key={iIdx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                  <li key={iIdx} className="flex items-start gap-2 text-xs text-slate-300 leading-relaxed">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </li>
                 ))}

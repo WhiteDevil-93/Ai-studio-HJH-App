@@ -28,6 +28,9 @@ import {TRIALS_REFERENCE} from '../clinical/trialsReference';
 import {rankProtocolSearch} from '../clinical/protocolSearch';
 import {GlobalCalculatorResults} from './GlobalCalculatorResults';
 import type {GlobalCalculator} from '../clinical/globalCalculators';
+import { Button } from './ui/Button';
+import { Badge } from './ui/Badge';
+import { Input } from './ui/Input';
 
 interface HospitalProtocolsPageProps {
   facilityId: HospitalId;
@@ -45,28 +48,24 @@ interface HospitalProtocolsPageProps {
 
 const accentClasses = {
   indigo: {
-    hero: 'from-indigo-950 via-slate-950 to-blue-950 border-indigo-800/50',
-    badge: 'bg-indigo-500/15 text-indigo-300 border-indigo-500/30',
-    icon: 'bg-indigo-500/15 text-indigo-300 border-indigo-500/30',
-    selected: 'bg-indigo-600 text-white border-indigo-500',
+    hero: 'border-indigo-800/40 bg-slate-900/90',
+    badgeVariant: 'facility-hjh' as const,
+    selected: 'bg-indigo-600 text-white',
   },
   violet: {
-    hero: 'from-violet-950 via-slate-950 to-purple-950 border-violet-800/50',
-    badge: 'bg-violet-500/15 text-violet-300 border-violet-500/30',
-    icon: 'bg-violet-500/15 text-violet-300 border-violet-500/30',
-    selected: 'bg-violet-600 text-white border-violet-500',
+    hero: 'border-purple-800/40 bg-slate-900/90',
+    badgeVariant: 'facility-cmjah' as const,
+    selected: 'bg-purple-600 text-white',
   },
   amber: {
-    hero: 'from-amber-950 via-slate-950 to-orange-950 border-amber-800/50',
-    badge: 'bg-amber-500/15 text-amber-300 border-amber-500/30',
-    icon: 'bg-amber-500/15 text-amber-300 border-amber-500/30',
-    selected: 'bg-amber-600 text-white border-amber-500',
+    hero: 'border-amber-800/40 bg-slate-900/90',
+    badgeVariant: 'facility-chbah' as const,
+    selected: 'bg-amber-600 text-white',
   },
   rose: {
-    hero: 'from-rose-950 via-slate-950 to-pink-950 border-rose-800/50',
-    badge: 'bg-rose-500/15 text-rose-300 border-rose-500/30',
-    icon: 'bg-rose-500/15 text-rose-300 border-rose-500/30',
-    selected: 'bg-rose-600 text-white border-rose-500',
+    hero: 'border-pink-800/40 bg-slate-900/90',
+    badgeVariant: 'facility-rmmch' as const,
+    selected: 'bg-pink-600 text-white',
   },
 } as const;
 
@@ -99,8 +98,6 @@ export const HospitalProtocolsPage: React.FC<HospitalProtocolsPageProps> = ({
     return [...counts.entries()].sort(([left], [right]) => left.localeCompare(right));
   }, [protocols]);
 
-  // Ranked, so a protocol the query is *about* never sits below one that only
-  // mentions the word somewhere in its transcription.
   const {visibleProtocols, mentionedProtocols} = useMemo(() => {
     const inCategory = protocols.filter(
       protocol =>
@@ -110,8 +107,6 @@ export const HospitalProtocolsPage: React.FC<HospitalProtocolsPageProps> = ({
     const named = results.filter(result => result.kind !== 'body');
     const mentions = results.filter(result => result.kind === 'body');
 
-    // With nothing named after the query, a passing mention is the best answer
-    // there is, so promote those rather than showing an empty library.
     if (named.length === 0) {
       return {
         visibleProtocols: mentions.map(result => result.protocol),
@@ -126,95 +121,80 @@ export const HospitalProtocolsPage: React.FC<HospitalProtocolsPageProps> = ({
   }, [protocols, searchQuery, selectedCategory]);
 
   return (
-    <div className="hospital-library space-y-5 sm:space-y-6 pb-12">
-      <button
-        type="button"
-        onClick={onBack}
-        aria-label="Return to all facilities"
-        className="inline-flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg p-1 -m-1"
-      >
-        <ArrowLeft className="h-4 w-4" />
-        All facilities
-      </button>
+    <div className="hospital-library space-y-5 pb-12 max-w-7xl mx-auto">
+      <div className="flex items-center justify-between">
+        <Button
+          size="sm"
+          variant="ghost"
+          onClick={onBack}
+          aria-label="Return to all facilities"
+          icon={<ArrowLeft className="w-3.5 h-3.5" />}
+        >
+          All facilities
+        </Button>
+      </div>
 
-      <section className={`relative overflow-hidden rounded-2xl sm:rounded-3xl border bg-gradient-to-br ${accent.hero} p-5 sm:p-7 lg:p-9 text-white shadow-2xl`}>
-        <div className="relative z-10 max-w-4xl space-y-4 sm:space-y-5">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-black uppercase tracking-wider ${accent.badge}`}>
-              <Building2 className="h-3.5 w-3.5" />
-              {facility.shortName} protocol library
-            </span>
-            <span className="rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1 text-xs font-bold text-slate-300">
-              {protocols.length} complete protocol pages
-            </span>
-          </div>
-          <div>
-            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight">{facility.name}</h1>
-            <p className="mt-2 text-sm font-semibold text-slate-300">{facility.subtitle}</p>
-            <p className="mt-3 sm:mt-4 max-w-3xl text-xs sm:text-sm leading-relaxed text-slate-400">{facility.description}</p>
+      {/* COMPACT FACILITY HERO */}
+      <section className={`rounded-lg border ${accent.hero} p-4 sm:p-5 shadow-xs text-white`}>
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+          <div className="space-y-1">
+            <div className="flex items-center gap-2">
+              <Badge variant={accent.badgeVariant} size="sm">
+                {facility.shortName}
+              </Badge>
+              <span className="text-slate-500">·</span>
+              <span className="text-xs text-slate-400">{protocols.length} complete protocol pages</span>
+            </div>
+            <h1 className="text-base sm:text-lg font-bold tracking-tight text-white">{facility.name}</h1>
+            <p className="text-xs font-medium text-indigo-400">{facility.subtitle}</p>
+            <p className="text-xs text-slate-400 max-w-2xl leading-relaxed">{facility.description}</p>
           </div>
 
-          <div className="grid gap-2 sm:gap-3 grid-cols-2 lg:grid-cols-6">
-            <label className="relative block col-span-2 lg:col-span-1">
-              <span className="sr-only">Search {facility.shortName} protocols</span>
-              <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
-              <input
+          {/* Quick Facility Search & Actions */}
+          <div className="flex flex-wrap items-center gap-1.5 shrink-0">
+            <div className="w-full sm:w-60">
+              <Input
+                size="sm"
                 type="search"
                 value={searchQuery}
                 onChange={event => setSearchQuery(event.target.value)}
-                placeholder={`Search all ${facility.shortName} protocols`}
-                className="w-full rounded-xl border border-slate-700 bg-slate-950/75 py-2.5 sm:py-3 pl-10 pr-4 text-sm text-white outline-none transition focus:border-slate-500 focus-visible:ring-2 focus-visible:ring-indigo-500"
+                placeholder={`Search ${facility.shortName} protocols...`}
+                icon={<Search className="w-3.5 h-3.5" />}
+                aria-label={`Search ${facility.shortName} protocols`}
               />
-            </label>
-            <button
-              type="button"
+            </div>
+            <Button
+              size="sm"
+              variant="secondary"
               onClick={onOpenScores}
-              aria-label="Open global score calculators"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-900/75 px-3 sm:px-4 py-2.5 sm:py-3 text-xs font-bold text-slate-200 hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+              icon={<Calculator className="w-3.5 h-3.5 text-indigo-400" />}
             >
-              <Calculator className="h-4 w-4" />
-              <span className="hidden sm:inline">Global scores</span>
-              <span className="sm:hidden">Scores</span>
-            </button>
-            <button
-              type="button"
+              Scores
+            </Button>
+            <Button
+              size="sm"
+              variant="secondary"
               onClick={onOpenFormulae}
-              aria-label="Open dosing and infusion formulae"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-900/75 px-3 sm:px-4 py-2.5 sm:py-3 text-xs font-bold text-slate-200 hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+              icon={<Syringe className="w-3.5 h-3.5 text-teal-400" />}
             >
-              <Syringe className="h-4 w-4" />
               Formulae
-            </button>
-            <button
-              type="button"
+            </Button>
+            <Button
+              size="sm"
+              variant="secondary"
               onClick={onOpenLandmarkStudies}
-              aria-label="Open landmark studies"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-900/75 px-3 sm:px-4 py-2.5 sm:py-3 text-xs font-bold text-slate-200 hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+              icon={<FlaskConical className="w-3.5 h-3.5 text-purple-400" />}
             >
-              <FlaskConical className="h-4 w-4" />
-              {TRIALS_REFERENCE.length}
-              <span className="hidden sm:inline">{' '}studies</span>
-            </button>
-            <button
-              type="button"
+              Studies
+            </Button>
+            <Button
+              size="sm"
+              variant="secondary"
               onClick={onOpenInternationalGuidelines}
-              aria-label="Open international guidelines"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-900/75 px-3 sm:px-4 py-2.5 sm:py-3 text-xs font-bold text-slate-200 hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+              icon={<Globe2 className="w-3.5 h-3.5 text-sky-400" />}
             >
-              <Globe2 className="h-4 w-4" />
-              {SUPPLIED_GUIDELINE_LINK_AUDIT.guidelineCount}
-              <span className="hidden sm:inline">{' '}guidelines</span>
-            </button>
-            <button
-              type="button"
-              onClick={onOpenPocketGuides}
-              aria-label="Open pocket guides"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-900/75 px-3 sm:px-4 py-2.5 sm:py-3 text-xs font-bold text-slate-200 hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
-            >
-              <BookOpen className="h-4 w-4" />
-              {PARSED_GLOBAL_REFERENCE_DOCUMENTS.pocket.entries.length}
-              <span className="hidden sm:inline">{' '}pocket guides</span>
-            </button>
+              Guidelines
+            </Button>
           </div>
         </div>
       </section>
@@ -227,15 +207,16 @@ export const HospitalProtocolsPage: React.FC<HospitalProtocolsPageProps> = ({
         />
       )}
 
+      {/* PROTOCOL BROWSER */}
       <section className="space-y-3">
         <div className="flex items-center justify-between gap-3">
-          <div className="min-w-0 flex-1">
-            <h2 className="hospital-library-heading text-lg sm:text-xl font-black">Browse protocols</h2>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
-              Every card contains clinical content from this facility’s published protocol collection.
+          <div>
+            <h2 className="text-xs font-semibold text-white uppercase tracking-wider">Browse Protocols</h2>
+            <p className="text-[11px] text-slate-400">
+              Clinical content from {facility.shortName}’s published protocol collection.
             </p>
           </div>
-          <span className="shrink-0 text-xs font-bold text-slate-500">
+          <span className="text-xs text-slate-400 shrink-0">
             {visibleProtocols.length} shown
           </span>
         </div>
@@ -246,134 +227,119 @@ export const HospitalProtocolsPage: React.FC<HospitalProtocolsPageProps> = ({
           </p>
         )}
 
-        <div className="flex gap-2 overflow-x-auto pb-1 no-scrollbar">
+        {/* Category Filter Pills */}
+        <div className="flex gap-1.5 overflow-x-auto pb-1 no-scrollbar">
           <button
             type="button"
             onClick={() => setSelectedCategory('all')}
-            className={`shrink-0 rounded-full border px-3 py-1.5 text-xs font-bold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
+            className={`rounded px-2.5 py-1 text-xs font-medium transition-desktop cursor-pointer shrink-0 ${
               selectedCategory === 'all'
-                ? accent.selected
-                : 'border-slate-300 bg-white text-slate-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300'
+                ? 'bg-indigo-600 text-white'
+                : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700/80'
             }`}
           >
-            All {protocols.length}
+            All Categories ({protocols.length})
           </button>
-          {categories.map(([category, count]) => (
+          {categories.map(([label, count]) => (
             <button
-              key={category}
+              key={label}
               type="button"
-              onClick={() => setSelectedCategory(category)}
-              className={`shrink-0 rounded-full border px-3 py-1.5 text-xs font-bold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
-                selectedCategory === category
-                  ? accent.selected
-                  : 'border-slate-300 bg-white text-slate-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300'
+              onClick={() => setSelectedCategory(label)}
+              className={`rounded px-2.5 py-1 text-xs font-medium transition-desktop cursor-pointer shrink-0 ${
+                selectedCategory === label
+                  ? 'bg-indigo-600 text-white'
+                  : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700/80'
               }`}
             >
-              {category} {count}
+              {label} ({count})
             </button>
           ))}
         </div>
-      </section>
 
-      {visibleProtocols.length > 0 ? (
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-          {visibleProtocols.map(protocol => (
-            <button
-              key={protocol.id}
-              type="button"
-              onClick={() => onOpenProtocol(protocol)}
-              aria-label={`Open ${protocol.title}`}
-              className="group flex min-h-[11rem] flex-col rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
-            >
-              <div className="flex items-start justify-between gap-3">
-                <span className={`rounded-lg border p-2 ${accent.icon}`}>
-                  <FileText className="h-4 w-4" />
-                </span>
-                <span className="rounded-full border border-slate-200 bg-slate-50 px-2 py-1 text-[10px] font-black uppercase tracking-wider text-slate-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400">
-                  {protocol.categoryLabel}
-                </span>
-              </div>
-              <h3 className="mt-4 text-sm sm:text-base font-black leading-snug text-slate-900 transition group-hover:text-indigo-600 dark:text-white dark:group-hover:text-indigo-400">
-                {protocol.title}
-              </h3>
-              <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
-                {protocol.summary}
-              </p>
-              <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4 text-[11px] text-slate-500 dark:border-slate-800">
-                <span className="truncate pr-3">{protocol.sourceDocument}</span>
-                <span className="inline-flex shrink-0 items-center gap-1 font-bold text-indigo-500">
-                  Open <ChevronRight className="h-3.5 w-3.5" />
-                </span>
-              </div>
-            </button>
-          ))}
-        </div>
-      ) : (
-        <div className="rounded-2xl border border-dashed border-slate-300 bg-white/50 py-16 text-center dark:border-slate-700 dark:bg-slate-900/50" data-empty-results>
-          <AlertTriangle className="mx-auto h-6 w-6 text-slate-400" />
-          <p className="mt-3 text-sm font-bold text-slate-600 dark:text-slate-300">
-            No protocols match this search and category.
-          </p>
-          <button
-            type="button"
-            onClick={() => {
-              setSearchQuery('');
-              setSelectedCategory('all');
-            }}
-            className="mt-3 text-xs font-bold text-indigo-500 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded p-1"
-          >
-            Clear filters
-          </button>
-        </div>
-      )}
-
-      {mentionedProtocols.length > 0 && (
-        <section className="rounded-2xl border border-slate-200 bg-white/60 p-4 dark:border-slate-800 dark:bg-slate-900/50">
-          <button
-            type="button"
-            onClick={() => setMentionsExpanded(expanded => !expanded)}
-            aria-expanded={mentionsExpanded}
-            className="flex w-full items-center justify-between gap-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg"
-          >
-            <span className="min-w-0">
-              <span className="block text-sm font-black text-slate-700 dark:text-slate-200">
-                Mentioned in {mentionedProtocols.length} other protocol
-                {mentionedProtocols.length === 1 ? '' : 's'}
-              </span>
-              <span className="mt-0.5 block text-xs text-slate-500 dark:text-slate-400">
-                These are not about “{searchQuery.trim()}” — the word just appears somewhere in the text.
-              </span>
-            </span>
-            <ChevronDown
-              className={`h-4 w-4 shrink-0 text-slate-400 transition-transform ${
-                mentionsExpanded ? 'rotate-180' : ''
-              }`}
-            />
-          </button>
-
-          {mentionsExpanded && (
-            <ul className="mt-3 space-y-1.5">
-              {mentionedProtocols.map(protocol => (
-                <li key={protocol.id}>
-                  <button
-                    type="button"
-                    onClick={() => onOpenProtocol(protocol)}
-                    aria-label={`Open ${protocol.title}`}
-                    className="flex w-full items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white px-3 py-2 text-left transition hover:border-indigo-300 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-indigo-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
-                  >
-                    <span className="min-w-0 truncate text-xs font-bold text-slate-700 dark:text-slate-200">
-                      {protocol.title}
-                    </span>
-                    <span className="shrink-0 text-[10px] font-black uppercase tracking-wider text-slate-400">
+        {/* Protocol Grid */}
+        {visibleProtocols.length > 0 ? (
+          <div className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
+            {visibleProtocols.map(protocol => (
+              <button
+                key={protocol.id}
+                type="button"
+                onClick={() => onOpenProtocol(protocol)}
+                aria-label={`Open ${protocol.title}`}
+                className="p-3.5 rounded-lg border border-slate-800 bg-slate-900/80 hover:bg-slate-850 hover:border-slate-700 text-left transition-desktop flex flex-col justify-between group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 shadow-xs"
+              >
+                <div className="space-y-1.5 min-w-0">
+                  <div className="flex items-start justify-between gap-2">
+                    <span className="text-[10px] uppercase font-semibold text-slate-500 tracking-wider">
                       {protocol.categoryLabel}
                     </span>
-                  </button>
-                </li>
-              ))}
-            </ul>
-          )}
-        </section>
-      )}
+                    {protocol.pdfPages && protocol.pdfPages.length > 0 && (
+                      <span className="text-[10px] text-slate-500">
+                        p. {protocol.pdfPages.join(', ')}
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="text-xs font-semibold text-slate-200 group-hover:text-indigo-300 transition-colors leading-snug">
+                    {protocol.title}
+                  </h3>
+                  <p className="line-clamp-2 text-[11px] text-slate-400 leading-relaxed">
+                    {protocol.summary}
+                  </p>
+                </div>
+                <div className="mt-3 flex items-center text-[11px] font-medium text-indigo-400 gap-1">
+                  <span>Open Protocol</span>
+                  <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                </div>
+              </button>
+            ))}
+          </div>
+        ) : (
+          <div className="rounded-lg border border-dashed border-slate-800 bg-slate-900/40 py-8 text-center">
+            <AlertTriangle className="mx-auto h-4 w-4 text-slate-500" />
+            <p className="mt-2 text-xs font-medium text-slate-400">
+              No protocols match your search in this category.
+            </p>
+          </div>
+        )}
+
+        {mentionedProtocols.length > 0 && (
+          <div className="rounded-lg border border-slate-800 bg-slate-900/50 p-3">
+            <button
+              type="button"
+              onClick={() => setMentionsExpanded(expanded => !expanded)}
+              aria-expanded={mentionsExpanded}
+              className="flex w-full items-center justify-between gap-2 text-left cursor-pointer focus-visible:outline-none"
+            >
+              <div>
+                <span className="block text-xs font-semibold text-slate-300">
+                  Mentioned in {mentionedProtocols.length} other protocol{mentionedProtocols.length === 1 ? '' : 's'}
+                </span>
+                <span className="text-[11px] text-slate-500">
+                  Terms appear in text, not protocol title.
+                </span>
+              </div>
+              <ChevronDown
+                className={`h-4 w-4 text-slate-400 transition-transform ${mentionsExpanded ? 'rotate-180' : ''}`}
+              />
+            </button>
+            {mentionsExpanded && (
+              <ul className="mt-2 space-y-1">
+                {mentionedProtocols.map(protocol => (
+                  <li key={protocol.id}>
+                    <button
+                      type="button"
+                      onClick={() => onOpenProtocol(protocol)}
+                      className="flex w-full items-center justify-between gap-2 rounded px-2.5 py-1.5 text-left text-xs text-slate-300 hover:bg-slate-800/80 transition-desktop"
+                    >
+                      <span className="truncate">{protocol.title}</span>
+                      <span className="text-[10px] text-slate-500">{protocol.categoryLabel}</span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        )}
+      </section>
     </div>
   );
 };

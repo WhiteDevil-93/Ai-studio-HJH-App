@@ -8,6 +8,9 @@ import {
   type MindMapDefinition,
   type MindMapNode,
 } from '../clinical/mindMaps';
+import { Button } from './ui/Button';
+import { Badge } from './ui/Badge';
+import { SegmentedControl } from './ui/SegmentedControl';
 
 interface MindMapViewerProps {
   mindMapId: string;
@@ -19,7 +22,6 @@ interface MindMapViewerProps {
 
 export { MIND_MAPS_DATABASE, type MindMapDefinition, type MindMapNode } from '../clinical/mindMaps';
 
-
 export const MindMapViewer: React.FC<MindMapViewerProps> = ({
   mindMapId,
   onBack,
@@ -27,30 +29,26 @@ export const MindMapViewer: React.FC<MindMapViewerProps> = ({
   isFavourite = false,
   onToggleFavourite
 }) => {
-  // No fallback to another algorithm: opening an unknown mind-map ID must show
-  // an explicit not-found state. Falling back to the adult cardiac arrest map
-  // silently presented the WRONG algorithm whenever a link was broken — and
-  // masked the broken link itself.
   const mindMap: MindMapDefinition | undefined = MIND_MAPS_DATABASE[mindMapId];
   const [currentNodeId, setCurrentNodeId] = useState<string>(mindMap?.initialNodeId ?? '');
   const [viewMode, setViewMode] = useState<'step' | 'full_diagram'>('step');
 
   if (!mindMap) {
     return (
-      <div className="max-w-2xl mx-auto py-16 text-center space-y-4">
-        <div className="text-4xl">🗺️</div>
-        <h2 className="text-lg font-bold text-slate-900 dark:text-white">Mind map not found</h2>
-        <p className="text-sm text-slate-500 dark:text-slate-400">
-          No interactive pathway exists for the identifier “{mindMapId}”. This link is broken —
-          please report it. No substitute algorithm is shown, to avoid presenting the wrong pathway.
+      <div className="max-w-2xl mx-auto py-12 text-center space-y-3">
+        <div className="text-3xl" aria-hidden="true">🗺️</div>
+        <h2 className="text-sm font-bold text-white">Mind map not found</h2>
+        <p className="text-xs text-slate-400">
+          No interactive pathway exists for the identifier “{mindMapId}”.
         </p>
-        <button
+        <Button
+          size="sm"
+          variant="secondary"
           onClick={onBack}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 font-semibold text-xs transition-colors"
+          icon={<ArrowLeft className="w-3.5 h-3.5" />}
         >
-          <ArrowLeft className="w-4 h-4" />
           Back to Home
-        </button>
+        </Button>
       </div>
     );
   }
@@ -63,84 +61,78 @@ export const MindMapViewer: React.FC<MindMapViewerProps> = ({
   };
 
   return (
-    <div className="space-y-6 max-w-5xl mx-auto pb-12 print:max-w-none print:p-0">
+    <div className="space-y-4 max-w-5xl mx-auto pb-12 print:max-w-none print:p-0">
       {/* Top Bar */}
       <div className="flex items-center justify-between print:hidden">
-        <button
+        <Button
+          size="sm"
+          variant="ghost"
           onClick={onBack}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 font-semibold text-xs transition-colors"
+          icon={<ArrowLeft className="w-3.5 h-3.5" />}
         >
-          <ArrowLeft className="w-4 h-4" />
           Back to Home
-        </button>
+        </Button>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5">
           {onToggleFavourite && (
             <button
+              type="button"
               onClick={() => onToggleFavourite(`mindmap.${mindMap.id}`)}
-              className={`p-2 rounded-xl border transition-colors ${
+              className={`p-1.5 rounded-md border transition-desktop cursor-pointer ${
                 isFavourite
-                  ? 'bg-amber-500/10 border-amber-500/30 text-amber-500'
-                  : 'bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-400'
+                  ? 'bg-amber-500/10 border-amber-500/30 text-amber-400'
+                  : 'bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200'
               }`}
               title={isFavourite ? 'Remove from Favourites' : 'Add to Favourites'}
             >
-              <Star className={`w-4 h-4 ${isFavourite ? 'fill-amber-500' : ''}`} />
+              <Star className={`w-3.5 h-3.5 ${isFavourite ? 'fill-amber-400' : ''}`} />
             </button>
           )}
 
-          <button
+          <Button
+            size="sm"
+            variant="secondary"
             onClick={handlePrint}
-            className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-semibold inline-flex items-center gap-1.5 transition-colors"
-            title="Print Protocol Card"
+            icon={<Printer className="w-3.5 h-3.5" />}
           >
-            <Printer className="w-4 h-4" />
             <span className="hidden sm:inline">Print Card</span>
-          </button>
+          </Button>
 
-          <span className="text-xs font-semibold px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20">
-            PDF Page {mindMap.pdfPage} • {mindMap.category}
-          </span>
+          <Badge variant="primary" size="sm">
+            PDF Page {mindMap.pdfPage} · {mindMap.category}
+          </Badge>
         </div>
       </div>
 
       {/* Header */}
-      <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 rounded-2xl p-6 sm:p-8 text-white border border-slate-800 shadow-xl print:bg-none print:text-black print:border-b print:p-0">
-        <div className="flex items-start justify-between">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-indigo-400 print:text-slate-600">Interactive Visual Mind Map</span>
-            <h1 className="text-2xl sm:text-3xl font-extrabold mt-1">{mindMap.title}</h1>
-            <p className="text-slate-300 text-xs sm:text-sm mt-2 print:text-slate-700">{mindMap.subtitle}</p>
+      <div className="rounded-lg p-4 sm:p-5 text-white border border-slate-800 bg-slate-900/90 shadow-xs print:bg-none print:text-black print:border-b print:p-0">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div className="space-y-1">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-indigo-400 print:text-slate-600">
+              Interactive Resuscitation Flowchart
+            </span>
+            <h1 className="text-base sm:text-lg font-bold">{mindMap.title}</h1>
+            <p className="text-slate-400 text-xs print:text-slate-700 leading-relaxed">{mindMap.subtitle}</p>
           </div>
 
-          <div className="flex items-center gap-2 print:hidden">
-            <div className="bg-slate-800/80 p-1 rounded-xl border border-slate-700 flex items-center">
-              <button
-                onClick={() => setViewMode('step')}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1 ${
-                  viewMode === 'step' ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                <ListFilter className="w-3.5 h-3.5" />
-                Step View
-              </button>
-              <button
-                onClick={() => setViewMode('full_diagram')}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1 ${
-                  viewMode === 'full_diagram' ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                <LayoutGrid className="w-3.5 h-3.5" />
-                Full Diagram
-              </button>
-            </div>
+          <div className="flex items-center gap-2 print:hidden shrink-0">
+            <SegmentedControl
+              size="sm"
+              value={viewMode}
+              onChange={(v) => setViewMode(v as 'step' | 'full_diagram')}
+              options={[
+                { value: 'step', label: 'Step View', icon: <ListFilter className="w-3 h-3" /> },
+                { value: 'full_diagram', label: 'Overview', icon: <LayoutGrid className="w-3 h-3" /> },
+              ]}
+            />
 
             <button
+              type="button"
               onClick={() => setCurrentNodeId(mindMap.initialNodeId)}
-              className="p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors"
-              title="Reset Mind Map"
+              className="p-1.5 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 transition-desktop cursor-pointer"
+              title="Reset Flowchart"
             >
-              <RefreshCw className="w-4 h-4" />
+              <RefreshCw className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>
@@ -148,47 +140,50 @@ export const MindMapViewer: React.FC<MindMapViewerProps> = ({
 
       {/* VIEW MODE 1: Interactive Step Card View */}
       {viewMode === 'step' && (
-        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-md space-y-6">
-          <div className="flex items-center justify-between">
-            <span className={`text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full ${
-              currentNode.type === 'start' ? 'bg-blue-500/10 text-blue-600 border border-blue-500/20' :
-              currentNode.type === 'warning' ? 'bg-amber-500/10 text-amber-600 border border-amber-500/20' :
-              currentNode.type === 'outcome' ? 'bg-emerald-500/10 text-emerald-600 border border-emerald-500/20' :
-              'bg-indigo-500/10 text-indigo-600 border border-indigo-500/20'
-            }`}>
+        <div className="bg-slate-900/85 rounded-lg border border-slate-800 p-4 sm:p-5 shadow-xs space-y-4">
+          <div className="flex items-center justify-between gap-2">
+            <Badge
+              variant={
+                currentNode.type === 'start' ? 'primary' :
+                currentNode.type === 'warning' ? 'warning' :
+                currentNode.type === 'outcome' ? 'success' :
+                'neutral'
+              }
+              size="sm"
+            >
               Step: {currentNode.type.toUpperCase()}
-            </span>
+            </Badge>
 
             {currentNode.dosage && (
-              <span className="text-xs font-bold px-3 py-1 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20">
-                💊 Dosage: {currentNode.dosage}
+              <span className="text-xs font-semibold px-2 py-0.5 rounded bg-purple-950/40 text-purple-300 border border-purple-900/40">
+                Dosage: {currentNode.dosage}
               </span>
             )}
           </div>
 
-          <div className="space-y-1">
-            <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white">
+          <div className="space-y-0.5">
+            <h2 className="text-sm sm:text-base font-bold text-white">
               {currentNode.title}
             </h2>
             {currentNode.subtitle && (
-              <p className="text-sm font-medium text-slate-500 dark:text-slate-400">{currentNode.subtitle}</p>
+              <p className="text-xs text-slate-400">{currentNode.subtitle}</p>
             )}
           </div>
 
           {currentNode.warning && (
-            <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-800 dark:text-amber-300 flex items-start gap-3">
-              <AlertTriangle className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
-              <p className="text-xs font-semibold leading-relaxed">{currentNode.warning}</p>
+            <div className="p-3 rounded border border-amber-900/40 bg-amber-950/20 text-amber-200 flex items-start gap-2 text-xs leading-relaxed">
+              <AlertTriangle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+              <p>{currentNode.warning}</p>
             </div>
           )}
 
           {currentNode.details && currentNode.details.length > 0 && (
-            <div className="space-y-3 pt-2">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">Clinical Actions & Guidelines</h4>
-              <ul className="space-y-2">
+            <div className="space-y-2 pt-1">
+              <h3 className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Clinical Actions &amp; Guidelines</h3>
+              <ul className="space-y-1.5">
                 {currentNode.details.map((detail, idx) => (
-                  <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-                    <CheckCircle2 className="w-4 h-4 text-indigo-500 shrink-0 mt-0.5" />
+                  <li key={idx} className="flex items-start gap-2 text-xs text-slate-300 leading-relaxed">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
                     <span>{detail}</span>
                   </li>
                 ))}
@@ -197,17 +192,18 @@ export const MindMapViewer: React.FC<MindMapViewerProps> = ({
           )}
 
           {currentNode.options && currentNode.options.length > 0 && (
-            <div className="pt-4 border-t border-slate-100 dark:border-slate-800 space-y-3">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">Select Next Decision / Clinical Branch</h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="pt-3 border-t border-slate-800 space-y-2">
+              <h3 className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Select Decision Branch</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {currentNode.options.map((option, idx) => (
                   <button
                     key={idx}
+                    type="button"
                     onClick={() => setCurrentNodeId(option.targetId)}
-                    className="flex items-center justify-between p-4 rounded-xl border border-indigo-200 dark:border-indigo-900/50 bg-indigo-50/50 dark:bg-indigo-950/30 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 text-indigo-950 dark:text-indigo-200 font-bold text-xs sm:text-sm transition-all group"
+                    className="flex items-center justify-between p-3 rounded-lg border border-slate-800 bg-slate-950/50 hover:bg-slate-800 hover:border-indigo-500/50 text-slate-200 font-medium text-xs transition-desktop group text-left cursor-pointer"
                   >
                     <span>{option.label}</span>
-                    <ChevronRight className="w-5 h-5 text-indigo-500 group-hover:translate-x-1 transition-transform" />
+                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 group-hover:text-indigo-400 transition-transform shrink-0 ml-1.5" />
                   </button>
                 ))}
               </div>
@@ -218,44 +214,55 @@ export const MindMapViewer: React.FC<MindMapViewerProps> = ({
 
       {/* VIEW MODE 2: Full Diagram Overview */}
       {viewMode === 'full_diagram' && (
-        <div className="space-y-4">
-          <div className="p-4 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-900 dark:text-indigo-200 text-xs font-medium">
-            💡 Full Mind Map Overview: Below is the complete visual algorithm tree. Click any node card to jump into that specific step.
+        <div className="space-y-3">
+          <div className="p-2.5 rounded border border-indigo-900/40 bg-indigo-950/20 text-indigo-300 text-xs">
+            Complete algorithm tree: click any step to view details.
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
             {allNodesList.map((node) => (
               <div
                 key={node.id}
+                role="button"
+                tabIndex={0}
                 onClick={() => {
                   setCurrentNodeId(node.id);
                   setViewMode('step');
                 }}
-                className={`cursor-pointer p-5 rounded-2xl border transition-all hover:scale-[1.01] ${
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    setCurrentNodeId(node.id);
+                    setViewMode('step');
+                  }
+                }}
+                className={`cursor-pointer p-3.5 rounded-lg border transition-desktop ${
                   node.id === currentNodeId
-                    ? 'ring-2 ring-indigo-500 border-indigo-500 bg-indigo-50/30 dark:bg-indigo-950/40'
-                    : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-indigo-300'
+                    ? 'border-indigo-500 bg-indigo-950/30'
+                    : 'border-slate-800 bg-slate-900/80 hover:bg-slate-850 hover:border-slate-700'
                 }`}
               >
-                <div className="flex items-center justify-between mb-2">
-                  <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full ${
-                    node.type === 'start' ? 'bg-blue-500/10 text-blue-600' :
-                    node.type === 'warning' ? 'bg-amber-500/10 text-amber-600' :
-                    node.type === 'outcome' ? 'bg-emerald-500/10 text-emerald-600' :
-                    'bg-indigo-500/10 text-indigo-600'
-                  }`}>
+                <div className="flex items-center justify-between mb-1.5">
+                  <Badge
+                    variant={
+                      node.type === 'start' ? 'primary' :
+                      node.type === 'warning' ? 'warning' :
+                      node.type === 'outcome' ? 'success' :
+                      'neutral'
+                    }
+                    size="sm"
+                  >
                     {node.type}
-                  </span>
-                  {node.dosage && <span className="text-[10px] font-bold text-purple-600">💊 {node.dosage}</span>}
+                  </Badge>
+                  {node.dosage && <span className="text-[10px] text-purple-300 font-medium">💊 {node.dosage}</span>}
                 </div>
 
-                <h4 className="font-bold text-sm text-slate-900 dark:text-white mb-1">{node.title}</h4>
-                {node.subtitle && <p className="text-xs text-slate-500 mb-2">{node.subtitle}</p>}
+                <h4 className="font-semibold text-xs text-white mb-0.5">{node.title}</h4>
+                {node.subtitle && <p className="text-[11px] text-slate-400 mb-1.5">{node.subtitle}</p>}
 
                 {node.details && (
-                  <ul className="space-y-1">
-                    {node.details.slice(0, 3).map((d, i) => (
-                      <li key={i} className="text-[11px] text-slate-600 dark:text-slate-400 truncate">• {d}</li>
+                  <ul className="space-y-0.5">
+                    {node.details.slice(0, 2).map((d, i) => (
+                      <li key={i} className="text-[10px] text-slate-400 truncate">• {d}</li>
                     ))}
                   </ul>
                 )}

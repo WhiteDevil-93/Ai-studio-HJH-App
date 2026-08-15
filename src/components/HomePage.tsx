@@ -21,6 +21,9 @@ import {TRIALS_REFERENCE} from '../clinical/trialsReference';
 import {rankProtocolSearch} from '../clinical/protocolSearch';
 import {GlobalCalculatorResults} from './GlobalCalculatorResults';
 import type {GlobalCalculator} from '../clinical/globalCalculators';
+import { Button } from './ui/Button';
+import { Badge } from './ui/Badge';
+import { Input } from './ui/Input';
 
 interface HomePageProps {
   onSelectFacility: (facilityId: HospitalId) => void;
@@ -44,10 +47,12 @@ const ALL_VISIBLE_PROTOCOLS: readonly HospitalProtocol[] = (
 interface FacilityCard {
   id: HospitalId;
   name: string;
+  shortName: string;
   subtitle: string;
   description: string;
   color: string;
   badge: string;
+  badgeVariant: 'facility-hjh' | 'facility-rmmch' | 'facility-cmjah' | 'facility-chbah';
   protocolCount: number;
   icon: React.ComponentType<{className?: string}>;
   available: boolean;
@@ -56,73 +61,71 @@ interface FacilityCard {
 export const FACILITIES: FacilityCard[] = [
   {
     id: 'hjh',
-    name: 'Helen Joseph Hospital (HJH)',
-    subtitle: 'Primary ED Guidelines 2026 (Editor: Dr Jana du Plessis)',
+    name: 'Helen Joseph Hospital',
+    shortName: 'HJH',
+    subtitle: 'Primary ED Guidelines 2026',
     description: 'ED protocol algorithms straight from the HJH document: ACS, stroke, sepsis, trauma, toxicology, and ED procedures.',
-    color: 'from-blue-600 to-indigo-700',
+    color: 'border-blue-500/40 bg-blue-500/10 text-blue-400',
     badge: 'Main Facility',
+    badgeVariant: 'facility-hjh',
     protocolCount: hospitalProtocolCount('hjh'),
     icon: Building2,
     available: true
   },
   {
     id: 'rmmch',
-    name: 'Rahima Moosa Mother & Child (RMMCH)',
-    subtitle: 'EM Clinical Protocols, V5 (January 2024)',
-    description: 'Paediatric and maternal emergency protocols from the complete supplied RMMCH schema, including resuscitation, airway, medical, and trauma pathways.',
-    color: 'from-pink-600 to-rose-700',
+    name: 'Rahima Moosa Mother & Child',
+    shortName: 'RMMCH',
+    subtitle: 'EM Clinical Protocols, V5 (2024)',
+    description: 'Paediatric and maternal emergency protocols from the complete supplied RMMCH schema: resuscitation, airway, and trauma.',
+    color: 'border-pink-500/40 bg-pink-500/10 text-pink-400',
     badge: 'Paediatric Referral',
+    badgeVariant: 'facility-rmmch',
     protocolCount: hospitalProtocolCount('rmmch'),
     icon: Heart,
     available: true
   },
   {
     id: 'cmjah',
-    name: 'Charlotte Maxeke Academic Hospital (CMJAH)',
-    subtitle: 'ED Protocols, Version 2 (December 2020)',
-    description: 'The complete supplied CMJAH protocol schema, including resuscitation, toxicology, medical emergencies, procedures, triage, and critical-care guidance.',
-    color: 'from-purple-600 to-indigo-800',
+    name: 'Charlotte Maxeke Academic Hospital',
+    shortName: 'CMJAH',
+    subtitle: 'ED Protocols, V2 (2020)',
+    description: 'Complete CMJAH protocol schema: resuscitation, toxicology, medical emergencies, procedures, triage, and critical care.',
+    color: 'border-purple-500/40 bg-purple-500/10 text-purple-400',
     badge: 'Tertiary Referral',
+    badgeVariant: 'facility-cmjah',
     protocolCount: hospitalProtocolCount('cmjah'),
     icon: Award,
     available: true
   },
   {
     id: 'chbah',
-    name: 'Chris Hani Baragwanath Hospital (CHBAH)',
-    subtitle: 'ICU Dosing Card (2024 updates)',
-    description: 'The supplied CHBAH ICU schema: adult and paediatric dosing, infusions, antimicrobial regimens, electrolyte replacement, and critical-care reference.',
-    color: 'from-amber-600 to-orange-700',
+    name: 'Chris Hani Baragwanath Hospital',
+    shortName: 'CHBAH',
+    subtitle: 'ICU Dosing Card (2024)',
+    description: 'CHBAH ICU schema: adult and paediatric dosing, infusions, antimicrobial regimens, and electrolyte replacement.',
+    color: 'border-amber-500/40 bg-amber-500/10 text-amber-400',
     badge: 'Regional Referral',
+    badgeVariant: 'facility-chbah',
     protocolCount: hospitalProtocolCount('chbah'),
     icon: Flame,
     available: true
   }
 ];
 
-const getSourceEmoji = (facilityId: string) => {
-  switch (facilityId) {
-    case 'hjh': return '🩺';
-    case 'rmmch': return '👶';
-    case 'cmjah': return '🏨';
-    case 'chbah': return '🏥';
-    default: return '📋';
-  }
-};
-
 export const QUICK_RESUS_ALGORITHMS = [
-  { id: 'aha_bls_acls', title: 'Adult Cardiac Arrest Algorithm (2020)', category: 'Resuscitation', icon: Activity, color: 'bg-red-500/10 text-red-500 border-red-500/30' },
-  { id: 'trauma_arrest', title: 'Trauma Cardiac Arrest (H-O-T-T)', category: 'Trauma', icon: ShieldAlert, color: 'bg-amber-500/10 text-amber-500 border-amber-500/30' },
-  { id: 'acs_stemi_flowchart', title: 'ACS & STEMI / OMI Algorithm', category: 'Cardiology', icon: Heart, color: 'bg-rose-600/10 text-rose-600 border-rose-600/30' },
-  { id: 'stroke_thrombolysis', title: 'Acute Stroke & Thrombolysis Window', category: 'Neurovascular', icon: Brain, color: 'bg-indigo-500/10 text-indigo-500 border-indigo-500/30' },
-  { id: 'epistaxis_flowchart', title: 'Epistaxis Management & Packing', category: 'ENT', icon: AlertTriangle, color: 'bg-rose-500/10 text-rose-500 border-rose-500/30' },
-  { id: 'croup_algorithm', title: 'Westley Croup Score & Treatment', category: 'Paediatrics / ENT', icon: Baby, color: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/30' },
-  { id: 'jaundice_flowchart', title: 'Jaundice Diagnostic Flowchart', category: 'Gastroenterology', icon: Stethoscope, color: 'bg-sky-500/10 text-sky-500 border-sky-500/30' },
-  { id: 'dka_hhs_flowchart', title: 'Hyperglycaemia & DKA / HHS Mx', category: 'Metabolic', icon: Syringe, color: 'bg-indigo-500/10 text-indigo-500 border-indigo-500/30' },
-  { id: 'psychosis_flowchart', title: 'Acute Psychosis / Mania Flowchart', category: 'Psychiatry', icon: AlertTriangle, color: 'bg-purple-500/10 text-purple-500 border-purple-500/30' },
-  { id: 'snakebite_pathway', title: 'Snakebite Envenomation Pathway', category: 'Toxicology', icon: ShieldAlert, color: 'bg-lime-600/10 text-lime-600 border-lime-600/30' },
-  { id: 'scorpion_sting', title: 'Scorpion Sting Envenomation', category: 'Toxicology', icon: AlertTriangle, color: 'bg-amber-600/10 text-amber-600 border-amber-600/30' },
-  { id: 'organ_donation', title: 'Organ & Tissue Donation Protocol', category: 'Governance / ICU', icon: Users, color: 'bg-purple-500/10 text-purple-500 border-purple-500/30' }
+  { id: 'aha_bls_acls', title: 'Adult Cardiac Arrest (ACLS 2020)', category: 'Resuscitation', icon: Activity, color: 'text-rose-400 bg-rose-500/10 border-rose-500/30' },
+  { id: 'trauma_arrest', title: 'Trauma Cardiac Arrest (H-O-T-T)', category: 'Trauma', icon: ShieldAlert, color: 'text-amber-400 bg-amber-500/10 border-amber-500/30' },
+  { id: 'acs_stemi_flowchart', title: 'ACS & STEMI / OMI Algorithm', category: 'Cardiology', icon: Heart, color: 'text-rose-400 bg-rose-500/10 border-rose-500/30' },
+  { id: 'stroke_thrombolysis', title: 'Acute Stroke & Thrombolysis', category: 'Neurovascular', icon: Brain, color: 'text-indigo-400 bg-indigo-500/10 border-indigo-500/30' },
+  { id: 'epistaxis_flowchart', title: 'Epistaxis Management & Packing', category: 'ENT', icon: AlertTriangle, color: 'text-rose-400 bg-rose-500/10 border-rose-500/30' },
+  { id: 'croup_algorithm', title: 'Westley Croup Score & Treatment', category: 'Paediatrics / ENT', icon: Baby, color: 'text-emerald-400 bg-emerald-500/10 border-emerald-500/30' },
+  { id: 'jaundice_flowchart', title: 'Jaundice Diagnostic Flowchart', category: 'Gastroenterology', icon: Stethoscope, color: 'text-sky-400 bg-sky-500/10 border-sky-500/30' },
+  { id: 'dka_hhs_flowchart', title: 'Hyperglycaemia & DKA / HHS', category: 'Metabolic', icon: Syringe, color: 'text-indigo-400 bg-indigo-500/10 border-indigo-500/30' },
+  { id: 'psychosis_flowchart', title: 'Acute Psychosis / Mania Flowchart', category: 'Psychiatry', icon: AlertTriangle, color: 'text-purple-400 bg-purple-500/10 border-purple-500/30' },
+  { id: 'snakebite_pathway', title: 'Snakebite Envenomation Pathway', category: 'Toxicology', icon: ShieldAlert, color: 'text-emerald-400 bg-emerald-500/10 border-emerald-500/30' },
+  { id: 'scorpion_sting', title: 'Scorpion Sting Envenomation', category: 'Toxicology', icon: AlertTriangle, color: 'text-amber-400 bg-amber-500/10 border-amber-500/30' },
+  { id: 'organ_donation', title: 'Organ & Tissue Donation Protocol', category: 'ICU / Governance', icon: Users, color: 'text-purple-400 bg-purple-500/10 border-purple-500/30' }
 ];
 
 export const POPULAR_HOSPITAL_SOPS = [
@@ -132,11 +135,11 @@ export const POPULAR_HOSPITAL_SOPS = [
   { id: 'icu_referral', title: 'ICU Consult & Referral Policy', icon: Building2 },
   { id: 'internal_medicine_admissions', title: 'Internal Medicine Admissions Pathway', icon: Building2 },
   { id: 'stat_lab_use', title: 'Stat Lab Use Policy', icon: FlaskConical },
-  { id: 'ct_contrast', title: 'CT Contrast Protocol & Consent Checklist', icon: FileText },
-  { id: 'j88_guidelines', title: 'J88 Medicolegal Report Completion Guide', icon: Award },
+  { id: 'ct_contrast', title: 'CT Contrast Protocol & Consent', icon: FileText },
+  { id: 'j88_guidelines', title: 'J88 Medicolegal Report Guide', icon: Award },
   { id: 'death_certification', title: 'Death Certification (BI 1663 / D28)', icon: FileText },
   { id: 'notifiable_conditions', title: 'Notifiable Conditions & ICD-10 List', icon: AlertTriangle },
-  { id: 'suburb_directory', title: 'HJH Drainage Suburbs Directory (Reg B & C)', icon: MapPin }
+  { id: 'suburb_directory', title: 'HJH Drainage Suburbs Directory', icon: MapPin }
 ];
 
 export const HomePage: React.FC<HomePageProps> = ({
@@ -156,8 +159,6 @@ export const HomePage: React.FC<HomePageProps> = ({
   const trimmedQuery = searchQuery.trim();
   const [mentionsExpanded, setMentionsExpanded] = useState(false);
 
-  // Ranked across every facility at once, so the home quick search answers
-  // with the protocol the query is *about* first, regardless of hospital.
   const {namedResults, mentionResults} = useMemo(() => {
     const ranked = rankProtocolSearch(ALL_VISIBLE_PROTOCOLS, trimmedQuery);
     return {
@@ -166,8 +167,6 @@ export const HomePage: React.FC<HomePageProps> = ({
     };
   }, [trimmedQuery]);
 
-  // With nothing named after the query, a passing mention is the best answer
-  // there is - promote those rather than showing an empty page.
   const promoteMentions = namedResults.length === 0;
   const visibleResults = promoteMentions ? mentionResults : namedResults;
   const MAX_HOME_RESULTS = 12;
@@ -177,9 +176,9 @@ export const HomePage: React.FC<HomePageProps> = ({
   const resultBadge = (protocol: HospitalProtocol) => {
     const hospital = HOSPITALS[protocol.facilityId];
     return (
-      <span className="shrink-0 rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-slate-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400">
-        {getSourceEmoji(protocol.facilityId)} {hospital.shortName}
-      </span>
+      <Badge variant={`facility-${protocol.facilityId}` as any} size="sm">
+        {hospital.shortName}
+      </Badge>
     );
   };
 
@@ -192,91 +191,75 @@ export const HomePage: React.FC<HomePageProps> = ({
   };
 
   return (
-    <div className="space-y-6 sm:space-y-8 pb-12">
-      {/* Hero Header Section */}
-      <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-5 sm:p-8 lg:p-10 border border-slate-800 shadow-2xl text-white">
-        <div className="relative z-10 space-y-5 sm:space-y-6 max-w-4xl">
-          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-xs font-semibold uppercase tracking-wider">
-              <Building2 className="w-3.5 h-3.5" />
-              Multi-Facility Clinical Reference
+    <div className="space-y-6 max-w-7xl mx-auto">
+      {/* COMPACT DESKTOP WORKSPACE HERO */}
+      <div className="rounded-lg border border-slate-800 bg-slate-900/90 p-4 sm:p-5 shadow-xs">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+          <div className="space-y-1">
+            <div className="flex items-center gap-2">
+              <span className="text-[11px] font-semibold text-indigo-400 uppercase tracking-wider">
+                Clinical Reference Platform
+              </span>
+              <span className="text-slate-600">·</span>
+              <span className="text-xs text-slate-400">Multi-Facility Edition 2026</span>
             </div>
-            {onOpenCodeRed && (
-              <button
-                onClick={onOpenCodeRed}
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-600 hover:bg-red-500 border border-red-400 text-white text-xs font-black uppercase tracking-wider shadow-lg animate-pulse cursor-pointer transition-all hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400"
-              >
-                <ShieldAlert className="w-4 h-4 text-white" />
-                🚨 CODE RED Resuscitation Cards
-              </button>
-            )}
+            <h1 className="text-base sm:text-lg font-bold text-white tracking-tight">
+              Emergency Department &amp; Critical Care Reference
+            </h1>
+            <p className="text-xs text-slate-400 max-w-2xl leading-relaxed">
+              Authoritative clinical protocols, interactive resuscitation algorithms, weight-based dose calculations, and facility SOPs.
+            </p>
           </div>
-          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
-            Emergency Department <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-sky-400">Clinical Guidelines</span> & Facilities
-          </h1>
-          <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl">
-            Complete, authoritative clinical protocols, interactive mind maps, visual algorithms, drug infusion calculators, and hospital SOPs for Helen Joseph Tertiary Hospital and referral facilities.
-          </p>
 
-          {/* Quick Controls: Weight & Search */}
-          <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 pt-2">
-            <div className="sm:col-span-4 relative">
-              <label className="block text-xs text-slate-400 font-medium mb-1">Patient Weight (kg)</label>
-              <div className="relative">
-                <Syringe className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-                <input
-                  type="number"
-                  placeholder="e.g. 70"
-                  value={weight}
-                  onChange={(e) => setWeight(e.target.value)}
-                  aria-label="Patient weight in kilograms"
-                  className="w-full bg-slate-800/90 border border-slate-700 text-white rounded-xl pl-9 pr-4 py-2.5 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 transition-all placeholder:text-slate-500"
-                />
-              </div>
+          {/* Controls: Weight & Search */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 shrink-0">
+            <div className="w-full sm:w-36">
+              <Input
+                size="sm"
+                type="number"
+                placeholder="Weight (kg)"
+                value={weight}
+                onChange={(e) => setWeight(e.target.value)}
+                icon={<Syringe className="w-3.5 h-3.5" />}
+                aria-label="Patient weight in kilograms"
+              />
             </div>
-            <div className="sm:col-span-8 relative">
-              <label className="block text-xs text-slate-400 font-medium mb-1">Quick Search Protocols or Guidelines</label>
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-                <input
-                  type="text"
-                  placeholder="Search ACS, Stroke, DKA, Snakebite, J88, Triage..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  aria-label="Search protocols and guidelines"
-                  className="w-full bg-slate-800/90 border border-slate-700 text-white rounded-xl pl-9 pr-4 py-2.5 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 transition-all placeholder:text-slate-500"
-                />
-              </div>
+            <div className="w-full sm:w-64">
+              <Input
+                size="sm"
+                type="text"
+                placeholder="Search protocols..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                icon={<Search className="w-3.5 h-3.5" />}
+                aria-label="Search protocols and guidelines"
+              />
             </div>
           </div>
         </div>
-
-        {/* Ambient background decoration */}
-        <div className="absolute -right-12 -bottom-12 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -left-12 -top-12 w-96 h-96 bg-sky-600/10 rounded-full blur-3xl pointer-events-none" />
       </div>
 
-      {/* Live search results across every facility */}
+      {/* LIVE SEARCH RESULTS */}
       {trimmedQuery && (
         <section aria-label="Search results" className="space-y-3">
           <div className="flex items-center justify-between gap-3">
-            <h2 className="text-lg sm:text-xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
-              <Search className="w-5 h-5 text-indigo-500" />
+            <h2 className="text-xs font-semibold text-white uppercase tracking-wider flex items-center gap-2">
+              <Search className="w-3.5 h-3.5 text-indigo-400" />
               Results for “{trimmedQuery}”
             </h2>
-            <span className="flex items-center gap-2">
-              <span className="text-xs font-bold text-slate-500">
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-slate-400">
                 {visibleResults.length} protocol{visibleResults.length === 1 ? '' : 's'}
               </span>
-              <button
-                type="button"
+              <Button
+                size="sm"
+                variant="ghost"
                 onClick={() => setSearchQuery('')}
                 aria-label="Clear search"
-                className="rounded-lg border border-slate-200 p-1.5 text-slate-400 transition hover:text-slate-700 dark:border-slate-700 dark:hover:text-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               >
                 <X className="w-3.5 h-3.5" />
-              </button>
-            </span>
+              </Button>
+            </div>
           </div>
 
           {onOpenCalculator && (
@@ -288,8 +271,8 @@ export const HomePage: React.FC<HomePageProps> = ({
           )}
 
           {cappedResults.length > 0 ? (
-            <div className="grid gap-2.5 md:grid-cols-2">
-              {cappedResults.map(result => {
+            <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+              {cappedResults.map((result) => {
                 const protocol = result.protocol;
                 return (
                   <button
@@ -297,72 +280,72 @@ export const HomePage: React.FC<HomePageProps> = ({
                     type="button"
                     onClick={() => openResult(protocol)}
                     aria-label={`Open ${protocol.title}`}
-                    className="group flex flex-col rounded-xl border border-slate-200 bg-white p-4 text-left shadow-sm transition hover:border-indigo-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900 dark:hover:border-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                    className="p-3 rounded-lg border border-slate-800 bg-slate-900/80 hover:bg-slate-850 hover:border-slate-700 text-left transition-desktop flex flex-col justify-between group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
                   >
-                    <div className="flex items-start justify-between gap-3">
-                      <h3 className="text-sm font-black leading-snug text-slate-900 transition group-hover:text-indigo-600 dark:text-white dark:group-hover:text-indigo-400">
-                        {protocol.title}
-                      </h3>
-                      {resultBadge(protocol)}
+                    <div className="space-y-1 min-w-0">
+                      <div className="flex items-start justify-between gap-2">
+                        <h3 className="text-xs font-semibold text-slate-200 group-hover:text-indigo-300 transition-colors leading-snug">
+                          {protocol.title}
+                        </h3>
+                        {resultBadge(protocol)}
+                      </div>
+                      <p className="line-clamp-2 text-[11px] text-slate-400 leading-relaxed">
+                        {protocol.summary}
+                      </p>
                     </div>
-                    <p className="mt-1.5 line-clamp-2 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
-                      {protocol.summary}
-                    </p>
-                    <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-bold text-indigo-500">
-                      Open <ChevronRight className="h-3 w-3" />
-                    </span>
+                    <div className="mt-2.5 flex items-center text-[10px] font-medium text-indigo-400 gap-1">
+                      <span>Open Protocol</span>
+                      <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                    </div>
                   </button>
                 );
               })}
             </div>
           ) : (
-            <div className="rounded-2xl border border-dashed border-slate-300 bg-white/50 py-10 text-center dark:border-slate-700 dark:bg-slate-900/50">
-              <AlertTriangle className="mx-auto h-5 w-5 text-slate-400" />
-              <p className="mt-2 text-sm font-bold text-slate-600 dark:text-slate-300">
+            <div className="rounded-lg border border-dashed border-slate-800 bg-slate-900/40 py-8 text-center">
+              <AlertTriangle className="mx-auto h-4 w-4 text-slate-500" />
+              <p className="mt-2 text-xs font-medium text-slate-400">
                 No protocols match “{trimmedQuery}” in any facility library.
               </p>
             </div>
           )}
 
           {overflowCount > 0 && (
-            <p className="text-xs font-semibold text-slate-500">
-              …and {overflowCount} more. Open a facility library below to keep browsing this search there.
+            <p className="text-xs text-slate-500">
+              …and {overflowCount} more. Open a facility library below to browse all matches.
             </p>
           )}
 
           {!promoteMentions && mentionResults.length > 0 && (
-            <div className="rounded-xl border border-slate-200 bg-white/60 p-3 dark:border-slate-800 dark:bg-slate-900/50">
+            <div className="rounded-lg border border-slate-800 bg-slate-900/50 p-3">
               <button
                 type="button"
                 onClick={() => setMentionsExpanded(expanded => !expanded)}
                 aria-expanded={mentionsExpanded}
-                className="flex w-full items-center justify-between gap-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg"
+                className="flex w-full items-center justify-between gap-2 text-left cursor-pointer focus-visible:outline-none"
               >
-                <span className="min-w-0">
-                  <span className="block text-xs font-black text-slate-700 dark:text-slate-200">
+                <div>
+                  <span className="block text-xs font-semibold text-slate-300">
                     Mentioned in {mentionResults.length} other protocol{mentionResults.length === 1 ? '' : 's'}
                   </span>
-                  <span className="mt-0.5 block text-[11px] text-slate-500 dark:text-slate-400">
-                    These are not about “{trimmedQuery}” — the word just appears somewhere in the text.
+                  <span className="text-[11px] text-slate-500">
+                    Terms appear in text, not protocol title.
                   </span>
-                </span>
+                </div>
                 <ChevronDown
-                  className={`h-4 w-4 shrink-0 text-slate-400 transition-transform ${mentionsExpanded ? 'rotate-180' : ''}`}
+                  className={`h-4 w-4 text-slate-400 transition-transform ${mentionsExpanded ? 'rotate-180' : ''}`}
                 />
               </button>
               {mentionsExpanded && (
-                <ul className="mt-2 space-y-1.5">
-                  {mentionResults.map(result => (
+                <ul className="mt-2 space-y-1">
+                  {mentionResults.map((result) => (
                     <li key={result.protocol.id}>
                       <button
                         type="button"
                         onClick={() => openResult(result.protocol)}
-                        aria-label={`Open ${result.protocol.title}`}
-                        className="flex w-full items-center justify-between gap-3 rounded-lg border border-slate-200 bg-white px-3 py-2 text-left transition hover:border-indigo-300 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-indigo-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                        className="flex w-full items-center justify-between gap-2 rounded px-2.5 py-1.5 text-left text-xs text-slate-300 hover:bg-slate-800/80 transition-desktop"
                       >
-                        <span className="min-w-0 truncate text-xs font-bold text-slate-700 dark:text-slate-200">
-                          {result.protocol.title}
-                        </span>
+                        <span className="truncate">{result.protocol.title}</span>
                         {resultBadge(result.protocol)}
                       </button>
                     </li>
@@ -374,86 +357,83 @@ export const HomePage: React.FC<HomePageProps> = ({
         </section>
       )}
 
-      {/* Quick Links — the only route to these tabs since the category pill bar is hidden on Home */}
-      <div className="flex flex-wrap gap-2">
+      {/* QUICK WORKSPACE SHORTCUTS */}
+      <div className="flex flex-wrap items-center gap-1.5">
         {onOpenCodeRed && (
-          <button
+          <Button
+            size="sm"
+            variant="danger"
             onClick={onOpenCodeRed}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-black bg-red-600 hover:bg-red-500 text-white border border-red-500 shadow-md animate-pulse cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400"
+            icon={<ShieldAlert className="w-3.5 h-3.5" />}
           >
-            <ShieldAlert className="w-3.5 h-3.5" /> CODE RED
-          </button>
+            Code Red
+          </Button>
         )}
-        <button
+        <Button
+          size="sm"
+          variant="secondary"
           onClick={() => onSelectCategory('7_useful_formulae')}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-black bg-teal-100 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 border border-teal-300 dark:border-teal-700 hover:bg-teal-200 dark:hover:bg-teal-900/40 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
+          icon={<Syringe className="w-3.5 h-3.5 text-teal-400" />}
         >
-          <Syringe className="w-3.5 h-3.5" /> Dosing &amp; Infusion Calculators
-        </button>
-        <button
+          Dosing &amp; Infusion Calculators
+        </Button>
+        <Button
+          size="sm"
+          variant="secondary"
           onClick={() => onSelectCategory('favourites')}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+          icon={<Star className="w-3.5 h-3.5 text-amber-400" />}
         >
-          <Star className="w-3.5 h-3.5" /> Favourites
-        </button>
-        <button
+          Favourites
+        </Button>
+        <Button
+          size="sm"
+          variant="secondary"
           onClick={() => onSelectCategory('recently_viewed')}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+          icon={<Clock className="w-3.5 h-3.5 text-slate-400" />}
         >
-          <Clock className="w-3.5 h-3.5" /> Recent
-        </button>
-        <button
+          Recent
+        </Button>
+        <Button
+          size="sm"
+          variant="secondary"
           onClick={() => onSelectCategory('landmark_studies')}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-black bg-purple-100 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 border border-purple-300 dark:border-purple-700 hover:bg-purple-200 dark:hover:bg-purple-900/40 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400"
+          icon={<FlaskConical className="w-3.5 h-3.5 text-purple-400" />}
         >
-          <FlaskConical className="w-3.5 h-3.5" />
-          <span className="hidden sm:inline">{TRIALS_REFERENCE.length} Landmark Studies</span>
-          <span className="sm:hidden">{TRIALS_REFERENCE.length} Studies</span>
-        </button>
-        <button
+          {TRIALS_REFERENCE.length} Studies
+        </Button>
+        <Button
+          size="sm"
+          variant="secondary"
           onClick={() => onSelectCategory('international_guidelines')}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-black bg-sky-100 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 border border-sky-300 dark:border-sky-700 hover:bg-sky-200 dark:hover:bg-sky-900/40 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+          icon={<Globe2 className="w-3.5 h-3.5 text-sky-400" />}
         >
-          <Globe2 className="w-3.5 h-3.5" />
-          <span className="hidden sm:inline">{SUPPLIED_GUIDELINE_LINK_AUDIT.guidelineCount} International Guidelines</span>
-          <span className="sm:hidden">{SUPPLIED_GUIDELINE_LINK_AUDIT.guidelineCount} Guidelines</span>
-        </button>
-        <button
+          {SUPPLIED_GUIDELINE_LINK_AUDIT.guidelineCount} Guidelines
+        </Button>
+        <Button
+          size="sm"
+          variant="secondary"
           onClick={() => onSelectCategory('pocket_guides')}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-black bg-indigo-100 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 border border-indigo-300 dark:border-indigo-700 hover:bg-indigo-200 dark:hover:bg-indigo-900/40 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+          icon={<BookOpen className="w-3.5 h-3.5 text-indigo-400" />}
         >
-          <BookOpen className="w-3.5 h-3.5" />
           {PARSED_GLOBAL_REFERENCE_DOCUMENTS.pocket.entries.length} Pocket Guides
-        </button>
-        <button
-          onClick={() => onSelectFacility('hjh')}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-indigo-100 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800/40 hover:bg-indigo-200 dark:hover:bg-indigo-900/40 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
-        >
-          <Stethoscope className="w-3.5 h-3.5" /> Helen (HJH)
-        </button>
-        <button
-          onClick={() => onSelectCategory('edl_phc_guidelines')}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-blue-100 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800/40 hover:bg-blue-200 dark:hover:bg-blue-900/40 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
-        >
-          <Globe2 className="w-3.5 h-3.5" /> SA EDL / PHC
-        </button>
+        </Button>
       </div>
 
-      {/* Select Hospital / Facility Section */}
-      <section className="space-y-4">
+      {/* FACILITY SELECTOR GRID */}
+      <section className="space-y-3">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-lg sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
-              <Building2 className="w-5 sm:w-6 h-5 sm:h-6 text-indigo-500" />
-              Select Hospital / Facility Protocols
+            <h2 className="text-xs font-semibold text-white uppercase tracking-wider flex items-center gap-1.5">
+              <Building2 className="w-3.5 h-3.5 text-indigo-400" />
+              Select Hospital / Facility Library
             </h2>
-            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-              Each facility&apos;s protocols are kept independent. Select one to view only that hospital&apos;s guidelines.
+            <p className="text-[11px] text-slate-400">
+              Protocols are isolated by facility to ensure canonical guideline fidelity.
             </p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {FACILITIES.map((facility) => {
             const Icon = facility.icon;
             return (
@@ -463,47 +443,38 @@ export const HomePage: React.FC<HomePageProps> = ({
                 onClick={facility.available ? () => onSelectFacility(facility.id) : undefined}
                 disabled={!facility.available}
                 aria-label={`Open ${facility.name} protocols`}
-                className={`group relative overflow-hidden rounded-2xl border p-5 sm:p-6 shadow-sm transition-all duration-300 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
+                className={`group p-3.5 rounded-lg border text-left transition-desktop flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
                   facility.available
-                    ? 'cursor-pointer border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:shadow-xl hover:-translate-y-1'
-                    : 'cursor-not-allowed border-slate-200/60 dark:border-slate-800/60 bg-slate-50 dark:bg-slate-900/40 opacity-60'
+                    ? 'border-slate-800 bg-slate-900/90 hover:bg-slate-850 hover:border-slate-700 cursor-pointer shadow-xs'
+                    : 'border-slate-800/40 bg-slate-900/30 opacity-50 cursor-not-allowed'
                 }`}
               >
-                <div className="flex items-start justify-between gap-3">
-                  <div className={`p-3.5 rounded-xl bg-gradient-to-br ${facility.color} text-white shadow-md ${!facility.available ? 'grayscale' : ''}`}>
-                    <Icon className="w-6 h-6" />
-                  </div>
-                  <span className={`text-xs font-semibold px-2.5 py-1 rounded-full border ${
-                    facility.available
-                      ? 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700'
-                      : 'bg-amber-100 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400 border-amber-300 dark:border-amber-800/40'
-                  }`}>
-                    {facility.badge}
-                  </span>
-                </div>
-
-                <div className="mt-4 space-y-2">
+                <div className="space-y-2.5">
                   <div className="flex items-start justify-between gap-2">
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors text-left">
+                    <div className={`p-2 rounded-md border ${facility.color}`}>
+                      <Icon className="w-4 h-4" />
+                    </div>
+                    <Badge variant={facility.badgeVariant} size="sm">
+                      {facility.shortName}
+                    </Badge>
+                  </div>
+
+                  <div>
+                    <h3 className="text-[13px] font-semibold text-white group-hover:text-indigo-300 transition-colors">
                       {facility.name}
                     </h3>
-                    {facility.available && (
-                      <ChevronRight className="w-5 h-5 text-slate-400 group-hover:translate-x-1 transition-transform shrink-0 mt-0.5" />
-                    )}
+                    <p className="text-[11px] font-medium text-slate-400">{facility.subtitle}</p>
+                    <p className="text-[11px] text-slate-500 line-clamp-2 mt-1 leading-relaxed">
+                      {facility.description}
+                    </p>
                   </div>
-                  <p className="text-xs font-medium text-indigo-600 dark:text-indigo-400">{facility.subtitle}</p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">{facility.description}</p>
                 </div>
 
-                <div className="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
-                  {facility.available ? (
-                    <>
-                      <span className="font-semibold text-slate-700 dark:text-slate-300">{facility.protocolCount} isolated protocols</span>
-                      <span className="text-indigo-500 font-medium group-hover:underline">Explore →</span>
-                    </>
-                  ) : (
-                    <span className="font-semibold text-amber-600 dark:text-amber-500">Awaiting confirmed source material</span>
-                  )}
+                <div className="mt-3 pt-2.5 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400">
+                  <span>{facility.protocolCount} protocols</span>
+                  <span className="text-indigo-400 font-medium group-hover:translate-x-0.5 transition-transform inline-flex items-center gap-0.5">
+                    Open <ChevronRight className="w-3 h-3" />
+                  </span>
                 </div>
               </button>
             );
@@ -511,75 +482,77 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* Quick Resuscitation Mind Maps & Algorithms */}
-      <section className="space-y-4">
+      {/* QUICK RESUSCITATION ALGORITHMS & MIND MAPS */}
+      <section className="space-y-3">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
-              <Activity className="w-6 h-6 text-red-500" />
-              Emergency Resuscitation & Mind Maps
+            <h2 className="text-xs font-semibold text-white uppercase tracking-wider flex items-center gap-1.5">
+              <Activity className="w-3.5 h-3.5 text-rose-400" />
+              Emergency Resuscitation &amp; Flowcharts
             </h2>
-            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-              Interactive visual flowchart mind maps and step-by-step emergency algorithms.
+            <p className="text-[11px] text-slate-400">
+              Interactive clinical pathways and rapid emergency algorithms.
             </p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2.5">
           {QUICK_RESUS_ALGORITHMS.map((algo) => {
             const Icon = algo.icon;
             return (
               <button
                 key={algo.id}
+                type="button"
                 onClick={() => onSelectMindMap(algo.id)}
-                className="flex items-center gap-3 p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-all text-left group shadow-sm hover:shadow-md"
+                className="flex items-center gap-2.5 p-2.5 rounded-lg border border-slate-800 bg-slate-900/80 hover:bg-slate-850 hover:border-slate-700 transition-desktop text-left group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               >
-                <div className={`p-2.5 rounded-lg border ${algo.color}`}>
-                  <Icon className="w-5 h-5" />
+                <div className={`p-1.5 rounded border shrink-0 ${algo.color}`}>
+                  <Icon className="w-3.5 h-3.5" />
                 </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">{algo.category}</p>
-                  <h4 className="text-sm font-bold text-slate-900 dark:text-white truncate group-hover:text-indigo-500 transition-colors">
+                <div className="min-w-0 flex-1">
+                  <p className="text-[10px] text-slate-500 uppercase tracking-wider">{algo.category}</p>
+                  <h3 className="text-xs font-medium text-slate-200 truncate group-hover:text-indigo-300 transition-colors">
                     {algo.title}
-                  </h4>
+                  </h3>
                 </div>
-                <ChevronRight className="w-4 h-4 text-slate-400 group-hover:translate-x-1 transition-transform" />
+                <ChevronRight className="w-3 h-3 text-slate-500 group-hover:translate-x-0.5 transition-transform shrink-0" />
               </button>
             );
           })}
         </div>
       </section>
 
-      {/* Hospital SOPs & Governance Section */}
-      <section className="space-y-4">
+      {/* HOSPITAL SOPS & GOVERNANCE */}
+      <section className="space-y-3">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
-              <FileText className="w-6 h-6 text-emerald-500" />
-              Hospital Administrative SOPs & Governance
+            <h2 className="text-xs font-semibold text-white uppercase tracking-wider flex items-center gap-1.5">
+              <FileText className="w-3.5 h-3.5 text-emerald-400" />
+              Hospital Administrative SOPs &amp; Policies
             </h2>
-            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-              Official hospital policies, medicolegal recordkeeping, death certification, and triage guidelines.
+            <p className="text-[11px] text-slate-400">
+              Official institutional policies, medicolegal reporting, and triage guidelines.
             </p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
           {POPULAR_HOSPITAL_SOPS.map((sop) => {
             const Icon = sop.icon;
             return (
               <button
                 key={sop.id}
+                type="button"
                 onClick={() => onSelectPolicy(sop.id)}
-                className="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-all text-left group shadow-sm"
+                className="flex items-center gap-2.5 p-2.5 rounded-lg border border-slate-800 bg-slate-900/80 hover:bg-slate-850 hover:border-slate-700 transition-desktop text-left group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               >
-                <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
-                  <Icon className="w-4 h-4" />
+                <div className="p-1.5 rounded border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 shrink-0">
+                  <Icon className="w-3.5 h-3.5" />
                 </div>
-                <div className="flex-1 min-w-0">
-                  <h4 className="text-xs font-semibold text-slate-900 dark:text-white truncate group-hover:text-emerald-500 transition-colors">
+                <div className="min-w-0 flex-1">
+                  <h3 className="text-xs font-medium text-slate-200 truncate group-hover:text-emerald-300 transition-colors">
                     {sop.title}
-                  </h4>
+                  </h3>
                 </div>
               </button>
             );
@@ -587,26 +560,26 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* Main Protocol Categories Grid */}
-      <section className="space-y-4">
+      {/* CLINICAL SPECIALTY MODULES */}
+      <section className="space-y-3">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-lg sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
-              <Stethoscope className="w-5 sm:w-6 h-5 sm:h-6 text-sky-500" />
-              Clinical Categories & Speciality Modules
+            <h2 className="text-xs font-semibold text-white uppercase tracking-wider flex items-center gap-1.5">
+              <Stethoscope className="w-3.5 h-3.5 text-sky-400" />
+              Clinical Modules &amp; Categories
             </h2>
-            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-              Browse all categories by clinical specialty. Each card shows independent hospital versions where available.
+            <p className="text-[11px] text-slate-400">
+              Browse reference items by clinical specialty.
             </p>
           </div>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2">
           {[
             { id: '1_resuscitation_fluids_and_inotropes', name: 'Resuscitation', icon: '💉' },
             { id: '2_airway_and_ventilation', name: 'Airway & Vent', icon: '🫁' },
             { id: '3_sedation_analgesia_and_neurology', name: 'Sedation & Neuro', icon: '🧠' },
-            { id: '4_antimicrobials_and_infectious_diseases', name: 'Antimicrobials', icon: '🦠' },
+            { id: '4_antimicrobials_and_infectious_diseases', name: 'Antimicrobial', icon: '🦠' },
             { id: '5_metabolic_electrolytes_and_nutrition', name: 'Metabolic & Nut', icon: '⚗️' },
             { id: '6_poisoning_and_toxicology', name: 'Toxicology', icon: '☠️' },
             { id: '7_useful_formulae', name: 'Useful Formulae', icon: '📐' },
@@ -618,18 +591,21 @@ export const HomePage: React.FC<HomePageProps> = ({
             { id: '13_ed_trauma_surgical', name: 'Trauma & Surg', icon: '🚑' },
             { id: '14_ed_metabolic', name: 'ED Metabolic', icon: '🧬' },
             { id: '15_ed_procedures', name: 'Procedures', icon: '🛠️' },
-            { id: '16_score_calculators', name: 'Score Calculators', icon: '📊' }
+            { id: '16_score_calculators', name: 'Calculators', icon: '📊' }
           ].map((cat) => (
             <button
               key={cat.id}
+              type="button"
               onClick={() => onSelectCategory(cat.id)}
               aria-label={`Browse ${cat.name}`}
-              className="flex flex-col items-center justify-center p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:bg-indigo-50 dark:hover:bg-slate-800 hover:border-indigo-300 dark:hover:border-indigo-500/30 transition-all text-center group shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 min-h-[6rem]"
+              className="p-2.5 rounded-lg border border-slate-800 bg-slate-900/80 hover:bg-slate-850 hover:border-indigo-500/40 text-center group transition-desktop cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
             >
-              <span className="text-3xl mb-2 group-hover:scale-110 transition-transform" aria-hidden="true">{cat.icon}</span>
-              <span className="text-xs font-semibold text-slate-800 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400">
+              <div className="text-xl mb-1 group-hover:scale-105 transition-transform" aria-hidden="true">
+                {cat.icon}
+              </div>
+              <div className="text-[11px] font-medium text-slate-300 group-hover:text-indigo-300 truncate">
                 {cat.name}
-              </span>
+              </div>
             </button>
           ))}
         </div>

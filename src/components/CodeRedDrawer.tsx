@@ -1,11 +1,12 @@
 import React from 'react';
 import {
-  ShieldAlert, X, Activity, Stethoscope, AlertTriangle, Brain, Zap
+  ShieldAlert, X, Activity, Stethoscope, AlertTriangle, Brain, Zap, ChevronRight
 } from 'lucide-react';
 import {
   MIND_MAPS_DATABASE,
   type MindMapDefinition,
 } from '../clinical/mindMaps';
+import { Button } from './ui/Button';
 
 interface CodeRedDrawerProps {
   isOpen: boolean;
@@ -24,31 +25,31 @@ export const EMERGENCY_ACTIONS: CodeRedActionRef[] = [
   {
     id: 'aha_bls_acls',
     sourceId: 'aha_bls_acls',
-    color: 'bg-red-600 text-white hover:bg-red-700 border-red-500',
+    color: 'bg-rose-950/40 text-rose-200 hover:bg-rose-900/50 border-rose-800/60',
     icon: Activity
   },
   {
     id: 'trauma_arrest',
     sourceId: 'trauma_arrest',
-    color: 'bg-orange-600 text-white hover:bg-orange-700 border-orange-500',
+    color: 'bg-amber-950/40 text-amber-200 hover:bg-amber-900/50 border-amber-800/60',
     icon: ShieldAlert
   },
   {
     id: 'anaphylaxis_flowchart',
     sourceId: 'anaphylaxis_flowchart',
-    color: 'bg-rose-600 text-white hover:bg-rose-700 border-rose-500',
+    color: 'bg-rose-950/40 text-rose-200 hover:bg-rose-900/50 border-rose-800/60',
     icon: AlertTriangle
   },
   {
     id: 'rsi_checklist',
     sourceId: 'rsi_checklist',
-    color: 'bg-sky-600 text-white hover:bg-sky-700 border-sky-500',
+    color: 'bg-sky-950/40 text-sky-200 hover:bg-sky-900/50 border-sky-800/60',
     icon: Stethoscope
   },
   {
     id: 'status_epilepticus',
     sourceId: 'status_epilepticus',
-    color: 'bg-purple-600 text-white hover:bg-purple-700 border-purple-500',
+    color: 'bg-purple-950/40 text-purple-200 hover:bg-purple-900/50 border-purple-800/60',
     icon: Brain
   }
 ];
@@ -66,59 +67,77 @@ export const CodeRedDrawer: React.FC<CodeRedDrawerProps> = ({ isOpen, onClose, o
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[2000] flex items-start justify-center bg-black/85 backdrop-blur-md p-4 sm:p-6 overflow-y-auto animate-in fade-in duration-200">
-      <div className="bg-slate-900 border-2 border-red-500 text-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl space-y-6 relative my-auto">
-        {/* Close Button */}
-        <button
-          onClick={onClose}
-          className="absolute top-5 right-5 p-2 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors"
-        >
-          <X className="w-6 h-6" />
-        </button>
-
-        {/* Header Banner */}
-        <div className="flex items-center gap-3 border-b border-red-500/30 pb-4">
-          <div className="p-3 rounded-2xl bg-red-600 text-white shadow-lg animate-pulse">
-            <ShieldAlert className="w-8 h-8" />
+    <div
+      className="fixed inset-0 z-[2000] flex items-center justify-center bg-black/80 backdrop-blur-xs p-4 overflow-y-auto"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="codered-title"
+    >
+      <div className="bg-slate-900 border border-rose-600/50 text-white rounded-xl max-w-xl w-full flex flex-col shadow-2xl overflow-hidden my-auto">
+        {/* Header */}
+        <div className="flex items-center justify-between px-5 py-3.5 border-b border-slate-800 bg-rose-950/30 shrink-0">
+          <div className="flex items-center gap-2.5">
+            <div className="p-1.5 rounded-md bg-rose-600 text-white shadow-xs">
+              <ShieldAlert className="w-4 h-4" />
+            </div>
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-rose-400 block">Emergency Resuscitation</span>
+              <h2 id="codered-title" className="text-sm font-bold text-white">CODE RED Resuscitation Cards</h2>
+            </div>
           </div>
-          <div>
-            <span className="text-xs font-black uppercase tracking-widest text-red-400">Emergency Resuscitation Mode</span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white">CODE RED Resuscitation Cards</h2>
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close Code Red drawer"
+            className="p-1 rounded text-slate-400 hover:text-white hover:bg-slate-800 transition-desktop cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500"
+          >
+            <X className="w-4 h-4" />
+          </button>
+        </div>
+
+        {/* Content */}
+        <div className="p-4 space-y-3 overflow-y-auto">
+          <p className="text-xs text-slate-300 leading-relaxed">
+            High-acuity, rapid protocol shortcuts for life-threatening resuscitation scenarios.
+          </p>
+
+          <div className="space-y-2">
+            {EMERGENCY_ACTIONS.map((actionRef) => {
+              const action = getCodeRedAction(actionRef);
+              if (!action) return null;
+              const Icon = action.icon;
+              return (
+                <button
+                  key={action.id}
+                  type="button"
+                  onClick={() => {
+                    onSelectMindMap(action.id);
+                    onClose();
+                  }}
+                  className={`w-full text-left p-3 rounded-lg border transition-desktop flex items-center justify-between group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500 ${action.color}`}
+                >
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="p-2 rounded-md bg-black/20 shrink-0">
+                      <Icon className="w-4 h-4 text-white" />
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="text-xs font-bold truncate text-white">{action.title}</h3>
+                      <p className="text-[11px] text-slate-300 truncate mt-0.5">{action.subtitle}</p>
+                    </div>
+                  </div>
+                  <ChevronRight className="w-4 h-4 text-slate-400 group-hover:translate-x-0.5 transition-transform shrink-0 ml-2" />
+                </button>
+              );
+            })}
           </div>
         </div>
 
-        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-          High-acuity, zero-distraction protocol shortcuts for life-threatening resuscitation scenarios. Tap any card below to launch its interactive algorithm.
-        </p>
-
-        {/* Emergency Action Cards */}
-        <div className="space-y-3">
-          {EMERGENCY_ACTIONS.map((actionRef) => {
-            const action = getCodeRedAction(actionRef);
-            if (!action) return null;
-            const Icon = action.icon;
-            return (
-              <button
-                key={action.id}
-                onClick={() => {
-                  onSelectMindMap(action.id);
-                  onClose();
-                }}
-                className={`w-full text-left p-4 sm:p-5 rounded-2xl border shadow-lg transition-all transform hover:-translate-y-0.5 active:translate-y-0 ${action.color} flex items-center justify-between group`}
-              >
-                <div className="flex items-center gap-4 min-w-0">
-                  <div className="p-3 rounded-xl bg-white/10 shrink-0">
-                    <Icon className="w-6 h-6 text-white" />
-                  </div>
-                  <div className="min-w-0">
-                    <h3 className="text-base sm:text-lg font-extrabold truncate">{action.title}</h3>
-                    <p className="text-xs text-white/80 font-medium truncate mt-0.5">{action.subtitle}</p>
-                  </div>
-                </div>
-                <Zap className="w-6 h-6 text-white/70 group-hover:scale-125 transition-transform shrink-0 ml-2" />
-              </button>
-            );
-          })}
+        {/* Footer */}
+        <div className="px-4 py-2.5 border-t border-slate-800 bg-slate-950/70 shrink-0 flex items-center justify-between">
+          <span className="text-[11px] text-slate-400">Esc to close</span>
+          <Button size="sm" variant="ghost" onClick={onClose}>
+            Close
+          </Button>
         </div>
       </div>
     </div>

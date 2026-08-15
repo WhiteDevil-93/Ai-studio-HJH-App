@@ -98,19 +98,19 @@ const getFormulaResultDesc = (calcKey: string, result: number) => {
   if (calcKey === 'parkland') {
     const plan = interpretParkland(result);
     return (
-      <div className="mt-3 p-3 rounded-lg bg-teal-950/20 border border-teal-500/20 text-sm space-y-2 text-slate-300">
-        <div className="text-teal-400 font-bold">HJH Modified Brooke Resuscitation Plan</div>
+      <div className="mt-3 p-3 rounded-lg bg-slate-950/40 border border-teal-500/20 text-sm space-y-2 text-slate-300">
+        <div className="text-indigo-400 font-bold">HJH Modified Brooke Resuscitation Plan</div>
         <div>Total 24-hour Volume: <strong className="text-white">{plan.totalVolumeMl.toFixed(0)} mL</strong></div>
         <div className="grid grid-cols-2 gap-2 mt-1">
           <div className="p-2 bg-slate-900/50 rounded border border-slate-800">
             <div className="text-xs text-slate-400">First 8 Hours From Time of Burn (50%)</div>
-            <div className="font-bold text-teal-300">{plan.first8hMl.toFixed(0)} mL</div>
-            <div className="text-[11px] text-teal-400">{plan.hourlyFirst8hMl.toFixed(1)} mL/hr</div>
+            <div className="font-bold text-indigo-300">{plan.first8hMl.toFixed(0)} mL</div>
+            <div className="text-[11px] text-indigo-400">{plan.hourlyFirst8hMl.toFixed(1)} mL/hr</div>
           </div>
           <div className="p-2 bg-slate-900/50 rounded border border-slate-800">
             <div className="text-xs text-slate-400">Next 16 Hours (50%)</div>
-            <div className="font-bold text-teal-300">{plan.next16hMl.toFixed(0)} mL</div>
-            <div className="text-[11px] text-teal-400">{plan.hourlyNext16hMl.toFixed(1)} mL/hr</div>
+            <div className="font-bold text-indigo-300">{plan.next16hMl.toFixed(0)} mL</div>
+            <div className="text-[11px] text-indigo-400">{plan.hourlyNext16hMl.toFixed(1)} mL/hr</div>
           </div>
         </div>
         <div className="text-xs text-rose-300">{plan.warning}</div>
@@ -121,7 +121,7 @@ const getFormulaResultDesc = (calcKey: string, result: number) => {
   if (calcKey === 'anion_gap') {
     const interp = interpretAnionGap(result);
     return (
-      <div className={`mt-3 p-3 rounded-lg text-sm border ${interp.tone === 'high' ? 'bg-rose-950/20 border-rose-500/20 text-rose-200' : 'bg-teal-950/20 border-teal-500/20 text-teal-200'}`}>
+      <div className={`mt-3 p-3 rounded-lg text-sm border ${interp.tone === 'high' ? 'bg-rose-950/20 border-rose-500/20 text-rose-200' : 'bg-slate-950/40 border-teal-500/20 text-indigo-200'}`}>
         <div className="font-bold">{interp.title}</div>
         <div className="text-xs mt-1 leading-normal text-slate-300">{interp.action}</div>
       </div>
@@ -131,7 +131,7 @@ const getFormulaResultDesc = (calcKey: string, result: number) => {
   if (calcKey.startsWith('corrected_na_hjh_')) {
     const interp = interpretCorrectedSodium(result);
     return (
-      <div className="mt-3 p-3 rounded-lg bg-teal-950/20 border border-teal-500/20 text-sm text-slate-300">
+      <div className="mt-3 p-3 rounded-lg bg-slate-950/40 border border-teal-500/20 text-sm text-slate-300">
         <div>Corrected Sodium: <strong className="text-white">{result.toFixed(1)} mmol/L</strong></div>
         <div className="text-xs text-slate-400 mt-1">{interp.action}</div>
       </div>
@@ -141,7 +141,7 @@ const getFormulaResultDesc = (calcKey: string, result: number) => {
   if (calcKey === 'free_water_deficit') {
     const interp = interpretFreeWaterDeficit(result);
     return (
-      <div className="mt-3 p-3 rounded-lg bg-teal-950/20 border border-teal-500/20 text-sm text-slate-300">
+      <div className="mt-3 p-3 rounded-lg bg-slate-950/40 border border-teal-500/20 text-sm text-slate-300">
         <div>Free Water Deficit: <strong className="text-white">{result.toFixed(1)} Litres</strong></div>
         <div className="text-xs text-rose-300 mt-1">{interp.action}</div>
       </div>
@@ -151,7 +151,7 @@ const getFormulaResultDesc = (calcKey: string, result: number) => {
   if (calcKey === 'sodium_deficit') {
     const interp = interpretSodiumDeficit(result);
     return (
-      <div className="mt-3 p-3 rounded-lg bg-teal-950/20 border border-teal-500/20 text-sm text-slate-300">
+      <div className="mt-3 p-3 rounded-lg bg-slate-950/40 border border-teal-500/20 text-sm text-slate-300">
         <div>Sodium Deficit: <strong className="text-white">{result.toFixed(0)} mmol</strong></div>
         <div className="text-xs text-rose-300 mt-1">{interp.action}</div>
       </div>
@@ -167,7 +167,7 @@ const getFormulaResultDesc = (calcKey: string, result: number) => {
           ? 'bg-orange-950/30 border-orange-500/30 text-orange-200'
           : interp.title.includes('Mild')
             ? 'bg-yellow-950/20 border-yellow-500/20 text-yellow-100'
-            : 'bg-teal-950/20 border-teal-500/20 text-teal-200';
+            : 'bg-slate-950/40 border-teal-500/20 text-indigo-200';
     return (
       <div className={`mt-3 p-3 rounded-lg text-sm border ${severityClass}`}>
         <div className="font-bold">{interp.title}</div>
@@ -190,7 +190,7 @@ const getFormulaResultDesc = (calcKey: string, result: number) => {
             ? 'bg-orange-950/30 border-orange-500/30 text-orange-200'
             : interp.title.startsWith('Class II')
               ? 'bg-yellow-950/20 border-yellow-500/20 text-yellow-100'
-              : 'bg-teal-950/20 border-teal-500/20 text-teal-200';
+              : 'bg-slate-950/40 border-teal-500/20 text-indigo-200';
     return (
       <div className={`mt-3 p-3 rounded-lg text-sm border ${severityClass}`}>
         <div className="font-bold">{interp.title}</div>
@@ -210,7 +210,7 @@ const getFormulaResultDesc = (calcKey: string, result: number) => {
             ? 'bg-orange-950/30 border-orange-500/30 text-orange-200'
             : result >= 10
               ? 'bg-yellow-950/20 border-yellow-500/20 text-yellow-100'
-              : 'bg-teal-950/20 border-teal-500/20 text-teal-200';
+              : 'bg-slate-950/40 border-teal-500/20 text-indigo-200';
     return (
       <div className={`mt-3 p-3 rounded-lg text-sm border ${severityClass}`}>
         <div className="text-xs text-slate-300">{interp.action}</div>
@@ -269,7 +269,7 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
   const isFormula = sc.calculator_type === 'formula';
   const renderScoreTitle = () => (
     <div className="min-w-0">
-      <div className="font-bold text-md text-[#00d9b5]">{sc.name}</div>
+      <div className="font-bold text-xs font-semibold text-white">{sc.name}</div>
       <div className="text-[9px] font-normal text-slate-500">
         {sc.source_label
           ? sc.source_label
@@ -287,7 +287,7 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
           className="mt-1 text-[10px] font-normal text-slate-400"
           onClick={event => event.stopPropagation()}
         >
-          <summary className="cursor-pointer font-bold text-teal-300">
+          <summary className="cursor-pointer font-bold text-indigo-300">
             Applicability
           </summary>
           <ul className="mt-1 list-disc space-y-0.5 pl-4">
@@ -323,11 +323,11 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
       <div
         key={key}
         onClick={onRecordRecentlyViewed}
-        className={`p-4 rounded-xl border transition mb-4 cursor-pointer ${theme === 'dark' ? 'bg-[#0f1d1d] border-teal-900/40' : 'bg-white border-slate-200 shadow-sm'}`}
+        className={`p-3.5 rounded-lg border transition mb-4 cursor-pointer ${theme === 'dark' ? 'bg-slate-900/85 border-slate-800 hover:border-slate-700' : 'bg-white border-slate-200 shadow-sm'}`}
       >
         <div className="flex items-center justify-between gap-2 mb-3">
           <div className="flex items-center gap-2">
-            <Calculator className="h-5 w-5 text-teal-400" />
+            <Calculator className="h-4 w-4 text-indigo-400" />
             {renderScoreTitle()}
           </div>
           <ScoreFavouriteButton isFavourite={isFavourite} onToggleFavourite={onToggleFavourite} />
@@ -338,13 +338,13 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
           </div>
         )}
         {sc.review_note && (
-          <div className="mb-3 rounded-lg border border-teal-900/30 bg-teal-950/10 p-2 text-[11px] leading-relaxed text-slate-300">
+          <div className="mb-3 rounded-lg border border-slate-800 bg-slate-950/40 p-2 text-[11px] leading-relaxed text-slate-300">
             {sc.review_note}
           </div>
         )}
         {sc.formula && (
-          <div className="mb-3 rounded-lg border border-teal-900/30 bg-black/20 p-2 text-[10px] text-slate-300">
-            <span className="font-bold text-teal-300">Source formula:</span>{' '}
+          <div className="mb-3 rounded-lg border border-slate-800 bg-black/20 p-2 text-[10px] text-slate-300">
+            <span className="font-bold text-indigo-300">Source formula:</span>{' '}
             <code>{sc.formula}</code>
           </div>
         )}
@@ -371,7 +371,7 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
                         className={`rounded border px-3 py-1 text-xs font-bold transition ${current === optionValue
                             ? optionValue === '1'
                               ? 'border-rose-400 bg-rose-500/20 text-rose-200'
-                              : 'border-teal-400 bg-teal-500/20 text-teal-200'
+                              : 'border-indigo-500 bg-indigo-600/20 text-indigo-200'
                             : 'border-slate-700 bg-slate-900/50 text-slate-400'
                           }`}
                       >
@@ -396,7 +396,7 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
                     onChange={e => handleFormulaInputChange(key, inp.key, e.target.value)}
                     disabled={Boolean(sc.disabled_reason)}
                     aria-label={`${sc.name}: ${inp.name} (${inp.unit})`}
-                    className="w-24 px-2 py-1 bg-black/20 border border-teal-800/40 rounded text-center text-sm text-teal-300 font-bold focus:outline-none focus:border-teal-400"
+                    className="w-24 px-2 py-1 bg-black/20 border border-slate-700 rounded text-center text-sm text-indigo-300 font-bold focus:outline-none focus:border-teal-400"
                   />
                   <span className="text-xs text-slate-400 w-12">{inp.unit}</span>
                 </div>
@@ -410,9 +410,9 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
           </div>
         )}
         {result !== null && (
-          <div className="mt-4 pt-3 border-t border-teal-900/20" aria-live="polite">
+          <div className="mt-4 pt-3 border-t border-slate-800" aria-live="polite">
             <div className="text-xs text-slate-400">Calculated Output:</div>
-            <div className="text-2xl font-black text-teal-400 mt-1">
+            <div className="text-2xl font-black text-indigo-400 mt-1">
               {result.value.toFixed(2)} <span className="text-sm">{result.unit}</span>
             </div>
             <div className="mt-1 text-[11px] text-slate-400">Working: {result.working}</div>
@@ -438,18 +438,18 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
         : gcsInterp?.tone === 'moderate'
           ? 'text-amber-400'
           : gcsInterp?.tone === 'low'
-            ? 'text-teal-400'
+            ? 'text-indigo-400'
             : 'text-slate-400';
 
     return (
       <div
         key={key}
         onClick={onRecordRecentlyViewed}
-        className={`p-4 rounded-xl border mb-4 cursor-pointer ${theme === 'dark' ? 'bg-[#0f1d1d] border-teal-900/40' : 'bg-white border-slate-200 shadow-sm'}`}
+        className={`p-3.5 rounded-lg border mb-4 cursor-pointer ${theme === 'dark' ? 'bg-slate-900/85 border-slate-800 hover:border-slate-700' : 'bg-white border-slate-200 shadow-sm'}`}
       >
         <div className="flex items-center justify-between gap-2 mb-3">
           <div className="flex items-center gap-2">
-            <Calculator className="h-5 w-5 text-teal-400" />
+            <Calculator className="h-4 w-4 text-indigo-400" />
             {renderScoreTitle()}
           </div>
           <ScoreFavouriteButton isFavourite={isFavourite} onToggleFavourite={onToggleFavourite} />
@@ -467,13 +467,13 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
                       key={opt.value}
                       onClick={() => setGcsState(prev => ({...prev, [comp.key]: opt.value}))}
                       className={`px-2 py-1.5 rounded-lg border text-left flex flex-col justify-between transition h-14 ${isSelected
-                          ? 'bg-teal-500/20 border-teal-400 text-teal-300'
-                          : 'bg-black/10 border-teal-950/20 hover:border-teal-700/40 text-slate-300'
+                          ? 'bg-indigo-600/20 border-indigo-500 text-indigo-300'
+                          : 'bg-black/10 border-slate-800 hover:border-teal-700/40 text-slate-300'
                         }`}
                     >
                       <div className="flex justify-between w-full items-start">
                         <span className="text-[11px] font-bold truncate pr-1">{opt.label}</span>
-                        <span className={`text-[10px] font-black px-1 rounded ${isSelected ? 'bg-teal-400 text-black' : 'bg-slate-800'}`}>{opt.value}</span>
+                        <span className={`text-[10px] font-black px-1 rounded ${isSelected ? 'bg-indigo-600 text-white' : 'bg-slate-800'}`}>{opt.value}</span>
                       </div>
                       <span className="text-[9px] text-slate-400 line-clamp-1 leading-none">{opt.desc}</span>
                     </button>
@@ -485,10 +485,10 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
         </div>
 
         {eye > 0 && verbal > 0 && motor > 0 && (
-          <div className="mt-4 pt-4 border-t border-teal-900/20 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="mt-4 pt-4 border-t border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <div className="text-xs text-slate-400">Total GCS Score:</div>
-              <div className="text-3xl font-black text-teal-400 mt-1">{gcsTotal} <span className="text-sm font-normal text-slate-400">/ 15</span></div>
+              <div className="text-3xl font-black text-indigo-400 mt-1">{gcsTotal} <span className="text-sm font-normal text-slate-400">/ 15</span></div>
             </div>
             <div className="p-3 bg-black/20 rounded-lg flex-1">
               <div className={`font-bold text-sm ${severityClass}`}>{severityLabel}</div>
@@ -506,10 +506,10 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
     const isHighRisk = nexusInterp?.tone === 'high';
 
     return (
-      <div key={key} className={`p-4 rounded-xl border mb-4 ${theme === 'dark' ? 'bg-[#0f1d1d] border-teal-900/40' : 'bg-white border-slate-200 shadow-sm'}`}>
+      <div key={key} className={`p-3.5 rounded-lg border mb-4 ${theme === 'dark' ? 'bg-slate-900/85 border-slate-800 hover:border-slate-700' : 'bg-white border-slate-200 shadow-sm'}`}>
         <div className="flex items-center justify-between gap-2 mb-3">
           <div className="flex items-center gap-2">
-            <Calculator className="h-5 w-5 text-teal-400" />
+            <Calculator className="h-4 w-4 text-indigo-400" />
             {renderScoreTitle()}
           </div>
           <ScoreFavouriteButton isFavourite={isFavourite} onToggleFavourite={onToggleFavourite} />
@@ -519,13 +519,13 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
           {sc.components.map((comp: any) => {
             const currentVal = nexusState[comp.key];
             return (
-              <div key={comp.key} className="flex items-center justify-between p-2 rounded-lg bg-black/10 border border-teal-950/20">
+              <div key={comp.key} className="flex items-center justify-between p-2 rounded-lg bg-black/10 border border-slate-800">
                 <span className="text-sm font-medium text-slate-200">{comp.name}</span>
                 <div className="flex gap-1">
                   <button
                     onClick={() => setNexusState(prev => ({...prev, [comp.key]: false}))}
                     className={`px-3 py-1 text-xs font-bold rounded border transition ${currentVal === false
-                        ? 'bg-teal-500/20 border-teal-400 text-teal-300'
+                        ? 'bg-indigo-600/20 border-indigo-500 text-indigo-300'
                         : 'bg-slate-900/50 border-slate-800 text-slate-400'
                       }`}
                   >
@@ -547,7 +547,7 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
         </div>
 
         {nexusInterp && (
-          <div className={`mt-4 p-3 rounded-lg border text-sm ${isHighRisk ? 'bg-rose-950/20 border-rose-500/20 text-rose-200' : 'bg-teal-950/20 border-teal-500/20 text-teal-200'}`}>
+          <div className={`mt-4 p-3 rounded-lg border text-sm ${isHighRisk ? 'bg-rose-950/20 border-rose-500/20 text-rose-200' : 'bg-slate-950/40 border-teal-500/20 text-indigo-200'}`}>
             <div className="font-bold">{nexusInterp.title}</div>
             <div className="text-xs mt-1 text-slate-300">{nexusInterp.action}</div>
           </div>
@@ -576,10 +576,10 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
     const isDangerous = ccsResult.state === 'imaging-high-risk';
 
     return (
-      <div key={key} className={`p-4 rounded-xl border mb-4 ${theme === 'dark' ? 'bg-[#0f1d1d] border-teal-900/40' : 'bg-white border-slate-200 shadow-sm'}`}>
+      <div key={key} className={`p-3.5 rounded-lg border mb-4 ${theme === 'dark' ? 'bg-slate-900/85 border-slate-800 hover:border-slate-700' : 'bg-white border-slate-200 shadow-sm'}`}>
         <div className="flex items-center justify-between gap-2 mb-2">
           <div className="flex items-center gap-2">
-            <Calculator className="h-5 w-5 text-teal-400" />
+            <Calculator className="h-4 w-4 text-indigo-400" />
             {renderScoreTitle()}
           </div>
           <ScoreFavouriteButton isFavourite={isFavourite} onToggleFavourite={onToggleFavourite} />
@@ -590,14 +590,14 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
           If the HJH Head Injury protocol indicates CT brain, the source pathway directs non-contrast CT brain and C-spine.
         </div>
 
-        <div className="mb-4 rounded-lg border border-teal-900/30 bg-black/10 p-3">
-          <div className="mb-2 text-xs font-bold text-teal-300">Applicability confirmed?</div>
+        <div className="mb-4 rounded-lg border border-slate-800 bg-black/10 p-3">
+          <div className="mb-2 text-xs font-bold text-indigo-300">Applicability confirmed?</div>
           <p className="mb-2 text-[10px] text-slate-400">
             Trauma, GCS 15, stable vitals, age ≥16, no acute paralysis, no known vertebral disease or prior C-spine surgery, and not pregnant.
           </p>
           <div className="flex gap-2">
             <button type="button" onClick={() => setCcsApplicable('no')} aria-pressed={ccsApplicable === 'no'} className={`rounded border px-3 py-1 text-xs ${ccsApplicable === 'no' ? 'border-rose-400 bg-rose-500/20 text-rose-200' : 'border-slate-700'}`}>No</button>
-            <button type="button" onClick={() => setCcsApplicable('yes')} aria-pressed={ccsApplicable === 'yes'} className={`rounded border px-3 py-1 text-xs ${ccsApplicable === 'yes' ? 'border-teal-400 bg-teal-500/20 text-teal-200' : 'border-slate-700'}`}>Yes</button>
+            <button type="button" onClick={() => setCcsApplicable('yes')} aria-pressed={ccsApplicable === 'yes'} className={`rounded border px-3 py-1 text-xs ${ccsApplicable === 'yes' ? 'border-indigo-500 bg-indigo-600/20 text-indigo-200' : 'border-slate-700'}`}>Yes</button>
           </div>
         </div>
 
@@ -607,12 +607,12 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
             {sc.components.filter((c: any) => c.dangerous).map((comp: any) => {
               const currentVal = ccsState[comp.key];
               return (
-                <div key={comp.key} className="flex items-center justify-between p-2 rounded-lg bg-black/10 border border-teal-950/10">
+                <div key={comp.key} className="flex items-center justify-between p-2 rounded-lg bg-black/10 border border-slate-800/80">
                   <span className="text-xs text-slate-300">{comp.name}</span>
                   <div className="flex gap-1 flex-shrink-0">
                     <button
                       onClick={() => setCcsState(prev => ({...prev, [comp.key]: false}))}
-                      className={`px-2 py-0.5 text-xs font-bold rounded border ${currentVal === false ? 'bg-teal-500/20 border-teal-400 text-teal-300' : 'bg-slate-900/50 border-slate-800'
+                      className={`px-2 py-0.5 text-xs font-bold rounded border ${currentVal === false ? 'bg-indigo-600/20 border-indigo-500 text-indigo-300' : 'bg-slate-900/50 border-slate-800'
                         }`}
                     >
                       No
@@ -631,11 +631,11 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
           </div>
 
           {highRiskComplete && !isDangerous && <div className="space-y-1.5">
-            <div className="text-xs font-bold text-teal-400 uppercase tracking-wider">Step 2: Any Low-Risk Factors?</div>
+            <div className="text-xs font-bold text-indigo-400 uppercase tracking-wider">Step 2: Any Low-Risk Factors?</div>
             {sc.components.filter((c: any) => c.simple).map((comp: any) => {
               const currentVal = ccsState[comp.key];
               return (
-                <div key={comp.key} className="flex items-center justify-between p-2 rounded-lg bg-black/10 border border-teal-950/10">
+                <div key={comp.key} className="flex items-center justify-between p-2 rounded-lg bg-black/10 border border-slate-800/80">
                   <span className="text-xs text-slate-300">{comp.name}</span>
                   <div className="flex gap-1 flex-shrink-0">
                     <button
@@ -647,7 +647,7 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
                     </button>
                     <button
                       onClick={() => setCcsState(prev => ({...prev, [comp.key]: true}))}
-                      className={`px-2 py-0.5 text-xs font-bold rounded border ${currentVal === true ? 'bg-teal-500/20 border-teal-400 text-teal-300' : 'bg-slate-900/50 border-slate-800'
+                      className={`px-2 py-0.5 text-xs font-bold rounded border ${currentVal === true ? 'bg-indigo-600/20 border-indigo-500 text-indigo-300' : 'bg-slate-900/50 border-slate-800'
                         }`}
                     >
                       Yes
@@ -659,9 +659,9 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
           </div>}
         </div>}
 
-        <div className="mt-4 pt-3 border-t border-teal-900/20">
+        <div className="mt-4 pt-3 border-t border-slate-800">
           {ccsResult.state === 'rotation-required' ? (
-            <div className="p-3 bg-teal-950/20 border border-teal-500/20 text-teal-200 rounded-lg text-xs">
+            <div className="p-3 bg-slate-950/40 border border-teal-500/20 text-indigo-200 rounded-lg text-xs">
               <strong>{ccsInterp.title}.</strong>
               <div className="my-2">{ccsInterp.action}</div>
               <div className="flex gap-2">
@@ -674,7 +674,7 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
               ccsInterp.tone === 'high'
                 ? 'bg-rose-950/20 border border-rose-500/20 text-rose-200 font-bold'
                 : ccsInterp.tone === 'low'
-                  ? 'bg-teal-950/20 border border-teal-500/20 text-teal-200 font-bold'
+                  ? 'bg-slate-950/40 border border-teal-500/20 text-indigo-200 font-bold'
                   : 'bg-slate-900/50 border border-slate-800 text-slate-400'
             }`}>
               {ccsInterp.action}
@@ -705,10 +705,10 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
     );
 
     return (
-      <div key={key} className={`p-4 rounded-xl border mb-4 ${theme === 'dark' ? 'bg-[#0f1d1d] border-teal-900/40' : 'bg-white border-slate-200 shadow-sm'}`}>
+      <div key={key} className={`p-3.5 rounded-lg border mb-4 ${theme === 'dark' ? 'bg-slate-900/85 border-slate-800 hover:border-slate-700' : 'bg-white border-slate-200 shadow-sm'}`}>
         <div className="flex items-center justify-between gap-2 mb-3">
           <div className="flex items-center gap-2">
-            <Calculator className="h-5 w-5 text-teal-400" />
+            <Calculator className="h-4 w-4 text-indigo-400" />
             {renderScoreTitle()}
           </div>
           <ScoreFavouriteButton isFavourite={isFavourite} onToggleFavourite={onToggleFavourite} />
@@ -722,11 +722,11 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
           {features.map((f: any) => {
             const currentVal = answers[f.key];
             return (
-              <div key={f.key} className="p-2 rounded-lg bg-black/10 border border-teal-950/20">
+              <div key={f.key} className="p-2 rounded-lg bg-black/10 border border-slate-800">
                 <div className="flex items-center justify-between gap-3">
                   <span className="text-sm font-medium text-slate-200">{f.name}</span>
                   <div className="flex gap-1 flex-shrink-0">
-                    <button type="button" onClick={() => setAnswer(f.key, 'no')} aria-pressed={currentVal === 'no'} className={`px-3 py-1 text-xs font-bold rounded border transition ${currentVal === 'no' ? 'bg-teal-500/20 border-teal-400 text-teal-300' : 'bg-slate-900/50 border-slate-800 text-slate-400'}`}>No</button>
+                    <button type="button" onClick={() => setAnswer(f.key, 'no')} aria-pressed={currentVal === 'no'} className={`px-3 py-1 text-xs font-bold rounded border transition ${currentVal === 'no' ? 'bg-indigo-600/20 border-indigo-500 text-indigo-300' : 'bg-slate-900/50 border-slate-800 text-slate-400'}`}>No</button>
                     <button type="button" onClick={() => setAnswer(f.key, 'yes')} aria-pressed={currentVal === 'yes'} className={`px-3 py-1 text-xs font-bold rounded border transition ${currentVal === 'yes' ? 'bg-rose-500/20 border-rose-500 text-rose-300' : 'bg-slate-900/50 border-slate-800 text-slate-400'}`}>Yes</button>
                   </div>
                 </div>
@@ -737,7 +737,7 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
         </div>
 
         {camInterp && (
-          <div className={`mt-4 p-3 rounded-lg border text-sm ${camInterp.tone === 'high' ? 'bg-rose-950/20 border-rose-500/20 text-rose-200' : 'bg-teal-950/20 border-teal-500/20 text-teal-200'}`}>
+          <div className={`mt-4 p-3 rounded-lg border text-sm ${camInterp.tone === 'high' ? 'bg-rose-950/20 border-rose-500/20 text-rose-200' : 'bg-slate-950/40 border-teal-500/20 text-indigo-200'}`}>
             <div className="font-bold">{camInterp.title}</div>
             <div className="text-xs mt-1 text-slate-300">{camInterp.action}</div>
           </div>
@@ -771,10 +771,10 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
     );
 
     return (
-      <div key={key} className={`p-4 rounded-xl border mb-4 ${theme === 'dark' ? 'bg-[#0f1d1d] border-teal-900/40' : 'bg-white border-slate-200 shadow-sm'}`}>
+      <div key={key} className={`p-3.5 rounded-lg border mb-4 ${theme === 'dark' ? 'bg-slate-900/85 border-slate-800 hover:border-slate-700' : 'bg-white border-slate-200 shadow-sm'}`}>
         <div className="flex items-center justify-between gap-2 mb-3">
           <div className="flex items-center gap-2">
-            <Calculator className="h-5 w-5 text-teal-400" />
+            <Calculator className="h-4 w-4 text-indigo-400" />
             {renderScoreTitle()}
           </div>
           <ScoreFavouriteButton isFavourite={isFavourite} onToggleFavourite={onToggleFavourite} />
@@ -788,10 +788,10 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
                 const critKey = `${tier.tierKey}_${i}`;
                 const answer = answers[critKey];
                 return (
-                  <div key={critKey} className="flex items-center justify-between gap-3 p-2 rounded-lg bg-black/10 border border-teal-950/10">
+                  <div key={critKey} className="flex items-center justify-between gap-3 p-2 rounded-lg bg-black/10 border border-slate-800/80">
                     <span className="text-xs text-slate-300 pr-4">{item.name}</span>
                     <div className="flex gap-1.5 flex-shrink-0">
-                      <button type="button" onClick={() => setAnswer(critKey, 'no')} aria-pressed={answer === 'no'} className={`rounded border px-2 py-1 text-[10px] font-bold ${answer === 'no' ? 'border-teal-400 bg-teal-500/20 text-teal-200' : 'border-slate-700 text-slate-400'}`}>No</button>
+                      <button type="button" onClick={() => setAnswer(critKey, 'no')} aria-pressed={answer === 'no'} className={`rounded border px-2 py-1 text-[10px] font-bold ${answer === 'no' ? 'border-indigo-500 bg-indigo-600/20 text-indigo-200' : 'border-slate-700 text-slate-400'}`}>No</button>
                       <button type="button" onClick={() => setAnswer(critKey, 'yes')} aria-pressed={answer === 'yes'} className={`rounded border px-2 py-1 text-[10px] font-bold ${answer === 'yes' ? 'border-rose-400 bg-rose-500/20 text-rose-200' : 'border-slate-700 text-slate-400'}`}>Yes</button>
                     </div>
                   </div>
@@ -807,7 +807,7 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
               ? 'bg-rose-950/20 border-rose-500/20 text-rose-200'
               : tierInterp.tone === 'moderate'
                 ? 'bg-orange-950/20 border-orange-500/20 text-orange-200'
-                : 'bg-teal-950/20 border-teal-500/20 text-teal-200'
+                : 'bg-slate-950/40 border-teal-500/20 text-indigo-200'
           }`}>
             <div className="font-bold">{tierInterp.title}</div>
             <div className="text-xs mt-1 text-slate-300">{tierInterp.action}</div>
@@ -842,23 +842,23 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
         : burchInterp.tone === 'moderate'
           ? 'bg-amber-950/20 border-amber-500/25 text-amber-300'
           : burchInterp.tone === 'low'
-            ? 'bg-teal-950/20 border-teal-500/25 text-teal-300'
+            ? 'bg-slate-950/40 border-teal-500/25 text-indigo-300'
             : 'text-slate-400 border-slate-800 bg-slate-900/50';
 
     return (
       <div
         key={key}
         onClick={onRecordRecentlyViewed}
-        className={`p-4 rounded-xl border mb-4 cursor-pointer ${theme === 'dark' ? 'bg-[#0f1d1d] border-teal-900/40' : 'bg-white border-slate-200 shadow-sm'}`}
+        className={`p-3.5 rounded-lg border mb-4 cursor-pointer ${theme === 'dark' ? 'bg-slate-900/85 border-slate-800 hover:border-slate-700' : 'bg-white border-slate-200 shadow-sm'}`}
       >
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
-            <Calculator className="h-5 w-5 text-teal-400" />
+            <Calculator className="h-4 w-4 text-indigo-400" />
             {renderScoreTitle()}
           </div>
           <div className="flex items-center gap-2">
             {isAllSelected && (
-              <div className="px-2 py-0.5 rounded bg-teal-950 text-teal-300 border border-teal-800 text-xs font-bold">
+              <div className="px-2 py-0.5 rounded bg-indigo-950/40 text-indigo-300 border border-indigo-800/40 text-xs font-bold">
                 Score: {totalBurch}
               </div>
             )}
@@ -878,12 +878,12 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
                       key={opt.value}
                       onClick={() => setBurchWartofskyState(prev => ({...prev, [comp.key]: opt.value}))}
                       className={`px-3 py-2 rounded-lg border text-left flex justify-between items-center transition ${isSelected
-                          ? 'bg-teal-500/20 border-teal-400 text-teal-300'
-                          : 'bg-black/10 border-teal-950/20 hover:border-teal-700/40 text-slate-300'
+                          ? 'bg-indigo-600/20 border-indigo-500 text-indigo-300'
+                          : 'bg-black/10 border-slate-800 hover:border-teal-700/40 text-slate-300'
                         }`}
                     >
                       <span className="text-xs font-medium">{opt.label}</span>
-                      <span className={`text-[10px] font-black px-1.5 py-0.5 rounded ${isSelected ? 'bg-teal-400 text-black' : 'bg-slate-800 text-slate-400'}`}>
+                      <span className={`text-[10px] font-black px-1.5 py-0.5 rounded ${isSelected ? 'bg-indigo-600 text-white' : 'bg-slate-800 text-slate-400'}`}>
                         +{opt.value} pts
                       </span>
                     </button>
@@ -937,22 +937,22 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
         ? 'bg-rose-950/30 border-rose-500/30 text-rose-300 animate-pulse'
         : news2.risk === 'medium' || news2.risk === 'low-medium'
           ? 'bg-orange-950/30 border-orange-500/30 text-orange-300'
-          : 'bg-teal-950/20 border-teal-500/25 text-teal-300';
+          : 'bg-slate-950/40 border-teal-500/25 text-indigo-300';
 
     return (
       <div
         key={key}
         onClick={onRecordRecentlyViewed}
-        className={`p-4 rounded-xl border mb-4 cursor-pointer ${theme === 'dark' ? 'bg-[#0f1d1d] border-teal-900/40' : 'bg-white border-slate-200 shadow-sm'}`}
+        className={`p-3.5 rounded-lg border mb-4 cursor-pointer ${theme === 'dark' ? 'bg-slate-900/85 border-slate-800 hover:border-slate-700' : 'bg-white border-slate-200 shadow-sm'}`}
       >
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
-            <Calculator className="h-5 w-5 text-teal-400" />
+            <Calculator className="h-4 w-4 text-indigo-400" />
             {renderScoreTitle()}
           </div>
           <div className="flex items-center gap-2">
             {news2.complete && (
-              <div className="px-2 py-0.5 rounded bg-teal-950 text-teal-300 border border-teal-800 text-xs font-bold">
+              <div className="px-2 py-0.5 rounded bg-indigo-950/40 text-indigo-300 border border-indigo-800/40 text-xs font-bold">
                 Score: {news2.total}
               </div>
             )}
@@ -960,8 +960,8 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
           </div>
         </div>
 
-        <div className="mb-4 rounded-lg border border-teal-900/30 bg-black/10 p-3">
-          <div className="mb-1 text-xs font-bold text-teal-300">SpO₂ scale</div>
+        <div className="mb-4 rounded-lg border border-slate-800 bg-black/10 p-3">
+          <div className="mb-1 text-xs font-bold text-indigo-300">SpO₂ scale</div>
           <p className="mb-2 text-[10px] leading-snug text-slate-400">
             Use Scale 2 only when a clinician has formally designated a target saturation of 88–92% (hypercapnic respiratory failure, e.g. COPD). If in doubt, use Scale 1.
           </p>
@@ -970,7 +970,7 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
               type="button"
               onClick={() => switchScale('scale1')}
               aria-pressed={news2Scale === 'scale1'}
-              className={`rounded border px-3 py-1 text-xs font-bold ${news2Scale === 'scale1' ? 'border-teal-400 bg-teal-500/20 text-teal-200' : 'border-slate-700 text-slate-400'}`}
+              className={`rounded border px-3 py-1 text-xs font-bold ${news2Scale === 'scale1' ? 'border-indigo-500 bg-indigo-600/20 text-indigo-200' : 'border-slate-700 text-slate-400'}`}
             >
               Scale 1 (standard)
             </button>
@@ -1005,12 +1005,12 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
                         setNews2Answers(prev => ({...prev, [comp.key]: {label: opt.label, value: opt.value}}))
                       }
                       className={`px-3 py-2 rounded-lg border text-left flex justify-between items-center transition ${isSelected
-                          ? 'bg-teal-500/20 border-teal-400 text-teal-300'
-                          : 'bg-black/10 border-teal-950/20 hover:border-teal-700/40 text-slate-300'
+                          ? 'bg-indigo-600/20 border-indigo-500 text-indigo-300'
+                          : 'bg-black/10 border-slate-800 hover:border-teal-700/40 text-slate-300'
                         }`}
                     >
                       <span className="text-xs font-medium">{opt.label}</span>
-                      <span className={`text-[10px] font-black px-1.5 py-0.5 rounded ${isSelected ? 'bg-teal-400 text-black' : 'bg-slate-800 text-slate-400'}`}>
+                      <span className={`text-[10px] font-black px-1.5 py-0.5 rounded ${isSelected ? 'bg-indigo-600 text-white' : 'bg-slate-800 text-slate-400'}`}>
                         {opt.value === 3 ? '🔴 ' : ''}+{opt.value} pts
                       </span>
                     </button>
@@ -1070,22 +1070,22 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
         ? 'bg-rose-950/20 border-rose-500/20 text-rose-300'
         : gradedInterp?.tone === 'moderate'
           ? 'bg-orange-950/20 border-orange-500/20 text-orange-300'
-          : 'bg-teal-950/20 border-teal-500/20 text-teal-300';
+          : 'bg-slate-950/40 border-teal-500/20 text-indigo-300';
 
     return (
       <div
         key={key}
         onClick={onRecordRecentlyViewed}
-        className={`p-4 rounded-xl border mb-4 cursor-pointer ${theme === 'dark' ? 'bg-[#0f1d1d] border-teal-900/40' : 'bg-white border-slate-200 shadow-sm'}`}
+        className={`p-3.5 rounded-lg border mb-4 cursor-pointer ${theme === 'dark' ? 'bg-slate-900/85 border-slate-800 hover:border-slate-700' : 'bg-white border-slate-200 shadow-sm'}`}
       >
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
-            <Calculator className="h-5 w-5 text-teal-400" />
+            <Calculator className="h-4 w-4 text-indigo-400" />
             {renderScoreTitle()}
           </div>
           <div className="flex items-center gap-2">
             {isGradedComplete && (
-              <div className="px-2 py-0.5 rounded bg-teal-950 text-teal-300 border border-teal-800 text-xs font-bold">
+              <div className="px-2 py-0.5 rounded bg-indigo-950/40 text-indigo-300 border border-indigo-800/40 text-xs font-bold">
                 Score: {gradedTotal}
               </div>
             )}
@@ -1109,12 +1109,12 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
                         type="button"
                         onClick={() => setGradedAnswer(compKey, optValue)}
                         className={`px-3 py-2 rounded-lg border text-left flex justify-between items-center transition ${isSelected
-                            ? 'bg-teal-500/20 border-teal-400 text-teal-300'
-                            : 'bg-black/10 border-teal-950/20 hover:border-teal-700/40 text-slate-300'
+                            ? 'bg-indigo-600/20 border-indigo-500 text-indigo-300'
+                            : 'bg-black/10 border-slate-800 hover:border-teal-700/40 text-slate-300'
                           }`}
                       >
                         <span className="text-xs font-medium">{opt.label}</span>
-                        <span className={`text-[10px] font-black px-1.5 py-0.5 rounded ${isSelected ? 'bg-teal-400 text-black' : 'bg-slate-800 text-slate-400'}`}>
+                        <span className={`text-[10px] font-black px-1.5 py-0.5 rounded ${isSelected ? 'bg-indigo-600 text-white' : 'bg-slate-800 text-slate-400'}`}>
                           {optValue} pt{optValue === 1 || optValue === -1 ? '' : 's'}
                         </span>
                       </button>
@@ -1196,7 +1196,7 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
         ? 'bg-rose-950/20 border-rose-500/20 text-rose-300'
         : checklistInterp.tone === 'moderate'
           ? 'bg-orange-950/20 border-orange-500/20 text-orange-300'
-          : 'bg-teal-950/20 border-teal-500/20 text-teal-300';
+          : 'bg-slate-950/40 border-teal-500/20 text-indigo-300';
     return (
       <div className={`mt-4 p-3 rounded-lg border text-sm ${severityClass}`}>
         <div className="font-bold">{checklistInterp.title}</div>
@@ -1209,15 +1209,15 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
     <div
       key={key}
       onClick={onRecordRecentlyViewed}
-      className={`p-4 rounded-xl border mb-4 cursor-pointer ${theme === 'dark' ? 'bg-[#0f1d1d] border-teal-900/40' : 'bg-white border-slate-200 shadow-sm'}`}
+      className={`p-3.5 rounded-lg border mb-4 cursor-pointer ${theme === 'dark' ? 'bg-slate-900/85 border-slate-800 hover:border-slate-700' : 'bg-white border-slate-200 shadow-sm'}`}
     >
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
-          <Calculator className="h-5 w-5 text-teal-400" />
+          <Calculator className="h-4 w-4 text-indigo-400" />
           {renderScoreTitle()}
         </div>
         <div className="flex items-center gap-2">
-          <div className="px-2 py-0.5 rounded bg-teal-950 text-teal-300 border border-teal-800 text-xs font-bold">
+          <div className="px-2 py-0.5 rounded bg-indigo-950/40 text-indigo-300 border border-indigo-800/40 text-xs font-bold">
             {isComplete ? `Score: ${pointsSum}` : `${answeredCount}/${sc.components.length} answered`}
           </div>
           <ScoreFavouriteButton isFavourite={isFavourite} onToggleFavourite={onToggleFavourite} />
@@ -1237,17 +1237,17 @@ export const ScoreCalculatorCard: React.FC<ScoreCalculatorCardProps> = ({
           return (
             <div
               key={cid}
-              className={`flex items-center justify-between gap-3 p-2 rounded-lg transition ${answer === 'yes' ? 'bg-teal-500/10 border border-teal-500/30' : 'bg-black/10 border border-transparent'
+              className={`flex items-center justify-between gap-3 p-2 rounded-lg transition ${answer === 'yes' ? 'bg-indigo-950/30 border border-indigo-800/50' : 'bg-black/10 border border-transparent'
                 }`}
             >
               <span className="text-xs text-slate-300 pr-4">{comp.name}</span>
               <div className="flex items-center gap-2 flex-shrink-0">
-                {comp.points && <span className="text-[10px] text-teal-400">+{comp.points}</span>}
+                {comp.points && <span className="text-[10px] text-indigo-400">+{comp.points}</span>}
                 <button
                   type="button"
                   onClick={() => setCurrentScoresState((prev: any) => ({...prev, [cid]: 'no'}))}
                   aria-pressed={answer === 'no'}
-                  className={`rounded border px-2 py-1 text-[10px] font-bold ${answer === 'no' ? 'border-teal-400 bg-teal-500/20 text-teal-200' : 'border-slate-700 text-slate-400'}`}
+                  className={`rounded border px-2 py-1 text-[10px] font-bold ${answer === 'no' ? 'border-indigo-500 bg-indigo-600/20 text-indigo-200' : 'border-slate-700 text-slate-400'}`}
                 >
                   No
                 </button>
@@ -1278,8 +1278,8 @@ export const ScoreList: React.FC<ScoreListProps> = ({
   ...sharedProps
 }) => (
   <div className="space-y-2">
-    <div className="bg-teal-950/10 border border-teal-900/30 p-3 rounded-lg text-xs leading-normal mb-4 text-slate-300 flex items-start gap-2">
-      <Info className="h-4 w-4 text-teal-400 flex-shrink-0 mt-0.5" />
+    <div className="bg-slate-950/40 border border-slate-800 p-3 rounded-lg text-xs leading-normal mb-4 text-slate-300 flex items-start gap-2">
+      <Info className="h-4 w-4 text-indigo-400 flex-shrink-0 mt-0.5" />
       <div>
         <strong>Interactive scoring matrices:</strong> Tap on the values or checkboxes to calculate immediate clinical recommendations, diagnostic steps, and therapeutic indications.
       </div>

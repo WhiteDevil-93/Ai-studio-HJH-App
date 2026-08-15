@@ -12,6 +12,7 @@ import {
   type InfusionConfirmed,
   type InfusionDoses,
 } from './InfusionCalculatorWidgets';
+import { Badge } from './ui/Badge';
 
 export function getEntryKey(item: any, category: string) {
   if (item?._meta?.id) return item._meta.id;
@@ -45,13 +46,13 @@ export const WeightDoseSummary: React.FC<{
   if (results.length === 0) return null;
 
   return (
-    <div className="mt-1.5 space-y-1" aria-live="polite">
+    <div className="mt-1 space-y-0.5" aria-live="polite">
       {results.map(result => (
         <div
           key={`${label ?? ''}-${result.sourceExpression}`}
-          className="rounded border border-teal-900/30 bg-teal-950/20 px-2 py-1 text-[10px] text-teal-200"
+          className="rounded border border-teal-800/40 bg-teal-950/20 px-2 py-0.5 text-[10px] text-teal-200"
         >
-          {label && <span className="font-bold">{label}: </span>}
+          {label && <span className="font-semibold">{label}: </span>}
           At {formatCalculatedDose(patientWeight)} kg, {result.sourceExpression} ={' '}
           <strong>
             {formatCalculatedDose(result.minimum)}
@@ -61,11 +62,9 @@ export const WeightDoseSummary: React.FC<{
             {result.resultUnit}
           </strong>
           {result.printedMax ? (
-            // Never silently cap: show both values and flag the overshoot so
-            // a prescribing error is visible rather than hidden by a clamp.
             result.maximum > result.printedMax.value ? (
               <span className="ml-1 font-bold text-rose-300">
-                — exceeds the printed maximum of {formatCalculatedDose(result.printedMax.value)} {result.printedMax.unit}: give the maximum, not the weight-based value
+                — exceeds printed maximum of {formatCalculatedDose(result.printedMax.value)} {result.printedMax.unit}
               </span>
             ) : (
               <span className="ml-1 text-slate-400">
@@ -73,7 +72,7 @@ export const WeightDoseSummary: React.FC<{
               </span>
             )
           ) : /\bmax(?:imum)?\b/i.test(text) ? (
-            <span className="ml-1 text-slate-400">— apply the printed maximum</span>
+            <span className="ml-1 text-slate-400">— apply printed maximum</span>
           ) : null}
         </div>
       ))}
@@ -187,20 +186,23 @@ export const DrugCard: React.FC<DrugCardProps> = ({
         }
       }}
       aria-label={`${n}, ${sourceMeta.label}. Tap to view details.`}
-      className={`p-4 rounded-xl border transition-all duration-200 mb-3 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${theme === 'dark' ? 'bg-[#0b1717] border-teal-950/40 hover:border-teal-800/30' : 'bg-white border-slate-200 shadow-sm hover:shadow-md'
-        }`}
+      className={`p-3.5 rounded-lg border transition-desktop mb-2.5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
+        theme === 'dark'
+          ? 'bg-slate-900/85 border-slate-800 hover:bg-slate-850 hover:border-slate-700'
+          : 'bg-white border-slate-200 shadow-xs hover:border-slate-300'
+      }`}
     >
-      <div className="flex items-start justify-between gap-4">
-        <div className="space-y-1.5 min-w-0 flex-1">
-          <div className="flex items-start gap-2 flex-wrap">
-            <h4 className={`font-bold text-md leading-tight ${theme === 'light' ? 'text-slate-900' : 'text-slate-100'}`}>{n}</h4>
-            <span className={`shrink-0 text-[10px] border font-bold px-1.5 py-0.5 rounded ${theme === 'dark' ? sourceMeta.badgeClass : sourceMeta.lightBadgeClass}`}>
+      <div className="flex items-start justify-between gap-3">
+        <div className="space-y-1 min-w-0 flex-1">
+          <div className="flex items-center gap-1.5 flex-wrap">
+            <h4 className="font-semibold text-xs text-white leading-tight">{n}</h4>
+            <span className={`shrink-0 text-[9px] border font-bold px-1.5 py-0.5 rounded ${theme === 'dark' ? sourceMeta.badgeClass : sourceMeta.lightBadgeClass}`}>
               {sourceMeta.emoji} {sourceMeta.short}
             </span>
-            {isFirstLine && <span className="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-bold px-1.5 py-0.5 rounded uppercase">1st Line</span>}
-            {isSection21 && <span className="text-[10px] bg-blue-500/20 text-blue-400 border border-blue-500/30 font-bold px-1.5 py-0.5 rounded uppercase">Section 21</span>}
-            {isWarning && <span className="text-[10px] bg-rose-500/20 text-rose-400 border border-rose-500/30 font-bold px-1.5 py-0.5 rounded uppercase">Warning</span>}
-            {isCaution && !isWarning && <span className="text-[10px] bg-amber-500/20 text-amber-400 border border-amber-500/30 font-bold px-1.5 py-0.5 rounded uppercase">Caution</span>}
+            {isFirstLine && <Badge variant="success" size="sm">1st Line</Badge>}
+            {isSection21 && <Badge variant="primary" size="sm">Section 21</Badge>}
+            {isWarning && <Badge variant="danger" size="sm">Warning</Badge>}
+            {isCaution && !isWarning && <Badge variant="warning" size="sm">Caution</Badge>}
           </div>
           {it.category && (
             <div className="text-[10px] text-slate-500">{it.category}</div>
@@ -210,16 +212,16 @@ export const DrugCard: React.FC<DrugCardProps> = ({
           type="button"
           onClick={e => onToggleFavourite(key, e)}
           aria-label={fav ? 'Remove from favourites' : 'Add to favourites'}
-          className={`p-2 -m-1 rounded-full hover:bg-slate-800/40 transition active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${fav ? 'text-yellow-400' : 'text-slate-600'}`}
+          className={`p-1.5 rounded-full hover:bg-slate-800 transition-desktop focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${fav ? 'text-amber-400' : 'text-slate-500'}`}
         >
-          <Star className={`h-5 w-5 ${fav ? 'fill-yellow-400' : ''}`} />
+          <Star className={`h-4 w-4 ${fav ? 'fill-amber-400' : ''}`} />
         </button>
       </div>
 
-      <div className="mt-3 space-y-2">
+      <div className="mt-2.5 space-y-1.5">
         {(it.adult_dose || it.adult_settings) && (
-          <div className="flex items-start gap-2.5 text-sm">
-            <span className="text-[10px] uppercase font-black bg-slate-800 text-slate-300 px-1.5 py-0.5 rounded flex-shrink-0 mt-0.5 w-6 text-center">A</span>
+          <div className="flex items-start gap-2 text-xs">
+            <span className="text-[9px] uppercase font-bold bg-slate-800 text-slate-300 px-1 py-0.5 rounded shrink-0 mt-0.5 w-5 text-center">A</span>
             <div className="text-slate-300 flex-1 leading-relaxed">
               {it.adult_dose || it.adult_settings}
               <WeightDoseSummary text={adultDoseText} label="Adult" weight={weight} />
@@ -228,9 +230,9 @@ export const DrugCard: React.FC<DrugCardProps> = ({
         )}
 
         {(it.paediatric_dose || it.paediatric_settings) && (
-          <div className="flex items-start gap-2.5 text-sm">
-            <span className="text-[10px] uppercase font-black bg-[#135050] text-[#00d9b5] px-1.5 py-0.5 rounded flex-shrink-0 mt-0.5 w-6 text-center">P</span>
-            <div className="text-[#00d9b5] flex-1 leading-relaxed">
+          <div className="flex items-start gap-2 text-xs">
+            <span className="text-[9px] uppercase font-bold bg-teal-950/60 text-teal-300 border border-teal-800/40 px-1 py-0.5 rounded shrink-0 mt-0.5 w-5 text-center">P</span>
+            <div className="text-teal-200 flex-1 leading-relaxed">
               {it.paediatric_dose || it.paediatric_settings}
               <WeightDoseSummary text={paediatricDoseText} label="Paediatric" weight={weight} />
             </div>
@@ -238,8 +240,8 @@ export const DrugCard: React.FC<DrugCardProps> = ({
         )}
 
         {it.protocol_dose && (
-          <div className="flex items-start gap-2.5 text-sm">
-            <span className="text-[10px] uppercase font-black bg-purple-950/40 text-purple-300 border border-purple-900/30 px-1.5 py-0.5 rounded flex-shrink-0 mt-0.5 w-6 text-center">Rx</span>
+          <div className="flex items-start gap-2 text-xs">
+            <span className="text-[9px] uppercase font-bold bg-purple-950/40 text-purple-300 border border-purple-900/30 px-1 py-0.5 rounded shrink-0 mt-0.5 w-5 text-center">Rx</span>
             <span className="text-slate-300 flex-1 leading-relaxed">
               {it.protocol_dose}
               <WeightDoseSummary text={protocolDoseText} label="Protocol" weight={weight} />
@@ -248,11 +250,11 @@ export const DrugCard: React.FC<DrugCardProps> = ({
         )}
 
         {it.route && (
-          <div className="flex items-start gap-2.5 text-sm">
-            <span className="text-[10px] uppercase font-black bg-sky-950/50 text-sky-300 border border-sky-900/30 px-1.5 py-0.5 rounded flex-shrink-0 mt-0.5">
+          <div className="flex items-start gap-2 text-xs">
+            <span className="text-[9px] uppercase font-bold bg-sky-950/50 text-sky-300 border border-sky-900/30 px-1 py-0.5 rounded shrink-0 mt-0.5">
               Route
             </span>
-            <span className="text-slate-300 flex-1 leading-relaxed">{it.route}</span>
+            <span className="text-slate-400 flex-1 leading-relaxed">{it.route}</span>
           </div>
         )}
 
@@ -264,22 +266,22 @@ export const DrugCard: React.FC<DrugCardProps> = ({
         ))}
 
         {it.formula && (
-          <div className="mt-2 p-2 rounded bg-black/20 border border-teal-950/20 text-xs flex justify-between font-mono">
+          <div className="mt-1.5 p-2 rounded bg-slate-950/60 border border-slate-800 text-[11px] flex justify-between font-mono">
             <span className="text-slate-400">Formula:</span>
-            <span className="text-[#00d9b5] font-bold">{it.formula}</span>
+            <span className="text-indigo-300 font-bold">{it.formula}</span>
           </div>
         )}
         {it.standard_dilutions && (
-          <div className="text-xs text-slate-400 mt-1 pl-1">
-            <strong>Dilution:</strong> {it.standard_dilutions}
+          <div className="text-[11px] text-slate-400 mt-1 pl-0.5">
+            <strong className="text-slate-300">Dilution:</strong> {it.standard_dilutions}
           </div>
         )}
 
         {associatedDiseases.length > 0 && (
-          <div className="mt-2.5 pt-2 border-t border-teal-950/20">
-            <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">🩺 Associated Emergencies & Diseases</div>
+          <div className="mt-2 pt-2 border-t border-slate-800">
+            <div className="text-[9px] font-bold text-slate-500 uppercase tracking-wider mb-1">Associated Emergencies</div>
             <div className="flex flex-wrap gap-1">
-              {associatedDiseases.map(dis => (
+              {associatedDiseases.map((dis: string) => (
                 <button
                   key={dis}
                   type="button"
@@ -287,7 +289,7 @@ export const DrugCard: React.FC<DrugCardProps> = ({
                     e.stopPropagation();
                     onSearchQuery(dis);
                   }}
-                  className="text-[10px] bg-teal-950/50 hover:bg-teal-900/60 text-teal-300 border border-teal-800/40 px-2 py-0.5 rounded cursor-pointer transition-colors"
+                  className="text-[10px] bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 px-1.5 py-0.5 rounded cursor-pointer transition-desktop"
                 >
                   {dis}
                 </button>
@@ -297,17 +299,18 @@ export const DrugCard: React.FC<DrugCardProps> = ({
         )}
 
         {nt && (
-          <div className={`mt-3 p-3 rounded-lg text-xs leading-normal border ${isWarning ? 'bg-rose-950/25 border-rose-900/35 text-rose-200' :
-              isCaution ? 'bg-amber-950/20 border-amber-900/35 text-amber-200' :
-                'bg-black/10 border-teal-950/20 text-slate-400'
-            }`}>
+          <div className={`mt-2 p-2.5 rounded border text-xs leading-relaxed ${
+            isWarning ? 'bg-rose-950/20 border-rose-900/40 text-rose-200' :
+            isCaution ? 'bg-amber-950/20 border-amber-900/40 text-amber-200' :
+            'bg-slate-950/40 border-slate-800 text-slate-400'
+          }`}>
             {nt}
             <WeightDoseSummary text={nt} label="Weight calculation" weight={weight} />
           </div>
         )}
 
         {it?._meta?.sourceRefs?.length > 0 && (
-          <div className="mt-3 border-t border-teal-950/30 pt-2 text-[10px] text-slate-500">
+          <div className="mt-2 border-t border-slate-800 pt-1.5 text-[10px] text-slate-500">
             {it._meta.sourceRefs.map((source: any) => (
               <div key={`${source.sourceId}-${source.pdfPages.join('-')}`}>
                 Source: {source.sourceId}

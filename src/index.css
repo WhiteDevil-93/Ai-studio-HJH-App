@@ -1,44 +1,94 @@
 @import "tailwindcss";
 
-@theme {
-  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+:root {
+  --font-sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  --app-font-size: 13.5px;
+  --app-line-height: 1.45;
+}
+
+[data-density="compact"] {
+  --app-font-size: 12.5px;
+  --app-line-height: 1.35;
+}
+
+[data-density="default"] {
+  --app-font-size: 13.5px;
+  --app-line-height: 1.45;
+}
+
+[data-density="comfortable"] {
+  --app-font-size: 14.5px;
+  --app-line-height: 1.55;
 }
 
 body {
   font-family: var(--font-sans);
+  font-size: var(--app-font-size);
+  line-height: var(--app-line-height);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom scrollbars for category bar */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
+/* Custom desktop scrollbars */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
 }
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.theme-dark ::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 4px;
+}
+
+.theme-dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.35);
+}
+
+.theme-light ::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.25);
+  border-radius: 4px;
+}
+
+.theme-light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.4);
+}
+
+/* Utility to hide scrollbars with cross-browser support */
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-
-/* Tailwind utility overrides for legacy clinical content in the light theme. */
-.theme-light main .text-slate-300 {
-  color: #334155;
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
-.theme-light main .text-slate-400 {
-  color: #475569;
+/* In-protocol find match highlights */
+mark[data-search-match] {
+  scroll-margin-top: 8rem;
+  scroll-margin-bottom: 4rem;
+  background-color: rgba(251, 146, 60, 0.3);
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 2px;
 }
 
-.theme-light main .text-slate-500 {
-  color: #64748b;
+mark[data-search-match][data-active-match] {
+  background-color: #f97316;
+  color: #ffffff;
+  box-shadow: 0 0 0 2px #ea580c;
 }
 
-.theme-light main [data-dark-surface] .text-slate-300 {
-  color: #cbd5e1;
+/* Subtle transitions */
+.transition-desktop {
+  transition: all 120ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.theme-light main [data-dark-surface] .text-slate-400 {
-  color: #94a3b8;
-}
-
+/* Facility and header utility classes */
 .theme-dark .hospital-library-heading {
   color: #f8fafc;
 }
@@ -46,17 +96,3 @@ body {
 .theme-light .hospital-library-heading {
   color: #0f172a;
 }
-
-/* In-protocol find: keep a match clear of the sticky header stack when the
-   find bar scrolls to it, and mark the one currently stepped to. */
-mark[data-search-match] {
-  scroll-margin-top: 14rem;
-  scroll-margin-bottom: 6rem;
-}
-
-mark[data-search-match][data-active-match] {
-  background-color: #fb923c;
-  box-shadow: 0 0 0 2px #ea580c;
-  color: #1c1917;
-}
-
